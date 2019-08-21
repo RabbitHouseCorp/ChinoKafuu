@@ -18,4 +18,5 @@ __**Se aplicável**__, adicione capturas de tela para melhor compreensão.
 
  
 **Informações adicionais**
-O problema persiste apenas no seu servidor?
+- [ ] O problema persiste apenas no meu servidor.
+- [ ] O problema persiste em outros servidores.
