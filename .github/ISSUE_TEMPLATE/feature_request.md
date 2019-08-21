@@ -1,20 +1,18 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Sugestão
+about: Contribua para a Chino sugerindo algo.
 title: ''
 labels: ''
-assignees: ''
+assignees: 'MysteryMS, DanielaGC'
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Qual é a sua sugestão? Se for relacionada à algum comando, por favor mencione-o.**
+Uma descrição clara e compreendível da sua sugestão
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Você usou algum comando para "gambiarrar" a sua sugestão?**
+- [ ] Não
+- [ ] Sim
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Informações Adicionais**
+Adicione capturas de tela ou outras informações relevantes.
