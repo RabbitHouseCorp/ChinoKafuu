@@ -5,3 +5,4 @@ new Client({
     fetchAllMembers: true
 }).login(config.token).loadCommands('./src/commands').loadEvents('./src/events')
 console.log("Connected")
+// xuxa
