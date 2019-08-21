@@ -1,38 +1,22 @@
 ---
 name: Bug report
-about: Create a report to help us improve
+about: Reporte um bug e nos ajude a melhorar!
 title: ''
 labels: ''
-assignees: ''
+assignees: 'MysteryMS, DanielaGC'
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Descreva o bug**
+Uma descrição clara e compreendível de como o bug é.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
-
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Comportamento esperado**
+Uma descrição clara e compreendível de como a Chino deveria agir.
 
 **Screenshots**
-If applicable, add screenshots to help explain your problem.
+__**Se aplicável**__, adicione capturas de tela para melhor compreensão.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+ 
+**Informações adicionais**
+[] O problema persiste em outro(s) servidor(es)
+[] O problema **não** persite em outro(s) servidor(es)
