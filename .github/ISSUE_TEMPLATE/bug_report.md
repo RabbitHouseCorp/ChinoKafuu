@@ -18,5 +18,5 @@ __**Se aplicável**__, adicione capturas de tela para melhor compreensão.
 
  
 **Informações adicionais**
-[] O problema persiste em outro(s) servidor(es)
-[] O problema **não** persite em outro(s) servidor(es)
+[ ] O problema persiste em outro(s) servidor(es)
+[ ] O problema **não** persite em outro(s) servidor(es)
