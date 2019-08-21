@@ -19,6 +19,6 @@ module.exports = class SeekCommand extends Command {
         if (!args[0]) return message.chinoReply('error', t('commands:seek.args-null'))
 
         message.chinoReply('success', t('commands:seek.success'))
-        this.client.player.get(message.guild.id).player.seek(parse(`${args[0]}s`))
+        this.client.player.get(message.guild.id).player.seek(parse(`${args[0]}`))
     }
 }
