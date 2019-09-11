@@ -1,0 +1,13 @@
+{
+  "command-null": "esse comando não foi encontrado.",
+  "mention": {
+    "start": "Boas",
+    "end": "o meu prefix aqui é `{{prefix}}`, se precisares de ajuda, usa `{{prefix}}ajuda`."
+  },
+  "error": "Ocorreu um erro ao tentar executar essa ação, peço desculpa pelo ocorrido.",
+  "cooldown": {
+    "message": "calma, tu precisas esperar `{{time}}` antes de executares outro comando.",
+    "secounds": "segundos",
+    "milliseconds": "milisegundos"
+  }
+}

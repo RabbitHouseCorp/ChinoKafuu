@@ -1,7 +1,7 @@
 {
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
-        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso."
+        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, peço desculpa."
     },
     "addrole": {
         "mentionRoleNull": "cargo não encontrado, tem certeza que você indicou o nome do cargo corretamente?",
@@ -9,7 +9,7 @@
         "noPerm": "eu não consegui adicionar este cargo no usuário, verifique se o meu cargo está acima do cargo indicado."
     },
     "afk": {
-        "enable": "modo AFK ativado com sucesso.",
+        "enable": "modo AFK foi ativado.",
         "no-reason": "está ausente no momento.",
         "with-reason": "está ausente no momento. **Motivo:** `{{reason}}`"
     },
@@ -145,7 +145,7 @@
     },
     "kiss": "{{author}} deu um beijo em {{member}}.",
     "language": {
-        "howLanguage": "qual é o seu idioma? Escolha abaixo\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇵🇹 `pt-PT`"
+        "howLanguage": "qual é o seu idioma? Escolha abaixo\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇪🇸 `es`"
     },
     "laranjo": {
         "args-null": "o que o laranjo deve falar?"
