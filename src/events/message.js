@@ -85,12 +85,20 @@ module.exports = class MessageReceive {
                     if (message.content === `<@${this.client.user.id}>` || message.content === `<@!${this.client.user.id}>`) {
                         message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", {prefix: server.prefix})}`)
                     }
-
+                    if (server.partner) {
+                        message.guild.members.filter(member => message.guild.member(member).hasPermission("MANAGE_GUILD")).forEach(member => {
+                            if (!member.user.bot) {
+                                let role = this.client.guilds.get("468877023926943764").roles.get("481830059628429322")
+                                member.addRole(role.id)
+                            }
+                        })
+                    }
+                    
                     if (!message.content.startsWith(server.prefix)) return;
                     const args = message.content.slice(server.prefix.length).trim().split(/ +/g);
                     const command = args.shift().toLowerCase()
                     const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
-                    
+                    if (user.blacklist) return
                     if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)
                         return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`ms [${t("events:cooldown.milliseconds")}]`)}))
