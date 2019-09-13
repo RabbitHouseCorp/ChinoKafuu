@@ -13,11 +13,12 @@ module.exports = class AddEmoji extends Command {
    } 
    execute({message, args, server}, t) {
             
-        const url = args[1] || message.attachments.first().url
+        const url = args[1] || message.attachments.first() ? message.attachments.first().url : undefined
+        if (!url || url === undefined) return message.chinoReply("error, t("commands:addemoji.args-null"))
         const name = args[0]
 
         message.guild.createEmoji(url, name).then(emoji => {
-            message.chinoReply("success", t('commands:addemoji.success', {emoji: emoji}))
+            message.channel.send(`${emoji} **|** ${message.author}, ${t('commands:addemoji.success')}`)
         }).catch(() => {
             message.chinoReply("error", t('commands:addemoji.error'))
         })
