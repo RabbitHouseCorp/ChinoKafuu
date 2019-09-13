@@ -33,28 +33,40 @@ let Guild = new mongoose.Schema({
 	punishModule: {
 		type: Boolean,
 		default: false
+	},
+	partner: {
+		type: Boolean,
+		default: false
 	}
 })
 let User = new mongoose.Schema({
-  _id: {
-    type: String
-  },
-  yens: {
-    type: Number,
-    default: 0
-  },
-  timeDaily: {
-    type: String,
-    default: '000000000000'
-  },
-  afk: {
-	  type: Boolean,
-	  default: false
-  },
-  afkReason: {
-	  type: String,
-	  default: null
-  }
+	_id: {
+		type: String
+	},
+	yens: {
+		type: Number,
+		default: 0
+	},
+	timeDaily: {
+		type: String,
+		default: '000000000000'
+	},
+	afk: {
+		type: Boolean,
+		default: false
+	},
+	afkReason: {
+		type: String,
+		default: null
+	},
+	blacklist: {
+		type: Boolean,
+		default: false
+	},
+	blacklistReason: {
+		type: String,
+		default: null
+	}
 })
 let Guilds = mongoose.model("Guilds", Guild)
 exports.Guilds = Guilds
