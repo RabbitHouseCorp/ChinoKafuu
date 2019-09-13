@@ -22,8 +22,6 @@ class Player extends EventEmitter {
     return getSongs(this.player.node, `ytsearch:${query}`).then(a => {
       if (!a[0]) return null
       this._addToQueue(a[0])
-      this.nowPlaying = a[0].info
-      this.repeatTrack = a[0].track
       return a[0].info
     })
   }
@@ -31,6 +29,8 @@ class Player extends EventEmitter {
     this.nowPlaying = ''
     let nextSong = this.queue.shift()
     if (!nextSong) return
+    this.nowPlaying = nextSong.info
+    this.repeatTrack =nextSong.track
     this.player.play(nextSong.track)
   }
   setVolume (val) {
@@ -51,19 +51,22 @@ class Player extends EventEmitter {
   }
   _play (track) {
     this.player.on('end', (data) => {
-      this.nowPlaying = ''
       if (data.reason === 'REPLACED') return
       if (this.repeat === true) {
-        return this.player.play(this.repeatTrack)
+        this.nowPlaying = track.info
+        this.repeatTrack = track.track
+        this.player.play(this.repeatTrack)
+        return
       } else {
         let nextSong = this.queue.shift()
-        if (!nextSong) {
-          this.emit("playingEnd")
-          return
-        }
+        if (!nextSong) return this.emit("playingEnd")
+        this.nowPlaying = nextSong.info
+        this.repeatTrack =nextSong.track
         this.player.play(nextSong.track)
       }
     })
+    this.nowPlaying = track.info
+    this.repeatTrack = track.track
     this.player.play(track.track)
     return this.emit('playingNow', track)
   }
