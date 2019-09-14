@@ -20,7 +20,7 @@ module.exports = class ChangeNickCommand extends Command {
 
         member.setNickname(nickname).then(() => {
 
-            message.chinoReply('success', t('commands:setnickname.success', {author: message.author,  member: member.tag, nickname: nickname}))
+            message.chinoReply('success', t('commands:changenickname.success', {author: message.author,  member: member.tag, nickname: nickname}))
 
         }).catch(err => {
 
