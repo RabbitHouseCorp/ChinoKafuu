@@ -42,7 +42,7 @@ module.exports = class MessageReceive {
 
         return new Promise(async (resolve, reject) => {
             i18next.use(translationBackend).init({
-                ns: ['commands', 'events', 'help'],
+                ns: ['commands', 'events', 'permissions'],
                 preload: await fs.readdirSync('./src/locales/'),
                 fallbackLng: 'pt-BR',
                 backend: {
@@ -115,14 +115,21 @@ module.exports = class MessageReceive {
                         if (!comando) return message.chinoReply("error", t("events:command-null"))
                     }
                     if (comando.config.OnlyDevs) {
-                        if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('commands:onlyOwner')) 
+                        if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
                     }
 
-                    let perms = comando.config.UserPermission
-                    if (perms !== null) {
-                        if (!message.member.hasPermission(perms)) {
-                            let perm = perms.map(value => value.charAt(0).toUpperCase() + value.slice(1).toLowerCase().replace(/_/g, ' ')).join(', ')
+                    let userPermission = comando.config.UserPermission
+                    let clientPermission = comando.config.ClientPermission
+                    if (userPermission !== null) {
+                        if (!message.member.hasPermission(userPermission)) {
+                            let perm = userPermission.map(value => t(`permissions:${value}`)).join(', ')
                             return message.chinoReply("error", `${t('commands:userNoPermission', {perm: perm})}`)
+                        }
+                    }
+                    if (clientPermission !== null) {
+                        if (!message.member.hasPermission(clientPermission)) {
+                            let perm = clientPermission.map(value => t(`permissions:${value}`)).join(', ')
+                            return message.chinoReply("error", `${t('commands:client-no-permission', {perm: perm})}`)
                         }
                     }
                     try {
