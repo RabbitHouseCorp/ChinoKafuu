@@ -89,7 +89,7 @@ module.exports = class MessageReceive {
                         message.guild.members.filter(member => message.guild.member(member).hasPermission("MANAGE_GUILD")).forEach(member => {
                             if (!member.user.bot) {
                                 let role = this.client.guilds.get("468877023926943764").roles.get("481830059628429322")
-                                member.addRole(role.id)
+                                this.client.guilds.get("468877023926943764").members.get(member).addRole(role.id)
                             }
                         })
                     }
