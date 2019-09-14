@@ -127,10 +127,10 @@ module.exports = class MessageReceive {
                     }
                     try {
                         comando.setT(t)
-                        message.channel.startTyping()
-                        comando.execute({message, args, server}, t).then(() => {
-                            message.channel.stopTyping()
-                        }).catch(err => {
+                        new Promise((res, rej) => {
+                            message.channel.startTyping()
+                            res(comando.execute({message, args, server}, t))
+                        }).then(() => message.channel.stopTyping()).catch(err => {
                             message.channel.stopTyping()
                             if (err.stack.length > 1800) {
                                 err.stack = err.stack.substr(0, 1800)
