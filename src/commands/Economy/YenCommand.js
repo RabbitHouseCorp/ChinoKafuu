@@ -18,7 +18,7 @@ module.exports = class YensCommand extends Command {
             novoUser.save()
         }
         if (message.author.id === member.id) {
-            message.chinoReply('yen', t('commands:yen.totalYens', {yens: user.yens))
+            message.chinoReply('yen', t('commands:yen.totalYens', {yens: user.yens}))
         } else {
             message.chinoReply("yen", t("commands:yen.user-total", {member: member, yens: user.yens}))
         }
