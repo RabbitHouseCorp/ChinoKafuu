@@ -172,7 +172,6 @@
     "pat": "{{author}} pimped in {{member}}",
     "pause": {
         "isPaused": "The music is already paused.",
-        "queueNull": "There is no song in line.",
         "paused": "the music has been paused."
     },
     "ping": "I have:",
@@ -342,9 +341,9 @@
     "mention-null": "user not found, try to mention it next time.",
     "dmClosed": "Your direct messages are disabled, I could not send the information there.",
     "createdBy": "{{clientName}} was created and developed by {{owner}}",
-    "DJCommand": {
-        "channelNull": "you are not on any voice channels.",
-        "diferenceChannel": "You need to be on the same voice channel as me."
+    "dj-module": {
+        "channel-null": "you are not on any voice channels.",
+        "another-channel": "You need to be on the same voice channel as me."
     },
   "yen": {
     "totalYens": "you have `{{yens}}` yens"
@@ -354,7 +353,5 @@
     "hasBeenPicked": "If you have already withdrawn your daily yen, please wait `{{time}}` before you can get it again."
   },
     "mc": "enter the nickname of the player.",
-    "userNoPermission": "you do not have `{{perm}}` permission to execute this command",
-    "onlyOwner": " You are not the person who created me, you cannot execute this command!",
     "no-reason": "Uninformed."
 }

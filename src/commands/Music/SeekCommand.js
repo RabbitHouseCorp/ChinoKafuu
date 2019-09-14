@@ -15,7 +15,7 @@ module.exports = class SeekCommand extends Command {
     } 
     execute({message, args, server}, t) {
         
-        if (!this.client.player.has(message.guild.id)) return message.chinoReply('error', t('commands:pause.queueNull'))
+        if (!this.client.player.has(message.guild.id)) return message.chinoReply('error', t('commands:dj-module.queue-null'))
         if (!args[0]) return message.chinoReply('error', t('commands:seek.args-null'))
 
         message.chinoReply('success', t('commands:seek.success'))

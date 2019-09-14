@@ -123,13 +123,13 @@ module.exports = class MessageReceive {
                     if (userPermission !== null) {
                         if (!message.member.hasPermission(userPermission)) {
                             let perm = userPermission.map(value => t(`permissions:${value}`)).join(', ')
-                            return message.chinoReply("error", `${t('commands:userNoPermission', {perm: perm})}`)
+                            return message.chinoReply("error", `${t('permissions:USER_MISSING_PERMISSION', {perm: perm})}`)
                         }
                     }
                     if (clientPermission !== null) {
                         if (!message.member.hasPermission(clientPermission)) {
                             let perm = clientPermission.map(value => t(`permissions:${value}`)).join(', ')
-                            return message.chinoReply("error", `${t('commands:client-no-permission', {perm: perm})}`)
+                            return message.chinoReply("error", `${t('permission:CLIENT_MISSING_PERMISSION', {perm: perm})}`)
                         }
                     }
                     try {

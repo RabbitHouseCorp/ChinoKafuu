@@ -1,6 +1,6 @@
 const Command = require("../../structures/command")
 const { RichEmbed } = require("discord.js")
-module.exports = class DjCommand extends Command {
+module.exports = class DJCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'dj',

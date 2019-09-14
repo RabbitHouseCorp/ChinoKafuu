@@ -13,8 +13,8 @@ module.exports = class PlayCommand extends Command {
     } 
     async execute({message, args, server}, t) {
             
-        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.channelNull'))
-        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.diferenceChannel'))
+        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))
+        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:dj-module.another-channel'))
     
         if (!args[0]) return message.chinoReply("error", t('commands:play.args-null'))
         if (this.client.player.has(message.guild.id)) {

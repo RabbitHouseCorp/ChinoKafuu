@@ -172,7 +172,6 @@
     "pat": "{{author}} fez cafuné em {{member}}",
     "pause": {
         "isPaused": "a música já está pausada.",
-        "queueNull": "não tem nenhuma música na fila.",
         "paused": "a música foi pausada."
     },
     "ping": "Eu tenho:",
@@ -342,9 +341,11 @@
     "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",
     "dmClosed": "seu privado está fechando, eu não consegui enviar as informações lá.",
     "createdBy": "{{clientName}} foi criada e desenvolvida por {{owner}}",
-    "DJCommand": {
-        "channelNull": "você não se encontra em nenhum canal de voz.",
-        "diferenceChannel": "você precisa estar no mesmo canal de voz que eu me encontro."
+    "dj-module": {
+        "channel-null": "você não se encontra em nenhum canal de voz.",
+        "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro.",
+        "queue-null": "a fila atual se encontra vazia",
+        "no-playing": "não tem nenhuma música tocando atualmente."
     },
     "yen": {
         "totalYens": "você possui `{{yens}}` yens",
@@ -355,7 +356,5 @@
         "hasBeenPicked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
-    "userNoPermission": "você não tem a permissão de `{{perm}}` para poder executar este comando",
-    "client-no-permission": "eu não tenho permissão de `{{perm}}` para poder executar este comando",
     "no-reason": "Não informado."
 }

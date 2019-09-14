@@ -13,11 +13,11 @@ module.exports = class ResumeCommand extends Command {
     } 
     execute({message, args, server}, t) {
 
-        if (!this.client.player.has(message.guild.id)) return message.channel.send(t('commands:queue.queueClean'))
+        if (!this.client.player.has(message.guild.id)) return message.channel.send(t('commands:dj-module.no-playing'))
         if (this.client.player.get(message.guild.id).player.paused == false) return message.chinoReply('error', t('commands:resume.isPlaying'))
-        if (!this.client.player.get(message.guild.id).player.playing) return message.chinoReply('error', t('commands:resume.queueNull'))
-        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.channelNull'))
-        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.diferenceChannel'))
+        if (!this.client.player.get(message.guild.id).player.playing) return message.chinoReply('error', t('commands:resume.queue-null'))
+        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))
+        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:dj-module.another-channel'))
 
         message.chinoReply('success', t('commands:resume.playing')).then(this.client.player.get(message.guild.id).player.resume())
     }

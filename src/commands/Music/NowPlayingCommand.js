@@ -18,10 +18,10 @@ module.exports = class NowPlayingCommand extends Command {
 
     execute({message, args, server}, t) {
 
-        if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:pause.queueNull"))
-        if (!this.client.player.get(message.guild.id).nowPlaying) return message.chinoReply("error", t("commands:pause.queueNull"))
-        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.channelNull'))
-        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:DJCommand.diferenceChannel'))
+        if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:dj-module.queue-null"))
+        if (!this.client.player.get(message.guild.id).nowPlaying) return message.chinoReply("error", t("commands:dj-module.queue-null"))
+        if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))
+        if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:dj-module.another-channel'))
         message.channel.send(t("commands:np.waiting")).then(msg => {
             youtube(this.client.player.get(message.guild.id).nowPlaying.identifier).then(info => {
                 let start = moment.duration(this.client.player.get(message.guild.id).player.state.position).format("dd:hh:mm:ss")

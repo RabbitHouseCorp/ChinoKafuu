@@ -172,7 +172,7 @@
     "pat": "{{author}} fez cafuné em {{member}}",
     "pause": {
         "isPaused": "a música já está pausada.",
-        "queueNull": "não tem nenhuma música na fila.",
+        "queue-null": "não tem nenhuma música na fila.",
         "paused": "a música foi pausada."
     },
     "ping": "Eu tenho:",
@@ -342,9 +342,9 @@
     "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",
     "dmClosed": "seu privado está fechando, eu não consegui enviar as informações lá.",
     "createdBy": "{{clientName}} foi criada e desenvolvida por {{owner}}",
-    "DJCommand": {
-        "channelNull": "você não se encontra em nenhum canal de voz.",
-        "diferenceChannel": "você precisa estar no mesmo canal de voz que eu me encontro."
+    "dj-module": {
+        "channel-null": "você não se encontra em nenhum canal de voz.",
+        "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro."
     },
   "yen": {
     "totalYens": "você possui `{{yens}}` yens"
