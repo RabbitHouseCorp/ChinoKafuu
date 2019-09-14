@@ -348,7 +348,7 @@
     },
     "yen": {
         "totalYens": "você possui `{{yens}}` yens",
-        "": ""
+        "user-total": "{{member}} possui `{{yens}}`yens"
     },
     "daily": {
         "dailysuccess": "foi depositado `{{total}}` yens na sua conta.",
@@ -356,6 +356,5 @@
     },
     "mc": "informe o nick do jogador.",
     "userNoPermission": "você não tem a permissão de `{{perm}}` para poder executar este comando",
-    "onlyOwner": " você não é a pessoa que me criou, não pode executar este comando!",
     "no-reason": "Não informado."
 }
