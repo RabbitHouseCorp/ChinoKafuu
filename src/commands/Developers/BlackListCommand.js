@@ -13,9 +13,9 @@ module.exports = class BlackListCommand extends Command {
 	}
 	async execute({message, args, server}, t) {
 		let user = await this.client.database.Users.findById(args[1])
-		if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
 		switch(args[0]) {
 			case "add":
+			if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
 			user.blacklist = true
 			user.blacklistReason = args.slice(2).join(" ")
 			user.save()
@@ -23,6 +23,7 @@ module.exports = class BlackListCommand extends Command {
 			message.chinoReply("success", "usuário banido com sucesso.")
 			break;
 			case "remove":
+			if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
 			user.blacklist = false
 			user.blacklistReason = null
 			user.save()
@@ -30,7 +31,8 @@ module.exports = class BlackListCommand extends Command {
 			message.chinoReply("success", "usuário desbanido com sucesso.")
 			break;
 			case "view":
-			let msg = `== USER BANNED INFO ==\n\n• User :: ${this.client.users.get(user._id).tag} - (${this.client.users.get(user._id).id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistreason}`
+			if (!user || user === null) return message.chinoReply("error", "usuário não encontrado, tente informar o ID da próxima vez.")
+			let msg = `== USER BANNED INFO ==\n\n• User :: ${this.client.users.get(user._id).tag} - (${this.client.users.get(user._id).id})\n• Banned :: ${user.blacklist}\n• Reason :: ${user.blacklistReason}`
 			message.channel.send(msg, {code: "asciidoc"})
 			break;
 			default:

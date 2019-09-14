@@ -99,7 +99,14 @@ module.exports = class MessageReceive {
                     const command = args.shift().toLowerCase()
                     const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
                     if (user.blacklist) return
-                    if (cooldown.has(message.author.id)) {
+
+                    if (server.commandNull === true) {
+                        if (!comando) return message.chinoReply("error", t("events:command-null"))
+                    }
+                    if (comando.config.OnlyDevs) {
+                        if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
+                    }
+			if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)
                         return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`ms [${t("events:cooldown.milliseconds")}]`)}))
                         
@@ -109,14 +116,6 @@ module.exports = class MessageReceive {
                       setTimeout(() => {
                           cooldown.delete(message.author.id)
                       }, 5000)
-
-
-                    if (server.commandNull === true) {
-                        if (!comando) return message.chinoReply("error", t("events:command-null"))
-                    }
-                    if (comando.config.OnlyDevs) {
-                        if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
-                    }
 
                     let userPermission = comando.config.UserPermission
                     let clientPermission = comando.config.ClientPermission
