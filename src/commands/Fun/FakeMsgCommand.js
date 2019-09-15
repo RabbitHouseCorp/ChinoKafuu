@@ -6,7 +6,7 @@ module.exports = class FakeMsgCommand extends Command {
             category: 'fun',
             aliases: [],
             UserPermission: null,
-            ClientPermission: ['MANAGE_WEKHOOK'],
+            ClientPermission: ['MANAGE_WEBHOOK'],
             OnlyDevs: false,
             hidden: false
         })
