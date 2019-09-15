@@ -1,7 +1,9 @@
 {
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
-        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso."
+        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
+        "args-null": "não foi encontrado nenhum arquivo ou URL, favor, informe-o na próxima vez.",
+        "name-null": "você não informou o nome que deseja colocar no emoji, favor, informe-o da próxima vez."
     },
     "addrole": {
         "mentionRoleNull": "cargo não encontrado, tem certeza que você indicou o nome do cargo corretamente?",
