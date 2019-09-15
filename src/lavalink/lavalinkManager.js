@@ -15,7 +15,7 @@ class Player extends EventEmitter {
     this.player = player
     this.queue = []
     this.nowPlaying = ''
-    this.repeatTrack =''
+    this.repeatTrack = ''
     this.repeat = false
   }
   play (query) {
@@ -30,7 +30,7 @@ class Player extends EventEmitter {
     let nextSong = this.queue.shift()
     if (!nextSong) return
     this.nowPlaying = nextSong.info
-    this.repeatTrack =nextSong.track
+    this.repeatTrack = nextSong.track
     this.player.play(nextSong.track)
   }
   setVolume (val) {
@@ -61,7 +61,7 @@ class Player extends EventEmitter {
         let nextSong = this.queue.shift()
         if (!nextSong) return this.emit("playingEnd")
         this.nowPlaying = nextSong.info
-        this.repeatTrack =nextSong.track
+        this.repeatTrack = nextSong.track
         this.player.play(nextSong.track)
       }
     })

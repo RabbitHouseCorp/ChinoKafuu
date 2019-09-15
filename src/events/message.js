@@ -85,14 +85,14 @@ module.exports = class MessageReceive {
                     if (message.content === `<@${this.client.user.id}>` || message.content === `<@!${this.client.user.id}>`) {
                         message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", {prefix: server.prefix})}`)
                     }
-                    if (server.partner) {
+                    /*if (server.partner) {
                         message.guild.members.filter(member => message.guild.member(member).hasPermission("MANAGE_GUILD")).forEach(member => {
                             if (!member.user.bot) {
                                 let role = this.client.guilds.get("468877023926943764").roles.get("481830059628429322")
-                                this.client.guilds.get("468877023926943764").members.get(member).addRole(role.id)
+                                this.client.guilds.get("468877023926943764").members.get(member.id).addRole(role.id)
                             }
                         })
-                    }
+                    }*/
                     
                     if (!message.content.startsWith(server.prefix)) return;
                     const args = message.content.slice(server.prefix.length).trim().split(/ +/g);
@@ -106,7 +106,7 @@ module.exports = class MessageReceive {
                     if (comando.config.OnlyDevs) {
                         if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
                     }
-			if (cooldown.has(message.author.id)) {
+			        if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)
                         return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`ms [${t("events:cooldown.milliseconds")}]`)}))
                         
