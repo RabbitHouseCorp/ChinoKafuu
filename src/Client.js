@@ -1,15 +1,7 @@
 const { Client, Collection } = require('discord.js')
 const { readdir } = require('fs')
-const http = require("http")
-let express = require('express')
-const app = express()
-app.get("/", (request, response) => {
-  response.sendStatus(200)
-})
-//app.listen(8080)
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me`)
-}, 200000)
+
+
 module.exports = class Chino extends Client {
     constructor(options = {}) {
         super(options);
