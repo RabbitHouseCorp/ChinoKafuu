@@ -13,7 +13,7 @@ module.exports = class AddEmoji extends Command {
    } 
    execute({message, args, server}, t) {
             
-        const url = args[1] || message.attachments.first() ? message.attachments.first().url : undefined
+        const url = message.attachments.first() ? message.attachments.first().url : undefined || args[1]
         if (!url || url === undefined) return message.chinoReply("error", t("commands:addemoji.args-null"))
         const name = args[0]
 
