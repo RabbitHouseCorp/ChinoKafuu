@@ -10,7 +10,7 @@ module.exports = class ProtoTypes {
         }
       
       CanvasRenderingContext2D.prototype.roundRect = function roundRect(x, y, width, height, radius, fill, stroke) {
-        if (typeof stroke == 'undefined') {
+        if (typeof stroke === 'undefined') {
           stroke = true;
         }
         if (typeof radius === 'undefined') {
