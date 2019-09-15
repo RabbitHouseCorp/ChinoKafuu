@@ -21,8 +21,11 @@ module.exports = class LanguageCommand extends Command {
                 msg.react('🇺🇸')
             }, 1000)
             setTimeout(function() {
-                msg.react("🇪🇸")
+                msg.react("🇵🇹")
             }, 1500)
+/*            setTimeout(function() {
+                msg.react("🇪🇸")
+            }, 2000)*/
             
             const collector = msg.createReactionCollector((r, u) => (r.emoji.name === "🇧🇷", "🇺🇸") && (u.id !== this.client.user.id && u.id === message.author.id))
             collector.on('collect', r => {
@@ -39,11 +42,17 @@ module.exports = class LanguageCommand extends Command {
                         msg.delete()
                         message.chinoReply("map", `now I'll talk to \`en-US\``)
                         break
-                    case '🇪🇸':
+                    case '🇵🇹':
+                        server.lang = "pt-PT"
+                        server.save()
+                        msg.delete()
+                        message.chinoReply("map", "agora eu irei falar `pt-PT`")
+//                      break
+/*                    case '🇪🇸':
                         server.lang = "es"
                         server.save()
                         msg.delete()
-                        message.chinoReply("map", "ahora hablaré `es`")
+                        message.chinoReply("map", "ahora hablaré `es`")*/
                 }
             })
         })
