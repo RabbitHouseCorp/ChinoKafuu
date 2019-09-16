@@ -4,7 +4,7 @@ module.exports = class LanguageCommand extends Command {
        super(client, {
            name: 'language',
            category: 'mod',
-           aliases: ['linguagem'],
+           aliases: ['linguagem', 'lang'],
            UserPermission: ["MANAGE_GUILD"],
            ClientPermission: null,
            OnlyDevs: false,
