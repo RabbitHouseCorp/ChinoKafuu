@@ -6,7 +6,7 @@ module.exports = class FakeMsgCommand extends Command {
             category: 'fun',
             aliases: [],
             UserPermission: null,
-            ClientPermission: ['MANAGE_WEKHOOK'],
+            ClientPermission: ['MANAGE_WEBHOOK'],
             OnlyDevs: false,
             hidden: false
         })
@@ -16,7 +16,7 @@ module.exports = class FakeMsgCommand extends Command {
         if (!member) return message.chinoReply('error',t('commands:mention-null'))
         let botmsg = args.slice(1).join(' ')
         if (!botmsg) return message.chinoReply('error', t('commands:fakemsg'))
-        message.channel.createWebhook(member.user.username, member.user.displayAvatarURL).then(webhook => {
+        message.channel.createWebhook(member.username, member.displayAvatarURL).then(webhook => {
             if (message.member.hasPermission('MENTION_EVERYONE')) {
                 webhook.send(botmsg, {
                     disableEveryone: false

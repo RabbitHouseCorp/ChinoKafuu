@@ -22,7 +22,6 @@ module.exports = class SayCommand extends Command {
         })
         w.delete()
       })
-        message.delete().catch()
         message.channel.send(say,{
           disableEveryone:false
       });
@@ -35,7 +34,6 @@ module.exports = class SayCommand extends Command {
         })
         w.delete()
       })
-      message.delete().catch()
       message.channel.send(say, { 
         disableEveryone:true
       })
