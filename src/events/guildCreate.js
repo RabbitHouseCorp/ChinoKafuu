@@ -2,6 +2,21 @@ const { RichEmbed } = require("discord.js")
 module.exports = class GuildCreate {
   constructor(client) {
     this.client = client
+    this.regions = {
+      'brazil': 'pt-BR',
+      'eu-central': 'en-US',
+      'eu-west': 'en-US',
+      'hongkong': 'en-US',
+      'japan': 'en-US',
+      'russia': 'en-US',
+      'singapore': 'en-US',
+      'southafrica': 'en-US',
+      'sydney': 'en-US',
+      'us-central': 'en-US',
+      'us-east': 'en-US',
+      'us-south': 'en-US',
+      'us-west': 'en-US',
+    }
   }
   
   async execute(guild) {
@@ -9,7 +24,8 @@ module.exports = class GuildCreate {
       let server = await this.client.database.Guilds.findById(guild.id)
 
       server = new this.client.database.Guilds({
-        _id: guild.id
+        _id: guild.id,
+        lang: this.regions[guild.region]
       })
       server.save()
       
