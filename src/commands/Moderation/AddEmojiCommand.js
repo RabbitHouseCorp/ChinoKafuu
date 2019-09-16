@@ -17,7 +17,7 @@ module.exports = class AddEmoji extends Command {
         if (!url || url === undefined) return message.chinoReply("error", t("commands:addemoji.args-null"))
         const name = args[0]
         if (!name) return message.chinoReply("error", t("commands:addemoji.name-null"))
-        if (!message.attachments.firt()) {
+        if (!message.attachments.first()) {
             message.guild.createEmoji(url, name).then(emoji => {
                 message.channel.send(`${emoji} **|** ${message.author}, ${t('commands:addemoji.success')}`)
             }).catch(() => {
