@@ -147,7 +147,7 @@
     },
     "kiss": "{{author}} deu um beijo em {{member}}.",
     "language": {
-        "howLanguage": "qual é o seu idioma? Escolha abaixo\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇪🇸 `es`"
+        "howLanguage": "qual é o seu idioma? Escolha abaixo\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇵🇹 `pt-PT`"
     },
     "laranjo": {
         "args-null": "o que o laranjo deve falar?"

@@ -145,7 +145,7 @@
     },
     "kiss": "{{author}} kissed {{member}}.",
     "language": {
-        "howLanguage": "what is your language? Choose below\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇪🇸 `es`"
+        "howLanguage": "what is your language? Choose below\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇵🇹 `pt-PT`"
     },
     "laranjo": {
         "args-null": "what should the orange say?"
