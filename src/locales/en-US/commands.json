@@ -135,7 +135,7 @@
     "hug":"{{author}} gave a very nice hug in {{member}}",
     "invite": {
         "MyInvite": "Invite",
-        "invite": "Do you want to invite me do other Discord servers? So click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://discordbots.org/bot/481282441294905344)"
+        "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://discordbots.org/bot/481282441294905344)"
     },
     "join": "Joining `{{voiceChannel}}`",
     "kick": {
