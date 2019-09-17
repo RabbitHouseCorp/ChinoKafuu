@@ -64,7 +64,7 @@
         "args-null": "coloque a URL do avatar.",
         "avatar": "Pronto, agora eu estou com um novo avatar"
     },
-    "changenickaname": {
+    "changenickname": {
         "args-null": "eu preciso que você coloque o novo apelido que você deseja definir no usuário.",
         "success": "o apelido de `{{member}} foi alterado para {{nickname}} com sucesso."
     },
