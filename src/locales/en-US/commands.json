@@ -64,7 +64,7 @@
         "args-null": "enter the avatar URL.",
         "avatar": "Okay, now I have a new avatar"
     },
-    "changenickaname": {
+    "changenickname": {
         "args-null": "I need you to put the new nickname you want me to set in the user.",
         "success": "nickname `{{member}}` has been successfully changed to {{nickname}}."
     },
