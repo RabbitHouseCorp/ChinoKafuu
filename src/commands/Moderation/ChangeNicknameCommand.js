@@ -18,7 +18,7 @@ module.exports = class ChangeNickCommand extends Command {
         if (!member) return message.chinoReply(t('commands:mention-null'))
         if (!nickname) return message.chinoReply(t('commands:changenickname.args-null'))
 
-        member.setNickname(nickname).then(() => {
+        message.guild.member(member).setNickname(nickname).then(() => {
 
             message.chinoReply('success', t('commands:changenickname.success', {member: member.tag, nickname: nickname}))
 
