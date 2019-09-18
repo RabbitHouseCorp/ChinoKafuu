@@ -13,18 +13,17 @@ module.exports = class ChangeNickCommand extends Command {
     } 
     execute({message, args, server}, t) {
             
-        const member = message.mentions.members.first() || this.client.users.get(args[0])
+        const member = message.mentions.users.first() || this.client.users.get(args[0])
         const nickname = args.slice(1).join(' ')
-        if (!member) return message.chinoReply(t('commands:mention-null'< {author: message.author, emoji: this.client.emotes.error}))
-        if (!nickname) return message.chinoReply(t('commands:changenickname.args-null', {author: message.author, emoji: this.client.emotes.error}))
+        if (!member) return message.chinoReply(t('commands:mention-null'))
+        if (!nickname) return message.chinoReply(t('commands:changenickname.args-null'))
 
         member.setNickname(nickname).then(() => {
 
-            message.chinoReply('success', t('commands:changenickname.success', {author: message.author,  member: member.tag, nickname: nickname}))
+            message.chinoReply('success', t('commands:changenickname.success', {member: member.tag, nickname: nickname}))
 
         }).catch(err => {
-
-        message.chinoReply('error', t('events:error', {err: err}))
+            message.chinoReply('error', t('events:error', {err: err}))
         })
     }
 }
