@@ -61,11 +61,11 @@
         "result": "the result is `{{resposta}}`"
     },
     "changeavatar": {
-        "args-null": "enter the avatar URL.",
+        "args-null": "supply the avatar URL.",
         "avatar": "Okay, now I have a new avatar"
     },
     "changenickname": {
-        "args-null": "I need you to put the new nickname you want me to set in the user.",
+        "args-null": "I need you to supply the new nickname you want me to set in the user.",
         "success": "nickname `{{member}}` has been successfully changed to {{nickname}}."
     },
     "channelinfo": {
@@ -95,7 +95,7 @@
     },
     "congaparrot": {
         "limit": "Only allowed up to `20` parrots.",
-        "args-null": "You did not enter the desired amount."
+        "args-null": "You did not supply the desired amount."
     },
     "dance": "{{author}} danced with {{member}}",
     "dj": "Well, the `DJ` permission is designed to prevent people from abusing music commands (such as skipping the music you are listening to or getting me out of the voice channel where you also find yourself). To get this permission, you must have permission to `Manage Server`, `Ban Members` or have the role named `DJ`, do that, good fun and enjoy my music commands, bye bye.",
@@ -119,7 +119,7 @@
         "success": "Okay! success.\n```js\n{{str}}```"
     },
     "fakemsg": {
-        "args-null": "You need to argue something for the fake user to talk about."
+        "args-null": "You need to supply something for the fake user to talk about."
     },
     "help": {
         "util": "Utilities",
@@ -140,7 +140,7 @@
     "join": "Joining `{{voiceChannel}}`",
     "kick": {
         "authorKick": "You can't kick yourself out of Discord, so I won't kick you out.",
-        "kickable": "I can't kick this user, his roles is bigger than mine.",
+        "kickable": "I can't kick this user, it's role is bigger than mine.",
         "kicked": "{{member}} | Kicked"
     },
     "kiss": "{{author}} kissed {{member}}.",
@@ -211,7 +211,7 @@
         "playing": "the music played again."
     },
     "rize": {
-        "args-null": "what should rize show on paper?"
+        "args-null": "what should rize write on paper?"
     },
     "roleinfo": {
         "args-null": "You didn't mention any roles.",
@@ -294,7 +294,7 @@
     },
     "unmute": {
         "title": "Silence removed | {{member}}",
-        "success": "The user has learned to speak again, I hope he will not do anything else and stop talking ugly things.",
+        "success": "The user has learned to speak again, I hope it will not do anything else and stop talking ugly things.",
         "noMuted": "The user is not muted."
     },
     "userinfo": {
@@ -305,7 +305,7 @@
         "hasAdmin": "Administrator",
         "isAdmin": "It has",
         "isNotAdmin": "Don't have",
-        "joinedAt": "Came in",
+        "joinedAt": "Joined at",
         "serverComp": "Common servers ({{server}})",
         "status": "Status",
         "statusOnline": "{{emoji}} Online",
