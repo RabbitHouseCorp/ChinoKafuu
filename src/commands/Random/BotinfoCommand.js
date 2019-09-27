@@ -34,7 +34,7 @@ module.exports = class BotinfoCommand extends Command {
             const statusEmbed = new client.Discord.RichEmbed()
             .setColor(color)
             .setTitle(t('commands:status.title'))
-            .addField(t('commands:status.version'), `\`\`\`${require("../../../package.json).version}\`\`\``,true)
+            .addField(t('commands:status.version'), `\`\`\`${require("../../../package.json").version}\`\`\``,true)
             .addField(t('commands:status.discord'), `\`\`\`${Discord.version}\`\`\``,true)
             .addField(t("commands:status.uptime"), `\`\`\`${duration}\`\`\``, true)
             .addField(t("commands:status.memory"), `\`\`\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB\`\`\``, true)
