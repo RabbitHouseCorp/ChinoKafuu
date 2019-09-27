@@ -24,7 +24,7 @@ module.exports = class AnnounceCommand extends Command {
         .setDescription(announce)
         .setFooter(message.guild.name)
 
-        message.chinoReply('success', t('commands:announce.confirmed', {chat: chat})).then(msg => {
+        message.reply(t('commands:announce.confirmed', {chat: chat})).then(msg => {
             setInterval(() => {
                 msg.react('✅')
             }, 500)
