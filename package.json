@@ -1,7 +1,7 @@
 {
   "name": "chino-class",
   "description": "Um simples bot pro discord",
-  "version": "3.0.1-snapshot",
+  "version": "3.1.4-snapshot",
   "author": "Sr.yNerd & DanielaGC_",
   "main": "shard.js",
   "scripts": {
