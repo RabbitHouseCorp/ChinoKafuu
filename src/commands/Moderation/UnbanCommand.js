@@ -17,7 +17,7 @@ module.exports = class UnbanCommand extends Command {
     if (!args[0]) return message.chinoReply('error', t('commands:mention-null'))
     let member = await message.guild.fetchBans()
     let ban
-    ban = member.find(b => b.username === args[0]) || member.find(b => b.id === args[0].replace(/!@<>/g, "")) || member.find(b => b.tag === args[0])
+    ban = member.find(b => b.username === args[0]) || member.get(args[0].replace(/[!@<>]/g, "")) || member.find(b => b.tag === args[0])
     if (!ban) return message.chinoReply("error", t("commands:unban.not-found"))
     let reason = args.slice(1).join(" ")
     if (!reason) {
