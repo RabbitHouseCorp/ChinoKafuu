@@ -38,7 +38,7 @@ module.exports = class ServerinfoCommand extends Command {
         const page2 = new this.client.Discord.RichEmbed()
         page2.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL)
         page2.setColor(this.client.colors.default)
-        message.guild.icon ? embed.setThumbnail(`${message.guild.iconURL}`.replace('jpg', 'png')) : null
+        message.guild.icon ? page2.setThumbnail(`${message.guild.iconURL}`.replace('jpg', 'png')) : null
         page2.addField(t('commands:serverinfo.guildChannel', {totalChannel: message.guild.channels.size}), t('commands:serverinfo.channels', {voice: voice, text: text, category: category}), true)
         page2.addField(t('commands:serverinfo.guildMembers', {totalMember: message.guild.memberCount}), t('commands:serverinfo.members', {user: user, bot: bot}), true)
         page2.addField(t('commands:serverinfo.roles', {totalRole: message.guild.roles.size - 1}), roles, true)
