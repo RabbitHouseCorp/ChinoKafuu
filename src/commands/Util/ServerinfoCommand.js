@@ -36,8 +36,8 @@ module.exports = class ServerinfoCommand extends Command {
         embed.addField(t('commands:serverinfo.createdAt'), moment.utc(message.guild.createdAt).format('LLLL'), true)
     
         const page2 = new this.client.Discord.RichEmbed()
-        embed.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL)
-        embed.setColor(this.client.colors.default)
+        page2.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL)
+        page2.setColor(this.client.colors.default)
         message.guild.icon ? embed.setThumbnail(`${message.guild.iconURL}`.replace('jpg', 'png')) : null
         page2.addField(t('commands:serverinfo.guildChannel', {totalChannel: message.guild.channels.size}), t('commands:serverinfo.channels', {voice: voice, text: text, category: category}), true)
         page2.addField(t('commands:serverinfo.guildMembers', {totalMember: message.guild.memberCount}), t('commands:serverinfo.members', {user: user, bot: bot}), true)
