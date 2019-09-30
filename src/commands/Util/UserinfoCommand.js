@@ -20,6 +20,7 @@ module.exports = class UserinfoCommand extends Command {
         let status = `${member.presence.status}`.replace('dnd', t('commands:userinfo.statusDnd', {emoji: this.client.emotes.dnd})).replace('idle', t('commands:userinfo.statusIdle', {emoji: this.client.emotes.idle})).replace('offline', t('commands:userinfo.statusOffline', {emoji: this.client.emotes.offline})).replace('online', t('commands:userinfo.statusOnline', {emoji: this.client.emotes.online}))
         let guild = this.client.guilds.filter(g => g.members.get(member.id))
         let role = message.guild.member(member) ? message.guild.member(member).roles.map(r => r.name).join(', ') : "O usuário não está no servidor"
+        let roleSize = message.guild.member(member) ? message.guild.member(member).roles.size - 1 : "0"
         let color = message.guild.member(member) ? message.guild.member(member).displayHexColor : "#000000"
         const embed = new this.client.Discord.RichEmbed()
         .setColor(color)
@@ -38,7 +39,7 @@ module.exports = class UserinfoCommand extends Command {
         .setThumbnail(member.displayAvatarURL)
         .setDescription(t('commands:userinfo.title', {isBot: member.bot ? '<:botTag:579456048142876672>' : '<:Wumpus:579455982053097485>', member: member.tag}), member.displayAvatarURL)
         .addField(t('commands:userinfo.permissions'), message.guild.member(member) ?`\`${message.guild.member(member).permissions.toArray().join(', ')}\``: "O usuário não está no servidor")
-        .addField(t('commands:userinfo.roles', {roles: role.size - 1}), `\`${role}\``.replace('@everyone, ', ''), true)
+        .addField(t('commands:userinfo.roles', {roles: roleSize}), `\`${role}\``.replace('@everyone, ', ''), true)
     
         message.channel.send(embed).then(msg => {
             setTimeout(function() {
@@ -49,6 +50,7 @@ module.exports = class UserinfoCommand extends Command {
             }, 1000)
             const collector = msg.createReactionCollector((r, u) => (r.emoji.name === '⬅', '➡') && (u.id !== this.client.user.id && u.id === message.author.id))
             collector.on('collect', r => {
+                r.remove(message.author.id)
                 switch (r.emoji.name) {
                     case '⬅':
                         msg.edit(embed)
