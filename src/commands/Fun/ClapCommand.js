@@ -16,7 +16,7 @@ module.exports = class ClapCommand extends Command {
         if (!clap) return message.chinoReply('error', t('commands:clap.args-null'))
 
         if (message.member.hasPermission('MENTION_EVERYONE')) {
-            message.channels.send(clap, {
+            message.channel.send(clap, {
                 disableEveryone: false
             })
         } else {
