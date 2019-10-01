@@ -78,7 +78,7 @@
         "category": "Category",
         "createdAt": "Channel created at"
     },
-    "chat": {
+    "lock": {
         "args-null": "put `on` to enable chat and `off` to disable chat.",
         "enable": "chat enabled again, now everyone can talk again.",
         "disable": "chat has been successfully disabled, now only superiors can talk here."

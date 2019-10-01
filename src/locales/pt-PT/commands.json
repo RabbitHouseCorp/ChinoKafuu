@@ -32,7 +32,7 @@
     "announce": {
         "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
         "noMsg": "você não argumentou nada para mim enviar, favor, indique o que deseja enviar.",
-        "confirmed": "aviso, você está preste a mandar um anúncio no {{chat}}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
+        "confirmed": "aviso, você está preste a mandar um anúncio no {{ chat }}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
         "send": "anúncio enviado com sucesso."
     },
     "avatar": {
@@ -78,7 +78,7 @@
         "category": "Categoria",
         "createdAt": "Canal criado"
     },
-    "chat": {
+    "lock": {
         "args-null": "coloque entre `on` para habilitar o chat e `off` para desabilitar o chat",
         "enable": "chat habilitado novamente, agora todos podem falar novamente.",
         "disable": "chat desabilitado com sucesso, agora somente os superiores podem falar aqui."
