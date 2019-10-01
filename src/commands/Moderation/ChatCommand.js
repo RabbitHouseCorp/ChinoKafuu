@@ -13,7 +13,7 @@ module.exports = class ChatCommand extends Command {
    } 
   execute({message, args, server}, t) {
         
-    let role = message.guild.roles.find(r => r.name === "@everyone")
+    let role = message.guild.defaultRole
     switch(args[0]) {
       case 'on':
       message.channel.overwritePermissions(role, {
