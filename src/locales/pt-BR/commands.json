@@ -1,4 +1,7 @@
 {
+    "clap": {
+        "args-null": "você não informou nada para mim falar."
+     },
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
         "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
