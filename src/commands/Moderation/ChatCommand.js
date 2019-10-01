@@ -2,7 +2,7 @@ const Command = require("../../structures/command")
 module.exports = class ChatCommand extends Command {
     constructor(client) {
        super(client, {
-           name: 'chat',
+           name: 'lock',
            category: 'mod',
            aliases: [],
            UserPermission: ["MANAGE_CHANNELS"],
