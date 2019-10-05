@@ -82,7 +82,7 @@ module.exports = class MessageReceive {
                         }
                     }
 
-                    if (message.content === `<@${this.client.user.id}>` || message.content === `<@!${this.client.user.id}>`) {
+                    if (message.content === message.guild.me.toString()) {
                         message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", {prefix: server.prefix})}`)
                     }
                     /*if (server.partner) {
