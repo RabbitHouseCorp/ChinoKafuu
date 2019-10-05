@@ -130,12 +130,12 @@
         "image": "Manipulação de imagens",
         "minecraft": "Minecraft",
         "addUrl": "Links adicionais",
-        "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://discordbots.org/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
+        "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
     "hug":"{{author}} deu um abraço bem gostoso em {{member}}",
     "invite": {
         "MyInvite": "Convite",
-        "invite": "Você quer me convidar para outros servidores/guilds do Discord? Então clique [aqui](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://discordbots.org/bot/481282441294905344)"
+        "invite": "Você quer me convidar para outros servidores/guilds do Discord? Então clique [aqui](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344)"
     },
     "join": "estou entrando no `{{voiceChannel}}`",
     "kick": {
@@ -327,7 +327,7 @@
     },
     "vote": {
         "sendDM": "eu enviei no seu privado.",
-        "voteMsg": "Bom, já que você deseja votar em mim, basta clicar [aqui](https://discordbots.org/bot/481282441294905344), se você votou, obrigada,\n\nCaso precise de ajuda com os meus comandos, digite `{{prefix}}ajuda` que eu enviarei no seu privado."
+        "voteMsg": "Bom, já que você deseja votar em mim, basta clicar [aqui](https://top.gg/bot/481282441294905344), se você votou, obrigada,\n\nCaso precise de ajuda com os meus comandos, digite `{{prefix}}ajuda` que eu enviarei no seu privado."
     },
     "punishment": {
         "embed": {

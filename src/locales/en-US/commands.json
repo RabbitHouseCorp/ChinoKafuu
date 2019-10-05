@@ -130,12 +130,12 @@
         "image": "Image manipulation",
         "minecraft": "Minecraft",
         "addUrl": "Additional Links",
-        "inUrl": "[My invite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote for me](https://discordbots.org/bot/481282441294905344)|[My server](https://discord.gg/CAm9cSU)"
+        "inUrl": "[My invite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote for me](https://top.gg/bot/481282441294905344)|[My server](https://discord.gg/CAm9cSU)"
     },
     "hug":"{{author}} gave a very nice hug in {{member}}",
     "invite": {
         "MyInvite": "Invite",
-        "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://discordbots.org/bot/481282441294905344)"
+        "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://top.gg/bot/481282441294905344)"
     },
     "join": "Joining `{{voiceChannel}}`",
     "kick": {
@@ -326,7 +326,7 @@
     },
     "vote": {
         "sendDM": "I sent in your private.",
-        "voteMsg": "Well, since you want to vote for me, just click [here](https://discordbots.org/bot/481282441294905344), if you voted, thanks, \n \nIf you need help with my commands, type `{{prefix}} help` that I will send in your private."
+        "voteMsg": "Well, since you want to vote for me, just click [here](https://top.gg/bot/481282441294905344), if you voted, thanks, \n \nIf you need help with my commands, type `{{prefix}} help` that I will send in your private."
     },
     "punishment": {
         "embed": {
