@@ -33,7 +33,7 @@
         "noMention": "you need to indicate which chat you want me to send the announcement.",
         "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
         "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the ✅. \nTo mention`@here`, click the 🌀.\nTo mention anyone, click on ❎",
-        "send": "Announcement successfully sent."
+        "send": "announcement successfully sent."
     },
     "avatar": {
         "hisAvatar": "{{member}}'s avatar",
@@ -43,7 +43,7 @@
         "hasBaka": "{{author}} called {{member}} baka."
     },
     "ban": {
-        "banAuthor": "You can't ban yourself by Discord, so you can't ban yourself by me.",
+        "banAuthor": "you can't ban yourself by Discord, so you can't ban yourself by me.",
         "bannable": "I can't ban this user, his role is bigger than mine.",
         "banned": "{{member}} | Banned"
     },
@@ -57,7 +57,7 @@
         "websiteDesc": "[click here](https://chinokafuu-website.glitch.me)"
     },
     "calc": {
-        "args-null": "You must enter a valid value.",
+        "args-null": "you must enter a valid value.",
         "result": "the result is `{{resposta}}`"
     },
     "changeavatar": {
@@ -90,18 +90,18 @@
         "limit": "I can only delete up to `100` messages due to Discord limitations."
     },
     "choose": {
-        "args-null": "You need to argue something to choose from.",
+        "args-null": "you need to argue something to choose from.",
         "choose": "I choose `{{choose}}`"
     },
     "congaparrot": {
-        "limit": "Only allowed up to `20` parrots.",
-        "args-null": "You did not supply the desired amount."
+        "limit": "only allowed up to `20` parrots.",
+        "args-null": "you did not supply the desired amount."
     },
     "dance": "{{author}} danced with {{member}}",
     "dj": "Well, the `DJ` permission is designed to prevent people from abusing music commands (such as skipping the music you are listening to or getting me out of the voice channel where you also find yourself). To get this permission, you must have permission to `Manage Server`, `Ban Members` or have the role named `DJ`, do that, good fun and enjoy my music commands, bye bye.",
     "eat": "{{author}} gave food to {{member}}",
     "emoji": {
-        "args-null": "enter the emoji you want."
+        "args-null": "input the emoji you want."
     },
     "emojiinfo": {
         "name": "Emoji Name",
@@ -119,7 +119,7 @@
         "success": "Okay! success.\n```js\n{{str}}```"
     },
     "fakemsg": {
-        "args-null": "You need to supply something for the fake user to talk about."
+        "args-null": "you need to supply something for the fake user to talk about."
     },
     "help": {
         "util": "Utilities",
@@ -137,9 +137,9 @@
         "MyInvite": "Invite",
         "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://top.gg/bot/481282441294905344)"
     },
-    "join": "Joining `{{voiceChannel}}`",
+    "join": "joining `{{voiceChannel}}`",
     "kick": {
-        "authorKick": "You can't kick yourself out of Discord, so I won't kick you out.",
+        "authorKick": "you can't kick yourself out of Discord, so I won't kick you out.",
         "kickable": "I can't kick this user, it's role is bigger than mine.",
         "kicked": "{{member}} | Kicked"
     },
@@ -169,35 +169,35 @@
         "url": "Music link",
         "nowplaying": "Playing now"
     },
-    "pat": "{{author}} pimped in {{member}}",
+    "pat": "{{author}} pated {{member}}",
     "pause": {
-        "isPaused": "The music is already paused.",
+        "isPaused": "the music is already paused.",
         "paused": "the music has been paused."
     },
     "ping": "I have:",
     "pay": {
-        "value-null": "You need to enter the amount you wish to donate.",
-        "invalid-value": "The value you entered is invalid.",
-        "insufficient-value": "You don't have enough yens.",
+        "value-null": "you need to enter the amount you wish to donate.",
+        "invalid-value": "the value you entered is invalid.",
+        "insufficient-value": "you don't have enough yens.",
         "success": "you have successfully donated `{{value}}` yens to {{member}}.",
-        "this-author": "You cannot donate yens to yourself."
+        "this-author": "you cannot donate yens to yourself."
     },
     "play": {
         "addedQueue": "song `{{songTitle}}` has been added to the queue",
-        "playingNow": "Now playing`{{songTitle}}`",
-        "args-null": "You need to indicate the name or URL of the song."
+        "playingNow": "now playing `{{songTitle}}`",
+        "args-null": "you need to indicate the name or URL of the song."
     },
     "poke": "{{author}} poked {{member}}",
     "prefix": {
         "args-null": "you need to enter the new prefix",
-        "limit": "The prefix can only contain `3` characters.",
-        "success": "My prefix was changed successfully."
+        "limit": "the prefix can only contain `3` characters.",
+        "success": "my prefix was changed successfully."
     },
     "removeemoji": {
-        "success": "Emoji successfully removed."
+        "success": "emoji successfully removed."
     },
     "removerole": {
-        "noRole": "The user is not in this role.",
+        "noRole": "the user is not in this role.",
         "success": "role successfully removed.",
         "error": "I couldn't remove the user's roles, maybe the role is bigger than mine."
     },
@@ -207,7 +207,7 @@
         "success": "channel renamed successfully."
     },
     "resume": {
-        "isPlaying": "The music is not paused.",
+        "isPlaying": "the music is not paused.",
         "playing": "the music played again."
     },
     "rize": {
@@ -229,8 +229,8 @@
         "createdAt": "Role created"
     },
     "seek": {
-        "args-null": "You need to enter the value in seconds to change the position of the song.",
-        "success": "Song position successfully changed!"
+        "args-null": "you need to enter the value in seconds to change the position of the song.",
+        "success": "song position successfully changed!"
     },
     "serverinfo": {
         "name": "Information of {{name}}",
@@ -250,13 +250,13 @@
     },
     "seticon": {
         "args-null": "I did not find any pictures.",
-        "success": "Server icon changed successfully!"
+        "success": "server icon changed successfully!"
     },
-    "skip": "Music skipped successfully.",
+    "skip": "music skipped successfully.",
     "slap": "{{author}} slapped on {{member}}",
     "slowmode": {
         "args-null": "enter the value in seconds between `0` and `600`",
-        "limit": "The maximum time is `600` seconds",
+        "limit": "the maximum time is `600` seconds",
         "enable": "slowmode successfully activated.",
         "disable": "slowmode successfully disabled.",
         "noNumber": "the value indicated is invalid"
@@ -288,14 +288,14 @@
     },
     "tickle": "{{author}} tickled on {{member}}",
     "unban": {
-        "title": "Undone | {{member}}",
+        "title": "{{member}} | Unbanned",
         "success": "user successfully unbanned.",
         "not-found": "This user is not banned."
     },
     "unmute": {
         "title": "Silence removed | {{member}}",
-        "success": "The user has learned to speak again, I hope it will not do anything else and stop talking ugly things.",
-        "noMuted": "The user is not muted."
+        "success": "the user has learned to speak again, I hope it will not do anything else and stop talking ugly things.",
+        "noMuted": "the user is not muted."
     },
     "userinfo": {
         "title": "{{isBot}} **Information from {{member}}**",
@@ -350,8 +350,8 @@
   },
   "daily": {
     "dailysuccess": "has been deposited `{{total}}` yens to your account.",
-    "hasBeenPicked": "If you have already withdrawn your daily yen, please wait `{{time}}` before you can get it again."
+    "hasBeenPicked": "if you have already withdrawn your daily yen, please wait `{{time}}` before you can get it again."
   },
-    "mc": "enter the nickname of the player.",
+    "mc": "input the nickname of the player.",
     "no-reason": "Uninformed."
 }
