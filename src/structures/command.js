@@ -8,7 +8,7 @@ module.exports = class Command {
             aliases: options.aliases || [],
             UserPermission: options.UserPermission || null,
             ClientPermission: options.ClientPermission || null,
-            OnlyDevs: false,
+            OnlyDevs: options.OnlyDevs || false,
             hidden: false
         }
     }
@@ -20,5 +20,4 @@ module.exports = class Command {
     getT() {
         return this.config.t
     }
-
 }

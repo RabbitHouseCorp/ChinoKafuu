@@ -4,7 +4,7 @@ module.exports = class EvalCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'eval',
-            category: 'Developers',
+            category: 'developers',
             aliases: ['e'],
             UserPermission: null,
             ClientPermission: null,

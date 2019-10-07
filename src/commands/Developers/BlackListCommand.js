@@ -3,7 +3,7 @@ module.exports = class BlackListCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "blacklist",
-			category: "Developers",
+			category: "developers",
 			aliases: ["listanegra"],
 			UserPermission: null,
 			ClientPermission: null,

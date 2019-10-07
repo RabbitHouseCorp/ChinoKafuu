@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const Discord = require("discord.js")
 module.exports = class EmojiCommand extends Command {
     constructor(client) {
         super(client, {

@@ -3,7 +3,7 @@ module.exports = class ChangeAvatarCommand extends Command {
     constructor(client) {
        super(client, {
            name: 'changeavatar',
-           category: 'Developers',
+           category: 'developers',
            aliases: ['alteraravatar'],
            UserPermission: null,
            ClientPermission: null,

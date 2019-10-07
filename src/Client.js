@@ -17,7 +17,18 @@ module.exports = class Chino extends Client {
         this.Discord = require('discord.js')
         this.config = require("../config.json")
     }
-
+    reloadCommand (commandName) {
+        const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
+        if (!command) return false
+        let dir = command.dir
+        this.commands.delete(command.name)
+        delete require.cache[require.resolve(`${dir}`)]
+        const Command = require(`${dir}`)
+        const cmd = new Command(this)
+        cmd.dir = dir
+        this.commands.set(cmd.name, cmd)
+        return true
+    }
     login (token) {
         super.login(token)
         return this
@@ -29,11 +40,12 @@ module.exports = class Chino extends Client {
             files.forEach(category => {
                 readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
                     
-                        cmd.forEach(cmd => {
-                            const command = new(require(`${__dirname}/commands/${category}/${cmd}`))(this);
-                            this.commands.set(command.config.name, command);
-                            command.config.aliases.forEach(a => this.aliases.set(a, command.config.name));
-                        })
+                    cmd.forEach(cmd => {
+                        const command = new(require(`${__dirname}/commands/${category}/${cmd}`))(this);
+                        command.dir = `${__dirname}/commands/${category}/${cmd}`
+                        this.commands.set(command.config.name, command);
+                        command.config.aliases.forEach(a => this.aliases.set(a, command.config.name));
+                    })
                     
                 })
             });
