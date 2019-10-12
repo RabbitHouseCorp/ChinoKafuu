@@ -19,7 +19,7 @@ class Player extends EventEmitter {
     this.repeat = false
   }
   play (query) {
-    return getSongs(this.player.node, `ytsearch:${query}`).then(a => {
+    return getSongs(this.player.node, `scsearch:${query}`).then(a => {
       if (!a[0]) return null
       this._addToQueue(a[0])
       return a[0].info
