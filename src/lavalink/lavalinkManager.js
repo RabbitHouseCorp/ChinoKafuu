@@ -70,6 +70,10 @@ class Player extends EventEmitter {
     this.player.play(track.track)
     return this.emit('playingNow', track)
   }
+
+  shuffle () {
+    this.queue = this.queue.sort(() => Math.random() > 0.5 ? -1 :1)
+  }
 }
 
 module.exports = class LavalinkManager {

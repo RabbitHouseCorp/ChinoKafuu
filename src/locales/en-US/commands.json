@@ -1,4 +1,5 @@
 {
+    "shuffle": "queue successfully shuffled.",
     "addemoji": {
         "success": "successfully added emoji!",
         "error": "I couldn't add this emoji, maybe it's bigger than the size allowed by Discord, I'm sorry for that."
@@ -343,7 +344,8 @@
     "createdBy": "{{clientName}} was created and developed by {{owner}}",
     "dj-module": {
         "channel-null": "you are not on any voice channels.",
-        "another-channel": "You need to be on the same voice channel as me."
+        "another-channel": "You need to be on the same voice channel as me.",
+        "queue-null": "the queue is empty."
     },
   "yen": {
     "totalYens": "you have `{{yens}}` yens"

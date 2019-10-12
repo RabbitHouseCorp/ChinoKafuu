@@ -17,7 +17,7 @@ module.exports = class QueueCommand extends Command {
     execute({message, args, server}, t) {
             
         if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t('commands:dj-module.no-playing'))
-        if (!this.client.player.get(message.guild.id).queue) return message.chinoReply("error", t("commands:dj-module.queue-null"))
+        if (this.client.player.get(message.guild.id).queue.length === 0) return message.chinoReply("error", t("commands:dj-module.queue-null"))
         let number = 1
 
         let queue = this.client.player.get(message.guild.id).queue.map(song => `[**${number++}** | ${song.info.title} - ${moment.duration(song.info.length).format("dd:hh:mm:ss")}](${song.info.uri})`).join('\n')
