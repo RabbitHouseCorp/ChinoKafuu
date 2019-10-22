@@ -6,7 +6,6 @@ module.exports = class PingCommand extends Command {
             name: 'ping',
             category: "Util",
             aliases: [],
-            category: "random",
             UserPermission: null,
             ClientPermission: null,
             OnlyDevs: false,
