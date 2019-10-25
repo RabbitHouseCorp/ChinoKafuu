@@ -36,7 +36,7 @@
     "rep": {
         "no-is-yourself": "você não pode dar reputação para você mesmo.",
         "success": "deu uma reputação para {{member}}, agora {{member}} possui `{{rep}}` reputações",
-        "timeout": "você não pode dar uma repução agora, espere `{{time}}` para poder dar uma reputação novamente."
+        "timeout": "você não pode dar uma reputação agora, espere `{{time}}` para poder dar uma reputação novamente."
     },
     "say": "você precisa me dizer o que eu devo falar.",
     "with-nobody": "Ninguém",
