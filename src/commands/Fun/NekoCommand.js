@@ -15,7 +15,7 @@ module.exports = class NekoCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let img = await neko.sfw.neko()
         const embed = new RichEmbed()
         .setColor(this.client.colors.action)

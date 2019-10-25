@@ -11,7 +11,7 @@ module.exports = class JoinCommand extends Command {
             hidden: false,
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))
         if (message.guild.member(this.client.user).voiceChannel && message.member.voiceChannel != message.guild.member(this.client.user).voiceChannel) return message.chinoReply('error', t('commands:dj-module.another-channel'))

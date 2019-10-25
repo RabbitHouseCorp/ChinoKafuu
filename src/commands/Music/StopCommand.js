@@ -11,7 +11,7 @@ module.exports = class StopCommand extends Command {
             hidden: false,
         })
     } 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         
         if (!this.client.player.has(message.guild.id)) return message.chinoReply('error', t('commands:dj-module.queue-null'))
         if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))

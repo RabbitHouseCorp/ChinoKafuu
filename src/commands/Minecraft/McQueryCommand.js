@@ -11,7 +11,7 @@ module.exports = class McQueryCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const url = `http://mcapi.us/server/status?ip=${args[0]}`
         request(url, function (err, response, body) {

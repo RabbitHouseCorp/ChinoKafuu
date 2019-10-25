@@ -11,7 +11,7 @@ module.exports = class ReportCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
 
         if (server.reportModule == false) return message.chinoReply('error', t('commands:report.disable'))

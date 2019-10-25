@@ -11,7 +11,7 @@ module.exports = class CreateinviteCommand extends Command {
            hidden: true,
        })
    } 
-   async execute({message, args, server}, t) {
+   async run({message, args, server}, t) {
             
         const guild = args.join(' ')
         if (!guild) return message.channel.send(`<:chino_error:545356006629310495> **|** ${message.author} Indique o ID ou nome do servidor que você deseja pegar o convite.`)

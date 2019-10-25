@@ -11,7 +11,7 @@ module.exports = class PrefixCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         if (!args[0]) return message.chinoReply('error', t('commands:prefix.args-null'))
         if (args[0].length > 3) return message.chinoReply('error', t('commands:prefix.limit'))

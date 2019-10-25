@@ -12,7 +12,7 @@ module.exports = class HelpCommand extends Command {
         hidden: false,
     })
   } 
-  execute({message, args, server}, t) {
+  run({message, args, server}, t) {
     let util = this.client.commands.filter(c => c.config.category === "util")
     let mod = this.client.commands.filter(c => c.config.category === 'mod')
     let fun = this.client.commands.filter(c => c.config.category === 'fun')
@@ -20,7 +20,7 @@ module.exports = class HelpCommand extends Command {
     let minecraft = this.client.commands.filter(c => c.config.category === 'minecraft')
     let misc = this.client.commands.filter(c => c.config.category === 'random')
     let image = this.client.commands.filter(c => c.config.category === "image")
-
+    let social = this.client.commands.filter(c => c.config.category === "social")
     const embed = new Discord.RichEmbed()
     embed.setColor(this.client.colors.default)
     embed.setThumbnail(this.client.user.displayAvatarURL)
@@ -31,8 +31,10 @@ module.exports = class HelpCommand extends Command {
     embed.addField(`${t('commands:help.music')} (${music.size})`, music.map(c => `\`${server.prefix}${c.config.name}\``).join(', '))
     embed.addField(`${t('commands:help.minecraft')} (${minecraft.size})`, minecraft.map(c => `\`${server.prefix}${c.config.name}\``).join(', '))
     embed.addField(`${t('commands:help.misc')} (${misc.size})`, misc.map(c => `\`${server.prefix}${c.config.name}\``).join(', '))
+    embed.addField(`${t("commands:help.social")} (${social.size})`, social.map(c => `\`${server.prefix}${c.config.name}\``).join(', '))
     embed.addBlankField(true)
     embed.addField(t('commands:help.addUrl'), t('commands:help.inUrl'))
+
     message.author.send(embed).then(() => {
       message.reply(t('commands:sendDM'))
     }).catch(() => {

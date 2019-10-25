@@ -11,7 +11,7 @@ module.exports = class SetIconCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         let icon = args[0] || message.attachments.first() ? message.attachments.first().url : undefined
         if (!icon || icon === undefined) return message.chinoReply('error', t('commands:seticon.args-null'))
 

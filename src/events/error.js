@@ -3,7 +3,7 @@ module.exports = class Error {
     this.client = client
   }
   
-  execute(err) {
+  run(err) {
     console.log(err.stack)
   }
 }

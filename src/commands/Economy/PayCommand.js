@@ -7,13 +7,12 @@ module.exports = class PayCommand extends Command {
             aliases: ['pagar', "doar"]
         })
     }
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let user = await this.client.database.Users.findById(message.author.id)
         if (!user || user === null) {
-            let novoUser = new this.client.database.Users({
-                '_id': message.author.id
-            })
-            novoUser.save()
+            new this.client.database.Users({
+                _id: message.author.id
+            }).save()
         }
       
         let member = message.mentions.users.first() || this.client.users.get(args[0])
@@ -31,6 +30,6 @@ module.exports = class PayCommand extends Command {
         membro.save()
         donator.save()
 
-        message.chinoReply("money_with_wings", t("commands:pay.success", {member: member, value: value.toLocaleString()}))
+        message.chinoReply("money_with_wings", t("commands:pay.success", {member: member, value: Number(value).toLocaleString()}))
     }
 }

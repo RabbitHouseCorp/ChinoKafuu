@@ -350,8 +350,8 @@
     "totalYens": "você possui `{{yens}}` yens"
   },
   "daily": {
-    "dailysuccess": "foi depositado `{{total}}` yens na sua conta.",
-    "hasBeenPicked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
+    "daily-success": "foi depositado `{{total}}` yens na sua conta.",
+    "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
   },
     "mc": "informe o nick do jogador.",
     "userNoPermission": "você não tem a permissão de `{{perm}}` para poder executar este comando",

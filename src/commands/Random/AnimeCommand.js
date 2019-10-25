@@ -13,7 +13,7 @@ module.exports = class AnimeCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const search = args.join(' ')
         if (!search) return message.channel.send(t('commands:anime.args-null', {author: message.author, emoji: this.client.emotes.error}))

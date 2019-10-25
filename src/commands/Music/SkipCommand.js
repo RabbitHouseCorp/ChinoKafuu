@@ -11,7 +11,7 @@ module.exports = class SkipCommand extends Command {
             hidden: false,
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         if (!this.client.player.has(message.guild.id)) return message.channel.send(t('commands:dj-module.no-playing'))
         if (this.client.player.get(message.guild.id).queue.length === 0) return message.chinoReply("error", t("commands:dj-module.queue-null"))

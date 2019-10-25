@@ -11,7 +11,7 @@ module.exports = class VoteCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         let embed = new this.client.Discord.RichEmbed()
         .setColor(this.client.colors.default)

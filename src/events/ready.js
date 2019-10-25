@@ -5,7 +5,7 @@ module.exports = class {
       this.client = client;
   }
 
-  async execute () {
+  async run () {
 
     const dbl = new DBL(this.client.config.dbltoken, this.client)
     dbl.on("posted", () => {
@@ -21,12 +21,12 @@ module.exports = class {
         {name: `🐦 me siga no twitter: @ChinoKafuuBot`, type: 'PLAYING'},
         {name: `eu fui criada por ${this.client.owner.tag}`, type: 'PLAYING'},
         {name: `me adicione usando ${this.client.config.prefix}convite`, type: 'LISTENING'},
-        {name: `alegria para ${this.client.users.size} usuários!`, type: 'STREAMING', url: 'https://www.twitch.tv/danielagc'},
+        {name: `alegria para ${Number(this.client.users.size).toLocaleString()} usuários!`, type: 'STREAMING', url: 'https://www.twitch.tv/danielagc'},
         {name: `entre em meu servidor de suporte usando ${this.client.config.prefix}ajuda`, type: 'PLAYING'},
         {name: 'Gochuumon Wa Usagi Desu Ka?', type: 'WATCHING'},
         {name: `se encontrou algum bug, use ${this.client.config.prefix}ajuda e avise a minha equipe de desenvolvimento.`, type: "STREAMING", url: "https://www.twitch.tv/danielagc"},
         {name: 'coelhos são fofos, ninguém discorda disso! 🐰', type: 'STREAMING', url: 'https://twitch.tv/danielagc'},
-        {name: `muito amor para ${this.client.users.size} usuários`, type: 'STREAMING', url: 'https://twitch.tv/danielagc'},
+        {name: `muito amor para ${Number(this.client.users.size).toLocaleString()} usuários`, type: 'STREAMING', url: 'https://twitch.tv/danielagc'},
         {name: `café é a minha bebida favorita.`, type: 'PLAYING'}
     ];
       

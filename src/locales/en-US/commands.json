@@ -1,5 +1,25 @@
 {
+    "profile": {
+        "title": "Perfil de {{member}}",
+        "aboutme": "Sobre mim",
+        "user-name": "Usuário",
+        "user-id": "ID do usuário",
+        "marred": "Casado(a) com",
+        "yens": "Yens",
+        "rep": "Reputação",
+        "colors": {
+            "args-null": "você precisa informar cor desejada.",
+            "hex": "você precisa por uma cor em `hex`."
+        }
+    },
+    "aboutme": {
+        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
+        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+    },
     "shuffle": "queue successfully shuffled.",
+    "clap": {
+        "args-null": "você não informou nada para mim falar."
+     },
     "addemoji": {
         "success": "successfully added emoji!",
         "error": "I couldn't add this emoji, maybe it's bigger than the size allowed by Discord, I'm sorry for that."
@@ -163,12 +183,12 @@
         "offline": "The server is offline or does not exist."
     },
     "np": {
-        "waiting": "Collecting information from the current song ...",
+        "waiting": "Collecting information from the current song...",
         "name": "Music title",
         "time": "Music time",
         "volume": "Music volume",
         "url": "Music link",
-        "nowplaying": "Playing now"
+        "nowplaying": "Now playing"
     },
     "pat": "{{author}} pated {{member}}",
     "pause": {
@@ -351,8 +371,8 @@
     "totalYens": "you have `{{yens}}` yens"
   },
   "daily": {
-    "dailysuccess": "has been deposited `{{total}}` yens to your account.",
-    "hasBeenPicked": "if you have already withdrawn your daily yen, please wait `{{time}}` before you can get it again."
+    "daily-success": "has been deposited `{{total}}` yens to your account.",
+    "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
   },
     "mc": "input the nickname of the player.",
     "no-reason": "Uninformed."

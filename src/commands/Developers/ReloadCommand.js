@@ -9,7 +9,7 @@ module.exports = class ReloadCommand extends Command {
         })
     }
 
-    execute({message, args, server}) {
+    run({message, args, server}) {
         let command = args[0]
         let cmd = this.client.reloadCommand(command)
         if (!cmd) return message.chinoReply("error", "comando não encontrado.")

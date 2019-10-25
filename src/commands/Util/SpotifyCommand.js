@@ -11,7 +11,7 @@ module.exports = class SpotifyCommand extends Command {
            	hidden: false,
        	})
    	} 
-   	execute({message, args, server}, t) {
+   	run({message, args, server}, t) {
 			
 		let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
 		if (!member.presence.game) return message.chinoReply('error',t('commands:spotify.userNoListen', {author: message.author, member: member.username}))

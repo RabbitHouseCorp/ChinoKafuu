@@ -11,7 +11,7 @@ module.exports = class VolumeCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         if (!this.client.player.has(message.guild.id)) return message.chinoReply('error', t('commands:dj-module.no-playing'))
         if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))

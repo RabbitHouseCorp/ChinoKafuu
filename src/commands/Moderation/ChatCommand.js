@@ -11,7 +11,7 @@ module.exports = class ChatCommand extends Command {
            hidden: false,
        })
    } 
-  execute({message, args, server}, t) {
+  run({message, args, server}, t) {
         
     let role = message.guild.roles.find(r => r.name === "@everyone")
     switch(args[0]) {

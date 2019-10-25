@@ -11,7 +11,7 @@ module.exports = class UserinfoCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         const moment = require('moment')
     
         moment.locale(server.lang)

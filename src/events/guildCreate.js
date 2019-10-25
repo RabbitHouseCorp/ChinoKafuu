@@ -19,7 +19,7 @@ module.exports = class GuildCreate {
     }
   }
   
-  async execute(guild) {
+  async run(guild) {
 
       let server = await this.client.database.Guilds.findById(guild.id)
 

@@ -11,14 +11,14 @@ module.exports = class InviteCommand extends Command {
            hidden: false,
        })
    } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const embed = new this.client.Discord.RichEmbed()
         .setColor(this.client.colors.default)
         .addField(t('commands:invite.MyInvite'), t('commands:invite.invite', {clientID: this.client.user.id}))
     
         message.author.send(embed).then(() => {
-            message.channel.send(t('commands:sendDM'))
+            message.reply(t('commands:sendDM'))
         }).catch(() => {
             message.chinoReply('error', t('commands:dmClosed'))
         }) 

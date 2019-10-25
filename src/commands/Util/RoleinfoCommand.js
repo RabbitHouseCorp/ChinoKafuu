@@ -14,7 +14,7 @@ module.exports = class RoleinfoCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         moment.locale(server.lang)
         let role = message.mentions.roles.first() || message.guild.roles.get(args[0]) || message.guild.roles.find(r => r.name.includes(args.join(' '))) || message.guild.roles.find(r => r.name === args.join(" "))
         if (!role) return message.chinoReply('error', t('commands:roleinfo.args-null'))

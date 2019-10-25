@@ -14,7 +14,7 @@ module.exports = class PatCommand extends Command {
             hidden: false
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         let tippy = this.client.api.piadas
         let piada = tippy[Math.floor(Math.random() * tippy.length)]

@@ -13,7 +13,7 @@ module.exports = class ServerinfoCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         moment.locale(server.lang)
     
         let voice = message.guild.channels.filter(c => c.type === 'voice').size

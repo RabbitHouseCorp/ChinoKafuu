@@ -12,7 +12,7 @@ module.exports = class EmojiCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         if (!args[0]) return message.chinoReply('error', t('commands:emoji.args-null'))
 	    let emoji = Discord.Util.parseEmoji(args[0]) || message.guild.emojis.find(e => e.name === args.join(' '))

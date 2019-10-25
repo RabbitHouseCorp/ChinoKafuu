@@ -11,7 +11,7 @@ module.exports = class SlowmodeCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const time = args[0]
         if (!time) return message.chinoReply('error', t('commands:slowmode.args-null'))

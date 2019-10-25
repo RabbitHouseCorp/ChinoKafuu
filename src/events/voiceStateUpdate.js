@@ -3,7 +3,7 @@ module.exports = class voiceStateUptade {
     this.client = client
   }
   
-  async execute(oldMember, newMember) {
+  async run(oldMember, newMember) {
     if (this.client.player.get(oldMember.guild.id)) {
       let voiceChannel = this.client.channels.get(this.client.player.get(oldMember.guild.id).player.channel)
       if (voiceChannel.members.size === 1) {

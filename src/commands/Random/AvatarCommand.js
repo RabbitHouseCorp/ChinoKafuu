@@ -11,7 +11,7 @@ module.exports = class AvatarCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         let member = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
         let avatar = member.displayAvatarURL

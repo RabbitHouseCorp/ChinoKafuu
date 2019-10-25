@@ -4,7 +4,6 @@ module.exports = class PingCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'ping',
-            category: "Util",
             aliases: [],
             category: "random",
             UserPermission: null,
@@ -13,7 +12,7 @@ module.exports = class PingCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         let ping = `Ping: \`${Math.round(this.client.ping)}\`ms! | API: \`${Date.now() - message.createdTimestamp}\`ms | Shard: [${this.client.shard.id}/${this.client.shard.count}]`
         switch (args[0]) {
         case "shards":

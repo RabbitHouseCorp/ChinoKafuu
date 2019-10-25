@@ -11,7 +11,7 @@ module.exports = class ClapCommand extends Command {
             hidden: false
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         let clap = args.join(" ").split(" ").join("<a:clap:554482751542132736>")
         if (!clap) return message.chinoReply('error', t('commands:clap.args-null'))
 

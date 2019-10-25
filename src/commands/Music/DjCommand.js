@@ -12,7 +12,7 @@ module.exports = class DJCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const embed = new RichEmbed()
         .setColor(this.client.colors.default)

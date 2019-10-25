@@ -3,7 +3,7 @@ module.exports = class Reconnecting {
     this.client = client
   }
   
-  execute() {
-    console.log("Reconnecting to Discord...")
+  run() {
+    console.log(`Reconnecting to Discord...`)
   }
 }

@@ -15,7 +15,7 @@ module.exports = class NowPlayingCommand extends Command {
         })
     }
 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
 
         if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:dj-module.queue-null"))
         if (!this.client.player.get(message.guild.id).nowPlaying) return message.chinoReply("error", t("commands:dj-module.queue-null"))

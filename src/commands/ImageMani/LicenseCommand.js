@@ -13,7 +13,7 @@ module.exports = class LicencaCommand extends Command {
             hidden: false
         })
     }
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
 
         let user = message.mentions.users.first() || this.client.users.get(args[0]) || message.author
         let canvas = await Canvas.createCanvas(1150, 893)

@@ -12,7 +12,7 @@ module.exports = class LoliCommand extends Command {
             hidden: false
         })
     }
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
 
         let img = this.client.api.loli[Math.floor(Math.random() * this.client.api.dance.length)]
         const embed = new RichEmbed()

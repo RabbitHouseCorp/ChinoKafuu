@@ -1,4 +1,45 @@
 {
+    "profile": {
+        "title": "Perfil de {{member}}",
+        "aboutme": "Sobre mim",
+        "user-name": "Usuário",
+        "user-id": "ID do usuário",
+        "marred": "Casado(a) com",
+        "yens": "Yens",
+        "rep": "Reputação",
+        "colors": {
+            "args-null": "você precisa informar cor desejada.",
+            "hex": "você precisa por uma cor em `hex`."
+        }
+    },
+    "aboutme": {
+        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
+        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+    },
+    "divorce": {
+        "no-marry": "você não está casado(a), se você deseja se casar com o seu amor verdadeiro, então use `{{prefix}}marry` para poder se casar.",
+        "user": "{{member}} precisa de mais `300` yens para poder se divorciar.",
+        "author": "você precisa de `300` yens para poder se divorciar.",
+        "no-divorce": "parece que os oráculos do amor não deixou vocês se separarem, fico feliz que tenham se entendido.",
+        "divorced": "certo, eu chamei os advogados, e ambos pagaram `300` yens pelo divorcio.",
+        "confirm": "{{member}}, você deseja realmente se divorciar de {{author}}?"
+    },
+    "marry": {
+        "you-need": "você precisa de `7500` yens para poder se casar.",
+        "he-or-her-need": "{{member}} precisa de mais `7500` yens para poder se casar.",
+        "your-is-marred": "você já está casado(a).",
+        "he-or-her-is-marred": "{{member}} já é casado(a).",
+        "confirm": "{{member}}, você aceita se casar com {{author}} na saúde e na doença, na riquesa e na pobresa até que a morte os separe?",
+        "successfully-marred": "{{member}}, felicidades para o casal, agora vocês são recém casados.",
+        "rejected": "que pena, parece que {{member}} não deseja compartilhar a vida com você, talvez {{member}} não seja o amor da sua vida, acho que houve um erro dos oráculos do amor."
+    },
+    "rep": {
+        "no-is-yourself": "você não pode dar reputação para você mesmo.",
+        "success": "deu uma reputação para {{member}}, agora {{member}} possui `{{rep}}` reputações",
+        "timeout": "você não pode dar uma repução agora, espere `{{time}}` para poder dar uma reputação novamente."
+    },
+    "say": "você precisa me dizer o que eu devo falar.",
+    "with-nobody": "Ninguém",
     "shuffle": "fila embaralhada com sucesso.",
     "clap": {
         "args-null": "você não informou nada para mim falar."
@@ -135,6 +176,7 @@
         "music": "Músicas",
         "image": "Manipulação de imagens",
         "minecraft": "Minecraft",
+        "social": "Social",
         "addUrl": "Links adicionais",
         "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
@@ -358,8 +400,8 @@
         "user-total": "{{member}} possui `{{yens}}`yens"
     },
     "daily": {
-        "dailysuccess": "foi depositado `{{total}}` yens na sua conta.",
-        "hasBeenPicked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
+        "daily-success": "foi depositado `{{total}}` yens na sua conta.",
+        "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
     "no-reason": "Não informado."

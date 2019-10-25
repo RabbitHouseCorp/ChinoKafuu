@@ -11,7 +11,7 @@ module.exports = class LoopCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         
         if (!this.client.player.has(message.guild.id)) return message.chinoReply("error", t("commands:dj-module.no-playing"))
         if (this.client.player.get(message.guild.id).repeat === false) {

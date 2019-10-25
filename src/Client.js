@@ -59,7 +59,7 @@ module.exports = class Chino extends Client {
             
             files.forEach(em => {
                 const event = new(require(`../${path}/${em}`))(this);
-                super.on(em.split(".")[0], (...args) => event.execute(...args));
+                super.on(em.split(".")[0], (...args) => event.run(...args));
             });
         });
 

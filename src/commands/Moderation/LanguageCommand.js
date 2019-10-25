@@ -11,7 +11,7 @@ module.exports = class LanguageCommand extends Command {
            hidden: false,
        })
    } 
-   execute({message, args, server}, t) {
+   run({message, args, server}, t) {
 
         message.reply(t('commands:language.howLanguage')).then(msg => {
             setTimeout(function() {

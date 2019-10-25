@@ -14,7 +14,7 @@ module.exports = class FoxGirlCommand extends Command {
       hidden: false
     })
   }
-  async execute({message, args, server}, t) {
+  async run({message, args, server}, t) {
     let img = await neko.sfw.foxGirl()
     const embed = new RichEmbed()
     .setColor(this.client.colors.action)

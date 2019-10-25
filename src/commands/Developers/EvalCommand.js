@@ -12,7 +12,7 @@ module.exports = class EvalCommand extends Command {
             hidden: true,
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         try {
             let util = require("util");
             let code = args.join(' ');

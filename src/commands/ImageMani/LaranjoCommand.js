@@ -13,7 +13,7 @@ module.exports = class LaranjoCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let img = jimp.read("https://cdn.discordapp.com/attachments/554048737648050179/610011657632219147/laranjo-meme-cke.jpg")
         if (!args[0]) return message.chinoReply("error", t("commands:laranjo.args-null"))
         img.then(image => {

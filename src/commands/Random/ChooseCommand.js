@@ -11,7 +11,7 @@ module.exports = class ChooseCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         if (!args[0]) return message.chinoReply('error', t('commands:choose.args-null'))
         let choose = args.join(' ').split(', ')

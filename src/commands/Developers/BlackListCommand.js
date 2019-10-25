@@ -11,7 +11,7 @@ module.exports = class BlackListCommand extends Command {
 			hidden: true,
 		})
 	}
-	async execute({message, args, server}, t) {
+	async run({message, args, server}, t) {
 		let user = await this.client.database.Users.findById(args[1])
 		switch(args[0]) {
 			case "add":

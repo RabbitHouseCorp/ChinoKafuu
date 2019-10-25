@@ -1,16 +1,12 @@
-const Database = require("../database.js")
+const { Client } = require("discord.js")
+let client = new Client()
 module.exports = class GuildDelete {
   constructor(client) {
     this.client = client
   }
   
-  async execute(guild) {
-    this.client.database.Guilds.deleteOne({
-      _id: guild.id
-    }, async function (err, server) {
-      server = new this.client.database.Guilds.Guilds({
-        _id: guild.id
-      })
-    })
+  async run(guild) {
+    client = this.client
+    await client.database.Guilds.findByIdAndDelete(guild.id)
   }
 }

@@ -12,7 +12,7 @@ module.exports = class BanCommand extends Command {
             hidden: false,
         })
     }
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
 
         const member = message.mentions.users.first() || this.client.users.get(args[0])
         if (!member) return message.chinoReply('error', t('commands:mention-null'))

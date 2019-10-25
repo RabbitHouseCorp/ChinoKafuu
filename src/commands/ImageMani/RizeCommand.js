@@ -13,7 +13,7 @@ module.exports = class RizeCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let img = jimp.read('https://cdn.discordapp.com/attachments/554048737648050179/591089188464492544/rize_tedeza__gochuumon_wa_usagi_desu_ka___by_sylvestriz_dcdv3a3-pre.png')
         if (!args[0]) return message.chinoReply("error", t("commands:rize.args-null"))
         img.then(image => {

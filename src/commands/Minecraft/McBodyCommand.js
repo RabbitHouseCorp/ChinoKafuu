@@ -11,7 +11,7 @@ module.exports = class McBodyCommand extends Command {
             hidden: false,
         })
     } 
-   execute({message, args, server}, t) {
+   run({message, args, server}, t) {
             
         if (!args[0]) return message.chinoReply('error', t('commands:mc'))
         const body = `https://mc-heads.net/body/${args[0]}`

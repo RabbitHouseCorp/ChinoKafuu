@@ -12,7 +12,7 @@ module.exports = class UnbanCommand extends Command {
       hidden: false,
     })
   } 
-  async execute({message, args, server}, t) {
+  async run({message, args, server}, t) {
         
     if (!args[0]) return message.chinoReply('error', t('commands:mention-null'))
     let member = await message.guild.fetchBans()

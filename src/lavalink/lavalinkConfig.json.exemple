@@ -1,7 +1,9 @@
 {
-  "connection": [{
-      "host": [""],
-      "port": "",
-      "password": ""
-    }]
+  "connection": [
+      {
+        "host": "",
+        "port": "",
+        "password": ""
+      }
+    ]
 }

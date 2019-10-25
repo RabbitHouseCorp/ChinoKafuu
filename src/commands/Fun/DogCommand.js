@@ -14,7 +14,7 @@ module.exports = class DogCommand extends Command {
       hidden: false
     })
   }
-  async execute({message, args, server}, t) {
+  async run({message, args, server}, t) {
     let img = await neko.sfw.woof()
     const embed = new RichEmbed()
     .setColor(this.client.colors.action)

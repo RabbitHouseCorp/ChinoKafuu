@@ -11,24 +11,22 @@ module.exports = class MessageReceive {
         this.config = require('../../config')
     }
 
-    async execute(message) {
+    async run(message) {
 
         if (message.channel.type === 'dm') return;
         if (message.author.bot) return;
 
         let server = await this.client.database.Guilds.findById(message.guild.id)
         if (!server) {
-          let g = new this.client.database.Guilds({
-            '_id': message.guild.id
-          })
-          g.save()
+          this.client.database.Guilds({
+            _id: message.guild.id
+          }).save()
         }
         let user = await this.client.database.Users.findById(message.author.id)
         if (!user || user === null) {
-            let novoUser = new this.client.database.Users({
-                '_id': message.author.id
-            })
-            novoUser.save()
+            this.client.database.Users({
+                _id: message.author.id
+            }).save()
         }
       
 
@@ -135,7 +133,7 @@ module.exports = class MessageReceive {
                         comando.setT(t)
                         new Promise((res, rej) => {
                             message.channel.startTyping()
-                            res(comando.execute({message, args, server}, t))
+                            res(comando.run({message, args, server}, t))
                         }).then(() => message.channel.stopTyping()).catch(err => {
                             message.channel.stopTyping()
                             if (err.stack.length > 1800) {

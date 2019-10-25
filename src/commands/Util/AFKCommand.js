@@ -12,7 +12,7 @@ module.exports = class AFKCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let user = await this.client.database.Users.findById(message.author.id)
         let reason = args.join(" ")
         if (!reason) {

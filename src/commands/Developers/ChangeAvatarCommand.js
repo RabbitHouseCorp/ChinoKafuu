@@ -11,7 +11,7 @@ module.exports = class ChangeAvatarCommand extends Command {
            hidden: true,
        })
    } 
-   execute({message, args, server}, t) {
+   run({message, args, server}, t) {
         
         const avatar = args[0] || message.attachments.first() ? message.attachments.first().url : undefined
         if (!avatar || avatar === undefined) return message.chinoReply('error', t('commands:changeavatar.args-null'))

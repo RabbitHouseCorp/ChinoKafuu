@@ -13,7 +13,7 @@ module.exports = class ChannelInfoCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
             
         let channel = message.mentions.channels.first() || message.guild.channels.get(args[0]) || message.guild.channels.find(c => c.name === args.join(' ')) || message.channel
 

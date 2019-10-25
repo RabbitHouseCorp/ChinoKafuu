@@ -10,7 +10,7 @@ module.exports = class RenameChannelCommand extends Command {
         })
     }
 
-    async execute({message, args, server}, t) {
+    async run({message, args, server}, t) {
         let channel = message.mentions.channels.first() || message.guild.channels.get(args[0])
         if (!channel) return message.chinoReply("error", t("commands:renamechannel.channel-mention-null"))
         let name = args.slice(1).join("\u2006").replace("&", "＆").replace("|", "│") 

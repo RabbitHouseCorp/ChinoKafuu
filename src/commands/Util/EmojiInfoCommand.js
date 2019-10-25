@@ -13,7 +13,7 @@ module.exports = class EmojiinfoCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         moment.locale(server.lang)
     

@@ -7,7 +7,7 @@ module.exports = class ShuffleCommand extends Command {
         })
     }
 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
 
         if (!this.client.player.has(message.guild.id)) return message.chinoReply('error', t('commands:dj-module.queue-null'))
         if (this.client.player.get(message.guild.id).queue.length === 0) return message.chinoReply("error", t("commands:dj-module.queue-null"))

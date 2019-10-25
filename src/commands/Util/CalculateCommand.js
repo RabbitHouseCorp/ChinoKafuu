@@ -12,7 +12,7 @@ module.exports = class CalculateCommand extends Command {
             hidden: false,
         })
     } 
-    execute({message, args, server}, t) {
+    run({message, args, server}, t) {
         
         const pergunta = args.join(" ");
 	    if (!pergunta) return message.chinoReply('error', t('commands:calc.args-null'))
