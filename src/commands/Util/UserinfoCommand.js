@@ -32,7 +32,7 @@ module.exports = class UserinfoCommand extends Command {
         .addField(t('commands:userinfo.status'), status, true)
         .addField(t('commands:userinfo.joinedAt'), message.guild.member(member) ? moment.utc(message.guild.member(member).joinedAt).format('LLLL') : "O usuário não está no servidor", true)
         .addField(t('commands:userinfo.serverComp', {server: guild.size}), (guild.map(g => `\`${g.name}\``).join(", ").length > 1020) ? `${guild.map(g => `\`${g.name}\``).join(", ").substr(0, 1020)}...\`` : guild.map(g => `\`${g.name}\``).join(", "), true)
-        .addField(t('commands:userinfo.createdAt'), moment.utc(member.createdAt).format('LLLL'), true)
+        .addField(t('commands:userinfo.created-at'), moment.utc(member.created-at).format('LLLL'), true)
     
         const page2 = new this.client.Discord.RichEmbed()
         .setColor(color)

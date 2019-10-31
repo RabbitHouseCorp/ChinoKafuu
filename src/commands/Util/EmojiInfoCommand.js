@@ -29,7 +29,7 @@ module.exports = class EmojiinfoCommand extends Command {
         .setThumbnail(emoji.url)
         .addField(t('commands:emojiinfo.name'), `\`${emoji.name} \``, true)
         .addField(t('commands:emojiinfo.id'), `\`${emoji.id}\``, true)
-        .addField(t('commands:emojiinfo.createdAt'), moment.utc(emoji.createdAt).format('LLLL'), true)
+        .addField(t('commands:emojiinfo.created-at'), moment.utc(emoji.created-at).format('LLLL'), true)
         .addField(t('commands:emojiinfo.hisAnimated'), animated, true)
         .addField(t('commands:emojiinfo.mention'), `\`${emoji}\``, true)
         .addField('Download', emoji.url, true)

@@ -57,7 +57,7 @@
         "send": "announcement successfully sent."
     },
     "avatar": {
-        "hisAvatar": "{{member}}'s avatar",
+        "his-avatar": "{{member}}'s avatar",
         "download": "Click [here]({{avatar}}) to download"
     },
     "baka": {
@@ -69,13 +69,13 @@
         "banned": "{{member}} | Banned"
     },
     "botinfo": {
-        "description": "Hi, my name is ** {{clientName}} ** and I'm just another simple bot for the Discord of anime `Gochuumon wa Usagi Desu ka?`.\n\nI was developed in the JavaScript using discord.js, I was created ** {{clientCreatedAt}} **, I joined `{{guildName}}` ** {{clientJoinedAt}} ** and I've been awake for ** {{ clientUptime}} **. \n \nI'm on {{clientGuildSize}} servers and I know {{clientUserSize}} bunnies!",
+        "description": "Hi, my name is ** {{clientName}} ** and I'm just another simple bot for the Discord of anime `Gochuumon wa Usagi Desu ka?`.\n\nI was developed in the JavaScript using discord.js, I was created ** {{clientcreatedAt}} **, I joined `{{guildName}}` ** {{clientJoinedAt}} ** and I've been awake for ** {{ clientUptime}} **. \n \nI'm on {{clientGuildSize}} servers and I know {{clientUserSize}} bunnies!",
         "prefix": "My prefix",
-        "serverSupport": "My server",
+        "server-suport": "My server",
         "twitter": "My twitter",
-        "website": "My website",
-        "serverSupportDesc": "[click here](https://discord.gg/CAm9cSU)",
-        "websiteDesc": "[click here](https://chinokafuu-website.glitch.me)"
+        "github": "GitHub",
+        "server-suport-url": "[click here](https://discord.gg/CAm9cSU)",
+        "github-desc": "[click here](https://github.com/DanielaGC/ChinoKafuu)"
     },
     "calc": {
         "args-null": "you must enter a valid value.",
@@ -97,7 +97,7 @@
         "false": "No",
         "guild": "Guild",
         "category": "Category",
-        "createdAt": "Channel created at"
+        "created-at": "Channel created at"
     },
     "chat": {
         "args-null": "put `on` to enable chat and `off` to disable chat.",
@@ -127,7 +127,7 @@
     "emojiinfo": {
         "name": "Emoji Name",
         "id": "Emoji ID",
-        "createdAt": "Created at",
+        "created-at": "Created at",
         "hisAnimated": "Cheered up",
         "mention": "Mention",
         "animated": "Yes",
@@ -247,7 +247,7 @@
         "mentionable": "Mentionable",
         "true": "Yes",
         "false": "No",
-        "createdAt": "Role created"
+        "created-at": "Role created"
     },
     "seek": {
         "args-null": "you need to enter the value in seconds to change the position of the song.",
@@ -262,7 +262,7 @@
         "guildRegion": "Server's Region",
         "afkChannel": "AFK Channel",
         "noAfkChannel": "No AFK channel",
-        "createdAt": "Server Created At",
+        "created-at": "Server Created At",
         "guildChannel": "Channels ({{totalChannel}})",
         "guildMembers": "Members ({{totalMember}})",
         "roles": "Roles ({{totalRole}})",
@@ -297,7 +297,7 @@
         "discord": "discord.js",
         "uptime": "Time online",
         "memory": "RAM memory",
-        "cpuStatus": "CPU Status",
+        "cpu-status": "CPU Status",
         "system": "System",
         "cpu": "Processor"
     },
@@ -337,7 +337,7 @@
         "isNoNickname": "Has no nickname.",
         "roles": "Roles ({{roles}})",
         "permissions": "Permissions",
-        "createdAt": "Account Created"
+        "created-at": "Account Created"
     },
     "volume": {
         "volume": "successfully changed volume to `{{volume}}/150`.",
@@ -346,7 +346,7 @@
         "minVolume": "the minimum volume is `5`"
     },
     "vote": {
-        "sendDM": "I sent in your private.",
+        "send-dm": "I sent in your private.",
         "voteMsg": "Well, since you want to vote for me, just click [here](https://top.gg/bot/481282441294905344), if you voted, thanks, \n \nIf you need help with my commands, type `{{prefix}} help` that I will send in your private."
     },
     "punishment": {
@@ -358,9 +358,9 @@
         },
         "success": "user successfully punished."
     },
-    "sendDM": "I sent in your private, take a look there.",
+    "send-dm": "I sent in your private, take a look there.",
     "mention-null": "user not found, try to mention it next time.",
-    "dmClosed": "Your direct messages are disabled, I could not send the information there.",
+    "closed-dm": "Your direct messages are disabled, I could not send the information there.",
     "createdBy": "{{clientName}} was created and developed by {{owner}}",
     "dj-module": {
         "channel-null": "you are not on any voice channels.",

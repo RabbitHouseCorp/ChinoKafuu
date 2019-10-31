@@ -1,3 +1,6 @@
+
+
+
 const Command = require("../../structures/command")
 const malScraper = require('mal-scraper');
 

@@ -20,6 +20,6 @@ module.exports = class VoteCommand extends Command {
         .setTimestamp(new Date())
 
         message.author.send(embed)
-        message.chinoReply('peek', t('commands:vote.sendDM', { author: message.author}))
+        message.chinoReply('peek', t('commands:vote.send-dm', { author: message.author}))
     }
 }

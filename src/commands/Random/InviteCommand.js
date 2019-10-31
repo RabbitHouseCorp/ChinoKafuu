@@ -18,9 +18,9 @@ module.exports = class InviteCommand extends Command {
         .addField(t('commands:invite.MyInvite'), t('commands:invite.invite', {clientID: this.client.user.id}))
     
         message.author.send(embed).then(() => {
-            message.reply(t('commands:sendDM'))
+            message.reply(t('commands:send-dm'))
         }).catch(() => {
-            message.chinoReply('error', t('commands:dmClosed'))
+            message.chinoReply('error', t('commands:closed-dm'))
         }) 
     }
 }

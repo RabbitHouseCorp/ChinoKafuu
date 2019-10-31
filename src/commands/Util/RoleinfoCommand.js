@@ -31,7 +31,7 @@ module.exports = class RoleinfoCommand extends Command {
         .addField(t('commands:roleinfo.hoist'), `${role.hoist}`.replace('true',t('commands:roleinfo.true')).replace('false',t('commands:roleinfo.false')), true)
         .addField(t('commands:roleinfo.mentionable'), `${role.mentionable}`.replace('true',t('commands:roleinfo.true')).replace('false',t('commands:roleinfo.false')), true)
         .addField(t('commands:roleinfo.hisBot'), `${role.managed}`.replace('true',t('commands:roleinfo.true')).replace('false',t('commands:roleinfo.false')), true)
-        .addField(t('commands:roleinfo.createdAt'), moment.utc(role.createdAt).format('LLLL'), true)
+        .addField(t('commands:roleinfo.created-at'), moment.utc(role.created-at).format('LLLL'), true)
     
         message.reply(embed)
    }

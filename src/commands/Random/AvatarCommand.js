@@ -24,7 +24,7 @@ module.exports = class AvatarCommand extends Command {
         .setColor(this.client.colors.default)
         .setImage(avatar)
         .setTimestamp()
-        .setFooter(t('commands:avatar.hisAvatar', {member: member.tag}), avatar)
+        .setFooter(t('commands:avatar.his-avatar', {member: member.tag}), avatar)
         .setDescription(t('commands:avatar.download', {avatar: avatar}))
 
         message.channel.send(embed)

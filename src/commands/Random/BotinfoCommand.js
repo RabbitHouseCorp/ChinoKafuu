@@ -1,10 +1,9 @@
-const Command = require("../../structures/command")
-const Discord = require('discord.js')
-const client = new Discord.Client()
+const Command = require("../../structures/command");
+const Discord = require('discord.js');
 const moment = require('moment');
 require("moment-duration-format");
-let os = require('os')
-let cpuStat = require("cpu-stat")
+let os = require('os');
+let cpuStat = require("cpu-stat");
 
 module.exports = class BotinfoCommand extends Command {
     constructor(client) {
@@ -24,12 +23,12 @@ module.exports = class BotinfoCommand extends Command {
             const embed = new Discord.RichEmbed()
             .setColor(color)
             .setThumbnail('https://images-ext-2.discordapp.net/external/gLz09AFgWmMbGyAk42-jFTNhVgpvG7uWDs9beywKDoA/https/cdn.discordapp.com/attachments/549244834721038348/557057944001314826/dchclth-ff495fe4-6a33-4da7-afb7-1fe2d42d7041.png?width=471&height=471')
-            .setDescription(t('commands:botinfo.description', {clientName: client.user.username, clientCreatedAt: moment.utc(client.user.createdAt).format('LLLL'), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format('D[d], H[h], m[m], s[s]'), clientGuildSize: Number(client.guilds.size).toLocaleString(), clientUserSize: Number(client.users.size).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format('LLLL')}))
+            .setDescription(t('commands:botinfo.description', {clientName: client.user.username, clientcreatedAt: moment.utc(client.user.created-at).format('LLLL'), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format('D[d], H[h], m[m], s[s]'), clientGuildSize: Number(client.guilds.size).toLocaleString(), clientUserSize: Number(client.users.size).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format('LLLL')}))
             .setFooter(t('commands:createdBy', {clientName: client.user.username, owner: client.users.get('395788326835322882').tag}), client.users.get('395788326835322882').displayAvatarURL)
             .addField(t('commands:botinfo.prefix'), server.prefix, true)
-            .addField(t('commands:botinfo.website'), t('commands:botinfo.websiteDesc'), true)
+            .addField(t('commands:botinfo.github'), t('commands:botinfo.github-desc'), true)
             .addField(t('commands:botinfo.twitter'), '[@ChinoKafuuBot](https://twitter.com/ChinoKafuuBot)', true)
-            .addField(t('commands:botinfo.serverSupport'), t('commands:botinfo.serverSupportDesc'), true)
+            .addField(t('commands:botinfo.server-suport'), t('commands:botinfo.server-suport-url'), true)
     
             const statusEmbed = new client.Discord.RichEmbed()
             .setColor(color)
@@ -38,7 +37,7 @@ module.exports = class BotinfoCommand extends Command {
             .addField(t('commands:status.discord'), `\`\`\`${Discord.version}\`\`\``,true)
             .addField(t("commands:status.uptime"), `\`\`\`${duration}\`\`\``, true)
             .addField(t("commands:status.memory"), `\`\`\`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB\`\`\``, true)
-            .addField(t("commands:status.cpuStatus"), `\`\`\`${percent.toFixed(2)}%\`\`\``, true)
+            .addField(t("commands:status.cpu-status"), `\`\`\`${percent.toFixed(2)}%\`\`\``, true)
             .addField(t("commands:status.system"), `\`\`\`${os.platform()} ${os.arch()}\`\`\``, true)
             .addField(t("commands:status.cpu"), `\`\`\`${os.cpus().map(i => `${i.model}`)[0]}\`\`\``)
     

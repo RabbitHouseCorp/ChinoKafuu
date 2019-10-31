@@ -36,9 +36,9 @@ module.exports = class HelpCommand extends Command {
     embed.addField(t('commands:help.addUrl'), t('commands:help.inUrl'))
 
     message.author.send(embed).then(() => {
-      message.reply(t('commands:sendDM'))
+      message.reply(t('commands:send-dm'))
     }).catch(() => {
-      message.chinoReply("error", t('commands:dmClosed'))
+      message.chinoReply("error", t('commands:closed-dm'))
     })
   }
 }
