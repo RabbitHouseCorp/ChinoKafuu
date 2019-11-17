@@ -6,7 +6,8 @@ module.exports = class ConfigCommand extends Command {
         super(client, {
             name: "config",
             aliases: ["module", "configurações", "configurar"],
-            category: "util"
+            category: "util",
+            UserPermission: ["MANAGE_GUILD"]
         })
     }
 
