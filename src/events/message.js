@@ -96,17 +96,33 @@ module.exports = class MessageReceive {
                     const args = message.content.slice(server.prefix.length).trim().split(/ +/g);
                     const command = args.shift().toLowerCase()
                     const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
-                    if (user.blacklist) return
+                    
+                    if (user.blacklist) {
+                        const embed = new RichEmbed()
+                        .setColor(this.client.colors.default)
+                        .setAuthor("Você foi banido", message.author.displayAvatarURL)
+                        .setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
+                        .addField("Motivo", user.blacklistReason)
+
+                        message.author.send(embed).catch(err => {
+                            message.channel.send(embed)
+                        })
+
+                        return
+                    }
 
                     if (server.commandNull === true) {
                         if (!comando) return message.chinoReply("error", t("events:command-null"))
+                    } else {
+                        if (!comando) return
                     }
+
                     if (comando.config.OnlyDevs) {
                         if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
                     }
 			        if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)
-                        return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`ms [${t("events:cooldown.milliseconds")}]`)}))
+                        return message.chinoReply("error", t("events:cooldown.message", {time: (time - Date.now() > 1000) ? moment.utc(time - Date.now()).format(`ss [${t("events:cooldown.secounds")}]`) : moment.duration(time - Date.now()).format(`[${t("events:cooldown.milliseconds")}]`)}))
                         
                       }
                       cooldown.set(message.author.id, Date.now() + 5000)

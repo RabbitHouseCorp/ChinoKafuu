@@ -8,6 +8,6 @@
   "cooldown": {
     "message": "calma aí, você precisa esperar `{{time}}` antes de executar outro comando.",
     "secounds": "segundos",
-    "milliseconds": "milisegundos"
+    "milliseconds": "alguns milisegundos"
   }
 }
