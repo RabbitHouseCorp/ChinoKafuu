@@ -12,20 +12,21 @@ module.exports = class YensTopCommand extends Command {
         let usuario = await this.client.database.Users.find({})
         let number = 0
         let users = []
-        usuario.forEach(user => {
+        usuario.filter(user => this.client.users.get(user._id)).forEach(user => {
+            let us = this.client.users.get(user._id)
             users.push({
-                _id: user._id,
+                _id: us.tag,
                 yens: user.yens
             })
         })
         users.sort(function (a, b) {
             return b.yens - a.yens
         })
-        let us = users.map(a => `**${++number} -** ${this.client.users.get(a._id)} - *yens: ${Number(a.yens).toLocaleString()}*`).slice(0, 15)
+        let us = users.map(a => `**${++number} -** \`${a._id}\` - *yens: ${Number(a.yens).toLocaleString()}*`).slice(0, 15)
         const { RichEmbed } = require("discord.js")
         let embed = new RichEmbed()
         .setColor(this.client.colors.default)
-        .setTitle("Pessoas com mais yens")
+        .setTitle(`As ${us.length} pessoas com mais yens`)
         .setDescription(us)
         .setThumbnail(this.client.user.displayAvatarURL)
 

@@ -23,7 +23,7 @@ module.exports = class BotinfoCommand extends Command {
             const embed = new Discord.RichEmbed()
             .setColor(color)
             .setThumbnail('https://images-ext-2.discordapp.net/external/gLz09AFgWmMbGyAk42-jFTNhVgpvG7uWDs9beywKDoA/https/cdn.discordapp.com/attachments/549244834721038348/557057944001314826/dchclth-ff495fe4-6a33-4da7-afb7-1fe2d42d7041.png?width=471&height=471')
-            .setDescription(t('commands:botinfo.description', {clientName: client.user.username, clientcreatedAt: moment.utc(client.user.created-at).format('LLLL'), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format('D[d], H[h], m[m], s[s]'), clientGuildSize: Number(client.guilds.size).toLocaleString(), clientUserSize: Number(client.users.size).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format('LLLL')}))
+            .setDescription(t('commands:botinfo.description', {clientName: client.user.username, clientcreatedAt: moment.utc(client.user.createdAt).format('LLLL'), guildName: message.guild.name, clientUptime: moment.duration(client.uptime).format('D[d], H[h], m[m], s[s]'), clientGuildSize: Number(client.guilds.size).toLocaleString(), clientUserSize: Number(client.users.size).toLocaleString(), clientJoinedAt: moment.utc(message.guild.me.joinedAt).format('LLLL')}))
             .setFooter(t('commands:createdBy', {clientName: client.user.username, owner: client.users.get('395788326835322882').tag}), client.users.get('395788326835322882').displayAvatarURL)
             .addField(t('commands:botinfo.prefix'), server.prefix, true)
             .addField(t('commands:botinfo.github'), t('commands:botinfo.github-desc'), true)

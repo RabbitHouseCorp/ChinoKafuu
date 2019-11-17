@@ -1,4 +1,41 @@
 {
+    "config": {
+        "title": "Configurações de módulos",
+        "how-use": "Como usar",
+        "report": {
+            "title": "Módulo de denúncias",
+            "disable": "módulo de denúncias desativado com sucesso.",
+            "enable": "módulo de denúncias ativado com sucesso e canal de denuncias definido."
+        },
+        "punishment": {
+            "enable": "módulo de moderação ativado com sucesso.",
+            "disable": "módulo de moderação desativado com sucesso.",
+            "title": "Módulo de moderação"
+        },
+        "modules": "Módulos",
+        "config-modules": {
+            "punishment": {
+                "channel": "Canal de moderação",
+                "module": "Módulo de moderação"
+            },
+            "report": {
+                "channel": "Canal de denúncia",
+                "module": "Módulo de denúncia"
+            },
+            "enable": "Ativado",
+            "disable": "Desativado"
+        },
+        "no-channel": "Não definido."
+    },
+    "report": {
+        "success": "denuncia enviada com sucesso.",
+        "memberName": "Usuário",
+        "memberID": "ID do usuário",
+        "authorName": "Denunciado por",
+        "authorID": "ID de quem denunciou",
+        "channel": "Canal",
+        "reason": "Motivo"
+    },
     "profile": {
         "title": "Perfil de {{member}}",
         "aboutme": "Sobre mim",

@@ -33,7 +33,7 @@ module.exports = class ServerinfoCommand extends Command {
         embed.addField(t('commands:serverinfo.guildOwnerID'), message.guild.owner.user.id, true)
         embed.addField(t('commands:serverinfo.guildRegion'), message.guild.region, true)
         embed.addField(t('commands:serverinfo.afkChannel'), `${message.guild.afkChannel}`.replace('null', t('commands:serverinfo.noAfkChannel')), true)
-        embed.addField(t('commands:serverinfo.created-at'), moment.utc(message.guild.created-at).format('LLLL'), true)
+        embed.addField(t('commands:serverinfo.created-at'), moment.utc(message.guild.createdAt).format('LLLL'), true)
     
         const page2 = new this.client.Discord.RichEmbed()
         page2.setAuthor(t('commands:serverinfo.name', {name: message.guild.name}), message.guild.iconURL)

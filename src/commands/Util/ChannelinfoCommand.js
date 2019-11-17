@@ -24,7 +24,7 @@ module.exports = class ChannelInfoCommand extends Command {
         .addField(t('commands:channelinfo.nsfw'), channel.nsfw ? t('commands:channelinfo.true') : t('commands:channelinfo.false'), true)
         .addField(t('commands:channelinfo.guild'), `\`${channel.guild.name}\``, true)
         .addField(t('commands:channelinfo.category'), channel.parent.name, true)
-        .addField(t('commands:channelinfo.created-at'), moment.utc(channel.created-at).format('LLLL'), true)
+        .addField(t('commands:channelinfo.created-at'), moment.utc(channel.createdAt).format('LLLL'), true)
 
         message.channel.send(embed)
     }
