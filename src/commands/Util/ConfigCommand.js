@@ -39,7 +39,9 @@ module.exports = class ConfigCommand extends Command {
         .addField(t("commands:config.modules"), modules.join("\n"))
 
         if (!args[0]) return message.channel.send(embed)
+        if (!["report", "reportar", "punishment", "punições"].some(options => args[0].toLowerCase() === options)) return message.chinoReply("error", t("commands:config.module-not-found"))
         if (["report", "reportar"].includes(args[0].toLowerCase())) {
+            if (!["desativar", "false", "disable", "definir", "set", "add"].some(options => args[1].toLowerCase() === options)) return message.chinoReply("error", t("commands:config.options-not-found"))
             if (["desativar", "false", "disable"].includes(args[1].toLowerCase())) {
                 server.reportModule = false
                 server.channelReport = ""
@@ -62,6 +64,8 @@ module.exports = class ConfigCommand extends Command {
         }
 
         if (["punishment", "punições"].includes(args[0].toLowerCase())) {
+            if (!args[1]) return message.chinoReply("error", t("commands:config.options-not-found"))
+            if (!["desativar", "false", "disable", "definir", "set", "add"].some(options => args[1].toLowerCase() === options)) return message.chinoReply("error", t("commands:config.options-not-found"))
             if (["desativar", "false", "disable"].includes(args[1].toLowerCase())) {
                 server.punishModule = false
                 server.punishChannel = ""

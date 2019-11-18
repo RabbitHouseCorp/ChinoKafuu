@@ -23,7 +23,8 @@ module.exports = class KickCommand extends Command {
 
         if (member.id == message.author.id) return message.chinoReply('error', t('commands:kick.authorKick'))
         if (!message.member(member).kickable) return message.chinoReply('error', t('commands:kick.kickable'))
-
+        if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+        
         const embed = new RichEmbed()
         .setTitle(t('commands:kick.kicked', {member: member.tag}))
         .setColor(this.client.colors.moderation)
@@ -35,6 +36,11 @@ module.exports = class KickCommand extends Command {
 
         message.guild.member(member).kick(reason).then(() => {
             message.channel.send(embed)
+            if (server.punishModule) {
+                message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
+                    message.channel.send(t("events:channel-not-found"))
+                })
+            }
         })
     }
 }

@@ -20,8 +20,10 @@ module.exports = class BanCommand extends Command {
         if (!reason) {
             reason = t("commands:no-reason")
         }
+        
         if (member.id == message.author.id) return message.chinoReply('error', t('commands:ban.banAuthor'))
         if (!message.guild.member(member).bannable) return message.chinoReply('error', t('commands:ban.bannable'))
+        if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
         const embed = new RichEmbed()
         .setTitle(t('commands:ban.banned', {member: member.tag}))
@@ -37,6 +39,12 @@ module.exports = class BanCommand extends Command {
             reason: reason
         }).then(() => {
             message.channel.send(embed)
+
+            if (server.punishModule) {
+                message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
+                    message.channel.send(t("events:channel-not-found"))
+                })
+            }
         })
     }
 }

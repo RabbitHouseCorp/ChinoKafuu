@@ -305,7 +305,8 @@
     "tempmute": {
         "memberEmbedTitle": "You have been muted in {{guild}}",
         "staffName": "Who punished",
-        "reason": "Reason"
+        "reason": "Reason",
+        "title": "Muted | {{member}}"
     },
     "tickle": "{{author}} tickled on {{member}}",
     "unban": {
@@ -314,7 +315,7 @@
         "not-found": "This user is not banned."
     },
     "unmute": {
-        "title": "Silence removed | {{member}}",
+        "title": "Unmuted | {{member}}",
         "success": "the user has learned to speak again, I hope it will not do anything else and stop talking ugly things.",
         "noMuted": "the user is not muted."
     },

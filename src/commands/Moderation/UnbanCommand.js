@@ -34,6 +34,11 @@ module.exports = class UnbanCommand extends Command {
 
     message.guild.unban(ban.id).then(() => {
       message.channel.send(embed)
+      if (server.punishModule) {
+        message.guild.channels.get(server.punishChannel).send(embed).catch(err => {
+          message.channel.send(t("events:channel-not-found"))
+      })
+      }
     })
   }
 }

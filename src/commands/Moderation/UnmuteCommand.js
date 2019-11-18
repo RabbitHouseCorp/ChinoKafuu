@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { RichEmbed } = require("discord.js")
 module.exports = class Unmute extends Command {
   constructor(client) {
     super(client, {
@@ -21,6 +22,9 @@ module.exports = class Unmute extends Command {
     if (!reason) {
       reason = t("commands:no-reason")
     }
+    
+    if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+
     let embed = new RichEmbed()
     .setTitle(t('commands:unmute.title', {member: member.tag}))
     .setColor(this.client.colors.moderation)
@@ -32,6 +36,9 @@ module.exports = class Unmute extends Command {
   
     message.guild.member(member).removeRole(role.id).then(() => {
       message.channel.send(embed)
+      if (server.punishModule) {
+        message.guild.channels.get(server.punishChannel).send(embed)
+      }
     }) 
   }
 }

@@ -7,8 +7,7 @@ const cooldown = new Map()
 require("moment-duration-format")
 module.exports = class MessageReceive {
     constructor(client) {
-        this.client = client;
-        this.config = require('../../config')
+        this.client = client
     }
 
     async run(message) {
@@ -23,7 +22,7 @@ module.exports = class MessageReceive {
           }).save()
         }
         let user = await this.client.database.Users.findById(message.author.id)
-        if (!user || user === null) {
+        if (!user) {
             this.client.database.Users({
                 _id: message.author.id
             }).save()
@@ -53,7 +52,6 @@ module.exports = class MessageReceive {
             }, async (err, f) => {
                 if (f) {
                     if (message.mentions.users.size > 0) {
-                        let number = 1
                         message.mentions.users.forEach(async (member) =>  {
                           if (!member) return
                           let user = await this.client.database.Users.findById(member.id)
@@ -99,15 +97,15 @@ module.exports = class MessageReceive {
                     
                     if (user.blacklist) {
                         const embed = new RichEmbed()
-                        .setColor(this.client.colors.default)
+                        .setColor(this.client.colors.moderation)
                         .setAuthor("Você foi banido", message.author.displayAvatarURL)
                         .setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
                         .addField("Motivo", user.blacklistReason)
+                        .addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${this.client.users.get("395788326835322882").tag} ou entre no meu servidor de suporte.`)
 
                         message.author.send(embed).catch(err => {
                             message.channel.send(embed)
                         })
-
                         return
                     }
 
@@ -118,7 +116,7 @@ module.exports = class MessageReceive {
                     }
 
                     if (comando.config.OnlyDevs) {
-                        if (!this.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
+                        if (!this.client.config.owners.includes(message.author.id)) return message.chinoReply('error', t('permissions:ONLY_DEVS')) 
                     }
 			        if (cooldown.has(message.author.id)) {
                         let time = cooldown.get(message.author.id)

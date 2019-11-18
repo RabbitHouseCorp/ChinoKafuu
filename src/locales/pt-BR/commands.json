@@ -25,7 +25,9 @@
             "enable": "Ativado",
             "disable": "Desativado"
         },
-        "no-channel": "Não definido."
+        "no-channel": "Não definido.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
+        "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
     },
     "report": {
         "success": "denuncia enviada com sucesso.",
@@ -369,7 +371,8 @@
     "tempmute": {
         "memberEmbedTitle": "Você foi silenciado no {{guild}}",
         "staffName": "Quem puniu",
-        "reason": "Motivo"
+        "reason": "Motivo",
+        "title": "Silenciado | {{member}}"
     },
     "tickle": "{{author}} fez cocegas em {{member}}",
     "unban": {
@@ -420,7 +423,8 @@
             "staffName": "Quem puniu",
             "reason": "Motivo"
         },
-        "success": "usuário punido com sucesso."
+        "success": "usuário punido com sucesso.",
+        "unpunished": "você não pode punir este usuário, pois o seu cargo é menor que o dele."
     },
     "send-dm": "enviei no seu privado, dê uma olhada lá.",
     "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",

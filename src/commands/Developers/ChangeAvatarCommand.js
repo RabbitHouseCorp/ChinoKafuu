@@ -4,7 +4,7 @@ module.exports = class ChangeAvatarCommand extends Command {
        super(client, {
            name: 'changeavatar',
            category: 'developers',
-           aliases: ['alteraravatar'],
+           aliases: ['alteraravatar', "setavatar"],
            UserPermission: null,
            ClientPermission: null,
            OnlyDevs: true,
