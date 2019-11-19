@@ -1,4 +1,10 @@
 {
+    "remove": {
+        "args-null": "você precisa informar o número da música que deseja remover da playlist.",
+        "not-number": "você informou algo que não é um número.",
+        "max-and-minimum": "você pode remover até **{{max}}** músicas da playlist.",
+        "removed": "música removida da playlist com sucesso."
+    },
     "config": {
         "title": "Configurações de módulos",
         "how-use": "Como usar",
