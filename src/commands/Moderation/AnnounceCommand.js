@@ -25,13 +25,13 @@ module.exports = class AnnounceCommand extends Command {
         .setFooter(message.guild.name)
 
         message.reply(t('commands:announce.confirmed', {chat: chat})).then(msg => {
-            setInterval(() => {
+            setTimeout(() => {
                 msg.react('✅')
             }, 500)
-            setInterval(() => {
+            setTimeout(() => {
                 msg.react('🌀')
             }, 1000)
-            setInterval(() => {
+            setTimeout(() => {
                 msg.react('❎')
             }, 1500)
             const collector = msg.createReactionCollector((r, u) => (r.emoji.name === '✅', '🌀', '❎') && (u.id !== this.client.user.id && u.id === message.author.id))
