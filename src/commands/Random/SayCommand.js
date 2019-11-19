@@ -16,16 +16,14 @@ module.exports = class SayCommand extends Command {
     let say = args.join(' ');
     if (!args.join(" ")) return message.chinoReply('error', t('commands:say'));
     if (!message.member.hasPermission("MENTION_EVERYONE")) {
-      if (!message.member.hasPermission('MANAGE_MESSAGES')) {
-        message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
-          w.send(args.join(' '), {
-            disableEveryone: false
-          })
-          w.delete()
+      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
+        w.send(args.join(' '), {
+          disableEveryone: false
         })
-      }
+        w.delete()
+      })
         message.channel.send(say,{
-          disableEveryone:false
+          disableEveryone: false
       });
          
     } else {
@@ -37,7 +35,7 @@ module.exports = class SayCommand extends Command {
         w.delete()
       })
       message.channel.send(say, { 
-        disableEveryone:true
+        disableEveryone: true
       })
     }
   }
