@@ -451,5 +451,10 @@
         "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
-    "no-reason": "Não informado."
+    "no-reason": "Não informado.",
+    "restrictemoji": {
+        "no-options": "informe uma opção. Opções disponíveis: `adicionar`, `remover`.",
+        "added-successfully": "emoji restrito com sucesso.",
+        "removed-successfully": "removido a restrição desse emoji com sucesso."
+    }
 }
