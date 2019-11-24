@@ -451,5 +451,11 @@
         "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
-    "no-reason": "Não informado."
+    "no-reason": "Não informado.",
+    "roleColor": {
+        "invalidRole": "cargo inválido!",
+        "invalidHex": "insira uma cor hex válida.",
+        "success": "cor alterada com sucesso.",
+        "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"
+    }
 }
