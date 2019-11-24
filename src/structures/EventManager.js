@@ -12,7 +12,9 @@ module.exports = class EventManager {
   }
 
   remove (name) {
+    if (!this.events.filter(a => a.name === name)[0]) return false
     delete this.events[this.events.findIndex(a => a.name === name)]
+    return true
   }
 
   handleEvent (name, args) {
