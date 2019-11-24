@@ -451,6 +451,7 @@
         "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
+<<<<<<< HEAD
     "no-reason": "Não informado.",
     "roleColor": {
         "invalidRole": "cargo inválido!",
@@ -464,4 +465,7 @@
         "added-successfully": "emoji restrito com sucesso.",
         "removed-successfully": "removido a restrição desse emoji com sucesso."
     }
+=======
+    "no-reason": "Não informado."
+>>>>>>> parent of 0137ecf... Comando de restringir role e funções para ajudar a vida, yay!
 }
