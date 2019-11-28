@@ -22,7 +22,7 @@ module.exports = class Command {
   }
 
   getOption (message, yes = ['adicionar', 'adc', 'add', 'insert'], no = ['remover', 'remove', 'delete', 'deletar']) {
-    const cleanMessage = string.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    const cleanMessage = message.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
     if (yes.filter(a => a === cleanMessage)[0]) return 'yes'
     if (no.filter(a => a === cleanMessage)[0]) return 'no'
     return null
