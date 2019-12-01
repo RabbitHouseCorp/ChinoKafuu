@@ -377,5 +377,11 @@
     "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
   },
     "mc": "input the nickname of the player.",
-    "no-reason": "Uninformed."
+    "no-reason": "Uninformed.",
+    "roleColor": {
+        "invalidRole": "invalid role!",
+        "invalidHex": "invalid hex color.",
+        "success": "successfully changed role's color.",
+        "higherRole": "this role is higher than mine, I can't change it's color!"
+    }
 }
