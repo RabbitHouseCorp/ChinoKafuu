@@ -20,7 +20,7 @@ module.exports = class AnnounceCommand extends Command {
 
         const embed = new this.client.Discord.RichEmbed()
         .setColor(this.client.colors.default)
-        .setAuthor(t('commands:anunciar.by'))
+        .setAuthor(t('commands:announce.by'))
         .setDescription(announce)
         .setFooter(message.guild.name)
 
