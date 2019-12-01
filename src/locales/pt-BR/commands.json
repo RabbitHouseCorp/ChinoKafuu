@@ -125,7 +125,8 @@
         "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
         "noMsg": "você não argumentou nada para mim enviar, favor, indique o que deseja enviar.",
         "confirmed": "aviso, você está preste a mandar um anúncio no {{chat}}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
-        "send": "anúncio enviado com sucesso."
+        "send": "anúncio enviado com sucesso.",
+        "by": "Anunciado por {{member}}"
     },
     "avatar": {
         "his-avatar": "Avatar de {{member}}",
@@ -451,21 +452,16 @@
         "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
-<<<<<<< HEAD
-    "no-reason": "Não informado.",
     "roleColor": {
         "invalidRole": "cargo inválido!",
         "invalidHex": "insira uma cor hex válida.",
         "success": "cor alterada com sucesso.",
         "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"
-    }
+    },
     "no-reason": "Não informado.",
     "restrictemoji": {
         "no-options": "informe uma opção. Opções disponíveis: `adicionar`, `remover`.",
         "added-successfully": "emoji restrito com sucesso.",
         "removed-successfully": "removido a restrição desse emoji com sucesso."
     }
-=======
-    "no-reason": "Não informado."
->>>>>>> parent of 0137ecf... Comando de restringir role e funções para ajudar a vida, yay!
 }
