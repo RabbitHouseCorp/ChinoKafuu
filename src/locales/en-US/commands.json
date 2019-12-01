@@ -54,7 +54,8 @@
         "noMention": "you need to indicate which chat you want me to send the announcement.",
         "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
         "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the ✅. \nTo mention`@here`, click the 🌀.\nTo mention anyone, click on ❎",
-        "send": "announcement successfully sent."
+        "send": "announcement successfully sent.",
+        "by": "Annouced by: {{member}}"
     },
     "avatar": {
         "his-avatar": "{{member}}'s avatar",
