@@ -1,24 +1,24 @@
 {
     "profile": {
-        "title": "Perfil de {{member}}",
-        "aboutme": "Sobre mim",
-        "user-name": "Usuário",
-        "user-id": "ID do usuário",
-        "marred": "Casado(a) com",
+        "title": "{{member}}' profile",
+        "aboutme": "About me",
+        "user-name": "User",
+        "user-id": "User ID",
+        "marred": "Married with",
         "yens": "Yens",
-        "rep": "Reputação",
+        "rep": "Reputation",
         "colors": {
-            "args-null": "você precisa informar cor desejada.",
-            "hex": "você precisa por uma cor em `hex`."
+            "args-null": "argue the desired color",
+            "hex": "your color must be a `hex` color."
         }
     },
     "aboutme": {
-        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
-        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+        "args-null": "argue something to change your aboutme",
+        "success": "successfully changed your aboutme to `{{aboutme}}`."
     },
     "shuffle": "queue successfully shuffled.",
     "clap": {
-        "args-null": "você não informou nada para mim falar."
+        "args-null": "argue something to say."
      },
     "addemoji": {
         "success": "successfully added emoji!",
@@ -54,7 +54,8 @@
         "noMention": "you need to indicate which chat you want me to send the announcement.",
         "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
         "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the ✅. \nTo mention`@here`, click the 🌀.\nTo mention anyone, click on ❎",
-        "send": "announcement successfully sent."
+        "send": "announcement successfully sent.",
+        "by": "Annouced by: {{member}}"
     },
     "avatar": {
         "his-avatar": "{{member}}'s avatar",

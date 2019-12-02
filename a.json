@@ -125,8 +125,7 @@
         "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
         "noMsg": "você não argumentou nada para mim enviar, favor, indique o que deseja enviar.",
         "confirmed": "aviso, você está preste a mandar um anúncio no {{chat}}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
-        "send": "anúncio enviado com sucesso.",
-        "by": "Anunciado por {{member}}"
+        "send": "anúncio enviado com sucesso."
     },
     "avatar": {
         "his-avatar": "Avatar de {{member}}",
