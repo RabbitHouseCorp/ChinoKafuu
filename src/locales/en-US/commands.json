@@ -1,24 +1,24 @@
 {
     "profile": {
-        "title": "Perfil de {{member}}",
-        "aboutme": "Sobre mim",
-        "user-name": "Usuário",
-        "user-id": "ID do usuário",
-        "marred": "Casado(a) com",
+        "title": "{{member}}' profile",
+        "aboutme": "About me",
+        "user-name": "User",
+        "user-id": "User ID",
+        "marred": "Married with",
         "yens": "Yens",
-        "rep": "Reputação",
+        "rep": "Reputation",
         "colors": {
-            "args-null": "você precisa informar cor desejada.",
-            "hex": "você precisa por uma cor em `hex`."
+            "args-null": "argue the desired color",
+            "hex": "your color must be a `hex` color."
         }
     },
     "aboutme": {
-        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
-        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
+        "args-null": "argue something to change your aboutme",
+        "success": "successfully changed your aboutme to `{{aboutme}}`."
     },
     "shuffle": "queue successfully shuffled.",
     "clap": {
-        "args-null": "você não informou nada para mim falar."
+        "args-null": "argue something to say."
      },
     "addemoji": {
         "success": "successfully added emoji!",
