@@ -21,7 +21,7 @@ module.exports = class BanCommand extends Command {
             reason = t("commands:no-reason")
         }
         
-        if (member.id === message.author.id) return message.chinoReply('error', t('commands:ban.banAuthor'))
+        if (member.id == message.author.id) return message.chinoReply('error', t('commands:ban.banAuthor'))
         if (!message.guild.member(member).bannable) return message.chinoReply('error', t('commands:ban.bannable'))
         if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
