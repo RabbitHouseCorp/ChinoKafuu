@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
+const { RichEmbed } = require("discord.js")
 module.exports = class DanceCommand extends Command {
 	constructor (client) {
 		super (client, {
@@ -17,7 +17,7 @@ module.exports = class DanceCommand extends Command {
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let api = this.client.api.dance
 		let img = api[Math.floor(Math.random() * api.length)]
-		const embed = new MessageEmbed()
+		const embed = new RichEmbed()
 			.setColor(this.client.colors.action)
 			.setImage(img)
 			.setDescription(t("commands:dance", {author: message.author.toString(), member: member.toString()}))
