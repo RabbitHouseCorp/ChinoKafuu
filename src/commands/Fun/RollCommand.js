@@ -12,7 +12,7 @@ class RollCommand extends Command {
   }
   async run ({message, args}, t) {
     let numbers = ["1, 2, 3, 4, 5, 6"]
-    let result = number[Math.floor(Math.random()*numbers.length)]
+    let result = numbers[Math.floor(Math.random()*numbers.length)]
     message.channel.send("🎲 | " + result)
   }
 }
