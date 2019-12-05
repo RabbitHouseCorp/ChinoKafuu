@@ -13,6 +13,6 @@ class RollCommand extends Command {
    run ({message, args}, t) {
     let numbers = ["1, 2, 3, 4, 5, 6"]
     let result = numbers[Math.floor(Math.random()*numbers.length)]
-    message.channel.send("🎲 | " + result)
+    message.chinoReply("die", result)
   }
 }
