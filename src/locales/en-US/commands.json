@@ -19,7 +19,7 @@
     "shuffle": "queue successfully shuffled.",
     "clap": {
         "args-null": "argue something to say."
-     },
+    },
     "addemoji": {
         "success": "successfully added emoji!",
         "error": "I couldn't add this emoji, maybe it's bigger than the size allowed by Discord, I'm sorry for that."
@@ -154,7 +154,7 @@
         "addUrl": "Additional Links",
         "inUrl": "[My invite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote for me](https://top.gg/bot/481282441294905344)|[My server](https://discord.gg/CAm9cSU)"
     },
-    "hug":"{{author}} gave a very nice hug in {{member}}",
+    "hug": "{{author}} gave a very nice hug in {{member}}",
     "invite": {
         "MyInvite": "Invite",
         "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://top.gg/bot/481282441294905344)"
@@ -369,13 +369,13 @@
         "another-channel": "You need to be on the same voice channel as me.",
         "queue-null": "the queue is empty."
     },
-  "yen": {
-    "totalYens": "you have `{{yens}}` yens"
-  },
-  "daily": {
-    "daily-success": "has been deposited `{{total}}` yens to your account.",
-    "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
-  },
+    "yen": {
+        "totalYens": "you have `{{yens}}` yens"
+    },
+    "daily": {
+        "daily-success": "has been deposited `{{total}}` yens to your account.",
+        "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
+    },
     "mc": "input the nickname of the player.",
     "no-reason": "Uninformed.",
     "roleColor": {
@@ -383,5 +383,12 @@
         "invalidHex": "invalid hex color.",
         "success": "successfully changed role's color.",
         "higherRole": "this role is higher than mine, I can't change it's color!"
+    },
+    "blacklist": {
+        "addSuccess": "the user was successfully banned.",
+        "removeSuccess": "the user was successfully unbanned.",
+        "userNotFound": "user not found, try entering the ID next time.",
+        "invalidOption": "you need to choose between `add`,` remove` and `view`.",
+        "info": "==USER INFO==\n\n• User :: {{ username }} - {{ userId }}\n• Banned  :: {{ banned }}\n• Reason  :: {{ reason }}"
     }
 }

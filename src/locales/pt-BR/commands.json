@@ -88,7 +88,7 @@
     "shuffle": "fila embaralhada com sucesso.",
     "clap": {
         "args-null": "você não informou nada para mim falar."
-     },
+    },
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
         "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
@@ -226,7 +226,7 @@
         "addUrl": "Links adicionais",
         "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
-    "hug":"{{author}} deu um abraço bem gostoso em {{member}}",
+    "hug": "{{author}} deu um abraço bem gostoso em {{member}}",
     "invite": {
         "MyInvite": "Convite",
         "invite": "Você quer me convidar para outros servidores/guilds do Discord? Então clique [aqui](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344)"
@@ -463,5 +463,12 @@
         "no-options": "informe uma opção. Opções disponíveis: `adicionar`, `remover`.",
         "added-successfully": "emoji restrito com sucesso.",
         "removed-successfully": "removido a restrição desse emoji com sucesso."
+    },
+    "blacklist": {
+        "addSuccess": "usuário banido com sucesso.",
+        "removeSuccess": "usuário desbanido com sucesso.",
+        "userNotFound": "usuário não encontrado, tente informar o ID da próxima vez.",
+        "invalidOption": "você precisa escolher entre `add`, `remove` e `view`.",
+        "info": "==INFORMAÇÕES DO USUÁRIO==\n\n• Usuário :: {{ username }} - {{ userId }}\n• Banido  :: {{ banned }}\n• Motivo  :: {{ reason }}"
     }
 }
