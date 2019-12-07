@@ -390,5 +390,10 @@
         "userNotFound": "user not found, try entering the ID next time.",
         "invalidOption": "you need to choose between `add`,` remove` and `view`.",
         "info": "==USER INFO==\n\n• User :: {{ username }} - {{ userId }}\n• Banned  :: {{ banned }}\n• Reason  :: {{ reason }}"
+    },
+    "createInvite": {
+        "unknownGuild": "Enter the ID or name of the server you wish to take the invitation from.",
+        "withoutPermission": "I do not have permission to create invitations on this server.",
+        "success": "Here is the invitation: {{ invite }}"
     }
 }
