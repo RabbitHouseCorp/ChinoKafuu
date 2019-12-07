@@ -395,5 +395,9 @@
         "unknownGuild": "Enter the ID or name of the server you wish to take the invitation from.",
         "withoutPermission": "I do not have permission to create invitations on this server.",
         "success": "Here is the invitation: {{ invite }}"
+    },
+    "reload": {
+        "commandNotFound": "command not found.",
+        "success": "command reloaded successfully!"
     }
 }

@@ -475,5 +475,9 @@
         "unknownGuild": "Indique o ID ou nome do servidor que você deseja pegar o convite.",
         "withoutPermission": "Eu não tenho permissão para criar convites neste servidor.",
         "success": "Aqui está o convite: {{ invite }}"
+    },
+    "reload": {
+        "commandNotFound": "comando não encontrado.",
+        "success": "comando recarregado com sucesso!"
     }
 }

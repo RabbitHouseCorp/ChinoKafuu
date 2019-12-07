@@ -5,14 +5,16 @@ module.exports = class ReloadCommand extends Command {
             name: "reload",
             aliases: ["recarregar", "r"],
             category: "developers",
-            OnlyDevs: true
+            OnlyDevs: false
         })
     }
 
-    run({message, args, server}) {
-        let command = args[0]
-        let cmd = this.client.reloadCommand(command)
-        if (!cmd) return message.chinoReply("error", "comando não encontrado.")
-        message.chinoReply("success", "comando recarregado com sucesso!")
+    run({ message, args, server }, t) {
+        const command = args[0]
+        const cmd = this.client.reloadCommand(command)
+
+        if (!cmd) return message.chinoReply("error", t('commands:reload.commandNotFound'))
+
+        message.chinoReply("success", t('commands:reload.success'))
     }
 }
