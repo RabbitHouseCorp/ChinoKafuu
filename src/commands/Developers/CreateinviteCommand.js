@@ -7,7 +7,7 @@ module.exports = class CreateinviteCommand extends Command {
             aliases: ['criarconvite'],
             UserPermission: null,
             ClientPermission: null,
-            OnlyDevs: false,
+            OnlyDevs: true,
             hidden: true,
         })
     }
