@@ -12,7 +12,8 @@ module.exports = class ClapCommand extends Command {
         })
     }
     run({message, args, server}, t) {
-        let clap = args.join(" ").split(" ").join("<a:clap:554482751542132736>")
+        let clap = args.join(" ").split(" ").join(this.client.emotes.clap)
+        
         if (!clap) return message.chinoReply('error', t('commands:clap.args-null'))
 
         if (message.member.hasPermission('MENTION_EVERYONE')) {

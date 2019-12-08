@@ -18,7 +18,7 @@ module.exports = class FoxGirlCommand extends Command {
     let img = await neko.sfw.foxGirl()
     const embed = new RichEmbed()
     .setColor(this.client.colors.action)
-    .setDescription('<:FoxHey:586743909066211328>')
+    .setDescription(this.client.emotes.fox_hey)
     .setImage(img.url)
 
     message.channel.send(embed)
