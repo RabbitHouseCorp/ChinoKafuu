@@ -19,6 +19,7 @@ module.exports = class ResumeCommand extends Command {
         if (!message.member.voiceChannel) return message.chinoReply('error', t('commands:dj-module.channel-null'))
         if (message.guild.me.voiceChannel && message.member.voiceChannel !== message.guild.me.voiceChannel) return message.chinoReply('error', t('commands:dj-module.another-channel'))
 
-        message.chinoReply('success', t('commands:resume.playing')).then(this.client.player.get(message.guild.id).player.resume())
+        message.chinoReply('success', t('commands:resume.playing'))
+        this.client.player.get(message.guild.id).player.resume()
     }
 }
