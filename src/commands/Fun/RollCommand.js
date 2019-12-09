@@ -2,17 +2,19 @@ const Command = require("../../structures/command.js")
 
 class RollCommand extends Command {
   constructor(client) {
-    super(clent, {
+    super(client, {
       name: "roll",
       category: "fun",
-      aliases: ["rolldie', 'die"],
+      aliases: ["rolldice', 'dice"],
       UserPermission: null,
       ClientPermission: null
     })
   }
-   run ({message, args}, t) {
-    let numbers = ["1, 2, 3, 4, 5, 6"]
-    let result = numbers[Math.floor(Math.random()*numbers.length)]
-    message.chinoReply("die", result)
+  run({ message, args }, t) {
+    const numbers = [1, 2, 3, 4, 5, 6]
+    const result = numbers[Math.floor(Math.random() * numbers.length)]
+    message.chinoReply("dice", result)
   }
 }
+
+module.exports = RollCommand;
