@@ -1,0 +1,15 @@
+name: Warn
+
+on: 
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  warn:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        pr-message: 'Obrigado por contribuir com a Chino kafuu! Por favor, peço que refaça esse Pull Request para a branch **upcoming**. Tenha um ótimo dia.'
