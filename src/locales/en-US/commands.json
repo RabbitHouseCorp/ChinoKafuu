@@ -397,7 +397,10 @@
         "success": "Here is the invitation: {{ invite }}"
     },
     "reload": {
-        "commandNotFound": "command not found.",
+        "invalidOption": "give me a valid option. Available options: `event`,` command`.",
+        "invalidCommand": "give me a command/event to reload.",
+        "failure": "{{ type }} reload failed .Stack:\n ```js {{ rst  }} ```",
+        "nonExistent": "{{ type }} nonexistend.",
         "success": "command reloaded successfully!"
     }
 }

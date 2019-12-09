@@ -370,7 +370,10 @@
         "success": "Aqui está o convite: {{ invite }}"
     },
     "reload": {
-        "commandNotFound": "comando não encontrado.",
+        "invalidOption": "'me dê uma opção válida. Opções disponíveis: `evento`, `comando`'",
+        "invalidCommand": "me dê um comando/evento para recarregar.",
+        "failure": "falha no recarregamento do {{ type }}.Stack:\n ```js {{ rst  }} ```",
+        "nonExistent": "{{ type }} inexistente.",
         "success": "comando recarregado com sucesso!"
     }
 }
