@@ -392,9 +392,9 @@
         "info": "==USER INFO==\n\n• User :: {{ username }} - {{ userId }}\n• Banned  :: {{ banned }}\n• Reason  :: {{ reason }}"
     },
     "createInvite": {
-        "unknownGuild": "Enter the ID or name of the server you wish to take the invitation from.",
-        "withoutPermission": "I do not have permission to create invitations on this server.",
-        "success": "Here is the invitation: {{ invite }}"
+        "unknownGuild": "Enter the ID or the name of the server you wish to take the invite from.",
+        "withoutPermission": "I do not have permission to create invites on this server.",
+        "success": "Here is the invite: {{ invite }}"
     },
     "reload": {
         "invalidOption": "give me a valid option. Available options: `event`,` command`.",
