@@ -35,12 +35,12 @@ module.exports = class Chino extends Client {
         }
     }
     reloadEvent (eventName) {
-        const event = this.events.events.includes(eventName)
+        const event = this.events.events.filter(a => a.name === eventName)[0]
         if (!event) return false
 
         const dir = `./events/${eventName}.js`
         const status = this.events.remove(eventName)
-        if (!status) return status
+        if (!status) return false
         delete require.cache[require.resolve(`${dir}`)]
         try {
             const Event = require(`${dir}`)
