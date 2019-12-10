@@ -12,9 +12,9 @@ const TIME_CACHE_MINUTES = 15;
 class ExchangeApi {
   constructor() {
     this._url = 'https://api.exchangeratesapi.io';
-    
+
     this._cache = {};
-    
+
     // 15 minutes
     this.MAX_AGE = TIME_CACHE_MINUTES * 60 * 1000;
   }
@@ -35,9 +35,9 @@ class ExchangeApi {
    * @returns boolean true caso for válido e false caso expirado
    */
   _isCacheValid(cachedValue) {
-    return cachedValue 
-            && cachedValue.timestamp
-            && new Date().getTime() - cachedValue.timestamp  > 0;
+    return cachedValue
+      && cachedValue.timestamp
+      && new Date().getTime() - cachedValue.timestamp < this.MAX_AGE;
   }
 
   /**
@@ -64,7 +64,7 @@ class ExchangeApi {
 
     if (!this._isValidRate(from)) {
       throw new InvalidArgumentError(from);
-    } 
+    }
     if (!this._isValidRate(to)) {
       throw new InvalidArgumentError(to);
     }
@@ -76,6 +76,7 @@ class ExchangeApi {
 
     if (this._isCacheValid(cached)) {
       data = { ...cached, isCached: true };
+      console.log(new Date().getTime() - cached.timestamp) ;
     } else {
       const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
       data = await res.json();
