@@ -1,8 +1,14 @@
 const fetch = require('node-fetch');
 const InvalidArgumentError = require('../error/invalidArgumentError');
 
+/**
+ * tempo em minutos para persistencia dos dados de conversão monetária em cache
+ */
 const TIME_CACHE_MINUTES = 15;
 
+/**
+ * classe utilizada para fazer requisições de valores para conversões monetárias
+ */
 class ExchangeApi {
   constructor() {
     this._url = 'https://api.exchangeratesapi.io';
@@ -13,6 +19,9 @@ class ExchangeApi {
     this.MAX_AGE = TIME_CACHE_MINUTES * 60 * 1000;
   }
 
+  /**
+   * @returns instância da classe ExchangeApi para realização das consultas
+   */
   static getInstance() {
     if (!this._instance) {
       this._instance = new ExchangeApi();
@@ -20,17 +29,35 @@ class ExchangeApi {
     return this._instance;
   }
 
+  /**
+   * verifica se o valor guardado na cache é válido
+   * @param {object} cachedValue valor guardado na cache
+   * @returns boolean true caso for válido e false caso expirado
+   */
   _isCacheValid(cachedValue) {
     return cachedValue 
             && cachedValue.timestamp
             && new Date().getTime() - cachedValue.timestamp  > 0;
   }
 
+  /**
+   * verifica se a chave que será utilizada é válida na API
+   * @param {string} rate base para a conversão monetária
+   */
   _isValidRate(rate) {
     return ExchangeApi.ACCEPTED_RATES.includes(rate);
   }
 
-  async getCurrency(from, to) {
+  /**
+   * realiza uma requisição à api exchangeratesapi
+   * 
+   * @param {string} from moeda base para a consulta
+   * @param {string} to moeda alvo para a consulta
+   * 
+   * @returns os valores atuais
+   * @throws InvalidArgumentError no caso de algum dos parâmetros não for suportado pela API
+   */
+  async getExchange(from, to) {
     const key = `${from}-${to}`;
     const cached = this._cache[key];
     let data;
@@ -56,6 +83,9 @@ class ExchangeApi {
 
 }
 
+/**
+ * valores aceitos pela API exchangeratesapi
+ */
 ExchangeApi.ACCEPTED_RATES = [
   'CAD',
   'HKD',

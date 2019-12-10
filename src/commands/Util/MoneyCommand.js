@@ -37,7 +37,7 @@ class LeaveCommand extends Command {
     to = to.toUpperCase();
 
     try {
-      const res = await ExchangeApi.getInstance().getCurrency(from.toUpperCase(), to.toUpperCase());
+      const res = await ExchangeApi.getInstance().getExchange(from.toUpperCase(), to.toUpperCase());
       const total = (res.rates[to] * parseFloat(ammount)).toFixed(2);
 
       message.chinoReply('success', moneybag + ' ' + t('commands:money.success', { from, to, ammount, total }));
