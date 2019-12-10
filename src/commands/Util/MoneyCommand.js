@@ -14,6 +14,7 @@ class LeaveCommand extends Command {
       hidden: false,
     })
   }
+
   async run({ message, args, server }, t) {
     let [from, to, ammount = 1] = args;
 

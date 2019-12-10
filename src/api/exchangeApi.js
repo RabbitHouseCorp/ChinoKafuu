@@ -76,7 +76,6 @@ class ExchangeApi {
 
     if (this._isCacheValid(cached)) {
       data = { ...cached, isCached: true };
-      console.log(new Date().getTime() - cached.timestamp) ;
     } else {
       const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
       data = await res.json();
