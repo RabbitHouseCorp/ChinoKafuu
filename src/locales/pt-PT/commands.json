@@ -375,5 +375,11 @@
         "failure": "falha no recarregamento do {{ type }}.Stack:\n ```js {{ rst  }} ```",
         "nonExistent": "{{ type }} inexistente.",
         "success": "comando recarregado com sucesso!"
+    },
+    "money": {
+        "invalidOptions": "comando inválido!\n**Uso correto:**\t{{ prefix }}{{ name }} {de} {para} [quantidade]\n**Exemplo:**\t\t  {{ prefix }}{{ name }} BRL USD 1",
+        "invalidValue": "senpai por favor informe um valor correto!",
+        "invalidArgument":"argumento inválido: {{ arg }}",
+        "success": "{{ ammount }} **{{ from }}** para **{{ to }}** = **{{ total }}**"
     }
 }
