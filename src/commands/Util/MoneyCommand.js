@@ -39,7 +39,7 @@ class LeaveCommand extends Command {
     try {
       const res = await ExchangeApi.getInstance().getExchange(from.toUpperCase(), to.toUpperCase());
       const total = (res.rates[to] * parseFloat(ammount)).toFixed(2);
-      const totalFormated = Intl.NumberFormat('pt-BR', { style: 'currency', currency: to}).format(total)
+      const totalFormated = Intl.NumberFormat('pt-BR', { style: 'currency', currency: to}).format(total);
 
       message.chinoReply('success', moneybag + ' ' + t('commands:money.success', { from, to, ammount, total: totalFormated }));
     } catch (err) {

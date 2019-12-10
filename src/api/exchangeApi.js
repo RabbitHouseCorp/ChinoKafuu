@@ -69,6 +69,11 @@ class ExchangeApi {
       throw new InvalidArgumentError(to);
     }
 
+    // anti troll
+    if (from === to) {
+      data = { rates: { [`${to}`]: 1 } };
+    }
+
     if (this._isCacheValid(cached)) {
       data = { ...cached, isCached: true };
     } else {
