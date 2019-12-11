@@ -2,7 +2,7 @@ const Command = require("../../structures/command");
 const ExchangeApi = require('../../api/exchangeApi');
 const InvalidArgumentError = require('../../error/invalidArgumentError');
 
-class LeaveCommand extends Command {
+class MoneyCommand extends Command {
   constructor(client) {
     super(client, {
       name: 'money',
@@ -51,4 +51,4 @@ class LeaveCommand extends Command {
   }
 }
 
-module.exports = LeaveCommand;
+module.exports = MoneyCommand;
