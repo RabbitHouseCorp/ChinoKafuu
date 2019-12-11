@@ -402,5 +402,11 @@
         "failure": "{{ type }} reload failed .Stack:\n ```js {{ rst  }} ```",
         "nonExistent": "{{ type }} nonexistend.",
         "success": "command reloaded successfully!"
+    },
+    "money": {
+        "invalidOptions": "invalid command!\n**Correct usage:**\t{{ prefix }}{{ name }} {from} {to} [ammount]\n**Example:**\t\t  {{ prefix }}{{ name }} BRL USD 1",
+        "invalidValue": "please give me a correct value!",
+        "invalidArgument":"invalid argument: {{ arg }}",
+        "success": "{{ ammount }} **{{ from }}** to **{{ to }}** = **{{ total }}**"
     }
 }
