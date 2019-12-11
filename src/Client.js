@@ -52,8 +52,7 @@ module.exports = class Chino extends Client {
         }
     }
     login (token) {
-        super.login(token)
-        return this
+        return super.login(token)
     }
 
     loadCommands(path) {
@@ -61,7 +60,6 @@ module.exports = class Chino extends Client {
             if (err) console.error(err);
             files.forEach(category => {
                 readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
-                    
                     cmd.forEach(cmd => {
                         const command = new(require(`${__dirname}/commands/${category}/${cmd}`))(this);
                         command.dir = `${__dirname}/commands/${category}/${cmd}`
