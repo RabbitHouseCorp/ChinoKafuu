@@ -1,1 +1,3 @@
-files: []
+files:
+  - source: src/locales/*/commands.json
+    translation: /src/Updatedlocales/%locale%/commands.json
