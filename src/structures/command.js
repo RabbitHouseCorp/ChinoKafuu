@@ -2,22 +2,22 @@ module.exports = class Command {
     constructor(client, options) {
         this.client = client;
 
-        this.config = {
-            name: options.name || null,
-            category: options.category || "util",
-            aliases: options.aliases || [],
-            UserPermission: options.UserPermission || null,
-            ClientPermission: options.ClientPermission || null,
-            OnlyDevs: options.OnlyDevs || false,
-            hidden: false
-        }
+        this.name = options.name || null
+        this.aliases = options.aliases || []
+        this.category = options.category || 'util'
+        
+        this.UserPermission: options.UserPermission || null
+        this.ClientPermission: options.ClientPermission || null
+        
+        this.OnlyDevs = !!options.OnlyDevs
+        this.hidden = false
     }
 
-    setT (t) {
-        this.config.t = t
+    setT (translate) {
+        return this.t = translate
     }
-  
-    getT() {
-        return this.config.t
+    
+    getT () {
+        return this.t
     }
 }
