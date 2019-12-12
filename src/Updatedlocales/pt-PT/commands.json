@@ -1,99 +1,7 @@
 {
-    "remove": {
-        "args-null": "você precisa informar o número da música que deseja remover da playlist.",
-        "not-number": "você informou algo que não é um número.",
-        "max-and-minimum": "você pode remover até **{{max}}** músicas da playlist.",
-        "removed": "música removida da playlist com sucesso."
-    },
-    "config": {
-        "title": "Configurações de módulos",
-        "how-use": "Como usar",
-        "report": {
-            "title": "Módulo de denúncias",
-            "disable": "módulo de denúncias desativado com sucesso.",
-            "enable": "módulo de denúncias ativado com sucesso e canal de denuncias definido."
-        },
-        "punishment": {
-            "enable": "módulo de moderação ativado com sucesso.",
-            "disable": "módulo de moderação desativado com sucesso.",
-            "title": "Módulo de moderação"
-        },
-        "modules": "Módulos",
-        "config-modules": {
-            "punishment": {
-                "channel": "Canal de moderação",
-                "module": "Módulo de moderação"
-            },
-            "report": {
-                "channel": "Canal de denúncia",
-                "module": "Módulo de denúncia"
-            },
-            "enable": "Ativado",
-            "disable": "Desativado"
-        },
-        "no-channel": "Não definido.",
-        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
-        "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
-    },
-    "report": {
-        "success": "denuncia enviada com sucesso.",
-        "memberName": "Usuário",
-        "memberID": "ID do usuário",
-        "authorName": "Denunciado por",
-        "authorID": "ID de quem denunciou",
-        "channel": "Canal",
-        "reason": "Motivo"
-    },
-    "profile": {
-        "title": "Perfil de {{member}}",
-        "aboutme": "Sobre mim",
-        "user-name": "Usuário",
-        "user-id": "ID do usuário",
-        "marred": "Casado(a) com",
-        "yens": "Yens",
-        "rep": "Reputação",
-        "colors": {
-            "args-null": "você precisa informar cor desejada.",
-            "hex": "você precisa por uma cor em `hex`."
-        }
-    },
-    "aboutme": {
-        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
-        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
-    },
-    "divorce": {
-        "no-marry": "você não está casado(a), se você deseja se casar com o seu amor verdadeiro, então use `{{prefix}}marry` para poder se casar.",
-        "user": "{{member}} precisa de mais `300` yens para poder se divorciar.",
-        "author": "você precisa de `300` yens para poder se divorciar.",
-        "no-divorce": "parece que os oráculos do amor não deixou vocês se separarem, fico feliz que tenham se entendido.",
-        "divorced": "certo, eu chamei os advogados, e ambos pagaram `300` yens pelo divorcio.",
-        "confirm": "{{member}}, você deseja realmente se divorciar de {{author}}?"
-    },
-    "marry": {
-        "you-need": "você precisa de `7500` yens para poder se casar.",
-        "he-or-her-need": "{{member}} precisa de mais `7500` yens para poder se casar.",
-        "your-is-marred": "você já está casado(a).",
-        "he-or-her-is-marred": "{{member}} já é casado(a).",
-        "confirm": "{{member}}, você aceita se casar com {{author}} na saúde e na doença, na riquesa e na pobresa até que a morte os separe?",
-        "successfully-marred": "{{member}}, felicidades para o casal, agora vocês são recém casados.",
-        "rejected": "que pena, parece que {{member}} não deseja compartilhar a vida com você, talvez {{member}} não seja o amor da sua vida, acho que houve um erro dos oráculos do amor."
-    },
-    "rep": {
-        "no-is-yourself": "você não pode dar reputação para você mesmo.",
-        "success": "deu uma reputação para {{member}}, agora {{member}} possui `{{rep}}` reputações",
-        "timeout": "você não pode dar uma reputação agora, espere `{{time}}` para poder dar uma reputação novamente."
-    },
-    "say": "você precisa me dizer o que eu devo falar.",
-    "with-nobody": "Ninguém",
-    "shuffle": "fila embaralhada com sucesso.",
-    "clap": {
-        "args-null": "você não informou nada para mim falar."
-    },
     "addemoji": {
         "success": "emoji adicionado com sucesso!",
-        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
-        "args-null": "não foi encontrado nenhum arquivo ou URL, favor, informe-o na próxima vez.",
-        "name-null": "você não informou o nome que deseja colocar no emoji, favor, informe-o da próxima vez."
+        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, peço desculpa."
     },
     "addrole": {
         "mentionRoleNull": "cargo não encontrado, tem certeza que você indicou o nome do cargo corretamente?",
@@ -101,7 +9,7 @@
         "noPerm": "eu não consegui adicionar este cargo no usuário, verifique se o meu cargo está acima do cargo indicado."
     },
     "afk": {
-        "enable": "modo AFK ativado com sucesso.",
+        "enable": "modo AFK foi ativado.",
         "no-reason": "está ausente no momento.",
         "with-reason": "está ausente no momento. **Motivo:** `{{reason}}`"
     },
@@ -125,8 +33,7 @@
         "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
         "noMsg": "você não argumentou nada para mim enviar, favor, indique o que deseja enviar.",
         "confirmed": "aviso, você está preste a mandar um anúncio no {{chat}}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
-        "send": "anúncio enviado com sucesso.",
-        "by": "Anunciado por {{member}}"
+        "send": "anúncio enviado com sucesso."
     },
     "avatar": {
         "his-avatar": "Avatar de {{member}}",
@@ -145,9 +52,9 @@
         "prefix": "Meu prefix",
         "server-suport": "Meu servidor",
         "twitter": "Meu twitter",
-        "github": "GitHub",
+        "github-desc": "GitHub",
         "server-suport-url": "[clique aqui](https://discord.gg/CAm9cSU)",
-        "github-desc": "[clique aqui](https://github.com/DanielaGC/ChinoKafuu)"
+        "github": "[clique aqui](https://github.com/DanielaGC/ChinoKafuu)"
     },
     "calc": {
         "args-null": "você precisa colocar um valor válido.",
@@ -159,7 +66,7 @@
     },
     "changenickname": {
         "args-null": "eu preciso que você coloque o novo apelido que você deseja definir no usuário.",
-        "success": "o apelido de `{{member}}` foi alterado para {{nickname}} com sucesso."
+        "success": "o apelido de `{{member}} foi alterado para {{nickname}} com sucesso."
     },
     "channelinfo": {
         "mention": "Menção",
@@ -222,7 +129,6 @@
         "music": "Músicas",
         "image": "Manipulação de imagens",
         "minecraft": "Minecraft",
-        "social": "Social",
         "addUrl": "Links adicionais",
         "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
@@ -266,6 +172,7 @@
     "pat": "{{author}} fez cafuné em {{member}}",
     "pause": {
         "isPaused": "a música já está pausada.",
+        "queue-null": "não tem nenhuma música na fila.",
         "paused": "a música foi pausada."
     },
     "ping": "Eu tenho:",
@@ -378,8 +285,7 @@
     "tempmute": {
         "memberEmbedTitle": "Você foi silenciado no {{guild}}",
         "staffName": "Quem puniu",
-        "reason": "Motivo",
-        "title": "Silenciado | {{member}}"
+        "reason": "Motivo"
     },
     "tickle": "{{author}} fez cocegas em {{member}}",
     "unban": {
@@ -430,8 +336,7 @@
             "staffName": "Quem puniu",
             "reason": "Motivo"
         },
-        "success": "usuário punido com sucesso.",
-        "unpunished": "você não pode punir este usuário, pois o seu cargo é menor que o dele."
+        "success": "usuário punido com sucesso."
     },
     "send-dm": "enviei no seu privado, dê uma olhada lá.",
     "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",
@@ -439,29 +344,17 @@
     "createdBy": "{{clientName}} foi criada e desenvolvida por {{owner}}",
     "dj-module": {
         "channel-null": "você não se encontra em nenhum canal de voz.",
-        "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro.",
-        "queue-null": "a fila atual se encontra vazia",
-        "no-playing": "não tem nenhuma música tocando atualmente."
+        "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro."
     },
     "yen": {
-        "totalYens": "você possui `{{yens}}` yens",
-        "user-total": "{{member}} possui `{{yens}}`yens"
+        "totalYens": "você possui `{{yens}}` yens"
     },
     "daily": {
         "daily-success": "foi depositado `{{total}}` yens na sua conta.",
         "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
     "mc": "informe o nick do jogador.",
-    "roleColor": {
-        "invalidRole": "cargo inválido!",
-        "invalidHex": "insira uma cor hex válida.",
-        "success": "cor alterada com sucesso.",
-        "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"
-    },
-    "no-reason": "Não informado.",
-    "restrictemoji": {
-        "no-options": "informe uma opção. Opções disponíveis: `adicionar`, `remover`.",
-        "added-successfully": "emoji restrito com sucesso.",
-        "removed-successfully": "removido a restrição desse emoji com sucesso."
-    }
+    "userNoPermission": "você não tem a permissão de `{{perm}}` para poder executar este comando",
+    "onlyOwner": " você não é a pessoa que me criou, não pode executar este comando!",
+    "no-reason": "Não informado."
 }
