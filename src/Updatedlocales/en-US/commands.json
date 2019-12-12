@@ -1,387 +1,467 @@
 {
+    "remove": {
+        "args-null": "você precisa informar o número da música que deseja remover da playlist.",
+        "not-number": "você informou algo que não é um número.",
+        "max-and-minimum": "você pode remover até **{{max}}** músicas da playlist.",
+        "removed": "música removida da playlist com sucesso."
+    },
+    "config": {
+        "title": "Configurações de módulos",
+        "how-use": "Como usar",
+        "report": {
+            "title": "Módulo de denúncias",
+            "disable": "módulo de denúncias desativado com sucesso.",
+            "enable": "módulo de denúncias ativado com sucesso e canal de denuncias definido."
+        },
+        "punishment": {
+            "enable": "módulo de moderação ativado com sucesso.",
+            "disable": "módulo de moderação desativado com sucesso.",
+            "title": "Módulo de moderação"
+        },
+        "modules": "Módulos",
+        "config-modules": {
+            "punishment": {
+                "channel": "Canal de moderação",
+                "module": "Módulo de moderação"
+            },
+            "report": {
+                "channel": "Canal de denúncia",
+                "module": "Módulo de denúncia"
+            },
+            "enable": "Ativado",
+            "disable": "Desativado"
+        },
+        "no-channel": "Não definido.",
+        "module-not-found": "este módulo não foi encontrado, módulos existentes: `punishment`, `report`.",
+        "options-not-found": "esta opção não foi encontrada, opções disponíveis: `set`, `disable`"
+    },
+    "report": {
+        "success": "denuncia enviada com sucesso.",
+        "memberName": "Usuário",
+        "memberID": "ID do usuário",
+        "authorName": "Denunciado por",
+        "authorID": "ID de quem denunciou",
+        "channel": "Canal",
+        "reason": "Motivo"
+    },
     "profile": {
-        "title": "{{member}}' profile",
-        "aboutme": "About me",
-        "user-name": "User",
-        "user-id": "User ID",
-        "marred": "Married with",
+        "title": "Perfil de {{member}}",
+        "aboutme": "Sobre mim",
+        "user-name": "Usuário",
+        "user-id": "ID do usuário",
+        "marred": "Casado(a) com",
         "yens": "Yens",
-        "rep": "Reputation",
+        "rep": "Reputação",
         "colors": {
-            "args-null": "argue the desired color",
-            "hex": "your color must be a `hex` color."
+            "args-null": "você precisa informar cor desejada.",
+            "hex": "você precisa por uma cor em `hex`."
         }
     },
     "aboutme": {
-        "args-null": "argue something to change your aboutme",
-        "success": "successfully changed your aboutme to `{{aboutme}}`."
+        "args-null": "você precisa informar o que deseja colocar no seu sobremim.",
+        "success": "seu sobremim foi alterado com sucesso para `{{aboutme}}`."
     },
-    "shuffle": "queue successfully shuffled.",
+    "divorce": {
+        "no-marry": "você não está casado(a), se você deseja se casar com o seu amor verdadeiro, então use `{{prefix}}marry` para poder se casar.",
+        "user": "{{member}} precisa de mais `300` yens para poder se divorciar.",
+        "author": "você precisa de `300` yens para poder se divorciar.",
+        "no-divorce": "parece que os oráculos do amor não deixou vocês se separarem, fico feliz que tenham se entendido.",
+        "divorced": "certo, eu chamei os advogados, e ambos pagaram `300` yens pelo divorcio.",
+        "confirm": "{{member}}, você deseja realmente se divorciar de {{author}}?"
+    },
+    "marry": {
+        "you-need": "você precisa de `7500` yens para poder se casar.",
+        "he-or-her-need": "{{member}} precisa de mais `7500` yens para poder se casar.",
+        "your-is-marred": "você já está casado(a).",
+        "he-or-her-is-marred": "{{member}} já é casado(a).",
+        "confirm": "{{member}}, você aceita se casar com {{author}} na saúde e na doença, na riquesa e na pobresa até que a morte os separe?",
+        "successfully-marred": "{{member}}, felicidades para o casal, agora vocês são recém casados.",
+        "rejected": "que pena, parece que {{member}} não deseja compartilhar a vida com você, talvez {{member}} não seja o amor da sua vida, acho que houve um erro dos oráculos do amor."
+    },
+    "rep": {
+        "no-is-yourself": "você não pode dar reputação para você mesmo.",
+        "success": "deu uma reputação para {{member}}, agora {{member}} possui `{{rep}}` reputações",
+        "timeout": "você não pode dar uma reputação agora, espere `{{time}}` para poder dar uma reputação novamente."
+    },
+    "say": "você precisa me dizer o que eu devo falar.",
+    "with-nobody": "Ninguém",
+    "shuffle": "fila embaralhada com sucesso.",
     "clap": {
-        "args-null": "argue something to say."
+        "args-null": "você não informou nada para mim falar."
     },
     "addemoji": {
-        "success": "successfully added emoji!",
-        "error": "I couldn't add this emoji, maybe it's bigger than the size allowed by Discord, I'm sorry for that."
+        "success": "emoji adicionado com sucesso!",
+        "error": "eu não consegui adicionar este emoji, talvez ele seja maior que o tamanho permitido pelo Discord, me desculpe por isso.",
+        "args-null": "não foi encontrado nenhum arquivo ou URL, favor, informe-o na próxima vez.",
+        "name-null": "você não informou o nome que deseja colocar no emoji, favor, informe-o da próxima vez."
     },
     "addrole": {
-        "mentionRoleNull": "role not found, are you sure you entered the role name correctly?",
-        "roleAdd": "role successfully added!",
-        "noPerm": "I was unable to add this role to the user, please make sure my role is above the role indicated"
+        "mentionRoleNull": "cargo não encontrado, tem certeza que você indicou o nome do cargo corretamente?",
+        "roleAdd": "cargo adicionado com sucesso!",
+        "noPerm": "eu não consegui adicionar este cargo no usuário, verifique se o meu cargo está acima do cargo indicado."
     },
     "afk": {
-        "enable": "AFK mode successfully activated.",
-        "no-reason": "is currently missing",
-        "with-reason": "is currently missing. **Reason:** `{{reason}}`"
+        "enable": "modo AFK ativado com sucesso.",
+        "no-reason": "está ausente no momento.",
+        "with-reason": "está ausente no momento. **Motivo:** `{{reason}}`"
     },
     "anime": {
-        "args-null": "Enter the name of the desired anime.",
-        "sinopse": "Synopsis",
-        "title": "Anime Name",
-        "type": "Type",
-        "episode": "Episodes",
-        "rating": "Rating",
-        "StartAndEnd": "Start and finish",
-        "score": "Score",
-        "duration": "Duration",
+        "args-null": "coloque o nome do anime desejado.",
+        "sinopse": "Sinopse",
+        "title": "Nome do anime",
+        "type": "Tipo",
+        "episode": "Episódios",
+        "rating": "Avaliação",
+        "StartAndEnd": "Começo e termino",
+        "score": "Pontuação",
+        "duration": "Duração",
         "status": "Status",
         "rank": "Rank",
-        "popularity": "Popularity",
-        "genres": "Genres",
-        "NotFound": "I couldn't find anything related to `{{args}}`."
+        "popularity": "Popularidade",
+        "genres": "Gêneros",
+        "NotFound": "não consegui achar algo relacionado à `{{args}}`."
     },
     "announce": {
-        "noMention": "you need to indicate which chat you want me to send the announcement.",
-        "noMsg": "you have not argued a message to send, please indicate what you want me to send.",
-        "confirmed": "warning, you are about to send an announcement on {{chat}}, please confirm with the emojis below. \nTo mention `@everyone`, click the ✅. \nTo mention`@here`, click the 🌀.\nTo mention anyone, click on ❎",
-        "send": "announcement successfully sent.",
-        "by": "Annouced by: {{member}}"
+        "noMention": "você precisa indicar o chat que deseja enviar o anúncio",
+        "noMsg": "você não argumentou nada para mim enviar, favor, indique o que deseja enviar.",
+        "confirmed": "aviso, você está preste a mandar um anúncio no {{chat}}, confirme com os emojis abaixo.\nPara mencionar `@everyone`, clique no ✅.\nPara mencionar `@here`, clique no 🌀.\nPara não mencionar ninguém, clique no ❎",
+        "send": "anúncio enviado com sucesso.",
+        "by": "Anunciado por {{member}}"
     },
     "avatar": {
-        "his-avatar": "{{member}}'s avatar",
-        "download": "Click [here]({{avatar}}) to download"
+        "his-avatar": "Avatar de {{member}}",
+        "download": "Clique [aqui]({{avatar}}) para baixar"
     },
     "baka": {
-        "hasBaka": "{{author}} called {{member}} baka."
+        "hasBaka": "{{author}} chamou {{member}} de baka."
     },
     "ban": {
-        "banAuthor": "you can't ban yourself by Discord, so you can't ban yourself by me.",
-        "bannable": "I can't ban this user, his role is bigger than mine.",
-        "banned": "{{member}} | Banned"
+        "banAuthor": "você não pode se banir pelo Discord, então não pode se banir por mim.",
+        "bannable": "eu não consigo banir este usuário, o cargo dele é maior que o meu.",
+        "banned": "{{member}} | Banido"
     },
     "botinfo": {
-        "description": "Hi, my name is ** {{clientName}} ** and I'm just another simple bot for the Discord of anime `Gochuumon wa Usagi Desu ka?`.\n\nI was developed in the JavaScript using discord.js, I was created ** {{clientcreatedAt}} **, I joined `{{guildName}}` ** {{clientJoinedAt}} ** and I've been awake for ** {{ clientUptime}} **. \n \nI'm on {{clientGuildSize}} servers and I know {{clientUserSize}} bunnies!",
-        "prefix": "My prefix",
-        "server-suport": "My server",
-        "twitter": "My twitter",
+        "description": "Olá, eu me chamo **{{clientName}}** e sou apenas mais um simples bot para o Discord do anime `Gochuumon wa Usagi Desu ka?`.\n\nEu fui desenvolvida na base de JavaScript usando discord.js, fui criada **{{clientcreatedAt}}** e entrei no `{{guildName}}` **{{clientJoinedAt}}** e estou acordada há **{{clientUptime}}**.\n\nAtualmente eu me encontro em {{clientGuildSize}} servidores e conheço {{clientUserSize}} coelhinhos!",
+        "prefix": "Meu prefix",
+        "server-suport": "Meu servidor",
+        "twitter": "Meu twitter",
         "github": "GitHub",
-        "server-suport-url": "[click here](https://discord.gg/CAm9cSU)",
-        "github-desc": "[click here](https://github.com/DanielaGC/ChinoKafuu)"
+        "server-suport-url": "[clique aqui](https://discord.gg/CAm9cSU)",
+        "github-desc": "[clique aqui](https://github.com/DanielaGC/ChinoKafuu)"
     },
     "calc": {
-        "args-null": "you must enter a valid value.",
-        "result": "the result is `{{resposta}}`"
+        "args-null": "você precisa colocar um valor válido.",
+        "result": "o resultado é `{{resposta}}`"
     },
     "changeavatar": {
-        "args-null": "supply the avatar URL.",
-        "avatar": "Okay, now I have a new avatar"
+        "args-null": "coloque a URL do avatar.",
+        "avatar": "Pronto, agora eu estou com um novo avatar"
     },
     "changenickname": {
-        "args-null": "I need you to supply the new nickname you want me to set in the user.",
-        "success": "nickname `{{member}}` has been successfully changed to {{nickname}}."
+        "args-null": "eu preciso que você coloque o novo apelido que você deseja definir no usuário.",
+        "success": "o apelido de `{{member}}` foi alterado para {{nickname}} com sucesso."
     },
     "channelinfo": {
-        "mention": "Mention",
-        "id": "Channel id",
+        "mention": "Menção",
+        "id": "ID do canal",
         "nsfw": "NFSW",
-        "true": "Yes",
-        "false": "No",
+        "true": "Sim",
+        "false": "Não",
         "guild": "Guild",
-        "category": "Category",
-        "created-at": "Channel created at"
+        "category": "Categoria",
+        "created-at": "Canal criado"
     },
     "chat": {
-        "args-null": "put `on` to enable chat and `off` to disable chat.",
-        "enable": "chat enabled again, now everyone can talk again.",
-        "disable": "chat has been successfully disabled, now only superiors can talk here."
+        "args-null": "coloque entre `on` para habilitar o chat e `off` para desabilitar o chat",
+        "enable": "chat habilitado novamente, agora todos podem falar novamente.",
+        "disable": "chat desabilitado com sucesso, agora somente os superiores podem falar aqui."
     },
     "clear": {
-        "success": "`{{totalMsg}}` messages have been successfully cleared.",
-        "error": "I couldn't delete some messages once they are over **2 weeks**.",
-        "args-null": "you need to indicate how many messages you want me to delete",
-        "limit": "I can only delete up to `100` messages due to Discord limitations."
+        "success": "`{{totalMsg}}` mensagens foram limpas com sucesso.",
+        "error": "eu não consegui apagar algumas mensagens, pois elas têm mais de **2 semanas**.",
+        "args-null": "você precisa indicar a quantidade de mensagens para serem deletadas",
+        "limit": "eu só posso deletar até `100` mensagens por limitações do Discord."
     },
     "choose": {
-        "args-null": "you need to argue something to choose from.",
-        "choose": "I choose `{{choose}}`"
+        "args-null": "você precisa argumentar algo para escolher.",
+        "choose": "eu escolho `{{choose}}`"
     },
     "congaparrot": {
-        "limit": "only allowed up to `20` parrots.",
-        "args-null": "you did not supply the desired amount."
+        "limit": "só é permitido até `20` papagaios.",
+        "args-null": "você não colocou a quantidade desejada."
     },
-    "dance": "{{author}} danced with {{member}}",
-    "dj": "Well, the `DJ` permission is designed to prevent people from abusing music commands (such as skipping the music you are listening to or getting me out of the voice channel where you also find yourself). To get this permission, you must have permission to `Manage Server`, `Ban Members` or have the role named `DJ`, do that, good fun and enjoy my music commands, bye bye.",
-    "eat": "{{author}} gave food to {{member}}",
+    "dance": "{{author}} dançou com {{member}}",
+    "dj": "Bom, a permissão de `DJ` foi criada para eviatem que abusem dos comandos de música (como pular a música que você está escutando ou me tirando do canal de voz em que você também se encotra). Para conseguir essa permissão, você precisa ter permissão para `Gerenciar servidor`, `Banir membros` ou ter o cargo com o nome `DJ`, feito isso, bom divertimento e aproveite os meus comandos de música, até logo.",
+    "eat": "{{author}} deu comida para {{member}}",
     "emoji": {
-        "args-null": "input the emoji you want."
+        "args-null": "indique o emoji que você deseja."
     },
     "emojiinfo": {
-        "name": "Emoji Name",
-        "id": "Emoji ID",
-        "created-at": "Created at",
-        "hisAnimated": "Cheered up",
-        "mention": "Mention",
-        "animated": "Yes",
-        "noanimated": "No"
+        "name": "Nome do emoji",
+        "id": "ID do emoji",
+        "created-at": "Criado",
+        "hisAnimated": "Animado",
+        "mention": "Menção",
+        "animated": "Sim",
+        "noanimated": "Não"
     },
     "eval": {
-        "args-null": "You need to argue something.",
-        "error": "I can't execute these codes because they are wrong, check https://discord.js.org to learn how.",
+        "args-null": "você precisa argumentar alguma coisa.",
+        "error": "Não consigo executar esses códigos, pois eles estão errado, verifique o https://discord.js.org para saber como fazer.",
         "limited": "{{str}}",
-        "success": "Okay! success.\n```js\n{{str}}```"
+        "success": "Okay! sucesso.\n```js\n{{str}}```"
     },
     "fakemsg": {
-        "args-null": "you need to supply something for the fake user to talk about."
+        "args-null": "você precisa argumentar algo para o usuário falso falar."
     },
     "help": {
-        "util": "Utilities",
-        "moderation": "Moderation",
-        "fun": "Fun",
-        "misc": "Miscellaneous",
-        "music": "Songs",
-        "image": "Image manipulation",
+        "util": "Utilitários",
+        "moderation": "Moderação",
+        "fun": "Diversão",
+        "misc": "Miscelânea",
+        "music": "Músicas",
+        "image": "Manipulação de imagens",
         "minecraft": "Minecraft",
-        "addUrl": "Additional Links",
-        "inUrl": "[My invite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote for me](https://top.gg/bot/481282441294905344)|[My server](https://discord.gg/CAm9cSU)"
+        "social": "Social",
+        "addUrl": "Links adicionais",
+        "inUrl": "[Meu convite](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239)|[Vote em mim](https://top.gg/bot/481282441294905344)|[Meu servidor](https://discord.gg/CAm9cSU)"
     },
-    "hug": "{{author}} gave a very nice hug in {{member}}",
+    "hug": "{{author}} deu um abraço bem gostoso em {{member}}",
     "invite": {
-        "MyInvite": "Invite",
-        "invite": "Do you want to invite me do other Discord servers? Click [here](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) to add me on another server\n\nAlso, log into my support server if you need help with me by clicking [here](https://discord.gg/CAm9cSU)\n\n Don't forget to vote for me by clicking [here](https://top.gg/bot/481282441294905344)"
+        "MyInvite": "Convite",
+        "invite": "Você quer me convidar para outros servidores/guilds do Discord? Então clique [aqui](https://discordapp.com/oauth2/authorize?client_id={{clientID}}&scope=bot&permissions=2117578239) para me adicionar em outro servidor\n\nAproveitando, entre em meu servidor de suporte, caso precise de ajuda comigo clicando [aqui](https://discord.gg/CAm9cSU)\n\nNão esqueça também de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344)"
     },
-    "join": "joining `{{voiceChannel}}`",
+    "join": "estou entrando no `{{voiceChannel}}`",
     "kick": {
-        "authorKick": "you can't kick yourself out of Discord, so I won't kick you out.",
-        "kickable": "I can't kick this user, it's role is bigger than mine.",
-        "kicked": "{{member}} | Kicked"
+        "authorKick": "você não pode se expulsar pelo Discord, então eu não vou te expulsar.",
+        "kickable": "eu não posso expulsar este usuário, o cargo dele é maior que o meu.",
+        "kicked": "{{member}} | Expulso"
     },
-    "kiss": "{{author}} kissed {{member}}.",
+    "kiss": "{{author}} deu um beijo em {{member}}.",
     "language": {
-        "howLanguage": "what is your language? Choose below\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇵🇹 `pt-PT`"
+        "howLanguage": "qual é o seu idioma? Escolha abaixo\n\n🇧🇷 `pt-BR`\n🇺🇸 `en-US`\n🇵🇹 `pt-PT`"
     },
     "laranjo": {
-        "args-null": "what should the orange say?"
+        "args-null": "o que o laranjo deve falar?"
     },
-    "leave": "I'm leaving `{{voiceChannel}}`",
+    "leave": "estou saindo do `{{voiceChannel}}`",
     "loop": {
-        "enable": "music repeat has been enabled",
-        "disable": "music repeat has been disabled"
+        "enable": "a repetição de música foi ativada",
+        "disable": "a repetição de música foi desativada"
     },
     "mcquery": {
-        "serverIP": "Server IP",
-        "version": "Version",
-        "uptime": "Time online",
-        "offline": "The server is offline or does not exist."
+        "serverIP": "IP do servidor",
+        "version": "Versão",
+        "uptime": "Tempo online",
+        "offline": "o servidor está offline ou não existe."
     },
     "np": {
-        "waiting": "Collecting information from the current song...",
-        "name": "Music title",
-        "time": "Music time",
-        "volume": "Music volume",
-        "url": "Music link",
-        "nowplaying": "Now playing"
+        "waiting": "Coletando informações da música atual...",
+        "name": "Titulo da música",
+        "time": "Tempo da música",
+        "volume": "Volume da música",
+        "url": "Link da música",
+        "nowplaying": "Tocando agora"
     },
-    "pat": "{{author}} pated {{member}}",
+    "pat": "{{author}} fez cafuné em {{member}}",
     "pause": {
-        "isPaused": "the music is already paused.",
-        "paused": "the music has been paused."
+        "isPaused": "a música já está pausada.",
+        "paused": "a música foi pausada."
     },
-    "ping": "I have:",
+    "ping": "Eu tenho:",
     "pay": {
-        "value-null": "you need to enter the amount you wish to donate.",
-        "invalid-value": "the value you entered is invalid.",
-        "insufficient-value": "you don't have enough yens.",
-        "success": "you have successfully donated `{{value}}` yens to {{member}}.",
-        "this-author": "you cannot donate yens to yourself."
+        "value-null": "você precisa informar a quantidade que você deseja doar.",
+        "invalid-value": "o valor informado é inválido.",
+        "insufficient-value": "você não tem yens o suficiente.",
+        "success": "você doou `{{value}}` yens para {{member}} com sucesso.",
+        "this-author": "você não pode doar yens para si mesmo."
     },
     "play": {
-        "addedQueue": "song `{{songTitle}}` has been added to the queue",
-        "playingNow": "now playing `{{songTitle}}`",
-        "args-null": "you need to indicate the name or URL of the song."
+        "addedQueue": "a música `{{songTitle}}` foi adicionada a fila",
+        "playingNow": "estou tocando agora `{{songTitle}}`",
+        "args-null": "você precisa indicar o nome ou URL da música."
     },
-    "poke": "{{author}} poked {{member}}",
+    "poke": "{{author}} catucou {{member}}",
     "prefix": {
-        "args-null": "you need to enter the new prefix",
-        "limit": "the prefix can only contain `3` characters.",
-        "success": "my prefix was changed successfully."
+        "args-null": "você precisa informar o prefix que deseja colocar",
+        "limit": "o prefix só pode conter `3` caracteres.",
+        "success": "meu prefix foi alterado com sucesso."
     },
     "removeemoji": {
-        "success": "emoji successfully removed."
+        "success": "emoji removido com sucesso."
     },
     "removerole": {
-        "noRole": "the user is not in this role.",
-        "success": "role successfully removed.",
-        "error": "I couldn't remove the user's roles, maybe the role is bigger than mine."
+        "noRole": "o usuário não está com esse cargo.",
+        "success": "cargo removido com sucesso.",
+        "error": "eu não consegui remover o cargo do usuário, talvez o cargo seja maior que o meu."
     },
     "renamechannel": {
-        "channel-mention-null": "you need to enter the channel you want me to rename",
-        "args-null": "you need to enter the name you want me to set for the desired channel",
-        "success": "channel renamed successfully."
+        "channel-mention-null": "você precisa informar o canal que você deseja renomear",
+        "args-null": "você precisa informar o nome que deseja definir para o canal desejado",
+        "success": "canal renomeado com sucesso."
     },
     "resume": {
-        "isPlaying": "the music is not paused.",
-        "playing": "the music played again."
+        "isPlaying": "a música não está pausada.",
+        "playing": "a música voltou a tocar."
     },
     "rize": {
-        "args-null": "what should Rize write on paper?"
+        "args-null": "o que a rize deve mostrar no papel?"
     },
     "roleinfo": {
-        "args-null": "You didn't mention any roles.",
-        "title": "Role Information {{roleName}}",
-        "mention": "Mention of role",
-        "id": "Role ID",
-        "color": "Role color",
-        "members": "Total members",
-        "guild": "Server",
-        "hoist": "Separate Category",
-        "hisBot": "Integration",
-        "mentionable": "Mentionable",
-        "true": "Yes",
-        "false": "No",
-        "created-at": "Role created"
+        "args-null": "você não mencionou nenhum cargo.",
+        "title": "Informações do cargo {{roleName}}",
+        "mention": "Menção do cargo",
+        "id": "ID do cargo",
+        "color": "Cor do cargo",
+        "members": "Total de membros",
+        "guild": "Servidor",
+        "hoist": "Categoria separada",
+        "hisBot": "Integração",
+        "mentionable": "Mencionavel",
+        "true": "Sim",
+        "false": "Não",
+        "created-at": "Cargo criado"
     },
     "seek": {
-        "args-null": "you need to enter the value in seconds to change the position of the song.",
-        "success": "song position successfully changed!"
+        "args-null": "você precisa indicar o valor em segundos para alterar a posição da música.",
+        "success": "posição da música alterada com sucesso!"
     },
     "serverinfo": {
-        "name": "Information of {{name}}",
-        "guildName": "Server's Name",
-        "guildID": "Server ID",
-        "guildOwnerTag": "Server's owner",
-        "guildOwnerID": "Server's Owner ID",
-        "guildRegion": "Server's Region",
-        "afkChannel": "AFK Channel",
-        "noAfkChannel": "No AFK channel",
-        "created-at": "Server Created At",
-        "guildChannel": "Channels ({{totalChannel}})",
-        "guildMembers": "Members ({{totalMember}})",
-        "roles": "Roles ({{totalRole}})",
-        "members": "People: {{user}}\nBots: {{bot}}",
-        "channels": "Text channels: {{text}}\nVoice channels: {{voice}}\nCategories: {{category}}"
+        "name": "Informações do {{name}}",
+        "guildName": "Nome do servidor",
+        "guildID": "ID do servidor",
+        "guildOwnerTag": "Dono do servidor",
+        "guildOwnerID": "ID do dono do servidor",
+        "guildRegion": "Região do servidor",
+        "afkChannel": "Canal de AFK",
+        "noAfkChannel": "Sem canal de AFK",
+        "created-at": "Servidor criado",
+        "guildChannel": "Canais ({{totalChannel}})",
+        "guildMembers": "Membros ({{totalMember}})",
+        "roles": "Cargos ({{totalRole}})",
+        "members": "Pessoas: {{user}}\nBots: {{bot}}",
+        "channels": "Canal de texto: {{text}}\nCanal de voz: {{voice}}\nCategoria: {{category}}"
     },
     "seticon": {
-        "args-null": "I did not find any pictures.",
-        "success": "server icon changed successfully!"
+        "args-null": "eu não encontrei nenhuma imagem.",
+        "success": "ícone do servidor alterado com sucesso!"
     },
-    "skip": "music skipped successfully.",
-    "slap": "{{author}} slapped on {{member}}",
+    "skip": "música pulada com sucesso.",
+    "slap": "{{author}} deu um tapa em {{member}}",
     "slowmode": {
-        "args-null": "enter the value in seconds between `0` and `600`",
-        "limit": "the maximum time is `600` seconds",
-        "enable": "slowmode successfully activated.",
-        "disable": "slowmode successfully disabled.",
-        "noNumber": "the value indicated is invalid"
+        "args-null": "indique o valor entre `0` e `600`",
+        "limit": "o tempo máximo é `600` segundos",
+        "enable": "slowmode ativado com sucesso.",
+        "disable": "slowmode desativado com sucesso.",
+        "noNumber": "o valor indicado é invalido"
     },
     "spotify": {
-        "name": "Name of the song",
-        "author": "Singer",
+        "name": "Nome da música",
+        "author": "Cantor",
         "album": "Album",
-        "url": "You can listen to this song",
-        "inUrl": "[Clicking here]({{spotifyUrl}})",
-        "userListening": "{{member}} you are listening",
-        "userNoListen": "the user **{{member}}** is not listening to **Spotify**"
+        "url": "Você pode escutar essa música",
+        "inUrl": "[Clicando aqui]({{spotifyUrl}})",
+        "userListening": "{{member}} está escutando",
+        "userNoListen": "o usuário **{{member}}** não está ouvindo **Spotify**"
     },
     "status": {
-        "title": "My status",
-        "version": "My version",
+        "title": "Meu status",
+        "version": "Minha versão",
         "discord": "discord.js",
-        "uptime": "Time online",
-        "memory": "RAM memory",
-        "cpu-status": "CPU Status",
-        "system": "System",
-        "cpu": "Processor"
+        "uptime": "Tempo online",
+        "memory": "Memória RAM",
+        "cpu-status": "Status da CPU",
+        "system": "Sistema",
+        "cpu": "Processador"
     },
-    "stop": "the song was stopped and the queue was cleared",
+    "stop": "a música foi parada e a lista foi limpa",
     "tempmute": {
-        "memberEmbedTitle": "You have been muted in {{guild}}",
-        "staffName": "Who punished",
-        "reason": "Reason",
-        "title": "Muted | {{member}}"
+        "memberEmbedTitle": "Você foi silenciado no {{guild}}",
+        "staffName": "Quem puniu",
+        "reason": "Motivo",
+        "title": "Silenciado | {{member}}"
     },
-    "tickle": "{{author}} tickled on {{member}}",
+    "tickle": "{{author}} fez cocegas em {{member}}",
     "unban": {
-        "title": "{{member}} | Unbanned",
-        "success": "user successfully unbanned.",
-        "not-found": "This user is not banned."
+        "title": "Desbanido | {{member}}",
+        "success": "usuário desbanido com sucesso.",
+        "not-found": "este usuário não está banido."
     },
     "unmute": {
-        "title": "Unmuted | {{member}}",
-        "success": "the user has learned to speak again, I hope it will not do anything else and stop talking ugly things.",
-        "noMuted": "the user is not muted."
+        "title": "Retirado o silenciamento | {{member}}",
+        "success": "o usuário aprendeu a falar novamente, espero que ele não apronte mais nada e pare de falar coisas feias.",
+        "noMuted": "o usuário não está silenciado."
     },
     "userinfo": {
-        "title": "{{isBot}} **Information from {{member}}**",
-        "name": "User Tag",
-        "id": "User ID",
-        "high": "Highest role",
-        "hasAdmin": "Administrator",
-        "isAdmin": "It has",
-        "isNotAdmin": "Don't have",
-        "joinedAt": "Joined at",
-        "serverComp": "Common servers ({{server}})",
+        "title": "{{isBot}} **Informações de {{member}}**",
+        "name": "Tag do usuário",
+        "id": "ID do usuário",
+        "high": "Cargo mais alto",
+        "hasAdmin": "Administrador",
+        "isAdmin": "Possui",
+        "isNotAdmin": "Não possui",
+        "joinedAt": "Entrou",
+        "serverComp": "Servidores em comum ({{server}})",
         "status": "Status",
         "statusOnline": "{{emoji}} Online",
         "statusOffline": "{{emoji}} Offline",
-        "statusIdle": "{{emoji}} idle",
-        "statusDnd": "{{emoji}} Do Not Disturb",
-        "nickname": "Nickname",
-        "isNoNickname": "Has no nickname.",
-        "roles": "Roles ({{roles}})",
-        "permissions": "Permissions",
-        "created-at": "Account Created"
+        "statusIdle": "{{emoji}} Ausente",
+        "statusDnd": "{{emoji}} Ocupado",
+        "nickname": "Apelido",
+        "isNoNickname": "Não possui apelido.",
+        "roles": "Cargos ({{roles}})",
+        "permissions": "Permissões",
+        "created-at": "Conta criada"
     },
     "volume": {
-        "volume": "successfully changed volume to `{{volume}}/150`.",
-        "hisVol": "the current volume is `{{volume}}/150`",
-        "maxVolume": "the maximum volume is `150`",
-        "minVolume": "the minimum volume is `5`"
+        "volume": "volume alterado para `{{volume}}/150` com sucesso.",
+        "hisVol": "o volume atual é `{{volume}}/150`",
+        "maxVolume": "o volume máximo é `150`",
+        "minVolume": "o volume minimo é `5`"
     },
     "vote": {
-        "send-dm": "I sent in your private.",
-        "voteMsg": "Well, since you want to vote for me, just click [here](https://top.gg/bot/481282441294905344), if you voted, thanks, \n \nIf you need help with my commands, type `{{prefix}} help` that I will send in your private."
+        "send-dm": "eu enviei no seu privado.",
+        "voteMsg": "Bom, já que você deseja votar em mim, basta clicar [aqui](https://top.gg/bot/481282441294905344), se você votou, obrigada,\n\nCaso precise de ajuda com os meus comandos, digite `{{prefix}}ajuda` que eu enviarei no seu privado."
     },
     "punishment": {
         "embed": {
-            "memberName": "Username",
-            "memberID": "User ID",
-            "staffName": "Who punished",
-            "reason": "Reason"
+            "memberName": "Nome do usuário",
+            "memberID": "ID do usuário",
+            "staffName": "Quem puniu",
+            "reason": "Motivo"
         },
-        "success": "user successfully punished."
+        "success": "usuário punido com sucesso.",
+        "unpunished": "você não pode punir este usuário, pois o seu cargo é menor que o dele."
     },
-    "send-dm": "I sent in your private, take a look there.",
-    "mention-null": "user not found, try to mention it next time.",
-    "closed-dm": "Your direct messages are disabled, I could not send the information there.",
-    "createdBy": "{{clientName}} was created and developed by {{owner}}",
+    "send-dm": "enviei no seu privado, dê uma olhada lá.",
+    "mention-null": "usuário não encontrado, tente menciona-lo da próxima vez.",
+    "closed-dm": "seu privado está fechando, eu não consegui enviar as informações lá.",
+    "createdBy": "{{clientName}} foi criada e desenvolvida por {{owner}}",
     "dj-module": {
-        "channel-null": "you are not on any voice channels.",
-        "another-channel": "You need to be on the same voice channel as me.",
-        "queue-null": "the queue is empty."
+        "channel-null": "você não se encontra em nenhum canal de voz.",
+        "another-channel": "você precisa estar no mesmo canal de voz que eu me encontro.",
+        "queue-null": "a fila atual se encontra vazia",
+        "no-playing": "não tem nenhuma música tocando atualmente."
     },
     "yen": {
-        "totalYens": "you have `{{yens}}` yens"
+        "totalYens": "você possui `{{yens}}` yens",
+        "user-total": "{{member}} possui `{{yens}}`yens"
     },
     "daily": {
-        "daily-success": "has been deposited `{{total}}` yens to your account.",
-        "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
+        "daily-success": "foi depositado `{{total}}` yens na sua conta.",
+        "has-been-picked": "você já sacou o seu yen diario, aguarde `{{tempo}}` para poder pegar novamente."
     },
-    "mc": "input the nickname of the player.",
-    "no-reason": "Uninformed.",
+    "mc": "informe o nick do jogador.",
     "roleColor": {
-        "invalidRole": "invalid role!",
-        "invalidHex": "invalid hex color.",
-        "success": "successfully changed role's color.",
-        "higherRole": "this role is higher than mine, I can't change it's color!"
+        "invalidRole": "cargo inválido!",
+        "invalidHex": "insira uma cor hex válida.",
+        "success": "cor alterada com sucesso.",
+        "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"
+    },
+    "no-reason": "Não informado.",
+    "restrictemoji": {
+        "no-options": "informe uma opção. Opções disponíveis: `adicionar`, `remover`.",
+        "added-successfully": "emoji restrito com sucesso.",
+        "removed-successfully": "removido a restrição desse emoji com sucesso."
     }
 }
