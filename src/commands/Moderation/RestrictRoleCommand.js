@@ -15,7 +15,7 @@ module.exports = class RestrictRoleCommand extends Command {
 
   async run ({ message, args, server }, t) {
     const option = this.getOption(args[0])
-    if (!option) return message.chinoReply('error', t('commands:restrictemoji.no-option'))
+    if (!option) return message.chinoReply('error', t('commands:restrictEmoji.noOption'))
 
     const role = this.getRole(args[1], true)
     if (!role) return message.chinoReply('error', t('commands:roleinfo.args-null'))
@@ -23,12 +23,12 @@ module.exports = class RestrictRoleCommand extends Command {
     const emoji = this.getEmoji(args[2], true)
     if (!emoji) return message.chinoReply('error', t('commands:emoji.args-null'))
 
-    if (option === 'yes') {
-      await emoji.addRestrictedRole(role)
-      message.chinoReply('success', t('commands:restrictemoji.added-successfully'))
-    } else if (option == 'no') {
-      await emoji.removeRestrictedRole(role)
-      message.chinoReply('success', t('commands:restrictemoji.removed-successfully'))
+    if (option === 'add') {
+      await emoji.roles.add(role)
+      message.chinoReply('success', t('commands:restrictEmoji.successfullyAdded', { role: role.toString() }))
+    } else if (option === 'remove') {
+      await emoji.roles.remove(role)
+      message.chinoReply('success', t('commands:restrictEmoji.successfullyRemoved', { role: role.toString() }))
     }
   }
 }
