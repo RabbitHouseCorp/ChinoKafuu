@@ -18,7 +18,7 @@ dbl.on("posted", () => {
 })
 
 client.loadCommands('./src/commands')
-      .loadEvents('./src/events')
-      .login(config.token)
+client.loadEvents('./src/events')
+client.login(config.token)
       .then(() => console.log(`${client.shard ? ('Shard '+ client.shard.id) : 'Bot'} is online.`))
       .catch((e) => console.log(`Failure connecting to Discord! ${e.message}!`))
