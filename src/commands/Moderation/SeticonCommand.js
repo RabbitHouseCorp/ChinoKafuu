@@ -12,11 +12,18 @@ module.exports = class SetIconCommand extends Command {
         })
     } 
     run({message, args, server}, t) {
-        let icon = args[0] || message.attachments.first() ? message.attachments.first().url : undefined
-        if (!icon || icon === undefined) return message.chinoReply('error', t('commands:seticon.args-null'))
+        let icon = args[0]
+        if (!icon) return message.chinoReply('error', t('commands:seticon.args-null'))
 
-        message.guild.setIcon(icon).then(() => {
-            message.chinoReply('success', t('commands:seticon.success'))
-        })
+        if (message.attachments.first()) {
+            icon = message.attachments.first().url
+            message.guild.setIcon(icon).then(() => {
+                message.chinoReply('success', t('commands:seticon.success'))
+            })
+        } else {
+            message.guild.setIcon(icon).then(() => {
+                message.chinoReply('success', t('commands:seticon.success'))
+            })
+        }
     }
 }
