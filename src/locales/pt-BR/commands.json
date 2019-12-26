@@ -456,7 +456,8 @@
         "invalidRole": "cargo inválido!",
         "invalidHex": "insira uma cor hex válida.",
         "success": "cor alterada com sucesso.",
-        "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!"
+        "higherRole": "esse cargo é maior que o meu, eu não consigo mudar a cor!",
+        "color-null": "você não informou a cor que você deseja colocar."
     },
     "no-reason": "Não informado.",
     "restrictemoji": {

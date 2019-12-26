@@ -15,6 +15,7 @@ module.exports = class RoleColorCommand extends Command {
     let role = message.mentions.roles.first() || message.guild.roles.get(args[0])
     if (!role) return message.chinoReply('error', t('commands:roleColor.invalidRole'))
     if (role.rawPosition > message.guild.me.highestRole.position) return message.chinoReply('error', t('commands:roleColor.higherRole'))
+    if (!args[1]) return message.chinoReply("error", t("commands:roleColor.color-null"))
     if (!args[1].startsWith('#')) return message.chinoReply('error', t('commands:roleColor.invalidHex'))
     if (args[1].length < 7 || args[1].length > 7) return message.chinoReply('error', t('commands:roleColor.invalidHex'))
 
