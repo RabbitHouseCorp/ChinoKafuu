@@ -8,8 +8,11 @@ const config = require('./config')
 const client = new Client({
   fetchAllMembers: true
 })
+
 if (client.shard) client.shardManager = new ShardManager(client)
+
 const dbl = new DBL(config.dbltoken, client)
+
 dbl.on("posted", () => {
   console.log("Connected to DBL")
 })
