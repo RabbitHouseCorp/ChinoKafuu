@@ -1,4 +1,6 @@
-const Command = require("../../structures/command")
+const Command = require('../../structures/command')
+const { Permissions: { FLAGS } } = require('discord.js')
+
 module.exports = class SayCommand extends Command {
   constructor(client) {
     super(client, {
@@ -10,33 +12,20 @@ module.exports = class SayCommand extends Command {
         OnlyDevs: false,
         hidden: false,
     })
-   } 
-   run({message, args, server}, t) {
-        
-    let say = args.join(' ');
-    if (!args.join(" ")) return message.chinoReply('error', t('commands:say'));
-    if (!message.member.hasPermission("MENTION_EVERYONE")) {
-      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
-        w.send(args.join(' '), {
-          disableEveryone: false
-        })
-        w.delete()
-      })
-        message.channel.send(say,{
-          disableEveryone: false
-      });
-         
+   }
+
+   async run({message, args}, t) {
+    const query = args.join(' ')
+    if (!query) return message.chinoReply('error', t('commands:say'))
+
+    const disableEveryone = message.member.hasPermission(FLAGS.MENTION_EVERYONE)
+
+    if (channel.permissionsFor(message.guild.me).has(FLAGS.MANAGE_WEBHOOKS)) {
+      const webhook = await message.channel.createWebhook(message.author.username, message.author.displayAvatarURL)
+      await webhook.send(query, { disableEveryone })
+      await webhook.delete()
     } else {
-  
-      if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.createWebhook(message.author.username, message.author.displayAvatarURL).then(w => {
-        w.send(args.join(' '), {
-          disableEveryone: true
-        })
-        w.delete()
-      })
-      message.channel.send(say, { 
-        disableEveryone: true
-      })
+      message.channel.send(query,{ disableEveryone })
     }
   }
 }
