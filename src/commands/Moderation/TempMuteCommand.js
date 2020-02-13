@@ -29,8 +29,8 @@ module.exports = class TempMuteCommand extends Command {
                 color: "#000000",
                 permissions: []
             })
-            message.guild.channels.forEach(async (channel, id) => {
-                await channel.overwritePermissions(role, {
+            message.guild.channels.forEach((channel, id) => {
+                 channel.overwritePermissions(role, {
                     SEND_MESSAGES: false,
                     ADD_REACTIONS: false,
                     SPEAK: false,

@@ -21,7 +21,7 @@ module.exports = class KickCommand extends Command {
             reason = t("commands:no-reason")
         }
 
-        if (member.id == message.author.id) return message.chinoReply('error', t('commands:kick.authorKick'))
+        if (member.id === message.author.id) return message.chinoReply('error', t('commands:kick.authorKick'))
         if (!message.guild.member(member).kickable) return message.chinoReply('error', t('commands:kick.kickable'))
         if (message.member.highestRole.position < message.guild.member(member).highestRole.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
         
