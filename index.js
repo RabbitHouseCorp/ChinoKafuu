@@ -1,13 +1,13 @@
-const config = require('./config')
-const Client = require('./src/Client')
-require('./src/ProtoTypes').start()
-const DBL = require("dblapi.js")
-const client = new Client({
-    fetchAllMembers: true
-})
-const dbl = new DBL(config.dbltoken, client)
+require('moment');
+require('moment-duration-format');
+require('./src/ProtoTypes').start();
 
-client.login(config.token)
-client.loadCommands('./src/commands')
-client.loadEvents('./src/events')
-console.log("Connected")
+const config = require('./config');
+const Client = require('./src/Client');
+
+const client = new Client({ fetchAllMembers: true });
+
+client.loadCommands('./src/commands');
+client.loadEvents('./src/events');
+
+client.login(config.token).then(() => console.log('Connected'));
