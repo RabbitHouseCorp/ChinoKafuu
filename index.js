@@ -6,9 +6,6 @@ const client = new Client({
     fetchAllMembers: true
 })
 const dbl = new DBL(config.dbltoken, client)
-dbl.on("posted", () => {
-  console.log("Connected to DBL")
-})
 
 client.login(config.token)
 client.loadCommands('./src/commands')
