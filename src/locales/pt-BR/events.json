@@ -10,5 +10,11 @@
     "secounds": "segundos",
     "milliseconds": "alguns milisegundos"
   },
-  "channel-not-found": "eu não consegui encontrar o canal de texto desejado, por este motivo, eu não consegui enviar as informações lá."
+  "channel-not-found": "eu não consegui encontrar o canal de texto desejado, por este motivo, eu não consegui enviar as informações lá.",
+  "added-to-guild": {
+    "thanks-to-add": "Obrigada por me adicionar.",
+    "msg": "Olá {{author}}, eu sou {{client}}, obrigada por me adicionar no {{guild}}! Bom, eu sou um bot cheio de funções super divertidas para alegrar o seu dia, se você quiser saber quais os comandos eu tenho, use `{{prefix}}ajuda`, está com alguma dúvida? Então entre em meu servidor de suporte usando `{{prefix}}convite`, mais uma vez, obrigada por me adicionar e tenha um bom divertimento!",
+    "guild-saved": "Servidor salvo no meu banco de dados com successo!"
+  },
+  "debug": "este comando apresentou problemas, por este motivo, está temporariamente desativado.\n**Motivo:** {{reason}}"
 }

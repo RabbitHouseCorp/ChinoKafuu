@@ -1,4 +1,4 @@
 node_modules/
 config.json
-lavalinkConfig.json
+src/lavalink/lavalinkConfig.json
 package-lock.json

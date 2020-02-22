@@ -1,30 +1,39 @@
 module.exports = class ShardManager {
-  constructor (client) {
-    this.client = client
-  }
+    constructor(client) {
+        this.client = client
+    }
 
-  async getFromCollection (collection, id) {
-    const data = await this.client.shard.broadcastEval(`this.${collection}.get('${id}')`).then(a => a.filter(b => b))
-    return data[0]
-  }
+    async getFromCollection(collection, id) {
+        const data = await this.client.shard.broadcastEval(`this.${collection}.cache.get('${id}')`).then(a => a.filter(b => b))
+        return data[0]
+    }
+    async getSizeCollection(collection) {
+        const info = await this.client.shard.fetchClientValues(`${collection}.cache.size`)
+        let i = info.reduce((prev, val) => prev + val)
+        return i
+    }
 
-  getEmoji (id) {
-    return this.getFromCollection('emojis', id)
-  }
+    getAllSizeObject(collection) {
+        return this.getSizeCollection(collection)
+    }
 
-  getUser (id) {
-    return this.getFromCollection('users', id)
-  }
+    getEmojis(id) {
+        return this.getFromCollection('emojis', id)
+    }
 
-  getGuild (id) {
-    return this.getFromCollection('guilds', id)
-  }
+    getUsers(id) {
+        return this.getFromCollection('users', id)
+    }
 
-  getChannel (id) {
-    return this.getFromCollection('channels', id)
-  }
+    getGuilds(id) {
+        return this.getFromCollection('guilds', id)
+    }
 
-  killShard (id) {
-    return this.client.shard.broadcastEval(`if (this.shard.id === ${id}) { this.destroy() }`)
-  }
+    getChannels(id) {
+        return this.getFromCollection('channels', id)
+    }
+
+    killShard(id) {
+        return this.client.shard.broadcastEval(`if (this.shard.id === ${id}) { this.destroy() }`)
+    }
 }
