@@ -19,7 +19,7 @@ module.exports = class NekoCommand extends Command {
         let img = await neko.sfw.neko()
         const embed = new RichEmbed()
         .setColor(this.client.colors.action)
-        .setDescription('<:neko_chino:568298171684356116>')
+        .setDescription(this.client.emotes.neko_chino)
         .setImage(img.url)
 
         message.channel.send(embed)

@@ -1,6 +1,6 @@
 const { Client, Collection } = require('discord.js')
 const { readdir } = require('fs')
-
+const EventManager = require('./structures/EventManager')
 
 module.exports = class Chino extends Client {
     constructor(options = {}) {
@@ -10,6 +10,7 @@ module.exports = class Chino extends Client {
         this.embed = require('./structures/ChinoEmbed')
         this.commands = new Collection()
         this.aliases = new Collection()
+        this.events = new EventManager(this)
         this.colors = require('./structures/colors')
         this.emotes = require('./structures/emotes')
         this.api = require('./structures/api')
@@ -20,18 +21,38 @@ module.exports = class Chino extends Client {
     reloadCommand (commandName) {
         const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
         if (!command) return false
-        let dir = command.dir
+        const dir = command.dir
         this.commands.delete(command.name)
         delete require.cache[require.resolve(`${dir}`)]
-        const Command = require(`${dir}`)
-        const cmd = new Command(this)
-        cmd.dir = dir
-        this.commands.set(cmd.name, cmd)
-        return true
+        try {
+            const Command = require(`${dir}`)
+            const cmd = new Command(this)
+            cmd.dir = dir
+            this.commands.set(cmd.name, cmd)
+            return true
+        } catch (e) {
+            return e
+        }
+    }
+    reloadEvent (eventName) {
+        const event = this.events.events.filter(a => a.name === eventName)[0]
+        if (!event) return false
+
+        const dir = `./events/${eventName}.js`
+        const status = this.events.remove(eventName)
+        if (!status) return false
+        delete require.cache[require.resolve(`${dir}`)]
+        try {
+            const Event = require(`${dir}`)
+            const event = new Event(this)
+            this.events.add(eventName, event)
+            return true
+        } catch (e) {
+            return e
+        }
     }
     login (token) {
-        super.login(token)
-        return this
+        return super.login(token)
     }
 
     loadCommands(path) {
@@ -39,14 +60,12 @@ module.exports = class Chino extends Client {
             if (err) console.error(err);
             files.forEach(category => {
                 readdir(`${__dirname}/commands/${category}`, (err, cmd) => {
-                    
                     cmd.forEach(cmd => {
                         const command = new(require(`${__dirname}/commands/${category}/${cmd}`))(this);
                         command.dir = `${__dirname}/commands/${category}/${cmd}`
                         this.commands.set(command.config.name, command);
                         command.config.aliases.forEach(a => this.aliases.set(a, command.config.name));
                     })
-                    
                 })
             });
         });
@@ -59,7 +78,7 @@ module.exports = class Chino extends Client {
             
             files.forEach(em => {
                 const event = new(require(`../${path}/${em}`))(this);
-                super.on(em.split(".")[0], (...args) => event.run(...args));
+                this.events.add(em.split('.')[0], event)
             });
         });
 

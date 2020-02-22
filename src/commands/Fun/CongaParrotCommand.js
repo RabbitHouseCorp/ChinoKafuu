@@ -15,6 +15,6 @@ module.exports = class CongaParrotCommand extends Command {
         if (args[0] > 20) return message.chinoReply('error', t('commands:congaparrot.limited'))
         if (!args[0]) return message.chinoReply('error', t('commands:congaparrot.args-null'))
         
-        message.channel.send("<a:parrot_dance:554489834417291285>".repeat(args[0]))
+        message.channel.send(this.client.emotes.parrot_dance.repeat(args[0]))
     }
 }

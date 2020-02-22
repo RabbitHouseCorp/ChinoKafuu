@@ -12,7 +12,9 @@ module.exports = class SetIconCommand extends Command {
         })
     } 
     run({message, args, server}, t) {
+
         let icon = args[0]
+        
         if (!icon) return message.chinoReply('error', t('commands:seticon.args-null'))
 
         if (message.attachments.first()) {
