@@ -55,6 +55,7 @@
     "config": {
         "title": "Configurações de módulos",
         "how-use": "Como usar",
+        "channel-null": "eu não encontrei nenhum canal, você tem certeza que você colocou algo ou um ID válido?",
         "report": {
             "title": "Módulo de denúncias",
             "disable": "módulo de denúncias desativado com sucesso.",
@@ -200,7 +201,8 @@
     "ban": {
         "banAuthor": "você não pode se banir pelo Discord, então não pode se banir por mim.",
         "bannable": "eu não consigo banir este usuário, o cargo dele é maior que o meu.",
-        "banned": "{{member}} | Banido"
+        "banned": "{{member}} | Banido",
+        "softban": "{{member}} | Soft Ban"
     },
     "botinfo": {
         "description": "Olá, eu me chamo **{{clientName}}** e sou apenas mais um simples bot para o Discord do anime `Gochuumon wa Usagi Desu ka?`.\n\nEu fui desenvolvida na base de JavaScript usando discord.js, fui criada **{{clientcreatedAt}}** e entrei no `{{guildName}}` **{{clientJoinedAt}}** e estou acordada há **{{clientUptime}}**.\n\nAtualmente eu me encontro em {{clientGuildSize}} servidores e conheço {{clientUserSize}} coelhinhos!",
@@ -280,7 +282,9 @@
     "help": {
         "util": "Utilitários",
         "moderation": "Moderação",
+        "economy": "Economia",
         "fun": "Diversão",
+        "games": "Jogos",
         "misc": "Miscelânea",
         "music": "Músicas",
         "image": "Manipulação de imagens",

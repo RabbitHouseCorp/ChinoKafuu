@@ -1,18 +1,18 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
-module.exports = class BanCommand extends Command {
+
+module.exports = class SoftBanCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: "ban",
+			name: "softban",
+			aliases: ["softbanir"],
 			category: "mod",
-			aliases: ["banir"],
 			UserPermission: ["BAN_MEMBERS"],
-			ClientPermission: ["BAN_MEMBERS", "EMBED_LINKS"],
-			OnlyDevs: false
+			ClientPermission: ["BAN_MEMBERS"]
 		})
 	}
-	async run({ message, args, server }, t) {
 
+	async run({ message, args, server }, t) {
 		if (!args[0]) return message.chinoReply("error", t("commands:mention-null"))
 		const member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
 		if (!member) return message.chinoReply("error", t("commands:user-not-found"))
@@ -36,22 +36,24 @@ module.exports = class BanCommand extends Command {
 			days: 7,
 			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
 		}).then((user) => {
-			const embed = new MessageEmbed()
-				.setTitle(t("commands:ban.banned", { member: user.tag }))
-				.setColor(this.client.colors.moderation)
-				.setThumbnail(user.avatar.startsWith("a_") ? user.displayAvatarURL({ format: "gif" }) : user.displayAvatarURL({ format: "webp" }))
-				.addField(t("commands:punishment.embed.memberName"), user.tag, true)
-				.addField(t("commands:punishment.embed.memberID"), user.id, true)
-				.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
-				.addField(t("commands:punishment.embed.reason"), reason, true)
+			message.guild.members.unban(user.id).then(user => {
+				const embed = new MessageEmbed()
+					.setTitle(t("commands:ban.softban", { member: user.tag }))
+					.setColor(this.client.colors.moderation)
+					.setThumbnail(user.avatar.startsWith("a_") ? user.displayAvatarURL({ format: "gif" }) : user.displayAvatarURL({ format: "webp" }))
+					.addField(t("commands:punishment.embed.memberName"), user.tag, true)
+					.addField(t("commands:punishment.embed.memberID"), user.id, true)
+					.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
+					.addField(t("commands:punishment.embed.reason"), reason, true)
 
-			message.channel.send(embed)
+				message.channel.send(embed)
 
-			if (server.punishModule) {
-				message.guild.channels.cache.get(server.punishChannel).send(embed).catch(err => {
-					message.channel.send(t("events:channel-not-found"))
-				})
-			}
+				if (server.punishModule) {
+					message.guild.channels.cache.get(server.punishChannel).send(embed).catch(() => {
+						message.channel.send(t("events:channel-not-found"))
+					})
+				}
+			})
 		})
 	}
 }

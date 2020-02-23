@@ -230,7 +230,9 @@
     "help": {
         "util": "Utilities",
         "moderation": "Moderation",
+        "economy": "Economy",
         "fun": "Fun",
+        "games": "Games",
         "misc": "Miscellaneous",
         "music": "Songs",
         "image": "Image manipulation",

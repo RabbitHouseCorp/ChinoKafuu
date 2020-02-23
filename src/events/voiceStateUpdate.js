@@ -18,15 +18,15 @@ module.exports = class voiceStateUptade {
 		if (newVoiceChannel) {
 			if (server.animu) {
 				if (newVoiceChannel) {
+					if (newVoiceChannel.members.get(this.client.user.id) && newVoiceChannel.members.size === 1) {
+						newVoiceChannel.leave()
+					}
 					if (newVoiceChannel.members.size >= 1) {
+						if (newVoiceChannel.members.get(this.client.user.id)) return
 						newVoiceChannel.join().then(connection => {
 							connection.play("http://cast.animu.com.br:9021/stream", { volume: 0.5 })
 						})
 					}
-				}
-
-				if (newVoiceChannel.members.get(this.client.user.id) && newVoiceChannel.members.size === 1) {
-					newVoiceChannel.leave()
 				}
 			}
 		}

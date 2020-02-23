@@ -1,13 +1,15 @@
 const lavalinkManager = require("../lavalink/lavalinkManager")
+const DBL = require("dblapi.js")
 module.exports = class {
 	constructor(client) {
 		this.client = client
 	}
 
 	async run() {
-
+		const dbl = new DBL(this.client.config.dbltoken, this.client)
 		let guilds = await this.client.shardManager.getAllSizeObject("guilds")
 		let users = await this.client.shardManager.getAllSizeObject("users")
+		dbl.postStats(guilds, this.client.shard.ids, this.client.shard.count)
 		console.log(`${this.client.user.username} has been connected to Discord`)
 		this.client.owner = await this.client.users.fetch("395788326835322882")
 		this.client.lavalinkManager = new lavalinkManager(this.client)
