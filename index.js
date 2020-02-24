@@ -6,7 +6,7 @@ const DBL = require("dblapi.js")
 const config = require('./config')
 
 const client = new Client({
-	fetchAllMembers: true,
+	fetchAllMembers: false,
 	disableEveryone: true
 })
 if (client.shard) client.shardManager = new ShardManager(client)
