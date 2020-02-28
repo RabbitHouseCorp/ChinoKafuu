@@ -33,7 +33,7 @@ module.exports = class Command {
 	}
 	getRole(message, text, useMention = false) {
 		if (message.mentions.roles.first() && text && useMention) return message.mentions.roles.first()
-		else return message.guild.roles.cache.get(text) || message.guild.roles.cache.get(text.split("@&")[1].replace(">", "")) || message.guild.roles.find(a => a.name.toLowerCase() === text.toLowerCase()).first()
+		else return message.guild.roles.cache.get(text) || message.guild.roles.cache.get(text.split("@&")[1].replace(">", "")) || message.guild.roles.cache.find(a => a.name.toLowerCase() === text.toLowerCase()).first()
 	}
 	getUser(message, text, useMention = false) {
 		if (message.mentions.users.first() && text && useMention) return message.mentions.users.first()

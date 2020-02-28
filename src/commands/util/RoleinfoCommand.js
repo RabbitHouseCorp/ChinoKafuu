@@ -15,7 +15,7 @@ module.exports = class RoleinfoCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 		moment.locale(server.lang)
-		let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.find(r => r.name.includes(args.join(" "))) || message.guild.roles.find(r => r.name === args.join(" "))
+		let role = message.mentions.roles.first() || message.guild.roles.cache.get(args[0]) || message.guild.roles.cache.find(r => r.name.includes(args.join(" "))) || message.guild.roles.cache.find(r => r.name === args.join(" "))
 		if (!role) return message.chinoReply("error", t("commands:roleinfo.args-null"))
 
 		let embed = new MessageEmbed()
