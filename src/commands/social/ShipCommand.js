@@ -20,11 +20,11 @@ module.exports = class ShipCommand extends Command {
         let value2 = await this.client.database.Users.findById(user2.id)
         if (!value1) return message.chinoReply("error", t("commands:mention-null"))
         if (!value2) return message.chinoReply("error", t("commands:mention-null"))
-        if (value1.shipValue === "null") {
+        if (!value1.shipValue || value1.shipValue === 0) {
             value1.shipValue = Math.floor(Math.random() * 55)
             value1.save()
         }
-        if (value2.shipValue === "null") {
+        if (!value2.shipValue || value2.shipValue === 0) {
             value2.shipValue = Math.floor(Math.random() * 55)
             value2.save()
         }
