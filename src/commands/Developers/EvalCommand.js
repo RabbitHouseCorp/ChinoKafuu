@@ -13,31 +13,20 @@ module.exports = class EvalCommand extends Command {
         })
     }
     run({message, args, server}, t) {
-        try {
-            let util = require("util");
-            let code = args.join(' ');
-            let ev = eval(code)
-            let str = util.inspect(ev, {
-                depth: 1
-            })
-            str = `${str.replace(new RegExp(`${this.client.token}`, "g"), "undefined")}`;
-            if (str.length > 1800) {
-                str = str.substr(0, 1800)
-                str = str + "..."
-            }
-            message.channel.send(str, { code: 'js' })
+            try {
+      // eslint-disable-next-line no-eval
+      const evaluated = await Promise.resolve(eval(code))
 
-        } catch (err) {
-            if (err.stack.length > 1800) {
-              err.stack = err.stack.substr(0, 1800)
-              err.stack = `${err.stack}...`
-            }
-            const embed = new RichEmbed()
-            .setColor(this.client.colors.error)
-            .setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
-            .setDescription(`\`\`\`js\n${err.stack}\`\`\``)
+      message.channel.send(inspect(evaluated, { depth: 0 }), { code: 'js' })
+    } catch (err) {
+      const embed = new RichEmbed()
+        .setTitle('Something went wrong.')
+        .setDescription('```' + err.stack + '```')
+        .setColor('#FF0000')
+        .setTimestamp(new Date())
 
-            message.channel.send(embed)
-        }
+      message.channel.send({ embed })
+    }
+  }
     }
 }
