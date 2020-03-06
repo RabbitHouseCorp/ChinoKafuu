@@ -15,8 +15,10 @@ module.exports = class RemoveEmojiCommand extends Command {
 
 		if (!args[0]) return message.chinoReply("error", t("commands:emoji.args-null"))
 
-		let emoji = Discord.Util.parseEmoji(args[0]) || message.guild.emojis.find(r => r.name === args[0]) || message.guild.emojis.cache.get(args[0])
-		message.guild.emojis.delete(emoji.id).then(() => {
+		let emoji = Discord.Util.parseEmoji(args[0]) || message.guild.emojis.cache.find(r => r.name === args[0]) || message.guild.emojis.cache.get(args[0])
+		if (!message.guild.emojis.cache.get(emoji.id)) return message.chinoReply("error", t("commands:removeemoji.no-guild"))
+		emoji = message.guild.emojis.cache.get(emoji.id)
+		emoji.delete().then(() => {
 			message.chinoReply("trash", t("commands:removeemoji.success"))
 		})
 	}

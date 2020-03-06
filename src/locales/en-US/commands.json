@@ -1,4 +1,12 @@
 {
+    "ppt": {
+        "args-null": "you didn't choose any option.",
+        "option-not-found": "you can only choose between `rock`, `paper` or `scissors`.",
+        "you-win": "you picked `{{me}}` and I picked `{{clientChoice}}`. Congratulations, you won. I gave you `{{value}}` Yens.",
+        "tie": "draw! Nobody won or lost.",
+        "you-lose": "you picked `{{me}}` and I picked `{{clientChoice}}`, I won! Charging you `{{value}}` Yens, sweetheart.",
+        "value-not-inputed": "you didn't provide any value to bet."
+    },
     "no-premium": "this server is not premium, partner or verified.",
     "setbanner": {
         "success": "successfully changed the banner",
@@ -213,7 +221,7 @@
         "name": "Emoji Name",
         "id": "Emoji ID",
         "created-at": "Created at",
-        "hisAnimated": "Cheered up",
+        "hisAnimated": "Animated",
         "mention": "Mention",
         "animated": "Yes",
         "noanimated": "No"

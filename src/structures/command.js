@@ -29,7 +29,7 @@ module.exports = class Command {
 	}
 
 	getEmoji(message, text) {
-		return message.guild.emojis.cache.get((text.split(":")[2] || "").replace(">", "")) || message.guild.roles.cache.get(text) || message.guild.emojis.find(a => a.name.toLowerCase() === text.toLowerCase()).first()
+		return message.guild.emojis.cache.get((text.split(":")[2] || "").replace(">", "")) || message.guild.roles.cache.get(text) || message.guild.emojis.cache.find(a => a.name.toLowerCase() === text.toLowerCase()).first()
 	}
 	getRole(message, text, useMention = false) {
 		if (message.mentions.roles.first() && text && useMention) return message.mentions.roles.first()

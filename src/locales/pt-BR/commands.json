@@ -259,7 +259,8 @@
     "dj": "Bom, a permissão de `DJ` foi criada para evitar que abusem dos comandos de música (como pular a música que você está escutando ou me tirando do canal de voz em que você também se encotra). Para conseguir essa permissão, você precisa ter permissão para `Gerenciar servidor`, `Banir membros` ou ter o cargo com o nome `DJ`, feito isso, bom divertimento e aproveite os meus comandos de música, até logo.",
     "eat": "{{author}} deu comida para {{member}}",
     "emoji": {
-        "args-null": "indique o emoji que você deseja."
+        "args-null": "indique o emoji que você deseja.",
+        "emoji-not-found": "eu não consegui encontrar nenhum emoji."
     },
     "emojiinfo": {
         "name": "Nome do emoji",
@@ -357,7 +358,8 @@
         "success": "meu prefix foi alterado com sucesso."
     },
     "removeemoji": {
-        "success": "emoji removido com sucesso."
+        "success": "emoji removido com sucesso.",
+        "no-guild": "eu não posso remover um emoji que não está neste servidor."
     },
     "removerole": {
         "noRole": "o usuário não está com esse cargo.",

@@ -6,7 +6,7 @@ module.exports = class ProtoTypes {
 		Message.prototype.chinoReply = async function send(emoji, message, ...args) {
 
 			emoji = emotes[emoji]
-			return this.channel.send(`${emoji} **|** ${this.author}, ${message}`, ...args)
+			return this.channel.send(`${emoji ? emoji : "🐛"} **|** ${this.author}, ${message}`, ...args)
 		}
 
 		CanvasRenderingContext2D.prototype.roundRect = function roundRect(x, y, width, height, radius, fill, stroke) {

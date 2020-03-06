@@ -9,7 +9,7 @@ module.exports = class {
 		const dbl = new DBL(this.client.config.dbltoken, this.client)
 		let guilds = await this.client.shardManager.getAllSizeObject("guilds")
 		let users = await this.client.shardManager.getAllSizeObject("users")
-		dbl.postStats(guilds, this.client.shard.ids, this.client.shard.count)
+		dbl.postStats(this.client.guilds.cache.size, this.client.shard.ids, this.client.shard.count)
 		console.log(`${this.client.user.username} has been connected to Discord`)
 		this.client.owner = await this.client.users.fetch("395788326835322882")
 		this.client.lavalinkManager = new lavalinkManager(this.client)

@@ -17,21 +17,22 @@ module.exports = class EmojiinfoCommand extends Command {
 		moment.locale(server.lang)
 
 		if (!args[0]) return message.chinoReply("error", t("commands:emoji.args-null"))
-		let a = Util.parseEmoji(args[0]) || message.guild.emojis.find(emoji => emoji.name === args.join(" "))
-		let emoji = message.guild.emojis.cache.get(a.id)
-		let animated = emoji.animated
-		if (emoji.animated === true) animated = t("commands:emojiinfo.animated")
-		if (emoji.animated === false) animated = t("commands:emojiinfo.noanimated")
+		let emoji = message.guild.emojis.cache.get(args[0]) || Util.parseEmoji(args[0])
+		emoji = message.guild.emojis.cache.get(emoji.id)
+		if (!emoji) return message.chinoReply("error", t("commands:emoji.emoji-not-found"))
+		let animated
+		if (emoji.animated) animated = t("commands:emojiinfo.animated")
+		if (!emoji.animated) animated = t("commands:emojiinfo.noanimated")
 
 		let embed = new MessageEmbed()
-			.setColor(this.client.colors.default)
-			.setThumbnail(emoji.url)
-			.addField(t("commands:emojiinfo.name"), `\`${emoji.name} \``, true)
-			.addField(t("commands:emojiinfo.id"), `\`${emoji.id}\``, true)
-			.addField(t("commands:emojiinfo.created-at"), moment.utc(emoji.createdAt).format("LLLL"), true)
-			.addField(t("commands:emojiinfo.hisAnimated"), animated, true)
-			.addField(t("commands:emojiinfo.mention"), `\`${emoji}\``, true)
-			.addField("Download", emoji.url, true)
+		embed.setColor(this.client.colors.default)
+		embed.setThumbnail(emoji.url)
+		embed.addField(t("commands:emojiinfo.name"), `\`${emoji.name} \``, true)
+		embed.addField(t("commands:emojiinfo.id"), `\`${emoji.id}\``, true)
+		embed.addField(t("commands:emojiinfo.created-at"), moment.utc(emoji.createdAt).format("LLLL"), true)
+		embed.addField(t("commands:emojiinfo.hisAnimated"), animated, true)
+		embed.addField(t("commands:emojiinfo.mention"), `\`${emoji}\``, true)
+		embed.addField("Download", emoji.url, true)
 
 		message.channel.send(embed)
 

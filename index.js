@@ -1,17 +1,15 @@
 require('./src/ProtoTypes').start()
 
-const Client = require('./src/Client')
+const Client = require('./src/ChinoClient')
 const ShardManager = require('./src/ShardManager')
-const DBL = require("dblapi.js")
 const config = require('./config')
-
 const client = new Client({
-	fetchAllMembers: false,
+	fetchAllMembers: true,
 	disableEveryone: true
 })
+
 if (client.shard) client.shardManager = new ShardManager(client)
-const dbl = new DBL(config.dbltoken, client)
-dbl.on("error", () => { })
+
 client.loadCommands('./src/commands')
 client.loadEvents('./src/events')
 client.login(config.token)

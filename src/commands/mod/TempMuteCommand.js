@@ -31,14 +31,12 @@ module.exports = class TempMuteCommand extends Command {
 					permissions: []
 				}
 			})
-			message.guild.channels.cache.forEach(channel => {
-				channel.overwritePermissions({
-					permissionOverwrites: [
-						{
-							id: role.id,
-							deny: ["SEND_MESSAGES", "ADD_REACTIONS", "SPEAK", "CONNECT"]
-						}
-					]
+			message.guild.channels.cache.forEach(async channel => {
+				await channel.createOverwrite({
+					SEND_MESSAGES: false,
+					ADD_REACTIONS: false,
+					SPEAK: false,
+					CONNECT: false
 				})
 			})
 		}
