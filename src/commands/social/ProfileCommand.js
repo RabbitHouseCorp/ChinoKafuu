@@ -11,36 +11,41 @@ module.exports = class ProfileCommand extends Command {
 	}
 
 	async run({ message, args, server }, t) {
-		let member
-		if (args[0]) {
-			member = await this.client.users.fetch(args[0].replace(/[<@!>]/g, ""))
-		} else {
-			member = message.author
-		}
+		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
 		let user = await this.client.database.Users.findById(member.id)
+		let avatar
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
 			}).save()
 		}
-		let format = member.avatar.startsWith("a_") ? "gif" : "webp"
+		if (member.avatar) {
+			if (!member.avatar.startsWith("a_")) {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			}
+		} else {
+			avatar = member.displayAvatarURL()
+		}
+		
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
-				.setColor(this.client.colors.default)
-				.setAuthor(`${member.tag} está banido.`, member.displayAvatarURL({ format }))
-				.setThumbnail(member.displayAvatarURL({ format }))
-				.addField("Motivo", user.blacklistReason)
+			bannedEmbed.setColor(this.client.colors.default)
+			bannedEmbed.setAuthor(`${member.tag} está banido.`, avatar)
+			bannedEmbed.setThumbnail(avatar)
+			bannedEmbed.addField("Motivo", user.blacklistReason)
 
 			message.channel.send(bannedEmbed)
 			return
 		}
 		if (args[0] === "color") {
 			if (!args[1]) return message.chinoReply("error", t("commands:profile.colors.args-null"))
-			if (!args[1].includes("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
+			if (!args[1].startsWith("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
 			const colorEmbed = new MessageEmbed()
-				.setColor(`${args[1]}`)
-				.setAuthor(message.author.tag, message.author.displayAvatarURL({ format }))
-				.setDescription(t("commands:profile.colors.this-color"))
+			colorEmbed.setColor(`${args[1]}`)
+			colorEmbed.setAuthor(message.author.tag, avatar)
+			colorEmbed.setDescription(t("commands:profile.colors.this-color"))
 
 			message.channel.send(colorEmbed).then(msg => {
 				msg.react("success:577973168342302771")
@@ -51,10 +56,11 @@ module.exports = class ProfileCommand extends Command {
 					switch (r.emoji.name) {
 						case "success":
 							user.profileColor = args[1]
-							user.save()
 							user.yens -= Number(1000)
-							message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
-							msg.delete()
+							user.save().then(() => {
+								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
+								msg.delete()
+							})
 							break;
 						case "error":
 							message.chinoReply("error", t("commands:profile.colors.cancel"))
@@ -65,8 +71,13 @@ module.exports = class ProfileCommand extends Command {
 			})
 			return
 		}
-		
-		let marryWith = await this.client.users.fetch(user.marryWith)
+
+		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
+		if (!marryWith) {
+			user.isMarry = false
+			user.yens += Number(7500)
+			user.save()
+		}
 		let description = [
 			`${this.client.emotes.sharo_excited} **${t("commands:profile.aboutme")} »** *\`${user.aboutme}\`*`,
 			`${this.client.emotes.rize_smile} **${t("commands:profile.user-name")} »** *\`${member.tag}\`*`,
@@ -76,10 +87,10 @@ module.exports = class ProfileCommand extends Command {
 			`${this.client.emotes.sharo_hug_chino} **${t("commands:profile.rep")} »** *\`${user.rep}\`*`
 		]
 		const embed = new MessageEmbed()
-			.setColor(user.profileColor)
-			.setAuthor(t("commands:profile.title", { member: member.tag }), member.displayAvatarURL({ format }))
-			.setThumbnail(member.displayAvatarURL({ format }))
-			.setDescription(description.join("\n\n"))
+		embed.setColor(user.profileColor)
+		embed.setAuthor(t("commands:profile.title", { member: member.tag }), avatar)
+		embed.setThumbnail(avatar)
+		embed.setDescription(description.join("\n\n"))
 
 		message.channel.send(embed)
 	}

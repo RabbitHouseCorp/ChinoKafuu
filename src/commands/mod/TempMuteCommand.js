@@ -42,10 +42,21 @@ module.exports = class TempMuteCommand extends Command {
 		}
 		if (message.member.roles.highest.position <= message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
-		let embed = new MessageEmbed()
+		let avatar
+		if (member.avatar) {
+			if (!member.avatar.startsWith("a_")) {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			}
+		} else {
+			avatar = member.displayAvatarURL()
+		}
+
+		const embed = new MessageEmbed()
 			.setTitle(t("commands:tempmute.title", { member: member.tag }))
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.avatar.startsWith("a_") ? member.displayAvatarURL({ format: "gif" }) : member.displayAvatarURL({ format: "webp" }))
+			.setThumbnail(avatar)
 			.addField(t("commands:punishment.embed.memberName"), member.tag, true)
 			.addField(t("commands:punishment.embed.memberID"), member.id, true)
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)

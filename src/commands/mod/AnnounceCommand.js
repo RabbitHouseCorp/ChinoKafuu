@@ -17,12 +17,26 @@ module.exports = class AnnounceCommand extends Command {
 		if (!chat) return message.chinoReply("error", t("commands:announce.noMention"))
 		let announce = args.slice(1).join(" ")
 		if (!announce) return message.chinoReply("error", t("commands:announce.noMsg"))
-		let format = message.author.avatar.startsWith("a_") ? "gif" : "webp" || message.author.icon.startsWith("a_") ? "gif" : "webp"
+		let avatar
+		if (!message.author.avatar.startsWith("a_")) {
+			if (!message.author.avatar) {
+				avatar = message.author.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=2048`
+			}
+		} else {
+			if (!message.author.avatar) {
+				avatar = message.author.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.gif?size=2048`
+			}
+		}
+		let format = message.guild.icon.startsWith("a_") ? "gif" : "webp"
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
-			.setAuthor(message.guild.name, message.guild.iconURL({ format }))
+			.setAuthor(message.guild.name, message.guild.icon ? message.guild.iconURL({ format }) : null)
 			.setDescription(announce)
-			.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, message.author.displayAvatarURL({ format }))
+			.setFooter(`${t("commands:announce.by")}: ${message.author.username}`, avatar)
 
 		message.reply(t("commands:announce.confirmed", { chat: chat.toString() })).then(msg => {
 			setTimeout(() => {

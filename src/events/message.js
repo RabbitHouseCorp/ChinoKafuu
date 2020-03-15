@@ -84,9 +84,24 @@ module.exports = class MessageReceive {
 					const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
 					let owner = await this.client.users.fetch("395788326835322882")
 					if (user.blacklist) {
+						let avatar
+						if (!message.author.avatar.startsWith("a_")) {
+							if (!message.author.avatar) {
+								avatar = message.author.displayAvatarURL()
+							} else {
+								avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.png?size=2048`
+							}
+						} else {
+							if (!message.author.avatar) {
+								avatar = message.author.displayAvatarURL()
+							} else {
+								avatar = `https://cdn.discordapp.com/avatars/${message.author.id}/${message.author.avatar}.gif?size=2048`
+							}
+						}
+
 						const embed = new MessageEmbed()
 							.setColor(this.client.colors.moderation)
-							.setAuthor("Você foi banido", message.author.avatar.startsWith("a_") ? message.author.displayAvatarURL({ format: "gif" }) : message.author.displayAvatarURL({ format: "webp" }))
+							.setAuthor("Você foi banido", avatar)
 							.setDescription(`Olá ${message.author}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
 							.addField("Motivo", user.blacklistReason)
 							.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre em contato com a ${owner.tag} ou entre no meu servidor de suporte.`)

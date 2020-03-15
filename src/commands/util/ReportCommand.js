@@ -33,10 +33,8 @@ module.exports = class ReportCommand extends Command {
 			.setThumbnail(member.avatar)
 			.addField(t("commands:report.memberName"), member.tag, true)
 			.addField(t("commands:report.memberID"), member.id, true)
-			.addBlankField(true)
 			.addField(t("commands:report.authorName"), message.author.tag, true)
 			.addField(t("commands:report.authorID"), message.author.id, true)
-			.addBlankField(true)
 			.addField(t("commands:report.channel"), message.channel, true)
 			.addField(t("commands:report.reason"), reason, true)
 

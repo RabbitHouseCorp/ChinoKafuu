@@ -13,7 +13,7 @@ module.exports = class UserinfoCommand extends Command {
 		})
 	}
 	async run({ message, args, server }, t) {
-		
+
 		moment.locale(server.lang)
 
 		let member
@@ -27,10 +27,25 @@ module.exports = class UserinfoCommand extends Command {
 		let role = message.guild.member(member) ? message.guild.member(member)._roles.map(r => message.guild.roles.cache.get(r).name).join(", ") : t("commands:userinfo.no-guild")
 		let roleSize = message.guild.member(member) ? message.guild.member(member)._roles.length : "0"
 		let color = message.guild.member(member) ? message.guild.member(member).displayHexColor : "#000000"
+		let avatar
+		if (!member.avatar.startsWith("a_")) {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+			}
+		} else {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			}
+		}
+
 		const embed = new MessageEmbed()
 			.setColor(color)
-			.setThumbnail(member.displayAvatarURL({ format }))
-			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), member.displayAvatarURL({ format }))
+			.setThumbnail(avatar)
+			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), avatar)
 			.addField(t("commands:userinfo.name"), member.tag, true)
 			.addField(t("commands:userinfo.id"), member.id, true)
 			.addField(t("commands:userinfo.high"), message.guild.member(member) ? message.guild.member(member).roles.highest : t("commands:userinfo.no-guild"), true)
@@ -40,8 +55,8 @@ module.exports = class UserinfoCommand extends Command {
 
 		const page2 = new MessageEmbed()
 			.setColor(color)
-			.setThumbnail(member.displayAvatarURL({ format }))
-			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), member.displayAvatarURL({ format }))
+			.setThumbnail(avatar)
+			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), avatar)
 			.addField(t("commands:userinfo.permissions"), message.guild.member(member) ? `\`${message.guild.member(member).permissions.toArray().join(", ")}\`` : t("commands:userinfo.no-guild"))
 			.addField(t("commands:userinfo.roles", { roles: roleSize }), `\`${role}\``.replace("@everyone, ", ""), true)
 

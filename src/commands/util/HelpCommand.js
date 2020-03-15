@@ -26,7 +26,6 @@ module.exports = class HelpCommand extends Command {
 		embed.addField(`${t("commands:help.moderation")} (${this.getCommmandSize("mod")})`, this.getCategory("mod", server.prefix))
 		embed.addField(`${t("commands:help.music")} (${this.getCommmandSize("music")})`, this.getCategory("music", server.prefix))
 		embed.addField(`${t("commands:help.social")} (${this.getCommmandSize("social")})`, this.getCategory("social", server.prefix))
-		embed.addBlankField(true)
 		embed.addField(t("commands:help.addUrl"), t("commands:help.inUrl"))
 
 		message.author.send(embed).then(() => {

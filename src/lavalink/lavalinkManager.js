@@ -83,7 +83,8 @@ module.exports = class LavalinkManager {
 	constructor(client) {
 		this.client = client
 		this.manager = new PlayerManager(client, nodes, {
-			shards: this.client.shard.count
+			shards: this.client.shard.count,
+			user: this.client.user.id
 		})
 	}
 	getBestHost() {

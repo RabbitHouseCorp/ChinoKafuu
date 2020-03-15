@@ -12,12 +12,13 @@ module.exports = class ServerBannerCommand extends Command {
     }
 
     run({ message, args, server }, t) {
-        if (message.guild.premiumTier <= 1 || !message.guild.partnered || !message.guild.verified) return message.chinoReply("error", t("commands:no-premium"))
+        let allowed = message.guild.premiumTier <= 1 || message.guild.partnered || message.guild.verified
+        if (allowed === false) return message.chinoReply("error", t("commands:no-premium"))
         if (!message.guild.banner) return message.chinoReply("error", t("commands:serverbanner.no-banner"))
 
         const embed = new MessageEmbed()
             .setColor(this.client.colors.default)
-            .setDescription(t("commands:serverbanner.download", { download: message.guild.bannerURL({ size: 2048 }) }))
+            .setDescription(t("commands:serverbanner.download", { download: message.guild.bannerURL({ format: "png",size: 2048 }) }))
             .setImage(message.guild.bannerURL({ size: 2048 }))
         
         message.channel.send(embed)

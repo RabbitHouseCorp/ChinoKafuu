@@ -27,7 +27,7 @@ module.exports = class McQueryCommand extends Command {
 					.addField("Players online", `${body.players.now}/${body.players.max} players`, true)
 					.addField(t("commands:mcquery.version"), body.server.name, true)
 					.addField(t("commands:mcquery.uptime"), moment.duration(body.duration).format("dd [days] hh [hours] mm [min] ss [secs]"), true)
-					.addBlankField(true)
+
 					.addField("Motd", body.motd)
 
 				message.channel.send(embed)

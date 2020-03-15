@@ -24,10 +24,21 @@ module.exports = class KickCommand extends Command {
 		if (!message.guild.members.cache.get(member.id).kickable) return message.chinoReply("error", t("commands:kick.kickable"))
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
+		let avatar
+		if (user.avatar) {
+			if (!user.avatar.startsWith("a_")) {
+				avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=2048`
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.gif?size=2048`
+			}
+		} else {
+			avatar = user.displayAvatarURL()
+		}
+
 		const embed = new MessageEmbed()
-			.setTitle(t("commands:kick.kicked", { member: member.tag }))
+			.setTitle(t("commands:kick.kicked", { member: user.tag }))
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(user.avatar.startsWith("a_") ? user.displayAvatarURL({ format: "gif" }) : user.displayAvatarURL({ format: "webp" }))
+			.setThumbnail(avatar)
 			.addField(t("commands:punishment.embed.memberName"), user.tag, true)
 			.addField(t("commands:punishment.embed.memberID"), user.id, true)
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
