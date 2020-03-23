@@ -21,7 +21,6 @@ module.exports = class RoleinfoCommand extends Command {
 		let embed = new MessageEmbed()
 			.setColor(role.hexColor)
 			.setTitle(t("commands:roleinfo.title", { roleName: role.name }))
-			.setThumbnail(`${message.guild.icon}`.replace("jpg", "png"))
 			.addField(t("commands:roleinfo.mention"), `\`${role}\``, true)
 			.addField(t("commands:roleinfo.id"), role.id, true)
 			.addField(t("commands:roleinfo.color"), role.hexColor, true)
