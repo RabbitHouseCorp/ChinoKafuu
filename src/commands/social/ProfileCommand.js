@@ -11,7 +11,15 @@ module.exports = class ProfileCommand extends Command {
 	}
 
 	async run({ message, args, server }, t) {
-		let member = args[0] ? await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, "")) : message.author
+		let member
+		if (args[0]) {
+			member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
+			if (!member) {
+				member = message.author
+			}
+		} else {
+			member = message.author
+                }
 		let user = await this.client.database.Users.findById(member.id)
 		let avatar
 		if (!user) {
@@ -58,7 +66,7 @@ module.exports = class ProfileCommand extends Command {
 							user.profileColor = args[1]
 							user.yens -= Number(1000)
 							user.save().then(() => {
-								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
+								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(1000).toLocaleString() }))
 								msg.delete()
 							})
 							break;
