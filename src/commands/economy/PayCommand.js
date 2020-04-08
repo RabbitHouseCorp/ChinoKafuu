@@ -41,8 +41,8 @@ module.exports = class PayCommand extends Command {
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 					case "success":
-						donator.yens -= Number(value)
-						membro.yens += Number(realValue[0])
+						donator.yens = donator.yens - Number(value)
+						membro.yens = membro.yens + Number(realValue[0])
 						membro.save()
 						donator.save()
 

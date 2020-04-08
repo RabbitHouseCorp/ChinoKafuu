@@ -24,7 +24,7 @@ module.exports = class ReputationCommand extends Command {
 		let time = ((parseInt(author.repTime) - Date.now()) > 3600000) ? moment.utc(parseInt(author.repTime - Date.now())).format("hh:mm:ss") : moment.utc(parseInt(author.repTime - Date.now())).format("mm:ss")
 		if (parseInt(author.repTime) < Date.now()) {
 
-			user.rep += 1
+			user.rep = user.rep + 1
 			author.repTime = 3600000 + Date.now()
 			author.save()
 			user.save()

@@ -29,12 +29,12 @@ module.exports = class MarryCommand extends Command {
 					case "success":
 						user.isMarry = true
 						user.marryWith = message.author.id
-						user.yens -= Number(7500)
+						user.yens = user.yens - Number(7500)
 						user.save()
 
 						author.isMarry = true
 						author.marryWith = member.id
-						author.yens -= Number(7500)
+						author.yens = author.yens - Number(7500)
 						author.save()
 						msg.delete()
 						message.chinoReply("tada", t("commands:marry.successfully-marred", { member: member.toString() }))

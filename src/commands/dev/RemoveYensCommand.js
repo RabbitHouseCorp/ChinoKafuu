@@ -16,7 +16,7 @@ module.exports = class RemoveYensCommand extends Command {
         let user = await this.client.database.Users.findById(args[0].replace(/[<@!>]/g, ""))
         if (!args[1]) return message.chinoReply("error", "você não colocou a quantia que quer remover.")
 
-        user.yens -= args[1]
+        user.yens = user.yens - args[1]
         user.save()
         
         message.chinoReply("success", `certo, eu removi \`${Number(args[1]).toLocaleString()}\` yens na conta do usuário com o ID: \`${args[0]}\``)

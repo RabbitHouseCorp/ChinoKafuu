@@ -35,7 +35,7 @@ module.exports = class JanKePonCommand extends Command {
         if (userWinOption) {
             emoji = "chino_sad"
             result = t("commands:ppt.you-win", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens += value
+            user.yens = user.yens + value
             user.save()
         } else if (me === clientChoice) {
             emoji = "chino_thiking"
@@ -43,7 +43,7 @@ module.exports = class JanKePonCommand extends Command {
         } else if (userLoserOption) {
             emoji = "chino_kek"
             result = t("commands:ppt.you-lose", { me: me, clientChoice: clientChoice, value: Number(value).toLocaleString() })
-            user.yens -= value
+            user.yens = user.yens - value
             user.save()
         }
 

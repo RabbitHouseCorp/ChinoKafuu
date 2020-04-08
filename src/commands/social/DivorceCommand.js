@@ -28,12 +28,12 @@ module.exports = class DivorceCommand extends Command {
 					case "success":
 						user.isMarry = false
 						user.marryWith = t("commands:with-nobody")
-						user.yens -= Number(300)
+						user.yens = user.yens- Number(300)
 						user.save()
 
 						user2.isMarry = false
 						user2.marryWith = t("commands:with-nobody")
-						user2.yens -= Number(300)
+						user2.yens = user2.yens - Number(300)
 						user2.save()
 						msg.delete()
 						message.chinoReply("broken_heart", t("commands:divorce.divorced"))

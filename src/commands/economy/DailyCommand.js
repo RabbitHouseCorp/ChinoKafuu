@@ -20,7 +20,7 @@ module.exports = class DailyCommand extends Command {
 
 			let random = Math.floor(Math.random() * (1400 - 340 + 1)) + 340
 
-			user.yens += random
+			user.yens = user.yens + random
 			user.timeDaily = 43200000 + Date.now()
 			user.save()
 			message.chinoReply("moneybag", t("commands:daily.daily-success", {
