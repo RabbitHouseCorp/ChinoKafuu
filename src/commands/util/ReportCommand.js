@@ -27,10 +27,24 @@ module.exports = class ReportCommand extends Command {
 			message.chinoReply("error", t("comands:report.channel-null"))
 			return
 		}
+		let avatar
+		if (!member.avatar.startsWith("a_")) {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
+			}
+		} else {
+			if (!member.avatar) {
+				avatar = member.displayAvatarURL()
+			} else {
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
+			}
+		}
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.moderation)
-			.setThumbnail(member.avatar)
+			.setThumbnail(avatar)
 			.addField(t("commands:report.memberName"), member.tag, true)
 			.addField(t("commands:report.memberID"), member.id, true)
 			.addField(t("commands:report.authorName"), message.author.tag, true)
