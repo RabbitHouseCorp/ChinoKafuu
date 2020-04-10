@@ -1,6 +1,6 @@
 const Command = require("../../structures/command")
 const { MessageEmbed } = require("discord.js")
-const inspect = require('utils')
+const inspect = require('util')
 module.exports = class EvalCommand extends Command {
 	constructor(client) {
 		super(client, {
