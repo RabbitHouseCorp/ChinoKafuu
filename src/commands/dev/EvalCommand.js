@@ -11,7 +11,7 @@ module.exports = class EvalCommand extends Command {
 			OnlyDevs: true
 		})
 	}
-	run({ message, args, server }, t) {
+	async run({ message, args, server }, t) {
     const code = args.join(' ')
 
     try {
