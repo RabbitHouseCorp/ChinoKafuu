@@ -25,14 +25,14 @@ module.exports = class KickCommand extends Command {
 		if (message.member.roles.highest.position < message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
 		let avatar
-		if (user.avatar) {
+		if (member.avatar) {
 			if (!user.avatar.startsWith("a_")) {
-				avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.gif?size=2048`
+				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
 			}
 		} else {
-			avatar = user.displayAvatarURL()
+			avatar = member.displayAvatarURL()
 		}
 
 		const embed = new MessageEmbed()
