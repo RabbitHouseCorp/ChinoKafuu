@@ -9,6 +9,7 @@ const client = new Client({
 
 if (client.shard) client.shardManager = new ShardManager(client)
 
+client.loadLocales()
 client.loadCommands('./src/commands')
 client.loadEvents('./src/events')
 client.login(config.token)

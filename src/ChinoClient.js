@@ -52,6 +52,11 @@ module.exports = class ChinoClient extends Client {
 	login(token) {
 		return super.login(token)
 	}
+    loadLocales() {
+        const Locales = require("./structures/LocaleStructure")
+        const locales = new Locales(this)
+        locales.load()
+    }
 
 	loadCommands(path) {
 		readdir(`${__dirname}/commands/`, (err, files) => {
