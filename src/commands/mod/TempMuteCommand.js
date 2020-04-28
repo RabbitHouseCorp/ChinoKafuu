@@ -32,7 +32,7 @@ module.exports = class TempMuteCommand extends Command {
 				}
 			})
 			message.guild.channels.cache.forEach(async channel => {
-				await channel.createOverwrite({
+				await channel.createOverwrite(role.id, {
 					SEND_MESSAGES: false,
 					ADD_REACTIONS: false,
 					SPEAK: false,
