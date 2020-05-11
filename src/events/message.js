@@ -69,6 +69,7 @@ module.exports = class MessageReceive {
 		const command = args.shift().toLowerCase()
 		const comando = this.client.commands.get(command) || this.client.commands.get(this.client.aliases.get(command))
 		let owner = await this.client.users.fetch("395788326835322882")
+		if (!comando) return
 		if (user.blacklist) {
 			let avatar
 			if (!message.author.avatar.startsWith("a_")) {
