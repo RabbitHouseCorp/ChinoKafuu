@@ -14,7 +14,7 @@ module.exports = class ChannelInfoCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 
-		let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.guild.channels.find(c => c.name === args.join(" ")) || message.channel
+		let channel = message.mentions.channels.first() || message.guild.channels.cache.get(args[0]) || message.guild.channels.cache.find(c => c.name === args.join(" ")) || message.channel
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
