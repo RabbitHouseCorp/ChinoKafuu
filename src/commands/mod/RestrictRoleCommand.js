@@ -19,15 +19,14 @@ module.exports = class RestrictRoleCommand extends Command {
         if (!args[2]) return message.chinoReply("error", t("commands:roleinfo.args-null"))
         let emoji = Util.parseEmoji(args[1]) || message.guild.emojis.cache.get(args[1])
         if (!emoji) return message.chinoReply("error", t("commands:restrictemoji.args-emoji-null"))
-        if (message.guild.emojis.cache.get(emoji.id)) {
-            emoji = message.guild.emojis.cache.get(emoji.id)
-        }
+        if (message.guild.emojis.cache.get(emoji.id)) emoji = message.guild.emojis.cache.get(emoji.id)
         let roles = message.guild.roles.cache.get(args[2].replace(/[<@&>]/g, ""))
         if (!roles) return message.chinoReply("error", t("commands:restrictemoji.role-null"))
         let optionsadd = ["adicionar", "add", "insert"]
         let optionsremove = ["remover", "remove", "delete", "deletar"]
 
         if (optionsadd.includes(args[0].toLowerCase())) {
+            if (!emoji.id) return message.chinoReply('error', t('commands:restrictemoji.not-suported'))
             message.guild.emojis.cache.get(emoji.id).roles.add(roles.id).then(() => {
                 message.channel.send(`${emoji} **|** ${message.author.toString()}, ${t("commands:restrictemoji.successfully-added", { role: roles.name })}`)
             })

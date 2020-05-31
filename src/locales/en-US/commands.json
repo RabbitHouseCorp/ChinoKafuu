@@ -488,5 +488,13 @@
         "invalidArgument": "invalid argument: {{ arg }}",
         "success": "{{ ammount }} **{{ from }}** to **{{ to }}** = **{{ total }}**"
     },
-    "click-here": "Click here"
+    "click-here": "Click here",
+    "restrictemoji": {
+        "no-option": "available options:\n`add`, `remove`.",
+        "args-emoji-null": "this emojis is not in your server.",
+        "role-null": "this role is not in your server.",
+        "successfully-added": "locked the emoji to members with the `{{role}}` role.",
+        "successfully-removed": "the emojis is not locked to member with the `{{role}}` role anymore.",
+        "no-support": "normal emojis are not supported"
+    }
 }

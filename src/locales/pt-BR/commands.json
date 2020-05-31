@@ -27,8 +27,9 @@
         "no-option": "opções disponíveis:\n`add`, `remove`.",
         "args-emoji-null": "este emoji não se encontra neste servidor.",
         "role-null": "este cargo não se encontra no servidor.",
-        "successfully-added": "o emoji foi restrigido para os membros com o cargo `{{role}}`.",
-        "successfully-removed": "o emoji não está mais restrito ao cargo `{{role}}`;"
+        "successfully-added": "o emoji foi restrito para os membros com o cargo `{{role}}`.",
+        "successfully-removed": "o emoji não está mais restrito ao cargo `{{role}}`;",
+        "no-support": "emojis normais não são suportados."
     },
     "translate": {
         "args-null": "você não argumentou algo para mim traduzir."
