@@ -26,7 +26,7 @@ module.exports = class KickCommand extends Command {
 
 		let avatar
 		if (member.avatar) {
-			if (!user.avatar.startsWith("a_")) {
+			if (!member.avatar.startsWith("a_")) {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
 			} else {
 				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
