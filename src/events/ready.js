@@ -1,5 +1,6 @@
 const lavalinkManager = require("../lavalink/lavalinkManager")
 const DBL = require("dblapi.js")
+const Sentry = require('@sentry/node')
 module.exports = class {
 	constructor(client) {
 		this.client = client
@@ -34,5 +35,6 @@ module.exports = class {
 			let randomStatus = status[Math.floor(Math.random() * status.length)]
 			this.client.user.setPresence({ activity: randomStatus })
 		}, 30000)
+		Sentry.init({ dsn: process.env.SENTRY_DSN })
 	}
 }
