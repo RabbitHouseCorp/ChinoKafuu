@@ -4,7 +4,7 @@ const Client = require('./src/ChinoClient')
 const ShardManager = require('./src/ShardManager')
 const config = require('./config')
 const client = new Client({
-	disableEveryone: true
+	disableMentions: "everyone"
 })
 
 if (client.shard) client.shardManager = new ShardManager(client)
