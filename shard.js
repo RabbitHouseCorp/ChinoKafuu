@@ -11,4 +11,4 @@ async function spawn() {
     await shards.spawn()
 }
 
-spawn()
+await spawn()
