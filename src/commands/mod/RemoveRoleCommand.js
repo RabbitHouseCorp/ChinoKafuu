@@ -18,7 +18,7 @@ module.exports = class RemoveRoleCommand extends Command {
 		let role = message.mentions.roles.array()[1] || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(r => r.name === args.slice(1).join(" "))
 		if (!role) return message.chinoReply("error", t("commands:addrole.mentionRoleNull"))
 
-		message.guild.member(member).remove(role.id).then(() => {
+		message.guild.member(member).roles.remove(role.id).then(() => {
 			message.chinoReply("success", t("commands:removerole.success"))
 		}).catch(err => {
 			console.log(err)
