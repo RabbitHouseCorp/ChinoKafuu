@@ -8,4 +8,4 @@ shards.on("shardCreate", (shard) => {
 	console.warn(`Starting shard: ${shard.id}`)
 })
 
-shards.spawn()
+await shards.spawn()
