@@ -1,6 +1,6 @@
 ---
-name: Sugestão
-about: Contribua para a Chino sugerindo algo.
+name: Sugestão [BR]
+about: Gostaria que algo fosse adicionado na Chino? Conte-nos!
 title: ''
 labels: ''
 assignees: 'MysteryMS, DanielaGC'
@@ -8,7 +8,7 @@ assignees: 'MysteryMS, DanielaGC'
 ---
 
 **Qual é a sua sugestão? Se tiver relação com algum comando, por favor mencione-o.**
-Uma descrição clara e compreendível da sua sugestão
+Uma descrição clara da sua sugestão e como ela deve funcionar
 
 **Você usou algum comando para "gambiarrar" a sua sugestão?**
 - [] Não
