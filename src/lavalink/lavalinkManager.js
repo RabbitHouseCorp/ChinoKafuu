@@ -102,7 +102,7 @@ async function getSongs(node, search) {
 	params.append("identifier", search)
 
 	return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } }).then(res => res.json()).then(data => data.tracks).catch(err => {
-		console.error(err)
+		// console.error(err)
 		return null
 	})
 }
