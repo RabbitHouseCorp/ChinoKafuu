@@ -18,8 +18,6 @@ module.exports = class MoneyCommand extends Command {
     async run({ message, args, server }, t) {
         let [from, to, ammount = 1] = args
 
-        const { moneybag } = this.client.emotes
-
         if (!from || !to || (ammount === null)) {
             message.chinoReply("error", t("commands:money.invalidOptions", {
                 prefix: server.prefix,
@@ -30,7 +28,7 @@ module.exports = class MoneyCommand extends Command {
         }
 
         if (isNaN(ammount)) {
-            message.chinoReply("error", t("command:money.invalidValue"))
+            message.chinoReply("error", t("commands:money.invalidValue"))
             return
         }
 
@@ -42,7 +40,7 @@ module.exports = class MoneyCommand extends Command {
             const total = (res.rates[to] * parseFloat(ammount)).toFixed(2)
             const totalFormated = Intl.NumberFormat("pt-BR", { style: "currency", currency: to }).format(total)
 
-            message.chinoReply("success", moneybag + " " + t("commands:money.success", { from, to, ammount, total: totalFormated }))
+            message.chinoReply("moneybag", t("commands:money.success", { from, to, ammount, total: totalFormated }))
         } catch (err) {
             if (err instanceof InvalidArgumentError) {
                 message.chinoReply("error", t("commands:money.invalidArgument", { arg: err.message }))
