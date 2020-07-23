@@ -442,7 +442,7 @@
         "discord": "discord.js",
         "uptime": "Tempo online",
         "memory": "Memória RAM",
-        "cpu-status": "Status da CPU",
+        "cpu-status": "Uso do processador",
         "system": "Sistema",
         "cpu": "Processador"
     },
