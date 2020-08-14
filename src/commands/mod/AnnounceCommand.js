@@ -52,7 +52,7 @@ module.exports = class AnnounceCommand extends Command {
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 					case "success":
-						chat.send("@here", { disableMentions: false, embed: embed })
+						chat.send("@everyone", { disableMentions: false, embed: embed })
 						msg.delete()
 						message.chinoReply("success", t("commands:announce.send"))
 						break
