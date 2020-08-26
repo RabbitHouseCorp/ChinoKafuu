@@ -16,6 +16,6 @@ module.exports = class ChooseCommand extends Command {
 		let choose = args.join(" ").split(", ")
 		let c = choose[Math.floor(Math.random() * choose.length)]
 
-		message.reply(t("commands:choose.choose", { choose: c }))
+		message.reply(t("commands:choose.choose", { choose: c.replaceAll('`', '\`') }))
 	}
 }
