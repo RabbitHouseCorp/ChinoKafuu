@@ -12,7 +12,7 @@ module.exports = class AnimuCommand extends Command {
     }
 
     async run({ message, args, server }, t) {
-        if (!message.member.voice.channel) return message.reply("you are not on any voice channels.")
+        if (!message.member.voice.channel) return message.reply("you aren't in a voice channels.")
         const argsNullEmbed = new MessageEmbed()
             .setColor(this.client.colors.default)
             .setTitle("Animu command info")
@@ -24,7 +24,7 @@ module.exports = class AnimuCommand extends Command {
         if (!args[0]) return message.channel.send(argsNullEmbed)
         let info = fetch("http://cast.animu.com.br:2199/rpc/animufm/streaminfo.get")
         let infoJson = info.then(res => res.json())
-        let format = message.guild.icon.startsWith("a_") ? "gif" : "webp"
+        let format = message.guild.icon ? message.guild.icon.startsWith("a_") ? "gif" : "webp" : null
         if (["join", "entrar", "tocar", "play"].includes(args[0])) {
             message.member.voice.channel.join().then(connection => {
                 this.client.user.setPresence({ activity: { name: "Animu FM Radio Station - The Most Moe Radio of Brazil!", type: "LISTENING" } })
