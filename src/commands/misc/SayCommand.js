@@ -12,7 +12,7 @@ module.exports = class SayCommand extends Command {
 	}
 	async run({ message, args, server }, t) {
 
-		let query = args.join(" ")
+		let query = args.join(" ").replaceAll('@', '\@') // We escape the @ so it won't mention anyone.
 		if (!query) return message.chinoReply("error", t("commands:say"))
 		const disableEveryone = message.member.hasPermission("MENTION_EVERYONE")
 		const webhook = await message.channel.createWebhook(message.author.username, { avatar: message.author.displayAvatarURL() })
