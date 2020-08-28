@@ -6,4 +6,6 @@
 
 # See you! And have fun using me.
 
+> ###### We do not support self-hosted instances.
+
 ![Chino Kafuu](https://repository-images.githubusercontent.com/203506793/08e09480-db3b-11e9-8daa-175b74a05b92)
