@@ -14,6 +14,8 @@ module.exports = class PlayCommand extends Command {
 	async run({ message, args, server }, t) {
 		const embed = new Discord.MessageEmbed()
 			.setDescription(t("commands:play.unavailable"))
+			.setColor("RANDOM")
+		message.channel.send(embed)
 
 		/* if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
