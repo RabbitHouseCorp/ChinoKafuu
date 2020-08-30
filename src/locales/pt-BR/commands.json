@@ -350,7 +350,8 @@
     "play": {
         "addedQueue": "a música `{{songTitle}}` foi adicionada a fila",
         "playingNow": "estou tocando agora `{{songTitle}}`",
-        "args-null": "você precisa indicar o nome ou URL da música."
+        "args-null": "você precisa indicar o nome ou URL da música.",
+        "unavailable": "Essa não! Meu sistema de música está temporariamente indisponível, mas você pode usar a [Meteora](https://discord.com/oauth2/authorize?client_id=464304679128530954&permissions=3509248&scope=bot) enquanto as coisas não se normalizam..."
     },
     "poke": "{{author}} catucou {{member}}",
     "prefix": {

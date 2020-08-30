@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const Discord = require("discord.js")
 module.exports = class PlayCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -11,8 +12,10 @@ module.exports = class PlayCommand extends Command {
 		})
 	}
 	async run({ message, args, server }, t) {
+		const embed = new Discord.MessageEmbed()
+			.setDescription(t("commands:play.unavailable"))
 
-		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
+		/* if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
 		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
 
 		if (!args[0]) return message.chinoReply("error", t("commands:play.args-null"))
@@ -34,6 +37,6 @@ module.exports = class PlayCommand extends Command {
 
 			player.play(args.join(" "))
 			this.client.player.set(message.guild.id, player)
-		}
+		} */
 	}
 }
