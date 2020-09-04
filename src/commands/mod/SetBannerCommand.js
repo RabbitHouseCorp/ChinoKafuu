@@ -13,7 +13,7 @@ module.exports = class SetBannerCommand extends Command {
 
     run({ message, args, server }, t) {
 
-        if (message.guild.premiumTier <= 1 || !message.guild.partnered || !message.guild.verified) return message.chinoReply("error", t("commands:no-premium"))
+        if (!message.guild.features.includes("BANNER")) return message.chinoReply("error", t("commands:no-premium"))
         let banner
 
         if (message.attachments.first()) {

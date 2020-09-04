@@ -12,8 +12,8 @@ module.exports = class ServerBannerCommand extends Command {
     }
 
     run({ message, args, server }, t) {
-        let allowed = message.guild.premiumTier <= 1 || message.guild.partnered || message.guild.verified
-        if (allowed === false) return message.chinoReply("error", t("commands:no-premium"))
+        let allowed = message.guild.features.includes("BANNER")
+        if (!allowed) return message.chinoReply("error", t("commands:no-premium"))
         if (!message.guild.banner) return message.chinoReply("error", t("commands:serverbanner.no-banner"))
 
         const embed = new MessageEmbed()
