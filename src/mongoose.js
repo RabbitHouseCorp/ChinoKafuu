@@ -15,7 +15,14 @@ let Guild = new mongoose.Schema({
 	punishModule: { type: Boolean, default: false },
 	partner: { type: Boolean, default: false },
 	animu: { type: Boolean, default: false },
-	animuChannel: { type: String, default: "" }
+	animuChannel: { type: String, default: "" },
+	antiflood: {
+		type: Object,
+		default: {
+			enabled: false,
+			messagesLimit: 5
+		}
+	}
 })
 
 let User = new mongoose.Schema({

@@ -4,15 +4,6 @@ module.exports = class voiceStateUptade {
 	}
 
 	async run(oldMember, newMember) {
-		if (this.client.player.get(oldMember.guild.id)) {
-			let voiceChannel = this.client.channels.cache.get(this.client.player.get(oldMember.guild.id).player.channel)
-			if (voiceChannel.members.size === 1) {
-				await this.client.lavalinkManager.manager.leave(oldMember.guild.id)
-				this.client.lavalinkManager.manager.delete(oldMember.guild.id)
-				this.client.player.delete(oldMember.guild.id)
-			}
-		}
-
 		let server = await this.client.database.Guilds.findById(newMember.guild.id)
 		let newVoiceChannel = this.client.guilds.cache.get(server._id).channels.cache.get(server.animuChannel)
 		if (newVoiceChannel) {

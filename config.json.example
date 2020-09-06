@@ -1,7 +1,9 @@
 {
-    "owners": ["", ""],
-    "prefix": "",
-    "token": "",
-    "dbltoken": "",
-    "mongoose": ""
+    "owners": ["The owners ID", "Delete this if doesn't have another bot owner."],
+    "prefix": "Your bot prefix",
+    "token": "Your bot token",
+    "dbltoken": "top.gg bot token, you can ignore this",
+    "mongoose": "MongoDB uri",
+    "shard": // Number of shards,
+    "canary": true
 }

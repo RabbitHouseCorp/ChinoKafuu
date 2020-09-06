@@ -1,20 +1,24 @@
 {
-  "command-null": "This command was not found.",
-  "mention": {
-    "start": "Hello",
-    "end": "my prefix in this server is `{{prefix}}`, if you need help, use `{{prefix}}help`."
-  },
-  "error": "Oh no... An error occurred while doing this action, I'm sorry for what happened.",
-  "cooldown": {
-    "message": "calm down, you need to wait `{{time}}` before executing another command.",
-    "secounds": "seconds",
-    "milliseconds": "some milliseconds"
-  },
-  "channel-not-found": "I did not find the channel so I can not send the information.",
-  "added-to-guild": {
-    "thanks-to-add": "Thanks for adding me.",
-    "msg": "Hi {{author}}, I am {{client}}. Thanks for adding me in {{guild}}! Well, I am a bot with a lot of funny functions to make your day more funny. If you are wondering what are my commands, just use `{{prefix}}help`. Have some questions? Join my support server using `{{prefix}}invite`. Again, thanks for adding me and have fun!",
-    "guild-saved": "Successfully saved the server in the database!"
-  },
-  "debug": "hold up! This command has some problems and it is disabled for a while.\n**Reason:** {{reason}}"
+	"command-null": "This command was not found.",
+	"mention": {
+		"start": "Hello",
+		"end": "my prefix in this server is `{{prefix}}`, if you need help, use `{{prefix}}help`."
+	},
+	"error": {
+		"title": "Gomenasai! An error has occurred.",
+		"report-issue": "Help us solve",
+		"server-support": "You can help us with this problem joining in my [support server](https://discord.gg/CAm9cSU), sorry for the inconvenience <:chino_upset:682017961149464645>"
+	},
+	"cooldown": {
+		"message": "calm down, you need to wait `{{time}}` before executing another command.",
+		"secounds": "seconds",
+		"milliseconds": "some milliseconds"
+	},
+	"channel-not-found": "I did not find the channel so I can not send the information.",
+	"added-to-guild": {
+		"thanks-to-add": "Thanks for adding me.",
+		"msg": "Hi {{author}}, I am {{client}}. Thanks for adding me in {{guild}}! Well, I am a bot with a lot of funny functions to make your day more funny. If you are wondering what are my commands, just use `{{prefix}}help`. Have some questions? Join my support server using `{{prefix}}invite`. Again, thanks for adding me and have fun!",
+		"guild-saved": "Successfully saved the server in the database!"
+	},
+	"debug": "hold up! This command has some problems and it is disabled for a while.\n**Reason:** {{reason}}"
 }

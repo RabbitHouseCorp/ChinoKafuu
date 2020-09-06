@@ -1,12 +1,13 @@
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed, MessageAttachment } = require("discord.js")
 const Command = require("../../structures/command")
+
 module.exports = class ProfileCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: "profile",
 			aliases: ["perfil"],
 			category: "social",
-			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS"]
+			ClientPermission: ["EMBED_LINKS", "ADD_REACTIONS", "ATTACH_FILES"]
 		})
 	}
 
@@ -19,7 +20,7 @@ module.exports = class ProfileCommand extends Command {
 			}
 		} else {
 			member = message.author
-                }
+		}
 		let user = await this.client.database.Users.findById(member.id)
 		let avatar
 		if (!user) {
@@ -36,7 +37,7 @@ module.exports = class ProfileCommand extends Command {
 		} else {
 			avatar = member.displayAvatarURL()
 		}
-		
+
 		if (user.blacklist) {
 			const bannedEmbed = new MessageEmbed()
 			bannedEmbed.setColor(this.client.colors.default)
@@ -83,23 +84,13 @@ module.exports = class ProfileCommand extends Command {
 		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
 		if (user.isMarry && !marryWith) {
 			user.isMarry = false
-			user.yens = user.yens + Number(7500)
+			user.yens = user.yens + 7500
 			user.save()
 		}
-		let description = [
-			`${this.client.emotes.sharo_excited} **${t("commands:profile.aboutme")} »** *\`${user.aboutme}\`*`,
-			`${this.client.emotes.rize_smile} **${t("commands:profile.user-name")} »** *\`${member.tag}\`*`,
-			`${this.client.emotes.chino_peek} **${t("commands:profile.user-id")} »** *\`${member.id}\`*`,
-			`${this.client.emotes.cocoa_carresing_tippy} **${t("commands:profile.marred")} »** *\`${user.isMarry ? marryWith.tag : t("commands:with-nobody")}\`*`,
-			`${this.client.emotes.yen} **${t("commands:profile.yens")} »** *\`${Number(user.yens).toLocaleString()}\`*`,
-			`${this.client.emotes.sharo_hug_chino} **${t("commands:profile.rep")} »** *\`${user.rep}\`*`
-		]
-		const embed = new MessageEmbed()
-		embed.setColor(user.profileColor)
-		embed.setAuthor(t("commands:profile.title", { member: member.tag }), avatar)
-		embed.setThumbnail(avatar)
-		embed.setDescription(description.join("\n\n"))
+		delete require.cache[require.resolve("../../structures/CanvasTemplates")]
+		const { generateProfile } = require("../../structures/CanvasTemplates")
+		let image = await generateProfile({ member, user, avatar, marryWith }, t)
 
-		message.channel.send(embed)
+		message.channel.send(new MessageAttachment(image, "profile.png"))
 	}
 }

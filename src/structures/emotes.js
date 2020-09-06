@@ -34,7 +34,10 @@ const emojis = {
     dice: "🎲",
     warn: "<:warn:672470606578581524>",
     chino_kek: "<:chino_kek:594995063747117083>",
-    chino_thiking: "<:chino_thinking:653648203933286441>"
+    chino_thiking: "<:chino_thinking:653648203933286441>",
+    chino_pout: "<:chino_pout:564106391984275506>",
+    chino_suprised: "<a:chino_suprised:628330781239935017>",
+    cocoa_smile: "<:cocoa_smile:633410941307846686>"
 }
 
 module.exports = emojis
