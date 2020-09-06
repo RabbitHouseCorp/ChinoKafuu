@@ -8,6 +8,7 @@
     "start": "node ."
   },
   "dependencies": {
+    "@sentry/node": "^5.17.0",
     "canvas": "^2.6.1",
     "cpu-stat": "^2.0.1",
     "dblapi.js": "^2.4.0",
