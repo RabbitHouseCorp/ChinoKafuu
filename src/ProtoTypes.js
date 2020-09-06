@@ -1,6 +1,6 @@
 const { Message } = require("discord.js")
 const emotes = require("./structures/emotes")
-const { CanvasRenderingContext2D } = require("canvas")
+const { CanvasRenderingContext2D, createCanvas } = require("canvas")
 module.exports = class ProtoTypes {
 	static start() {
 		Message.prototype.chinoReply = async function send(emoji, message, ...args) {
@@ -44,5 +44,41 @@ module.exports = class ProtoTypes {
 
 		}
 
+		CanvasRenderingContext2D.prototype.roundImageCanvas = function roundImageCanvas(img, w = img.width, h = img.height, r = w * 0.5) {
+			const canvas = createCanvas(w, h)
+			const ctx = canvas.getContext('2d')
+
+			ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+			ctx.globalCompositeOperation = 'source-over'
+			ctx.drawImage(img, 0, 0, w, h)
+
+			ctx.fillStyle = '#fff'
+			ctx.globalCompositeOperation = 'destination-in'
+			ctx.beginPath()
+			ctx.arc(w * 0.5, h * 0.5, r, 0, Math.PI * 2, true)
+			ctx.closePath()
+			ctx.fill()
+
+			return canvas
+		}
+		CanvasRenderingContext2D.prototype.getLines = function getLines(text, maxWidth) {
+			var words = text.split(" ");
+			var lines = [];
+			var currentLine = words[0];
+
+			for (var i = 1; i < words.length; i++) {
+				var word = words[i];
+				var width = this.measureText(currentLine + " " + word).width;
+				if (width < maxWidth) {
+					currentLine += " " + word;
+				} else {
+					lines.push(currentLine);
+					currentLine = word;
+				}
+			}
+			lines.push(currentLine);
+			return lines;
+		}
 	}
 }

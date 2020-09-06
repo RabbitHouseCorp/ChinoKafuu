@@ -13,7 +13,6 @@ module.exports = class ChinoClient extends Client {
 		this.colors = require("./structures/colors")
 		this.emotes = require("./structures/emotes")
 		this.apis = require("./structures/api")
-		this.player = new Map()
 		this.config = require("../config.json")
 	}
 	reloadCommand(commandName) {

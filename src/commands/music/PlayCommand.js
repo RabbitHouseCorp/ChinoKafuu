@@ -1,5 +1,5 @@
 const Command = require("../../structures/command")
-const Discord = require("discord.js")
+const { MessageEmbed } = require("discord.js")
 module.exports = class PlayCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -12,9 +12,9 @@ module.exports = class PlayCommand extends Command {
 		})
 	}
 	async run({ message, args, server }, t) {
-		const embed = new Discord.MessageEmbed()
+		const embed = new MessageEmbed()
 			.setDescription(t("commands:play.unavailable"))
-			.setColor("RANDOM")
+			.setColor(this.client.colors.default)
 		message.channel.send(embed)
 
 		/* if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))

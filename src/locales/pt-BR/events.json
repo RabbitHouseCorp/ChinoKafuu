@@ -1,20 +1,27 @@
 {
-  "command-null": "este comando não foi encontrado.",
-  "mention": {
-    "start": "Olá",
-    "end": "meu prefix neste servidor é `{{prefix}}`, se precisar de ajuda, use `{{prefix}}ajuda`."
-  },
-  "error": "Essa não... Ocorreu um erro ao efetuar esta ação, me desculpe pelo ocorrido.",
-  "cooldown": {
-    "message": "calma aí, você precisa esperar `{{time}}` antes de executar outro comando.",
-    "secounds": "segundos",
-    "milliseconds": "alguns milisegundos"
-  },
-  "channel-not-found": "eu não consegui encontrar o canal de texto desejado, por este motivo, eu não consegui enviar as informações lá.",
-  "added-to-guild": {
-    "thanks-to-add": "Obrigada por me adicionar.",
-    "msg": "Olá {{author}}, eu sou {{client}}, obrigada por me adicionar no {{guild}}! Bom, eu sou um bot cheio de funções super divertidas para alegrar o seu dia, se você quiser saber quais os comandos eu tenho, use `{{prefix}}ajuda`, está com alguma dúvida? Então entre em meu servidor de suporte usando `{{prefix}}convite`, mais uma vez, obrigada por me adicionar e tenha um bom divertimento!",
-    "guild-saved": "Servidor salvo no meu banco de dados com successo!"
-  },
-  "debug": "este comando apresentou problemas, por este motivo, está temporariamente desativado.\n**Motivo:** {{reason}}"
+	"antiflood": {
+		"message": "você deveria parar de floodar antes que acabe sendo punido."
+	},
+	"command-null": "este comando não foi encontrado.",
+	"mention": {
+		"start": "Olá",
+		"end": "meu prefix neste servidor é `{{prefix}}`, se precisar de ajuda, use `{{prefix}}ajuda`."
+	},
+	"error": {
+		"title": "Gomenasai! Ocorreu um erro.",
+		"report-issue": "Nos ajude a resolver",
+		"server-support": "Você pode nos ajudar com este problema entrando no meu [servidor de suporte](https://discord.gg/CAm9cSU), me desculpe pelo ocorrido. <:chino_upset:682017961149464645>"
+	},
+	"cooldown": {
+		"message": "calma aí, você precisa esperar `{{time}}` antes de executar outro comando.",
+		"secounds": "segundos",
+		"milliseconds": "alguns milisegundos"
+	},
+	"channel-not-found": "eu não consegui encontrar o canal de texto desejado, por este motivo, eu não consegui enviar as informações lá.",
+	"added-to-guild": {
+		"thanks-to-add": "Obrigada por me adicionar.",
+		"msg": "Olá {{author}}, eu sou {{client}}, obrigada por me adicionar no {{guild}}! Bom, eu sou um bot cheio de funções super divertidas para alegrar o seu dia, se você quiser saber quais os comandos eu tenho, use `{{prefix}}ajuda`, está com alguma dúvida? Então entre em meu servidor de suporte usando `{{prefix}}convite`, mais uma vez, obrigada por me adicionar e tenha um bom divertimento!",
+		"guild-saved": "Servidor salvo no meu banco de dados com successo!"
+	},
+	"debug": "este comando apresentou problemas, por este motivo, está temporariamente desativado.\n**Motivo:** {{reason}}"
 }

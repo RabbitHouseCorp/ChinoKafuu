@@ -23,7 +23,7 @@ module.exports = class ConfigCommand extends Command {
 			`${server.prefix}config punishment set <channel>`,
 			`${server.prefix}config punishment disable`
 		]
-		
+
 		let listAnimu = [
 			`${server.prefix}config animu set <channel ID>`,
 			`${server.prefix}config animu disable`
@@ -35,18 +35,18 @@ module.exports = class ConfigCommand extends Command {
 			`**${t("commands:config.config-modules.report.channel")}:** ${server.channelReport ? message.guild.channels.cache.get(server.channelReport) : t("commands:config.no-channel")}`,
 			`**${t("commands:config.config-modules.report.module")}**: ${server.reportModule ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
 			`**${t("commands:config.config-modules.animu.module")}**: ${server.animu ? t("commands:config.config-modules.enable") : t("commands:config.config-modules.disable")}`,
-			`**${t("commands:config.config-modules.animu.channel")}:** ${server.animuChannel ? message.guild.channels.cache.get(server.animuChannel).name : t("commands:config.no-channel")}`
+			`**${t("commands:config.config-modules.animu.channel")}:** ${server.animuChannel ? message.guild.channels.cache.get(server.animuChannel) ? message.guild.channels.cache.get(server.animuChannel).name : t("commands:config.no-channel") : t("commands:config.no-channel")}`
 		]
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
 			.setTitle(t("commands:config.title"))
-			message.guild.icon ? embed.setThumbnail(message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" })) : null
-			embed.addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
-			embed.addField(t("commands:config.report.title"), listReport.join("\n"))
-			embed.addField(t("commands:config.punishment.title"), listPunish.join("\n"))
-			embed.addField(t("commands:config.animu.title"), listAnimu.join("\n"))
-			embed.addField(t("commands:config.modules"), modules.join("\n"))
+		message.guild.icon ? embed.setThumbnail(message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" })) : null
+		embed.addField(t("commands:config.how-use"), `${server.prefix}config <options> <set/disable>`)
+		embed.addField(t("commands:config.report.title"), listReport.join("\n"))
+		embed.addField(t("commands:config.punishment.title"), listPunish.join("\n"))
+		embed.addField(t("commands:config.animu.title"), listAnimu.join("\n"))
+		embed.addField(t("commands:config.modules"), modules.join("\n"))
 
 		if (!args[0]) return message.channel.send(embed)
 		if (!["report", "reportar", "punishment", "punições", "animu"].includes(args[0].toLowerCase())) return message.chinoReply("error", t("commands:config.module-not-found"))
@@ -118,6 +118,35 @@ module.exports = class ConfigCommand extends Command {
 				server.save()
 
 				return message.chinoReply("success", t("commands:config.animu.enable"))
+			}
+		}
+
+		if (["antiflood"].includes(args[0].toLowerCase())) {
+			if (!args[1]) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+			if (!["enable", "ativar", "disable", "desativar", "messageslimit"].includes(args[1].toLowerCase())) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+			if (["enable", "ativar", "disable", "desativar"].includes(args[1].toLowerCase())) {
+				let enable = ["enable", "ativar"].includes(args[1].toLowerCase()) ? true : (["disable", "desativar"].includes(args[1].toLowerCase())) ? false : null;
+				if (enable === null) return message.chinoReply("error", t("commands:config.antiflood.options-not-found"))
+				if (server.antiflood.enabled === enable) {
+					let msg = enable ? "already-enabled" : "already-disabled"
+					return message.chinoReply("error", t(`commands:config.antiflood.${msg}`))
+				}
+				server.antiflood.enabled = enable;
+				server.markModified('antiflood.enabled')
+				server.save()
+				message.chinoReply("success", `${t(`commands:config.antiflood.${enable ? "enable" : "disabled"}`)}`)
+			}
+			if (["messageslimit"].includes(args[1].toLowerCase())) {
+				let nbm = Number(args[2])
+				if (isNaN(nbm)) return message.chinoReply("error", t("commands:config.invalid-number"))
+				if (nbm <= 2) return message.chinoReply("error", t("commands:config.more-of-2"))
+
+				server.antiflood.messagesLimit = Number(nbm);
+				server.markModified('antiflood.messagesLimit')
+				server.save()
+				message.chinoReply("success", t("commands:config.antiflood.messageslimit-changed", {
+					nbm
+				}))
 			}
 		}
 	}

@@ -1,4 +1,5 @@
 const Command = require("../../structures/command")
+const { MessageEmbed } = require("discord.js")
 module.exports = class PauseCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -12,13 +13,19 @@ module.exports = class PauseCommand extends Command {
 	}
 	run({ message, args, server }, t) {
 
-		if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.no-playing"))
-		if (this.client.player.get(message.guild.id).player.paused === true) return message.chinoReply("error", t("commands:pause.isPaused"))
-		if (!this.client.player.get(message.guild.id).player.playing) return message.chinoReply("error", t("commands:dj-module.queue-null"))
-		if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
-		if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
+		const embed = new MessageEmbed()
+			.setDescription(t("commands:play.unavailable"))
+			.setColor(this.client.colors.default)
+		message.channel.send(embed)
 
-		this.client.player.get(message.guild.id).player.pause()
-		message.chinoReply("success", t("commands:pause.paused"))
+
+		// if (!this.client.player.has(message.guild.id)) return message.channel.send(t("commands:dj-module.no-playing"))
+		// if (this.client.player.get(message.guild.id).player.paused === true) return message.chinoReply("error", t("commands:pause.isPaused"))
+		// if (!this.client.player.get(message.guild.id).player.playing) return message.chinoReply("error", t("commands:dj-module.queue-null"))
+		// if (!message.member.voice.channel) return message.chinoReply("error", t("commands:dj-module.channel-null"))
+		// if (message.guild.me.voice.channel && message.member.voice.channel !== message.guild.me.voice.channel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
+
+		// this.client.player.get(message.guild.id).player.pause()
+		// message.chinoReply("success", t("commands:pause.paused"))
 	}
 }

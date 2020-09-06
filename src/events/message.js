@@ -1,10 +1,9 @@
 const i18next = require("i18next")
-const fs = require("fs")
-const translationBackend = require("i18next-node-fs-backend")
 const { MessageEmbed } = require("discord.js")
 const moment = require("moment")
 const cooldown = new Map()
 require("moment-duration-format")
+const AntiFloodManager = require("../structures/ChinoAntiFlood")
 module.exports = class MessageReceive {
 	constructor(client) {
 		this.client = client
@@ -35,7 +34,8 @@ module.exports = class MessageReceive {
 
 		const language = (server && server.lang) || "pt-BR"
 		setFixedT(i18next.getFixedT(language))
-
+		const spam = new AntiFloodManager(this.client)
+		spam.test({ message, server }, t)
 		if (message.content.replace(/!/g, "") === message.guild.me.toString().replace(/!/g, "")) {
 			message.channel.send(`${t("events:mention.start")} ${message.author}, ${t("events:mention.end", { prefix: server.prefix })}`)
 		}
@@ -140,32 +140,26 @@ module.exports = class MessageReceive {
 				res(comando.run({ message, args, server }, t))
 			}).then(() => message.channel.stopTyping()).catch(err => {
 				message.channel.stopTyping()
-				if (err.stack.length > 1800) {
-					err.stack = err.stack.substr(0, 1800)
-					err.stack = `${err.stack}...`
-				}
+				const errorMessage = err.stack.length > 1800 ? `${err.stack.slice(0, 1800)}...` : err.stack
 				const embed = new MessageEmbed()
-					.setColor(this.client.colors.error)
-					.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
-					.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
+				embed.setColor(this.client.colors.error)
+				embed.setTitle(`${this.client.emotes.chino_suprised} ${t("events:error.title")}`)
+				embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
+				embed.addField(`${this.client.emotes.cocoa_smile} ${t("events:error.report-issue")}`, t("events:error.server-support"))
 
 				message.channel.send(embed)
 			})
 		} catch (err) {
 			message.channel.stopTyping()
-			if (err.stack.length > 1800) {
-				err.stack = err.stack.substr(0, 1800)
-				err.stack = `${err.stack}...`
-			}
+			const errorMessage = err.stack.length > 1800 ? `${err.stack.slice(0, 1800)}...` : err.stack
 			const embed = new MessageEmbed()
-				.setColor(this.client.colors.error)
-				.setTitle(`${this.client.emotes.chino_sad} ${t("events:error")} ${this.client.emotes.chino_chibi}`)
-				.setDescription(`\`\`\`js\n${err.stack}\`\`\``)
+			embed.setColor(this.client.colors.error)
+			embed.setTitle(`${this.client.emotes.chino_suprised} ${t("events:error.title")}`)
+			embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
+			embed.addField(`${this.client.emotes.cocoa_smile} ${t("events:error.report-issue")}`, t("events:error.server-support"))
 
 			message.channel.send(embed)
 			console.error(err.stack)
 		}
-
-
 	}
 }
