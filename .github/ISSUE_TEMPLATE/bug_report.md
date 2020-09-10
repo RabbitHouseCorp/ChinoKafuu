@@ -3,7 +3,7 @@ name: Bug Report
 about: Selecione este template se deseja reportar um erro.
 title: ''
 labels: ''
-assignees: 'MysteryMS, DanielaGC'
+assignees: DanielaGC, MysteryMS
 
 ---
 
