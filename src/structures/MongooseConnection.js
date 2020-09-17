@@ -1,4 +1,4 @@
-const config = require("../config.json")
+const config = require("../../config.json")
 const mongoose = require("mongoose")
 mongoose.connect(config.mongoose, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
 	if (err) return console.log(`(x) Error to connecting to database \n${err}`)

@@ -1,4 +1,24 @@
 {
+    "animu": {
+        "np": "Now playing",
+        "total-listening": "Total listening",
+        "artist": "Artist",
+        "volume": "Volume"
+    },
+    "manga": {
+        "description": "Description",
+        "title": "Title",
+        "type": "Type of content",
+        "vols": "Volume",
+        "chapters": "Chapters",
+        "score": "Score",
+        "start-and-end": "Date of start and end",
+        "genres": "Genres",
+        "status": "Status",
+        "characters": "Characters",
+        "not-found": "sorry, I'm can't find anything related of: `{{args}}`.",
+        "args-null": "sorry, you didn't specify any manga tite for me to search."
+    },
     "ppt": {
         "args-null": "you didn't choose any option.",
         "option-not-found": "you can only choose between `rock`, `paper` or `scissors`.",
@@ -266,7 +286,7 @@
     "laranjo": {
         "args-null": "what should the orange say?"
     },
-    "leave": "I'm leaving `{{voiceChannel}}`",
+    "leave": "I'm leaving from this channel`",
     "loop": {
         "enable": "music repeat has been enabled",
         "disable": "music repeat has been disabled"
@@ -292,7 +312,7 @@
     },
     "ping": "I have:",
     "pay": {
-        "limit": "This amount has exceeded the **yen limit**!",
+        "limit": "this amount has exceeded the **yen limit**!",
         "value-null": "you need to enter the amount you wish to donate.",
         "invalid-value": "the value you entered is invalid.",
         "insufficient-value": "you don't have enough yens.",
@@ -441,9 +461,9 @@
         "no-guild": "The user is not on the server"
     },
     "volume": {
-        "volume": "successfully changed volume to `{{volume}}/150`.",
-        "hisVol": "the current volume is `{{volume}}/150`",
-        "maxVolume": "the maximum volume is `150`",
+        "volume": "successfully changed volume to `{{volume}}/100`.",
+        "hisVol": "the current volume is `{{volume}}/100`",
+        "maxVolume": "respect the limit, the maximum volume is `100`.",
         "minVolume": "the minimum volume is `5`"
     },
     "vote": {
@@ -473,6 +493,10 @@
         "user-total": "{{member}} has `{{yens}}` yens"
     },
     "daily": {
+        "almost-there": "We're almost there!",
+        "description": "To get the Yens, you'll have to vote on me. Every 12 hours you'll be able to claim your Yens.",
+        "continue": "Do you want to proceed?",
+        "vote": "If so, click [here](https://top.gg/bot/481282441294905344/vote). Once you have voted, run the command again.",
         "daily-success": "has been deposited `{{total}}` yens to your account.",
         "has-been-picked": "if you have already withdrawn your daily yen, please wait `{{tempo}}` before you can get it again."
     },

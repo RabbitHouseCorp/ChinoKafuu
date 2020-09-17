@@ -6,7 +6,7 @@ module.exports = class ChinoClient extends Client {
 	constructor(options = {}) {
 		super(options)
 
-		this.database = require("./mongoose")
+		this.database = require("./structures/MongooseConnection")
 		this.commands = new Collection()
 		this.aliases = new Collection()
 		this.events = new EventManager(this)
@@ -51,11 +51,11 @@ module.exports = class ChinoClient extends Client {
 	login(token) {
 		return super.login(token)
 	}
-    loadLocales() {
-        const Locales = require("./structures/LocaleStructure")
-        const locales = new Locales(this)
-        locales.load()
-    }
+	loadLocales() {
+		const Locales = require("./structures/LocaleStructure")
+		const locales = new Locales(this)
+		locales.load()
+	}
 
 	loadCommands(path) {
 		readdir(`${__dirname}/commands/`, (err, files) => {

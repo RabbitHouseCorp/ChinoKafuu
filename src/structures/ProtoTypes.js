@@ -1,5 +1,5 @@
 const { Message } = require("discord.js")
-const emotes = require("./structures/emotes")
+const emotes = require("./emotes")
 const { CanvasRenderingContext2D, createCanvas } = require("canvas")
 module.exports = class ProtoTypes {
 	static start() {

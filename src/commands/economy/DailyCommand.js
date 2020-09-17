@@ -24,10 +24,10 @@ module.exports = class DailyCommand extends Command {
 			let checkVote = await dbl.hasVoted(message.author.id)
 			const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
-			.setAuthor("Estamos quase lá!", message.author.displayAvatarURL({ format: "png" }))
+			.setAuthor(t("commands:daily.almost-there"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 			.setThumbnail("https://cdn.discordapp.com/attachments/484897060093689857/701374698390421534/685197956466344016.gif")
-			.setDescription("Para você conseguir pegar o seus yens, você precisará votar em mim para poder liberar, a cada 12 horas, você poderá pegar os seus yens.")
-			.addField("Deseja continuar?", "Se você estiver de acordo e deseja continuar, então clique [aqui](https://top.gg/bot/481282441294905344/vote), logo após votar, você precisará executar o comando novamente.")
+			.setDescription(t("commands:daily.description"))
+			.addField(t("commands:daily.continue"), )
 			
 			if (!checkVote) return message.channel.send(embed)
 

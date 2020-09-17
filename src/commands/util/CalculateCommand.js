@@ -2,7 +2,7 @@ const Command = require("../../structures/command")
 const workerpool = require('workerpool');
 const pool = workerpool.pool();
 
-function calc (expr) {
+function calc(expr) {
 	const { create, all } = require('mathjs')
 	const math = create(all)
 	const limitedEvaluate = math.evaluate
@@ -15,7 +15,7 @@ function calc (expr) {
 		'simplify': 'Function simplify is disabled',
 		'derivative': 'Function derivative is disabled',
 		'format': 'Function format is disabled'
-	}, {override: true})
+	}, { override: true })
 
 	return limitedEvaluate(expr).toString()
 }

@@ -22,20 +22,11 @@ module.exports = class ProfileCommand extends Command {
 			member = message.author
 		}
 		let user = await this.client.database.Users.findById(member.id)
-		let avatar
+		let avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
 			}).save()
-		}
-		if (member.avatar) {
-			if (!member.avatar.startsWith("a_")) {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
-			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
-			}
-		} else {
-			avatar = member.displayAvatarURL()
 		}
 
 		if (user.blacklist) {

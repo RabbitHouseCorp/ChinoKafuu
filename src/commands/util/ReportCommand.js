@@ -27,20 +27,7 @@ module.exports = class ReportCommand extends Command {
 			message.chinoReply("error", t("comands:report.channel-null"))
 			return
 		}
-		let avatar
-		if (!member.avatar.startsWith("a_")) {
-			if (!member.avatar) {
-				avatar = member.displayAvatarURL()
-			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.png?size=2048`
-			}
-		} else {
-			if (!member.avatar) {
-				avatar = member.displayAvatarURL()
-			} else {
-				avatar = `https://cdn.discordapp.com/avatars/${member.id}/${member.avatar}.gif?size=2048`
-			}
-		}
+		let avatar = member.displayAvatarURL({ dynamic: true, format: "png" })
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.moderation)

@@ -32,6 +32,7 @@ module.exports = class AnimeCommand extends Command {
 				.addField(t("commands:anime.duration"), anime.duration, true)
 				.addField(t("commands:anime.rank"), anime.ranked, true)
 				.addField(t("commands:anime.popularity"), anime.popularity, true)
+				.addField("Trailer", `[${t("commands:click-here")}](${anime.trailer})`, true)
 				.addField(t("commands:anime.genres"), `${anime.genres.join(", ")}`, true)
 
 			message.channel.send(embed)

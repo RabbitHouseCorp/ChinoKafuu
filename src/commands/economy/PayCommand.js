@@ -40,19 +40,21 @@ module.exports = class PayCommand extends Command {
 			const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-					case "success":
-						donator.yens = Number(value) -  donator.yens
+					case "success": {
+						donator.yens = Number(value) - donator.yens
 						membro.yens = membro.yens + Number(realValue[0])
-						if(membro.yens > 1000000000) return message.chinoReply("error", t("commands:pay.limit")), msg.delete();
+						msg.delete()
+						if (membro.yens > 1000000000) return message.chinoReply("error", t("commands:pay.limit"))
 						membro.save()
 						donator.save()
 
 						message.chinoReply("money_with_wings", t("commands:pay.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
-						msg.delete()
+					}
 						break;
-					case "error":
+					case "error": {
 						message.chinoReply("error", t("commands:pay.cancel", { value: Number(realValue[0]).toLocaleString() }))
 						msg.delete()
+					}
 						break;
 				}
 			})

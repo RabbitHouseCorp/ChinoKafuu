@@ -37,20 +37,7 @@ module.exports = class SoftBanCommand extends Command {
 			reason: `${t("commands:punishment.embed.staffName")}: ${message.author.tag} - ${t("commands:punishment.embed.reason")}: ${reason}`
 		}).then((user) => {
 			message.guild.members.unban(user.id).then(user => {
-				let avatar
-				if (!user.avatar.startsWith("a_")) {
-					if (!user.avatar) {
-						avatar = user.displayAvatarURL()
-					} else {
-						avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png?size=2048`
-					}
-				} else {
-					if (!user.avatar) {
-						avatar = user.displayAvatarURL()
-					} else {
-						avatar = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.gif?size=2048`
-					}
-				}
+				let avatar = user.displayAvatarURL({ format: "png", dynamic: true })
 
 				const embed = new MessageEmbed()
 					.setTitle(t("commands:ban.softban", { member: user.tag }))

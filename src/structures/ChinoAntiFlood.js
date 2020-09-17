@@ -14,11 +14,14 @@ module.exports = class ChinoAntiFlood {
             if (user) {
 
                 this.check({ message, server }, t)
+                if (message.content !== user.messageContent) return
                 user.messages = user.messages + 1
 
             } else {
+    
                 this.users.set(message.author.id, {
                     messages: 1,
+                    messageContent: message.content
                 })
             }
             setTimeout(() => {

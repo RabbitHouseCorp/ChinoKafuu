@@ -15,7 +15,7 @@ module.exports = class FakeMsgCommand extends Command {
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let botmsg = args.slice(1).join(" ")
 		if (!botmsg) return message.chinoReply("error", t("commands:fakemsg"))
-		message.channel.createWebhook(member.username, { avatar: member.displayAvatarURL() }).then(webhook => {
+		message.channel.createWebhook(member.username, { avatar: member.displayAvatarURL({ format: "png" }) }).then(webhook => {
 			if (message.member.hasPermission("MENTION_EVERYONE")) {
 				webhook.send(botmsg, {
 					disableEveryone: false

@@ -10,7 +10,7 @@ module.exports = class TranslateCommand extends Command {
     }
 
     run({ message, args, server }, t) {
-        
+
         if (!args[1]) return message.chinoReply("error", t("commands:translate.args-null"))
         let argsTranslate = `${args.slice(1).join("+")}`.split("\n")
         let url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${args[0]}&dt=t&q=${argsTranslate.slice(0)}&ie=UTF-8&oe=UTF-8`

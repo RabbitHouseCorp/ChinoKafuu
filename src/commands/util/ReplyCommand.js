@@ -16,10 +16,10 @@ module.exports = class ReplyCommand extends Command {
 
         message.channel.messages.fetch(args[0]).then(msg => {
             const embed = new MessageEmbed()
-                .setAuthor(`${msg.author.tag} ${t("commands:reply.said")}...`, msg.author.avatar.startsWith("a_") ? msg.author.displayAvatarURL({ format: "gif"}) : msg.author.displayAvatarURL({ format: "webp" }))
+                .setAuthor(`${msg.author.tag} ${t("commands:reply.said")}...`, msg.author.displayAvatarURL({ format: "png", dynamic: true }))
                 .setDescription(msg.content)
                 .setColor("#000000")
-                .setFooter(`${t("commands:reply.sent-in")} ${msg.channel.name}`, message.guild.icon.startsWith("a_") ? message.guild.iconURL({ format: "gif" }) : message.guild.iconURL({ format: "webp" }))
+                .setFooter(`${t("commands:reply.sent-in")} ${msg.channel.name}`, message.guild.iconURL({ format: "png", dynamic: true }))
 
             message.delete()
             message.channel.createWebhook(message.author.username, {
