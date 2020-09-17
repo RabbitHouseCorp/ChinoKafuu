@@ -1,7 +1,7 @@
-require('./src/ProtoTypes').start()
+require('./src/structures/ProtoTypes').start()
 
 const Client = require('./src/ChinoClient')
-const ShardManager = require('./src/ShardManager')
+const ShardManager = require('./src/structures/ShardManager')
 const config = require('./config')
 const client = new Client({
 	disableMentions: "everyone"

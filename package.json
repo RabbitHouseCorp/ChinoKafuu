@@ -1,7 +1,7 @@
 {
   "name": "chino-kafuu",
   "description": "Um simples bot pro discord",
-  "version": "2020.09.17.36-stable",
+  "version": "2020.09.17.37-stable",
   "author": "DanielaGC_",
   "main": "shard.js",
   "engines": {
