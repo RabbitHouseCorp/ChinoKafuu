@@ -292,6 +292,7 @@
     },
     "ping": "I have:",
     "pay": {
+        "limit": "This amount has exceeded the **yen limit**!",
         "value-null": "you need to enter the amount you wish to donate.",
         "invalid-value": "the value you entered is invalid.",
         "insufficient-value": "you don't have enough yens.",

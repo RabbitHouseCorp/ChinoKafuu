@@ -278,6 +278,7 @@
     },
     "ping": "Eu tenho:",
     "pay": {
+        "limit": "Esta transferência excedeu o **limite de yens**",
         "value-null": "você precisa informar a quantidade que você deseja doar.",
         "invalid-value": "o valor informado é inválido.",
         "insufficient-value": "você não tem yens o suficiente.",

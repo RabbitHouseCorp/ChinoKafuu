@@ -41,8 +41,9 @@ module.exports = class PayCommand extends Command {
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
 					case "success":
-						donator.yens = donator.yens - Number(value)
+						donator.yens = Number(value) -  donator.yens
 						membro.yens = membro.yens + Number(realValue[0])
+						if(membro.yens > 1000000000) return message.chinoReply("error", t("commands:pay.limit")), msg.delete();
 						membro.save()
 						donator.save()
 
