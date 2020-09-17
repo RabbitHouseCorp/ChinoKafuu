@@ -34,13 +34,13 @@ module.exports = class PayCommand extends Command {
 		let realValue = valuePorcent(value, 2)
 
 		message.chinoReply("warn", t("commands:pay.confirm", { value: Number(realValue[0]).toLocaleString(), member: member.toString(), porcent: realValue[1] })).then(msg => {
-			msg.react("👍")
-			setTimeout(() => msg.react("👎"), 1000)
+			msg.react("success:577973168342302771")
+			setTimeout(() => msg.react("error:577973245391667200"), 1000)
 
-			const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "👍", "👎") && (user.id !== this.client.user.id && user.id === message.author.id))
+			const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
 			collector.on("collect", r => {
 				switch (r.emoji.name) {
-					case "👍":
+					case "success":
 						donator.yens = Number(value) -  donator.yens
 						membro.yens = membro.yens + Number(realValue[0])
 						if(membro.yens > 1000000000) return message.chinoReply("error", t("commands:pay.limit")), msg.delete();
@@ -50,7 +50,7 @@ module.exports = class PayCommand extends Command {
 						message.chinoReply("money_with_wings", t("commands:pay.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
 						msg.delete()
 						break;
-					case "👎":
+					case "error":
 						message.chinoReply("error", t("commands:pay.cancel", { value: Number(realValue[0]).toLocaleString() }))
 						msg.delete()
 						break;
