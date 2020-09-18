@@ -31,11 +31,15 @@ module.exports = class MangaCommand extends Command {
                 month: result.endDate.month ?? "??",
                 day: result.endDate.day ?? "??"
             }
+
             const characters = []
-            for (const c of result.characters) {
-                characters.push(`${c.name}`)
+            if (result.characters) {
+                for (const c of result.characters) {
+                    characters.push(`${c.name}`)
+                }
             }
 
+            if (!characters[0]) characters.push("????")
             const type = result.format.charAt(0).toUpperCase() + result.format.slice(1).toLowerCase()
             const status = result.status.charAt(0).toUpperCase() + result.status.slice(1).toLowerCase()
 
