@@ -27,7 +27,7 @@ module.exports = class DailyCommand extends Command {
 			.setAuthor(t("commands:daily.almost-there"), message.author.displayAvatarURL({ format: "png", dynamic: true }))
 			.setThumbnail("https://cdn.discordapp.com/attachments/484897060093689857/701374698390421534/685197956466344016.gif")
 			.setDescription(t("commands:daily.description"))
-			.addField(t("commands:daily.continue"), )
+			.addField(t("commands:daily.continue"), t("commands:daily.vote"))
 			
 			if (!checkVote) return message.channel.send(embed)
 
