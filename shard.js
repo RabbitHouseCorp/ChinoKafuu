@@ -6,10 +6,7 @@ const shards = new ShardingManager("./index.js", {
 })
 
 shards.on("shardCreate", (shard) => {
-	console.warn(`Starting shard: ${shard.id}`)
+	console.warn(`[SHARDING MANAGER] Launching shard ${shard.id}`)
 })
-async function spawn() {
-	await shards.spawn()
-}
 
-spawn()
+shards.spawn().then(console.warn("[SHARDING MANAGER] Launching shards..."))
