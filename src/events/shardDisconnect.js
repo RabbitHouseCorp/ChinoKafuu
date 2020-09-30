@@ -4,6 +4,6 @@ module.exports = class ShardDisconnectReceive {
     }
 
     run(shard) {
-        console.log(`Shard ${shard} has be desconnected of websoket`)
+        console.log(`[SHARDING MANAGER] Shard ${shard} has disconnected.`)
     }
 }
