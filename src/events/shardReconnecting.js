@@ -4,6 +4,6 @@ module.exports = class ShardReconnectReceive {
     }
 
     run(shard) {
-        console.log(`Reconnecting shard ${shard}...`)
+        console.log(`[SHARDING MANAGER] Relaunching shard ${shard}...`)
     }
 }
