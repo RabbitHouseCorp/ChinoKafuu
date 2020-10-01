@@ -39,38 +39,6 @@ module.exports = class ProfileCommand extends Command {
 			message.channel.send(bannedEmbed)
 			return
 		}
-		if (args[0] === "color") {
-			if (!args[1]) return message.chinoReply("error", t("commands:profile.colors.args-null"))
-			if (!args[1].startsWith("#")) return message.chinoReply("error", t("commands:profile.colors.hex"))
-			const colorEmbed = new MessageEmbed()
-			colorEmbed.setColor(`${args[1]}`)
-			colorEmbed.setAuthor(message.author.tag, avatar)
-			colorEmbed.setDescription(t("commands:profile.colors.this-color"))
-
-			message.channel.send(colorEmbed).then(msg => {
-				msg.react("success:577973168342302771")
-				setTimeout(() => msg.react("error:577973245391667200"), 1000)
-
-				const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
-				collector.on("collect", r => {
-					switch (r.emoji.name) {
-						case "success":
-							user.profileColor = args[1]
-							user.yens = user.yens - Number(1000)
-							user.save().then(() => {
-								message.chinoReply("success", t("commands:profile.colors.success", { member: member.toString(), value: Number(1000).toLocaleString() }))
-								msg.delete()
-							})
-							break;
-						case "error":
-							message.chinoReply("error", t("commands:profile.colors.cancel"))
-							msg.delete()
-							break;
-					}
-				})
-			})
-			return
-		}
 
 		let marryWith = await this.client.shardManager.getUsers(user.marryWith)
 		if (user.isMarry && !marryWith) {
