@@ -36,8 +36,9 @@ module.exports = class CalculateCommand extends Command {
 		let question = args.join(" ")
 		if (!question) return message.chinoReply("error", t("commands:calc.args-null"))
 
-		pool.exec(calc, [question]).then((r) => message.chinoReply("diamond", t("commands:calc.result", { resposta: r })))
-			.catch((e) => message.chinoReply("error", t("commands:calc.result", { resposta: e.stack })))
+		pool.exec(calc, [question])
+			.then((r) => message.chinoReply("diamond", t("commands:calc.result", { resposta: r })))
+			.catch((e) => message.chinoReply("error", t("commands:calc.result", { resposta: e.message })))
 			.then(() => pool.terminate())
 	}
 }
