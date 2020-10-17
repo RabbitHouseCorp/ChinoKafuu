@@ -1,8 +1,8 @@
 # Welcome to my GitHub repository.
 
-## Hello! My name is Chino Kafuu, and I'm just another simple Discord bot.
-### Well... As you can see, I'm a bot with many features like fun, ~~music~~, moderation and utility.
-#### You can discover my commands using *k.help*, and if you are experiencing issues with them, please join my [support server](https://discord.gg/CAm9cSU).
+## Hello! My name is Chino Kafuu, and I'm just another simple Discord bot originally created by DanielaGC_.
+### Well... as you can see, I'm a bot with many features like fun, ~~music~~, moderation and utility.
+#### You can discover my commands using *k.help*, and if you are experiencing issues with them please join my [support server](https://discord.gg/CAm9cSU).
 
 ## Self-hosted instances
 As Chino has grown over the time, the repository became open, meaning everyone can see the source code, open issues, etc, and as you may expect, copies were created.
