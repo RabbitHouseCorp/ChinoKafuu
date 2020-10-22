@@ -14,7 +14,7 @@ class PayCommand extends Command {
     })
   }
 
-  //TODO This command will have buttons in the new API versionnao i
+  //TODO This command will have buttons in the new API version
   async run(ctx) {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')

@@ -1,13 +1,13 @@
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class Helper {
-  constructor(context, commandName, commandAliases, commandUsage, commandDescription, t) {
+  constructor(context, commandName, commandAliases, commandUsage, commandDescription) {
     this.context = context
     this.name = commandName
     this.aliases = commandAliases
     this.usage = commandUsage
     this.description = commandDescription
-    this.t = t
+    this.t = context.t
   }
 
   help() {

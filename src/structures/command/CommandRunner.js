@@ -60,12 +60,12 @@ module.exports = class CommandRunner {
     }
 
     if (command.arguments && !ctx.args[0]) {
-      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`), ctx.t)
+      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
       return helper.help()
     }
 
     if (command.arguments && command.arguments < ctx.args.length) {
-      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`), ctx.t)
+      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
       return helper.help()
     }
 
