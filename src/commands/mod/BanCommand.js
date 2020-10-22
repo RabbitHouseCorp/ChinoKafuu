@@ -17,15 +17,14 @@ class BanCommand extends Command {
     }
 
     async run(ctx) {
-        let member
-        member = ctx.args[0].replace(/[<@!>]/g, '')
-        let guildMember
-        guildMember = ctx.message.channel.guild.members.get(member)
+        let member = ctx.args[0].replace(/[<@!>]/g, '')
+        let guildMember = ctx.message.channel.guild.members.get(member)
         if (guildMember) {
             if (guildMember.user.id === ctx.message.author.id) return ctx.replyT('error', 'commands:ban.selfBan')
             if (guildMember.user.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
         } else {
             member = await ctx.client.getRESTUser(member)
+          if (!member) return ctx.replyT('error', 'basic:invalidUser')
             guildMember = {
                 user: {
                     id: member.id,
@@ -36,10 +35,7 @@ class BanCommand extends Command {
             }
         }
 
-        let reason = ctx.args.slice(1).join(' ')
-        if (!reason) {
-            reason = ctx.t('basic:noReason')
-        }
+        const reason = ctx.args.slice(1).join(' ') || ctx.t('basic:noReason')
         try {
             ctx.client.banGuildMember(ctx.message.guildID, guildMember.user.id, 7, ctx.t('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
                 const embed = new EmbedBuilder()
@@ -52,21 +48,21 @@ class BanCommand extends Command {
 
                 ctx.send(embed)
 
-                let server = ctx.db.guild
+                const server = ctx.db.guild
                 if (server.punishModule) {
-                    let channel = ctx.message.channel.guild.channels.get(server.punishChannel)
+                    const channel = ctx.message.channel.guild.channels.get(server.punishChannel)
                     if (!channel) {
                         server.punishModule = false
                         server.punishChannel = ''
                         server.save()
-                        ctx.replyT('error', 'events:channel-not-found')
+                        return ctx.replyT('error', 'events:channel-not-found')
                     }
 
                     channel.createMessage({ embed: embed })
                 }
             })
         } catch {
-            ctx.replyT('error', 'commands:ban.error')
+            await ctx.replyT('error', 'commands:ban.error')
         }
     }
 }
