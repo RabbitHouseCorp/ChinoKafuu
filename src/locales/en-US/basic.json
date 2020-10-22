@@ -19,5 +19,7 @@
 		},
 		"reason": "Banned by: {{0}} - Reason: {{1}}"
 	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage."
+	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+	"howToUse": "How to use?",
+	"aliases": "Aliases"
 }

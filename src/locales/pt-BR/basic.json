@@ -16,5 +16,7 @@
             "reason": "Motivo"
         },
         "reason": "Banido por: {{0}} - Motivo: {{1}}"
-    }
+    },
+    "howToUse": "Como usar?",
+    "aliases": "Alternativas"
 }

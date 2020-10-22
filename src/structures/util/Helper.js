@@ -1,26 +1,26 @@
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class Helper {
-  constructor(context, commandName, commandAliases, commandUsage, commandDescription) {
+  constructor(context, commandName, commandAliases, commandUsage, commandDescription, t) {
     this.context = context
     this.name = commandName
     this.aliases = commandAliases
     this.usage = commandUsage
     this.description = commandDescription
+    this.t = t
   }
 
   help() {
     const usage = this.usage.split(' ')
-    const lang = this.context.db.guild.lang
     const commandName = '`' +  `${this.context.db.guild.prefix}${this.name}` + '` '
     const commandWithUsage = commandName + usage.map(element => '\`' + element + '\`').join(' ')
-    const embedDescription = lang === 'pt-BR' ?  `**Como usar?** ${commandWithUsage}` : `\n\n**How to use?** ${commandWithUsage}`
+    const embedDescription = `\n\n**${this.t('basic:howToUse')}** ${commandWithUsage}`
     const aliases = this.aliases.join(', ') || ':x:'
     const embed = new EmbedBuilder()
       .setTitle('`' + `${this.context.db.guild.prefix}${this.name}` + '`')
       .setColor('DEFAULT')
       .setDescription(this.description + embedDescription)
-      .addField(lang === 'pt-BR' ? 'Alternativas' : 'Aliases', aliases)
+      .addField(this.t('basic:aliases'), aliases)
     return this.context.send(embed)
   }
 }
