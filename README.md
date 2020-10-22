@@ -1,7 +1,10 @@
 # Welcome to my GitHub repository.
   <p align="center">
-    <a href="https://www.jetbrains.com/?from=ChinoKafuu">
+    <a href="https://jetbrains.com/?from=ChinoKafuu">
     <img src="https://img.shields.io/badge/Powered_by_WebStorm-gray.svg?logo=webstorm&style=for-the-badge" />
+  </a>
+  <a href="https://crowdin.com/">
+    <img src="https://img.shields.io/badge/Powered_by_Crowdin-gray.svg?logo=crowdin&style=for-the-badge" />
   </a>
   </p>
 
