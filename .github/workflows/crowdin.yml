@@ -20,6 +20,7 @@ jobs:
         download_translations: true
         commit_message: "Update Crowdin translations | Workflow"
         create_pull_request: false
+        config: "./crowdin.yml"
 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
