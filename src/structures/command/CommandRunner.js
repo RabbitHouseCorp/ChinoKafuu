@@ -11,8 +11,8 @@ module.exports = class CommandRunner {
     const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
     const t = client.i18nRegistry.getT(guildData.lang)
     if (message.content.replace('!', '') === `<@${client.user.id}>`) return client.createMessage(message.channel.id, t('basic:onMention', {
-      user: `<@${message.author.id}>`,
-      prefix: guildData.prefix
+      0: message.author.mention,
+      1: guildData.prefix
     }))
     if (message.content === guildData.prefix) return
 
