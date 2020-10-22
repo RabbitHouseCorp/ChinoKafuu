@@ -1,0 +1,24 @@
+{
+    "botDeveloper": "gomene, apenas os meus desenvolvedores podem executar este comando.",
+    "discord": {
+        "createInstantInvite": "Criar Convite",
+        "kickMembers": "Expulsar Membros",
+        "banMembers": "Banir Membros",
+        "administrator": "Administrador",
+        "manageChannels": "Gerenciar Canais",
+        "manageGuild": "Gerenciar Servidor",
+        "addReactions": "Adicionar Reações",
+        "sendMessages": "Enviar Mensagens",
+        "sendTTSMessages": "Enviar Mensagens em TTS",
+        "manageMessages": "Gerenciar Mensagens",
+        "embedLinks": "Inserir Links",
+        "attachFiles": "Anexar Arquivos",
+        "readMessageHistory": "Ler histórico de Mensagens",
+        "mentionEveryone": "Mencionar Todos",
+        "voiceUseVAD": "Usar Detecção de Voz",
+        "changeNickname": "Mudar Apelido",
+        "manageNicknames": "Gerenciar Apelidos",
+        "manageRoles": "Gerenciar Cargos",
+        "manageEmojis": "Gerenciar Emojis"
+    }
+}

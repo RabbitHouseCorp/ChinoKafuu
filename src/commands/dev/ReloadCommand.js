@@ -1,25 +1,34 @@
-const Command = require("../../structures/command")
+const Command = require('../../structures/command/Command')
 
-module.exports = class ReloadCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "reload",
-			aliases: ["recarregar"],
-			category: "developers",
-			OnlyDevs: true
-		})
-	}
+class ReloadCommand extends Command {
+    constructor() {
+        super({
+            name: 'reload',
+            aliases: []
+        })
+    }
 
-	run({ message, args, server }, t) {
-		const option = this.getOption(args[0], ["command", "comando"], ["evento", "event"])
-		if (!option) return message.chinoReply("error", "me dê uma opção válida. Opções disponíveis: `evento`, `comando`")
-		if (!args[1]) return message.chinoReply("error", "me dê um comando/evento para recarregar.")
-		const type = option === "yes" ? "comando" : "evento"
+    async run(ctx) {
+        switch (ctx.args[0].toLowerCase()) {
+            case 'locales':
+                ctx.client.loadLocales()
+                await ctx.reply('chino_tail', t('commands:reload.locales'))
+                break
+            case 'shard': {
+                if (!ctx.args[1]) return ctx.reply('chino_think', 'Como eu vou reiniciar essa shard se você não colocou nenhuma?')
+                const shard = ctx.client.shards.get(Number(ctx.args[1]))
+                shard.disconnect()
+                shard.connect()
 
-		const rst = option === "yes" ? this.client.reloadCommand(args[1]) : this.client.reloadEvent(args[1])
-		if (rst instanceof Error) return message.chinoReply("error", `falha no recarregamento do ${type}.Stack:\n\`\`\`js${rst}\`\`\``)
-		if (rst === false) return message.chinoReply("error", `${type} inexistente.`)
-
-		message.chinoReply("success", `${type} recarregado com sucesso!`)
-	}
+                await ctx.reply('chino_tail', t('commands:reload.shard', { shard: ctx.args[1] }))
+                break
+            }
+            default: {
+                const list = ['`locales`', '`shard`']
+                await ctx.reply('chino_think', t('commands:reload.ctx.args-null', { list: list.join(', ') }))
+            }
+        }
+    }
 }
+
+module.exports = ReloadCommand

@@ -1,63 +1,68 @@
-const Command = require("../../structures/command")
-module.exports = class PayCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "pay",
-			category: "economy",
-			aliases: ["pagar", "doar"],
-			ClientPermission: ["ADD_REACTIONS"]
-		})
-	}
-	async run({ message, args, server }, t) {
-		let user = await this.client.database.Users.findById(message.author.id)
-		if (!user || user === null) {
-			new this.client.database.Users({
-				_id: message.author.id
-			}).save()
-		}
+const Command = require('../../structures/command/Command')
+const ReactionCollector = require('../../utils/ReactionCollector')
 
-		let member = message.mentions.users.first() || this.client.users.cache.get(args[0])
-		if (!member) return message.chinoReply("error", t("commands:mention-null"))
-		if (member.id === message.author.id) return message.chinoReply("error", t("commands:pay.this-author"))
-		let value = args[1]
-		if (!value) return message.chinoReply("error", t("commands:pay.value-null"))
-		let invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
-		if (invalidValue) return message.chinoReply("error", t("commands:pay.invalid-value"))
-		let donator = await this.client.database.Users.findById(message.author.id)
-		if (donator.yens < value) return message.chinoReply("error", t("commands:pay.insufficient-value"))
-		let membro = await this.client.database.Users.findById(member.id)
-		function valuePorcent(val, porcent) {
-			porcent = parseFloat(val * (2 / 100))
-			if (porcent > 25) porcent = 25
-			return [val - ((val / 100) * porcent), porcent]
-		}
-		let realValue = valuePorcent(value, 2)
+class PayCommand extends Command {
+  constructor() {
+    super({
+      name: 'pay',
+      aliases: ['pagar', 'doar'],
+      arguments: 2,
+      permissions: [{
+        entity: 'bot',
+        permissions: ['addReactions']
+      }]
+    })
+  }
 
-		message.chinoReply("warn", t("commands:pay.confirm", { value: Number(realValue[0]).toLocaleString(), member: member.toString(), porcent: realValue[1] })).then(msg => {
-			msg.react("success:577973168342302771")
-			setTimeout(() => msg.react("error:577973245391667200"), 1000)
+  //TODO This command will have buttons in the new API versionnao i
+  async run(ctx) {
+    const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
+    if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
-			const collector = msg.createReactionCollector((reaction, user) => (reaction.emoji.name === "success", "error") && (user.id !== this.client.user.id && user.id === message.author.id))
-			collector.on("collect", r => {
-				switch (r.emoji.name) {
-					case "success": {
-						donator.yens = Number(value) - donator.yens
-						membro.yens = membro.yens + Number(realValue[0])
-						msg.delete()
-						if (membro.yens > 1000000000) return message.chinoReply("error", t("commands:pay.limit"))
-						membro.save()
-						donator.save()
+    const fromUser = ctx.db.user
+    const value = ctx.args[1]
+    const toUser = await ctx.db.db.getOrCreate(member.id)
 
-						message.chinoReply("money_with_wings", t("commands:pay.success", { member: member.toString(), value: Number(realValue[0]).toLocaleString() }))
-					}
-						break;
-					case "error": {
-						message.chinoReply("error", t("commands:pay.cancel", { value: Number(realValue[0]).toLocaleString() }))
-						msg.delete()
-					}
-						break;
-				}
-			})
-		})
-	}
+    if (!ctx.message.mentions[0])
+    if (ctx.message.author.id === member.id) return ctx.replyT('error', 'commands:pay.userMismatch')
+    if (!value) return ctx.replyT('error', 'commands:pay.valueMismatch')
+    if (isNaN(Number(value))) return ctx.replyT('error', 'commands:pay.valueMismatch')
+    if (Number(value) === Infinity) return ctx.replyT('error', 'commands:pay.valueMismatch')
+    if (value <= 0) return ctx.replyT('error', 'commands:pay.valueMismatch')
+    if (value > fromUser.yens) return ctx.replyT('error', 'commands:pay.poorUser')
+
+    const realValue = this.getTax(value, 2)
+    const totalYens = Math.round(realValue[0])
+    ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, fee: realValue[1], total: value }).then(async message => {
+      await message.addReaction('✅')
+      await message.addReaction('error:577973245391667200')
+      const filter = (emoji, user) => (["✅", "error"].includes(emoji.name)) && (user.id !== ctx.client.user.id && user.id === ctx.message.author.id)
+      const collector = new ReactionCollector(message, filter, { max: 1 })
+      collector.on('collect', async (e) =>{
+        if (e.emoji.name === '✅') {
+          fromUser.yens -= totalYens
+          toUser.yens += totalYens
+          await message.delete()
+          await ctx.replyT('yen', 'commands:pay.success', { yens: totalYens, user: member.mention })
+          ctx.db.user.save()
+          toUser.save()
+        }
+
+        if (e.emoji.name === 'error') {
+          await ctx.replyT('error', 'commands:pay.cancelled')
+          return message.delete()
+        }
+      })
+    })
+
+
+  }
+
+   getTax(val, percent) {
+    percent = parseFloat(val * (2 / 100))
+    if (percent > 25) percent = 25
+    return [val - ((val / 100) * percent), percent]
+  }
 }
+
+module.exports = PayCommand

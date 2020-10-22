@@ -1,25 +1,24 @@
-const Command = require("../../structures/command")
+const Command = require('../../structures/command/Command')
+
 module.exports = class ClearCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "clear",
-			category: "mod",
-			aliases: ["limpar", "clean"],
-			UserPermission: ["MANAGE_MESSAGES"],
-			ClientPermission: ["MANAGE_MESSAGES"],
-			OnlyDevs: false
-		})
-	}
-	run({ message, args, server }, t) {
-	
-		if (!args[0]) return message.chinoReply("error", t("commands:clear.args-null"))
-		if (args[0] > 100) return message.chinoReply("error", t("commands:clear.limit"))
-		message.channel.bulkDelete(args[0]).then(msg => {
-			message.chinoReply("trash", t("commands:clear.success", { totalMsg: msg.size })).then(msg => {
-				msg.delete({ timeout: 5000 })
-			})		
-		}).catch(() => {
-			message.chinoReply("error", t("commands:clear.error"))
-		})
-	}
+  constructor() {
+    super({
+      name: 'clear',
+      aliases: ['limpar'],
+      arguments: 1,
+      permissions: [{
+        entity: 'both',
+        permissions: ['manageMessages']
+      }]
+    })
+  }
+
+  async run(ctx) {
+    if (ctx.args[0] > 100) return ctx.replyT('error', 'commands:clear.limit')
+    if (isNaN(ctx.args[0])) return ctx.replyT('error', 'commands:clear.nan')
+
+    ctx.message.channel.purge(Number(ctx.args[0]) + 1).then(ctx.replyT('success', 'commands:clear.success', { messages: ctx.args[0] }))
+  }
+
+  //TODO Clear messages by user
 }

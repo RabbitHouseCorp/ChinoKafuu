@@ -1,3 +1,0 @@
-files:
-  - source: src/locales/*/commands.json
-    translation: /src/updatedLocales/%locale%/commands.json

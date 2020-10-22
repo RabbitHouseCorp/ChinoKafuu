@@ -1,0 +1,20 @@
+{
+    "onMention": "Olá, meu prefix neste servidor é `{{prefix}}`, caso queira saber o que eu posso fazer, use `{{prefix}}ajuda`.",
+    "commandExecutionFailure": "hmm... Um erro ocorreu. `{{error}}`",
+    "missingBotPermission": "eu não tenho a permissão de **{{perm}}**. Me dê a permissão e tente novamente.",
+    "missingUserPermission": "você não tem a permissão de **{{perm}}**. Você não pode executar esse comando.",
+    "invalidUser": "usuário não encontrado. Tem certeza que você não esqueceu de mencionar ele?",
+    "userNotFound": "eu não consegui encontra este usuário, por favor, tente novamente.",
+    "noReason": "Nenhum motivo",
+    "clickHere": "Clique aqui",
+    "punishment": {
+        "banned": "{{0}} | Banido",
+        "embed": {
+            "memberName": "Nome de usuário",
+            "memberID": "ID do usuário",
+            "staffName": "Quem puniu",
+            "reason": "Motivo"
+        },
+        "reason": "Banido por: {{0}} - Motivo: {{1}}"
+    }
+}

@@ -1,25 +1,22 @@
-const Command = require("../../structures/command")
-const NekosLife = require("nekos.life")
-const neko = new NekosLife()
-const { MessageEmbed } = require("discord.js")
-module.exports = class CatCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "cat",
-			category: "fun",
-			aliases: ["gato", "kitty"],
-			UserPermission: null,
-			ClientPermission: null,
-			OnlyDevs: false
-		})
-	}
-	async run({ message, args, server }, t) {
-		let img = await neko.sfw.meow()
-		const embed = new MessageEmbed()
-			.setColor(this.client.colors.action)
-			.setDescription("🐱")
-			.setImage(img.url)
+const Command = require('../../structures/command/Command')
+const NekosLife = require('nekos.life')
+const NekoClient = new NekosLife()
+const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
-		message.channel.send(embed)
-	}
+module.exports = class BakaCommand extends Command {
+  constructor() {
+    super({
+      name: 'cat',
+      aliases: ['gato', 'kitty']
+    })
+  }
+
+  async run(ctx) {
+    const image = await NekoClient.sfw.meow()
+    const embed = new EmbedBuilder()
+      .setColor('ACTION')
+      .setImage(image.url)
+    ctx.send(embed)
+  }
 }
+

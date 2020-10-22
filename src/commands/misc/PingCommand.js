@@ -1,32 +1,38 @@
-const Command = require("../../structures/command")
-const { MessageEmbed } = require("discord.js")
-module.exports = class PingCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "ping",
-			aliases: [],
-			UserPermission: null,
-			ClientPermission: ["EMBED_LINKS"],
-			OnlyDevs: false
-		})
-	}
-	run({ message, args, server }, t) {
-		let ping = `Ping: \`${Math.round(this.client.ws.ping)}\`ms! | API: \`${Date.now() - message.createdTimestamp}\`ms | Shard: [${this.client.shard.ids}/${this.client.shard.count}]`
-		switch (args[0]) {
-			case "shards":
-				this.client.shard.broadcastEval("this.ws.ping").then(shard => {
-					const embed = new MessageEmbed()
-						.setColor(this.client.colors.default)
-						.setFooter(`${t("commands:ping")} ${this.client.shard.count} shards`)
-					let s = []
-					shard.forEach((ping, index) => s.push(embed.addField(`Shard ${index}`, `${Math.round(ping)}ms`, true)))
-					message.channel.send(embed)
-				})
-				break
-			default:
-				message.channel.send(this.client.emotes.ping_pong).then(msg => {
-					msg.edit(`${this.client.emotes.ping_pong}\n${ping}`)
-				})
-		}
-	}
+const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const Command = require('../../structures/command/Command')
+class PingCommand extends Command {
+  constructor() {
+    super({
+      name: 'ping'
+    })
+  }
+
+  async run(ctx) {
+    switch (ctx.args[0]) {
+      case 'shards': {
+        const s = []
+        const embed = new EmbedBuilder()
+        embed.setFooter(ctx.t('commands:ping', { totalShard: ctx.client.shards.size }))
+        embed.setColor('DEFAULT')
+        ctx.client.shards.forEach(shard => {
+          let shardStatus
+          if (shard.status === 'ready') shardStatus = 'CONNECTED'
+          if (shard.status === 'disconnected') shardStatus = 'DISCONNECTED'
+          if (shard.status === 'connecting') shardStatus = 'CONNECTING'
+          if (shard.status === 'handshaking') shardStatus = 'HANDSHAKING'
+          s.push(embed.addField(`Shard: ${shard.id}`, `Ping: ${shard.latency} | ${shardStatus}`, true))
+        })
+
+        ctx.send(embed)
+        break
+      }
+      default: {
+        const ping = `Ping: \`${Math.round(ctx.message.channel.guild.shard.latency)}\`ms! | API Latency: \`${Date.now() - ctx.message.timestamp}\` | Shard: [${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}]`
+        const msg = await ctx.send(':ping_pong:')
+        await msg.edit(`:ping_pong:\n${ping}`)
+      }
+    }
+  }
 }
+
+module.exports = PingCommand

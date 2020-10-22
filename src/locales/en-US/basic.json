@@ -1,0 +1,23 @@
+{
+	"onMention": "Hello. My prefix in this guild is `{{prefix}}`. If you want to find out what I can do, use `{{prefix}}help`.",
+	"commandExecutionFailure": "hmm... An error occurred. `{{error}}`",
+	"missingBotPermission": "I don't have the **{{perm}}** permission. Check my permissions and try again.",
+	"missingUserPermission": "you don't have the **{{perm}}** permission. You can't execute this command.",
+	"invalidUser": "user not found. Make sure you have @mentioned them or double-check the ID.",
+	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
+	"userNotFound": "I can't found this user, please, try again.",
+	"noReason": "No reason",
+	"clickHere": "Click here",
+	"punishment": {
+		"banned": "{{0}} | Banned",
+		"kicked": "{{member}} | Kicked",
+		"embed": {
+			"memberName": "Username",
+			"memberID": "User ID",
+			"staffName": "Who punished",
+			"reason": "Reason"
+		},
+		"reason": "Banned by: {{0}} - Reason: {{1}}"
+	},
+	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage."
+}

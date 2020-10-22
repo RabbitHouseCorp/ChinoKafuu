@@ -1,44 +1,49 @@
-const Command = require("../../structures/command")
-const malScraper = require("mal-scraper")
-const { MessageEmbed } = require("discord.js")
-module.exports = class AnimeCommand extends Command {
-	constructor(client) {
-		super(client, {
-			name: "anime",
-			category: "misc",
-			aliases: [],
-			UserPermission: null,
-			ClientPermission: ["EMBED_LINKS"]
-		})
-	}
-	run({ message, args, server }, t) {
+const Command = require('../../structures/command/Command')
+const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const malScraper = require('mal-scraper')
 
-		const search = args.join(" ")
-		if (!search) return message.chinoReply("error", t("commands:anime.args-null"))
+class AnimeCommand extends Command {
+    constructor() {
+        super({
+            name: 'anime',
+            aliases: ['malanime'],
+            permissions: [{
+                entity: 'bot',
+                permissions: ['embedLinks']
+            }]
+        })
+    }
 
-		malScraper.getInfoFromName(search).then(anime => {
-			const embed = new MessageEmbed()
-				.setThumbnail(anime.picture)
-				.setColor(this.client.colors.default)
-				.setTitle(t("commands:anime.sinopse"))
-				.setDescription(anime.synopsis)
-				.addField(t("commands:anime.title"), anime.englishTitle ? anime.englishTitle : anime.japaneseTitle, true)
-				.addField(t("commands:anime.type"), anime.type, true)
-				.addField(t("commands:anime.episode"), anime.episodes, true)
-				.addField(t("commands:anime.rating"), anime.rating, true)
-				.addField(t("commands:anime.StartAndEnd"), anime.aired, true)
-				.addField(t("commands:anime.score"), anime.score, true)
-				.addField(t("commands:anime.status"), anime.scoreStats, true)
-				.addField(t("commands:anime.duration"), anime.duration, true)
-				.addField(t("commands:anime.rank"), anime.ranked, true)
-				.addField(t("commands:anime.popularity"), anime.popularity, true)
-				.addField("Trailer", `[${t("commands:click-here")}](${anime.trailer})`, true)
-				.addField(t("commands:anime.genres"), `${anime.genres.join(", ")}`, true)
+    async run(ctx) {
+        const search = ctx.args.join(' ')
+        const t = ctx.t
+        if (!search) return ctx.replyT('error', 'commands:anime.argsNull')
 
-			message.channel.send(embed)
-		}).catch((err) => {
-			console.log(err.stack)
-			message.chinoReply("error", t("commands:anime.NotFound", { args: search }))
-		})
-	}
+        try {
+            const anime = await malScraper.getInfoFromName(search)
+            const embed = new EmbedBuilder()
+            embed.setThumbnail(anime.picture)
+            embed.setColor('DEFAULT')
+            embed.setTitle(t('commands:anime.synopsis'))
+            embed.setDescription(anime.synopsis)
+            embed.addField(t('commands:anime.animeName'), anime.englishTitle ?? anime.japaneseTitle, true)
+            embed.addField(t('commands:anime.type'), anime.type, true)
+            embed.addField(t('commands:anime.episodes'), anime.episodes, true)
+            embed.addField(t('commands:anime.rating'), anime.rating, true)
+            embed.addField(t('commands:anime.aired'), anime.aired, true)
+            embed.addField(t('commands:anime.score'), anime.score, true)
+            embed.addField(t('commands:anime.scoreStats'), anime.scoreStats, true)
+            embed.addField(t('commands:anime.duration'), anime.duration, true)
+            embed.addField(t('commands:anime.ranked'), anime.ranked, true)
+            embed.addField(t('commands:anime.popularity'), anime.popularity, true)
+            embed.addField('Trailer', `[${t('basic:clickHere')}](${anime.trailer})`, true)
+            embed.addField(t('commands:anime.genres'), anime.genres.join(', '), true)
+
+            ctx.send(embed)
+        } catch {
+            ctx.replyT('error', 'commands:anime.animeNotFound', { 0: search })
+        }
+    }
 }
+
+module.exports = AnimeCommand
