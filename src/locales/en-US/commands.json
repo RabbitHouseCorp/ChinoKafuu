@@ -107,6 +107,13 @@
         "ownerKick": "uh... you can't really kick the owner of the guild...",
         "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
+    "ban": {
+        "usage": "<user> [reason]",
+        "description": "Ban an user from the server",
+        "selfBan": "you can't self ban!",
+        "ownerBan": "uh... you can't really ban the owner of the guild",
+        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    },
     "language": {
         "message": "What is the new language? React below.\n\n\uD83C\uDDE7\uD83C\uDDF7 Português (Brasil) (Brazilian Portuguese)\n\uD83C\uDDFA\uD83C\uDDF8 English (United States) (Inglês)",
         "usage": "[language]",

@@ -29,13 +29,12 @@ module.exports = class KickCommand extends Command {
 
     try {
       const embed = new EmbedBuilder()
-        .setTitle(ctx.t('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
-        .setColor('MODERATION')
-        .setThumbnail(member.avatarURL)
-        .addField(ctx.t('basic:punishment.embed.memberName'), member.username, true)
-        .addField(ctx.t('basic:punishment.embed.memberID'), member.id, true)
-        .addField(ctx.t('basic:punishment.embed.staffName'), ctx.message.author.username, true)
-        .addField(ctx.t('basic:punishment.embed.reason'), reason, true)
+      embed.setTitle(ctx.t('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
+      embed.setColor('MODERATION')
+      embed.setThumbnail(member.avatarURL)
+      embed.addField(ctx.t('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
+      embed.addField(ctx.t('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+      embed.addField(ctx.t('basic:punishment.embed.reason'), reason)
       guildMember.kick(reason).then(() => ctx.send(embed))
 
       if (ctx.db.guild.punishModule) {
