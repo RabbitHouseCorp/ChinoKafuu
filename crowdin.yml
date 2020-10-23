@@ -5,4 +5,4 @@ api_token_env: CROWDIN_PERSONAL_TOKEN
 
 files:
   - source: src/locales/en-US/*.json
-  translation: src/locales/%locale%/%original_file_name%
+    translation: src/locales/%locale%/%original_file_name%
