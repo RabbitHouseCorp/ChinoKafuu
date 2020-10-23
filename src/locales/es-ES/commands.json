@@ -6,52 +6,52 @@
         "shard": "shard `{{shard}}` reiniciada com sucesso."
     },
     "kiss": {
-        "kissed": "{{author}} beijou {{member}}",
-        "unable": "uh... você não pode beijar você mesmo.",
+        "kissed": "{{author}} kissed {{member}}",
+        "unable": "uh... you can't kiss yourself.",
         "usage": "<user>",
         "description": "Kisses a user"
     },
     "yens": {
-        "yens": "voce possui {{yens}} Yens",
-        "onMention": "{{user}} possui {{yens}} Yens"
+        "yens": "you have {{yens}} Yens",
+        "onMention": "{{user}} has {{yens}} Yens"
     },
     "anime": {
-        "synopsis": "Sinopse",
-        "animeName": "Nome do anime",
-        "type": "Tipo",
-        "episodes": "Episódios",
-        "rating": "Avaliação",
-        "aired": "Exibido",
-        "score": "Pontuação",
-        "scoreStats": "Estatísticas de pontuação",
-        "duration": "Duração dos episódios",
-        "ranked": "Classificação",
-        "popularity": "Popularidade",
-        "genres": "Gêneros",
-        "invalidAnime": "diga o nome do anime que você deseja.",
-        "animeNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`."
+        "synopsis": "Synopsis",
+        "animeName": "Anime name",
+        "type": "Type",
+        "episodes": "Episodes",
+        "rating": "Rating",
+        "aired": "Aired",
+        "score": "Score",
+        "scoreStats": "Score stats",
+        "duration": "Episodes duraction",
+        "ranked": "Ranked",
+        "popularity": "Popularity",
+        "genres": "Genres",
+        "invalidAnime": "enter the name of the desired anime",
+        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
     },
     "manga": {
-        "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
-        "type": "Tipo",
+        "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
+        "type": "Type",
         "status": "Status",
         "vols": "Volumes",
-        "chapters": "Cápitulos",
-        "score": "Pontuação",
-        "aired": "Publicado",
-        "genres": "Gêneros",
-        "characters": "Personagens"
+        "chapters": "Chapters",
+        "score": "Score",
+        "aired": "Aired",
+        "genres": "Genres",
+        "characters": "Characters"
     },
     "pay": {
         "invalidUser": "this user doesn't exist",
-        "usage": "<@user> <amount>",
+        "usage": "<user> <amount>",
         "description": "Sends money to a user",
-        "userMismatch": "você não pode fazer uma transferencia para você mesmo!",
-        "valueMismatch": "você inseriu um valor inválido",
-        "success": "transferencia de {{yens}} Yens efetuada para {{user}} com sucesso.",
-        "poorUser": "você não possui Yens para completar essa transferencia",
-        "cancelled": "certo, transferencia cancelada.",
-        "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}})"
+        "userMismatch": "you can't pay to yourself!",
+        "valueMismatch": "you must enter a valid value",
+        "success": "successfully donated {{yens}} Yens to {{user}}",
+        "poorUser": "you don't have enough Yens to complete this payment",
+        "cancelled": "alright, payment cancelled",
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}})"
     },
     "baka": {
         "baka": "{{author}} called {{member}} baka",
@@ -76,14 +76,14 @@
     },
     "addrole": {
         "description": "Adds a role to a guild member",
-        "usage": "<@user> <role>",
+        "usage": "<user> <role>",
         "roleNotFound": "I couldn't find any role matching {{name}}",
         "success": "successfully added the role",
         "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
     },
     "setnick": {
         "description": "Sets the nickname of a member",
-        "usage": "<@user> <nickname>",
+        "usage": "<user> <nickname>",
         "success": "**{{member}}**'s nickname is now `{{nickname}}`",
         "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
     },
