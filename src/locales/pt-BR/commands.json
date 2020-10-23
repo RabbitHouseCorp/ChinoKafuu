@@ -109,7 +109,7 @@
     },
     "ban": {
         "usage": "<usuário> [razão]",
-        "description": "Ban an user from the server",
+        "description": "Bane um usuário do servidor",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
