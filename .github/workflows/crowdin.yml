@@ -1,4 +1,4 @@
-name: Crowdin Action
+name: Sync Translations
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: crowdin action
+    - name: Sync translations
       uses: crowdin/github-action@1.0.10
       with:
         upload_translations: true
@@ -21,6 +21,7 @@ jobs:
         commit_message: "Update Crowdin translations"
         create_pull_request: true
         config: "./crowdin.yml"
+        pull_request_base_branch: eris
 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
