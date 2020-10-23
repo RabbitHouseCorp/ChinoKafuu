@@ -15,11 +15,12 @@ module.exports = class Cluster {
 	}
 
 	async spawnShards() {
+		Logger.info('First cluster shard ID ' + this.firstClusterShardID)
+		Logger.info('Shards per cluster ' + process.env.SHARDS_PER_CLUSTER)
 		this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
 			firstShardID: this.firstClusterShardID,
-			lastShardID: this.firstClusterShardID + parseInt(process.env.SHARDS_PER_CLUSTER) - 1,
+			// lastShardID: this.firstClusterShardID + parseInt(process.env.SHARDS_PER_CLUSTER) - 1,
 			shardAmount: parseInt(process.env.SHARD_AMOUNT),
-			restMode: true,
 			defaultImageFormat: 'png',
 			defaultImageSize: 2048,
 			opusOnly: true,

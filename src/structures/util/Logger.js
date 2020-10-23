@@ -4,7 +4,7 @@ module.exports = class Logger {
 	static get processType() {
 		return require('worker_threads').isMainThread
 			? chalk.bgBlue('LOG')
-			: chalk.bgGreen(`CLUSTER ${process.env.CLUSTER_ID}`)
+			: chalk.black.bgMagenta(`CLUSTER ${process.env.CLUSTER_ID}`)
 	}
 
 	static generateLog(logType, message) {

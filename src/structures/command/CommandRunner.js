@@ -43,7 +43,7 @@ module.exports = class CommandRunner {
 
       object.permissions.forEach((permission) => {
         if (permission === 'botDeveloper') {
-          if (!process.env.BOT_DEVELOPERS.split(',').includes(ctx.message.author.id)) object.missing = permission
+          if (!process.env.BOT_DEVELOPERS.includes(ctx.message.author.id)) object.missing = permission
         } else {
           if (!member.permission.has(permission)) object.missing = permission
         }
