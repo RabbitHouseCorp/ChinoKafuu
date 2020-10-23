@@ -1,5 +1,4 @@
 {
-    "mention": "Olá, meu prefix neste servidor é `{{prefix}}`, caso queira saber o que eu posso fazer, use `{{prefix}}ajuda`.",
     "error": {
         "title": "Ocorreu um erro inesperadamente inesperado, gomenasai.",
         "report-issue": "Relate o problema",
