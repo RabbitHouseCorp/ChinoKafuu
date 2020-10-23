@@ -2,14 +2,14 @@
     "ping": "Total de shards: {{totalShard}}",
     "reload": {
         "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
+        "argsNull": "opções disponíveis: {{list}}",
         "shard": "shard `{{shard}}` reiniciada com sucesso."
     },
     "kiss": {
         "kissed": "{{author}} beijou {{member}}",
         "unable": "uh... você não pode beijar você mesmo.",
-        "usage": "<user>",
-        "description": "Kisses a user"
+        "usage": "<usuário>",
+        "description": "Beija um usuário"
     },
     "yens": {
         "yens": "voce possui {{yens}} Yens",
@@ -35,7 +35,7 @@
         "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
         "type": "Tipo",
         "status": "Status",
-        "vols": "Volumes",
+        "vols": "Volume",
         "chapters": "Cápitulos",
         "score": "Pontuação",
         "aired": "Publicado",
@@ -43,9 +43,9 @@
         "characters": "Personagens"
     },
     "pay": {
-        "invalidUser": "this user doesn't exist",
+        "invalidUser": "esse usuário não existe",
         "usage": "<@user> <amount>",
-        "description": "Sends money to a user",
+        "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferencia para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
         "success": "transferencia de {{yens}} Yens efetuada para {{user}} com sucesso.",
@@ -54,75 +54,75 @@
         "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}})"
     },
     "baka": {
-        "baka": "{{author}} called {{member}} baka",
-        "usage": "<user>",
-        "description": "Calls a user baka"
+        "baka": "{{author}} chamou {{member}} de baka",
+        "usage": "<usuário>",
+        "description": "Chama um usuário de baka"
     },
-    "clapNoArgs": "invalid input",
+    "clapNoArgs": "argumento inválido",
     "congaparrot": {
-        "usage": "<repeatCount>",
-        "description": "Sends funny parrots",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "usage": "<quantia-repetição>",
+        "description": "Envia parrots animados",
+        "maxAllowed": "por razões do lado do cliente, você pode enviar até 20 parrots"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
-        "usage": "<user>",
-        "description": "Feeds a user"
+        "feed": "{{author}} deu comida para {{user}}",
+        "usage": "<usuário>",
+        "description": "Alimenta um usuário"
     },
     "addemoji": {
-        "description": "Adds an emoji to your server",
-        "usage": "<link> <name>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "description": "Adiciona um emoji ao seu servidor",
+        "usage": "<link> <nome>",
+        "error": "algo ruim aconteceu enquanto eu tentei adicionar o seu emoji. Verifique a URL e também verifique se o formato do arquivo é png, jpg, jpeg ou gif."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
+        "description": "Adiciona um cargo a um membro do servidor",
         "usage": "<@user> <role>",
-        "roleNotFound": "I couldn't find any role matching {{name}}",
-        "success": "successfully added the role",
-        "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+        "roleNotFound": "Não consegui encontrar nenhum cargo que correspondesse a {{name}}",
+        "success": "cargo adicionado com sucesso",
+        "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
     },
     "setnick": {
-        "description": "Sets the nickname of a member",
+        "description": "Define o apelido de um membro",
         "usage": "<@user> <nickname>",
-        "success": "**{{member}}**'s nickname is now `{{nickname}}`",
-        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+        "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
+        "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente"
     },
     "chat": {
-        "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
+        "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "canal bloqueado",
+        "unlocked": "canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity>",
-        "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
-        "limit": "I can't delete more than a hundred messages",
-        "success": "successfully cleared {{messages}} messages",
-        "nan": "invalid value. Is your argument a number?"
+        "usage": "<quantidade>",
+        "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
+        "limit": "eu não consigo apagar mais de cem mensagens",
+        "success": "{{messages}} apagadas com sucesso",
+        "nan": "valor inválido. O seu argumento é um número?"
     },
     "kick": {
-        "usage": "<user> [reason]",
+        "usage": "<usuário> [razão]",
         "description": "Kick an user from the server",
-        "selfKick": "you can't kick yourself! You might want to lave the guild?",
-        "ownerKick": "uh... you can't really kick the owner of the guild...",
-        "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
+        "ownerKick": "uh... você não pode expulsar o dono do servidor...",
+        "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "ban": {
-        "usage": "<user> [reason]",
+        "usage": "<usuário> [razão]",
         "description": "Ban an user from the server",
-        "selfBan": "you can't self ban!",
-        "ownerBan": "uh... you can't really ban the owner of the guild",
-        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfBan": "você não pode se banir!",
+        "ownerBan": "uh... você não pode banir o dono do servidor",
+        "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
         "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
-        "usage": "[language]",
-        "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+        "usage": "[idioma]",
+        "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
-        "success": "got it! The new prefix is now `{{prefix}}`",
-        "usage": "<prefix>",
-        "description": "Changes the prefix of the bot",
-        "length": "the prefix size is limited to 3 characters"
+        "success": "entendido! O novo prefixo agora é `{{prefix}}`",
+        "usage": "<prefixo>",
+        "description": "Altera o prefixo do bot",
+        "length": "o tamanho do prefixo está limitado a 3 caracteres"
     }
 }
