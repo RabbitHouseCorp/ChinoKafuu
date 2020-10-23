@@ -16,6 +16,7 @@
     "eris": "^0.13.3",
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.2",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.9",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
