@@ -16,8 +16,8 @@
     "mentionEveryone": "mencionar everyone",
     "voiceUseVAD": "voice use VAD",
     "changeNickname": "alterar apelido",
-    "manageNicknames": "manage nicknames",
-    "manageRoles": "manage roles",
-    "manageEmojis": "manage emojis",
-    "externalEmojis": "use external emojis"
+    "manageNicknames": "gerenciar apelidos",
+    "manageRoles": "gerenciar cargos",
+    "manageEmojis": "gerenciar emojis",
+    "externalEmojis": "usar emojis externos"
 }
