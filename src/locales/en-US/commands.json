@@ -118,5 +118,11 @@
         "message": "What is the new language? React below.\n\n\uD83C\uDDE7\uD83C\uDDF7 Português (Brasil) (Brazilian Portuguese)\n\uD83C\uDDFA\uD83C\uDDF8 English (United States) (Inglês)",
         "usage": "[language]",
         "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+    },
+    "prefix": {
+        "success": "got it! The new prefix is now `{{prefix}}`",
+        "usage": "<prefix>",
+        "description": "Changes the prefix of the bot",
+        "length": "the prefix size is limited to 3 characters"
     }
 }
