@@ -18,8 +18,8 @@ jobs:
       with:
         upload_translations: true
         download_translations: true
-        commit_message: "Update Crowdin translations | Workflow"
-        create_pull_request: false
+        commit_message: "Update Crowdin translations"
+        create_pull_request: true
         config: "./crowdin.yml"
 
       env:
