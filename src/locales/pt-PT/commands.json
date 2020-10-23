@@ -1,0 +1,128 @@
+{
+    "ping": "Total de shards: {{totalShard}}",
+    "reload": {
+        "locales": "locales recarregadas com sucesso!",
+        "argsNull": "opções disponíveis : {{list}}",
+        "shard": "shard `{{shard}}` reiniciada com sucesso."
+    },
+    "kiss": {
+        "kissed": "{{author}} kissed {{member}}",
+        "unable": "uh... you can't kiss yourself.",
+        "usage": "<user>",
+        "description": "Kisses a user"
+    },
+    "yens": {
+        "yens": "you have {{yens}} Yens",
+        "onMention": "{{user}} has {{yens}} Yens"
+    },
+    "anime": {
+        "synopsis": "Synopsis",
+        "animeName": "Anime name",
+        "type": "Type",
+        "episodes": "Episodes",
+        "rating": "Rating",
+        "aired": "Aired",
+        "score": "Score",
+        "scoreStats": "Score stats",
+        "duration": "Episodes duraction",
+        "ranked": "Ranked",
+        "popularity": "Popularity",
+        "genres": "Genres",
+        "invalidAnime": "enter the name of the desired anime",
+        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
+    },
+    "manga": {
+        "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
+        "type": "Type",
+        "status": "Status",
+        "vols": "Volumes",
+        "chapters": "Chapters",
+        "score": "Score",
+        "aired": "Aired",
+        "genres": "Genres",
+        "characters": "Characters"
+    },
+    "pay": {
+        "invalidUser": "this user doesn't exist",
+        "usage": "<user> <amount>",
+        "description": "Sends money to a user",
+        "userMismatch": "you can't pay to yourself!",
+        "valueMismatch": "you must enter a valid value",
+        "success": "successfully donated {{yens}} Yens to {{user}}",
+        "poorUser": "you don't have enough Yens to complete this payment",
+        "cancelled": "alright, payment cancelled",
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}})"
+    },
+    "baka": {
+        "baka": "{{author}} called {{member}} baka",
+        "usage": "<user>",
+        "description": "Calls a user baka"
+    },
+    "clapNoArgs": "invalid input",
+    "congaparrot": {
+        "usage": "<repeatCount>",
+        "description": "Sends funny parrots",
+        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+    },
+    "feed": {
+        "feed": "{{author}} has feed {{user}}",
+        "usage": "<user>",
+        "description": "Feeds a user"
+    },
+    "addemoji": {
+        "description": "Adds an emoji to your server",
+        "usage": "<link> <name>",
+        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+    },
+    "addrole": {
+        "description": "Adds a role to a guild member",
+        "usage": "<user> <role>",
+        "roleNotFound": "I couldn't find any role matching {{name}}",
+        "success": "successfully added the role",
+        "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+    },
+    "setnick": {
+        "description": "Sets the nickname of a member",
+        "usage": "<user> <nickname>",
+        "success": "**{{member}}**'s nickname is now `{{nickname}}`",
+        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+    },
+    "chat": {
+        "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
+        "usage": "<on|off>",
+        "locked": "got it, channel locked",
+        "unlocked": "got it, channel unlocked"
+    },
+    "clear": {
+        "usage": "<quantity>",
+        "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
+        "limit": "I can't delete more than a hundred messages",
+        "success": "successfully cleared {{messages}} messages",
+        "nan": "invalid value. Is your argument a number?"
+    },
+    "kick": {
+        "usage": "<user> [reason]",
+        "description": "Kick an user from the server",
+        "selfKick": "you can't self kick!",
+        "ownerKick": "uh... you can't really kick the owner of the guild...",
+        "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    },
+    "ban": {
+        "usage": "<user> [reason]",
+        "description": "Ban an user from the server",
+        "selfBan": "you can't self ban!",
+        "ownerBan": "uh... you can't really ban the owner of the guild",
+        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    },
+    "language": {
+        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
+        "usage": "[language]",
+        "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+    },
+    "prefix": {
+        "success": "got it! The new prefix is now `{{prefix}}`",
+        "usage": "<prefix>",
+        "description": "Changes the prefix of the bot",
+        "length": "the prefix size is limited to 3 characters"
+    }
+}
