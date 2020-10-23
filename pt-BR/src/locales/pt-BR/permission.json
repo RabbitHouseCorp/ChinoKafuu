@@ -1,0 +1,23 @@
+{
+    "botDeveloper": "gomene, apenas os meus desenvolvedores podem executar este comando.",
+    "createInstantInvite": "create instant invite",
+    "kickMembers": "kick members",
+    "banMembers": "ban members",
+    "administrator": "administrator",
+    "manageChannels": "manage channels",
+    "manageGuild": "manage guild",
+    "addReactions": "add reactions",
+    "sendMessages": "send messages",
+    "sendTTSMessages": "send TTS messages",
+    "manageMessages": "manage messages",
+    "embedLinks": "embed links",
+    "attachFiles": "attach files",
+    "readMessageHistory": "read message history",
+    "mentionEveryone": "mention everyone",
+    "voiceUseVAD": "voice use VAD",
+    "changeNickname": "change nickname",
+    "manageNicknames": "manage nicknames",
+    "manageRoles": "manage roles",
+    "manageEmojis": "manage emojis",
+    "externalEmojis": "use external emojis"
+}
