@@ -1,9 +1,5 @@
 preserve_hierarchy: true
-
-project_id_env: CROWDIN_PROJECT_ID
-api_token_env: CROWDIN_PERSONAL_TOKEN
-base_url: https://rabbithouse.crowdin.com
-
+base_url: 'https://rabbithouse.crowdin.com'
 files:
   - source: /src/locales/en-US/*.json
     translation: /src/locales/%locale%/%original_file_name%
