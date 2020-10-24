@@ -23,7 +23,7 @@ class BanCommand extends Command {
             if (guildMember.user.id === ctx.message.author.id) return ctx.replyT('error', 'commands:ban.selfBan')
             if (guildMember.user.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
         } else {
-            member = await ctx.client.getRESTUser(member)
+            member = ctx.client.users.get(member)
           if (!member) return ctx.replyT('error', 'basic:invalidUser')
             guildMember = {
                 user: {
