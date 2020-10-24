@@ -41,7 +41,7 @@ module.exports = class Manager {
         m.execID = Date.now()
         this.clusters.forEach(x => x.postMessage(m))
         while (!this.resultList.filter(z => z.execID === m.execID).length < this.clusters.length) {}
-        worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map({ result } => {
+        worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map((result) => {
           return { ...result, shardID: z.id }
         }))
         this.resultList = this.resultList.filter(z => z.execID !== m.execID)

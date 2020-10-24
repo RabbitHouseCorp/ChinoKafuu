@@ -1,11 +1,11 @@
 const { MessageChannel } = require('worker_threads')
-const { in, out } = new MessageChannel()
+const { port1, port2 } = new MessageChannel()
 
 module.exports = class ClusteringInterface {
   constructor (client) {
     this.client = client
-    in.on('message', (m) => {
-      out.postMessage(eval(m))
+    port1.on('message', (m) => {
+      port2.postMessage(eval(m))
     })
   }
   get firstShardID () {
