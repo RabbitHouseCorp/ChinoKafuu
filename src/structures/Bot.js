@@ -28,7 +28,7 @@ module.exports = class Bot extends Client {
      *
      * @type {ClusteringInterface}
      */
-    this.clusters = new ClusteringInterface()
+    this.clusters = new ClusteringInterface(this)
     /**
      *
      * @type {Database}
