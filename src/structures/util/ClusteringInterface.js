@@ -8,12 +8,27 @@ module.exports = class ClusteringInterface {
     this.out = port2
 
     this.in.on('message', (m) => {
-      this.out.postMessage(eval(m))
+      if (m.result) return
+      try {
+        const z = eval(m)
+        this.out.postMessage(z)
+      } catch (e) {
+        this.out.postMessage(e.stack)
+      }
     })
+  }
+
+  handler (resolve, d) {
+    if (!m.result) return
+    resolve(d)
+    this.in.removeListener('message', (m) => this.handler(resolve, m))
   }
 
   broadcastEval (code) {
     port2.postMessage({ code, sending: true })
+    return new Promise((resolve) => {
+      this.in.on('message', (m) => this.handler(resolve, m))
+    })
   }
 
   get firstShardID () {

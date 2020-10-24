@@ -42,7 +42,7 @@ module.exports = class Manager {
         this.clusters.forEach(x => x.postMessage(m.code))
         while (!this.resultList.filter(z => z.execID === m.execID).length < this.clusters.length) {}
         worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map((result) => {
-          return { ...result, shardID: z.id }
+          return { ...result, shardID: z.id, result: true }
         }))
         this.resultList = this.resultList.filter(z => z.execID !== m.execID)
       } else {
