@@ -37,9 +37,9 @@ module.exports = class Manager {
     worker.on('exit', () => this.onExit(id))
     worker.on('error', (err) => this.onError(id, err))
     worker.on('message', (m) => {
-      if (m.receiveing) {
+      if (m.sending) {
         m.execID = Date.now()
-        this.clusters.forEach(x => x.postMessage(m))
+        this.clusters.forEach(x => x.postMessage(m.code))
         while (!this.resultList.filter(z => z.execID === m.execID).length < this.clusters.length) {}
         worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map((result) => {
           return { ...result, shardID: z.id }
