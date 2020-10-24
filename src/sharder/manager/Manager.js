@@ -8,6 +8,8 @@ module.exports = class Manager {
     this.clusterAmount = parseInt(process.env.CLUSTER_AMOUNT) || require('os').cpus().length || 6
     this.shardsPerCluster = Math.round(parseInt(process.env.SHARD_AMOUNT) / this.clusterAmount)
     this.clusters = []
+    this.resultList = []
+    
     if (process.env.PRODUCTION !== 'true') {
       Logger.info('The bot is running in development mode. Your console will get messy.')
 
@@ -34,6 +36,17 @@ module.exports = class Manager {
     })
     worker.on('exit', () => this.onExit(id))
     worker.on('error', (err) => this.onError(id, err))
+    worker.on('message', (m) => {
+      if (m.receiveing) {
+        m.execID = Date.now()
+        this.clusters.forEach(x => x.postMessage(m))
+        while (!this.resultList.filter(z => z.execID === m.execID).length < this.clusters.length) {}
+        worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map(z => { ...z.result, shardID: z.id }))
+        this.resultList = this.resultList.filter(z => z.execID !== m.execID)
+      } else {
+        this.resultList.push({ id, result: m.result, execID: m.execID })
+      }
+    })
     return worker
   }
 
