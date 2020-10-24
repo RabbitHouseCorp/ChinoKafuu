@@ -19,7 +19,7 @@ module.exports = class ClusteringInterface {
   }
 
   handler (resolve, d) {
-    if (!m.result) return
+    if (!d.result) return
     resolve(d)
     this.in.removeListener('message', (m) => this.handler(resolve, m))
   }
