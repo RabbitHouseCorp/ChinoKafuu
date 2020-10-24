@@ -4,13 +4,13 @@
 	"missingBotPermission": "eu não tenho a permissão de **{{perm}}**. Me dê a permissão e tente novamente.",
 	"missingUserPermission": "você não tem a permissão de **{{perm}}**. Você não pode executar esse comando.",
 	"invalidUser": "usuário não encontrado. Tem certeza que você não esqueceu de mencionar ele?",
-	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
+	"invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
 	"userNotFound": "eu não consegui encontra este usuário, por favor, tente novamente.",
 	"noReason": "Nenhum motivo",
 	"clickHere": "Clique aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
-		"kicked": "{{member}} | Kicked",
+		"kicked": "{{member}} | Expulso",
 		"embed": {
 			"memberName": "Nome de usuário",
 			"memberID": "ID do usuário",
@@ -19,7 +19,7 @@
 		},
 		"reason": "Banido por: {{0}} - Motivo: {{1}}"
 	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+	"missingArgs": "argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
 	"howToUse": "Como usar?",
 	"aliases": "Alternativas"
 }
