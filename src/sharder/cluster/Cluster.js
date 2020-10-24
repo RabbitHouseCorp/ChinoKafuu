@@ -11,18 +11,16 @@ module.exports = class Cluster {
 		if (process.env.PRODUCTION === 'false' && !process.env.MONGO_URI) {
 			Logger.warning('Starting application without MONGO_URI in .env.')
 		}
-		this.spawnShards()
+		this.spawnShards().then(() => console.log('abc', process.env.CLUSTER_ID))
 	}
 
 	async spawnShards() {
 		this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
-			firstShardID: 0,
-			// lastShardID: this.firstClusterShardID + parseInt(process.env.SHARDS_PER_CLUSTER) - 1,
+			firstShardID: this.firstClusterShardID,
+			lastShardID: this.firstClusterShardID + (parseInt(process.env.SHARDS_PER_CLUSTER) - 1),
 			maxShards: parseInt(process.env.SHARD_AMOUNT),
 			defaultImageFormat: 'png',
 			defaultImageSize: 2048,
-			opusOnly: true,
-			seedVoiceConnections: true,
 			// intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BAN', 'GUILD_EMOJI', 'GUILD_WEBHOOKS', 'GUILD_VOICE_STATES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS']
 		})
 
