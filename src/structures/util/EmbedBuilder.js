@@ -43,9 +43,8 @@ module.exports = class EmbedBuilder {
 	 * @returns {EmbedBuilder}
 	 */
 	addField(name, value, inline = false) {
-		if (!name || this.fields.length >= 25) return
+		if (!name || this.fields.length >= 25) return this
 		if (!value) return false
-
 		this.fields.push({ name: name.toString().substring(0, 256), value: value.toString().substring(0, 1024), inline })
 		return this
 	}
@@ -86,7 +85,7 @@ module.exports = class EmbedBuilder {
 
 	/**
 	 *
-	 * @param {string} timestamp TheISO8601 timestamp
+	 * @param {number} timestamp TheISO8601 timestamp
 	 * @returns {EmbedBuilder}
 	 */
 	setTimestamp(timestamp = new Date().getTime()) {
