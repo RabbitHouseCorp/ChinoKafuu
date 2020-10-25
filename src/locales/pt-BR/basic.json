@@ -20,5 +20,6 @@
 		"reason": "Banido por: {{0}} - Motivo: {{1}}"
 	},
 	"missingArgs": "argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
-	"howToUse": "Como usar?"
+	"howToUse": "Como usar?",
+	"aliases": "Alternativas"
 }
