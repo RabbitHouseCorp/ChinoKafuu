@@ -1,30 +1,23 @@
-const { PlayerManager } = require('eris-lavalink')
-const { LavalinkPlayer } = require('../structures/InicializeLavalink')
-let nodes = require('./lavalinkConfig').connect
-nodes = nodes.map(node => {
-    const object = {}
-    object.host = node.host
-    object.port = node.port
-    object.password = node.password
-    return object
-})
+const { Manager } = require('@lavacord/eris')
+const LavalinkPlayer = require('./LavalinkPlayer')
+let nodes = require('./LavalinkConfig').connect
 
-class LavalinkManager {
+module.exports = class LavalinkManager {
     constructor(client) {
         this.client = client
-        this.manager = new PlayerManager(client, nodes, {
-            numShards: this.client.shards.size,
-            userId: this.client.user.id
+        this.manager = new Manager(this.client, nodes, {
+            user: this.client.user.id,
+            shards: parseInt(process.env.SHARD_COUNT)
         })
     }
 
     getBestHost() {
-        return this.manager.nodes.get(nodes[0].host)
+        return nodes[Math.floor(Math.random() * nodes.length)].id
     }
-
-    async join(channel, guild) {
-        return new LavalinkPlayer(await this.manager.join(this.client.guilds.get(guild).id, channel))
+    async connect() {
+        return await this.manager.connect()
+    }
+    async join(channel) {
+        return new LavalinkPlayer(await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true }))
     }
 }
-
-module.exports = LavalinkManager

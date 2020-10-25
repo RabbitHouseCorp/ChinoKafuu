@@ -18,9 +18,11 @@
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.2",
     "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "mongoose": "^5.10.9",
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
-    "os-utils": "^0.0.14"
+    "os-utils": "^0.0.14",
+    "@lavacord/eris": "^0.0.3"
   }
 }
