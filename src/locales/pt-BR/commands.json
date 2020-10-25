@@ -8,7 +8,7 @@
     "kiss": {
         "kissed": "{{author}} beijou {{member}}",
         "unable": "uh... você não pode beijar você mesmo.",
-        "usage": "<usuário>",
+        "usage": "<userID|@user>",
         "description": "Beija um usuário"
     },
     "yens": {
@@ -44,7 +44,7 @@
     },
     "pay": {
         "invalidUser": "esse usuário não existe",
-        "usage": "<@user> <amount>",
+        "usage": "<userID|@user> <amount>",
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferencia para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
@@ -55,7 +55,7 @@
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
-        "usage": "<usuário>",
+        "usage": "<userID|@user>",
         "description": "Chama um usuário de baka"
     },
     "clapNoArgs": "argumento inválido",
@@ -76,14 +76,14 @@
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
-        "usage": "<@user> <role>",
+        "usage": "<userID|@user> <role>",
         "roleNotFound": "Não consegui encontrar nenhum cargo que correspondesse a {{name}}",
         "success": "cargo adicionado com sucesso",
         "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
     },
     "setnick": {
         "description": "Define o apelido de um membro",
-        "usage": "<@user> <nickname>",
+        "usage": "<userID|@user> <nickname>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente"
     },
@@ -101,14 +101,14 @@
         "nan": "valor inválido. O seu argumento é um número?"
     },
     "kick": {
-        "usage": "<usuário> [razão]",
+        "usage": "<userID|@user> [reason]",
         "description": "Kick an user from the server",
         "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
         "ownerKick": "uh... você não pode expulsar o dono do servidor...",
         "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "ban": {
-        "usage": "<usuário> [razão]",
+        "usage": "<userID|@user> [reason]",
         "description": "Bane um usuário do servidor",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
@@ -124,5 +124,11 @@
         "usage": "<prefixo>",
         "description": "Altera o prefixo do bot",
         "length": "o tamanho do prefixo está limitado a 3 caracteres"
+    },
+    "setbanner": {
+        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
+        "usage": "<URL|Attachment>",
+        "success": "Whoa! Your server has now a new banner",
+        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
     }
 }
