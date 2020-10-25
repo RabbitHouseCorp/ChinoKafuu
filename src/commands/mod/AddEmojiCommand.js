@@ -22,7 +22,7 @@ module.exports = class AddEmojiCommand extends Command {
     if (!name || !url) return ctx.replyT('error', 'basic:missingArgs', {
       prefix: ctx.db.guild.prefix,
       commandName: this.name
-    })
+    }) //TODO Update to Helper
     try {
       const request = await fetch(url)
       const buffer = await request.buffer()

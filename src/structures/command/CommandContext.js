@@ -37,7 +37,7 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
-	sendT(content, data = {}, options) {
+	sendT(content, data = {}, options = {}) {
 		return this.client.createMessage(this.message.channel.id, { content: this.t(content, data), options})
 	}
 
@@ -48,7 +48,7 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
 	 */
-	reply(emoji, content, options) {
+	reply(emoji, content, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
 		return this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options})
 	}
@@ -61,7 +61,7 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
-	replyT(emoji, content, data = {}, options) {
+	replyT(emoji, content, data = {}, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
 		return this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${this.t(content, data)}`, options})
 	}

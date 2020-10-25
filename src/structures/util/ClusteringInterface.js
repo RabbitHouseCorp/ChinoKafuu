@@ -1,5 +1,6 @@
 const { MessageChannel } = require('worker_threads')
 const { port1, port2 } = new MessageChannel()
+const { parentPort } = require('worker_threads')
 
 module.exports = class ClusteringInterface {
   constructor (client) {
@@ -11,9 +12,9 @@ module.exports = class ClusteringInterface {
       if (m.result || !m.evaluate) return
       try {
         const z = eval(m)
-        this.out.postMessage({ result: z, receiveing: true })
+        this.out.postMessage({ result: z, receiving: true })
       } catch (e) {
-        this.out.postMessage({ result: e.stack, receiveing: true })
+        this.out.postMessage({ result: e.stack, receiving: true })
       }
     })
   }
@@ -26,7 +27,7 @@ module.exports = class ClusteringInterface {
   }
 
   broadcastEval (code) {
-    port2.postMessage({ code, sending: true })
+    parentPort.postMessage({ code, sending: true })
     return new Promise((resolve) => {
       this.in.on('message', (m) => this._handler(resolve, m))
     })

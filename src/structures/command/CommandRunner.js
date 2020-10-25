@@ -70,9 +70,9 @@ module.exports = class CommandRunner {
     }
 
     try {
-      command.run(ctx)
+      await command.run(ctx)
     } catch (e) {
-      return ctx.sendT('basic:commandExecutionFailure', {error: e.message})
+      return ctx.sendT('basic:commandExecutionFailure', { error: e.message })
     }
   }
 

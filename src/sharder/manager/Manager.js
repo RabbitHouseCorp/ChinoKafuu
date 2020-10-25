@@ -38,12 +38,13 @@ module.exports = class Manager {
     worker.on('exit', () => this.onExit(id))
     worker.on('error', (err) => this.onError(id, err))
     worker.on('message', (m) => {
+      console.log(m)
       if (m.sending) {
         const execID = Date.now()
         this.resultList.push({ execID, results: [], requestedBy: id })
         
         this.clusters.forEach(x => x.postMessage({ evaluate: true, execID, code: m.code }))
-      } else if (m.receiveing) {
+      } else if (m.receiving) {
         const executorIndex = this.resultList.findIndex(x => x.execID === m.execID)
         const executor = this.resultList[executorIndex]
         

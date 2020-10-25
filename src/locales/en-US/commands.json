@@ -8,7 +8,7 @@
     "kiss": {
         "kissed": "{{author}} kissed {{member}}",
         "unable": "uh... you can't kiss yourself.",
-        "usage": "<user>",
+        "usage": "<userID|@user>",
         "description": "Kisses a user"
     },
     "yens": {
@@ -44,7 +44,7 @@
     },
     "pay": {
         "invalidUser": "this user doesn't exist",
-        "usage": "<user> <amount>",
+        "usage": "<userID|@user> <amount>",
         "description": "Sends money to a user",
         "userMismatch": "you can't pay to yourself!",
         "valueMismatch": "you must enter a valid value",
@@ -55,7 +55,7 @@
     },
     "baka": {
         "baka": "{{author}} called {{member}} baka",
-        "usage": "<user>",
+        "usage": "<userID|@user>",
         "description": "Calls a user baka"
     },
     "clapNoArgs": "invalid input",
@@ -76,14 +76,14 @@
     },
     "addrole": {
         "description": "Adds a role to a guild member",
-        "usage": "<user> <role>",
+        "usage": "<userID|@user> <role>",
         "roleNotFound": "I couldn't find any role matching {{name}}",
         "success": "successfully added the role",
         "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
     },
     "setnick": {
         "description": "Sets the nickname of a member",
-        "usage": "<user> <nickname>",
+        "usage": "<userID|@user> <nickname>",
         "success": "**{{member}}**'s nickname is now `{{nickname}}`",
         "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
     },
@@ -101,14 +101,14 @@
         "nan": "invalid value. Is your argument a number?"
     },
     "kick": {
-        "usage": "<user> [reason]",
+        "usage": "<userID|@user> [reason]",
         "description": "Kicks an user from the server",
         "selfKick": "you can't kick yourself! You might want to lave the guild?",
         "ownerKick": "uh... you can't really kick the owner of the guild...",
         "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
     "ban": {
-        "usage": "<user> [reason]",
+        "usage": "<userID|@user> [reason]",
         "description": "Bans an user from the server",
         "selfBan": "you can't self ban!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
@@ -124,5 +124,11 @@
         "usage": "<prefix>",
         "description": "Changes the prefix of the bot",
         "length": "the prefix size is limited to 3 characters"
+    },
+    "setbanner": {
+        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
+        "usage": "<URL|Attachment>",
+        "success": "Whoa! Your server has now a new banner",
+        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
     }
 }
