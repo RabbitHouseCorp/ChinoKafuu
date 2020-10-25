@@ -7,6 +7,7 @@ module.exports = class Manager {
   constructor() {
     this.clusterAmount = parseInt(process.env.CLUSTER_AMOUNT) || require('os').cpus().length || 6
     this.shardsPerCluster = Math.round(parseInt(process.env.SHARD_AMOUNT) / this.clusterAmount)
+    this.aliveClusters = 0
     this.clusters = []
     this.resultList = []
     
@@ -38,17 +39,24 @@ module.exports = class Manager {
     worker.on('error', (err) => this.onError(id, err))
     worker.on('message', (m) => {
       if (m.sending) {
-        m.execID = Date.now()
-        this.clusters.forEach(x => x.postMessage(m.code))
-        while (!this.resultList.filter(z => z.execID === m.execID).length < this.clusters.length) {}
-        worker.postMessage(this.resultList.filter(z => z.execID === m.execID).map((result) => {
-          return { ...result, shardID: z.id, result: true }
-        }))
-        this.resultList = this.resultList.filter(z => z.execID !== m.execID)
-      } else {
-        this.resultList.push({ id, result: m.result, execID: m.execID })
+        const execID = Date.now()
+        this.resultList.push({ execID, results: [], requestedBy: id })
+        
+        this.clusters.forEach(x => x.postMessage({ evaluate: true, execID, code: m.code }))
+      } else if (m.receiveing) {
+        const executorIndex = this.resultList.findIndex(x => x.execID === m.execID)
+        const executor = this.resultList[executorIndex]
+        
+        if (!executor || executorIndex < 0) return Logger.fatalError('Broadcast eval result message sent an invalid executor ID! Fix your code, you dum-dum.')
+        executor.results.push({ clusterID: id, result: m.result })
+        this.resultList[executorIndex] = executor
+        if (executor.results.length === this.aliveClusters) {
+          this.clusters[executor.requestedBy].postMessage({ results: executor.results, result: true })
+          this.resultList.splice(executorIndex, 1)
+        }
       }
     })
+    this.aliveClusters++
     return worker
   }
 
@@ -57,6 +65,7 @@ module.exports = class Manager {
   }
 
   onExit(worker) {
+    this.aliveClusters--
     Logger.error(`Mayday! Cluster ${worker} died! Starting another cluster now.`)
     this.clusters[worker] = this.createCluster(worker)
   }
