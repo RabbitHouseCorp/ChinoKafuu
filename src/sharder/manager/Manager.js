@@ -2,6 +2,7 @@ const Logger = require('../../structures/util/Logger')
 const { Worker } = require('worker_threads')
 const path = require('path')
 const os = require('os-utils')
+const { parentPort } = require('worker_threads')
 
 module.exports = class Manager {
   constructor() {
