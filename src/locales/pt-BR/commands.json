@@ -44,7 +44,7 @@
     },
     "pay": {
         "invalidUser": "esse usuário não existe",
-        "usage": "<userID|@user> <amount>",
+        "usage": "<userID|@user> <quantia>",
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferencia para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
@@ -76,14 +76,14 @@
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
-        "usage": "<userID|@user> <role>",
+        "usage": "<userID|@user> <cargo>",
         "roleNotFound": "Não consegui encontrar nenhum cargo que correspondesse a {{name}}",
         "success": "cargo adicionado com sucesso",
         "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
     },
     "setnick": {
         "description": "Define o apelido de um membro",
-        "usage": "<userID|@user> <nickname>",
+        "usage": "<userID|@user> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente"
     },
@@ -101,14 +101,14 @@
         "nan": "valor inválido. O seu argumento é um número?"
     },
     "kick": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<userID|@user> [motivo]",
         "description": "Kick an user from the server",
         "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
         "ownerKick": "uh... você não pode expulsar o dono do servidor...",
         "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "ban": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<userID|@user> [motivo]",
         "description": "Bane um usuário do servidor",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
@@ -126,15 +126,15 @@
         "length": "o tamanho do prefixo está limitado a 3 caracteres"
     },
     "setbanner": {
-        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
+        "description": "Define o banner do seu servidor. Comando disponível apenas para o servidor com o recurso \"Banner\" ativado",
         "usage": "<URL|Attachment>",
-        "success": "Whoa! Your server has now a new banner",
-        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+        "success": "Opa! Seu servidor agora tem um novo banner",
+        "missingFeature": "seu servidor não possui o recurso `Banner`, você não pode executar este comando"
     },
     "aboutme": {
-        "description": "Changes your profile description",
+        "description": "Altera a descrição do seu perfil",
         "usage": "<bio>",
-        "success": "awesome! Your new bio is set as: `{{bio}}`",
-        "bioLimit": "your bio description can have up to 128 characters"
+        "success": "incrível! Sua nova biografia foi definida como: `{{bio}}`",
+        "bioLimit": "sua biodescrição pode ter até 128 caracteres"
     }
 }
