@@ -130,5 +130,11 @@
         "usage": "<URL|Attachment>",
         "success": "Whoa! Your server has now a new banner",
         "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+    },
+    "aboutme": {
+        "description": "Changes your profile description",
+        "usage": "<bio>",
+        "success": "awesome! Your new bio is set as: `{{bio}}`",
+        "bioLimit": "your bio description can have up to 128 characters"
     }
 }
