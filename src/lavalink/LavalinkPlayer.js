@@ -1,37 +1,46 @@
 const { EventEmitter } = require('events')
-class LavalinkPlayer extends EventEmitter {
+const Logger = require('../Logger')
+module.exports = class LavalinkPlayer extends EventEmitter {
     constructor(player) {
         super()
         this.player = player
         this.queue = []
-        this.nowPlaying = ''
+        this.np = ''
         this.repeatTrack = ''
         this.repeat = false
     }
 
+    async getSongs(node, search) {
+        const fetch = require('node-fetch')
+        const { URLSearchParams } = require('url')
+        const params = new URLSearchParams()
+        params.append('identifier', search)
+
+        return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } }).then(res => res.json()).then(data => data.tracks).catch(err => {
+            Logger.error(err.message)
+            return null
+        })
+    }
+
     play(query) {
-        return getSongs(this.player.node, `ytsearch:${query}`).then(song => {
-            if (!song[0]) return null
-            this._addToQueue(song[0])
-            return song[0].info
+        return this.getSongs(this.player.node, `ytsearch:${query}`).then(result => {
+            if (!result[0]) return
+            this._addToQueue(result[0])
+            return result[0].info
         })
     }
 
     skip() {
-        const nextSong = this.queue.shift()
-        if (!nextSong) return
-        this.player.play(nextSong.track)
-        this.nowPlaying = nextSong.info
-        this.repeatTrack = nextSong.track
+        let queue = this.queue.shift()
+        if (!queue) return
+        this.player.play(queue.track)
+        this.np = queue.info
+        this.repeatTrack = queue.track
     }
 
-    setVolume(volume) {
-        if (volume > 100) volume = 100
-        return this.player.volume(volume)
-    }
-
-    seek(position) {
-        return this.player.seek(position)
+    setVolume(value) {
+        if (value > 100) value = 100
+        return this.player.volume(value)
     }
 
     pause() {
@@ -43,10 +52,7 @@ class LavalinkPlayer extends EventEmitter {
     }
 
     _addToQueue(track) {
-        if (!this.player.playing && !this.player.paused) {
-            return this._play(track)
-        }
-
+        if (!this.player.playing && !this.player.paused) return this._play(track)
         return this.queue.push(track)
     }
 
@@ -55,30 +61,18 @@ class LavalinkPlayer extends EventEmitter {
             if (data.reason === 'REPLACED') return
             if (this.repeat) {
                 return this.player.play(this.repeatTrack)
+            } else {
+                let queue = this.queue.shift()
+                if (!queue) return this.emit('playEnd')
+                this.player.play(queue.track)
+                this.repeatTrack = queue.track
+                this.np = queue.info
             }
-            const nextSong = this.queue.shift()
-            if (!nextSong) return this.emit('EmptyQueue')
-            this.player.play(nextSong.track)
-            this.repeatTrack = nextSong.track
-            this.nowPlaying = nextSong.info
         })
+
         this.player.play(song.track)
-        this.nowPlaying = song.info
+        this.np = song.info
         this.repeatTrack = song.track
-        return this.emit('nowPlaying', song)
+        return this.emit('playNow', song)
     }
-}
-
-module.exports = LavalinkPlayer
-
-async function getSongs(node, search) {
-    const fetch = require('node-fetch')
-    const { URLSearchParams } = require('url')
-    const params = new URLSearchParams()
-    params.append('identifier', search)
-
-    return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } }).then(res => res.json()).then(data => data.tracks).catch(err => {
-        console.error(err)
-        return null
-    })
 }

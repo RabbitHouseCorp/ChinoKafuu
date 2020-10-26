@@ -1,6 +1,6 @@
 node_modules/
 config.json
-src/lavalink/lavalinkConfig.json
+src/lavalink/LavalinkConfig.json
 *.env
 package-lock.json
 .idea
