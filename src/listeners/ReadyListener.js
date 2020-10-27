@@ -29,6 +29,20 @@ module.exports = class ReadyListener extends Listener {
 			{
 				name: '🐦 Follow me in twitter: @ChinoKafuuBot',
 				type: 0
+			},
+			{
+				name: 'Gochuumon wa Usagi Desu Ka? BLOOM',
+				type: 3
+			},
+			{
+				name: 'If you need support, use ${process.env.BOT_TOKEN}help',
+				type: 1,
+				url: 'https://twitch.tv/danielagc'
+			},
+			{
+				name: 'Drink a tea on Fleur de Lapin',
+				type: 1,
+				url: 'https://twitch.tv/danielagc'
 			}
 		]
 
