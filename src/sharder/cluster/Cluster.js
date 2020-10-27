@@ -11,7 +11,7 @@ module.exports = class Cluster {
 		if (process.env.PRODUCTION === 'false' && !process.env.MONGO_URI) {
 			Logger.warning('Starting application without MONGO_URI in .env.')
 		}
-		this.spawnShards().then(() => console.log('abc', process.env.CLUSTER_ID))
+		this.spawnShards()
 	}
 
 	async spawnShards() {
