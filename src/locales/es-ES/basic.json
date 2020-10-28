@@ -7,18 +7,19 @@
 	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
 	"userNotFound": "I can't found this user, please, try again.",
 	"noReason": "No reason",
+	"onBehalf": "on {{member}}'s behalf: {{reason}}",
 	"clickHere": "Click here",
 	"punishment": {
 		"banned": "{{0}} | Banned",
 		"kicked": "{{member}} | Kicked",
-		"softBan": "{{0}} | Soft banned",
+		"softBan": "{{member}} | Soft banned",
 		"embed": {
 			"memberName": "Username",
 			"memberID": "User ID",
 			"staffName": "Who punished",
 			"reason": "Reason"
 		},
-		"reason": "Punished by: {{0}} - Reason: {{1}}"
+		"reason": "Banned by: {{0}} - Reason: {{1}}"
 	},
 	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
 	"howToUse": "How to use?",
