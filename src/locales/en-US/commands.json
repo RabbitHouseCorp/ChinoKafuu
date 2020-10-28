@@ -136,5 +136,11 @@
         "usage": "<bio>",
         "success": "awesome! Your new bio is set as: `{{bio}}`",
         "bioLimit": "your bio description can have up to 128 characters"
+    },
+    "softban": {
+        "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
+        "usage": "<@user|userID> [purge-days] [reason]",
+        "owner": "you can't soft ban the server owner!",
+        "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
     }
 }
