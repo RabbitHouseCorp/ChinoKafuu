@@ -7,18 +7,19 @@
 	"invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
 	"userNotFound": "eu não consegui encontra este usuário, por favor, tente novamente.",
 	"noReason": "Nenhum motivo",
+	"onBehalf": "on {{member}}'s behalf: {{reason}}",
 	"clickHere": "Clique aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
 		"kicked": "{{member}} | Expulso",
-		"softBan": "{{0}} | Soft banned",
+		"softBan": "{{member}} | Soft banned",
 		"embed": {
 			"memberName": "Nome de usuário",
 			"memberID": "ID do usuário",
 			"staffName": "Quem puniu",
 			"reason": "Motivo"
 		},
-		"reason": "Punished by: {{0}} - Reason: {{1}}"
+		"reason": "Banido por: {{0}} - Motivo: {{1}}"
 	},
 	"missingArgs": "argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
 	"howToUse": "Como usar?",
