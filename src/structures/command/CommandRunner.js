@@ -73,7 +73,14 @@ module.exports = class CommandRunner {
     try {
       await command.run(ctx)
     } catch (e) {
-      return ctx.sendT('basic:commandExecutionFailure', { error: e.message })
+      const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
+      const embed = new EmbedBuilder()
+      embed.setColor('ERROR')
+      embed.setTitle(ctx.t('events:error.title'))
+      embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
+      embed.addField(ctx.t('events:error.report-issue'), ctx.t('events:error.server-support'))
+
+      ctx.send(embed)
     }
   }
 
