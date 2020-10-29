@@ -1,6 +1,5 @@
 {
 	"onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to find out what I can do, use `{{1}}help`.",
-	"commandExecutionFailure": "Mayday! An error occurred! `{{error}}`\nPlease join our support server and report it.",
 	"missingBotPermission": "I don't have the **{{perm}}** permission. Check my permissions and try again.",
 	"missingUserPermission": "you don't have the **{{perm}}** permission. You can't execute this command.",
 	"invalidUser": "user not found. Make sure you have @mentioned them or double-check the ID.",
@@ -28,5 +27,6 @@
 		"thanks": "Thanks for adding me",
 		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
 		"guildSaved": "Successfully saved the server {{0}} in the database!"
-	}
+	},
+	"noAliases": "This command doesn't have aliases."
 }
