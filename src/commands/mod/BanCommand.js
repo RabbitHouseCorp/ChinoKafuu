@@ -7,11 +7,8 @@ class BanCommand extends Command {
             aliases: ['banir'],
             arguments: 1,
             permissions: [{
-                entity: 'bot',
+                entity: 'both',
                 permissions: ['banMembers', 'embedLinks']
-            }, {
-                entity: 'user',
-                permissions: ['banMembers']
             }]
         })
     }
