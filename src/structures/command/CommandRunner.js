@@ -65,7 +65,7 @@ module.exports = class CommandRunner {
       return helper.help()
     }
 
-    if (command.arguments && command.arguments < ctx.args.length) {
+    if (command.arguments && ctx.args.length < command.arguments) {
       const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
       return helper.help()
     }

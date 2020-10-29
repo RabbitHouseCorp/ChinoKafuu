@@ -15,7 +15,7 @@ module.exports = class SoftBanCommand extends Command {
 
   async run(ctx) {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
-    if (!member) return ctx.replyT('error', 'basic:invalidMember')
+    if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
     const reason = ctx.args.slice(2).join(" ") || ctx.t('basic:noReason')
     const days = Number(ctx.args[1]) || 7
@@ -26,7 +26,7 @@ module.exports = class SoftBanCommand extends Command {
     }))
     .then(() => {
       const embed = new EmbedBuilder()
-      embed.setTitle(ctx.t('basic:punishment.softBan', { 0: `${member.username}#${member.discriminator}` }))
+      embed.setTitle(ctx.t('basic:punishment.softBan', { member: `${member.username}#${member.discriminator}` }))
       embed.setColor('MODERATION')
       embed.setThumbnail(member.dynamicAvatarURL())
       embed.addField(ctx.t('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
