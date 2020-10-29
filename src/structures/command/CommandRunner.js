@@ -76,11 +76,10 @@ module.exports = class CommandRunner {
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
-      embed.setTitle(ctx.t('events:error.title'))
+      embed.setTitle(ctx.t('events:executionFailure.embedTitle'))
       embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
-      embed.addField(ctx.t('events:error.report-issue'), ctx.t('events:error.server-support'))
-
-      ctx.send(embed)
+      embed.addField(ctx.t('events:executionFailure.fieldTitle'), ctx.t('events:executionFailure.fieldValue'))
+      return ctx.send(embed)
     }
   }
 
