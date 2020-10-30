@@ -1,7 +1,7 @@
 {
-    "error": {
-        "title": "Ocorreu um erro inesperadamente inesperado, gomenasai.",
-        "report-issue": "Relate o problema",
-        "server-support": "Você pode relatar este problema entrando no meu [servidor de suporte](https://discord.gg/CAm9cSU), me desculpe pelo ocorrido. <:chino_upset:682017961149464645>"
+    "executionFailure": {
+        "embedTitle": "Ocorreu um erro inesperadamente inesperado, gomenasai!",
+        "fieldTitle": "Notify us",
+        "fieldValue": "As we probably don't know about this error, you can either [open an issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) on GitHub or contact us in our [support server](https://discord.gg/rabbithouse). Don't forget to attach this _little message_ when reporting the error.\nThanks and sorry!"
     }
 }
