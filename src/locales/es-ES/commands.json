@@ -101,14 +101,14 @@
         "nan": "Valor inválido. ¿Es tu argumento un número?"
     },
     "kick": {
-        "usage": "<IdUsuario|@Usuario> [Razón]",
+        "usage": "<IdUsuario|@Usuario> [Motivo]",
         "description": "Expulsa a un miembro del servidor",
         "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
         "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
         "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "ban": {
-        "usage": "<IdUsuario|@Usuario> [Razón]",
+        "usage": "<IdUsuario|@Usuario> [Motivo]",
         "description": "Banea a un miembro del servidor",
         "selfBan": "¡No puedes banearte a ti mismo/a!",
         "ownerBan": "Uh... No puedes banear al dueño del servidor",
@@ -138,8 +138,8 @@
         "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
     },
     "softban": {
-        "description": "Banea suavemente por un momento a un usuario. Si `DíasPurga` no se especifica, se utilizará el valor por defecto (7).",
-        "usage": "<@Usuario|IdUsuario> [DíasPurga] [Razón]",
+        "description": "Banea suavemente por un momento a un usuario. Si `Días-Purga` no se especifica, se utilizará el valor por defecto (7).",
+        "usage": "<@Usuario|IdUsuario> [Días-Purga] [Motivo]",
         "owner": "¡No puedes hacer banear suavemente al dueño del servidor!",
         "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     }
