@@ -28,7 +28,7 @@
         "ranked": "Classificação",
         "popularity": "Popularidade",
         "genres": "Gêneros",
-        "invalidAnime": "diga o nome do anime que você deseja.",
+        "invalidAnime": "diga o nome do anime que você deseja",
         "animeNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`."
     },
     "manga": {
@@ -36,7 +36,7 @@
         "type": "Tipo",
         "status": "Status",
         "vols": "Volume",
-        "chapters": "Cápitulos",
+        "chapters": "Capítulos",
         "score": "Pontuação",
         "aired": "Publicado",
         "genres": "Gêneros",
@@ -46,11 +46,11 @@
         "invalidUser": "esse usuário não existe",
         "usage": "<userID|@user> <quantia>",
         "description": "Envia dinheiro para um usuário",
-        "userMismatch": "você não pode fazer uma transferencia para você mesmo!",
+        "userMismatch": "você não pode fazer uma transferência para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
-        "success": "transferencia de {{yens}} Yens efetuada para {{user}} com sucesso.",
-        "poorUser": "você não possui Yens para completar essa transferencia",
-        "cancelled": "certo, transferencia cancelada.",
+        "success": "transferência de {{yens}} Yens efetuada para {{user}} com sucesso",
+        "poorUser": "você não possui Yens para completar essa transferência",
+        "cancelled": "certo, transferência cancelada",
         "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}})"
     },
     "baka": {
@@ -135,7 +135,7 @@
         "description": "Altera a descrição do seu perfil",
         "usage": "<bio>",
         "success": "incrível! Sua nova biografia foi definida como: `{{bio}}`",
-        "bioLimit": "sua biodescrição pode ter até 128 caracteres"
+        "bioLimit": "sua bio pode ter até 128 caracteres"
     },
     "softban": {
         "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
