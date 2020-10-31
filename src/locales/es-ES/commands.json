@@ -138,9 +138,9 @@
         "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
     },
     "softban": {
-        "description": "Banea suavemente por un momento a un usuario. Si `purge-days` no se especifica, se utilizará el valor por defecto (7).",
-        "usage": "<@Usuario|IdUsuario> [purge-days] [Razón]",
-        "owner": "you can't soft ban the server owner!",
-        "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
+        "description": "Banea suavemente por un momento a un usuario. Si `DíasPurga` no se especifica, se utilizará el valor por defecto (7).",
+        "usage": "<@Usuario|IdUsuario> [DíasPurga] [Razón]",
+        "owner": "¡No puedes hacer banear suavemente al dueño del servidor!",
+        "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     }
 }
