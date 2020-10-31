@@ -6,12 +6,12 @@
 	"invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
 	"userNotFound": "eu não consegui encontra este usuário, por favor, tente novamente.",
 	"noReason": "Nenhum motivo",
-	"onBehalf": "on {{member}}'s behalf: {{reason}}",
+	"onBehalf": "em nome de {{member}}: {{reason}}",
 	"clickHere": "Clique aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
 		"kicked": "{{member}} | Expulso",
-		"softBan": "{{member}} | Soft banned",
+		"softBan": "{{member}} | Banido suavemente",
 		"embed": {
 			"memberName": "Nome de usuário",
 			"memberID": "ID do usuário",
@@ -24,9 +24,9 @@
 	"howToUse": "Como usar?",
 	"aliases": "Alternativas",
 	"addedToGuild": {
-		"thanks": "Thanks for adding me",
-		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Successfully saved the server {{0}} in the database!"
+		"thanks": "Obrigada por me adicionar",
+		"description": "Whoa {{0}}! Obrigado por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão**, **música** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
+		"guildSaved": "Servidor {{0}} salvo com sucesso no banco de dados!"
 	},
-	"noAliases": "This command doesn't have aliases."
+	"noAliases": "Esse comando não possui alternativas."
 }
