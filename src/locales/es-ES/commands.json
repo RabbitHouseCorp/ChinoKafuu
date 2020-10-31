@@ -79,16 +79,16 @@
         "usage": "<IdUsuario|@Usuario> <Rol>",
         "roleNotFound": "No he encontrado ningún rol que coincida con {{name}}",
         "success": "Rol añadido exitosamente",
-        "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+        "higher": "No he podido añadir este rol porque probablemente esté por encima de la mía. Por favor verifique los roles e inténtelo de nuevo."
     },
     "setnick": {
-        "description": "Sets the nickname of a member",
-        "usage": "<userID|@user> <nickname>",
-        "success": "**{{member}}**'s nickname is now `{{nickname}}`",
-        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+        "description": "Establece el apodo de un miembro del servidor",
+        "usage": "<IdUsuario|@Usuario> <Apodo>",
+        "success": "El apodo de **{{member}}** ahora es `{{nickname}}`",
+        "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo"
     },
     "chat": {
-        "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
+        "description": "Bloquea el canal, actualizando el permiso de `Enviar Mensajes` del rol `@everyone`",
         "usage": "<on|off>",
         "locked": "got it, channel locked",
         "unlocked": "got it, channel unlocked"
