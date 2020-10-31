@@ -129,17 +129,17 @@
         "description": "Establece el banner de tu servidor. Comando sólo disponible en un servidor con la función \"Banner\" habilitada",
         "usage": "<URL|ArchivoAdjunto>",
         "success": "¡Guau! Tu servidor ahora tiene un nuevo banner",
-        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+        "missingFeature": "Tu servidor no cuenta con la función `Banner`, no puedes ejecutar este comando"
     },
     "aboutme": {
-        "description": "Changes your profile description",
+        "description": "Cambia la descripción de tu perfil",
         "usage": "<bio>",
-        "success": "awesome! Your new bio is set as: `{{bio}}`",
-        "bioLimit": "your bio description can have up to 128 characters"
+        "success": "¡Asombroso! Tu nueva biografía se ha establecido a: `{{bio}}`",
+        "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
     },
     "softban": {
-        "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
-        "usage": "<@user|userID> [purge-days] [reason]",
+        "description": "Banea suavemente por un momento a un usuario. Si `purge-days` no se especifica, se utilizará el valor por defecto (7).",
+        "usage": "<@Usuario|IdUsuario> [purge-days] [Razón]",
         "owner": "you can't soft ban the server owner!",
         "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
     }
