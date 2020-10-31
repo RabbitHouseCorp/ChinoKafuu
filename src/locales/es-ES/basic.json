@@ -25,7 +25,7 @@
 	"aliases": "Alias",
 	"addedToGuild": {
 		"thanks": "Gracias por añadirme",
-		"description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden resultar útiles, como... **Moderación**, **Diversión**, **Música** y otras **Utilidades**. Por defecto mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
+		"description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permítame presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden resultar útiles, como... **Moderación**, **Diversión**, **Música** y otras **Utilidades**. Por defecto mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
 		"guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
 	},
 	"noAliases": "Este comando no tiene alias."
