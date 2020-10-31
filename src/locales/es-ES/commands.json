@@ -1,146 +1,146 @@
 {
-    "ping": "Total de shards: {{totalShard}}",
+    "ping": "Fragmentos totales: {{totalShard}}",
     "reload": {
-        "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
-        "shard": "shard `{{shard}}` reiniciada com sucesso."
+        "locales": "¡Locales recargadas con éxito!",
+        "argsNull": "Opciones disponibles: {{list}}",
+        "shard": "Fragmento `{{shard}}` reiniciado con éxito."
     },
     "kiss": {
-        "kissed": "{{author}} kissed {{member}}",
-        "unable": "uh... you can't kiss yourself.",
-        "usage": "<userID|@user>",
-        "description": "Kisses a user"
+        "kissed": "{{author}} besó a {{member}}",
+        "unable": "Uh... No puedes besarte a ti mismo/a.",
+        "usage": "<ID de Usuario|@Usuario>",
+        "description": "Besa a un usuario"
     },
     "yens": {
-        "yens": "you have {{yens}} Yens",
-        "onMention": "{{user}} has {{yens}} Yens"
+        "yens": "Tienes {{yens}} yenes",
+        "onMention": "{{user}} tiene {{yens}} yenes"
     },
     "anime": {
-        "synopsis": "Synopsis",
-        "animeName": "Anime name",
-        "type": "Type",
-        "episodes": "Episodes",
-        "rating": "Rating",
-        "aired": "Aired",
-        "score": "Score",
-        "scoreStats": "Score stats",
-        "duration": "Episodes duraction",
-        "ranked": "Ranked",
-        "popularity": "Popularity",
-        "genres": "Genres",
-        "invalidAnime": "enter the name of the desired anime",
-        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
+        "synopsis": "Sinopsis",
+        "animeName": "Nombre del anime",
+        "type": "Tipo",
+        "episodes": "Episodios",
+        "rating": "Calificación",
+        "aired": "Emitido",
+        "score": "Puntuación",
+        "scoreStats": "Estadísticas",
+        "duration": "Duración de episodios",
+        "ranked": "Clasificado",
+        "popularity": "Popularidad",
+        "genres": "Géneros",
+        "invalidAnime": "Ingresa el nombre del anime que deseas",
+        "animeNotFound": "No he encontrado ningún anime que contenga un nombre parecido a: `{{0}}`."
     },
     "manga": {
-        "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
-        "type": "Type",
-        "status": "Status",
-        "vols": "Volumes",
-        "chapters": "Chapters",
-        "score": "Score",
-        "aired": "Aired",
-        "genres": "Genres",
-        "characters": "Characters"
+        "mangaNotFound": "No he encontrado ningún manga que contenga un nombre parecido a: `{{0}}`.",
+        "type": "Tipo",
+        "status": "Estado",
+        "vols": "Volúmenes",
+        "chapters": "Capítulos",
+        "score": "Puntuación",
+        "aired": "Emitido",
+        "genres": "Géneros",
+        "characters": "Personajes"
     },
     "pay": {
-        "invalidUser": "this user doesn't exist",
-        "usage": "<userID|@user> <amount>",
-        "description": "Sends money to a user",
-        "userMismatch": "you can't pay to yourself!",
-        "valueMismatch": "you must enter a valid value",
-        "success": "successfully donated {{yens}} Yens to {{user}}",
-        "poorUser": "you don't have enough Yens to complete this payment",
-        "cancelled": "alright, payment cancelled",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}})"
+        "invalidUser": "Este usuario no existe",
+        "usage": "<ID de Usuario|@Usuario> <Cantidad>",
+        "description": "Envía dinero a un usuario",
+        "userMismatch": "¡No puedes pagarte a ti mismo/a!",
+        "valueMismatch": "Debes ingresar un valor válido",
+        "success": "Has donado con éxito {{yens}} yenes a {{user}}",
+        "poorUser": "No tienes suficientes yenes para hacer completar este pago",
+        "cancelled": "Bien, pago cancelado",
+        "confirm": "{{user}} recibirá __`{{yens}}`__ yenes, con un impuesto de **`{{fee}}%`** del valor total ({{total}})"
     },
     "baka": {
-        "baka": "{{author}} called {{member}} baka",
-        "usage": "<userID|@user>",
-        "description": "Calls a user baka"
+        "baka": "{{author}} acaba de llamarle idiota a {{member}}",
+        "usage": "<ID de Usuario|@Usuario>",
+        "description": "Dile a un usuario lo idiota que es"
     },
-    "clapNoArgs": "invalid input",
+    "clapNoArgs": "Argumento inválido",
     "congaparrot": {
-        "usage": "<repeatCount>",
-        "description": "Sends funny parrots",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "usage": "<Cantidad De Repeticiones>",
+        "description": "Envía divertidos loros",
+        "maxAllowed": "Por razones del lado del cliente está permitido enviar hasta 20 loros"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
-        "usage": "<user>",
-        "description": "Feeds a user"
+        "feed": "{{author}} ha alimentado a {{user}}",
+        "usage": "<Usuario>",
+        "description": "Alimenta a un usuario"
     },
     "addemoji": {
-        "description": "Adds an emoji to your server",
-        "usage": "<link> <name>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "description": "Agrega un emoji a tu servidor",
+        "usage": "<Enlace> <Nombre>",
+        "error": "Ocurrió algo malo mientras intentaba añadir el emoji. Verifica la URL y si el formato de la imagen es PNG, JPG, JPEG o GIF."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
-        "usage": "<userID|@user> <role>",
-        "roleNotFound": "I couldn't find any role matching {{name}}",
-        "success": "successfully added the role",
-        "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+        "description": "Añade un rol a un miembro del servidor",
+        "usage": "<ID de Usuario|@Usuario> <Rol>",
+        "roleNotFound": "No he encontrado ningún rol que coincida con {{name}}",
+        "success": "Rol añadido exitosamente",
+        "higher": "No he podido añadir este rol porque probablemente esté por encima de la mía. Por favor verifique los roles e inténtelo de nuevo."
     },
     "setnick": {
-        "description": "Sets the nickname of a member",
-        "usage": "<userID|@user> <nickname>",
-        "success": "**{{member}}**'s nickname is now `{{nickname}}`",
-        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+        "description": "Establece el apodo de un miembro del servidor",
+        "usage": "<ID de Usuario|@Usuario> <Apodo>",
+        "success": "El apodo de **{{member}}** ahora es `{{nickname}}`",
+        "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo"
     },
     "chat": {
-        "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
+        "description": "Bloquea el canal, actualizando el permiso de `Enviar Mensajes` del rol `@everyone`",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "Bien, canal bloqueado",
+        "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity>",
-        "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
-        "limit": "I can't delete more than a hundred messages",
-        "success": "successfully cleared {{messages}} messages",
-        "nan": "invalid value. Is your argument a number?"
+        "usage": "<Cantidad>",
+        "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
+        "limit": "No puedo eliminar más de cien mensajes",
+        "success": "{{messages}} mensajes eliminados con éxito",
+        "nan": "Valor inválido. ¿Es tu argumento un número?"
     },
     "kick": {
-        "usage": "<userID|@user> [reason]",
-        "description": "Kick an user from the server",
-        "selfKick": "you can't kick yourself! You might want to lave the guild?",
-        "ownerKick": "uh... you can't really kick the owner of the guild...",
-        "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "usage": "<ID de Usuario|@Usuario> [Motivo]",
+        "description": "Expulsa a un miembro del servidor",
+        "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
+        "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
+        "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "ban": {
-        "usage": "<userID|@user> [reason]",
-        "description": "Ban an user from the server",
-        "selfBan": "you can't self ban!",
-        "ownerBan": "uh... you can't really ban the owner of the guild",
-        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "usage": "<ID de Usuario|@Usuario> [Motivo]",
+        "description": "Banea a un miembro del servidor",
+        "selfBan": "¡No puedes banearte a ti mismo/a!",
+        "ownerBan": "Uh... No puedes banear al dueño del servidor",
+        "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
-        "usage": "[language]",
-        "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+        "message": "¿Cuál es el nuevo idioma? Reacciona abajo.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)\n🇪🇸 Español (Spain) (Espanhol)",
+        "usage": "[Idioma]",
+        "description": "Cambia el idioma del servidor. Salta al mensaje si el idioma es proporcionado, como se describe en su uso"
     },
     "prefix": {
-        "success": "got it! The new prefix is now `{{prefix}}`",
-        "usage": "<prefix>",
-        "description": "Changes the prefix of the bot",
-        "length": "the prefix size is limited to 3 characters"
+        "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",
+        "usage": "<Prefijo>",
+        "description": "Cambia el prefijo del bot",
+        "length": "El tamaño del prefijo está limitado a 3 caracteres"
     },
     "setbanner": {
-        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
-        "usage": "<URL|Attachment>",
-        "success": "Whoa! Your server has now a new banner",
-        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+        "description": "Establece el banner de tu servidor. Comando sólo disponible en un servidor con la función \"Banner\" habilitada",
+        "usage": "<URL|Archivo adjunto>",
+        "success": "¡Guau! Tu servidor ahora tiene un nuevo banner",
+        "missingFeature": "Tu servidor no cuenta con la función `Banner`, no puedes ejecutar este comando"
     },
     "aboutme": {
-        "description": "Changes your profile description",
+        "description": "Cambia la descripción de tu perfil",
         "usage": "<bio>",
-        "success": "awesome! Your new bio is set as: `{{bio}}`",
-        "bioLimit": "your bio description can have up to 128 characters"
+        "success": "¡Asombroso! Tu nueva biografía se ha establecido a: `{{bio}}`",
+        "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
     },
     "softban": {
-        "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
-        "usage": "<@user|userID> [purge-days] [reason]",
-        "owner": "you can't soft ban the server owner!",
-        "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
+        "description": "Banea suavemente por un momento a un usuario. Si `Días-Purga` no se especifica, se utilizará el valor por defecto (7).",
+        "usage": "<@Usuario|ID de Usuario> [Días-Purga] [Motivo]",
+        "owner": "¡No puedes hacer banear suave al dueño del servidor!",
+        "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     }
 }
