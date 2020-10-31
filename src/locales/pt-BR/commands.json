@@ -12,7 +12,7 @@
         "description": "Beija um usuário"
     },
     "yens": {
-        "yens": "voce possui {{yens}} Yens",
+        "yens": "você possui {{yens}} Yens",
         "onMention": "{{user}} possui {{yens}} Yens"
     },
     "anime": {
