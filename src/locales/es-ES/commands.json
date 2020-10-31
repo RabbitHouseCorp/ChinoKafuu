@@ -62,23 +62,23 @@
     "congaparrot": {
         "usage": "<CantidadDeRepeticiones>",
         "description": "Envía divertidos loros",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "maxAllowed": "Por razones del lado del cliente está permitido enviar hasta 20 loros"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
-        "usage": "<user>",
-        "description": "Feeds a user"
+        "feed": "{{author}} ha alimentado a {{user}}",
+        "usage": "<Usuario>",
+        "description": "Alimenta a un usuario"
     },
     "addemoji": {
-        "description": "Adds an emoji to your server",
-        "usage": "<link> <name>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "description": "Agrega un emoji a tu servidor",
+        "usage": "<Enlace> <Nombre>",
+        "error": "Ocurrió algo malo mientras intentaba añadir el emoji. Verifica la URL y si el formato de la imagen es PNG, JPG, JPEG o GIF."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
-        "usage": "<userID|@user> <role>",
-        "roleNotFound": "I couldn't find any role matching {{name}}",
-        "success": "successfully added the role",
+        "description": "Añade un rol a un miembro del servidor",
+        "usage": "<IdUsuario|@Usuario> <Rol>",
+        "roleNotFound": "No he encontrado ningún rol que coincida con {{name}}",
+        "success": "Rol añadido exitosamente",
         "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
     },
     "setnick": {
@@ -102,14 +102,14 @@
     },
     "kick": {
         "usage": "<userID|@user> [reason]",
-        "description": "Kick an user from the server",
+        "description": "Expulsa a un miembro del servidor",
         "selfKick": "you can't kick yourself! You might want to lave the guild?",
         "ownerKick": "uh... you can't really kick the owner of the guild...",
         "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
     "ban": {
         "usage": "<userID|@user> [reason]",
-        "description": "Ban an user from the server",
+        "description": "Banea a un miembro del servidor",
         "selfBan": "you can't self ban!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
