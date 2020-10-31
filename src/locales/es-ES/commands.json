@@ -46,22 +46,22 @@
         "invalidUser": "Este usuario no existe",
         "usage": "<IdUsuario|@Usuario> <Cantidad>",
         "description": "Envía dinero a un usuario",
-        "userMismatch": "you can't pay to yourself!",
-        "valueMismatch": "you must enter a valid value",
-        "success": "successfully donated {{yens}} Yens to {{user}}",
-        "poorUser": "you don't have enough Yens to complete this payment",
-        "cancelled": "alright, payment cancelled",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}})"
+        "userMismatch": "¡No puedes pagarte a ti mismo/a!",
+        "valueMismatch": "Debes ingresar un valor válido",
+        "success": "Has donado con éxito {{yens}} yenes a {{user}}",
+        "poorUser": "No tienes suficientes yenes para hacer completar este pago",
+        "cancelled": "Bien, pago cancelado",
+        "confirm": "{{user}} recibirá __`{{yens}}`__ yenes, con un impuesto de **`{{fee}}%`** del valor total ({{total}})"
     },
     "baka": {
-        "baka": "{{author}} called {{member}} baka",
-        "usage": "<userID|@user>",
-        "description": "Calls a user baka"
+        "baka": "{{author}} le llamó a {{member}} baka",
+        "usage": "<IdUsuario|@Usuario>",
+        "description": "Llama a un usuario baka"
     },
-    "clapNoArgs": "invalid input",
+    "clapNoArgs": "Argumento inválido",
     "congaparrot": {
-        "usage": "<repeatCount>",
-        "description": "Sends funny parrots",
+        "usage": "<CantidadDeRepeticiones>",
+        "description": "Envía divertidos loros",
         "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
     },
     "feed": {
