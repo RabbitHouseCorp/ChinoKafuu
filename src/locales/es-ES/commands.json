@@ -110,9 +110,9 @@
     "ban": {
         "usage": "<IdUsuario|@Usuario> [Razón]",
         "description": "Banea a un miembro del servidor",
-        "selfBan": "you can't self ban!",
-        "ownerBan": "uh... you can't really ban the owner of the guild",
-        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfBan": "¡No puedes banearte a ti mismo/a!",
+        "ownerBan": "Uh... No puedes banear al dueño del servidor",
+        "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
         "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
