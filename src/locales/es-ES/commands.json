@@ -8,7 +8,7 @@
     "kiss": {
         "kissed": "{{author}} besó a {{member}}",
         "unable": "Uh... No puedes besarte a ti mismo/a.",
-        "usage": "<IdUsuario|@Usuario>",
+        "usage": "<ID de Usuario|@Usuario>",
         "description": "Besa a un usuario"
     },
     "yens": {
@@ -44,7 +44,7 @@
     },
     "pay": {
         "invalidUser": "Este usuario no existe",
-        "usage": "<IdUsuario|@Usuario> <Cantidad>",
+        "usage": "<ID de Usuario|@Usuario> <Cantidad>",
         "description": "Envía dinero a un usuario",
         "userMismatch": "¡No puedes pagarte a ti mismo/a!",
         "valueMismatch": "Debes ingresar un valor válido",
@@ -54,13 +54,13 @@
         "confirm": "{{user}} recibirá __`{{yens}}`__ yenes, con un impuesto de **`{{fee}}%`** del valor total ({{total}})"
     },
     "baka": {
-        "baka": "{{author}} le llamó a {{member}} baka",
-        "usage": "<IdUsuario|@Usuario>",
-        "description": "Llama a un usuario baka"
+        "baka": "{{author}} acaba de llamarle idiota a {{member}}",
+        "usage": "<ID de Usuario|@Usuario>",
+        "description": "Dile a un usuario lo idiota que es"
     },
     "clapNoArgs": "Argumento inválido",
     "congaparrot": {
-        "usage": "<CantidadDeRepeticiones>",
+        "usage": "<Cantidad De Repeticiones>",
         "description": "Envía divertidos loros",
         "maxAllowed": "Por razones del lado del cliente está permitido enviar hasta 20 loros"
     },
@@ -76,14 +76,14 @@
     },
     "addrole": {
         "description": "Añade un rol a un miembro del servidor",
-        "usage": "<IdUsuario|@Usuario> <Rol>",
+        "usage": "<ID de Usuario|@Usuario> <Rol>",
         "roleNotFound": "No he encontrado ningún rol que coincida con {{name}}",
         "success": "Rol añadido exitosamente",
         "higher": "No he podido añadir este rol porque probablemente esté por encima de la mía. Por favor verifique los roles e inténtelo de nuevo."
     },
     "setnick": {
         "description": "Establece el apodo de un miembro del servidor",
-        "usage": "<IdUsuario|@Usuario> <Apodo>",
+        "usage": "<ID de Usuario|@Usuario> <Apodo>",
         "success": "El apodo de **{{member}}** ahora es `{{nickname}}`",
         "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo"
     },
@@ -101,14 +101,14 @@
         "nan": "Valor inválido. ¿Es tu argumento un número?"
     },
     "kick": {
-        "usage": "<IdUsuario|@Usuario> [Motivo]",
+        "usage": "<ID de Usuario|@Usuario> [Motivo]",
         "description": "Expulsa a un miembro del servidor",
         "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
         "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
         "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "ban": {
-        "usage": "<IdUsuario|@Usuario> [Motivo]",
+        "usage": "<ID de Usuario|@Usuario> [Motivo]",
         "description": "Banea a un miembro del servidor",
         "selfBan": "¡No puedes banearte a ti mismo/a!",
         "ownerBan": "Uh... No puedes banear al dueño del servidor",
@@ -127,7 +127,7 @@
     },
     "setbanner": {
         "description": "Establece el banner de tu servidor. Comando sólo disponible en un servidor con la función \"Banner\" habilitada",
-        "usage": "<URL|ArchivoAdjunto>",
+        "usage": "<URL|Archivo adjunto>",
         "success": "¡Guau! Tu servidor ahora tiene un nuevo banner",
         "missingFeature": "Tu servidor no cuenta con la función `Banner`, no puedes ejecutar este comando"
     },
@@ -139,8 +139,8 @@
     },
     "softban": {
         "description": "Banea suavemente por un momento a un usuario. Si `Días-Purga` no se especifica, se utilizará el valor por defecto (7).",
-        "usage": "<@Usuario|IdUsuario> [Días-Purga] [Motivo]",
-        "owner": "¡No puedes hacer banear suavemente al dueño del servidor!",
+        "usage": "<@Usuario|ID de Usuario> [Días-Purga] [Motivo]",
+        "owner": "¡No puedes hacer banear suave al dueño del servidor!",
         "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     }
 }
