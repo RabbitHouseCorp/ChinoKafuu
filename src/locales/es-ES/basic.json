@@ -5,28 +5,28 @@
 	"invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
 	"invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
 	"userNotFound": "No he podido encontrar a este usuario, por favor, inténtelo nuevamente.",
-	"noReason": "No reason",
-	"onBehalf": "on {{member}}'s behalf: {{reason}}",
-	"clickHere": "Click here",
+	"noReason": "Sin motivo",
+	"onBehalf": "en nombre de {{member}}: {{reason}}",
+	"clickHere": "Clic aquí",
 	"punishment": {
-		"banned": "{{0}} | Banned",
-		"kicked": "{{member}} | Kicked",
-		"softBan": "{{member}} | Soft banned",
+		"banned": "{{0}} | Baneado",
+		"kicked": "{{member}} | Expulsado",
+		"softBan": "{{member}} | Baneado suave",
 		"embed": {
-			"memberName": "Username",
-			"memberID": "User ID",
-			"staffName": "Who punished",
-			"reason": "Reason"
+			"memberName": "Usuario",
+			"memberID": "ID de Usuario",
+			"staffName": "Quien ha castigado",
+			"reason": "Motivo"
 		},
-		"reason": "Banned by: {{0}} - Reason: {{1}}"
+		"reason": "Baneado por: {{0}} - Motivo: {{1}}"
 	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-	"howToUse": "How to use?",
-	"aliases": "Aliases",
+	"missingArgs": "¡Argumentos inválidos! Utilice `{{prefix}}{{commandName}}` para ver su correcto uso.",
+	"howToUse": "¿Cómo se usa?",
+	"aliases": "Alias",
 	"addedToGuild": {
-		"thanks": "Thanks for adding me",
-		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Successfully saved the server {{0}} in the database!"
+		"thanks": "Gracias por añadirme",
+		"description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden resultar útiles, como... **Moderación**, **Diversión**, **Música** y otras **Utilidades**. Por defecto mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
+		"guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
 	},
-	"noAliases": "This command doesn't have aliases."
+	"noAliases": "Este comando no tiene alias."
 }
