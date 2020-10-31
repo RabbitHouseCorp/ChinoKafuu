@@ -90,25 +90,25 @@
     "chat": {
         "description": "Bloquea el canal, actualizando el permiso de `Enviar Mensajes` del rol `@everyone`",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "Bien, canal bloqueado",
+        "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity>",
-        "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
-        "limit": "I can't delete more than a hundred messages",
-        "success": "successfully cleared {{messages}} messages",
-        "nan": "invalid value. Is your argument a number?"
+        "usage": "<Cantidad>",
+        "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
+        "limit": "No puedo eliminar más de cien mensajes",
+        "success": "{{messages}} mensajes eliminados con éxito",
+        "nan": "Valor inválido. ¿Es tu argumento un número?"
     },
     "kick": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<IdUsuario|@Usuario> [Razón]",
         "description": "Expulsa a un miembro del servidor",
-        "selfKick": "you can't kick yourself! You might want to lave the guild?",
-        "ownerKick": "uh... you can't really kick the owner of the guild...",
-        "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
+        "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
+        "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "ban": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<IdUsuario|@Usuario> [Razón]",
         "description": "Banea a un miembro del servidor",
         "selfBan": "you can't self ban!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
