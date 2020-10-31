@@ -1,27 +1,27 @@
 {
-    "ping": "Total de shards: {{totalShard}}",
+    "ping": "Fragmentos totales: {{totalShard}}",
     "reload": {
-        "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
-        "shard": "shard `{{shard}}` reiniciada com sucesso."
+        "locales": "¡Locales recargadas con éxito!",
+        "argsNull": "Opciones disponibles: {{list}}",
+        "shard": "Fragmento `{{shard}}` reiniciado con éxito."
     },
     "kiss": {
-        "kissed": "{{author}} kissed {{member}}",
-        "unable": "uh... you can't kiss yourself.",
-        "usage": "<userID|@user>",
-        "description": "Kisses a user"
+        "kissed": "{{author}} besó a {{member}}",
+        "unable": "Uh... No puedes besarte a ti mismo/a.",
+        "usage": "<IdUsuario|@Usuario>",
+        "description": "Besa a un usuario"
     },
     "yens": {
-        "yens": "you have {{yens}} Yens",
-        "onMention": "{{user}} has {{yens}} Yens"
+        "yens": "Tienes {{yens}} yenes",
+        "onMention": "{{user}} tiene {{yens}} yenes"
     },
     "anime": {
-        "synopsis": "Synopsis",
-        "animeName": "Anime name",
-        "type": "Type",
-        "episodes": "Episodes",
-        "rating": "Rating",
-        "aired": "Aired",
+        "synopsis": "Sinopsis",
+        "animeName": "Nombre del anime",
+        "type": "Tipo",
+        "episodes": "Episodios",
+        "rating": "Calificación",
+        "aired": "Emitido",
         "score": "Score",
         "scoreStats": "Score stats",
         "duration": "Episodes duraction",
