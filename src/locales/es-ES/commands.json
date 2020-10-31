@@ -115,8 +115,8 @@
         "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
-        "usage": "[language]",
+        "message": "¿Cuál es el nuevo idioma? Reacciona abajo.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)\n🇪🇸 Español (Spain) (Espanhol)",
+        "usage": "[Idioma]",
         "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
     },
     "prefix": {
