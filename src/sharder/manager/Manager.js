@@ -46,6 +46,7 @@ module.exports = class Manager {
         
         this.clusters.forEach(x => x.postMessage({ evaluate: true, execID, code: m.code }))
       } else if (m.receiving) {
+        console.log('jesus voltou! ' + m)
         const executorIndex = this.resultList.findIndex(x => x.execID === m.execID)
         const executor = this.resultList[executorIndex]
         

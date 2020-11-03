@@ -33,10 +33,10 @@ class PayCommand extends Command {
 
     const realValue = this.getTax(value, 2)
     const totalYens = Math.round(realValue[0])
-    const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, fee: realValue[1], total: value })
+    const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, fee: realValue[1], total: value }) //TODO add warn emoji
 
     await message.addReaction('✅')
-    // await message.addReaction('error:577973245391667200')
+    await message.addReaction('error:577973245391667200')
 
     const filter = (_, emoji, userID) => (["✅", "error"].includes(emoji.name)) && userID === ctx.message.author.id
 
