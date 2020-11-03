@@ -1,7 +1,6 @@
 const collectors = {
-    MessageCollector: require('./MessageCollector'),
-    ReactionCollector: require('./ReactionCollector'),
-    ChinoReply: require('./ChinoReply')
+    MessageCollector: require('./collectors/MessageCollector'),
+    ReactionCollector: require('./collectors/ReactionCollector'),
 }
 
 module.exports = collectors
