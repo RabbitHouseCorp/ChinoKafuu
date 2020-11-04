@@ -51,7 +51,7 @@
         "success": "transferência de {{yens}} Yens efetuada para {{user}} com sucesso",
         "poorUser": "você não possui Yens para completar essa transferência",
         "cancelled": "certo, transferência cancelada",
-        "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}})"
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
