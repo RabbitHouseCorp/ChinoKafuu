@@ -28,5 +28,8 @@
 		"description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permítame presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden resultar útiles, como... **Moderación**, **Diversión**, **Música** y otras **Utilidades**. Por defecto mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
 		"guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
 	},
-	"noAliases": "Este comando no tiene alias."
+	"noAliases": "Este comando no tiene alias.",
+	"onMentionAfk": "**{{user}}** is AFK.",
+	"onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
+	"afkRemoval": "{{user}}, as you're back, I had removed your AFK status."
 }

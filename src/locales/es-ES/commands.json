@@ -142,5 +142,8 @@
         "usage": "<@Usuario|ID de Usuario> [Días-Purga] [Motivo]",
         "owner": "¡No puedes hacer banear suave al dueño del servidor!",
         "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
+    },
+    "afk": {
+        "success": "you're now AFK"
     }
 }
