@@ -51,7 +51,7 @@
         "success": "Has donado con éxito {{yens}} yenes a {{user}}",
         "poorUser": "No tienes suficientes yenes para hacer completar este pago",
         "cancelled": "Bien, pago cancelado",
-        "confirm": "{{user}} recibirá __`{{yens}}`__ yenes, con un impuesto de **`{{fee}}%`** del valor total ({{total}})"
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
     },
     "baka": {
         "baka": "{{author}} acaba de llamarle idiota a {{member}}",

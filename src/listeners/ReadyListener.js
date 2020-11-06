@@ -43,6 +43,10 @@ module.exports = class ReadyListener extends Listener {
 				name: 'Drink a tea on Fleur de Lapin',
 				type: 1,
 				url: 'https://twitch.tv/danielagc'
+			},
+			{
+				name: 'Lapin The Phantom Thief',
+				type: 3
 			}
 		]
 

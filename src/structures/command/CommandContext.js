@@ -23,11 +23,11 @@ module.exports = class CommandContext {
 	 * @param options {object}
 	 * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
 	 */
-	send(content, options) {
+	async send(content, options) {
 		if (typeof content === 'object') {
-			return this.client.createMessage(this.message.channel.id, { embed: content })
+			return await this.client.createMessage(this.message.channel.id, { embed: content })
 		}
-		return this.client.createMessage(this.message.channel.id, { content: content, options })
+		return await this.client.createMessage(this.message.channel.id, { content: content, options })
 	}
 
 	/**
@@ -37,8 +37,8 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
-	sendT(content, data = {}, options = {}) {
-		return this.client.createMessage(this.message.channel.id, { content: this.t(content, data), options})
+	async sendT(content, data = {}, options = {}) {
+		return await this.client.createMessage(this.message.channel.id, { content: this.t(content, data), options})
 	}
 
 	/**
@@ -48,9 +48,9 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
 	 */
-	reply(emoji, content, options = {}) {
+	async reply(emoji, content, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options})
+		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options})
 	}
 
 	/**
@@ -61,8 +61,8 @@ module.exports = class CommandContext {
 	 * @param options
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
-	replyT(emoji, content, data = {}, options = {}) {
+	async replyT(emoji, content, data = {}, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${this.t(content, data)}`, options})
+		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${this.t(content, data)}`, options})
 	}
 }
