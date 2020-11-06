@@ -142,5 +142,8 @@
         "usage": "<@user|userID> [purge-days] [reason]",
         "owner": "you can't soft ban the server owner!",
         "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
+    },
+    "afk": {
+        "success": "you're now AFK"
     }
 }
