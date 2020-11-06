@@ -21,7 +21,7 @@ module.exports = class Cluster {
 			maxShards: parseInt(process.env.SHARD_AMOUNT),
 			defaultImageFormat: 'png',
 			defaultImageSize: 2048,
-			// intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_BAN', 'GUILD_EMOJI', 'GUILD_WEBHOOKS', 'GUILD_VOICE_STATES', 'GUILD_MESSAGES', 'GUILD_MESSAGE_REACTIONS', 'DIRECT_MESSAGES', 'DIRECT_MESSAGE_REACTIONS']
+			intents: 4095
 		})
 
 		try {

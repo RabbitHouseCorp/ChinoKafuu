@@ -11,6 +11,23 @@ module.exports = class CommandRunner {
 
     const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
     const t = client.i18nRegistry.getT(guildData.lang)
+
+    if (userData.afk) {
+      userData.afk = false
+      userData.afkReason = undefined
+      userData.save()
+      await client.createMessage(message.channel.id, t('basic:afkRemoval', {user: message.author.mention}))
+    }
+
+    for (const user of message.mentions) {
+      const afkUser = await client.database.users.findOneByID(user.id)
+      if (!afkUser.afk) return
+      await client.createMessage(message.channel.id, afkUser.afkReason ? t('basic:onMentionAfkReasoned', {
+        user: user.username,
+        reason: afkUser.afkReason
+      }) : t('basic:onMentionAfk', {user: user.username}))
+    }
+
     if (message.content.replace('!', '') === `<@${client.user.id}>`) return client.createMessage(message.channel.id, t('basic:onMention', {
       0: message.author.mention,
       1: guildData.prefix
@@ -21,7 +38,8 @@ module.exports = class CommandRunner {
     //FIXME Regex bugged lol
     if (!message.content.match(regexp)) return
 
-    let args = message.content.replace(regexp, '').trim().split(/ /g)
+
+    const args = message.content.replace(regexp, '').trim().split(/ /g)
     const commandName = args.shift().toLowerCase()
 
     const command = client.commandRegistry.findByName(commandName)
