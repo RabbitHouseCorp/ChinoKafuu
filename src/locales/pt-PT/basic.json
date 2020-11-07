@@ -6,7 +6,7 @@
 	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
 	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
 	"noReason": "Sem razão",
-	"onBehalf": "on {{member}}'s behalf: {{reason}}",
+	"onBehalf": "em nome de {{member}}: {{reason}}",
 	"clickHere": "Clica aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
