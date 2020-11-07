@@ -32,33 +32,33 @@
         "animeNotFound": "Eu não encontrei nenhum anime com este nome: `{{0}}`."
     },
     "manga": {
-        "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
-        "type": "Type",
+        "mangaNotFound": "Eu não encontrei nenhum manga com o nome: `{{0}}`.",
+        "type": "Tipo",
         "status": "Status",
         "vols": "Volumes",
-        "chapters": "Chapters",
-        "score": "Score",
-        "aired": "Aired",
-        "genres": "Genres",
-        "characters": "Characters"
+        "chapters": "Capítulos",
+        "score": "Pontuação",
+        "aired": "Exibido",
+        "genres": "Géneros",
+        "characters": "Personagens"
     },
     "pay": {
-        "invalidUser": "this user doesn't exist",
+        "invalidUser": "Este usuário não existe",
         "usage": "<userID|@user> <amount>",
-        "description": "Sends money to a user",
-        "userMismatch": "you can't pay to yourself!",
-        "valueMismatch": "you must enter a valid value",
-        "success": "successfully donated {{yens}} Yens to {{user}}",
-        "poorUser": "you don't have enough Yens to complete this payment",
-        "cancelled": "alright, payment cancelled",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
+        "description": "Envia dinheiro para um usuário",
+        "userMismatch": "Não podes enviar dinheiro para ti próprio!",
+        "valueMismatch": "Tu tens que introduzir um valor válido",
+        "success": "Você doou {{yens}} para {{user}} com sucesso",
+        "poorUser": "Tu não tens Yens suficientes para completar esse pagamento",
+        "cancelled": "Ok, Pagamento cancelado",
+        "confirm": "{{user}} vai receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}}). Queres continuar?"
     },
     "baka": {
-        "baka": "{{author}} called {{member}} baka",
+        "baka": "{{author}} chamou o(a) {{member}} de baka",
         "usage": "<userID|@user>",
-        "description": "Calls a user baka"
+        "description": "Chama um usuário de baka"
     },
-    "clapNoArgs": "invalid input",
+    "clapNoArgs": "Input inválido",
     "congaparrot": {
         "usage": "<repeatCount>",
         "description": "Sends funny parrots",
