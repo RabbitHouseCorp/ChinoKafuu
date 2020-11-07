@@ -51,7 +51,7 @@
         "success": "transferência de {{yens}} Yens efetuada para {{user}} com sucesso",
         "poorUser": "você não possui Yens para completar essa transferência",
         "cancelled": "certo, transferência cancelada",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ Yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
+        "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}}). Você quer continuar?"
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
@@ -115,7 +115,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
+        "message": "Qual é o novo idioma? Reaja abaixo.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
         "usage": "[idioma]",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
@@ -138,12 +138,12 @@
         "bioLimit": "sua bio pode ter até 128 caracteres"
     },
     "softban": {
-        "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
+        "description": "Bane temporariamente um usuário. Se o tempo terminar não especificado, o valor padrão (7) será usado.",
         "usage": "<@user|userID> [purge-days] [reason]",
-        "owner": "you can't soft ban the server owner!",
-        "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
+        "owner": "Você não pode banir temporariamente o dono do servidor!",
+        "error": "Não consegui banir temporariamente esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
     "afk": {
-        "success": "you're now AFK"
+        "success": "Agora você está AFK"
     }
 }
