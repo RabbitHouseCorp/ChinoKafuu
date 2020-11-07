@@ -25,11 +25,11 @@
 	"aliases": "Apelidos",
 	"addedToGuild": {
 		"thanks": "Obrigado por me adicionares",
-		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Successfully saved the server {{0}} in the database!"
+		"description": "Whoa {{0}}! Obrigado por me adicionares no `{{1}}, deixa-me apresentar-me.\n\nSou um pequeno robô com muitas funções que podem ser necessárias, por exemplo... **Moderação**, **Diversão**, **Música** e **Utilidades**. Como predefenido, o meu prefixo é `{{2}}`.\n\nSe precisares de ajuda, podes entrar no meu servidor de suporte usando o comando `{{2}}help` ou `{{2}}invite`. Divirte-te e vejo-te mais tarde.",
+		"guildSaved": "O servidor {{0}} foi adicionado à database com sucesso!"
 	},
-	"noAliases": "This command doesn't have aliases.",
-	"onMentionAfk": "**{{user}}** is AFK.",
-	"onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, as you're back, I had removed your AFK status."
+	"noAliases": "Estes comando não possui apelidos.",
+	"onMentionAfk": "**{{user}}** está AFK.",
+	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+	"afkRemoval": "{{user}}, como estás de volta, eu removi o teu status de AFK."
 }
