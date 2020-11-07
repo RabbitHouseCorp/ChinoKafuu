@@ -29,7 +29,7 @@
 		"guildSaved": "Servidor {{0}} salvo com sucesso no banco de dados!"
 	},
 	"noAliases": "Esse comando não possui alternativas.",
-	"onMentionAfk": "**{{user}}** is AFK.",
-	"onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, as you're back, I had removed your AFK status."
+	"onMentionAfk": "**{{user}}** está AFK.",
+	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+	"afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK."
 }
