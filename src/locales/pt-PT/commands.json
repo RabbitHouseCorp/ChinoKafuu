@@ -28,8 +28,8 @@
         "ranked": "Classificado",
         "popularity": "Popularidade",
         "genres": "Géneros",
-        "invalidAnime": "enter the name of the desired anime",
-        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
+        "invalidAnime": "Coloca o nome do anime desejado",
+        "animeNotFound": "Eu não encontrei nenhum anime com este nome: `{{0}}`."
     },
     "manga": {
         "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
@@ -110,32 +110,32 @@
     "ban": {
         "usage": "<userID|@user> [reason]",
         "description": "Ban an user from the server",
-        "selfBan": "you can't self ban!",
-        "ownerBan": "uh... you can't really ban the owner of the guild",
-        "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfBan": "Tu não te podes banir a ti próprio!",
+        "ownerBan": "Uh... Tu não podes banir o dono do servidor",
+        "error": "Eu não posso banir esse usuário. Provavelmente, os seus cargos são mais altos que os meus. Verifica e tenta outra vez"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
+        "message": "Qual é o novo idioma? Reage em baixo.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
         "usage": "[language]",
-        "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+        "description": "Muda o idioma do teu servidor. Ignora a embed se a linguagem for fornecida, conforme descrito no uso"
     },
     "prefix": {
-        "success": "got it! The new prefix is now `{{prefix}}`",
+        "success": "Ok! O novo prefixo é `{{prefix}}` agora",
         "usage": "<prefix>",
-        "description": "Changes the prefix of the bot",
-        "length": "the prefix size is limited to 3 characters"
+        "description": "Muda o prefixo do bot",
+        "length": "O tamanho do prefixo é limitado até 3 caracteres"
     },
     "setbanner": {
-        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
+        "description": "Insere o banner do teu servidor. Comando disponível apenas para servidores com a funcionalidade \"Banner\" ativada",
         "usage": "<URL|Attachment>",
-        "success": "Whoa! Your server has now a new banner",
-        "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+        "success": "Whoa! O teu servidor tem um banner novo agora",
+        "missingFeature": "O teu servidor não tem a funcionalidade \"Banner\", tu não podes executar esse comando"
     },
     "aboutme": {
-        "description": "Changes your profile description",
+        "description": "Muda a descrição do teu perfil",
         "usage": "<bio>",
-        "success": "awesome! Your new bio is set as: `{{bio}}`",
-        "bioLimit": "your bio description can have up to 128 characters"
+        "success": "Fantástico! Agora a tua nova bio é: `{{bio}}`",
+        "bioLimit": "A descrição da tua bio pode ter até 128 caracteres"
     },
     "softban": {
         "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
