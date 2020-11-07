@@ -138,12 +138,12 @@
         "bioLimit": "A descrição da tua bio pode ter até 128 caracteres"
     },
     "softban": {
-        "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
+        "description": "Soft bane um usuário. Se não colocares nada em `purge-days`, o valor padrão (7) será utilizado.",
         "usage": "<@user|userID> [purge-days] [reason]",
-        "owner": "you can't soft ban the server owner!",
-        "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
+        "owner": "Tu não podes soft-banir o dono do servidor!",
+        "error": "Eu não posso soft-banir esse usuário. Provavelmente, ele tem cargos mais altos que os meus ou ele é impossível de banir.\nPara mais informação: `{{error}}`"
     },
     "afk": {
-        "success": "you're now AFK"
+        "success": "Tu estás AFK agora"
     }
 }
