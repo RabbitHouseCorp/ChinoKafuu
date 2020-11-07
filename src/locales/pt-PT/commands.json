@@ -61,51 +61,51 @@
     "clapNoArgs": "Input inválido",
     "congaparrot": {
         "usage": "<repeatCount>",
-        "description": "Sends funny parrots",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "description": "Envia papagaios engraçados",
+        "maxAllowed": "por razões do client-side, é permitido enviar até 20 papagaios"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
+        "feed": "{{author}} alimentou {{user}}",
         "usage": "<user>",
-        "description": "Feeds a user"
+        "description": "Alimenta um usuário"
     },
     "addemoji": {
-        "description": "Adds an emoji to your server",
+        "description": "Adiciona um emoji ao teu servidor",
         "usage": "<link> <name>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "error": "algo errado aconteceu enquanto eu tentava adicionar o teu emoji. Verifica a URL e também se o formato do arquivo é png, jpg, jpeg ou gif."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
+        "description": "Adiciona um cargo a um membro do servidor",
         "usage": "<userID|@user> <role>",
-        "roleNotFound": "I couldn't find any role matching {{name}}",
-        "success": "successfully added the role",
-        "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+        "roleNotFound": "Eu não consigo encontrar nenhum cargo chamado {{name}}",
+        "success": "Cargo adicionado com sucesso",
+        "higher": "Eu não consigo atribuir esse cargo, porque, provavelmente, é um cargo mais alto que o meu. Verifica os cargos e tenta outra vez."
     },
     "setnick": {
-        "description": "Sets the nickname of a member",
+        "description": "Define o apelido de um membro",
         "usage": "<userID|@user> <nickname>",
-        "success": "**{{member}}**'s nickname is now `{{nickname}}`",
-        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+        "success": "** O apelido de {{member}} é `{{nickname}}` agora",
+        "error": "Eu não consigo mudar o apelido desse membro. Verifica se ele não é o dono do servidor e tenta novamente"
     },
     "chat": {
-        "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
+        "description": "Bloqueia o chat, atualizando a permissão de `Send Messages`para o cargo `@everyone`",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "Entendido, chat bloqueado",
+        "unlocked": "Entendido, chat desbloqueado"
     },
     "clear": {
         "usage": "<quantity>",
-        "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
-        "limit": "I can't delete more than a hundred messages",
-        "success": "successfully cleared {{messages}} messages",
-        "nan": "invalid value. Is your argument a number?"
+        "description": "Apaga mensagens em um canal. Se especificares usuário, eu apago as mensagens desse usuário",
+        "limit": "Eu não posso apagar mais de cem mensagens",
+        "success": "Apaguei {{messages}} mensagens com sucesso",
+        "nan": "Valor inválido. Esse argumento é um número?"
     },
     "kick": {
         "usage": "<userID|@user> [reason]",
         "description": "Kick an user from the server",
-        "selfKick": "you can't kick yourself! You might want to lave the guild?",
-        "ownerKick": "uh... you can't really kick the owner of the guild...",
-        "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+        "selfKick": "Não te podes kickar a ti próprio! Tu queres sair do servidor?",
+        "ownerKick": "uh... Tu não podes kickar o dono do servidor...",
+        "error": "Eu não posso banir esse usuário. Provavelmente, os cargos dele são mais altos que os meus. Verifica e tenta outra vez"
     },
     "ban": {
         "usage": "<userID|@user> [reason]",
