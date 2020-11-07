@@ -1,33 +1,33 @@
 {
     "ping": "Total de shards: {{totalShard}}",
     "reload": {
-        "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
-        "shard": "shard `{{shard}}` reiniciada com sucesso."
+        "locales": "Locales recarregadas com sucesso!",
+        "argsNull": "Opções disponíveis: {{list}}",
+        "shard": "A shard `{{shard}}` foi reiniciada com sucesso."
     },
     "kiss": {
-        "kissed": "{{author}} kissed {{member}}",
-        "unable": "uh... you can't kiss yourself.",
+        "kissed": "{{author}} beijou {{member}}",
+        "unable": "Uh... não podes beijar tu próprio.",
         "usage": "<userID|@user>",
-        "description": "Kisses a user"
+        "description": "Beijou um usuário"
     },
     "yens": {
-        "yens": "you have {{yens}} Yens",
-        "onMention": "{{user}} has {{yens}} Yens"
+        "yens": "Tu tens {{yens}} Yens",
+        "onMention": "{{user}} tem {{yens}} Yens"
     },
     "anime": {
-        "synopsis": "Synopsis",
-        "animeName": "Anime name",
-        "type": "Type",
-        "episodes": "Episodes",
-        "rating": "Rating",
-        "aired": "Aired",
-        "score": "Score",
-        "scoreStats": "Score stats",
-        "duration": "Episodes duraction",
-        "ranked": "Ranked",
-        "popularity": "Popularity",
-        "genres": "Genres",
+        "synopsis": "Sinopse",
+        "animeName": "Nome de Anime",
+        "type": "Tipo",
+        "episodes": "Episódios",
+        "rating": "Avaliação",
+        "aired": "Exibido",
+        "score": "Pontuação",
+        "scoreStats": "Estatísticas da Pontuação",
+        "duration": "Duração dos Episódios",
+        "ranked": "Classificado",
+        "popularity": "Popularidade",
+        "genres": "Géneros",
         "invalidAnime": "enter the name of the desired anime",
         "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
     },
