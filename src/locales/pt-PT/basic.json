@@ -3,28 +3,28 @@
 	"missingBotPermission": "Eu não tenho a permissão: **{{perm}}**. Adicione essa permissão e tenta outra vez.",
 	"missingUserPermission": "Tu não tens a permissão: **{{perm}}**. Tu não podes executar este comando.",
 	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
-	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
-	"userNotFound": "I can't found this user, please, try again.",
-	"noReason": "No reason",
+	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
+	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
+	"noReason": "Sem razão",
 	"onBehalf": "on {{member}}'s behalf: {{reason}}",
-	"clickHere": "Click here",
+	"clickHere": "Clica aqui",
 	"punishment": {
-		"banned": "{{0}} | Banned",
-		"kicked": "{{member}} | Kicked",
-		"softBan": "{{member}} | Soft banned",
+		"banned": "{{0}} | Banido",
+		"kicked": "{{member}} | Kickado",
+		"softBan": "{{member}} | Soft Banned",
 		"embed": {
-			"memberName": "Username",
-			"memberID": "User ID",
-			"staffName": "Who punished",
-			"reason": "Reason"
+			"memberName": "Nick",
+			"memberID": "ID do Usuário",
+			"staffName": "Quem puniu",
+			"reason": "Razão"
 		},
-		"reason": "Banned by: {{0}} - Reason: {{1}}"
+		"reason": "Banido por: {{0}} - Razão: {{1}}"
 	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-	"howToUse": "How to use?",
-	"aliases": "Aliases",
+	"missingArgs": "Argumentos inválidos! Usa `{{prefix}}{{commandName}}` para ver como usar corretamente.",
+	"howToUse": "Como usar?",
+	"aliases": "Apelidos",
 	"addedToGuild": {
-		"thanks": "Thanks for adding me",
+		"thanks": "Obrigado por me adicionares",
 		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
 		"guildSaved": "Successfully saved the server {{0}} in the database!"
 	},
