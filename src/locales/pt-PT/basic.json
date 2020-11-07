@@ -1,8 +1,8 @@
 {
-	"onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to find out what I can do, use `{{1}}help`.",
-	"missingBotPermission": "I don't have the **{{perm}}** permission. Check my permissions and try again.",
-	"missingUserPermission": "you don't have the **{{perm}}** permission. You can't execute this command.",
-	"invalidUser": "user not found. Make sure you have @mentioned them or double-check the ID.",
+	"onMention": "<:chino_rawr:751215250245943318> **|**\nOlá {{0}}. O meu prefixo neste servidor é `{{1}}`. Se quiseres descobrir o que eu faço, usa `{{1}}help`.",
+	"missingBotPermission": "Eu não tenho a permissão: **{{perm}}**. Adicione essa permissão e tenta outra vez.",
+	"missingUserPermission": "Tu não tens a permissão: **{{perm}}**. Tu não podes executar este comando.",
+	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
 	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
 	"userNotFound": "I can't found this user, please, try again.",
 	"noReason": "No reason",
