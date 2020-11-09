@@ -318,7 +318,7 @@
         "insufficient-value": "you don't have enough yens.",
         "success": "you have successfully donated `{{value}}` yens to {{member}}.",
         "this-author": "you cannot donate yens to yourself.",
-        "confirm": "user {{member}} is going to receive `{{value}}` Yens. Do you really want to finish the transaction? I will charge you `{{porcent}}%` as a tax.",
+        "confirm": "user {{member}} is going to receive `{{value}}` Yens. Do you really want to finish the transaction?",
         "cancel": "got it, as you didn't want to complete the transaction, I've cancelled the transaction of `{{value}}` Yens."
     },
     "play": {

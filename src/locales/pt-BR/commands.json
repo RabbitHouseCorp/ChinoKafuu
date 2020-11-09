@@ -360,7 +360,7 @@
     "ping": "Eu tenho:",
     "pay": {
         "limit": "esta transferência excedeu o **limite de yens**",
-        "confirm": "o usuário {{member}} irá receber `{{value}}` yens, deseja continuar com a transação? Ao continuar, eu irei cobrar `{{porcent}}%` de taxa.",
+        "confirm": "o usuário {{member}} irá receber `{{value}}` yens, deseja continuar com a transação?",
         "value-null": "você precisa informar a quantidade que você deseja doar.",
         "invalid-value": "o valor informado é inválido.",
         "insufficient-value": "você não tem yens o suficiente.",

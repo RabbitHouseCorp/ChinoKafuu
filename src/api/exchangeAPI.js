@@ -1,22 +1,22 @@
-const fetch = require('node-fetch');
-const InvalidArgumentError = require('../error/invalidArgumentError');
+const fetch = require('node-fetch') 
+const InvalidArgumentError = require('./invalidArgumentError') 
 
 /**
  * tempo em minutos para persistencia dos dados de conversão monetária em cache
  */
-const TIME_CACHE_MINUTES = 15;
+const TIME_CACHE_MINUTES = 15 
 
 /**
  * classe utilizada para fazer requisições de valores para conversões monetárias
  */
 class ExchangeApi {
   constructor() {
-    this._url = 'https://api.exchangeratesapi.io';
+    this._url = 'https://api.exchangeratesapi.io' 
 
-    this._cache = {};
+    this._cache = {} 
 
     // 15 minutes
-    this.MAX_AGE = TIME_CACHE_MINUTES * 60 * 1000;
+    this.MAX_AGE = TIME_CACHE_MINUTES * 60 * 1000 
   }
 
   /**
@@ -24,9 +24,9 @@ class ExchangeApi {
    */
   static getInstance() {
     if (!this._instance) {
-      this._instance = new ExchangeApi();
+      this._instance = new ExchangeApi() 
     }
-    return this._instance;
+    return this._instance 
   }
 
   /**
@@ -37,7 +37,7 @@ class ExchangeApi {
   _isCacheValid(cachedValue) {
     return cachedValue
       && cachedValue.timestamp
-      && new Date().getTime() - cachedValue.timestamp < this.MAX_AGE;
+      && new Date().getTime() - cachedValue.timestamp < this.MAX_AGE 
   }
 
   /**
@@ -45,7 +45,7 @@ class ExchangeApi {
    * @param {string} rate base para a conversão monetária
    */
   _isValidRate(rate) {
-    return ExchangeApi.ACCEPTED_RATES.includes(rate);
+    return ExchangeApi.ACCEPTED_RATES.includes(rate) 
   }
 
   /**
@@ -58,32 +58,32 @@ class ExchangeApi {
    * @throws InvalidArgumentError no caso de algum dos parâmetros não for suportado pela API
    */
   async getExchange(from, to) {
-    const key = `${from}-${to}`;
-    const cached = this._cache[key];
-    let data;
+    const key = `${from}-${to}` 
+    const cached = this._cache[key] 
+    let data 
 
     if (!this._isValidRate(from)) {
-      throw new InvalidArgumentError(from);
+      throw new InvalidArgumentError(from) 
     }
     if (!this._isValidRate(to)) {
-      throw new InvalidArgumentError(to);
+      throw new InvalidArgumentError(to) 
     }
 
     // anti troll
     if (from === to) {
-      data = { rates: { [`${to}`]: 1 } };
+      data = { rates: { [`${to}`]: 1 } } 
     }
 
     if (this._isCacheValid(cached)) {
-      data = { ...cached, isCached: true };
+      data = { ...cached, isCached: true } 
     } else {
       const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
-      data = await res.json();
-      data.timestamp = new Date().getTime();
-      this._cache[key] = data;
+      data = await res.json() 
+      data.timestamp = new Date().getTime() 
+      this._cache[key] = data 
     }
 
-    return data;
+    return data 
   }
 
 }
@@ -127,4 +127,4 @@ ExchangeApi.ACCEPTED_RATES = [
   'PLN'
 ]
 
-module.exports = ExchangeApi;
+module.exports = ExchangeApi 
