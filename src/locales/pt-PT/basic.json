@@ -1,35 +1,35 @@
 {
-	"onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to find out what I can do, use `{{1}}help`.",
-	"missingBotPermission": "I don't have the **{{perm}}** permission. Check my permissions and try again.",
-	"missingUserPermission": "you don't have the **{{perm}}** permission. You can't execute this command.",
-	"invalidUser": "user not found. Make sure you have @mentioned them or double-check the ID.",
-	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
-	"userNotFound": "I can't found this user, please, try again.",
-	"noReason": "No reason",
-	"onBehalf": "on {{member}}'s behalf: {{reason}}",
-	"clickHere": "Click here",
+	"onMention": "<:chino_rawr:751215250245943318> **|**\nOlá {{0}}. O meu prefixo neste servidor é `{{1}}`. Se quiseres descobrir o que eu faço, usa `{{1}}help`.",
+	"missingBotPermission": "Eu não tenho a permissão: **{{perm}}**. Adicione essa permissão e tenta outra vez.",
+	"missingUserPermission": "Tu não tens a permissão: **{{perm}}**. Tu não podes executar este comando.",
+	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
+	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
+	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
+	"noReason": "Sem razão",
+	"onBehalf": "em nome de {{member}}: {{reason}}",
+	"clickHere": "Clica aqui",
 	"punishment": {
-		"banned": "{{0}} | Banned",
-		"kicked": "{{member}} | Kicked",
-		"softBan": "{{member}} | Soft banned",
+		"banned": "{{0}} | Banido",
+		"kicked": "{{member}} | Kickado",
+		"softBan": "{{member}} | Soft Banned",
 		"embed": {
-			"memberName": "Username",
-			"memberID": "User ID",
-			"staffName": "Who punished",
-			"reason": "Reason"
+			"memberName": "Nick",
+			"memberID": "ID do Usuário",
+			"staffName": "Quem puniu",
+			"reason": "Razão"
 		},
-		"reason": "Banned by: {{0}} - Reason: {{1}}"
+		"reason": "Banido por: {{0}} - Razão: {{1}}"
 	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-	"howToUse": "How to use?",
-	"aliases": "Aliases",
+	"missingArgs": "Argumentos inválidos! Usa `{{prefix}}{{commandName}}` para ver como usar corretamente.",
+	"howToUse": "Como usar?",
+	"aliases": "Apelidos",
 	"addedToGuild": {
-		"thanks": "Thanks for adding me",
-		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Successfully saved the server {{0}} in the database!"
+		"thanks": "Obrigado por me adicionares",
+		"description": "Whoa {{0}}! Obrigado por me adicionares no `{{1}}, deixa-me apresentar-me.\n\nSou um pequeno robô com muitas funções que podem ser necessárias, por exemplo... **Moderação**, **Diversão**, **Música** e **Utilidades**. Como predefenido, o meu prefixo é `{{2}}`.\n\nSe precisares de ajuda, podes entrar no meu servidor de suporte usando o comando `{{2}}help` ou `{{2}}invite`. Divirte-te e vejo-te mais tarde.",
+		"guildSaved": "O servidor {{0}} foi adicionado à database com sucesso!"
 	},
-	"noAliases": "This command doesn't have aliases.",
-	"onMentionAfk": "**{{user}}** is AFK.",
-	"onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, as you're back, I had removed your AFK status."
+	"noAliases": "Estes comando não possui apelidos.",
+	"onMentionAfk": "**{{user}}** está AFK.",
+	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+	"afkRemoval": "{{user}}, como estás de volta, eu removi o teu status de AFK."
 }
