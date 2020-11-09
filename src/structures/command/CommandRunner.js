@@ -21,7 +21,7 @@ module.exports = class CommandRunner {
 
     for (const user of message.mentions) {
       const afkUser = await client.database.users.findOneByID(user.id)
-      if (!afkUser.afk) return
+      if (!afkUser?.afk) break
       await client.createMessage(message.channel.id, afkUser.afkReason ? t('basic:onMentionAfkReasoned', {
         user: user.username,
         reason: afkUser.afkReason
