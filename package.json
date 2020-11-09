@@ -26,5 +26,8 @@
     "node-cron": "^2.0.3",
     "node-fetch": "^2.6.1",
     "os-utils": "^0.0.14"
+  },
+  "devDependencies": {
+    "axios": "^0.21.0"
   }
 }
