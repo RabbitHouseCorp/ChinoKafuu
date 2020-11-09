@@ -145,5 +145,14 @@
     },
     "afk": {
         "success": "you're now AFK"
+    },
+    "choose": {
+        "usage": "argument1, argument2, argumentN",
+        "description": "Makes the bot choose something",
+        "chosen": "I choose `{{chosen}}` 💁‍♀️"
+    },
+    "avatar": {
+        "userAvatar": "{{user}}'s avatar",
+        "download": "Click [here]({{link}}) to download"
     }
 }
