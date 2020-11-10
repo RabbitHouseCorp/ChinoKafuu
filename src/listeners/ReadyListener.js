@@ -35,7 +35,7 @@ module.exports = class ReadyListener extends Listener {
 				type: 3
 			},
 			{
-				name: 'If you need support, use ${process.env.BOT_TOKEN}help',
+				name: `If you need support, use ${process.env.BOT_PREFIX}help`,
 				type: 1,
 				url: 'https://twitch.tv/danielagc'
 			},
