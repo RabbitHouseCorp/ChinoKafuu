@@ -1,6 +1,6 @@
 {
     "executionFailure": {
-        "embedTitle": "Gomenasai! An error has occurred!",
+        "embedTitle": "ごめなさい! エラーが発生レまレた!",
         "fieldTitle": "Notify us",
         "fieldValue": "As we probably don't know about this error, you can either [open an issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) on GitHub or contact us in our [support server](https://discord.gg/rabbithouse). Don't forget to attach this _little message_ when reporting the error.\nThanks and sorry!"
     }
