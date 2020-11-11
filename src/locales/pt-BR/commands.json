@@ -102,7 +102,7 @@
     },
     "kick": {
         "usage": "<userID|@user> [motivo]",
-        "description": "Kick an user from the server",
+        "description": "Expulsa um usuário do servidor",
         "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
         "ownerKick": "uh... você não pode expulsar o dono do servidor...",
         "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
