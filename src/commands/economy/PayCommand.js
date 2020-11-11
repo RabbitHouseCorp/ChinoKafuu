@@ -23,7 +23,7 @@ class PayCommand extends Command {
     const value = ctx.args[1]
     const toUser = await ctx.db.db.getOrCreate(member.id)
 
-    if (!ctx.message.mentions[0])
+    if (!ctx.message.mentions[0]) return
     if (ctx.message.author.id === member.id) return ctx.replyT('error', 'commands:pay.userMismatch')
     if (!value) return ctx.replyT('error', 'commands:pay.valueMismatch')
     if (isNaN(Number(value))) return ctx.replyT('error', 'commands:pay.valueMismatch')
@@ -39,11 +39,9 @@ class PayCommand extends Command {
     await message.addReaction('error:577973245391667200')
 
     const filter = (_, emoji, userID) => (["✅", "error"].includes(emoji.name)) && userID === ctx.message.author.id
-
-
     const collector = new ReactionCollector(message, filter, { max: 1 })
 
-    collector.on('collect', async (_, emoji) =>{
+    collector.on('collect', async (_, emoji) => {
       if (emoji.name === '✅') {
         fromUser.yens -= totalYens
         toUser.yens += totalYens
@@ -57,12 +55,10 @@ class PayCommand extends Command {
         await ctx.replyT('error', 'commands:pay.cancelled')
         return message.delete()
       }
-  })
-
-
+    })
   }
 
-   getTax(val, percent) {
+  getTax(val, percent) {
     percent = parseFloat(val * (2 / 100))
     if (percent > 25) percent = 25
     return [val - ((val / 100) * percent), percent]

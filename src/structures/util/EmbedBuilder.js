@@ -14,6 +14,17 @@ module.exports = class EmbedBuilder {
 		this.thumbnail = null
 		this.url = null
 	}
+	/**
+	 * 
+	 * @param {string} name 
+	 * @param {string} icon_url 
+	 * @param {string} url
+	 * @returns {EmbedBuilder} 
+	 */
+	setAuthor(name, icon_url, url) {
+		this.author = { name, icon_url, url }
+		return this
+	}
 
 	/**
 	 *
