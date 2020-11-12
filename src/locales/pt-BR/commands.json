@@ -1,5 +1,10 @@
 {
+    "dance": "{{0}} dance with {{1}}",
+    "hug": "{{0}} gave a very nice hug in {{1}}",
+    "pat": "{{0}} pated {{1}}",
+    "poke": "{{0}} poked {{1}}",
     "ping": "Total de shards: {{totalShard}}",
+    "slap": "{{0}} slapped on {{1}}",
     "reload": {
         "locales": "locales recarregadas com sucesso!",
         "argsNull": "opções disponíveis: {{list}}",
