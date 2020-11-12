@@ -8,7 +8,8 @@ module.exports = class MessageUpdateListener extends Listener {
 		this.event = 'messageUpdate'
 	}
 
-	async on(client, newMsg) {
+	async on(client, newMsg, oldMsg) {
+		if (newMsg.content === oldMsg.content) return
 		await CommandRunner.run(client, newMsg)
 	}
 }
