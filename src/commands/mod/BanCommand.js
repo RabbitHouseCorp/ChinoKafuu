@@ -1,4 +1,4 @@
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 const Command = require('../../structures/command/Command')
 class BanCommand extends Command {
     constructor() {
@@ -21,7 +21,7 @@ class BanCommand extends Command {
             if (guildMember.user.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
         } else {
             member = ctx.client.users.get(member)
-          if (!member) return ctx.replyT('error', 'basic:invalidUser')
+            if (!member) return ctx.replyT('error', 'basic:invalidUser')
             guildMember = {
                 user: {
                     id: member.id,

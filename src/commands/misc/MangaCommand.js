@@ -1,5 +1,5 @@
 const Command = require('../../structures/command/Command')
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 const Anilist = require('anilist-node')
 const anilist = new Anilist()
 const Logger = require('../../structures/util/Logger')

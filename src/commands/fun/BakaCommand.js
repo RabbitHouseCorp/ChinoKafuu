@@ -1,7 +1,7 @@
 const Command = require('../../structures/command/Command')
 const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 
 module.exports = class BakaCommand extends Command {
   constructor() {

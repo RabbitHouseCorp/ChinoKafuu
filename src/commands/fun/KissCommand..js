@@ -1,7 +1,7 @@
 const Command = require('../../structures/command/Command')
 const NekosLife = require('nekos.life')
 const neko = new NekosLife()
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 
 class KissCommand extends Command {
   constructor() {

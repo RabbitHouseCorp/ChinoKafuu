@@ -1,5 +1,5 @@
 const Command = require('../../structures/command/Command')
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 const malScraper = require('mal-scraper')
 
 class AnimeCommand extends Command {

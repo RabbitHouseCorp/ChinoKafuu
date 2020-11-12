@@ -1,6 +1,9 @@
 const collectors = {
     MessageCollector: require('./collectors/MessageCollector'),
     ReactionCollector: require('./collectors/ReactionCollector'),
+    EmbedBuilder: require('../structures/util/EmbedBuilder'),
+    Emoji: require('./EmotesInstance'),
+    Logger: require('../structures/util/Logger')
 }
 
 module.exports = collectors

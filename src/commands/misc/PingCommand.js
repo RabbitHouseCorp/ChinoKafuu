@@ -1,4 +1,4 @@
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 const Command = require('../../structures/command/Command')
 class PingCommand extends Command {
   constructor() {

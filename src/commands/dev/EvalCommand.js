@@ -1,5 +1,5 @@
 const Command = require('../../structures/command/Command')
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+const { EmbedBuilder } = require('../../utils')
 const util = require('util')
 
 class EvalCommand extends Command {
