@@ -1,11 +1,29 @@
 {
-    "dance": "{{0}} dançou com {{1}}",
-    "hug": "{{0}} deu um bom abraço em {{1}}",
-    "pat": "{{0}} deu uma festa no(a) {{1}}",
-    "poke": "{{0}} cutucou {{1}}",
+    "dance": {
+        "danced": "{{0}} dançou com {{1}}",
+        "usage": "<userID|@user>"
+    },
+    "hug": {
+        "huged": "{{0}} deu um bom abraço em {{1}}",
+        "usage": "<userID|@user>"
+    },
+    "pat": {
+        "pated": "{{0}} deu uma festa no(a) {{1}}",
+        "usage": "<userID|@user>"
+    },
+    "poke": {
+        "poked": "{{0}} cutucou {{1}}",
+        "usage": "<userID|@user>"
+    },
     "ping": "Total de shards: {{totalShard}}",
-    "slap": "{{0}} dei uma chapada no(a) {{1}}",
-    "tickle": "{{0}} fez cocegas no(a) {{1}}",
+    "slap": {
+        "slaped": "{{0}} dei uma chapada no(a) {{1}}",
+        "usage": "<userID|@user>"
+    },
+    "tickle": {
+        "tickled": "{{0}} fez cocegas no(a) {{1}}",
+        "usage": "<userID|@user>"
+    },
     "reload": {
         "locales": "Locales recarregadas com sucesso!",
         "argsNull": "Opções disponíveis: {{list}}",

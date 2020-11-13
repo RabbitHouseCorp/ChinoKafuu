@@ -2,7 +2,7 @@ const Logger = require('../util/Logger')
 const { resolve, sep } = require('path')
 const Registry = require('../registry/Registry')
 const LanguageModule = require('./LanguageModule')
-const DEFAULT_LANG = 'en-ES'
+const DEFAULT_LANG = 'en-US'
 
 module.exports = class I18NRegistry extends Registry {
   constructor (path = resolve(__dirname, '..', '..', 'locales')) {
