@@ -5,6 +5,7 @@
     "poke": "{{0}} poked {{1}}",
     "ping": "Fragmentos totales: {{totalShard}}",
     "slap": "{{0}} slapped on {{1}}",
+    "tickle": "{{0}} tickled on {{1}}",
     "reload": {
         "locales": "¡Locales recargadas con éxito!",
         "argsNull": "Opciones disponibles: {{list}}",
