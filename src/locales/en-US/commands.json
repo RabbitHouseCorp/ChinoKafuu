@@ -161,7 +161,7 @@
         "userAvatar": "{{user}}'s avatar",
         "download": "Click [here]({{link}}) to download"
     },
-    "calc": {
+    "calculate": {
       "description": "Evaluates a math expression.",
       "usage": "<expression>",
       "invalidArgs": "you must enter a valid value.",
