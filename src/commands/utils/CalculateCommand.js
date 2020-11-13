@@ -33,15 +33,15 @@ module.exports = class CalculateCommand extends Command {
     const expression = ctx.args.join(' ')
 
     if (!expression) {
-      return ctx.reply('error', ctx.t('commands:calc.invalidArgs'))
+      return ctx.replyT('error', 'commands:calculate.invalidArgs')
     }
 
     try {
       const result = await pool.exec(calc, [expression])
       pool.terminate()
-      ctx.reply('success', ctx.t('commands:calc.result', { result: result }))
+      ctx.replyT('success', 'commands:calculate.result', { result: result })
     } catch (error) {
-      ctx.reply('error', ctx.t('commands:calc.result', { result: error.message }))
+      ctx.replyT('error', 'commands:calculate.result', { result: error.message })
     }
   }
 }
