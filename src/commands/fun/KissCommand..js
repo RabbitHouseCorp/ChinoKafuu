@@ -22,7 +22,7 @@ class KissCommand extends Command {
     const img = await neko.sfw.kiss()
     const embed = new EmbedBuilder()
       .setColor('ACTION')
-      .setDescription(ctx.t('commands:kiss', { author: ctx.message.author.mention, member: member.mention }))
+      .setDescription(ctx.t('commands:kiss.kissed', { author: ctx.message.author.mention, member: member.mention }))
       .setImage(img.url)
     ctx.send(embed)
   }

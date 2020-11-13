@@ -40,7 +40,6 @@ class PayCommand extends Command {
 
     const filter = (_, emoji, userID) => (["✅", "error"].includes(emoji.name)) && userID === ctx.message.author.id
     const collector = new ReactionCollector(message, filter, { max: 1 })
-
     collector.on('collect', async (_, emoji) => {
       if (emoji.name === '✅') {
         fromUser.yens -= totalYens
