@@ -5,6 +5,7 @@ const pool = workerpool.pool()
 function calc (expression) {
   const { create, all } = require('mathjs')
   const math = create(all)
+  const limitedEvaluate = math.evaluate
 
   math.import({
     import: 'Function import is disabled',
@@ -16,7 +17,7 @@ function calc (expression) {
     format: 'Function format is disabled'
   }, { override: true })
 
-  return math.eval(expression)
+  return limitedEvaluate(expression).toString()
 }
 
 module.exports = class CalculateCommand extends Command {
@@ -28,19 +29,19 @@ module.exports = class CalculateCommand extends Command {
     })
   }
 
-  async run ({ message, args }, t) {
-    const expression = args.join(' ')
+  async run (ctx) {
+    const expression = ctx.args.join(' ')
 
     if (!expression) {
-      return message.reply('error', t('commands:calc.invalidArgs'))
+      return ctx.reply('error', ctx.t('commands:calc.invalidArgs'))
     }
 
     try {
       const result = await pool.exec(calc, [expression])
       pool.terminate()
-      message.reply('success', t('commands:calc.result', { result: result }))
+      ctx.reply('success', ctx.t('commands:calc.result', { result: result }))
     } catch (error) {
-      message.reply('error', t('commands:calc.result', { result: error.message }))
+      ctx.reply('error', ctx.t('commands:calc.result', { result: error.message }))
     }
   }
 }
