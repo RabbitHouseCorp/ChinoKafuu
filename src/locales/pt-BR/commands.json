@@ -1,11 +1,35 @@
 {
-    "dance": "{{0}} danced with {{1}}",
-    "hug": "{{0}} gave a very nice hug in {{1}}",
-    "pat": "{{0}} pated {{1}}",
-    "poke": "{{0}} poked {{1}}",
+    "dance": {
+        "danced": "{{0}} danced with {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Dance with your friend."
+    },
+    "hug": {
+        "huged": "{{0}} gave a very nice hug in {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Hug a friend and make they happy."
+    },
+    "pat": {
+        "pated": "{{0}} pated {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Pat pat, pat me please. Give a pat to your friend."
+    },
+    "poke": {
+        "poked": "{{0}} poked {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Poke someone on your server."
+    },
     "ping": "Total de shards: {{totalShard}}",
-    "slap": "{{0}} slapped on {{1}}",
-    "tickle": "{{0}} tickled on {{1}}",
+    "slap": {
+        "slaped": "{{0}} slapped on {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Slap someone on your server."
+    },
+    "tickle": {
+        "tickle": "{{0}} tickled on {{1}}",
+        "usage": "<userID|@user>",
+        "description": "Ha ha ha ha it tickles. Tickle someone on your server."
+    },
     "reload": {
         "locales": "locales recarregadas com sucesso!",
         "argsNull": "opções disponíveis: {{list}}",
