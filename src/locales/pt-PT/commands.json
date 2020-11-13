@@ -22,11 +22,11 @@
     "ping": "Total de shards: {{totalShard}}",
     "slap": {
         "slaped": "{{0}} dei uma chapada no(a) {{1}}",
-        "usage": "<userID|@user>",
         "description": "Slap someone on your server."
     },
+   
     "tickle": {
-        "tickle": "{{0}} fez cocegas no(a) {{1}}",
+        "tickled": "{{0}} fez cocegas no(a) {{1}}",
         "usage": "<userID|@user>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },

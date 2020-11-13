@@ -22,7 +22,7 @@ module.exports  = class HugCommand extends Command {
         const img = await neko.sfw.hug()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:hug', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx.t('commands:hug.huged', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

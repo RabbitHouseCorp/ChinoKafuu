@@ -1,27 +1,40 @@
 const Logger = require('../util/Logger')
-const { lstatSync } = require('fs')
+const { resolve, sep } = require('path')
 const Registry = require('../registry/Registry')
+const LanguageModule = require('./LanguageModule')
+const DEFAULT_LANG = 'en-US'
 
 module.exports = class I18NRegistry extends Registry {
-  constructor (path = __dirname + '/../../locales') {
+  constructor (path = resolve(__dirname, '..', '..', 'locales')) {
     super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
-    
+    this._defaultLang = null
     this.loadAll(this.path)
   }
-  
+
+  registerLanguage (language, path) {
+    const existing = this.modules.find(m => m.language === language)
+    if (existing) {
+      return existing
+    }
+    const newLanguage = new LanguageModule(path, language)
+    this.modules.push(newLanguage)
+    return newLanguage
+  }
+
+  loadAll (...args) {
+    super.loadAll(...args)
+  }
+
   loadModule (path) {
     try {
       delete require.cache[require.resolve(path)]
-      let module = require(path)
-      if (this.modules.filter((a) => a.__path === path)[0]) return true
-      
-      module.__path = path
-      module.language = path.replace(this.path, '').split('/')[1]
-      const fullPath = path.split('.')[path.split('.').length - 2].split('/')
-      
-      module.namespace = fullPath[fullPath.length - 1]
-      this.modules.push(module)
-      
+      const data = require(path)
+
+      const [, language, namespace] = path.replace(this.path, '').split(sep)
+      const module = this.registerLanguage(language, resolve(this.path, path))
+
+      module.loadNamespace(namespace.replace('.json', ''), data)
+
       this.emit('load', module)
       return true
     } catch (e) {
@@ -29,26 +42,30 @@ module.exports = class I18NRegistry extends Registry {
       return false
     }
   }
-  
-  getT (language) {
-    const languageModules = this.modules.filter(b => b.language === language)
-    
-    if (!languageModules[0]) return undefined
-    return (key, templates) => {
-      let namespace = key.split(':')
-      let fullPath = namespace.pop().split('.')
-      let currentPath = languageModules.filter(z => z.namespace === namespace[0])[0]
 
-      fullPath.forEach((path) => {
-        currentPath = currentPath[path]
-        if (!currentPath) return undefined
-      })
-      
-      for (const template in templates) {
-        currentPath = currentPath.split(`{{${template}}}`).join(templates[template])
-      }
-      
-      return currentPath
+  t (languageModule, key, placeholders) {
+    if (!languageModule || !Object.prototype.hasOwnProperty.call(languageModule.translations, key)) {
+      return
     }
+
+    return I18NRegistry.interpolation(languageModule.translations[key], placeholders)
+  }
+
+  get defaultLanguage () {
+    if (!this._defaultLang) {
+      this._defaultLang = this.modules.find(m => m.language === DEFAULT_LANG)
+    }
+    return this._defaultLang
+  }
+
+  getT (language) {
+    return (key, placeholders) => {
+      const languageModule = this.modules.find(m => m.language === language) || this.defaultLanguage
+      return this.t(languageModule, key, placeholders) || this.t(this.defaultLanguage, key, placeholders) || key
+    }
+  }
+
+  static interpolation (str, placeholders) {
+    return str.replace(/\{\{(\w)\}\}/g, (_, i) => placeholders[i] || '')
   }
 }
