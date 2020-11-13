@@ -59,7 +59,6 @@ class EditYensCommand extends Command {
                 ctx.reply('warn', 'você pode escolher entre as opções `add`, `edit`, `remove`.')
             }
         }
-        let dbUser = ctx.db.db.getOrCreate(ctx.args[1])
     }
 }
 

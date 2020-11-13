@@ -6,8 +6,7 @@ module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
 
-    const userData = await client.database.users.getOrCreate(message.author.id, {shipValue: Math.floor(Math.random() * 55)})
-    if (userData.blacklisted) return
+    const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
     const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
     const t = client.i18nRegistry.getT(guildData.lang)
@@ -16,7 +15,7 @@ module.exports = class CommandRunner {
       userData.afk = false
       userData.afkReason = undefined
       userData.save()
-      await client.createMessage(message.channel.id, t('basic:afkRemoval', {user: message.author.mention}))
+      await client.createMessage(message.channel.id, t('basic:afkRemoval', { user: message.author.mention }))
     }
 
     for (const user of message.mentions) {
@@ -25,7 +24,7 @@ module.exports = class CommandRunner {
       await client.createMessage(message.channel.id, afkUser.afkReason ? t('basic:onMentionAfkReasoned', {
         user: user.username,
         reason: afkUser.afkReason
-      }) : t('basic:onMentionAfk', {user: user.username}))
+      }) : t('basic:onMentionAfk', { user: user.username }))
     }
 
     if (message.content.replace('!', '') === `<@${client.user.id}>`) return client.createMessage(message.channel.id, t('basic:onMention', {
@@ -51,11 +50,24 @@ module.exports = class CommandRunner {
       db: client.database.users
     }, t)
 
+    if (userData?.blacklist) {
+      const avatar = message.author.dynamicAvatarURL()
+      const embed = new EmbedBuilder()
+      embed.setColor('MODERATION')
+      embed.setAuthor("Você foi banido", avatar)
+      embed.setDescription(`Olá ${message.author.mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
+      embed.addField("Motivo", userData.blacklistReason)
+      embed.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre no meu servidor de suporte.`)
+
+      ctx.send(embed)
+      return
+    }
+    
     await ctx.message.channel.sendTyping()
     const fixedPermissionList = command.permissions.flatMap(object => object.entity === 'both' ? [{
       entity: 'user',
       permissions: object.permissions
-    }, {entity: 'bot', permissions: object.permissions}] : object)
+    }, { entity: 'bot', permissions: object.permissions }] : object)
 
     const checkedPermissions = fixedPermissionList.map((object) => {
       const member = object.entity === 'user' ? ctx.message.member : ctx.message.channel.guild.members.get(client.user.id)
@@ -75,7 +87,7 @@ module.exports = class CommandRunner {
       const missingPerm = checkedPermissions.filter(z => z.missing)[0]
       const key = checkedPermissions.entity === 'bot' ? 'Bot' : 'User'
 
-      return ctx.replyT('error', `basic:missing${key}Permission`, {perm: ctx.t(`permission:${missingPerm.missing}`)})
+      return ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx.t(`permission:${missingPerm.missing}`) })
     }
 
     if (command.arguments && !ctx.args[0]) {
