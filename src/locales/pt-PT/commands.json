@@ -2,12 +2,12 @@
     "dance": {
         "danced": "{{0}} dançou com {{1}}",
         "usage": "<userID|@user>",
-        "description": "Dance with your friend."
+        "description": "Dança com o teu amigo."
     },
     "hug": {
         "huged": "{{0}} deu um bom abraço em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make they happy."
+        "description": "Abraça um amigo e faz-o feliz."
     },
     "pat": {
         "pated": "{{0}} deu uma festa no(a) {{1}}",
@@ -17,16 +17,16 @@
     "poke": {
         "poked": "{{0}} cutucou {{1}}",
         "usage": "<userID|@user>",
-        "description": "Poke someone on your server."
+        "description": "Cutucar alguém no teu servidor."
     },
     "ping": "Total de shards: {{totalShard}}",
     "slap": {
         "slaped": "{{0}} dei uma chapada no(a) {{1}}",
-        "description": "Slap someone on your server."
+        "usage": "<userID|@user>",
+        "description": "Dá 1 chapada a alguém no teu servidor."
     },
-   
     "tickle": {
-        "tickled": "{{0}} fez cocegas no(a) {{1}}",
+        "tickle": "{{0}} fez cocegas no(a) {{1}}",
         "usage": "<userID|@user>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },
@@ -186,9 +186,9 @@
         "download": "Clica [here]({{link}}) para fazer download"
     },
     "calculate": {
-        "description": "Evaluates a math expression.",
+        "description": "Resolve uma expressão matemática.",
         "usage": "<expression>",
-        "invalidArgs": "you must enter a valid value.",
-        "result": "the result is `{{result}}`"
+        "invalidArgs": "Tu tens que introduzir um valor válido.",
+        "result": "o resultado é `{{result}}`"
     }
 }
