@@ -54,7 +54,7 @@ module.exports = class ReadyListener extends Listener {
 			const status = Math.floor(Math.random() * game.length)
 			client.editStatus('dnd', game[status])
 		}, 5000)
-		Logger.debug(`Logged as ${client.user.username}#${client.user.discriminator}`)
+		Logger.info(`Logged as ${client.user.username}#${client.user.discriminator}`)
 		Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
 	}
 }
