@@ -1,8 +1,8 @@
 {
     "botDeveloper": "ボツト開発者。",
     "createInstantInvite": "create instant invite",
-    "kickMembers": "メソバーヲキツケ",
-    "banMembers": "メソバーをBAN",
+    "kickMembers": "メンバーヲキツケ",
+    "banMembers": "メンバーをBAN",
     "administrator": "管理者",
     "manageChannels": "チアソネルの管理",
     "manageGuild": "サーバー管理",
