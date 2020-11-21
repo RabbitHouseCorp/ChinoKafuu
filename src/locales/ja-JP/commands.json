@@ -127,7 +127,7 @@
         "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
+        "description": "ギルドメンバーにロールを追加",
         "usage": "<userID|@user> <role>",
         "roleNotFound": "I couldn't find any role matching {{name}}",
         "success": "successfully added the role",
@@ -142,8 +142,8 @@
     "chat": {
         "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "わかったよ、チャネルロックする!",
+        "unlocked": "わかったよ、チャネルアンロックする！"
     },
     "clear": {
         "usage": "<quantity>",
@@ -162,7 +162,7 @@
     "ban": {
         "usage": "<userID|@user> [reason]",
         "description": "Bans an user from the server",
-        "selfBan": "you can't self ban!",
+        "selfBan": "自分をBANできません!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
@@ -174,8 +174,8 @@
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
         "usage": "<prefix>",
-        "description": "Changes the prefix of the bot",
-        "length": "the prefix size is limited to 3 characters"
+        "description": "ボットのプレフィックスを変更します",
+        "length": "プレフィックスのサイズは 3 文字に制限されています"
     },
     "setbanner": {
         "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
@@ -200,7 +200,7 @@
     },
     "choose": {
         "usage": "argument1, argument2, argumentN",
-        "description": "Makes the bot choose something",
+        "description": "ボットが何かを選択するようにします",
         "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
     },
     "avatar": {
@@ -211,6 +211,6 @@
         "description": "数式をエバルします。",
         "usage": "<expression>",
         "invalidArgs": "有効な値を入力してください。",
-        "result": "the result is `{{result}}`"
+        "result": "結果は `{{result}} `だ"
     }
 }
