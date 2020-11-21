@@ -70,9 +70,9 @@
     "anime": {
         "synopsis": "Synopsis",
         "animeName": "Anime name",
-        "type": "Type",
-        "episodes": "Episodes",
-        "rating": "Rating",
+        "type": "タイプ",
+        "episodes": "エピソード",
+        "rating": "評価",
         "aired": "Aired",
         "score": "Score",
         "scoreStats": "Score stats",
