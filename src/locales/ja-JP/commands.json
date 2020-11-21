@@ -1,22 +1,22 @@
 {
     "mcavatar": {
-        "description": "Shows a player's minecraft avatar.",
+        "description": "プレイヤーのMinecraftアバターを表示します。",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "Shows a player's minecraft body.",
+        "description": "プレイヤーのMinecraftのボディーを表示します。",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
-        "description": "Shows a player's minecraft head.",
+        "description": "プレイヤーのMinecraftヘッドを表示します。",
         "usage": "<minecraft-nickname>"
     },
     "mcskin": {
-        "description": "Shows a player's minecraft skin.",
+        "description": "プレイヤーの Minecraft のスキンを表示します。",
         "usage": "<minecraft-nickname>"
     },
     "mcquery": {
-        "description": "Show the minecraft server info",
+        "description": "Minecraftサーバーのインフォを表示します。",
         "usage": "<minecraft-server-ip>",
         "version": "Version",
         "serverOffline": "the server `{{0}}` has been offline in this moment or doesn't exist."
