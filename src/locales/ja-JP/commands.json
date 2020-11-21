@@ -24,12 +24,12 @@
     "dance": {
         "danced": "{{0}} danced with {{1}}",
         "usage": "<userID|@user>",
-        "description": "Dance with your friend."
+        "description": "友達と踊ります。"
     },
     "hug": {
         "huged": "{{0}} gave a very nice hug in {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make they happy."
+        "description": "友達を抱きしめて、幸せにしてるの。"
     },
     "pat": {
         "pated": "{{0}} pated {{1}}",
