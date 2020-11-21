@@ -1,10 +1,10 @@
 {
     "mcavatar": {
-        "description": "Shows a player's minecraft avatar.",
+        "description": "Mostra o avatar de um jogador.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "Shows a player's minecraft body.",
+        "description": "Mostra o corpo de um jogador.",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
