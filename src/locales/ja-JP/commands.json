@@ -196,21 +196,21 @@
         "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
     },
     "afk": {
-        "success": "you're now AFK"
+        "success": "AFKになりました"
     },
     "choose": {
         "usage": "argument1, argument2, argumentN",
         "description": "Makes the bot choose something",
-        "chosen": "I choose `{{chosen}}` 💁‍♀️"
+        "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
     },
     "avatar": {
-        "userAvatar": "{{user}}'s avatar",
-        "download": "Click [here]({{link}}) to download"
+        "userAvatar": "{{user}}のアバター",
+        "download": "ダウンロードするには[こちら]({{link}})をクリック"
     },
     "calculate": {
-        "description": "Evaluates a math expression.",
+        "description": "数式をエバルします。",
         "usage": "<expression>",
-        "invalidArgs": "you must enter a valid value.",
+        "invalidArgs": "有効な値を入力してください。",
         "result": "the result is `{{result}}`"
     }
 }
