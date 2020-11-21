@@ -59,17 +59,17 @@
     },
     "kiss": {
         "kissed": "{{author}} kissed {{member}}",
-        "unable": "uh... you can't kiss yourself.",
+        "unable": "自分をキスはできないだよ!",
         "usage": "<userID|@user>",
-        "description": "Kisses a user"
+        "description": "ユーザーにキス"
     },
     "yens": {
-        "yens": "you have {{yens}} Yens",
-        "onMention": "{{user}} has {{yens}} Yens"
+        "yens": "{{yens}} 円です。",
+        "onMention": "{{user}} は {{yens}} 円あります。"
     },
     "anime": {
-        "synopsis": "Synopsis",
-        "animeName": "Anime name",
+        "synopsis": "あらすじ",
+        "animeName": "アニメ名",
         "type": "タイプ",
         "episodes": "エピソード",
         "rating": "評価",
