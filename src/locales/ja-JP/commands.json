@@ -32,9 +32,9 @@
         "description": "友達を抱きしめて、幸せにしてるの。"
     },
     "pat": {
-        "pated": "{{0}} pated {{1}}",
+        "pated": "{{0}} が {{1}} をなでしました",
         "usage": "<userID|@user>",
-        "description": "Pat pat, pat me please. Give a pat to your friend."
+        "description": "なで、なで、なでお願いします。友達をなでくれ。"
     },
     "poke": {
         "poked": "{{0}} poked {{1}}",
