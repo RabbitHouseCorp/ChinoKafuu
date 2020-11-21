@@ -5,5 +5,6 @@ module.exports = {
     warn: '<:warn:672470606578581524>',
     success: '<a:success:577973168342302771>',
     chino_shock: '<:chino_shock:685198401863942156>',
-    yen: '💴'
+    yen: '💴',
+    minecraft: '<:minecraft:504670650498285603>'
 }

@@ -91,12 +91,20 @@ module.exports = class CommandRunner {
     }
 
     if (command.arguments && !ctx.args[0]) {
-      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
+      const aliases = []
+      for (const alias of command.aliases) {
+        aliases.push(`\`${guildData.prefix}${alias}\``)
+      }
+      const helper = new Helper(ctx, command.name, aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
       return helper.help()
     }
 
     if (command.arguments && ctx.args.length < command.arguments) {
-      const helper = new Helper(ctx, command.name, command.aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
+      const aliases = []
+      for (const alias of command.aliases) {
+        aliases.push(`\`${guildData.prefix}${alias}\``)
+      }
+      const helper = new Helper(ctx, command.name, aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
       return helper.help()
     }
 

@@ -99,7 +99,7 @@ module.exports = class EmbedBuilder {
 	 * @param {number} timestamp TheISO8601 timestamp
 	 * @returns {EmbedBuilder}
 	 */
-	setTimestamp(timestamp = new Date().getTime()) {
+	setTimestamp(timestamp = new Date()) {
 		this.timestamp = timestamp
 		return this
 	}
