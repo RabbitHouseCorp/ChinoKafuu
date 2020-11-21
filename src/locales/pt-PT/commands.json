@@ -1,4 +1,26 @@
 {
+    "mcavatar": {
+        "description": "Shows a player's minecraft avatar.",
+        "usage": "<minecraft-nickname>"
+    },
+    "mcbody": {
+        "description": "Shows a player's minecraft body.",
+        "usage": "<minecraft-nickname>"
+    },
+    "mchead": {
+        "description": "Shows a player's minecraft head.",
+        "usage": "<minecraft-nickname>"
+    },
+    "mcskin": {
+        "description": "Shows a player's minecraft skin.",
+        "usage": "<minecraft-nickname>"
+    },
+    "mcquery": {
+        "description": "Show the minecraft server info",
+        "usage": "<minecraft-server-ip>",
+        "version": "Version",
+        "serverOffline": "the server `{{0}}` has been offline in this moment or doesn't exist."
+    },
     "dance": {
         "danced": "{{0}} dançou com {{1}}",
         "usage": "<userID|@user>",
