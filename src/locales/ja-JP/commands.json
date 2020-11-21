@@ -37,24 +37,24 @@
         "description": "なで、なで、なでお願いします。友達をなでくれ。"
     },
     "poke": {
-        "poked": "{{0}} poked {{1}}",
+        "poked": "{{0}} が {{1}} つついだしました",
         "usage": "<userID|@user>",
-        "description": "Poke someone on your server."
+        "description": "サーバーに誰かをつついます。"
     },
-    "ping": "Total de shards: {{totalShard}}",
+    "ping": "合計シャード数: {{totalShard}}",
     "slap": {
-        "slaped": "{{0}} slapped on {{1}}",
+        "slaped": "{{0}} が {{1}} をぱんぱんしました。",
         "usage": "<userID|@user>",
         "description": "Slap someone on your server."
     },
     "tickle": {
-        "tickle": "{{0}} tickled on {{1}}",
+        "tickle": "{{0}} が {{1}} をくすぐりました。",
         "usage": "<userID|@user>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },
     "reload": {
         "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
+        "argsNull": "利用可能なオプション : {{list}}",
         "shard": "shard `{{shard}}` reiniciada com sucesso."
     },
     "kiss": {
