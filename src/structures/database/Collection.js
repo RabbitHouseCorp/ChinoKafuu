@@ -1,5 +1,5 @@
 module.exports = class Collection {
-  constructor (model) {
+  constructor(model) {
     this.model = model
   }
 
@@ -8,7 +8,7 @@ module.exports = class Collection {
    * @param id
    * @returns {*}
    */
-  findOneByID (id) {
+  findOneByID(id) {
     return this.findOne({ _id: id })
   }
 
@@ -16,8 +16,22 @@ module.exports = class Collection {
    *
    * @param args
    */
-  findOne (...args) {
+  findOne(...args) {
     return this.model.findOne(...args)
+  }
+
+  /**
+   * 
+   * @param id 
+   * @returns {Promise<Promise|void|*>}
+   */
+  async getAndDelete(id) {
+    const data = await this.findOneByID(id)
+    if (data) {
+      return this.model.findByIdAndDelete(id)
+    } else {
+      return undefined
+    }
   }
 
   /**
@@ -26,7 +40,7 @@ module.exports = class Collection {
    * @param defaultValues
    * @returns {Promise<Promise|void|*>}
    */
-  async getOrCreate (id, defaultValues = {}) {
+  async getOrCreate(id, defaultValues = {}) {
     const data = await this.findOneByID(id)
     if (!data) {
       return this.model({ _id: id, ...defaultValues }).save()

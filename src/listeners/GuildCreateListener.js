@@ -7,18 +7,18 @@ module.exports = class GuildCreateListener extends Listener {
         this.event = 'guildCreate'
         this.region = {
             'brazil': 'pt-BR',
-            'eu-central': 'en-US',
-            'eu-west': 'en-US',
+            'europe': 'en-US',
             'hongkong': 'en-US',
-            'japan': 'en-US',
+            'japan': 'ja-JP',
             'russia': 'en-US',
             'singapore': 'en-US',
             'southafrica': 'en-US',
             'sydney': 'en-US',
-            'us-central': 'es-ES',
+            'us-central': 'en-US',
             'us-east': 'en-US',
-            'us-south': 'es-ES',
+            'us-south': 'en-US',
             'us-west': 'en-US',
+            'india': 'en-US'
         }
     }
 
