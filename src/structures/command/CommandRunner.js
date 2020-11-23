@@ -62,7 +62,7 @@ module.exports = class CommandRunner {
       ctx.send(embed)
       return
     }
-    
+
     await ctx.message.channel.sendTyping()
     const fixedPermissionList = command.permissions.flatMap(object => object.entity === 'both' ? [{
       entity: 'user',
@@ -87,7 +87,9 @@ module.exports = class CommandRunner {
       const missingPerm = checkedPermissions.filter(z => z.missing)[0]
       const key = checkedPermissions.entity === 'bot' ? 'Bot' : 'User'
 
-      return ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx.t(`permission:${missingPerm.missing}`) })
+      ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx.t(`permission:${missingPerm.missing}`) })
+      missingPerm.missing = null
+      return
     }
 
     if (command.arguments && !ctx.args[0]) {
