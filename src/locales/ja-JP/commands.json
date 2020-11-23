@@ -24,75 +24,75 @@
     "dance": {
         "danced": "{{0}} danced with {{1}}",
         "usage": "<userID|@user>",
-        "description": "Dance with your friend."
+        "description": "友達と踊ります。"
     },
     "hug": {
         "huged": "{{0}} gave a very nice hug in {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make they happy."
+        "description": "友達を抱きしめて、幸せにしてるの。"
     },
     "pat": {
-        "pated": "{{0}} pated {{1}}",
+        "pated": "{{0}} が {{1}} をなでしました",
         "usage": "<userID|@user>",
-        "description": "Pat pat, pat me please. Give a pat to your friend."
+        "description": "なで、なで、なでお願いします。友達をなでくれ。"
     },
     "poke": {
-        "poked": "{{0}} poked {{1}}",
+        "poked": "{{0}} が {{1}} つついだしました",
         "usage": "<userID|@user>",
-        "description": "Poke someone on your server."
+        "description": "サーバーに誰かをつついます。"
     },
-    "ping": "Total de shards: {{totalShard}}",
+    "ping": "合計シャード数: {{totalShard}}",
     "slap": {
-        "slaped": "{{0}} slapped on {{1}}",
+        "slaped": "{{0}} が {{1}} をぱんぱんしました。",
         "usage": "<userID|@user>",
         "description": "Slap someone on your server."
     },
     "tickle": {
-        "tickle": "{{0}} tickled on {{1}}",
+        "tickle": "{{0}} が {{1}} をくすぐりました。",
         "usage": "<userID|@user>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },
     "reload": {
         "locales": "locales recarregadas com sucesso!",
-        "argsNull": "opções disponíveis : {{list}}",
+        "argsNull": "利用可能なオプション : {{list}}",
         "shard": "shard `{{shard}}` reiniciada com sucesso."
     },
     "kiss": {
         "kissed": "{{author}} kissed {{member}}",
-        "unable": "uh... you can't kiss yourself.",
+        "unable": "自分をキスはできないだよ!",
         "usage": "<userID|@user>",
-        "description": "Kisses a user"
+        "description": "ユーザーにキス"
     },
     "yens": {
-        "yens": "you have {{yens}} Yens",
-        "onMention": "{{user}} has {{yens}} Yens"
+        "yens": "{{yens}} 円です。",
+        "onMention": "{{user}} は {{yens}} 円あります。"
     },
     "anime": {
-        "synopsis": "Synopsis",
-        "animeName": "Anime name",
+        "synopsis": "あらすじ",
+        "animeName": "アニメ名",
         "type": "タイプ",
         "episodes": "エピソード",
         "rating": "評価",
-        "aired": "Aired",
-        "score": "Score",
-        "scoreStats": "Score stats",
-        "duration": "Episodes duraction",
-        "ranked": "Ranked",
-        "popularity": "Popularity",
-        "genres": "Genres",
+        "aired": "放映した",
+        "score": "スコア",
+        "scoreStats": "スコアのステータス",
+        "duration": "エピソードの長さ",
+        "ranked": "ランク",
+        "popularity": "人気",
+        "genres": "ジャンル",
         "invalidAnime": "enter the name of the desired anime",
         "animeNotFound": "I didn't find any anime with the name like: `{{0}}`."
     },
     "manga": {
         "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
         "type": "Type",
-        "status": "Status",
-        "vols": "Volumes",
+        "status": "ステータス",
+        "vols": "刊行号",
         "chapters": "Chapters",
         "score": "Score",
         "aired": "Aired",
         "genres": "Genres",
-        "characters": "Characters"
+        "characters": "キャラクター"
     },
     "pay": {
         "invalidUser": "this user doesn't exist",
@@ -127,7 +127,7 @@
         "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
     },
     "addrole": {
-        "description": "Adds a role to a guild member",
+        "description": "ギルドメンバーにロールを追加",
         "usage": "<userID|@user> <role>",
         "roleNotFound": "I couldn't find any role matching {{name}}",
         "success": "successfully added the role",
@@ -142,8 +142,8 @@
     "chat": {
         "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
         "usage": "<on|off>",
-        "locked": "got it, channel locked",
-        "unlocked": "got it, channel unlocked"
+        "locked": "わかったよ、チャネルロックする!",
+        "unlocked": "わかったよ、チャネルアンロックする！"
     },
     "clear": {
         "usage": "<quantity>",
@@ -162,7 +162,7 @@
     "ban": {
         "usage": "<userID|@user> [reason]",
         "description": "Bans an user from the server",
-        "selfBan": "you can't self ban!",
+        "selfBan": "自分をBANできません!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
@@ -174,8 +174,8 @@
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
         "usage": "<prefix>",
-        "description": "Changes the prefix of the bot",
-        "length": "the prefix size is limited to 3 characters"
+        "description": "ボットのプレフィックスを変更します",
+        "length": "プレフィックスのサイズは 3 文字に制限されています"
     },
     "setbanner": {
         "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
@@ -196,21 +196,21 @@
         "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nFor more information: `{{error}}`"
     },
     "afk": {
-        "success": "you're now AFK"
+        "success": "AFKになりました"
     },
     "choose": {
         "usage": "argument1, argument2, argumentN",
-        "description": "Makes the bot choose something",
-        "chosen": "I choose `{{chosen}}` 💁‍♀️"
+        "description": "ボットが何かを選択するようにします",
+        "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
     },
     "avatar": {
-        "userAvatar": "{{user}}'s avatar",
-        "download": "Click [here]({{link}}) to download"
+        "userAvatar": "{{user}}のアバター",
+        "download": "ダウンロードするには[こちら]({{link}})をクリック"
     },
     "calculate": {
-        "description": "Evaluates a math expression.",
+        "description": "数式をエバルします。",
         "usage": "<expression>",
-        "invalidArgs": "you must enter a valid value.",
-        "result": "the result is `{{result}}`"
+        "invalidArgs": "有効な値を入力してください。",
+        "result": "結果は `{{result}} `だ"
     }
 }
