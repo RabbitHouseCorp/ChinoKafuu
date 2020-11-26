@@ -1,6 +1,6 @@
 {
     "mcavatar": {
-        "description": "Shows a player's minecraft avatar.",
+        "description": "Mostra o avatar de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
@@ -8,47 +8,47 @@
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
-        "description": "Shows a player's minecraft head.",
+        "description": "Mostra a cabeça de um jogador do Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcskin": {
-        "description": "Shows a player's minecraft skin.",
+        "description": "Mostra a skin de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcquery": {
-        "description": "Show the minecraft server info",
+        "description": "Mostra a informação de um servidor de Minecraft",
         "usage": "<minecraft-server-ip>",
         "version": "Version",
-        "serverOffline": "the server `{{0}}` has been offline in this moment or doesn't exist."
+        "serverOffline": "O servidor `{{0}}` está offline nesse momento ou não existe."
     },
     "dance": {
-        "danced": "{{0}} danced with {{1}}",
+        "danced": "{{0}} dançou com {{1}}",
         "usage": "<userID|@user>",
-        "description": "Dance with your friend."
+        "description": "Dance com seu amigo."
     },
     "hug": {
-        "huged": "{{0}} gave a very nice hug in {{1}}",
+        "huged": "{{0}} deu um belo abraço em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make they happy."
+        "description": "Abrace um amigo e faça ele feliz."
     },
     "pat": {
-        "pated": "{{0}} pated {{1}}",
+        "pated": "{{0}} acariciou {{1}}",
         "usage": "<userID|@user>",
         "description": "Pat pat, pat me please. Give a pat to your friend."
     },
     "poke": {
-        "poked": "{{0}} poked {{1}}",
+        "poked": "{{0}} cutucou {{1}}",
         "usage": "<userID|@user>",
-        "description": "Poke someone on your server."
+        "description": "Cutuque alguém no seu servidor."
     },
     "ping": "Total de shards: {{totalShard}}",
     "slap": {
-        "slaped": "{{0}} slapped on {{1}}",
+        "slaped": "{{0}} deu um tapa em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Slap someone on your server."
+        "description": "Dê um tapa em alguém do seu servidor."
     },
     "tickle": {
-        "tickle": "{{0}} tickled on {{1}}",
+        "tickle": "{{0}} fez cócegas em {{1}}",
         "usage": "<userID|@user>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },
@@ -200,12 +200,12 @@
     },
     "choose": {
         "usage": "argument1, argument2, argumentN",
-        "description": "Makes the bot choose something",
-        "chosen": "I choose `{{chosen}}` 💁‍♀️"
+        "description": "Faça o bot escolher algo",
+        "chosen": "Eu escolho `{{chosen}}`"
     },
     "avatar": {
-        "userAvatar": "{{user}}'s avatar",
-        "download": "Click [here]({{link}}) to download"
+        "userAvatar": "Avatar de {{user}}",
+        "download": "Clique [here]({{link}}) para baixar"
     },
     "calculate": {
         "description": "Evaluates a math expression.",
