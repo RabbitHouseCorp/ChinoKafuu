@@ -43,7 +43,7 @@ module.exports = class DailyCommand extends Command {
 
 		} else {
 			message.chinoReply("error", t("commands:daily.has-been-picked", {
-				tempo: (parseInt(user.timeDaily) > 3600000) ? moment.utc(parseInt(user.timeDaily - Date.now())).format("hh:mm:ss") : moment.utc(parseInt(user.timeDaily - Date.now())).format("mm:ss")
+				tempo: (parseInt(user.timeDaily - Date.now()) > 3600000) ? moment.utc(parseInt(user.timeDaily - Date.now())).format("hh:mm:ss") : moment.utc(parseInt(user.timeDaily - Date.now())).format("mm:ss")
 			}))
 		}
 	}
