@@ -325,7 +325,7 @@
         "addedQueue": "song `{{songTitle}}` has been added to the queue",
         "playingNow": "now playing `{{songTitle}}`",
         "args-null": "you need to indicate the name or URL of the song.",
-        "unavailable": "Oh no! My music system is currently unavailable, but you can use [Meteora](https://discord.com/oauth2/authorize?client_id=464304679128530954&permissions=3509248&scope=bot) as a workaround..."
+        "unavailable": "Oh no! My music system is currently unavailable, but you can use [Kashima](https://kashima.moe) as a workaround..."
     },
     "poke": "{{author}} poked {{member}}",
     "prefix": {
