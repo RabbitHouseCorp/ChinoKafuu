@@ -56,9 +56,16 @@ module.exports = class TempMuteCommand extends Command {
 		message.guild.member(member).roles.add(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
-				message.guild.channels.cache.get(server.punishChannel).send(embed).catch(err => {
-					message.channel.send(t("events:channel-not-found"))
-				})
+				const punishChannel = message.guild.channels.cache.get(server.punishChannel)
+				if (!punishChannel) {
+					server.punishModule = false
+					server.punishChannel = ''
+					server.save().then(() => {
+						message.chinoReply('error', t("events:channel-not-found"))
+					})
+				}
+				if (!punishChannel.permissionsFor(this.client.user).has('SEND_MESSAGES')) return message.chinoReply('error', t("permissions:CLIENT_MISSING_PERMISSION", { perm: t('permissions:SEND_MESSAGES') }))
+				punishChannel.send(embed)
 			}
 		})
 		setTimeout(function () {

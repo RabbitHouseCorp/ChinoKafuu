@@ -28,7 +28,7 @@ module.exports = class BanCommand extends Command {
 
 		if (inGuild.id === message.author.id) return message.chinoReply("error", t("commands:ban.banAuthor"))
 		if (message.guild.members.cache.has(inGuild.id)) {
-			if (message.member.roles.highest.position <= message.guild.member(member).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+			if (message.member.roles.highest.position <= inGuild.roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 			if (!inGuild.bannable) return message.chinoReply("error", t("commands:ban.bannable"))
 		}
 
@@ -50,9 +50,16 @@ module.exports = class BanCommand extends Command {
 			message.channel.send(embed)
 
 			if (server.punishModule) {
-				message.guild.channels.cache.get(server.punishChannel).send(embed).catch(err => {
-					message.channel.send(t("events:channel-not-found"))
-				})
+				const punishChannel = message.guild.channels.cache.get(server.punishChannel)
+				if (!punishChannel) {
+					server.punishModule = false
+					server.punishChannel = ''
+					server.save().then(() => {
+						message.chinoReply('error', t("events:channel-not-found"))
+					})
+				}
+				if (!punishChannel.permissionsFor(this.client.user).has('SEND_MESSAGES')) return message.chinoReply('error', t("permissions:CLIENT_MISSING_PERMISSION", { perm: t('permissions:SEND_MESSAGES') }))
+				punishChannel.send(embed)
 			}
 		})
 	}

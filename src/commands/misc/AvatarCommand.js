@@ -14,7 +14,7 @@ module.exports = class AvatarCommand extends Command {
 	run({ message, args, server }, t) {
 
 		let member = message.mentions.users.first() || this.client.users.cache.get(args[0]) || message.author
-		let avatar = member.displayAvatarURL({ format: "png", dynamic: true })
+		let avatar = member.displayAvatarURL({ format: "png", dynamic: true, size: 2048 })
 
 		const embed = new MessageEmbed()
 			.setColor(this.client.colors.default)
