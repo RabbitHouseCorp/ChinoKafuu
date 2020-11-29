@@ -17,7 +17,7 @@ module.exports = class AddRoleCommand extends Command {
 		let role = message.mentions.roles.array()[1] || message.guild.roles.cache.get(args[1]) || message.guild.roles.cache.find(r => r.name === args.slice(1).join(" "))
 		if (!role) return message.chinoReply("error", t("commands:addrole.mentionRoleNull"))
 
-		message.guild.member.cache.get(member.id).roles.add(role.id).then(() => {
+		message.guild.members.cache.get(member.id).roles.add(role.id).then(() => {
 			message.chinoReply("success", t("commands:addrole.roleAdd"))
 		}).catch(() => {
 			message.chinoReply("error", t("commands:addrole.noPerm"))

@@ -40,7 +40,7 @@ module.exports = class TempMuteCommand extends Command {
 				})
 			})
 		}
-		if (message.member.roles.highest.position <= message.guild.member.cache.get(member.id).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+		if (message.member.roles.highest.position <= message.guild.members.cache.get(member.id).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 
 		let avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 
@@ -53,7 +53,7 @@ module.exports = class TempMuteCommand extends Command {
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 			.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.member.cache.get(member.id).roles.add(role.id).then(() => {
+		message.guild.members.cache.get(member.id).roles.add(role.id).then(() => {
 			message.channel.send(embed)
 			if (server.punishModule) {
 				const punishChannel = message.guild.channels.cache.get(server.punishChannel)
@@ -69,7 +69,7 @@ module.exports = class TempMuteCommand extends Command {
 			}
 		})
 		setTimeout(function () {
-			message.guild.member.cache.get(member.id).roles.remove(role.id)
+			message.guild.members.cache.get(member.id).roles.remove(role.id)
 		}, parse(time))
 	}
 }

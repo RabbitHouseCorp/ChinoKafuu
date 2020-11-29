@@ -16,13 +16,13 @@ module.exports = class Unmute extends Command {
 		const member = message.mentions.users.first() || this.client.users.cache.get(args[0])
 		if (!member) return message.chinoReply("error", t("commands:mention-null"))
 		let role = message.guild.roles.cache.find(r => r.name === "Silenciado")
-		if (!message.guild.member.cache.get(member.id).roles.cache.find(r => r.name === "Silenciado")) return message.channel.send("error", t("commands:unmute.noMuted"))
+		if (!message.guild.members.cache.get(member.id).roles.cache.find(r => r.name === "Silenciado")) return message.channel.send("error", t("commands:unmute.noMuted"))
 		let reason = args.slice(1).join(" ")
 		if (!reason) {
 			reason = t("commands:no-reason")
 		}
 
-		if (message.member.roles.highest.position < message.guild.member.cache.get(member.id).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
+		if (message.member.roles.highest.position < message.guild.members.cache.get(member.id).roles.highest.position) return message.chinoReply("error", t("commands:punishment.unpunished"))
 		let avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 
 		const embed = new MessageEmbed()
@@ -34,7 +34,7 @@ module.exports = class Unmute extends Command {
 			.addField(t("commands:punishment.embed.staffName"), message.author.tag, true)
 			.addField(t("commands:punishment.embed.reason"), reason, true)
 
-		message.guild.member.cache.get(member.id).roles.remove(role.id).then(() => {
+		message.guild.members.cache.get(member.id).roles.remove(role.id).then(() => {
 			if (server.punishModule) {
 				const punishChannel = message.guild.channels.cache.get(server.punishChannel)
 				if (!punishChannel) {

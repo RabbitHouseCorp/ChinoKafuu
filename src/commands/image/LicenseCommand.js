@@ -28,13 +28,13 @@ module.exports = class LicencaCommand extends Command {
 			const brightness = ((c_r * 299) + (c_g * 587) + (c_b * 114)) / 1000; return brightness > 155;
 		}
 
-		if (isLight(message.guild.member.cache.get(user.id).displayHexColor)) {
+		if (isLight(message.guild.members.cache.get(user.id).displayHexColor)) {
 			isLightColor = "#000000"
 		}
 		ctx.rotate(Math.PI * 2 / -30)
 		ctx.textAlign = "center"
 
-		ctx.fillStyle = message.guild.member.cache.get(user.id) ? message.guild.member.cache.get(user.id).displayHexColor : "#450396"
+		ctx.fillStyle = message.guild.members.cache.get(user.id) ? message.guild.members.cache.get(user.id).displayHexColor : "#450396"
 		ctx.roundRect(-10, 250, 860, 550, 50, true, false)
 		ctx.drawImage(Card, -10, 300, 800, 393)
 		ctx.drawImage(UserImg, 428, 300, 393, 393)

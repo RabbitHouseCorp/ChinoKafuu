@@ -23,9 +23,9 @@ module.exports = class UserinfoCommand extends Command {
 			member = message.author
 		}
 		let status = `${member.presence.status}`.replace("dnd", t("commands:userinfo.statusDnd", { emoji: this.client.emotes.dnd })).replace("idle", t("commands:userinfo.statusIdle", { emoji: this.client.emotes.idle })).replace("offline", t("commands:userinfo.statusOffline", { emoji: this.client.emotes.offline })).replace("online", t("commands:userinfo.statusOnline", { emoji: this.client.emotes.online }))
-		let role = message.guild.member.cache.get(member.id) ? message.guild.member.cache.get(member.id)._roles.map(r => message.guild.roles.cache.get(r).name).join(", ") : t("commands:userinfo.no-guild")
-		let roleSize = message.guild.member.cache.get(member.id) ? message.guild.member.cache.get(member.id)._roles.length : "0"
-		let color = message.guild.member.cache.get(member.id) ? message.guild.member.cache.get(member.id).displayHexColor : "#000000"
+		let role = message.guild.members.cache.get(member.id) ? message.guild.members.cache.get(member.id)._roles.map(r => message.guild.roles.cache.get(r).name).join(", ") : t("commands:userinfo.no-guild")
+		let roleSize = message.guild.members.cache.get(member.id) ? message.guild.members.cache.get(member.id)._roles.length : "0"
+		let color = message.guild.members.cache.get(member.id) ? message.guild.members.cache.get(member.id).displayHexColor : "#000000"
 		let avatar = member.displayAvatarURL({ dynamic: true, format: "png" })
 
 		const embed = new MessageEmbed()
@@ -34,16 +34,16 @@ module.exports = class UserinfoCommand extends Command {
 			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), avatar)
 			.addField(t("commands:userinfo.name"), member.tag, true)
 			.addField(t("commands:userinfo.id"), member.id, true)
-			.addField(t("commands:userinfo.high"), message.guild.member.cache.get(member.id) ? message.guild.member.cache.get(member.id).roles.highest : t("commands:userinfo.no-guild"), true)
+			.addField(t("commands:userinfo.high"), message.guild.members.cache.get(member.id) ? message.guild.members.cache.get(member.id).roles.highest : t("commands:userinfo.no-guild"), true)
 			.addField(t("commands:userinfo.status"), status, true)
-			.addField(t("commands:userinfo.joinedAt"), message.guild.member.cache.get(member.id) ? moment.utc(message.guild.member.cache.get(member.id).joinedAt).format("LLLL") : t("commands:userinfo.no-guild"), true)
+			.addField(t("commands:userinfo.joinedAt"), message.guild.members.cache.get(member.id) ? moment.utc(message.guild.members.cache.get(member.id).joinedAt).format("LLLL") : t("commands:userinfo.no-guild"), true)
 			.addField(t("commands:userinfo.created-at"), moment.utc(member.createdAt).format("LLLL"), true)
 
 		const page2 = new MessageEmbed()
 			.setColor(color)
 			.setThumbnail(avatar)
 			.setDescription(t("commands:userinfo.title", { isBot: member.bot ? "<:botTag:579456048142876672>" : "<:Wumpus:579455982053097485>", member: member.tag }), avatar)
-			.addField(t("commands:userinfo.permissions"), message.guild.member.cache.get(member.id) ? `\`${message.guild.member.cache.get(member.id).permissions.toArray().join(", ")}\`` : t("commands:userinfo.no-guild"))
+			.addField(t("commands:userinfo.permissions"), message.guild.members.cache.get(member.id) ? `\`${message.guild.members.cache.get(member.id).permissions.toArray().join(", ")}\`` : t("commands:userinfo.no-guild"))
 			.addField(t("commands:userinfo.roles", { roles: roleSize }), `\`${role}\``.replace("@everyone, ", ""), true)
 
 		message.channel.send(embed).then(msg => {
