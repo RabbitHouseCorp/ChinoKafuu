@@ -1,19 +1,19 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
-const nodes = require('./LavalinkConfig').connect
+const { connect } = require('./LavalinkConfig')
 const { Logger } = require('../utils')
 
 module.exports = class LavalinkManager {
     constructor(client) {
         this.client = client
-        this.manager = new Manager(this.client, nodes, {
+        this.manager = new Manager(this.client, connect, {
             user: this.client.user.id,
             shards: parseInt(process.env.SHARD_COUNT)
         })
     }
 
     getBestHost() {
-        return nodes[Math.floor(Math.random() * nodes.length)].id
+        return connect[Math.floor(Math.random() * connect.length)].id
     }
     async connect() {
         try {
