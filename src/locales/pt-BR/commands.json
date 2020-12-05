@@ -1,4 +1,16 @@
 {
+    "botinfo": {
+        "title": "Bot information",
+        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Have a fun, and see you later.",
+        "guildsAmount": "Server amount",
+        "usersAmount": "Users amount",
+        "shardLatency": "Shard latency",
+        "memoryUsage": "RAM usage",
+        "clientVersion": "Current version",
+        "shardUptime": "Current shard uptime",
+        "cpuModel": "CPU model",
+        "supportServer": "Support server"
+    },
     "mcavatar": {
         "description": "Mostra o avatar de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
