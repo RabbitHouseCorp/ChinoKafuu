@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class AvatarCommand extends Command {
@@ -16,9 +15,9 @@ module.exports = class AvatarCommand extends Command {
     if (!member) {
       const baseUrl = (userId, hash) => `https://cdn.discordapp.com/avatars/${userId}/${hash}.${hash.startsWith('a_') ? 'gif' : 'png'}?size=2048`
       try {
-        const request = await axios.get('https://discord.com/api/v8/users/' + memberId, {
+        const request = await axios.get(`https://discord.com/api/v8/users/${memberId}`, {
           headers: {
-            'Authorization': 'Bot ' + process.env.DISCORD_TOKEN
+            'Authorization': `Bot ${process.env.DISCORD_TOKEN}`
           }
         })
         const response = request.data
@@ -32,10 +31,13 @@ module.exports = class AvatarCommand extends Command {
     }
 
     const embed = new EmbedBuilder()
-      .setTitle(ctx._locale('commands:avatar.userAvatar', { user: member.username }))
-      .setDescription(ctx._locale('commands:avatar.download', { link: member.avatarURL }))
-      .setImage(member.avatarURL)
-      .setColor('DEFAULT')
+    embed.setTitle(ctx._locale('commands:avatar.userAvatar', { user: member.username }))
+    embed.setDescription(ctx._locale('commands:avatar.download', { link: member.avatarURL }))
+    embed.setImage(member.avatarURL)
+    embed.setColor('DEFAULT')
+    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setTimestamp()
+
 
     ctx.send(embed)
   }

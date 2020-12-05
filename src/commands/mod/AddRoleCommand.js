@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 module.exports = class AddRoleCommand extends Command {
   constructor() {
@@ -22,8 +22,8 @@ module.exports = class AddRoleCommand extends Command {
     const guildMember = ctx.message.channel.guild.members.get(member.id)
     guildMember.addRole(role)
       .then(() => {
-      ctx.replyT('success', 'commands:addrole.success')
-    })
+        ctx.replyT('success', 'commands:addrole.success')
+      })
       .catch(() => ctx.replyT('error', 'commands:addrole.higher'))
   }
 }

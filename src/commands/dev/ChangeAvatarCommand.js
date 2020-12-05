@@ -1,8 +1,7 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const fetch = require('node-fetch')
 
-class ChangeAvatarCommand extends Command {
+module.exports = class ChangeAvatarCommand extends Command {
     constructor() {
         super({
             name: 'changeavatar',
@@ -35,5 +34,3 @@ class ChangeAvatarCommand extends Command {
         })
     }
 }
-
-module.exports = ChangeAvatarCommand

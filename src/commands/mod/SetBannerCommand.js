@@ -1,6 +1,5 @@
-const Command = require('../../structures/command/Command')
 const Helper = require('../../structures/util/Helper')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const fetch = require('node-fetch')
 
 module.exports = class SetBannerCommand extends Command {

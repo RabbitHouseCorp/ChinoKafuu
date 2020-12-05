@@ -1,8 +1,7 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const util = require('util')
 
-class EvalCommand extends Command {
+module.exports = class EvalCommand extends Command {
     constructor() {
         super({
             name: 'eval',
@@ -35,5 +34,3 @@ class EvalCommand extends Command {
         }
     }
 }
-
-module.exports = EvalCommand

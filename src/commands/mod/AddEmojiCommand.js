@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 const fetch = require('node-fetch')
 const Helper = require('../../structures/util/Helper')
 

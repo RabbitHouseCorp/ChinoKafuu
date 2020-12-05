@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 const Helper = require('../../structures/util/Helper')
 
 module.exports = class SetNickCommand extends Command {

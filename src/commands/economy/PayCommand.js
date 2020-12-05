@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { ReactionCollector } = require('../../utils')
+const { Command, ReactionCollector } = require('../../utils')
 
 class PayCommand extends Command {
   constructor() {

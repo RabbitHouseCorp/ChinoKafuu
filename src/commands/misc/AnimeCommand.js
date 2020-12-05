@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const malScraper = require('mal-scraper')
 
 class AnimeCommand extends Command {
@@ -26,6 +25,8 @@ class AnimeCommand extends Command {
             embed.setColor('DEFAULT')
             embed.setTitle(t('commands:anime.synopsis'))
             embed.setDescription(anime?.synopsis)
+            embed.setFooter(`©️ ${ctx.client.user.username}`)
+            embed.setTimestamp()
             embed.addField(t('commands:anime.animeName'), anime.englishTitle ?? anime.japaneseTitle, true)
             embed.addField(t('commands:anime.type'), anime.type, true)
             embed.addField(t('commands:anime.episodes'), anime.episodes, true)

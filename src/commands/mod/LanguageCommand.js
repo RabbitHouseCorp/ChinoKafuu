@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder, ReactionCollector } = require('../../utils')
+const { Command, EmbedBuilder, ReactionCollector } = require('../../utils')
 module.exports = class LanguageCommand extends Command {
   constructor() {
     super({

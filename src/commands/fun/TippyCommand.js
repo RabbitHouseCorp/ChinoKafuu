@@ -1,7 +1,6 @@
-const Command = require('../../structures/command/Command')
+const { Command, FunCommandInstance } = require('../../utils')
 const fetch = require('node-fetch')
-const Jokes = require('../../structures/util/FunCommandInstance')
-class TippyCommand extends Command {
+module.exports = class TippyCommand extends Command {
     constructor() {
         super({
             name: 'tippy',
@@ -19,16 +18,15 @@ class TippyCommand extends Command {
         const buffer = await request.buffer()
         const data = `data:image/${url.substring(url.length, 3)};base64,`
         const base64Avatar = data + buffer.toString('base64')
-        const jokes = Jokes.jokes[Math.floor(Math.random() * Jokes.length)]
+        const jokes = FunCommandInstance.jokes[Math.floor(Math.random() * FunCommandInstance.jokes.length)]
+        
         ctx.client.createChannelWebhook(ctx.message.channel.id, {
             name: 'tippy',
             avatar: base64Avatar
         }).then(webhook => {
-            ctx.reply(jokes).then(() => {
+            ctx.send(jokes).then(() => {
                 ctx.client.deleteWebhook(webhook.id, webhook.token)
             })
         })
     }
 }
-
-module.exports = TippyCommand
