@@ -21,7 +21,7 @@ module.exports = class PatCommand extends Command {
         const img = await neko.sfw.pat()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:pat.pated', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx._locale('commands:pat.pated', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

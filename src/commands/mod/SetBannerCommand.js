@@ -16,7 +16,7 @@ module.exports = class SetBannerCommand extends Command {
 
   async run(ctx) {
     if (!ctx.message.channel.guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:setbanner.missingFeature')
-    if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx.t(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help()
+    if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help()
 
     const url = ctx.args[0] ?? ctx.message.attachments[0].url
     const request = await fetch(url)
@@ -29,7 +29,7 @@ module.exports = class SetBannerCommand extends Command {
     })
       .then(() => {
         const embed = new EmbedBuilder()
-          .setTitle(ctx.t('commands:setbanner.success'))
+          .setTitle(ctx._locale('commands:setbanner.success'))
           .setColor('DEFAULT')
           .setImage(url)
         ctx.send(embed)

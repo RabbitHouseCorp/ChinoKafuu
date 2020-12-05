@@ -20,8 +20,8 @@ module.exports = class DanceCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('ACTION')
         embed.setImage(dance)
-        embed.setDescription(ctx.t('commands:dance.danced', { 0: ctx.message.author.mention, 1: member.mention }))
-        
+        embed.setDescription(ctx._locale('commands:dance.danced', { 0: ctx.message.author.mention, 1: member.mention }))
+
         ctx.send(embed)
     }
 }

@@ -34,8 +34,7 @@ module.exports = class Cluster {
 				'guildMessageReactions',
 				'directMessages',
 				'directMessageReactions'
-			],
-			getAllUsers: true
+			]
 		})
 
 		try {

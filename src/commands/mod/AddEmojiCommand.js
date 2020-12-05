@@ -15,7 +15,7 @@ module.exports = class AddEmojiCommand extends Command {
   }
 
   async run(ctx) {
-    if (!ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx.t(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help() //FIXME fix undefined in description pls :sob:
+    if (!ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help() //FIXME fix undefined in description pls :sob:
     const url = ctx.args[0] ?? ctx.message.attachments[0]
     let name = ctx.args[1]
     if (!url) name = ctx.args[0]

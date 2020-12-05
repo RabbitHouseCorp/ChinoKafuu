@@ -16,7 +16,7 @@ class AnimeCommand extends Command {
 
     async run(ctx) {
         const search = ctx.args.join(' ')
-        const t = ctx.t
+        const t = ctx._locale
         if (!search) return ctx.replyT('error', 'commands:anime.argsNull')
 
         try {
@@ -25,7 +25,7 @@ class AnimeCommand extends Command {
             embed.setThumbnail(anime.picture)
             embed.setColor('DEFAULT')
             embed.setTitle(t('commands:anime.synopsis'))
-            embed.setDescription(anime.synopsis)
+            embed.setDescription(anime?.synopsis)
             embed.addField(t('commands:anime.animeName'), anime.englishTitle ?? anime.japaneseTitle, true)
             embed.addField(t('commands:anime.type'), anime.type, true)
             embed.addField(t('commands:anime.episodes'), anime.episodes, true)

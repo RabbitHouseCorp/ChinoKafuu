@@ -4,7 +4,8 @@ const collectors = {
     EmbedBuilder: require('../structures/util/EmbedBuilder'),
     Emoji: require('./EmotesInstance'),
     Logger: require('../structures/util/Logger'),
-    FunCommandInstance: require('../structures/util/FunCommandInstance')
+    FunCommandInstance: require('../structures/util/FunCommandInstance'),
+    version: require('../../package.json').version
 }
 
 module.exports = collectors

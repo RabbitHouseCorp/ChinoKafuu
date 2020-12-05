@@ -8,6 +8,11 @@ module.exports = class ShardReadyListener extends Listener {
     }
 
     async on(client, shardID) {
+        client.shardUptime.set(shardID, {
+            shardID,
+            uptime: Date.now()
+        })
+        
         Logger.shardMessage(`Ok! Shard ${shardID} has been connected!`)
     }
 }

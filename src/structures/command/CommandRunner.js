@@ -9,7 +9,7 @@ module.exports = class CommandRunner {
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
     const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
-    const t = client.i18nRegistry.getT(guildData.lang)
+    const _locale = client.i18nRegistry.getT(guildData.lang)
 
     if (userData.afk) {
       userData.afk = false
@@ -48,7 +48,7 @@ module.exports = class CommandRunner {
       user: userData,
       guild: guildData,
       db: client.database.users
-    }, t)
+    }, _locale)
 
     if (userData?.blacklist) {
       const avatar = message.author.dynamicAvatarURL()
@@ -87,7 +87,7 @@ module.exports = class CommandRunner {
       const missingPerm = checkedPermissions.filter(z => z.missing)[0]
       const key = checkedPermissions.entity === 'bot' ? 'Bot' : 'User'
 
-      ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx.t(`permission:${missingPerm.missing}`) })
+      ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx._locale(`permission:${missingPerm.missing}`) })
       missingPerm.missing = null
       return
     }
@@ -97,7 +97,7 @@ module.exports = class CommandRunner {
       for (const alias of command.aliases) {
         aliases.push(`\`${guildData.prefix}${alias}\``)
       }
-      const helper = new Helper(ctx, command.name, aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
+      const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`))
       return helper.help()
     }
 
@@ -106,7 +106,7 @@ module.exports = class CommandRunner {
       for (const alias of command.aliases) {
         aliases.push(`\`${guildData.prefix}${alias}\``)
       }
-      const helper = new Helper(ctx, command.name, aliases, ctx.t(`commands:${command.name}.usage`), ctx.t(`commands:${command.name}.description`))
+      const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`))
       return helper.help()
     }
 
@@ -116,9 +116,9 @@ module.exports = class CommandRunner {
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
-      embed.setTitle(ctx.t('events:executionFailure.embedTitle'))
+      embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
       embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
-      embed.addField(ctx.t('events:executionFailure.fieldTitle'), ctx.t('events:executionFailure.fieldValue'))
+      embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
       return ctx.send(embed)
     }
   }

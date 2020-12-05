@@ -18,7 +18,7 @@ class MangaCommand extends Command {
 
     async run(ctx) {
         const search = ctx.args.join(' ')
-        const t = ctx.t
+        const t = ctx._locale
         if (!search) return ctx.replyT('error', 'commands:manga.invalidManga')
 
         try {
@@ -54,7 +54,7 @@ class MangaCommand extends Command {
             embed.setUrl(result.siteUrl)
             embed.setTitle(result.title.userPreferred)
             embed.setThumbnail(result.coverImage.large)
-            embed.setDescription(result.description.replace(/(<\/b>|<b>|<br>|<Br>|<bR>|<BR>)/g, '\u200B'))
+            embed.setDescription(result.description?.replace(/(<\/b>|<b>|<br>|<Br>|<bR>|<BR>)/g, '\u200B'))
             embed.addField(t('commands:manga.type'), type, true)
             embed.addField(t('commands:manga.status'), status, true)
             embed.addField(t('commands:manga.vols'), result.volumes ?? '--', true)
@@ -67,7 +67,7 @@ class MangaCommand extends Command {
             ctx.send(embed)
         } catch (err) {
             Logger.error(err)
-            ctx.replyT('error', 'commands:anime.mangaNotFound', { 0: search })
+            ctx.replyT('error', 'commands:manga.mangaNotFound', { 0: search })
         }
     }
 }

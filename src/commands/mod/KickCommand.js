@@ -19,7 +19,7 @@ module.exports = class KickCommand extends Command {
 
   async run(ctx) {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
-    const reason = ctx.args.slice(1)?.join(' ') || ctx.t('basic:noReason')
+    const reason = ctx.args.slice(1)?.join(' ') || ctx._locale('basic:noReason')
 
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
@@ -29,12 +29,12 @@ module.exports = class KickCommand extends Command {
 
     try {
       const embed = new EmbedBuilder()
-      embed.setTitle(ctx.t('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
+      embed.setTitle(ctx._locale('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
       embed.setColor('MODERATION')
       embed.setThumbnail(member.avatarURL)
-      embed.addField(ctx.t('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
-      embed.addField(ctx.t('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
-      embed.addField(ctx.t('basic:punishment.embed.reason'), reason)
+      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
+      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+      embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
       guildMember.kick(reason).then(() => ctx.send(embed))
 
       if (ctx.db.guild.punishModule) {

@@ -17,7 +17,7 @@ module.exports = class BakaCommand extends Command {
     const image = await NekoClient.sfw.baka()
     const embed = new EmbedBuilder()
       .setColor('ACTION')
-      .setDescription(ctx.t('commands:baka.baka', { author: ctx.message.author.mention, member: member.mention }))
+      .setDescription(ctx._locale('commands:baka.baka', { author: ctx.message.author.mention, member: member.mention }))
       .setImage(image.url)
     ctx.send(embed)
   }

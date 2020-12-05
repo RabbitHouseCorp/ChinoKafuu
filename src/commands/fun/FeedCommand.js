@@ -18,7 +18,7 @@ module.exports = class FeedCommand extends Command {
     const embed = new EmbedBuilder()
       .setColor('ACTION')
       .setImage(image.url)
-      .setDescription(ctx.t('commands:feed.feed', { author: ctx.message.author.mention, user: member.mention }))
+      .setDescription(ctx._locale('commands:feed.feed', { author: ctx.message.author.mention, user: member.mention }))
     ctx.send(embed)
   }
 }

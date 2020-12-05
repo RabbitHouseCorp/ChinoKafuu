@@ -32,16 +32,16 @@ class BanCommand extends Command {
             }
         }
 
-        const reason = ctx.args.slice(1).join(' ') || ctx.t('basic:noReason')
+        const reason = ctx.args.slice(1).join(' ') || ctx._locale('basic:noReason')
         try {
-            ctx.client.banGuildMember(ctx.message.guildID, guildMember.user.id, 7, ctx.t('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
+            ctx.client.banGuildMember(ctx.message.guildID, guildMember.user.id, 7, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
                 const embed = new EmbedBuilder()
                 embed.setColor('MODERATION')
                 embed.setThumbnail(guildMember.user.avatarURL)
-                embed.setTitle(ctx.t('basic:punishment.banned', { 0: `${guildMember.user.username}#${guildMember.user.discriminator}` }))
-                embed.addField(ctx.t('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
-                embed.addField(ctx.t('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
-                embed.addField(ctx.t('basic:punishment.embed.reason'), reason)
+                embed.setTitle(ctx._locale('basic:punishment.banned', { 0: `${guildMember.user.username}#${guildMember.user.discriminator}` }))
+                embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
+                embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+                embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
                 ctx.send(embed)
 

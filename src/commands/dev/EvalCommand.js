@@ -27,9 +27,9 @@ class EvalCommand extends Command {
             const errorMessage = err.stack.length > 1800 ? `${err.stack.slice(0, 1800)}...` : err.stack
             const embed = new EmbedBuilder()
             embed.setColor('ERROR')
-            embed.setTitle(ctx.t('events:executionFailure.embedTitle'))
+            embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
             embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
-            embed.addField(ctx.t('events:executionFailure.fieldTitle'), ctx.t('events:executionFailure.fieldValue'))
+            embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
 
             ctx.send(embed)
         }

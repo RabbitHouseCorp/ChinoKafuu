@@ -7,7 +7,12 @@ module.exports = class ShardDisconnectListener extends Listener {
     this.event = 'shardDisconnect'
   }
 
-  async on(client, shardId) {
-    Logger.shardMessage(`Mayday! Shard ${shardId} has died!`)
+  async on(client, shardID) {
+    client.shardUptime.set(shardID, {
+      shardID,
+      uptime: NaN
+    })
+
+    Logger.shardMessage(`Mayday! Shard ${shardID} has died!`)
   }
 }

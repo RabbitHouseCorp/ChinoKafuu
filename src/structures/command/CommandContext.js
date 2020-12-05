@@ -9,12 +9,12 @@ module.exports = class CommandContext {
 	 * @param db
 	 * @param t
 	 */
-	constructor(bot, message, args, db, t) {
+	constructor(bot, message, args, db, _locale) {
 		this.client = bot
 		this.message = message
 		this.args = args
 		this.db = db
-		this.t = t
+		this._locale = _locale
 	}
 
 	/**
@@ -38,7 +38,7 @@ module.exports = class CommandContext {
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
 	async sendT(content, data = {}, options = {}) {
-		return await this.client.createMessage(this.message.channel.id, { content: this.t(content, data), options})
+		return await this.client.createMessage(this.message.channel.id, { content: this._locale(content, data), options })
 	}
 
 	/**
@@ -50,7 +50,7 @@ module.exports = class CommandContext {
 	 */
 	async reply(emoji, content, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options})
+		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options })
 	}
 
 	/**
@@ -63,6 +63,6 @@ module.exports = class CommandContext {
 	 */
 	async replyT(emoji, content, data = {}, options = {}) {
 		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${this.t(content, data)}`, options})
+		return await this.client.createMessage(this.message.channel.id, { content: `${emoji} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
 	}
 }

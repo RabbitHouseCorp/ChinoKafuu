@@ -17,22 +17,22 @@ module.exports = class SoftBanCommand extends Command {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
-    const reason = ctx.args.slice(2).join(" ") || ctx.t('basic:noReason')
+    const reason = ctx.args.slice(2).join(" ") || ctx._locale('basic:noReason')
     const days = Number(ctx.args[1]) || 7
 
-    ctx.client.banGuildMember(ctx.message.guildID, member.id, days, ctx.t('basic:punishment.reason', {
+    ctx.client.banGuildMember(ctx.message.guildID, member.id, days, ctx._locale('basic:punishment.reason', {
       0: ctx.message.author.username,
       1: reason
     }))
       .then(() => {
         const embed = new EmbedBuilder()
-        embed.setTitle(ctx.t('basic:punishment.softBan', { member: `${member.username}#${member.discriminator}` }))
+        embed.setTitle(ctx._locale('basic:punishment.softBan', { member: `${member.username}#${member.discriminator}` }))
         embed.setColor('MODERATION')
         embed.setThumbnail(member.dynamicAvatarURL())
-        embed.addField(ctx.t('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
-        embed.addField(ctx.t('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
-        embed.addField(ctx.t('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
-        embed.addField(ctx.t('basic:punishment.embed.reason'), reason)
+        embed.addField(ctx._locale('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
+        embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
+        embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+        embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
         ctx.send(embed)
         ctx.client.unbanGuildMember(ctx.message.guildID, member.id)

@@ -21,7 +21,7 @@ module.exports = class PokeCommand extends Command {
         const img = await neko.sfw.poke()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:poke.poked', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx._locale('commands:poke.poked', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

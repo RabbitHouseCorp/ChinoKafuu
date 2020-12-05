@@ -22,7 +22,7 @@ module.exports = class McQueryCommand extends Command {
             embed.setColor('MINECRAFT')
             embed.setTitle(`${Emoji['minecraft']} ${ctx.args[0]}`)
             embed.addField('Players', `${body.players.now}/${body.players.max}`, true)
-            embed.addField(ctx.t('commands:mcquery.version'), body.server.name, true)
+            embed.addField(ctx._locale('commands:mcquery.version'), body.server.name, true)
 
             return ctx.send(embed)
         } else {

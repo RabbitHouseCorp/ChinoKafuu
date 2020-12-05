@@ -1,5 +1,7 @@
 const { EmbedBuilder } = require('../../utils')
 const Command = require('../../structures/command/Command')
+const moment = require('moment')
+require('moment-duration-format')
 class PingCommand extends Command {
   constructor() {
     super({
@@ -11,22 +13,22 @@ class PingCommand extends Command {
     switch (ctx.args[0]) {
       case 'shards': {
         const embed = new EmbedBuilder()
-        embed.setFooter(ctx.t('commands:ping', { totalShard: ctx.client.shards.size }))
+        embed.setFooter(ctx._locale('commands:ping', { totalShard: ctx.client.shards.size }))
         embed.setColor('DEFAULT')
         ctx.client.shards.forEach(shard => {
           const shardStatus = shard.status === 'ready' ? ['CONNECTED', '<:online:518876154720026633>']
             : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
               : shard.status === 'connecting' ? ['CONNECTING', '<:dnd:518876154933936146>']
                 : ['HANDSHAKING', '<:idle:518876154912833549>']
-          embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? 'Ping: ' + shard.latency + 'ms |' : ''} ${shardStatus[0]}`)
+          embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: ${moment.duration(Date.now() - ctx.client.shardUptime.get(shard.id).uptime).format("dd:hh:mm:ss", { stopTrim: "d" })}`, true)
         })
 
         ctx.send(embed)
         break
       }
       default: {
-        const ping = `Ping: \`${Math.round(ctx.message.channel.guild.shard.latency)}\`ms! | API Latency: \`${Date.now() - ctx.message.timestamp}\` | Shard: [${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}] | Cluster ${process.env.CLUSTER_ID}`
         const msg = await ctx.send(':ping_pong:')
+        const ping = `Ping: \`${Math.round(ctx.message.channel.guild.shard.latency)}\`ms! | API Latency: \`${Date.now() - msg.timestamp}\` | Shard: [${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}] | Cluster ${process.env.CLUSTER_ID}`
         await msg.edit(`:ping_pong:\n${ping}`)
       }
     }

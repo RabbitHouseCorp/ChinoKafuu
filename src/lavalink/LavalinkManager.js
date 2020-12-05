@@ -1,6 +1,7 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
-let nodes = require('./LavalinkConfig').connect
+const nodes = require('./LavalinkConfig').connect
+const { Logger } = require('../utils')
 
 module.exports = class LavalinkManager {
     constructor(client) {
@@ -15,9 +16,15 @@ module.exports = class LavalinkManager {
         return nodes[Math.floor(Math.random() * nodes.length)].id
     }
     async connect() {
-        return await this.manager.connect()
+        try {
+            await this.manager.connect()
+            Logger.info('Lavalink nodes has been sucessfully connected.')
+        } catch {
+            Logger.warning('Lavalink nodes aren\'t connected.')
+        }
     }
     async join(channel) {
-        return new LavalinkPlayer(await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true }))
+        const manager = await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true })
+        return new LavalinkPlayer(manager)
     }
 }

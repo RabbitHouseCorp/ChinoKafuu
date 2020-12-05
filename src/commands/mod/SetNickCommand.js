@@ -18,7 +18,7 @@ module.exports = class SetNickCommand extends Command {
     const newNick = ctx.args.slice(1).join(' ')
 
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (!newNick) return new Helper(ctx, this.name, this.aliases, ctx.t(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help()
+    if (!newNick) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, `commands:${this.name}.description`)).help()
 
     const guildMember = ctx.message.channel.guild.members.get(member.id)
     try {

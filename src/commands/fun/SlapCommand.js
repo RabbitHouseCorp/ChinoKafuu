@@ -21,7 +21,7 @@ module.exports = class SlapCommand extends Command {
         const img = await neko.sfw.slap()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:slap.slaped', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx._locale('commands:slap.slaped', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

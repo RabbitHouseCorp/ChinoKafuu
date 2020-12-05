@@ -21,7 +21,7 @@ module.exports = class TickleCommand extends Command {
         const img = await neko.sfw.tickle()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:tickle.tickle', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx._locale('commands:tickle.tickle', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

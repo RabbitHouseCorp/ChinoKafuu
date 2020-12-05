@@ -32,8 +32,8 @@ module.exports = class AvatarCommand extends Command {
     }
 
     const embed = new EmbedBuilder()
-      .setTitle(ctx.t('commands:avatar.userAvatar', { user: member.username }))
-      .setDescription(ctx.t('commands:avatar.download', { link: member.avatarURL }))
+      .setTitle(ctx._locale('commands:avatar.userAvatar', { user: member.username }))
+      .setDescription(ctx._locale('commands:avatar.download', { link: member.avatarURL }))
       .setImage(member.avatarURL)
       .setColor('DEFAULT')
 

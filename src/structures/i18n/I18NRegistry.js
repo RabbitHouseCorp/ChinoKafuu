@@ -43,7 +43,7 @@ module.exports = class I18NRegistry extends Registry {
     }
   }
 
-  t(languageModule, key, placeholders) {
+  _locale(languageModule, key, placeholders) {
     if (!languageModule || !Object.prototype.hasOwnProperty.call(languageModule.translations, key)) {
       return
     }
@@ -61,7 +61,7 @@ module.exports = class I18NRegistry extends Registry {
   getT(language) {
     return (key, placeholders) => {
       const languageModule = this.modules.find(m => m.language === language) || this.defaultLanguage
-      return this.t(languageModule, key, placeholders) || this.t(this.defaultLanguage, key, placeholders) || key
+      return this._locale(languageModule, key, placeholders) || this._locale(this.defaultLanguage, key, placeholders) || key
     }
   }
 

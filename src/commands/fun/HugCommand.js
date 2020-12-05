@@ -3,7 +3,7 @@ const NekosLife = require('nekos.life')
 const neko = new NekosLife()
 const { EmbedBuilder } = require('../../utils')
 
-module.exports  = class HugCommand extends Command {
+module.exports = class HugCommand extends Command {
     constructor() {
         super({
             name: 'hug',
@@ -21,7 +21,7 @@ module.exports  = class HugCommand extends Command {
         const img = await neko.sfw.hug()
         const embed = new EmbedBuilder()
             .setColor('ACTION')
-            .setDescription(ctx.t('commands:hug.huged', { 0: ctx.message.author.mention, 1: member.mention }))
+            .setDescription(ctx._locale('commands:hug.huged', { 0: ctx.message.author.mention, 1: member.mention }))
             .setImage(img.url)
         ctx.send(embed)
     }

@@ -34,5 +34,10 @@ module.exports = class Bot extends Client {
      * @type {Database}
      */
     this.database = new Database()
+    /**
+     * 
+     * @type {Map}
+     */
+    this.shardUptime = new Map()
   }
 }
