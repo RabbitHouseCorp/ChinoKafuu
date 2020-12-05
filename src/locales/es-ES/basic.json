@@ -1,7 +1,7 @@
 {
 	"onMention": "<:chino_rawr:751215250245943318> **|** Hola {{0}}. Mi prefijo en este servidor es `{{1}}`. Si deseas saber lo que puedo hacer utiliza `{{1}}help`.",
-	"missingBotPermission": "No tengo el permiso **{{perm}}**. Verifica mis permisos e inténtalo de nuevo.",
-	"missingUserPermission": "No tienes el permiso **{{perm}}**. No puedes ejecutar este comando.",
+	"missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions and try again.",
+	"missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
 	"invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
 	"invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
 	"userNotFound": "No he podido encontrar a este usuario, por favor, inténtelo nuevamente.",
