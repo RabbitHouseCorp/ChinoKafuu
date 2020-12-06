@@ -1,4 +1,11 @@
 {
+    "money": {
+        "invalidValue": "please, give me a valid value.",
+        "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
+        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
+        "usage": "<from> <to> <amount>",
+        "description": "Check the currency what it’s worth today."
+    },
     "vote": {
         "title": "Vote for me",
         "description": "Thank you so much. You can vote for me on link right down\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"

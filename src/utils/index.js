@@ -6,7 +6,9 @@ const collectors = {
     Logger: require('../structures/util/Logger'),
     FunCommandInstance: require('../structures/util/FunCommandInstance'),
     Command: require('../structures/command/Command'),
-    version: require('../../package.json').version
+    version: require('../../package.json').version,
+    ExchangeAPI: require('./exchangeApi/ExchangeAPI'),
+    InvalidArgumentError: require('./exchangeApi/InvalidArgumentError')
 }
 
 module.exports = collectors

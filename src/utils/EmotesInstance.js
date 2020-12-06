@@ -6,5 +6,6 @@ module.exports = {
     success: '<a:success:577973168342302771>',
     chino_shock: '<:chino_shock:685198401863942156>',
     yen: '💴',
-    minecraft: '<:minecraft:504670650498285603>'
+    minecraft: '<:minecraft:504670650498285603>',
+    moneybag: '💰'
 }
