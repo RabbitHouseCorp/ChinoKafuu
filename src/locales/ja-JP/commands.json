@@ -153,7 +153,8 @@
         "description": "Sets the nickname of a member",
         "usage": "<userID|@user> <nickname>",
         "success": "**{{member}}**'s nickname is now `{{nickname}}`",
-        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again"
+        "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again",
+        "missingNickname": "you didin't any nickname for I change."
     },
     "chat": {
         "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
