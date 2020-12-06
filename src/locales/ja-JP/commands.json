@@ -1,4 +1,8 @@
 {
+    "vote": {
+        "title": "Vote for me",
+        "description": "Thank you so much. You can vote for me on link right down\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+    },
     "invite": {
         "addMeInYourGuild": "Add me in your guild",
         "description": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later."
