@@ -153,7 +153,8 @@
         "description": "Define o apelido de um membro",
         "usage": "<userID|@user> <nickname>",
         "success": "** O apelido de {{member}} é `{{nickname}}` agora",
-        "error": "Eu não consigo mudar o apelido desse membro. Verifica se ele não é o dono do servidor e tenta novamente"
+        "error": "Eu não consigo mudar o apelido desse membro. Verifica se ele não é o dono do servidor e tenta novamente",
+        "missingNickname": "you didin't any nickname for I change."
     },
     "chat": {
         "description": "Bloqueia o chat, atualizando a permissão de `Send Messages`para o cargo `@everyone`",
