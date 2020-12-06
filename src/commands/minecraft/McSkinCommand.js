@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder, Emoji } = require('../../utils')
+const { Command, EmbedBuilder, Emoji } = require('../../utils')
 
 module.exports = class McSkinCommand extends Command {
     constructor() {
@@ -20,6 +19,8 @@ module.exports = class McSkinCommand extends Command {
         embed.setColor('MINECRAFT')
         embed.setImage(body)
         embed.setDescription(`${Emoji['minecraft']} [[Download]](${body})`)
+        embed.setFooter(`©️ ${ctx.client.user.username}`)
+        embed.setTimestamp()
 
         ctx.send(embed)
     }

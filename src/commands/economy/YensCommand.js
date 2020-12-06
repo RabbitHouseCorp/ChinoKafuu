@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 class YensCommand extends Command {
   constructor() {

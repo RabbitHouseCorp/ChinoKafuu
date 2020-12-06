@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class SoftBanCommand extends Command {
   constructor() {

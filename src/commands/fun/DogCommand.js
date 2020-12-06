@@ -1,7 +1,6 @@
-const Command = require('../../structures/command/Command')
+const { Command, EmbedBuilder } = require('../../utils')
 const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
-const { EmbedBuilder } = require('../../utils')
 
 module.exports = class DogCommand extends Command {
   constructor() {
@@ -14,8 +13,11 @@ module.exports = class DogCommand extends Command {
   async run(ctx) {
     const image = await NekoClient.sfw.woof()
     const embed = new EmbedBuilder()
-      .setColor('ACTION')
-      .setImage(image.url)
+    embed.setColor('ACTION')
+    embed.setImage(image.url)
+    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setTimestamp()
+
     ctx.send(embed)
   }
 }

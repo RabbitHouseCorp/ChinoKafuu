@@ -1,8 +1,7 @@
-const { EmbedBuilder } = require('../../utils')
-const Command = require('../../structures/command/Command')
+const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
-class PingCommand extends Command {
+module.exports = class PingCommand extends Command {
   constructor() {
     super({
       name: 'ping'
@@ -15,6 +14,9 @@ class PingCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setFooter(ctx._locale('commands:ping', { totalShard: ctx.client.shards.size }))
         embed.setColor('DEFAULT')
+        embed.setFooter(`©️ ${ctx.client.user.username}`)
+        embed.setTimestamp()
+
         ctx.client.shards.forEach(shard => {
           const shardStatus = shard.status === 'ready' ? ['CONNECTED', '<:online:518876154720026633>']
             : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
@@ -34,5 +36,3 @@ class PingCommand extends Command {
     }
   }
 }
-
-module.exports = PingCommand

@@ -1,10 +1,9 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 const Anilist = require('anilist-node')
 const anilist = new Anilist()
 const Logger = require('../../structures/util/Logger')
 
-class MangaCommand extends Command {
+module.exports = class MangaCommand extends Command {
     constructor() {
         super({
             name: 'manga',
@@ -63,6 +62,8 @@ class MangaCommand extends Command {
             embed.addField(t('commands:manga.aired'), `${startDate.month}/${startDate.day}/${startDate.year} | ${finishDate.month}/${finishDate.day}/${finishDate.year}`, true)
             embed.addField(t('commands:manga.genres'), result.genres.join(', '), true)
             embed.addField(t('commands:manga.characters'), characters.join(', ').slice(0, 1020), true)
+            embed.setFooter(`©️ ${ctx.client.user.username}`)
+            embed.setTimestamp()
 
             ctx.send(embed)
         } catch (err) {
@@ -71,5 +72,3 @@ class MangaCommand extends Command {
         }
     }
 }
-
-module.exports = MangaCommand

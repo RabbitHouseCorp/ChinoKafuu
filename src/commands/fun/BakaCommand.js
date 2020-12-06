@@ -1,7 +1,6 @@
-const Command = require('../../structures/command/Command')
+const { Command, EmbedBuilder } = require('../../utils')
 const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
-const { EmbedBuilder } = require('../../utils')
 
 module.exports = class BakaCommand extends Command {
   constructor() {
@@ -16,9 +15,12 @@ module.exports = class BakaCommand extends Command {
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const image = await NekoClient.sfw.baka()
     const embed = new EmbedBuilder()
-      .setColor('ACTION')
-      .setDescription(ctx._locale('commands:baka.baka', { author: ctx.message.author.mention, member: member.mention }))
-      .setImage(image.url)
+    embed.setColor('ACTION')
+    embed.setDescription(ctx._locale('commands:baka.baka', { author: ctx.message.author.mention, member: member.mention }))
+    embed.setImage(image.url)
+    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setTimestamp()
+
     ctx.send(embed)
   }
 }

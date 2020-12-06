@@ -1,7 +1,6 @@
-const Command = require('../../structures/command/Command')
+const { Command, EmbedBuilder } = require('../../utils')
 const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
-const { EmbedBuilder } = require('../../utils')
 
 module.exports = class FeedCommand extends Command {
   constructor() {
@@ -16,9 +15,12 @@ module.exports = class FeedCommand extends Command {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
     const image = await NekoClient.sfw.feed()
     const embed = new EmbedBuilder()
-      .setColor('ACTION')
-      .setImage(image.url)
-      .setDescription(ctx._locale('commands:feed.feed', { author: ctx.message.author.mention, user: member.mention }))
+    embed.setColor('ACTION')
+    embed.setImage(image.url)
+    embed.setDescription(ctx._locale('commands:feed.feed', { author: ctx.message.author.mention, user: member.mention }))
+    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setTimestamp()
+
     ctx.send(embed)
   }
 }

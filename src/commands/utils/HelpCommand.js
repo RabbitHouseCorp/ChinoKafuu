@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 module.exports = class HelpCommand extends Command {
     constructor() {
@@ -9,6 +9,6 @@ module.exports = class HelpCommand extends Command {
     }
 
     async run(ctx) {
-        ctx.send('Comming soon\:tm:')
+        ctx.send('Coming soon\:tm:')
     }
 }

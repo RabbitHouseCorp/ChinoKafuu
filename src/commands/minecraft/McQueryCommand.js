@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder, Emoji } = require('../../utils')
+const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const fetch = require('node-fetch')
 module.exports = class McQueryCommand extends Command {
     constructor() {
@@ -23,6 +22,8 @@ module.exports = class McQueryCommand extends Command {
             embed.setTitle(`${Emoji['minecraft']} ${ctx.args[0]}`)
             embed.addField('Players', `${body.players.now}/${body.players.max}`, true)
             embed.addField(ctx._locale('commands:mcquery.version'), body.server.name, true)
+            embed.setFooter(`©️ ${ctx.client.user.username}`)
+            embed.setTimestamp()
 
             return ctx.send(embed)
         } else {

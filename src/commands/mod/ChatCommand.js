@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 module.exports = class ChatCommand extends Command {
   constructor() {

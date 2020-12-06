@@ -1,5 +1,4 @@
-const Command = require('../../structures/command/Command')
-const { EmbedBuilder, FunCommandInstance } = require('../../utils')
+const { Command, EmbedBuilder, FunCommandInstance } = require('../../utils')
 module.exports = class DanceCommand extends Command {
     constructor() {
         super({
@@ -21,6 +20,8 @@ module.exports = class DanceCommand extends Command {
         embed.setColor('ACTION')
         embed.setImage(dance)
         embed.setDescription(ctx._locale('commands:dance.danced', { 0: ctx.message.author.mention, 1: member.mention }))
+        embed.setFooter(`©️ ${ctx.client.user.username}`)
+        embed.setTimestamp()
 
         ctx.send(embed)
     }

@@ -1,6 +1,5 @@
-const { EmbedBuilder } = require('../../utils')
-const Command = require('../../structures/command/Command')
-class BanCommand extends Command {
+const { Command, EmbedBuilder } = require('../../utils')
+module.exports = class BanCommand extends Command {
     constructor() {
         super({
             name: 'ban',
@@ -63,5 +62,3 @@ class BanCommand extends Command {
         }
     }
 }
-
-module.exports = BanCommand

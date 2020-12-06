@@ -1,6 +1,6 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
-class EditYensCommand extends Command {
+module.exports = class EditYensCommand extends Command {
     constructor() {
         super({
             name: 'edityens',
@@ -61,5 +61,3 @@ class EditYensCommand extends Command {
         }
     }
 }
-
-module.exports = EditYensCommand

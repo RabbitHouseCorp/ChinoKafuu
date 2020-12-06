@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 module.exports = class PrefixCommand extends Command {
   constructor() {

@@ -1,4 +1,4 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 
 module.exports = class AboutMeCommand extends Command {
   constructor() {
@@ -14,6 +14,6 @@ module.exports = class AboutMeCommand extends Command {
     const bio = ctx.args.join(' ').replace(/[`]/g, '')
     ctx.db.user.aboutme = bio
     ctx.db.user.save()
-    await ctx.replyT('success', 'commands:aboutme.success', {bio: bio})
+    await ctx.replyT('success', 'commands:aboutme.success', { bio: bio })
   }
 }

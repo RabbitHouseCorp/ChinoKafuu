@@ -1,8 +1,8 @@
-const Command = require('../../structures/command/Command')
+const { Command } = require('../../utils')
 const workerpool = require('workerpool')
 const pool = workerpool.pool()
 
-function calc (expression) {
+function calc(expression) {
   const { create, all } = require('mathjs')
   const math = create(all)
   const limitedEvaluate = math.evaluate
@@ -21,7 +21,7 @@ function calc (expression) {
 }
 
 module.exports = class CalculateCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'calculate',
       arguments: 1,
@@ -29,7 +29,7 @@ module.exports = class CalculateCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const expression = ctx.args.join(' ')
 
     if (!expression) {
