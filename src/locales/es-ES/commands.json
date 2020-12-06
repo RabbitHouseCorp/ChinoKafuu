@@ -153,7 +153,8 @@
         "description": "Establece el apodo de un miembro del servidor",
         "usage": "<ID de Usuario|@Usuario> <Apodo>",
         "success": "El apodo de **{{member}}** ahora es `{{nickname}}`",
-        "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo"
+        "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo",
+        "missingNickname": "you didin't any nickname for I change."
     },
     "chat": {
         "description": "Bloquea el canal, actualizando el permiso de `Enviar Mensajes` del rol `@everyone`",
