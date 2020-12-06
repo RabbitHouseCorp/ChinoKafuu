@@ -1,4 +1,8 @@
 {
+    "servericon": {
+        "missingIcon": "this guild doesn't have a icon",
+        "download": "Download the icon clicking [here]({{0}})"
+    },
     "serverbanner": {
         "missingFeature": "this guild doesn't have the `banner` feature.",
         "missingBanner": "this guild doesn't have a banner.",
