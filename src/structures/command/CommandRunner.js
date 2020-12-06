@@ -34,7 +34,7 @@ module.exports = class CommandRunner {
 		if (message.content === guildData.prefix) return
 
 		const regexp = new RegExp(`^(${guildData.prefix}|<@!?${client.user.id}>)( )*`, 'gi')
-		//FIXME Regex bugged lol
+		
 		if (!message.content.match(regexp)) return
 
 
