@@ -1,4 +1,17 @@
 {
+    "animu": {
+        "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
+        "nowPlaying": "Now playing",
+        "totalListening": {
+            "title": "Total listening",
+            "total": "listening now"
+        },
+        "artist": "Author song",
+        "volume": "Volume",
+        "volumeChanged": "volume successfully changed.",
+        "currentVolume": "the current volume is `{{volume}}/100`.",
+        "leaving": "I'm leaving now from the voice channel."
+    },
     "serverinfo": {
         "guildID": "Guild ID",
         "guildOwner": "Guild's Owner",
