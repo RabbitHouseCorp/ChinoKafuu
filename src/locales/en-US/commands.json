@@ -1,4 +1,61 @@
 {
+    "serverinfo": {
+        "guildID": "Guild ID",
+        "guildOwner": "Guild's Owner",
+        "guildRegion": "Guild's Region",
+        "guildCreateAt": "Guild Created At",
+        "guildAFKChannel": {
+            "title": "AFK Channel",
+            "noAfkChannel": "No AFK Channel"
+        },
+        "guildChannel": {
+            "title": "Channels ({{0}})",
+            "text": "Text",
+            "voice": "Voice"
+        },
+        "guildMember": {
+            "title": "Members ({{0}})",
+            "userCount": "Users",
+            "botCount": "Bots"
+        },
+        "region": {
+            "brazil": "Brazil",
+            "europe": "Europe",
+            "hongkong": "Hong Kong",
+            "japan": "Japan",
+            "russia": "Russia",
+            "singapore": "Singapore",
+            "southafrica": "South Africa",
+            "sydney": "Sydney",
+            "us-central": "US Central",
+            "us-east": "US East",
+            "us-south": "US South",
+            "us-west": "US west",
+            "india": "India"
+        },
+        "features": {
+            "title": "Features",
+            "dontHave": "This guild doesn't have any feature.",
+            "INVITE_SPLASH": "Invite Splash",
+            "VIP_REGIONS": "Vip Regions",
+            "VANITY_URL": "Vanity URL",
+            "VERIFIED": "Verfied",
+            "PARTNERED": "Partnered",
+            "COMMUNITY": "Community",
+            "COMMERCE": "Commerce",
+            "NEWS": "News Channel",
+            "DISCOVERABLE": "Discoverable",
+            "FEATURABLE": "Featurable",
+            "ANIMATED_ICON": "Animated Icon",
+            "BANNER": "Banner",
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable"
+        },
+        "booster": {
+            "title": "Nitro Booster",
+            "levelCount": "Level Booster",
+            "boosterCount": "Total Boosters"
+        }
+    },
     "servericon": {
         "missingIcon": "this guild doesn't have a icon",
         "download": "Download the icon clicking [here]({{0}})"
