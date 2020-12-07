@@ -31,5 +31,13 @@
 	"noAliases": "Esse comando não possui alternativas.",
 	"onMentionAfk": "**{{user}}** está AFK.",
 	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK."
+	"afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK.",
+	"voice": {
+		"authorAreNotInVoiceChannel": "you're not in any voice channel.",
+		"playerAlreadyPlaying": "I'm already playing anything.",
+		"clientAreNotInVoiceChannel": "I'm not in any voice channel.",
+		"playerNotFound": "I'm not playing any song",
+		"maxVolume": "calm down! The allowed max volume is `100`.",
+		"minVolume": "calm down! The allowed minimal volume is `5`."
+	}
 }
