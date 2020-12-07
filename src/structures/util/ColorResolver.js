@@ -12,7 +12,8 @@ module.exports = class ColorResolver {
 			ERROR: 0xFA704D,
 			MINECRAFT: 0x7BE37B,
 			MODERATION: 0xFF4A4A,
-			ACTION: 0xC68AFF
+			ACTION: 0xC68AFF,
+			ANIMU: 0x7800FF
 		}
 
 		if (!defaultColors[color] || !color) color = 'DEFAULT'
