@@ -34,7 +34,7 @@ module.exports = class CommandRunner {
 		if (message.content === guildData.prefix) return
 
 		const regexp = new RegExp(`^(${guildData.prefix}|<@!?${client.user.id}>)( )*`, 'gi')
-		
+
 		if (!message.content.match(regexp)) return
 
 
@@ -87,7 +87,7 @@ module.exports = class CommandRunner {
 			const missingPerm = checkedPermissions.filter(z => z.missing)[0]
 			const key = checkedPermissions.entity === 'bot' ? 'Bot' : 'User'
 
-			ctx.reply_locale('error', `basic:missing${key}Permission`, { perm: ctx._locale(`permission:${missingPerm.missing}`) })
+			ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx._locale(`permission:${missingPerm.missing}`) })
 			missingPerm.missing = null
 			return
 		}
