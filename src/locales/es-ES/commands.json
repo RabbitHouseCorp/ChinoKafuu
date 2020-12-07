@@ -1,4 +1,90 @@
 {
+    "animu": {
+        "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
+        "nowPlaying": "Now playing",
+        "totalListening": {
+            "title": "Total listening",
+            "total": "listening now"
+        },
+        "artist": "Author song",
+        "volume": "Volume",
+        "volumeChanged": "volume successfully changed.",
+        "currentVolume": "the current volume is `{{volume}}/100`.",
+        "leaving": "I'm leaving now from the voice channel."
+    },
+    "serverinfo": {
+        "guildID": "Guild ID",
+        "guildOwner": "Guild's Owner",
+        "guildRegion": "Guild's Region",
+        "guildCreateAt": "Guild Created At",
+        "guildAFKChannel": {
+            "title": "AFK Channel",
+            "noAfkChannel": "No AFK Channel"
+        },
+        "guildChannel": {
+            "title": "Channels ({{0}})",
+            "text": "Text",
+            "voice": "Voice"
+        },
+        "guildMember": {
+            "title": "Members ({{0}})",
+            "userCount": "Users",
+            "botCount": "Bots"
+        },
+        "region": {
+            "brazil": "Brazil",
+            "europe": "Europe",
+            "hongkong": "Hong Kong",
+            "japan": "Japan",
+            "russia": "Russia",
+            "singapore": "Singapore",
+            "southafrica": "South Africa",
+            "sydney": "Sydney",
+            "us-central": "US Central",
+            "us-east": "US East",
+            "us-south": "US South",
+            "us-west": "US west",
+            "india": "India"
+        },
+        "features": {
+            "title": "Features",
+            "dontHave": "This guild doesn't have any feature.",
+            "INVITE_SPLASH": "Invite Splash",
+            "VIP_REGIONS": "Vip Regions",
+            "VANITY_URL": "Vanity URL",
+            "VERIFIED": "Verfied",
+            "PARTNERED": "Partnered",
+            "COMMUNITY": "Community",
+            "COMMERCE": "Commerce",
+            "NEWS": "News Channel",
+            "DISCOVERABLE": "Discoverable",
+            "FEATURABLE": "Featurable",
+            "ANIMATED_ICON": "Animated Icon",
+            "BANNER": "Banner",
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable"
+        },
+        "booster": {
+            "title": "Nitro Booster",
+            "levelCount": "Level Booster",
+            "boosterCount": "Total Boosters"
+        }
+    },
+    "servericon": {
+        "missingIcon": "this guild doesn't have a icon",
+        "download": "Download the icon clicking [here]({{0}})"
+    },
+    "serverbanner": {
+        "missingFeature": "this guild doesn't have the `banner` feature.",
+        "missingBanner": "this guild doesn't have a banner.",
+        "download": "Download the banner clicking [here]({{0}})"
+    },
+    "money": {
+        "invalidValue": "please, give me a valid value.",
+        "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
+        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
+        "usage": "<from> <to> <amount>",
+        "description": "Check the currency what it’s worth today."
+    },
     "vote": {
         "title": "Vote for me",
         "description": "Thank you so much. You can vote for me on link right down\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"

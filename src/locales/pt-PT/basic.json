@@ -1,7 +1,7 @@
 {
 	"onMention": "<:chino_rawr:751215250245943318> **|**\nOlá {{0}}. O meu prefixo neste servidor é `{{1}}`. Se quiseres descobrir o que eu faço, usa `{{1}}help`.",
-	"missingBotPermission": "Eu não tenho a permissão: `{{perm}}`. Adicione essa permissão e tenta outra vez.",
-	"missingUserPermission": "Tu não tens a permissão: `{{perm}}`. Tu não podes executar este comando.",
+	"missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions and try again.",
+	"missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
 	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
 	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
 	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
@@ -31,5 +31,13 @@
 	"noAliases": "Estes comando não possui apelidos.",
 	"onMentionAfk": "**{{user}}** está AFK.",
 	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, como estás de volta, eu removi o teu status de AFK."
+	"afkRemoval": "{{user}}, como estás de volta, eu removi o teu status de AFK.",
+	"voice": {
+		"authorAreNotInVoiceChannel": "you're not in any voice channel.",
+		"playerAlreadyPlaying": "I'm already playing anything.",
+		"clientAreNotInVoiceChannel": "I'm not in any voice channel.",
+		"playerNotFound": "I'm not playing any song",
+		"maxVolume": "calm down! The allowed max volume is `100`.",
+		"minVolume": "calm down! The allowed minimal volume is `5`."
+	}
 }
