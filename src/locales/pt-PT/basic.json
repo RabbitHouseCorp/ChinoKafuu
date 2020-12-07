@@ -1,7 +1,7 @@
 {
 	"onMention": "<:chino_rawr:751215250245943318> **|**\nOlá {{0}}. O meu prefixo neste servidor é `{{1}}`. Se quiseres descobrir o que eu faço, usa `{{1}}help`.",
-	"missingBotPermission": "Eu não tenho a permissão: `{{perm}}`. Adicione essa permissão e tenta outra vez.",
-	"missingUserPermission": "Tu não tens a permissão: `{{perm}}`. Tu não podes executar este comando.",
+	"missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions and try again.",
+	"missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
 	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
 	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
 	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
