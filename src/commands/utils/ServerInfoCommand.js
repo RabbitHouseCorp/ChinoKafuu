@@ -4,7 +4,7 @@ module.exports = class ServerInfoCommand extends Command {
     constructor() {
         super({
             name: 'serverinfo',
-            aliases: ['guildicon']
+            aliases: ['guildinfo']
         })
     }
 
