@@ -7,5 +7,6 @@ module.exports = {
     chino_shock: '<:chino_shock:685198401863942156>',
     yen: '💴',
     minecraft: '<:minecraft:504670650498285603>',
-    moneybag: '💰'
+    moneybag: '💰',
+    map: '🗺️'
 }

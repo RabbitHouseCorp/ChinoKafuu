@@ -8,7 +8,8 @@ const collectors = {
     Command: require('../structures/command/Command'),
     version: require('../../package.json').version,
     ExchangeAPI: require('./exchangeApi/ExchangeAPI'),
-    InvalidArgumentError: require('./exchangeApi/InvalidArgumentError')
+    InvalidArgumentError: require('./exchangeApi/InvalidArgumentError'),
+    TranslatorFun: require('./TranslatorFun')
 }
 
 module.exports = collectors
