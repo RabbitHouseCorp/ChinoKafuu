@@ -65,7 +65,7 @@ module.exports = class MangaCommand extends Command {
             embed.setFooter(`©️ ${ctx.client.user.username}`)
             embed.setTimestamp()
 
-            ctx.send(embed)
+            ctx.send(embed.build())
         } catch (err) {
             Logger.error(err)
             ctx.replyT('error', 'commands:manga.mangaNotFound', { 0: search })

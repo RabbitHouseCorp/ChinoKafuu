@@ -21,7 +21,7 @@ module.exports = class LanguageCommand extends Command {
     embed.setAuthor('What is your language? Choose below.', ctx.message.author.dynamicAvatarURL())
     embed.setDescription('🇧🇷 **Português, Brasil**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
 
-    ctx.send(embed).then(async message => {
+    ctx.send(embed.build()).then(async message => {
       await message.addReaction('🇧🇷')
       await message.addReaction('🇺🇸')
       await message.addReaction('🇪🇸')

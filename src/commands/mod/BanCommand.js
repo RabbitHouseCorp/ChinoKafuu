@@ -42,7 +42,7 @@ module.exports = class BanCommand extends Command {
                 embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
                 embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
-                ctx.send(embed)
+                ctx.send(embed.build())
 
                 const server = ctx.db.guild
                 if (server.punishModule) {

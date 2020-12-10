@@ -30,7 +30,7 @@ module.exports = class ChangeAvatarCommand extends Command {
             embed.setImage(client.dynamicAvatarURL())
             embed.setColor('DEFAULT')
 
-            ctx.send(embed)
+            ctx.send(embed.build())
         })
     }
 }

@@ -30,7 +30,7 @@ module.exports = class EvalCommand extends Command {
             embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
             embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
 
-            ctx.send(embed)
+            ctx.send(embed.build())
         }
     }
 }

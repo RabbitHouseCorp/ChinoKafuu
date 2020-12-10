@@ -130,4 +130,8 @@ module.exports = class EmbedBuilder {
 		this.thumbnail = { url }
 		return this
 	}
+
+	build() {
+		return { embed: this }
+	}
 }

@@ -25,7 +25,7 @@ module.exports = class McQueryCommand extends Command {
             embed.setFooter(`©️ ${ctx.client.user.username}`)
             embed.setTimestamp()
 
-            return ctx.send(embed)
+            return ctx.send(embed.build())
         } else {
             return ctx.replyT('error', 'commands:mcquery.serverOffline', { 0: ctx.args[0] })
         }

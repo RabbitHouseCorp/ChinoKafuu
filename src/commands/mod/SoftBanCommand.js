@@ -33,7 +33,7 @@ module.exports = class SoftBanCommand extends Command {
         embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
         embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
-        ctx.send(embed)
+        ctx.send(embed.build())
         ctx.client.unbanGuildMember(ctx.message.guildID, member.id)
         if (ctx.db.guild.punishModule && ctx.db.guild.punishChannel) {
           const channel = ctx.db.guild.punishChannel

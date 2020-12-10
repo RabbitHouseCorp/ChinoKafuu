@@ -41,6 +41,6 @@ module.exports = class ServerInfoCommand extends Command {
         embed.addField(_locale('commands:serverinfo.guildChannel.title', { 0: guild.channels.size }), `**${_locale('commands:serverinfo.guildChannel.text')}:** ${channelType.text}\n**${_locale('commands:serverinfo.guildChannel.voice')}:** ${channelType.voice}`, true)
         embed.addField(_locale('commands:serverinfo.features.title'), (guildFeatures !== []) ? guildFeatures.join(', ') : _locale('commands:serverinfo.features.dontHave'))
 
-        ctx.send(embed)
+        ctx.send(embed.build())
     }
 }

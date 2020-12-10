@@ -21,6 +21,6 @@ module.exports = class FeedCommand extends Command {
     embed.setFooter(`©️ ${ctx.client.user.username}`)
     embed.setTimestamp()
 
-    ctx.send(embed)
+    ctx.send(embed.build())
   }
 }

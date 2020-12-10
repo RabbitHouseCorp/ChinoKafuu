@@ -34,7 +34,7 @@ module.exports = class KickCommand extends Command {
       embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
       embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
       embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
-      guildMember.kick(reason).then(() => ctx.send(embed))
+      guildMember.kick(reason).then(() => ctx.send(embed.build()))
 
       if (ctx.db.guild.punishModule) {
         await ctx.message.channel.guild.channels.get(ctx.db.guild.punishChannel).createMessage({

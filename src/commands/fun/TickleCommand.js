@@ -24,7 +24,7 @@ module.exports = class TickleCommand extends Command {
         embed.setImage(img.url)
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
-        
-        ctx.send(embed)
+
+        ctx.send(embed.build())
     }
 }

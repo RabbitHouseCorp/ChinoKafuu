@@ -25,7 +25,7 @@ module.exports = class PingCommand extends Command {
           embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: ${moment.duration(Date.now() - ctx.client.shardUptime.get(shard.id).uptime).format("dd:hh:mm:ss", { stopTrim: "d" })}`, true)
         })
 
-        ctx.send(embed)
+        ctx.send(embed.build())
         break
       }
       default: {

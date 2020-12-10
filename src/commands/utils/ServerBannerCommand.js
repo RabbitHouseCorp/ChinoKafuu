@@ -20,6 +20,6 @@ module.exports = class ServerBannerCommand extends Command {
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
 
-        ctx.send(embed)
+        ctx.send(embed.build())
     }
 }

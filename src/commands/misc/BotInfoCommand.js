@@ -36,7 +36,7 @@ module.exports = class BotInfoCommand extends Command {
         embed.addField('Zuraaa.com', '[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)', true)
         embed.addField('Crowdin', '[rabbithouse.crowdin.com](https://rabbithouse.crowdin.com/chino-kafuu)', true)
 
-        ctx.send(embed)
+        ctx.send(embed.build())
     }
 
 

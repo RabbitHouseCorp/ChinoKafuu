@@ -59,7 +59,7 @@ module.exports = class CommandRunner {
 			embed.addField("Motivo", userData.blacklistReason)
 			embed.addField("Banido injustamente?", `Se você acha que foi banido injustamente, então entre no meu servidor de suporte.`)
 
-			ctx.send(embed)
+			ctx.send(embed.build())
 			return
 		}
 
@@ -119,7 +119,7 @@ module.exports = class CommandRunner {
 			embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
 			embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
 			embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
-			return ctx.send(embed)
+			return ctx.send(embed.build())
 		}
 	}
 

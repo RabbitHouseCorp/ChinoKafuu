@@ -40,7 +40,7 @@ class AnimeCommand extends Command {
             embed.addField('Trailer', `[${t('basic:clickHere')}](${anime.trailer})`, true)
             embed.addField(t('commands:anime.genres'), anime.genres.join(', '), true)
 
-            ctx.send(embed)
+            ctx.send(embed.build())
         } catch {
             ctx.replyT('error', 'commands:anime.animeNotFound', { 0: search })
         }

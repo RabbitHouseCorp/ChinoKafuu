@@ -15,7 +15,7 @@ module.exports = class VoteCommand extends Command {
 
     async run(ctx) {
         if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
-        
+
         const argsNullEmbed = new EmbedBuilder()
         argsNullEmbed.setColor('ANIMU')
         argsNullEmbed.setTitle(ctx._locale('commands:animu.title'))
@@ -24,8 +24,8 @@ module.exports = class VoteCommand extends Command {
         argsNullEmbed.addField(`${ctx.db.guild.prefix}animu volume`, `**Usage:** ${ctx.db.guild.prefix}animu volume\n**Aliases:** \`${ctx.db.guild.prefix}animu vol\``)
         argsNullEmbed.addField(`${ctx.db.guild.prefix}animu leave`, `**Usage:** ${ctx.db.guild.prefix}animu leave\n**Aliases:** \`${ctx.db.guild.prefix}animu sair, ${ctx.db.guild.prefix}animu parar, ${ctx.db.guild.prefix}animu stop\``)
 
-        if (!ctx.args[0]) return ctx.send(argsNullEmbed)
-        
+        if (!ctx.args[0]) return ctx.send(argsNullEmbed.build())
+
         const req = fetch('http://cast.animu.com.br:2199/rpc/animufm/streaminfo.get')
         const res = req.then(res => res.json())
         if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0])) {
@@ -45,7 +45,7 @@ module.exports = class VoteCommand extends Command {
                     embed.addField(ctx._locale('commands:animu.artist'), info.data[0].track.artist)
                     embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
-                    ctx.send(embed)
+                    ctx.send(embed.build())
                 })
             })
 
@@ -83,7 +83,7 @@ module.exports = class VoteCommand extends Command {
                 embed.addField(ctx._locale('commands:animu.artist'), info.data[0].track.artist)
                 embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
-                ctx.send(embed)
+                ctx.send(embed.build())
             })
 
             return

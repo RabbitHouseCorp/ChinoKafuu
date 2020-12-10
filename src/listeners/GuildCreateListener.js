@@ -39,6 +39,6 @@ module.exports = class GuildCreateListener extends Listener {
         embed.setFooter(_locale('basic:addedToGuild.guildSaved', { 0: guild.name }), guild.icon ? guild.iconURL : null)
         embed.addField(_locale('basic:addedToGuild.thanks'), _locale('basic:addedToGuild.description', { 0: user.mention, 1: guild.name, 2: server.prefix }))
 
-        user.getDMChannel().then(channel => channel.createMessage({ embed: embed }))
+        user.getDMChannel().then(channel => channel.createMessage(embed.build()))
     }
 }

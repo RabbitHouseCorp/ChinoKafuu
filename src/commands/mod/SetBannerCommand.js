@@ -31,7 +31,7 @@ module.exports = class SetBannerCommand extends Command {
           .setTitle(ctx._locale('commands:setbanner.success'))
           .setColor('DEFAULT')
           .setImage(url)
-        ctx.send(embed)
+        ctx.send(embed.build())
       })
   }
 }

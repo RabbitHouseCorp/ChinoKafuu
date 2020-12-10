@@ -39,6 +39,6 @@ module.exports = class AvatarCommand extends Command {
     embed.setTimestamp()
 
 
-    ctx.send(embed)
+    ctx.send(embed.build())
   }
 }
