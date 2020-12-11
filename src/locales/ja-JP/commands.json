@@ -278,8 +278,7 @@
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
-        "usage": "[language]",
+        "message": "What is the new language? React below.",
         "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
     },
     "prefix": {

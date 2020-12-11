@@ -278,8 +278,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "Qual é o novo idioma? Reaja abaixo.\n\n🇧🇷 Português (Brasil) (Brazilian Portuguese)\n🇺🇸 English (United States) (Inglês)",
-        "usage": "[idioma]",
+        "message": "What is the new language? React below.",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
