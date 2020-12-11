@@ -14,7 +14,7 @@
         "volume": "Volume",
         "volumeChanged": "volume successfully changed.",
         "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving":"I'm leaving now from the voice channel."
+        "leaving": "I'm leaving now from the voice channel."
     },
     "serverinfo": {
         "guildID": "Guild ID",
@@ -278,8 +278,7 @@
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
     "language": {
-        "message": "What is the new language? React below.\n\n\uD83C\uDDE7\uD83C\uDDF7 Português (Brasil) (Brazilian Portuguese)\n\uD83C\uDDFA\uD83C\uDDF8 English (United States) (Inglês)",
-        "usage": "[language]",
+        "message": "What is the new language? React below.",
         "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
     },
     "prefix": {
