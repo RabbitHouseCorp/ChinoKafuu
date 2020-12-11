@@ -9,13 +9,48 @@
   </p>
 
 ### Greetings! I'm Chino Kafuu and I'm just another simple Discord bot.
-### Well... As you can see, I'm a bot with many features like fun, ~~music~~ *(soon)*, moderation and utility.
+### Well... As you can see, I'm a bot with many features like fun, moderation and utility.
 #### You can find out my commands using *k.help*, and if you get any issue, please join my [support server](https://discord.gg/CAm9cSU)!
 
 ## Self-hosted instances
 As Chino has grown over the time, the repository became open, meaning everyone can see the source code, open issues, etc, and as you may expect, copies were created.
 For that reason, we are **NOT** providing any kind of support for unoriginal self-hosted instances in our support server. Please **DO NOT ASK FOR SELF-HOESTED INSTANCES SUPPORT IN OUR SUPPORT SERVER.**
+### How to self hosting
+> Install nodejs 14 or higher
+You can download and install here: https://nodejs.org
 
+> Create a file named `.env` and input this informations
+```
+DISCORD_TOKEN=
+BOT_PREFIX=
+MONGO_URI=
+SHARD_AMOUNT=1
+CLUSTER_AMOUNT=1
+ENABLE_REGISTRY_RELOAD=true
+PRODUCTION=false
+BOT_DEVELOPERS=id1,id2
+```
+
+> Use that commands in your terminal
+```
+npm install
+```
+```
+node .
+```
+### How to connect a Lavalink
+> Create a file named `LavalinkConfig.json` in the folder `lavalink` and input this informations on this file
+> Download the Lavalink jar in: https://github.com/Frederikam/Lavalink/blob/master/README.md (Please read with attention)
+```json
+{
+  "connect": [{
+    "id": "1",
+    "host": "your lavalink ip",
+    "port": "your lavalink port",
+    "password": "your lavalink password"
+  }]
+}
+```
 ## Contributing
 ### Source Code
 Ah! So you would like to contribute to my repoistory, right? Great! We love new contributors who help us, and *perhaps if you be an active contributor you may get a little fancy badge in your profile...*
@@ -36,4 +71,4 @@ Isn't your languages listed above? Join our [support server](https://discord.gg/
 
 ### See you! And have fun using me!
 
-![Chino Kafuu](https://repository-images.githubusercontent.com/203506793/08e09480-db3b-11e9-8daa-175b74a05b92)
+![Chino Kafuu](https://cdn.discordapp.com/attachments/481807707066859530/784903189136801852/c3377764d7d7cdcdcb98c466ce341c61.png)
