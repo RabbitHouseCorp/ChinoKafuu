@@ -16,8 +16,7 @@
 As Chino has grown over the time, the repository became open, meaning everyone can see the source code, open issues, etc, and as you may expect, copies were created.
 For that reason, we are **NOT** providing any kind of support for unoriginal self-hosted instances in our support server. Please **DO NOT ASK FOR SELF-HOESTED INSTANCES SUPPORT IN OUR SUPPORT SERVER.**
 ### How to self hosting
-> Install nodejs 14 or higher
-You can download and install here: https://nodejs.org
+> Install nodejs 14 or higher. You can download and install here: https://nodejs.org
 
 > Create a file named `.env` and input this informations
 ```
