@@ -1,4 +1,8 @@
 {
+    "translate": {
+        "description": "Translate a text without having to access google translate.",
+        "usage": "<language-code> <text>"
+    },
     "animu": {
         "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
         "nowPlaying": "Now playing",
