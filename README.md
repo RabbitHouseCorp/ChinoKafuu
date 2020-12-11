@@ -53,7 +53,7 @@ node .
 ```
 ## Contributing
 ### Source Code
-Ah! So you would like to contribute to my repoistory, right? Great! We love new contributors who help us, and *perhaps if you be an active contributor you may get a little fancy badge in your profile...*
+Ah! So you would like to contribute to my repository, right? Great! We love new contributors who help us, and *perhaps if you be an active contributor you may get a little fancy badge in your profile...*
 
 Ah, sure, you wanna know how to, don't ya? Sure, I'll explain:
 - Fork this repository and make your desired changes
