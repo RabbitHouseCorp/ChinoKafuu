@@ -21,6 +21,6 @@ module.exports = class Helper {
 		embed.setDescription(`${this.description}${embedDescription}`)
 		embed.addField(this.context._locale('basic:aliases'), aliases)
 
-		return this.context.send(embed)
+		return this.context.send(embed.build())
 	}
 }
