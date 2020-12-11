@@ -40,6 +40,7 @@ node .
 ```
 ### How to connect a Lavalink
 > Create a file named `LavalinkConfig.json` in the folder `lavalink` and input this informations on this file
+
 > Download the Lavalink jar in: https://github.com/Frederikam/Lavalink/blob/master/README.md (Please read with attention)
 ```json
 {
