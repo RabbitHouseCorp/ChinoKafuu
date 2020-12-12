@@ -1,4 +1,13 @@
 {
+    "userinfo": {
+        "username": "User Tag",
+        "userid": "ID do Usuário",
+        "createdAt": "Account Created",
+        "joinedAt": "User Joined At",
+        "highRole": "Highest role",
+        "boostSince": "Boosting since",
+        "hasPermissions": "Permissions"
+    },
     "translate": {
         "description": "Translate a text without having to access google translate.",
         "usage": "<language-code> <text>"
