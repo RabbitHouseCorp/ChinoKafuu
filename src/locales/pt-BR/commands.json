@@ -95,35 +95,35 @@
         "invalidValue": "Por favor, me diga um valor válido.",
         "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
         "invalidArgs": "a moeda `{{arg}}` é uma moeda inválida.\n**Moedas suportadas:** `{{supported}}`",
-        "usage": "<from> <to> <amount>",
-        "description": "Check the currency what it’s worth today."
+        "usage": "<de> <para> <quantia>",
+        "description": "Verifique o valor da moeda hoje."
     },
     "vote": {
-        "title": "Vote for me",
-        "description": "Thank you so much. You can vote for me on link right down\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+        "title": "Vote em mim",
+        "description": "Muito obrigada. Você pode votar em mim no link logo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
     },
     "invite": {
-        "addMeInYourGuild": "Add me in your guild",
-        "description": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later."
+        "addMeInYourGuild": "Me adicione no seu servidor",
+        "description": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo."
     },
     "botinfo": {
-        "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Have a fun, and see you later.",
-        "guildsAmount": "Server amount",
-        "usersAmount": "User amount",
-        "shardLatency": "Shard latency",
-        "memoryUsage": "RAM usage",
-        "clientVersion": "Current version",
-        "shardUptime": "Current shard uptime",
-        "cpuModel": "CPU model",
-        "supportServer": "Support server"
+        "title": "Informação do bot",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "guildsAmount": "Quantidade do servidores",
+        "usersAmount": "Quantidade de usuários",
+        "shardLatency": "Ping da shard",
+        "memoryUsage": "Uso de memória RAM",
+        "clientVersion": "Versão atual",
+        "shardUptime": "Tempo online atual da shard",
+        "cpuModel": "Modelo do CPU",
+        "supportServer": "Servidor de Suporte"
     },
     "mcavatar": {
         "description": "Mostra o avatar de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "Shows a player's minecraft body.",
+        "description": "Mostra o corpo de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
@@ -137,7 +137,7 @@
     "mcquery": {
         "description": "Mostra a informação de um servidor de Minecraft",
         "usage": "<minecraft-server-ip>",
-        "version": "Version",
+        "version": "Versão",
         "serverOffline": "O servidor `{{0}}` está offline nesse momento ou não existe."
     },
     "dance": {
