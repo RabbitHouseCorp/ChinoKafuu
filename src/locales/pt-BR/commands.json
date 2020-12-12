@@ -14,44 +14,44 @@
     },
     "animu": {
         "title": "Rádio Animu - A Rádio Mais Moe do Brasil!",
-        "nowPlaying": "Now playing",
+        "nowPlaying": "Tocando Agora",
         "totalListening": {
-            "title": "Total listening",
-            "total": "listening now"
+            "title": "Total ouvindo",
+            "total": "escutando agora"
         },
-        "artist": "Author song",
+        "artist": "Autor da música",
         "volume": "Volume",
-        "volumeChanged": "volume successfully changed.",
-        "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving": "I'm leaving now from the voice channel."
+        "volumeChanged": "volume alterado com sucesso.",
+        "currentVolume": "o volume atual é `{{volume}}/100`.",
+        "leaving": "estou saindo agora do canal de voz."
     },
     "serverinfo": {
-        "guildID": "Guild ID",
-        "guildOwner": "Guild's Owner",
-        "guildRegion": "Guild's Region",
-        "guildCreateAt": "Guild Created At",
+        "guildID": "ID do servidor",
+        "guildOwner": "Dono do servidor",
+        "guildRegion": "Região do servidor",
+        "guildCreateAt": "Servidor criado",
         "guildAFKChannel": {
-            "title": "AFK Channel",
-            "noAfkChannel": "No AFK Channel"
+            "title": "Canal de ausência",
+            "noAfkChannel": "Sem canal de ausência"
         },
         "guildChannel": {
-            "title": "Channels ({{0}})",
-            "text": "Text",
-            "voice": "Voice"
+            "title": "Canais ({{0}})",
+            "text": "Texto",
+            "voice": "Voz"
         },
         "guildMember": {
-            "title": "Members ({{0}})",
-            "userCount": "Users",
+            "title": "Membros ({{0}})",
+            "userCount": "Usuários",
             "botCount": "Bots"
         },
         "region": {
-            "brazil": "Brazil",
-            "europe": "Europe",
+            "brazil": "Brasil",
+            "europe": "Europa",
             "hongkong": "Hong Kong",
-            "japan": "Japan",
-            "russia": "Russia",
-            "singapore": "Singapore",
-            "southafrica": "South Africa",
+            "japan": "Japão",
+            "russia": "Rússia",
+            "singapore": "Cingapura",
+            "southafrica": "África do Sul",
             "sydney": "Sydney",
             "us-central": "US Central",
             "us-east": "US East",
