@@ -153,7 +153,7 @@
     "pat": {
         "pated": "{{0}} acariciou {{1}}",
         "usage": "<userID|@user>",
-        "description": "Pat pat, pat me please. Give a pat to your friend."
+        "description": "Cafuné, cafuné, me faça um cafuné, por favor. Faça um cafuné no seu amigo."
     },
     "poke": {
         "poked": "{{0}} cutucou {{1}}",
@@ -169,7 +169,7 @@
     "tickle": {
         "tickle": "{{0}} fez cócegas em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Ha ha ha ha it tickles. Tickle someone on your server."
+        "description": "Ha ha ha, isso faz cócegas. Faça cócegas em alguém no seu servidor."
     },
     "reload": {
         "locales": "locales recarregadas com sucesso!",
@@ -257,7 +257,7 @@
         "usage": "<userID|@user> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
-        "missingNickname": "you didin't any nickname for I change."
+        "missingNickname": "você não falou nenhum apelido para eu trocar."
     },
     "chat": {
         "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
@@ -287,7 +287,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "What is the new language? React below.",
+        "message": "Qual é o seu idioma? Reaja abaixo.",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
@@ -318,7 +318,7 @@
         "success": "Agora você está AFK"
     },
     "choose": {
-        "usage": "argument1, argument2, argumentN",
+        "usage": "argumento1, argumento2, argumento",
         "description": "Faça o bot escolher algo",
         "chosen": "Eu escolho `{{chosen}}`"
     },
@@ -327,9 +327,9 @@
         "download": "Clique [here]({{link}}) para baixar"
     },
     "calculate": {
-        "description": "Evaluates a math expression.",
+        "description": "Resolva uma expressão matemática.",
         "usage": "<expression>",
-        "invalidArgs": "you must enter a valid value.",
-        "result": "the result is `{{result}}`"
+        "invalidArgs": "você deve inserir um valor válido.",
+        "result": "o resultado é `{{result}}`"
     }
 }
