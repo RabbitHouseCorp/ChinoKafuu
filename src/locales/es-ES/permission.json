@@ -19,5 +19,16 @@
     "manageNicknames": "Gestionar apodos",
     "manageRoles": "Gestionar roles",
     "manageEmojis": "Gestionar emojis",
-    "externalEmojis": "Usar emojis externos"
+    "externalEmojis": "Usar emojis externos",
+    "viewAuditLogs": "View Audit Logs",
+    "voicePrioritySpeaker": "Priorify Speaker",
+    "stream": "Stream",
+    "readMessages": "Read Messages",
+    "viewGuildInsights": "View Guild Insights",
+    "voiceConnect": "Connect",
+    "voiceSpeak": "Speak",
+    "voiceMuteMembers": "Mute Members",
+    "voiceDeafenMembers": "Deafen Members",
+    "voiceMoveMembers": "Move Members",
+    "manageWebhooks": "Manage Webhooks"
 }

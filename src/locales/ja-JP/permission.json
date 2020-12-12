@@ -19,5 +19,16 @@
     "manageNicknames": "ニックネームの管理",
     "manageRoles": "ロールの管理",
     "manageEmojis": "絵文字の管理",
-    "externalEmojis": "外部の絵文字を使用"
+    "externalEmojis": "外部の絵文字を使用",
+    "viewAuditLogs": "View Audit Logs",
+    "voicePrioritySpeaker": "Priorify Speaker",
+    "stream": "Stream",
+    "readMessages": "Read Messages",
+    "viewGuildInsights": "View Guild Insights",
+    "voiceConnect": "Connect",
+    "voiceSpeak": "Speak",
+    "voiceMuteMembers": "Mute Members",
+    "voiceDeafenMembers": "Deafen Members",
+    "voiceMoveMembers": "Move Members",
+    "manageWebhooks": "Manage Webhooks"
 }
