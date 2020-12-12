@@ -1,16 +1,16 @@
 {
     "userinfo": {
-        "username": "User Tag",
+        "username": "Tag do Usuário",
         "userid": "ID do usuário",
-        "createdAt": "Account Created",
-        "joinedAt": "User Joined At",
-        "highRole": "Highest role",
-        "boostSince": "Boosting since",
-        "hasPermissions": "Permissions"
+        "createdAt": "Conta Criada Em",
+        "joinedAt": "Usuário Entrou em",
+        "highRole": "Cargo mais alto",
+        "boostSince": "Impulsionando desde",
+        "hasPermissions": "Permissões"
     },
     "translate": {
-        "description": "Translate a text without having to access google translate.",
-        "usage": "<language-code> <text>"
+        "description": "Traduza um texto sem ter que acessar o Google Tradutor.",
+        "usage": "<código-do-idioma> <texto>"
     },
     "animu": {
         "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
