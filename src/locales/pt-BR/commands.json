@@ -1,129 +1,129 @@
 {
     "userinfo": {
-        "username": "User Tag",
+        "username": "Tag do Usuário",
         "userid": "ID do usuário",
-        "createdAt": "Account Created",
-        "joinedAt": "User Joined At",
-        "highRole": "Highest role",
-        "boostSince": "Boosting since",
-        "hasPermissions": "Permissions"
+        "createdAt": "Conta Criada Em",
+        "joinedAt": "Usuário Entrou em",
+        "highRole": "Cargo mais alto",
+        "boostSince": "Impulsionando desde",
+        "hasPermissions": "Permissões"
     },
     "translate": {
-        "description": "Translate a text without having to access google translate.",
-        "usage": "<language-code> <text>"
+        "description": "Traduza um texto sem ter que acessar o Google Tradutor.",
+        "usage": "<código-do-idioma> <texto>"
     },
     "animu": {
-        "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
-        "nowPlaying": "Now playing",
+        "title": "Rádio Animu - A Rádio Mais Moe do Brasil!",
+        "nowPlaying": "Tocando Agora",
         "totalListening": {
-            "title": "Total listening",
-            "total": "listening now"
+            "title": "Total ouvindo",
+            "total": "escutando agora"
         },
-        "artist": "Author song",
+        "artist": "Autor da música",
         "volume": "Volume",
-        "volumeChanged": "volume successfully changed.",
-        "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving": "I'm leaving now from the voice channel."
+        "volumeChanged": "volume alterado com sucesso.",
+        "currentVolume": "o volume atual é `{{volume}}/100`.",
+        "leaving": "estou saindo agora do canal de voz."
     },
     "serverinfo": {
-        "guildID": "Guild ID",
-        "guildOwner": "Guild's Owner",
-        "guildRegion": "Guild's Region",
-        "guildCreateAt": "Guild Created At",
+        "guildID": "ID do servidor",
+        "guildOwner": "Dono do servidor",
+        "guildRegion": "Região do servidor",
+        "guildCreateAt": "Servidor criado",
         "guildAFKChannel": {
-            "title": "AFK Channel",
-            "noAfkChannel": "No AFK Channel"
+            "title": "Canal de ausência",
+            "noAfkChannel": "Sem canal de ausência"
         },
         "guildChannel": {
-            "title": "Channels ({{0}})",
-            "text": "Text",
-            "voice": "Voice"
+            "title": "Canais ({{0}})",
+            "text": "Texto",
+            "voice": "Voz"
         },
         "guildMember": {
-            "title": "Members ({{0}})",
-            "userCount": "Users",
+            "title": "Membros ({{0}})",
+            "userCount": "Usuários",
             "botCount": "Bots"
         },
         "region": {
-            "brazil": "Brazil",
-            "europe": "Europe",
+            "brazil": "Brasil",
+            "europe": "Europa",
             "hongkong": "Hong Kong",
-            "japan": "Japan",
-            "russia": "Russia",
-            "singapore": "Singapore",
-            "southafrica": "South Africa",
-            "sydney": "Sydney",
-            "us-central": "US Central",
-            "us-east": "US East",
-            "us-south": "US South",
-            "us-west": "US west",
-            "india": "India"
+            "japan": "Japão",
+            "russia": "Rússia",
+            "singapore": "Cingapura",
+            "southafrica": "África do Sul",
+            "sydney": "Sidney",
+            "us-central": "Centro dos EUA",
+            "us-east": "Leste dos EUA",
+            "us-south": "Sul dos EUA",
+            "us-west": "Oeste dos EUA",
+            "india": "Índia"
         },
         "features": {
-            "title": "Features",
-            "dontHave": "This guild doesn't have any feature.",
-            "INVITE_SPLASH": "Invite Splash",
-            "VIP_REGIONS": "Vip Regions",
-            "VANITY_URL": "Vanity URL",
-            "VERIFIED": "Verfied",
-            "PARTNERED": "Partnered",
-            "COMMUNITY": "Community",
-            "COMMERCE": "Commerce",
-            "NEWS": "News Channel",
-            "DISCOVERABLE": "Discoverable",
-            "FEATURABLE": "Featurable",
-            "ANIMATED_ICON": "Animated Icon",
+            "title": "Recursos",
+            "dontHave": "Este servidor não possui nenhum recurso.",
+            "INVITE_SPLASH": "Fundo de Convite",
+            "VIP_REGIONS": "Regiões VIP",
+            "VANITY_URL": "URL personalizado",
+            "VERIFIED": "Verificado",
+            "PARTNERED": "Parceiro",
+            "COMMUNITY": "Comunidade",
+            "COMMERCE": "Comércio",
+            "NEWS": "Canal de Notícias",
+            "DISCOVERABLE": "Descobrível",
+            "FEATURABLE": "Recursos",
+            "ANIMATED_ICON": "Ícone Animado",
             "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable"
+            "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas Ativada"
         },
         "booster": {
-            "title": "Nitro Booster",
-            "levelCount": "Level Booster",
-            "boosterCount": "Total Boosters"
+            "title": "Impulsionador de Nitro",
+            "levelCount": "Nível de Impulsionamento",
+            "boosterCount": "Total de Boosters"
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have a icon",
-        "download": "Download the icon clicking [here]({{0}})"
+        "missingIcon": "este servidor não possui um ícone",
+        "download": "Baixe o ícone clicando [aqui]({{0}})"
     },
     "serverbanner": {
-        "missingFeature": "this guild doesn't have the `banner` feature.",
-        "missingBanner": "this guild doesn't have a banner.",
-        "download": "Download the banner clicking [here]({{0}})"
+        "missingFeature": "este servidor não possui o recurso de `banner`.",
+        "missingBanner": "este servidor não possui um banner.",
+        "download": "Baixe o banner clicando [aqui]({{0}})"
     },
     "money": {
-        "invalidValue": "please, give me a valid value.",
-        "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
-        "usage": "<from> <to> <amount>",
-        "description": "Check the currency what it’s worth today."
+        "invalidValue": "Por favor, me diga um valor válido.",
+        "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
+        "invalidArgs": "a moeda `{{arg}}` é uma moeda inválida.\n**Moedas suportadas:** `{{supported}}`",
+        "usage": "<de> <para> <quantia>",
+        "description": "Verifique o valor da moeda hoje."
     },
     "vote": {
-        "title": "Vote for me",
-        "description": "Thank you so much. You can vote for me on link right down\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+        "title": "Vote em mim",
+        "description": "Muito obrigada. Você pode votar em mim no link logo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
     },
     "invite": {
-        "addMeInYourGuild": "Add me in your guild",
-        "description": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later."
+        "addMeInYourGuild": "Me adicione no seu servidor",
+        "description": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo."
     },
     "botinfo": {
-        "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Have a fun, and see you later.",
-        "guildsAmount": "Server amount",
-        "usersAmount": "User amount",
-        "shardLatency": "Shard latency",
-        "memoryUsage": "RAM usage",
-        "clientVersion": "Current version",
-        "shardUptime": "Current shard uptime",
-        "cpuModel": "CPU model",
-        "supportServer": "Support server"
+        "title": "Informação do bot",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "guildsAmount": "Quantidade do servidores",
+        "usersAmount": "Quantidade de usuários",
+        "shardLatency": "Ping da shard",
+        "memoryUsage": "Uso de memória RAM",
+        "clientVersion": "Versão atual",
+        "shardUptime": "Tempo online atual da shard",
+        "cpuModel": "Modelo do CPU",
+        "supportServer": "Servidor de Suporte"
     },
     "mcavatar": {
         "description": "Mostra o avatar de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "Shows a player's minecraft body.",
+        "description": "Mostra o corpo de um jogador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
@@ -137,7 +137,7 @@
     "mcquery": {
         "description": "Mostra a informação de um servidor de Minecraft",
         "usage": "<minecraft-server-ip>",
-        "version": "Version",
+        "version": "Versão",
         "serverOffline": "O servidor `{{0}}` está offline nesse momento ou não existe."
     },
     "dance": {
@@ -153,7 +153,7 @@
     "pat": {
         "pated": "{{0}} acariciou {{1}}",
         "usage": "<userID|@user>",
-        "description": "Pat pat, pat me please. Give a pat to your friend."
+        "description": "Cafuné, cafuné, me faça um cafuné, por favor. Faça um cafuné no seu amigo."
     },
     "poke": {
         "poked": "{{0}} cutucou {{1}}",
@@ -169,7 +169,7 @@
     "tickle": {
         "tickle": "{{0}} fez cócegas em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Ha ha ha ha it tickles. Tickle someone on your server."
+        "description": "Ha ha ha, isso faz cócegas. Faça cócegas em alguém no seu servidor."
     },
     "reload": {
         "locales": "locales recarregadas com sucesso!",
@@ -257,7 +257,7 @@
         "usage": "<userID|@user> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
-        "missingNickname": "you didin't any nickname for I change."
+        "missingNickname": "você não falou nenhum apelido para eu trocar."
     },
     "chat": {
         "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
@@ -287,7 +287,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "What is the new language? React below.",
+        "message": "Qual é o seu idioma? Reaja abaixo.",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
@@ -318,7 +318,7 @@
         "success": "Agora você está AFK"
     },
     "choose": {
-        "usage": "argument1, argument2, argumentN",
+        "usage": "argumento1, argumento2, argumento",
         "description": "Faça o bot escolher algo",
         "chosen": "Eu escolho `{{chosen}}`"
     },
@@ -327,9 +327,9 @@
         "download": "Clique [here]({{link}}) para baixar"
     },
     "calculate": {
-        "description": "Evaluates a math expression.",
+        "description": "Resolva uma expressão matemática.",
         "usage": "<expression>",
-        "invalidArgs": "you must enter a valid value.",
-        "result": "the result is `{{result}}`"
+        "invalidArgs": "você deve inserir um valor válido.",
+        "result": "o resultado é `{{result}}`"
     }
 }
