@@ -1,8 +1,8 @@
 {
-    "botDeveloper": "Bot Developer.",
-    "createInstantInvite": "Create Instant Invite",
-    "kickMembers": "Kick Members",
-    "banMembers": "Ban Members",
+    "botDeveloper": "Desenvolvedor do Bot.",
+    "createInstantInvite": "Criar Convite Instantâneo",
+    "kickMembers": "Expulsar Membros",
+    "banMembers": "Banir Membros",
     "administrator": "Administrator",
     "manageChannels": "Manage Channels",
     "manageGuild": "Manage Guild",
