@@ -79,22 +79,22 @@
         "booster": {
             "title": "Impulsionador de Nitro",
             "levelCount": "Nível de Impulsionamento",
-            "boosterCount": "Total Boosters"
+            "boosterCount": "Total de Boosters"
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have a icon",
-        "download": "Download the icon clicking [here]({{0}})"
+        "missingIcon": "este servidor não possui um ícone",
+        "download": "Baixe o ícone clicando [aqui]({{0}})"
     },
     "serverbanner": {
-        "missingFeature": "this guild doesn't have the `banner` feature.",
-        "missingBanner": "this guild doesn't have a banner.",
-        "download": "Download the banner clicking [here]({{0}})"
+        "missingFeature": "este servidor não possui o recurso de `banner`.",
+        "missingBanner": "este servidor não possui um banner.",
+        "download": "Baixe o banner clicando [aqui]({{0}})"
     },
     "money": {
-        "invalidValue": "please, give me a valid value.",
-        "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
+        "invalidValue": "Por favor, me diga um valor válido.",
+        "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
+        "invalidArgs": "a moeda `{{arg}}` é uma moeda inválida.\n**Moedas suportadas:** `{{supported}}`",
         "usage": "<from> <to> <amount>",
         "description": "Check the currency what it’s worth today."
     },
