@@ -22,7 +22,7 @@ module.exports = class TranslateCommand extends Command {
         }
         
         let url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${content.slice(0)}&ie=UTF-8&oe=UTF-8`
-        const info = await fetch(url)
+        const info = await fetch(encodeURI(url))
         const res = await info.text()
         let body = JSON.parse(await res)[0][0][0]
         
