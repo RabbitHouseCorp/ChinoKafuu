@@ -16,7 +16,11 @@ module.exports = class ColorResolver {
 			ANIMU: 0x7800FF
 		}
 
-		if (!defaultColors[color] || !color) color = 'DEFAULT'
-		return defaultColors[color]
+		if (!color) color = null
+		if (defaultColors[color]) {
+			return defaultColors[color]
+		}
+
+		return parseInt(color.replace('#', ''), 16)
 	}
 }

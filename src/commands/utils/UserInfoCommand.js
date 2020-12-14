@@ -26,17 +26,19 @@ module.exports = class UserInfoCommand extends Command {
             member = ctx.message.author
         }
         const guild = ctx.message.channel.guild
+        const highRole = guild.roles.get(guild.members.get(member.id)?.roles[0])
         let roleSize = guild.members.get(member.id) ? guild.members.get(member.id).roles.length : '0'
         const embed = new EmbedBuilder()
-        embed.setColor('DEFAULT')
+        embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
         embed.setThumbnail(member.dynamicAvatarURL())
         embed.addField(ctx._locale('commands:userinfo.username'), `${member.username}#${member.discriminator}`, true)
         embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
         embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)
-        guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), moment(member.createdAt).format('LLLL'), true) : null
+        guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), moment(guild.members.get(member.id).joinedAt).format('LLLL'), true) : null
         guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.highRole'), guild.roles.get(guild.members.get(member.id)?.roles[0])?.mention, true) : null
         guild.members.get(member.id)?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), moment(guild.members.get(member.id).premiumSince).format('LLLL'), true) : null
         guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), this.checkPermission(ctx._locale, guild, member).join(', ')) : null
+        
         ctx.send(embed.build())
     }
 
