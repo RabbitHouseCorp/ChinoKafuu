@@ -1,4 +1,9 @@
 {
+    "unban": {
+        "notBanned": "this user is not banned, check out if you mention the correct user.",
+        "usage": "<userID|userName> <reason>",
+        "description": "Unban a user if they're banned."
+    },
     "roleinfo": {
         "roleNotExist": "I can't find this role or this role doesn't exist",
         "roleName": "Role information: {{0}}",
