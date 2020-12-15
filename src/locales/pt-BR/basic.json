@@ -10,6 +10,7 @@
 	"clickHere": "Clique aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
+		"unbanned": "{{0}} | Unbanned",
 		"kicked": "{{member}} | Expulso",
 		"softBan": "{{member}} | Banido suavemente",
 		"embed": {
