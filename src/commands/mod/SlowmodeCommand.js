@@ -7,12 +7,8 @@ module.exports = class SlowmodeCommand extends Command {
 			aliases: ['modolento'],
 			arguments: 1,
 			permissions: [{
-				entity: 'user',
+				entity: 'both',
 				permissions: ['manageChannels']
-			},
-			{
-				entity: 'bot',
-				permissions: ['manageChannels', 'manageMessages']
 			}]
 		})
 	}

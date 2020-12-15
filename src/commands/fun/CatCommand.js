@@ -6,7 +6,11 @@ module.exports = class BakaCommand extends Command {
   constructor() {
     super({
       name: 'cat',
-      aliases: ['gato', 'kitty']
+      aliases: ['gato', 'kitty'],
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

@@ -7,7 +7,11 @@ module.exports = class BotInfoCommand extends Command {
         super({
             name: 'botinfo',
             aliases: ['infobot'],
-            arguments: null
+            arguments: 0,
+            permissions: [{
+                entity: 'bot',
+                permissions: ['embedLinks']
+            }]
         })
     }
 

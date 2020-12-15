@@ -4,7 +4,11 @@ require('moment-duration-format')
 module.exports = class PingCommand extends Command {
   constructor() {
     super({
-      name: 'ping'
+      name: 'ping',
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

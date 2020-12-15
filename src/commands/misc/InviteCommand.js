@@ -5,7 +5,11 @@ module.exports = class InviteCommand extends Command {
         super({
             name: 'invite',
             aliases: ['convite', 'convidar'],
-            arguments: 0
+            arguments: 0,
+            permissions: [{
+                entity: 'bot',
+                permissions: ['embedLinks']
+            }]
         })
     }
 

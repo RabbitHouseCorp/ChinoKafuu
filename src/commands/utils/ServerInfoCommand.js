@@ -4,7 +4,11 @@ module.exports = class ServerInfoCommand extends Command {
     constructor() {
         super({
             name: 'serverinfo',
-            aliases: ['guildinfo']
+            aliases: ['guildinfo'],
+            permissions: [{
+                entity: 'bot',
+                permissions: ['embedLinks']
+            }]
         })
     }
 

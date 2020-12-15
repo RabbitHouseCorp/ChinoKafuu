@@ -4,7 +4,11 @@ module.exports = class ServerIconCommand extends Command {
     constructor() {
         super({
             name: 'servericon',
-            aliases: ['guildicon']
+            aliases: ['guildicon'],
+            permissions: [{
+                entity: 'bot',
+                permissions: ['embedLinks']
+            }]
         })
     }
 

@@ -4,7 +4,11 @@ const axios = require('axios')
 module.exports = class AvatarCommand extends Command {
   constructor() {
     super({
-      name: 'avatar'
+      name: 'avatar',
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

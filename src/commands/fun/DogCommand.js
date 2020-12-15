@@ -6,7 +6,11 @@ module.exports = class DogCommand extends Command {
   constructor() {
     super({
       name: 'dog',
-      aliases: ['cachorro']
+      aliases: ['cachorro'],
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 
