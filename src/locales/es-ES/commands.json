@@ -1,4 +1,17 @@
 {
+    "slowmode": {
+        "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
+        "rateLimitEnable": "the chat {{0}} is now in slowmode ({{1}} seconds)",
+        "rateLimited": "calm down! The limit is `600` seconds",
+        "minimalTimeLimited": "you can't set a time less than 0.",
+        "usage": "<time>",
+        "description": "Set slowmode in the current channel."
+    },
+    "unban": {
+        "notBanned": "this user is not banned, check out if you mention the correct user.",
+        "usage": "<userID|userName> <reason>",
+        "description": "Unban a user if they're banned."
+    },
     "roleinfo": {
         "roleNotExist": "I can't find this role or this role doesn't exist",
         "roleName": "Role information: {{0}}",
