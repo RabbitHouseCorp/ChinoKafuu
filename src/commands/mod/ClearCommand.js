@@ -17,7 +17,9 @@ module.exports = class ClearCommand extends Command {
     if (ctx.args[0] > 100) return ctx.replyT('error', 'commands:clear.limit')
     if (isNaN(ctx.args[0])) return ctx.replyT('error', 'commands:clear.nan')
 
-    ctx.message.channel.purge(Number(ctx.args[0]) + 1).then(ctx.replyT('success', 'commands:clear.success', { messages: ctx.args[0] }))
+    ctx.message.channel.purge(Number(ctx.args[0]) + 1).then((msg) => {
+      ctx.replyT('success', 'commands:clear.success', { messages: msg })
+    })
   }
 
   //TODO Clear messages by user
