@@ -131,7 +131,11 @@ module.exports = class EmbedBuilder {
 		return this
 	}
 
-	build() {
-		return { embed: this }
+	/**
+	 * 
+	 * @param {string} content 
+	 */
+	build(content) {
+		return { content, embed: this }
 	}
 }
