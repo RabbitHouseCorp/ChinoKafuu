@@ -35,9 +35,9 @@ module.exports = class AnnounceCommand extends Command {
 			2: Emoji.getEmoji('warn'),
 			3: Emoji.getEmoji('error')
 		}).then(async msg => {
-			await msg.addReaction(Emoji.getEmojiReaction('success'))
-			await msg.addReaction(Emoji.getEmojiReaction('warn'))
-			await msg.addReaction(Emoji.getEmojiReaction('error'))
+			await msg.addReaction(Emoji.getEmojiReaction('success').mention)
+			await msg.addReaction(Emoji.getEmojiReaction('warn').mention)
+			await msg.addReaction(Emoji.getEmojiReaction('error').mention)
 
 			const filter = (_, emoji, userID) => (['gochiusa_success', 'warn', 'gochiusa_error'].includes(emoji.name)) && userID === ctx.message.author.id
 			const collector = new ReactionCollector(msg, filter, { max: 1 })

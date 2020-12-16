@@ -1,4 +1,4 @@
-const { Command, ReactionCollector } = require('../../utils')
+const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 class PayCommand extends Command {
   constructor() {
@@ -34,8 +34,8 @@ class PayCommand extends Command {
     const totalYens = Math.round(realValue[0])
     const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, fee: realValue[1], total: value }) //TODO add warn emoji
 
-    await message.addReaction('✅')
-    await message.addReaction('error:577973245391667200')
+    await message.addReaction(Emoji.getEmojiReaction('success').mention)
+    await message.addReaction(Emoji.getEmojiReaction('error').mention)
 
     const filter = (_, emoji, userID) => (["✅", "error"].includes(emoji.name)) && userID === ctx.message.author.id
     const collector = new ReactionCollector(message, filter, { max: 1 })

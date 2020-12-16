@@ -1,44 +1,28 @@
-module.exports ={
+const emotes = require('./Emojis')
+module.exports = {
     getEmoji: function getEmoji(emoji) {
-        const emotes = {
-            chino_tail: '<a:chino_tail:685197800434171933>',
-            chino_think: '<:chino_think:545802783232753669>',
-            error: '<:gochiusa_error:788464284316991508>',
-            warn: '<:warn:672470606578581524>',
-            success: '<:gochiusa_success:788464186752499732>',
-            chino_shock: '<:chino_shock:685198401863942156>',
-            yen: '💴',
-            minecraft: '<:minecraft:504670650498285603>',
-            moneybag: '💰',
-            map: '🗺️',
-            ping_pong: ':ping_pong:'
-        }
 
         if (!emotes[emoji]) {
             return emoji = ':bug:'
         }
 
-        return emoji = emotes[emoji]
+        return emotes[emoji]
     },
     getEmojiReaction: function getEmojiReaction(emoji) {
-        const emotes = {
-            chino_tail: 'a:chino_tail:685197800434171933',
-            chino_think: ':chino_think:545802783232753669',
-            error: 'gochiusa_error:788464284316991508',
-            warn: 'warn:672470606578581524',
-            success: 'gochiusa_success:788464186752499732',
-            chino_shock: 'chino_shock:685198401863942156',
-            yen: '💴',
-            minecraft: 'minecraft:504670650498285603',
-            moneybag: '💰',
-            map: '🗺️',
-            ping_pong: '🏓'
-        }
-
         if (!emotes[emoji]) {
-            return emoji = '🐛'
+            return emoji = {
+                name: '🐛',
+                id: '🐛',
+                mention: '🐛'
+            }
         }
-
-        return emoji = emotes[emoji]
+        const emojiSplit = emotes[emoji].replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')
+        const objectEmoji = {
+            name: emojiSplit[0],
+            id: (emojiSplit[1] !== undefined) ? emojiSplit[1] : emojiSplit[0],
+            mention: (emojiSplit[1] !== undefined) ? `${emojiSplit[0]}:${emojiSplit[1]}` : `${emojiSplit[0]}`
+        }
+        
+        return objectEmoji
     }
 }

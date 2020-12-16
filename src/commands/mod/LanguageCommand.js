@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, ReactionCollector } = require('../../utils')
+const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 module.exports = class LanguageCommand extends Command {
 	constructor() {
 		super({
@@ -22,11 +22,11 @@ module.exports = class LanguageCommand extends Command {
 		embed.setDescription('🇧🇷 **Português, Brasil**\n🇵🇹 **Português, Portugal**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
 
 		ctx.send(embed.build()).then(async message => {
-			await message.addReaction('🇧🇷')
-			await message.addReaction('🇵🇹')
-			await message.addReaction('🇺🇸')
-			await message.addReaction('🇪🇸')
-			await message.addReaction('🇯🇵')
+			await message.addReaction(Emoji.getEmojiReaction('brazil').mention)
+			await message.addReaction(Emoji.getEmojiReaction('portugal').mention)
+			await message.addReaction(Emoji.getEmojiReaction('usa').mention)
+			await message.addReaction(Emoji.getEmojiReaction('es').mention)
+			await message.addReaction(Emoji.getEmojiReaction('ja').mention)
 
 			const filter = (_, emoji, userID) => (['🇧🇷', '🇺🇸', '🇪🇸', '🇯🇵'].includes(emoji.name)) && userID === ctx.message.author.id
 			const collector = new ReactionCollector(message, filter, { max: 1 })
