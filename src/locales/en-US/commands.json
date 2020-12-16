@@ -4,7 +4,9 @@
         "argsNotFound": "your didn't anything, I can't send a empty message.",
         "embedSendBy": "Announcement sent by: {{0}}",
         "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
-        "announceSent": "announcement successfully sent."
+        "announceSent": "announcement successfully sent.",
+        "usage": "<#channel> <message>",
+        "description": "Send a announce to current server for all members (or not)."
     },
     "slowmode": {
         "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
