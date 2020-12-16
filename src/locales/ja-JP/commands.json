@@ -1,4 +1,29 @@
 {
+    "renamechannel": {
+        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
+        "invalidName": "I can't rename this channel because the name is invalid.",
+        "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
+        "usage": "<#channel> <new-name>",
+        "description": "Rename a channel from the current guild."
+    },
+    "renameemoji": {
+        "successfullyRenamed": "emoji successfully renamed.",
+        "usage": "<emoji> <new-name>",
+        "description": "Rename a emoji from the current guild."
+    },
+    "removerole": {
+        "success": "role successfully removed.",
+        "alreadyRemoved": "the member doesn't have this role.",
+        "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
+        "usage": "<user> <role>",
+        "description": "Removes a role from a guild member."
+    },
+    "removeemoji": {
+        "successfullyRemoved": "emoji successfully removed.",
+        "emojiNotFound": "this emoji isn't from this guild.",
+        "usage": "<emoji>",
+        "description": "Remove a emoji from the current guild."
+    },
     "announce": {
         "channelNotFound": "I can't find this channel, make sure if this channel exist.",
         "argsNotFound": "your didn't anything, I can't send a empty message.",
