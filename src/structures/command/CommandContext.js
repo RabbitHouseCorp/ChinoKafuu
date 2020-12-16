@@ -46,8 +46,8 @@ module.exports = class CommandContext {
 	 * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
 	 */
 	async reply(emoji, content, options = {}) {
-		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return await this.message.channel.createMessage({ content: `${emoji} **|** <@${this.message.author.id}>, ${content}`, options })
+		
+		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji)} **|** <@${this.message.author.id}>, ${content}`, options })
 	}
 
 	/**
@@ -59,7 +59,7 @@ module.exports = class CommandContext {
 	 * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
 	 */
 	async replyT(emoji, content, data = {}, options = {}) {
-		Emoji[emoji] ? emoji = Emoji[emoji] : emoji = ':bug:'
-		return await this.message.channel.createMessage({ content: `${emoji} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
+		
+		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji)} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
 	}
 }

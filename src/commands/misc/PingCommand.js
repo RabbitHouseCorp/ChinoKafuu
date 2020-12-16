@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
 module.exports = class PingCommand extends Command {
@@ -33,9 +33,9 @@ module.exports = class PingCommand extends Command {
         break
       }
       default: {
-        const msg = await ctx.send(':ping_pong:')
+        const msg = await ctx.send(Emoji.getEmoji('ping_pong'))
         const ping = `Ping: \`${Math.round(ctx.message.channel.guild.shard.latency)}\`ms! | API Latency: \`${Date.now() - msg.timestamp}\` | Shard: [${ctx.message.channel.guild.shard.id}/${ctx.client.shards.size}] | Cluster ${process.env.CLUSTER_ID}`
-        await msg.edit(`:ping_pong:\n${ping}`)
+        await msg.edit(`${Emoji.getEmoji('ping_pong')}\n${ping}`)
       }
     }
   }

@@ -18,7 +18,7 @@ module.exports = class McAvatarCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('MINECRAFT')
         embed.setImage(body)
-        embed.setDescription(`${Emoji['minecraft']} [[Download]](${body})`)
+        embed.setDescription(`${Emoji.getEmoji('minecraft')} [[Download]](${body})`)
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
 
