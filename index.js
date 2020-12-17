@@ -4,7 +4,24 @@ const Client = require('./src/ChinoClient')
 const ShardManager = require('./src/structures/ShardManager')
 const config = require('./config')
 const client = new Client({
-	disableMentions: "everyone"
+	disableMentions: "everyone",
+	ws: {
+		intents: [
+			'GUILDS',
+			'GUILD_MEMBERS',
+			'GUILD_BANS',
+			'GUILD_EMOJIS',
+			'GUILD_INTEGRATIONS',
+			'GUILD_WEBHOOKS',
+			'GUILD_INVITES',
+			'GUILD_VOICE_STATES',
+			'GUILD_MESSAGES',
+			'GUILD_MESSAGE_REACTIONS',
+			'DIRECT_MESSAGES',
+			'DIRECT_MESSAGE_REACTIONS'
+		]
+	},
+	fetchAllMembers: true
 })
 
 if (client.shard) client.shardManager = new ShardManager(client)
