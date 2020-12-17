@@ -4,7 +4,7 @@
 	"missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
 	"invalidUser": "Usuário não encontrado. Verifica se tu o @mencionaste ou verifica o ID.",
 	"invalidRole": "Cargo não encontrado. Confirma que o @mencionaste ou verifica o ID.",
-	"userNotFound": "Eu não consigo encontrar esse usuário, por favor, tenta outra vez.",
+	"invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
 	"noReason": "Sem razão",
 	"onBehalf": "em nome de {{member}}: {{reason}}",
 	"clickHere": "Clica aqui",
