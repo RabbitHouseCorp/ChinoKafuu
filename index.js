@@ -20,8 +20,7 @@ const client = new Client({
 			'DIRECT_MESSAGES',
 			'DIRECT_MESSAGE_REACTIONS'
 		]
-	},
-	fetchAllMembers: true
+	}
 })
 
 if (client.shard) client.shardManager = new ShardManager(client)
