@@ -361,7 +361,8 @@
     },
     "language": {
         "message": "What is your language? React below.",
-        "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
+        "helpUs": "Help us to translate",
+        "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
