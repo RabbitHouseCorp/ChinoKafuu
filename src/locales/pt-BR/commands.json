@@ -360,7 +360,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "Qual é o seu idioma? Reaja abaixo.",
+        "message": "What is your language? React below.",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
