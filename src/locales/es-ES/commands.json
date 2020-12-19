@@ -1,6 +1,6 @@
 {
     "seticon": {
-        "success": "icon sucessfully changed.",
+        "success": "Icono cambiado con éxito.",
         "usage": "<attachment-or-url>",
         "description": "Set a icon from the current guild."
     },
