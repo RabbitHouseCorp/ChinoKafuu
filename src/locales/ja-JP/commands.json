@@ -360,7 +360,7 @@
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
     "language": {
-        "message": "What is the new language? React below.",
+        "message": "What is your language? React below.",
         "description": "Changes the language of the guild. Skips the embed if the language is provided, as described in the usage"
     },
     "prefix": {
