@@ -360,7 +360,7 @@
         "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
-        "message": "What is the new language? React below.",
+        "message": "What is your language? React below.",
         "description": "Cambia el idioma del servidor. Salta al mensaje si el idioma es proporcionado, como se describe en su uso"
     },
     "prefix": {
