@@ -1,4 +1,16 @@
 {
+    "seticon": {
+        "success": "icon sucessfully changed.",
+        "usage": "<attachment-or-url>",
+        "description": "Set a icon from the current guild."
+    },
+    "rolecolor": {
+        "invalidColor": "you're specified a invalid color.",
+        "colorChanged": "color of the role has been successfully changed.",
+        "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
+        "description": "Changes the color of a role.",
+        "usage": "<role> <#color>"
+    },
     "renamechannel": {
         "channelNotFound": "I can't find this channel, make sure if this channel exist.",
         "invalidName": "I can't rename this channel because the name is invalid.",
@@ -348,7 +360,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "Qual é o seu idioma? Reaja abaixo.",
+        "message": "What is your language? React below.",
         "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
     },
     "prefix": {
