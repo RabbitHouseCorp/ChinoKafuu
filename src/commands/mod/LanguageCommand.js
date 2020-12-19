@@ -14,12 +14,12 @@ module.exports = class LanguageCommand extends Command {
 		})
 	}
 
-	//TODO This command will have buttons in the new API version
 	async run(ctx) {
 		const embed = new EmbedBuilder()
 		embed.setColor('DEFAULT')
 		embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.dynamicAvatarURL())
 		embed.setDescription('🇧🇷 **Português, Brasil**\n🇵🇹 **Português, Portugal**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
+		embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
 
 		ctx.send(embed.build()).then(async message => {
 			await message.addReaction(Emoji.getEmojiReaction('brazil').mention)
@@ -28,7 +28,7 @@ module.exports = class LanguageCommand extends Command {
 			await message.addReaction(Emoji.getEmojiReaction('es').mention)
 			await message.addReaction(Emoji.getEmojiReaction('ja').mention)
 
-			const filter = (_, emoji, userID) => (['🇧🇷', '🇺🇸', '🇪🇸', '🇯🇵'].includes(emoji.name)) && userID === ctx.message.author.id
+			const filter = (_, emoji, userID) => ([Emoji.getEmojiReaction('brazil').name, Emoji.getEmojiReaction('portugal').name, Emoji.getEmojiReaction('usa').name, Emoji.getEmojiReaction('es').name, Emoji.getEmojiReaction('ja').name].includes(emoji.name)) && userID === ctx.message.author.id
 			const collector = new ReactionCollector(message, filter, { max: 1 })
 			collector.on('collect', async (_, emoji) => {
 				switch (emoji.name) {
