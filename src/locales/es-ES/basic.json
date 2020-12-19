@@ -4,7 +4,7 @@
 	"missingUserPermission": "no tienes el permiso **{{perm}}**. No puedes ejecutar este comando.",
 	"invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
 	"invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado o comprueba la ID.",
-	"invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
+	"invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
 	"noReason": "Sin motivo",
 	"onBehalf": "en nombre de {{member}}: {{reason}}",
 	"clickHere": "Clic aquí",
