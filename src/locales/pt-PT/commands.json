@@ -360,7 +360,7 @@
         "error": "Eu não posso banir esse usuário. Provavelmente, os seus cargos são mais altos que os meus. Verifica e tenta outra vez"
     },
     "language": {
-        "message": "What is the new language? React below.",
+        "message": "What is your language? React below.",
         "description": "Muda o idioma do teu servidor. Ignora a embed se a linguagem for fornecida, conforme descrito no uso"
     },
     "prefix": {
