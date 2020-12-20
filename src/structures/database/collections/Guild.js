@@ -13,6 +13,8 @@ module.exports = mongoose.model(
 		partner: { type: Boolean, default: false },
 		animu: { type: Boolean, default: false },
 		animuChannel: { type: String, default: '' },
+		blacklist: { type: Boolean, default: false },
+		blacklistReason: { type: String, default: '' },
 		antiflood: {
 			type: Object,
 			default: {
