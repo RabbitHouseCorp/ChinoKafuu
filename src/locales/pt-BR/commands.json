@@ -43,7 +43,7 @@
         "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
         "announceSent": "Anúncio enviado com sucesso.",
         "usage": "<#canal> <mensagem>",
-        "description": "Send a announce to current server for all members (or not)."
+        "description": "Envia um anúncio no servidor atual para todos os membros (ou não)."
     },
     "slowmode": {
         "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
@@ -70,7 +70,7 @@
         "roleManaged": "Integração",
         "roleCreatedAt": "Cargo criado em",
         "usage": "<role-mention/ID/name>",
-        "description": "Shows some informations about the role."
+        "description": "Mostra algumas informações sobre o cargo."
     },
     "userinfo": {
         "username": "Tag do Usuário",
@@ -173,7 +173,7 @@
     },
     "vote": {
         "title": "Vote em mim",
-        "description": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+        "description": "Muito obrigada. Você pode votar em mim no link logo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
@@ -361,8 +361,8 @@
     },
     "language": {
         "message": "Qual é sua língua? Reaja abaixo.",
-        "helpUs": "Help us to translate",
-        "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
+        "helpUs": "Nos ajude a traduzir",
+        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin. um/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
