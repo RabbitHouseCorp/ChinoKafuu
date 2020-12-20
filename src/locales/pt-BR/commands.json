@@ -1,34 +1,34 @@
 {
     "seticon": {
-        "success": "icon sucessfully changed.",
-        "usage": "<attachment-or-url>",
-        "description": "Set a icon from the current guild."
+        "success": "ícone alterado com sucesso.",
+        "usage": "<arquivo-ou-url>",
+        "description": "Defina um ícone para o servidor atual."
     },
     "rolecolor": {
-        "invalidColor": "you're specified a invalid color.",
-        "colorChanged": "color of the role has been successfully changed.",
-        "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
-        "description": "Changes the color of a role.",
-        "usage": "<role> <#color>"
+        "invalidColor": "você especificou uma cor inválida.",
+        "colorChanged": "a cor do cargo foi alterada com sucesso.",
+        "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu cargo mais alto. Verifique os cargos e tente novamente.",
+        "description": "Altera a cor de um cargo.",
+        "usage": "<cargo> <#cor>"
     },
     "renamechannel": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
-        "invalidName": "I can't rename this channel because the name is invalid.",
-        "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
-        "usage": "<#channel> <new-name>",
-        "description": "Rename a channel from the current guild."
+        "channelNotFound": "eu não consigo encontrar este canal, certifique-se que este canal existe.",
+        "invalidName": "eu não posso renomear este canal porque o nome é inválido.",
+        "successfullyRenamed": "o canal `{{0}} foi renomeado com sucesso.",
+        "usage": "<#canal> <novo-nome>",
+        "description": "Renomeia um canal do servidor atual."
     },
     "renameemoji": {
-        "successfullyRenamed": "emoji successfully renamed.",
-        "usage": "<emoji> <new-name>",
-        "description": "Rename a emoji from the current guild."
+        "successfullyRenamed": "emoji renomeado com sucesso.",
+        "usage": "<emoji> <novo-nome>",
+        "description": "Renomeia um emoji do servidor atual."
     },
     "removerole": {
-        "success": "role successfully removed.",
-        "alreadyRemoved": "the member doesn't have this role.",
-        "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
+        "success": "cargo removido com sucesso.",
+        "alreadyRemoved": "o membro não tem este cargo.",
+        "higher": "eu não pude remover este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente.",
         "usage": "<@user> <role>",
-        "description": "Removes a role from a guild member."
+        "description": "Remove um cargo a um membro do servidor."
     },
     "removeemoji": {
         "successfullyRemoved": "emoji successfully removed.",
@@ -360,7 +360,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "What is your language? React below.",
+        "message": "Qual é sua língua? Reaja abaixo.",
         "helpUs": "Help us to translate",
         "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
     },
