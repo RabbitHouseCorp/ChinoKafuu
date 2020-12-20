@@ -31,44 +31,44 @@
         "description": "Remove um cargo a um membro do servidor."
     },
     "removeemoji": {
-        "successfullyRemoved": "emoji successfully removed.",
-        "emojiNotFound": "this emoji isn't from this guild.",
+        "successfullyRemoved": "emoji removido com sucesso.",
+        "emojiNotFound": "este emoji não é deste servidor.",
         "usage": "<emoji>",
-        "description": "Remove a emoji from the current guild."
+        "description": "Remove um emoji do servidor atual."
     },
     "announce": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
-        "argsNotFound": "your didn't anything, I can't send a empty message.",
-        "embedSendBy": "Announcement sent by: {{0}}",
-        "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
-        "announceSent": "announcement successfully sent.",
-        "usage": "<#channel> <message>",
+        "channelNotFound": "eu não consigo encontrar este canal, certifique-se que este canal existe.",
+        "argsNotFound": "você não disse nada, eu não posso enviar uma mensagem vazia.",
+        "embedSendBy": "Anúncio enviado por: {{0}}",
+        "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
+        "announceSent": "Anúncio enviado com sucesso.",
+        "usage": "<#canal> <mensagem>",
         "description": "Send a announce to current server for all members (or not)."
     },
     "slowmode": {
-        "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
-        "rateLimitEnable": "the chat {{0}} is now in slowmode ({{1}} seconds)",
-        "rateLimited": "calm down! The limit is `600` seconds",
-        "minimalTimeLimited": "you can't set a time less than 0.",
-        "usage": "<time>",
-        "description": "Set slowmode in the current channel."
+        "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
+        "rateLimitEnable": "o chat {{0}} está agora no modo lento ({{1}} segundos)",
+        "rateLimited": "calma! O limite é `600` segundos",
+        "minimalTimeLimited": "você não pode definir um tempo menor que 0.",
+        "usage": "<tempo>",
+        "description": "Define o modo lento no canal atual."
     },
     "unban": {
-        "notBanned": "this user is not banned, check out if you mention the correct user.",
-        "usage": "<userID|userName> <reason>",
-        "description": "Unban a user if they're banned."
+        "notBanned": "este usuário não está banido, confira se você mencionou o usuário correto.",
+        "usage": "<userID|userName> <motivo>",
+        "description": "Desbane um usuário se estiver banido."
     },
     "roleinfo": {
-        "roleNotExist": "I can't find this role or this role doesn't exist",
-        "roleName": "Role information: {{0}}",
-        "roleMention": "Mention of role",
-        "roleID": "Role ID",
-        "roleColor": "Role Color",
-        "roleGuild": "Guild",
-        "roleHoist": "Separate Category",
-        "roleMentionable": "Mentionable",
-        "roleManaged": "Integration",
-        "roleCreatedAt": "Role Created At",
+        "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe",
+        "roleName": "Informações do cargo: {{0}}",
+        "roleMention": "Menção do cargo",
+        "roleID": "ID do cargo",
+        "roleColor": "Cor do cargo",
+        "roleGuild": "Servidor",
+        "roleHoist": "Categoria Separada",
+        "roleMentionable": "Mencionável",
+        "roleManaged": "Integração",
+        "roleCreatedAt": "Cargo criado em",
         "usage": "<role-mention/ID/name>",
         "description": "Shows some informations about the role."
     },
