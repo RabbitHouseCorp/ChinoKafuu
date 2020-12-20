@@ -1,76 +1,76 @@
 {
     "seticon": {
-        "success": "icon sucessfully changed.",
-        "usage": "<attachment-or-url>",
-        "description": "Set a icon from the current guild."
+        "success": "ícone alterado com sucesso.",
+        "usage": "<arquivo-ou-url>",
+        "description": "Defina um ícone para o servidor atual."
     },
     "rolecolor": {
-        "invalidColor": "you're specified a invalid color.",
-        "colorChanged": "color of the role has been successfully changed.",
-        "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
-        "description": "Changes the color of a role.",
-        "usage": "<role> <#color>"
+        "invalidColor": "você especificou uma cor inválida.",
+        "colorChanged": "a cor do cargo foi alterada com sucesso.",
+        "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu cargo mais alto. Verifique os cargos e tente novamente.",
+        "description": "Altera a cor de um cargo.",
+        "usage": "<cargo> <#cor>"
     },
     "renamechannel": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
-        "invalidName": "I can't rename this channel because the name is invalid.",
-        "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
-        "usage": "<#channel> <new-name>",
-        "description": "Rename a channel from the current guild."
+        "channelNotFound": "eu não consigo encontrar este canal, certifique-se que este canal existe.",
+        "invalidName": "eu não posso renomear este canal porque o nome é inválido.",
+        "successfullyRenamed": "o canal `{{0}} foi renomeado com sucesso.",
+        "usage": "<#canal> <novo-nome>",
+        "description": "Renomeia um canal do servidor atual."
     },
     "renameemoji": {
-        "successfullyRenamed": "emoji successfully renamed.",
-        "usage": "<emoji> <new-name>",
-        "description": "Rename a emoji from the current guild."
+        "successfullyRenamed": "emoji renomeado com sucesso.",
+        "usage": "<emoji> <novo-nome>",
+        "description": "Renomeia um emoji do servidor atual."
     },
     "removerole": {
-        "success": "role successfully removed.",
-        "alreadyRemoved": "the member doesn't have this role.",
-        "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
+        "success": "cargo removido com sucesso.",
+        "alreadyRemoved": "o membro não tem este cargo.",
+        "higher": "eu não pude remover este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente.",
         "usage": "<@user> <role>",
-        "description": "Removes a role from a guild member."
+        "description": "Remove um cargo a um membro do servidor."
     },
     "removeemoji": {
-        "successfullyRemoved": "emoji successfully removed.",
-        "emojiNotFound": "this emoji isn't from this guild.",
+        "successfullyRemoved": "emoji removido com sucesso.",
+        "emojiNotFound": "este emoji não é deste servidor.",
         "usage": "<emoji>",
-        "description": "Remove a emoji from the current guild."
+        "description": "Remove um emoji do servidor atual."
     },
     "announce": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
-        "argsNotFound": "your didn't anything, I can't send a empty message.",
-        "embedSendBy": "Announcement sent by: {{0}}",
-        "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
-        "announceSent": "announcement successfully sent.",
-        "usage": "<#channel> <message>",
-        "description": "Send a announce to current server for all members (or not)."
+        "channelNotFound": "eu não consigo encontrar este canal, certifique-se que este canal existe.",
+        "argsNotFound": "você não disse nada, eu não posso enviar uma mensagem vazia.",
+        "embedSendBy": "Anúncio enviado por: {{0}}",
+        "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
+        "announceSent": "Anúncio enviado com sucesso.",
+        "usage": "<#canal> <mensagem>",
+        "description": "Envia um anúncio no servidor atual para todos os membros (ou não)."
     },
     "slowmode": {
-        "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
-        "rateLimitEnable": "the chat {{0}} is now in slowmode ({{1}} seconds)",
-        "rateLimited": "calm down! The limit is `600` seconds",
-        "minimalTimeLimited": "you can't set a time less than 0.",
-        "usage": "<time>",
-        "description": "Set slowmode in the current channel."
+        "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
+        "rateLimitEnable": "o chat {{0}} está agora no modo lento ({{1}} segundos)",
+        "rateLimited": "calma! O limite é `600` segundos",
+        "minimalTimeLimited": "você não pode definir um tempo menor que 0.",
+        "usage": "<tempo>",
+        "description": "Define o modo lento no canal atual."
     },
     "unban": {
-        "notBanned": "this user is not banned, check out if you mention the correct user.",
-        "usage": "<userID|userName> <reason>",
-        "description": "Unban a user if they're banned."
+        "notBanned": "este usuário não está banido, confira se você mencionou o usuário correto.",
+        "usage": "<userID|userName> <motivo>",
+        "description": "Desbane um usuário se estiver banido."
     },
     "roleinfo": {
-        "roleNotExist": "I can't find this role or this role doesn't exist",
-        "roleName": "Role information: {{0}}",
-        "roleMention": "Mention of role",
-        "roleID": "Role ID",
-        "roleColor": "Role Color",
-        "roleGuild": "Guild",
-        "roleHoist": "Separate Category",
-        "roleMentionable": "Mentionable",
-        "roleManaged": "Integration",
-        "roleCreatedAt": "Role Created At",
+        "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe",
+        "roleName": "Informações do cargo: {{0}}",
+        "roleMention": "Menção do cargo",
+        "roleID": "ID do cargo",
+        "roleColor": "Cor do cargo",
+        "roleGuild": "Servidor",
+        "roleHoist": "Categoria Separada",
+        "roleMentionable": "Mencionável",
+        "roleManaged": "Integração",
+        "roleCreatedAt": "Cargo criado em",
         "usage": "<role-mention/ID/name>",
-        "description": "Shows some informations about the role."
+        "description": "Mostra algumas informações sobre o cargo."
     },
     "userinfo": {
         "username": "Tag do Usuário",
@@ -173,7 +173,7 @@
     },
     "vote": {
         "title": "Vote em mim",
-        "description": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+        "description": "Muito obrigada. Você pode votar em mim no link logo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
@@ -360,8 +360,9 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "message": "What is your language? React below.",
-        "description": "Altera o idioma da Chino no servidor. Não manda o embed se o idioma for fornecido, como descrito na usagem"
+        "message": "Qual é sua língua? Reaja abaixo.",
+        "helpUs": "Nos ajude a traduzir",
+        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin. um/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",

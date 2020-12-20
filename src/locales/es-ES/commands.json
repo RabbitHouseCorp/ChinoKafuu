@@ -1,6 +1,6 @@
 {
     "seticon": {
-        "success": "icon sucessfully changed.",
+        "success": "Icono cambiado con éxito.",
         "usage": "<attachment-or-url>",
         "description": "Set a icon from the current guild."
     },
@@ -361,7 +361,8 @@
     },
     "language": {
         "message": "What is your language? React below.",
-        "description": "Cambia el idioma del servidor. Salta al mensaje si el idioma es proporcionado, como se describe en su uso"
+        "helpUs": "Help us to translate",
+        "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",

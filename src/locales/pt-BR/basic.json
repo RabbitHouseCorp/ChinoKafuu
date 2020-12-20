@@ -4,13 +4,13 @@
 	"missingUserPermission": "você não tem permissão para `{{perm}}`. Você não pode executar este comando.",
 	"invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
 	"invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-	"invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
+	"invalidEmoji": "emoji não encontrado, tem certeza que este emoji pertence a este servidor?",
 	"noReason": "Nenhum motivo",
 	"onBehalf": "em nome de {{member}}: {{reason}}",
 	"clickHere": "Clique aqui",
 	"punishment": {
 		"banned": "{{0}} | Banido",
-		"unbanned": "{{0}} | Unbanned",
+		"unbanned": "{{0}} | Desbanido",
 		"kicked": "{{member}} | Expulso",
 		"softBan": "{{member}} | Banido suavemente",
 		"embed": {
