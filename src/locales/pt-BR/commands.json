@@ -362,7 +362,7 @@
     "language": {
         "message": "Qual é sua língua? Reaja abaixo.",
         "helpUs": "Nos ajude a traduzir",
-        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin. um/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
+        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
