@@ -1,4 +1,10 @@
 {
+    "baninfo": {
+        "title": "Ban information",
+        "memberName": "User banned",
+        "reason": "Reason",
+        "unban": "React with {{0}} to unban the user."
+    },
     "seticon": {
         "success": "icon sucessfully changed.",
         "usage": "<attachment-or-url>",
