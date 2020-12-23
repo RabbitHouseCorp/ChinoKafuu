@@ -25,7 +25,7 @@ module.exports = class BanInfoCommand extends Command {
 
         const embed = new EmbedBuilder()
         embed.setColor('MODERATION')
-        embed.setThumbnail(member.user.dynamicAvatarURL())
+        embed.setThumbnail(member.user.avatarURL)
         embed.setFooter(ctx._locale('commands:baninfo.unban', { 0: Emoji.getEmoji('heart') }))
         embed.setTitle(ctx._locale('commands:baninfo.title'))
         embed.addField(ctx._locale('commands:baninfo.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
@@ -44,7 +44,7 @@ module.exports = class BanInfoCommand extends Command {
 
                             const unbanEmbed = new EmbedBuilder()
                             unbanEmbed.setColor('MODERATION')
-                            unbanEmbed.setThumbnail(member.user.dynamicAvatarURL())
+                            unbanEmbed.setThumbnail(member.user.avatarURL)
                             unbanEmbed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `${member.user.username}#${member.user.discriminator}` }))
                             unbanEmbed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
                             unbanEmbed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)

@@ -17,7 +17,7 @@ module.exports = class LanguageCommand extends Command {
 	async run(ctx) {
 		const embed = new EmbedBuilder()
 		embed.setColor('DEFAULT')
-		embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.dynamicAvatarURL())
+		embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)
 		embed.setDescription('🇧🇷 **Português, Brasil**\n🇵🇹 **Português, Portugal**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
 		embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
 

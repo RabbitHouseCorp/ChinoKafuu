@@ -25,9 +25,9 @@ module.exports = class AnnounceCommand extends Command {
 		if (!announce) return ctx.replyT('error', 'commands:announce.argsNotFound')
 		const embed = new EmbedBuilder()
 		embed.setColor('DEFAULT')
-		embed.setAuthor(guild.name, guild.dynamicIconURL())
+		embed.setAuthor(guild.name, guild.iconURL)
 		embed.setDescription(announce)
-		embed.setFooter(ctx._locale('commands:announce.embedSendBy', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}` }), ctx.message.author.dynamicAvatarURL())
+		embed.setFooter(ctx._locale('commands:announce.embedSendBy', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}` }), ctx.message.author.avatarURL)
 
 		ctx.replyT('warn', 'commands:announce.requestConfirm', {
 			0: channel.mention,

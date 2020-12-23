@@ -27,7 +27,7 @@ module.exports = class SoftBanCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setTitle(ctx._locale('basic:punishment.softBan', { member: `${member.username}#${member.discriminator}` }))
         embed.setColor('MODERATION')
-        embed.setThumbnail(member.dynamicAvatarURL())
+        embed.setThumbnail(member.avatarURL)
         embed.addField(ctx._locale('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
         embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
         embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)

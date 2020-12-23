@@ -31,7 +31,7 @@ module.exports = class UnbanCommand extends Command {
 			
 			const embed = new EmbedBuilder()
             embed.setColor('MODERATION')
-            embed.setThumbnail(member.user.dynamicAvatarURL())
+            embed.setThumbnail(member.user.avatarURL)
             embed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `${member.user.username}#${member.user.discriminator}` }))
             embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
             embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)

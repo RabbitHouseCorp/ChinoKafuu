@@ -17,9 +17,9 @@ module.exports = class ServerIconCommand extends Command {
         if (!guild.icon) return ctx.replyT('error', 'commands:servericon.missingIcon')
 
         const embed = new EmbedBuilder()
-        embed.setImage(guild.dynamicIconURL())
+        embed.setImage(guild.iconURL)
         embed.setColor('DEFAULT')
-        embed.setDescription(ctx._locale('commands:servericon.download', { 0: guild.dynamicIconURL() }))
+        embed.setDescription(ctx._locale('commands:servericon.download', { 0: guild.iconURL }))
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
 

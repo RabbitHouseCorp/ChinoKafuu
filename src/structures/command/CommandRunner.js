@@ -51,7 +51,7 @@ module.exports = class CommandRunner {
 		}, _locale)
 
 		if (userData?.blacklist) {
-			const avatar = message.author.dynamicAvatarURL()
+			const avatar = message.author.avatarURL
 			const embed = new EmbedBuilder()
 			embed.setColor('MODERATION')
 			embed.setAuthor("Você foi banido", avatar)

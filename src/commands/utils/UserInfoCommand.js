@@ -30,7 +30,7 @@ module.exports = class UserInfoCommand extends Command {
         let roleSize = guild.members.get(member.id) ? guild.members.get(member.id).roles.length : '0'
         const embed = new EmbedBuilder()
         embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
-        embed.setThumbnail(member.dynamicAvatarURL())
+        embed.setThumbnail(member.avatarURL)
         embed.addField(ctx._locale('commands:userinfo.username'), `${member.username}#${member.discriminator}`, true)
         embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
         embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)

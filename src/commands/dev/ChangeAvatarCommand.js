@@ -27,7 +27,7 @@ module.exports = class ChangeAvatarCommand extends Command {
         }).then(client => {
             const embed = new EmbedBuilder()
             embed.setTitle('Whoa! Estou com um avatar novo!')
-            embed.setImage(client.dynamicAvatarURL())
+            embed.setImage(client.avatarURL)
             embed.setColor('DEFAULT')
 
             ctx.send(embed.build())
