@@ -13,16 +13,19 @@ module.exports = class ProfileCommand extends Command {
 
 	async run({ message, args, server }, t) {
 		let member
+		let avatar
 		if (args[0]) {
 			member = await this.client.shardManager.getUsers(args[0].replace(/[<@!>]/g, ""))
 			if (!member) {
 				member = message.author
+				avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 			}
+			avatar = member.avatar?.startsWith('a_') ? member.displayAvatarURL.replace('webp', 'gif') : member.displayAvatarURL.replace('webp', 'png')
 		} else {
 			member = message.author
+			avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 		}
 		let user = await this.client.database.Users.findById(member.id)
-		let avatar = member.displayAvatarURL({ format: "png", dynamic: true })
 		if (!user) {
 			new this.client.database.Users({
 				_id: member.id
