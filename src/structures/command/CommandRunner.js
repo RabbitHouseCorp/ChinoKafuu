@@ -97,7 +97,7 @@ module.exports = class CommandRunner {
 			for (const alias of command.aliases) {
 				aliases.push(`\`${guildData.prefix}${alias}\``)
 			}
-			const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`))
+			const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`), command.permissions)
 			return helper.help()
 		}
 
@@ -106,7 +106,7 @@ module.exports = class CommandRunner {
 			for (const alias of command.aliases) {
 				aliases.push(`\`${guildData.prefix}${alias}\``)
 			}
-			const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`))
+			const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`), command.permissions)
 			return helper.help()
 		}
 
