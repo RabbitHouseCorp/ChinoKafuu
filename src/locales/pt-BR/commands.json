@@ -1,9 +1,25 @@
 {
+    "marry": {
+        "youNeedToMarry": "you need have more `{{0}}` yens to marry.",
+        "theyNeedToMarry": "sorry, but {{0}} need more `{{1}}` yens to marry.",
+        "youAlreadyMarried": "you can't marry with another user, because you are already married.",
+        "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
+        "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
+        "successfullyMarried": "yay! Congratulations, now you are married.",
+        "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share her life with you, maybe {{0}} isn't the love of her life, I think there was an error in the oracle of love.",
+        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or anything? Sorry, but, I can't allow this.",
+        "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
+        "cannotMarryWithBot": "you can't marry with a bot, because he's will never accept.",
+        "description": "Marry with your true love.",
+        "usage": "<usuário>"
+    },
     "baninfo": {
         "title": "Ban information",
         "memberName": "User banned",
         "reason": "Motivo",
-        "unban": "React with {{0}} to unban the user."
+        "unban": "React with {{0}} to unban the user.",
+        "usage": "<usuário>",
+        "description": "Check the ban information about a user"
     },
     "seticon": {
         "success": "ícone alterado com sucesso.",
