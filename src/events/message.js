@@ -57,11 +57,9 @@ module.exports = class MessageReceive {
 		}
 
 		if (user) {
-			if (user) {
-				user.afk = false
-				user.afkReason = null
-				user.save()
-			}
+			user.afk = false
+			user.afkReason = null
+			user.save()
 		}
 
 		if (!message.content.startsWith(server.prefix)) return
