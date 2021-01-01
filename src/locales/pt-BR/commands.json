@@ -22,12 +22,12 @@
         "usage": "<usuário>"
     },
     "baninfo": {
-        "title": "Ban information",
-        "memberName": "User banned",
+        "title": "Informação do banimento",
+        "memberName": "Usuário banido",
         "reason": "Motivo",
-        "unban": "React with {{0}} to unban the user.",
+        "unban": "Reaja com {{0}} para desbanir o usuário.",
         "usage": "<usuário>",
-        "description": "Check the ban information about a user"
+        "description": "Verifique as informações de banimento de um usuário"
     },
     "seticon": {
         "success": "ícone alterado com sucesso.",
