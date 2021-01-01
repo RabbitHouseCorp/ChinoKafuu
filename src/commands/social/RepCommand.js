@@ -18,10 +18,12 @@ module.exports = class RepCommand extends Command {
         let user = await ctx.client.database.users.getOrCreate(member.id)
         if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:reputation.cannotGiveRepForYourself')
         if (member.id === ctx.client.user.id) {
+            author.repTime = 3600000 + Date.now()
             user.rep += 1
             user.save().then(() => {
                 ctx.replyT('chino_maid', 'commands:reputation.forTheClient', { 0: user.rep })
             })
+            author.save()
 
             return
         }
