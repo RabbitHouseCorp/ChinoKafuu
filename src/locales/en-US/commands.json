@@ -1,5 +1,5 @@
 {
-    "rep": {
+    "reputation": {
         "cannotGiveRepForYourself": "you can't give reputation for yourself.",
         "forTheClient": "thank you for gave me a reputation, now I have `{{0}}` reputations",
         "successffully": "you give a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
