@@ -2,10 +2,10 @@
     "reputation": {
         "cannotGiveRepForYourself": "você não pode dar reputação para si mesmo.",
         "forTheClient": "obrigada por me dar uma reputação, agora eu tenho reputação de `{{0}}`",
-        "successffully": "you give a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
+        "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
         "cooldown": "calma, você não pode dar reputação agora, você precisa esperar `{{0}}` para poder dar uma reputação novamente.",
         "usage": "<usuário>",
-        "description": "Gave a reputation for someone."
+        "description": "Gives a reputation for someone."
     },
     "marry": {
         "youNeedToMarry": "você precisa ter mais `{{0}}` yens para se casar.",
@@ -15,10 +15,10 @@
         "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
         "successfullyMarried": "sim! Parabéns, agora você está casado.",
         "rejectedRequest": "que pena. Parece que {{0}} não quer compartilhar sua vida com você. Talvez {{0}} não seja o amor da vida, eu acho que houve um erro no oráculo do amor.",
-        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or anything? Sorry, but, I can't allow this.",
-        "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
-        "cannotMarryWithBot": "you can't marry with a bot, because he's will never accept.",
-        "description": "Marry with your true love.",
+        "cannotMarryWithYourself": "você não pode se casar com você mesmo, é cego ou algo assim? Desculpe, mas não posso permitir isso.",
+        "cannotMarryWithMe": "desculpe coelhinho. Você não pode se casar comigo. Me desculpe, mas, eu não te amo da mesma forma que você me ama, eu te amo, mas como amigo.",
+        "cannotMarryWithBot": "você não pode se casar com um bot, pois ele nunca vai aceitar.",
+        "description": "Se case com o seu verdadeiro amor.",
         "usage": "<usuário>"
     },
     "baninfo": {
