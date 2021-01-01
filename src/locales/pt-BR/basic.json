@@ -1,7 +1,7 @@
 {
 	"permissions": {
-		"permissionUserRequired": "You need to have {{0}} permissions use this command.",
-		"permissionBotRequired": "I need {{0}} permissions to execute this command.",
+		"permissionUserRequired": "Você precisa ter as permissões para {{0}} para user este comando.",
+		"permissionBotRequired": "Eu preciso das permissões para {{0}} para executar esse comando.",
 		"title": "Permissões"
 	},
 	"onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
