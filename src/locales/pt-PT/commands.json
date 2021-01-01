@@ -2,10 +2,10 @@
     "reputation": {
         "cannotGiveRepForYourself": "you can't give reputation for yourself.",
         "forTheClient": "thank you for gave me a reputation, now I have `{{0}}` reputations",
-        "successffully": "you give a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
+        "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
         "cooldown": "calm down, you can't gave a reputation now, you have to wait `{{0}}` for can give a reputation again.",
         "usage": "<user>",
-        "description": "Gave a reputation for someone."
+        "description": "Gives a reputation for someone."
     },
     "marry": {
         "youNeedToMarry": "you need have more `{{0}}` yens to marry.",
