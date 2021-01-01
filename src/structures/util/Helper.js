@@ -43,8 +43,16 @@ module.exports = class Helper {
 		embed.setDescription(`${this.description}${embedDescription}`)
 		embed.setFooter(`©️ ${this.context.client.user.username}`)
 		embed.setTimestamp()
-		embed.addBlankField()
-		perms[0] ? embed.addField(this.context._locale('basic:permissions.title'), `${perms[0]}\n${perms[1]}`) : null
+		if (perms[0]) {
+			let perm
+			if (perms[0] && !perms[1]) {
+				perm = perms[0]
+			} else if (perms[1]) {
+				perm = `${perms[0]}\n${perms[1]}`
+			}
+
+			embed.addField(this.context._locale('basic:permissions.title'), perm)
+		}
 		embed.addField(this.context._locale('basic:aliases'), aliases)
 
 		return this.context.send(embed.build(this.context.message.author.mention))
