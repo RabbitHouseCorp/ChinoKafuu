@@ -18,5 +18,6 @@ module.exports = {
     ja: '🇯🇵',
     heart: '❤️',
     ring_couple: '<:ring_couple:791360830221844512>',
-    broken_heart: '💔'
+    broken_heart: '💔',
+    chino_maid: '<:chino_maid:675947319232823326>'
 }
