@@ -1,4 +1,22 @@
 {
+    "help": {
+        "commandList": "Command list",
+        "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
+        "economy": "Economy ({{0}})",
+        "fun": "Fun ({{0}})",
+        "minecraft": "Minecraft ({{0}})",
+        "misc": "Miscellaneous ({{0}})",
+        "mod": "Moderation ({{0}})",
+        "social": "Social ({{0}})",
+        "utils": "Utils ({{0}})",
+        "usage": "[command]",
+        "description": "Show my command list to you.",
+        "commandsLoaded": "I have {{0}} public commands loaded.",
+        "additionalLinks": {
+            "embedTitle": "Additional Links",
+            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
+        }
+    },
     "reputation": {
         "cannotGiveRepForYourself": "você não pode dar reputação para si mesmo.",
         "forTheClient": "obrigada por me dar uma reputação, agora eu tenho `{{0}}` reputações",
