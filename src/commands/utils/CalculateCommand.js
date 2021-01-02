@@ -25,7 +25,8 @@ module.exports = class CalculateCommand extends Command {
     super({
       name: 'calculate',
       arguments: 1,
-      aliases: ['calcular', 'calc']
+      aliases: ['calcular', 'calc'],
+      hasUsage: true
     })
   }
 

@@ -8,6 +8,7 @@ module.exports = class PokeCommand extends Command {
             name: 'poke',
             aliases: ['catucar'],
             arguments: 1,
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']

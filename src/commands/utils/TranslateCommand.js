@@ -7,6 +7,7 @@ module.exports = class TranslateCommand extends Command {
             name: 'translate',
             aliases: ['traduzir'],
             arguments: 1,
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']

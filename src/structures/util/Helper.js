@@ -11,11 +11,12 @@ module.exports = class Helper {
 	}
 
 	help() {
+		const command = this.context.client.commandRegistry.findByName(this.name)
 		const usage = this.usage.split(' ')
 		const commandName = `${this.context.db.guild.prefix}${this.name}`
-		const commandWithUsage = `\`${commandName}\` ${usage.map(element => `\`${element}\``).join(' ')}`
+		const commandWithUsage = `\`${commandName}\` ${command.hasUsage ? usage.map(element => `\`${element}\``).join(' ') : ''}`
 		const embedDescription = `\n\n**${this.context._locale('basic:howToUse')}** ${commandWithUsage}`
-		const aliases = this.aliases.join(', ') || this.context._locale('basic:noAliases')
+		const aliases = this.aliases.map(alias => `\`${this.context.db.guild.prefix}${alias}\``).join(', ') || this.context._locale('basic:noAliases')
 		const fixedPermissionList = this.perms.flatMap(object => object.entity === 'both' ? [{
 			entity: 'user',
 			permissions: object.permissions

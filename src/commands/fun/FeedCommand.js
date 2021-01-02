@@ -8,6 +8,7 @@ module.exports = class FeedCommand extends Command {
       name: 'feed',
       aliases: ['alimentar'],
       arguments: 1,
+      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

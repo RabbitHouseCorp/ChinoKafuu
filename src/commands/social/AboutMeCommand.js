@@ -5,7 +5,8 @@ module.exports = class AboutMeCommand extends Command {
     super({
       name: 'aboutme',
       aliases: ['bio', 'sobremim'],
-      arguments: 1
+      arguments: 1,
+      hasUsage: true
     })
   }
 

@@ -6,6 +6,7 @@ module.exports = class AddRoleCommand extends Command {
       name: 'addrole',
       arguments: 2,
       aliases: ['adicionarcargo'],
+      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageRoles']

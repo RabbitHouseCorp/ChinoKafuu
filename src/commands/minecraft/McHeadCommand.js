@@ -6,6 +6,7 @@ module.exports = class McHeadCommand extends Command {
             name: 'mchead',
             aliases: [],
             arguments: 1,
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']

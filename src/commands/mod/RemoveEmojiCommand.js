@@ -5,6 +5,7 @@ module.exports = class RemoveEmojiCommand extends Command {
         super({
             name: 'removeemoji',
             aliases: ['removeremoji'],
+            hasUsage: true,
             permissions: [{
                 entity: 'both',
                 permissions: ['manageEmojis']

@@ -6,6 +6,7 @@ module.exports = class McBodyCommand extends Command {
             name: 'mcbody',
             aliases: [],
             arguments: 1,
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']

@@ -7,6 +7,7 @@ module.exports = class BakaCommand extends Command {
     super({
       name: 'baka',
       arguments: 1,
+      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

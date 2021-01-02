@@ -8,6 +8,7 @@ class KissCommand extends Command {
       name: 'kiss',
       aliases: ['beijar'],
       arguments: 1,
+      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

@@ -5,6 +5,7 @@ module.exports = class RenameEmojiCommand extends Command {
         super({
             name: 'renameemoji',
             aliases: ['renomearemoji'],
+            hasUsage: true,
             permissions: [{
                 entity: 'both',
                 permissions: ['manageEmojis']

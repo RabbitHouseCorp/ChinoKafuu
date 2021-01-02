@@ -6,6 +6,7 @@ module.exports = class SetBannerCommand extends Command {
   constructor() {
     super({
       name: 'setbanner',
+      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageGuild']

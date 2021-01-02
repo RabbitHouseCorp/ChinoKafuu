@@ -5,7 +5,8 @@ module.exports = class ChooseCommand extends Command {
     super({
       name: 'choose',
       aliases: ['escolher'],
-      arguments: 1
+      arguments: 1,
+      hasUsage: true
     })
   }
 

@@ -8,6 +8,7 @@ module.exports = class AddEmojiCommand extends Command {
             name: 'addemoji',
             aliases: ['adicionaremoji'],
             arguments: 1,
+            hasUsage: true,
             permissions: [{
                 entity: 'both',
                 permissions: ['manageEmojis']

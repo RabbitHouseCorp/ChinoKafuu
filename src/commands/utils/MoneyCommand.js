@@ -5,7 +5,8 @@ module.exports = class MoneyCommand extends Command {
         super({
             name: 'money',
             aliases: ['grana', 'dinheiro'],
-            arguments: 1
+            arguments: 1,
+            hasUsage: true
         })
     }
 

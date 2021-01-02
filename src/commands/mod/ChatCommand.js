@@ -5,6 +5,7 @@ module.exports = class ChatCommand extends Command {
     super({
       name: 'chat',
       arguments: 1,
+      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageChannels']

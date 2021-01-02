@@ -6,6 +6,7 @@ class AnimeCommand extends Command {
         super({
             name: 'anime',
             aliases: ['malanime'],
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']

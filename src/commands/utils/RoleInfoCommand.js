@@ -7,6 +7,7 @@ module.exports = class RoleInfoCommand extends Command {
 			name: 'roleinfo',
 			aliases: ['cargoinfo'],
 			arguments: 1,
+			hasUsage: true,
 			permissions: [
 			{
 				entity: 'user',

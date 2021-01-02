@@ -3,7 +3,9 @@ const { Command } = require('../../utils')
 module.exports = class AfkCommand extends Command {
   constructor() {
     super({
-      name: 'afk'
+      name: 'afk',
+      aliases: ['awayfromthekeyboard'],
+      hasUsage: true
     })
   }
 

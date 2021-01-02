@@ -7,6 +7,7 @@ module.exports = class SetIconCommand extends Command {
         super({
             name: 'seticon',
             arguments: 0,
+            hasUsage: true,
             permissions: [{
                 entity: 'both',
                 permissions: ['manageGuild']

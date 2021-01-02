@@ -5,6 +5,7 @@ module.exports = class PrefixCommand extends Command {
     super({
       name: 'prefix',
       arguments: 1,
+      hasUsage: true,
       permissions: [{
         entity: 'user',
         permissions: ['manageGuild']

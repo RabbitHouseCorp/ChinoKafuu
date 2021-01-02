@@ -5,6 +5,7 @@ module.exports = class BanInfoCommand extends Command {
         super({
             name: 'baninfo',
             aliases: [],
+            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['banMembers', 'embedLinks']

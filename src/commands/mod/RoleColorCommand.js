@@ -6,6 +6,7 @@ module.exports = class RoleColorCommand extends Command {
             name: 'rolecolor',
             arguments: 2,
             aliases: [],
+            hasUsage: true,
             permissions: [{
                 entity: 'both',
                 permissions: ['manageRoles']
