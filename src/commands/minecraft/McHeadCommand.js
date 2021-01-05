@@ -19,7 +19,7 @@ module.exports = class McHeadCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('MINECRAFT')
         embed.setImage(body.toString())
-        embed.setDescription(`${Emoji.getEmoji('minecraft')} [[Download]](${body})`)
+        embed.setDescription(`${Emoji.getEmoji('minecraft').mention} [[Download]](${body})`)
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
 

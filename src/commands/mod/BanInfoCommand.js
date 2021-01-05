@@ -27,19 +27,19 @@ module.exports = class BanInfoCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('MODERATION')
         embed.setThumbnail(member.user.avatarURL)
-        embed.setFooter(ctx._locale('commands:baninfo.unban', { 0: Emoji.getEmoji('heart') }))
+        embed.setFooter(ctx._locale('commands:baninfo.unban', { 0: Emoji.getEmoji('heart').mention }))
         embed.setTitle(ctx._locale('commands:baninfo.title'))
         embed.addField(ctx._locale('commands:baninfo.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
         embed.addField(ctx._locale('commands:baninfo.reason'), member.reason)
 
         ctx.send(embed.build()).then(async (msg) => {
-            await msg.addReaction(Emoji.getEmojiReaction('heart').mention)
+            await msg.addReaction(Emoji.getEmoji('heart').reaction)
 
-            const filter = (_, emoji, userID) => ([Emoji.getEmoji('heart')].includes(emoji.name)) && userID === ctx.message.author.id
+            const filter = (_, emoji, userID) => ([Emoji.getEmoji('heart').mention].includes(emoji.name)) && userID === ctx.message.author.id
             const collector = new ReactionCollector(msg, filter, { max: 1 })
             collector.on('collect', (_, emoji) => {
                 switch (emoji.name) {
-                    case Emoji.getEmoji('heart'): {
+                    case Emoji.getEmoji('heart').name: {
                         if (!member) return
                         guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: ctx._locale('basic:noReason') })).then(() => {
 

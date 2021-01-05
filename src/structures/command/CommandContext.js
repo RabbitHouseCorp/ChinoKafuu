@@ -47,7 +47,7 @@ module.exports = class CommandContext {
 	 */
 	async reply(emoji, content, options = {}) {
 		
-		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji)} **|** <@${this.message.author.id}>, ${content}`, options })
+		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`, options })
 	}
 
 	/**
@@ -60,6 +60,6 @@ module.exports = class CommandContext {
 	 */
 	async replyT(emoji, content, data = {}, options = {}) {
 		
-		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji)} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
+		return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
 	}
 }

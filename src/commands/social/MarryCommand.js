@@ -28,13 +28,13 @@ module.exports = class MarryCommand extends Command {
         if (couple.isMarry) return ctx.replyT('error', 'commands:marry.theyAlreadyMarried', { 0: member.mention })
 
         ctx.sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention }).then(async msg => {
-            await msg.addReaction(Emoji.getEmojiReaction('success').mention)
-            await msg.addReaction(Emoji.getEmojiReaction('error').mention)
+            await msg.addReaction(Emoji.getEmoji('success').reaction)
+            await msg.addReaction(Emoji.getEmoji('error').reaction)
 
-            const collector = new ReactionCollector(msg, (_, emoji, userID) => ([Emoji.getEmojiReaction('success').name, Emoji.getEmojiReaction('error').name].includes(emoji.name)) && (userID === member.id))
+            const collector = new ReactionCollector(msg, (_, emoji, userID) => ([Emoji.getEmoji('success').name, Emoji.getEmoji('error').name].includes(emoji.name)) && (userID === member.id))
             collector.on('collect', (_, emoji) => {
                 switch (emoji.name) {
-                    case Emoji.getEmojiReaction('success').name: {
+                    case Emoji.getEmoji('success').name: {
                         author.yens -= Number(7500)
                         author.isMarry = true
                         author.marryWith = member.id
@@ -47,7 +47,7 @@ module.exports = class MarryCommand extends Command {
                         ctx.replyT('ring_couple', 'commands:marry.successfullyMarried')
                     }
                         break
-                    case Emoji.getEmojiReaction('error').name: {
+                    case Emoji.getEmoji('error').name: {
                         msg.delete()
                         ctx.replyT('broken_heart', 'commands:marry.rejectedRequest', { 0: member.mention })
                     }

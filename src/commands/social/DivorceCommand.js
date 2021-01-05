@@ -22,13 +22,13 @@ module.exports = class DivorceCommand extends Command {
         if (couple.yens < Number(300)) return ctx.replyT('error', 'commands:divorce.theyNeedToDivorce', { 0: Number(300 - couple.yens).toLocaleString() })
 
         ctx.replyT('warn', 'commands:divorce.requestConfirm').then(async msg => {
-            await msg.addReaction(Emoji.getEmojiReaction('success').mention)
-            await msg.addReaction(Emoji.getEmojiReaction('error').mention)
+            await msg.addReaction(Emoji.getEmoji('success').reaction)
+            await msg.addReaction(Emoji.getEmoji('error').reaction)
 
-            const collector = new ReactionCollector(msg, (_, emoji, userID) => ([Emoji.getEmojiReaction('success').name, Emoji.getEmojiReaction('error').name].includes(emoji.name)) && (userID === ctx.message.author.id))
+            const collector = new ReactionCollector(msg, (_, emoji, userID) => ([Emoji.getEmoji('success').name, Emoji.getEmoji('error').name].includes(emoji.name)) && (userID === ctx.message.author.id))
             collector.on('collect', (_, emoji) => {
                 switch (emoji.name) {
-                    case Emoji.getEmojiReaction('success').name: {
+                    case Emoji.getEmoji('success').name: {
                         author.yens -= Number(300)
                         author.isMarry = false
                         author.marryWith = ''
@@ -41,7 +41,7 @@ module.exports = class DivorceCommand extends Command {
                         ctx.replyT('broken_heart', 'commands:divorce.successfullyDivorced')
                     }
                         break
-                    case Emoji.getEmojiReaction('error').name: {
+                    case Emoji.getEmoji('error').name: {
                         msg.delete()
                         ctx.replyT('heart', 'commands:divorce.rejectedRequest')
                     }

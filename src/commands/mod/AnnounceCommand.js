@@ -32,13 +32,13 @@ module.exports = class AnnounceCommand extends Command {
 
 		ctx.replyT('warn', 'commands:announce.requestConfirm', {
 			0: channel.mention,
-			1: Emoji.getEmoji('success'),
-			2: Emoji.getEmoji('warn'),
-			3: Emoji.getEmoji('error')
+			1: Emoji.getEmoji('success').mention,
+			2: Emoji.getEmoji('warn').mention,
+			3: Emoji.getEmoji('error').mention
 		}).then(async msg => {
-			await msg.addReaction(Emoji.getEmojiReaction('success').mention)
-			await msg.addReaction(Emoji.getEmojiReaction('warn').mention)
-			await msg.addReaction(Emoji.getEmojiReaction('error').mention)
+			await msg.addReaction(Emoji.getEmoji('success').reaction)
+			await msg.addReaction(Emoji.getEmoji('warn').reaction)
+			await msg.addReaction(Emoji.getEmoji('error').reaction)
 
 			const filter = (_, emoji, userID) => (['gochiusa_success', 'warn', 'gochiusa_error'].includes(emoji.name)) && userID === ctx.message.author.id
 			const collector = new ReactionCollector(msg, filter, { max: 1 })
