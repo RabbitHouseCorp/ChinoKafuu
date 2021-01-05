@@ -1,4 +1,13 @@
 {
+    "divorce": {
+        "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
+        "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
+        "youNeedToDivorce": "you need have more `{{0}}` yens to divorce.",
+        "theyNeedToDivorce": "your partner needs more `{{0}}` yens to divorce.",
+        "requestConfirm": "are you sure you want divorce? This action is irrevocable.",
+        "successfullyDivorced": "Sure, I will call the lawyers. The both of you will pay `300` yens for it.",
+        "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
+    },
     "help": {
         "commandList": "Command list",
         "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
@@ -33,7 +42,7 @@
         "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
         "successfullyMarried": "yay! Congratulations, now you are married.",
         "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share her life with you, maybe {{0}} isn't the love of her life, I think there was an error in the oracle of love.",
-        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or anything? Sorry, but, I can't allow this.",
+        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or what? Sorry, but, I can't allow this.",
         "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
         "cannotMarryWithBot": "you can't marry with a bot, because he's will never accept.",
         "description": "Marry with your true love.",
