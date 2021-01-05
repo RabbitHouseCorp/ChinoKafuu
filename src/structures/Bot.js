@@ -6,38 +6,38 @@ const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
 
 module.exports = class Bot extends Client {
-  constructor (...data) {
-    super(...data)
+    constructor(...data) {
+        super(...data)
 
-    /**
-     *
-     * @type {ListenerRegistry}
-     */
-    this.listenerRegistry = new ListenerRegistry(this)
-    /**
-     *
-     * @type {I18NRegistry}
-     */
-    this.i18nRegistry = new I18NRegistry()
-    /**
-     *
-     * @type {CommandRegistry}
-     */
-    this.commandRegistry = new CommandRegistry()
-    /**
-     *
-     * @type {ClusteringInterface}
-     */
-    this.clusters = new ClusteringInterface(this)
-    /**
-     *
-     * @type {Database}
-     */
-    this.database = new Database()
-    /**
-     * 
-     * @type {Map}
-     */
-    this.shardUptime = new Map()
-  }
+        /**
+         *
+         * @type {ListenerRegistry}
+         */
+        this.listenerRegistry = new ListenerRegistry(this)
+        /**
+         *
+         * @type {I18NRegistry}
+         */
+        this.i18nRegistry = new I18NRegistry()
+        /**
+         *
+         * @type {CommandRegistry}
+         */
+        this.commandRegistry = new CommandRegistry()
+        /**
+         *
+         * @type {ClusteringInterface}
+         */
+        this.clusters = new ClusteringInterface(this)
+        /**
+         *
+         * @type {Database}
+         */
+        this.database = new Database()
+        /**
+         * 
+         * @type {Map}
+         */
+        this.shardUptime = new Map()
+    }
 }

@@ -2,17 +2,17 @@ const Listener = require('../structures/events/Listener')
 const Logger = require('../structures/util/Logger')
 
 module.exports = class ShardDisconnectListener extends Listener {
-  constructor() {
-    super()
-    this.event = 'shardDisconnect'
-  }
+    constructor() {
+        super()
+        this.event = 'shardDisconnect'
+    }
 
-  async on(client, shardID) {
-    client.shardUptime.set(shardID, {
-      shardID,
-      uptime: NaN
-    })
+    async on(client, shardID) {
+        client.shardUptime.set(shardID, {
+            shardID,
+            uptime: NaN
+        })
 
-    Logger.shardMessage(`Mayday! Shard ${shardID} has died!`)
-  }
+        Logger.shardMessage(`Mayday! Shard ${shardID} has died!`)
+    }
 }

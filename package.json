@@ -1,34 +1,34 @@
 {
-  "name": "chino-kafuu",
-  "version": "2020.12.5-rc36",
-  "description": "Discord Bot.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js --experimental--worker"
-  },
-  "author": "",
-  "license": "AGPL-3.0",
-  "dependencies": {
-    "@clusterws/cws": "^3.0.0",
-    "@lavacord/eris": "^0.0.3",
-    "anilist-node": "^1.6.0",
-    "chalk": "^4.1.0",
-    "cron": "^1.8.2",
-    "dotenv": "^8.2.0",
-    "eris": "github:abalabahaha/eris#dev",
-    "hound": "^1.0.5",
-    "mal-scraper": "^2.11.2",
-    "mathjs": "^8.0.1",
-    "moment": "^2.29.1",
-    "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.11.3",
-    "nekos.life": "^2.0.7",
-    "node-fetch": "^2.6.1",
-    "os-utils": "0.0.14",
-    "workerpool": "^6.0.3"
-  },
-  "devDependencies": {
-    "axios": "^0.21.0"
-  }
+    "name": "chino-kafuu",
+    "version": "2020.01.5-rc69",
+    "description": "Discord Bot.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js --experimental--worker"
+    },
+    "author": "",
+    "license": "AGPL-3.0",
+    "dependencies": {
+        "@clusterws/cws": "^3.0.0",
+        "@lavacord/eris": "^0.0.3",
+        "anilist-node": "^1.6.0",
+        "chalk": "^4.1.0",
+        "cron": "^1.8.2",
+        "dotenv": "^8.2.0",
+        "eris": "github:abalabahaha/eris#dev",
+        "hound": "^1.0.5",
+        "mal-scraper": "^2.11.2",
+        "mathjs": "^8.0.1",
+        "moment": "^2.29.1",
+        "moment-duration-format": "^2.3.2",
+        "mongoose": "^5.11.3",
+        "nekos.life": "^2.0.7",
+        "node-fetch": "^2.6.1",
+        "os-utils": "0.0.14",
+        "workerpool": "^6.0.3"
+    },
+    "devDependencies": {
+        "axios": "^0.21.0"
+    }
 }
