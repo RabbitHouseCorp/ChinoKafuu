@@ -9,6 +9,5 @@ module.exports = class DisconnectListener extends Listener {
 
     async on(client, shardID) {
         Logger.shardMessage(`Mayday! Shard ${shardID} has died!`)
-        client.emit('connect', (client, shardID))
     }
 }
