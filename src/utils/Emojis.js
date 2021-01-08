@@ -19,5 +19,6 @@ module.exports = {
     heart: '❤️',
     ring_couple: '<:ring_couple:791360830221844512>',
     broken_heart: '💔',
-    chino_maid: '<:chino_maid:675947319232823326>'
+    chino_maid: '<:chino_maid:675947319232823326>',
+    tippy: '<a:tippy:796787333084348416>'
 }
