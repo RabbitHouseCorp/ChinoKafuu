@@ -1,5 +1,4 @@
-const { Command, FunCommandInstance } = require('../../utils')
-const fetch = require('node-fetch')
+const { Command, FunCommandInstance, Emoji } = require('../../utils')
 module.exports = class TippyCommand extends Command {
     constructor() {
         super({
@@ -14,19 +13,19 @@ module.exports = class TippyCommand extends Command {
 
     async run(ctx) {
         const url = 'https://cdn.discordapp.com/attachments/468878707449397258/753395078202130602/209374d243fd45aaddf68b8f5ceb2ce6qfdbg9ohK8LFt8NR-0.png'
-        const request = await fetch(url)
-        const buffer = await request.buffer()
-        const data = `data:image/${url.substring(url.length, 3)};base64,`
-        const base64Avatar = data + buffer.toString('base64')
         const jokes = FunCommandInstance.jokes[Math.floor(Math.random() * FunCommandInstance.jokes.length)]
-        
-        ctx.client.createChannelWebhook(ctx.message.channel.id, {
-            name: 'tippy',
-            avatar: base64Avatar
-        }).then(webhook => {
-            ctx.send(jokes).then(() => {
-                ctx.client.deleteWebhook(webhook.id, webhook.token)
+        let webhook = await ctx.message.channel.getWebhooks()
+        webhook = webhook.filter(webhook => webhook.name.toLowerCase() === 'tippy')[0]
+        if (!webhook) {
+            webhook = await ctx.message.channel.createWebhook({
+                name: 'Tippy'
             })
+        }
+
+        ctx.client.executeWebhook(webhook.id, webhook.token, {
+            content: `${Emoji.getEmoji('tippy').mention} **|** ${ctx.message.author.mention} ${jokes}`,
+            avatarURL: url,
+            username: 'Tippy'
         })
     }
 }
