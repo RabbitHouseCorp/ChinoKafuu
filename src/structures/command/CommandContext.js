@@ -24,7 +24,22 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
     async send(content, options) {
-        return await this.message.channel.createMessage(content, options)
+        if (typeof content === 'object') {
+            content = {
+                content: content.content,
+                embed: content.embed,
+                messageReferenceID: this.message.id,
+                options
+            }
+
+            return await this.message.channel.createMessage(content)
+        }
+        
+        return await this.message.channel.createMessage({
+            content,
+            messageReferenceID: this.message.id,
+            options
+        })
     }
 
     /**
@@ -35,7 +50,11 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
     async sendT(content, data = {}, options = {}) {
-        return await this.message.channel.createMessage({ content: this._locale(content, data), options })
+        return await this.message.channel.createMessage({
+            content: this._locale(content, data),
+            messageReferenceID: this.message.id,
+            options
+        })
     }
 
     /**
@@ -46,8 +65,12 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
     async reply(emoji, content, options = {}) {
-        
-        return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`, options })
+
+        return await this.message.channel.createMessage({
+            content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
+            messageReferenceID: this.message.id,
+            options
+        })
     }
 
     /**
@@ -59,7 +82,11 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
     async replyT(emoji, content, data = {}, options = {}) {
-        
-        return await this.message.channel.createMessage({ content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`, options })
+
+        return await this.message.channel.createMessage({
+            content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
+            messageReferenceID: this.message.id,
+            options
+        })
     }
 }

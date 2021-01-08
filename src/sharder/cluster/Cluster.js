@@ -23,6 +23,12 @@ module.exports = class Cluster {
             defaultImageSize: 2048,
             getAllUsers: true,
             restMode: true,
+            allowedMentions: {
+                everyone: false,
+                roles: false,
+                users: true,
+                repliedUser: true
+            },
             intents: [
                 'guilds',
                 'guildMembers',

@@ -56,6 +56,6 @@ module.exports = class Helper {
         }
         embed.addField(this.context._locale('basic:aliases'), aliases)
 
-        return this.context.send(embed.build(this.context.message.author.mention))
+        return this.context.send(embed.build())
     }
 }
