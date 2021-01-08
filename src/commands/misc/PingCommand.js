@@ -16,7 +16,7 @@ module.exports = class PingCommand extends Command {
         switch (ctx.args[0]) {
             case 'shards': {
                 const embed = new EmbedBuilder()
-                embed.setFooter(ctx._locale('commands:ping', { totalShard: ctx.client.shards.size }))
+                embed.setFooter(ctx._locale('commands:ping.totalShard', { totalShard: ctx.client.shards.size }))
                 embed.setColor('DEFAULT')
                 embed.setFooter(`©️ ${ctx.client.user.username}`)
                 embed.setTimestamp()

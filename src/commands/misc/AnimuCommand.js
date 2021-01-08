@@ -6,7 +6,6 @@ module.exports = class VoteCommand extends Command {
             name: 'animu',
             aliases: ['moeanimu'],
             arguments: 0,
-            hasUsage: true,
             permissions: [{
                 entity: 'bot',
                 permissions: ['embedLinks']
