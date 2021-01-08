@@ -1,4 +1,12 @@
 {
+    "tippy": {
+        "description": "Make tippy tell you a joke"
+    },
+    "fakemsg": {
+        "argsNull": "your don't input any argument.",
+        "description": "Make a prank on someone with a fake message on the webhook.",
+        "usage": "<user> <text>"
+    },
     "divorce": {
         "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
         "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
@@ -130,6 +138,8 @@
         "description": "Shows some informations about the role."
     },
     "userinfo": {
+        "usage": "[user]",
+        "description": "Shows some informations about a user.",
         "username": "User Tag",
         "userid": "ID de Usuario",
         "createdAt": "Account Created",
@@ -153,9 +163,11 @@
         "volume": "Volume",
         "volumeChanged": "volume successfully changed.",
         "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving": "I'm leaving now from the voice channel."
+        "leaving": "I'm leaving now from the voice channel.",
+        "description": "Plays some song when playing for the [Animu Radio](https://animu.com.br)."
     },
     "serverinfo": {
+        "description": "Shows some info about this server.",
         "guildID": "Guild ID",
         "guildOwner": "Guild's Owner",
         "guildRegion": "Guild's Region",
@@ -204,7 +216,9 @@
             "FEATURABLE": "Featurable",
             "ANIMATED_ICON": "Animated Icon",
             "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable"
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable",
+            "PREVIEW_ENABLED": "Preview",
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate"
         },
         "booster": {
             "title": "Nitro Booster",
@@ -214,12 +228,14 @@
     },
     "servericon": {
         "missingIcon": "this guild doesn't have a icon",
-        "download": "Download the icon clicking [here]({{0}})"
+        "download": "Download the icon clicking [here]({{0}})",
+        "description": "Get and show the server icon to you."
     },
     "serverbanner": {
         "missingFeature": "this guild doesn't have the `banner` feature.",
         "missingBanner": "this guild doesn't have a banner.",
-        "download": "Download the banner clicking [here]({{0}})"
+        "download": "Download the banner clicking [here]({{0}})",
+        "description": "Get and show the server banner to you."
     },
     "money": {
         "invalidValue": "please, give me a valid value.",
@@ -230,11 +246,13 @@
     },
     "vote": {
         "title": "Vote for me",
-        "description": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)"
+        "embedVoted": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "description": "Shows how you can vote from me."
     },
     "invite": {
         "addMeInYourGuild": "Add me in your guild",
-        "description": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later."
+        "canAddMe": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later.",
+        "description": "Shows how you can add me in your server."
     },
     "botinfo": {
         "title": "Bot information",
@@ -246,7 +264,8 @@
         "clientVersion": "Current version",
         "shardUptime": "Current shard uptime",
         "cpuModel": "CPU model",
-        "supportServer": "Support server"
+        "supportServer": "Support server",
+        "description": "Shows more information about me."
     },
     "mcavatar": {
         "description": "Shows a player's minecraft avatar.",
@@ -290,7 +309,10 @@
         "usage": "<ID de Usuario|@Usuario>",
         "description": "Poke someone on your server."
     },
-    "ping": "Fragmentos totales: {{totalShard}}",
+    "ping": {
+        "totalShard": "Total shards: {{totalShard}}",
+        "description": "Just a command test, you can see if I'm working."
+    },
     "slap": {
         "slaped": "{{0}} slapped on {{1}}",
         "usage": "<ID de Usuario|@Usuario>",
@@ -301,11 +323,6 @@
         "usage": "<ID de Usuario|@Usuario>",
         "description": "Ha ha ha ha it tickles. Tickle someone on your server."
     },
-    "reload": {
-        "locales": "¡Locales recargadas con éxito!",
-        "argsNull": "Opciones disponibles: {{list}}",
-        "shard": "Fragmento `{{shard}}` reiniciado con éxito."
-    },
     "kiss": {
         "kissed": "{{author}} besó a {{member}}",
         "unable": "Uh... No puedes besarte a ti mismo/a.",
@@ -314,7 +331,9 @@
     },
     "yens": {
         "yens": "Tienes {{yens}} yenes",
-        "onMention": "{{user}} tiene {{yens}} yenes"
+        "onMention": "{{user}} tiene {{yens}} yenes",
+        "description": "Shows you current balance or current balance of someone.",
+        "usage": "[user]"
     },
     "anime": {
         "synopsis": "Sinopsis",
@@ -330,7 +349,9 @@
         "popularity": "Popularidad",
         "genres": "Géneros",
         "invalidAnime": "Ingresa el nombre del anime que deseas",
-        "animeNotFound": "No he encontrado ningún anime que contenga un nombre parecido a: `{{0}}`."
+        "animeNotFound": "No he encontrado ningún anime que contenga un nombre parecido a: `{{0}}`.",
+        "description": "Shows some info of the any anime.",
+        "usage": "<name>"
     },
     "manga": {
         "mangaNotFound": "No he encontrado ningún manga que contenga un nombre parecido a: `{{0}}`.",
@@ -341,10 +362,11 @@
         "score": "Puntuación",
         "aired": "Emitido",
         "genres": "Géneros",
-        "characters": "Personajes"
+        "characters": "Personajes",
+        "description": "Shows some info of the any anime.",
+        "usage": "<name>"
     },
     "pay": {
-        "invalidUser": "Este usuario no existe",
         "usage": "<ID de Usuario|@Usuario> <Cantidad>",
         "description": "Envía dinero a un usuario",
         "userMismatch": "¡No puedes pagarte a ti mismo/a!",
@@ -359,7 +381,11 @@
         "usage": "<ID de Usuario|@Usuario>",
         "description": "Dile a un usuario lo idiota que es"
     },
-    "clapNoArgs": "Argumento inválido",
+    "clap": {
+        "noArgs": "Argumento inválido",
+        "usage": "<amount>",
+        "description": "Let's clap clap clap clap, clap with your friends."
+    },
     "congaparrot": {
         "usage": "<Cantidad De Repeticiones>",
         "description": "Envía divertidos loros",
@@ -417,6 +443,7 @@
         "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
+        "description": "Change my language in the current guild.",
         "message": "What is your language? React below.",
         "helpUs": "Help us to translate",
         "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
@@ -446,6 +473,8 @@
         "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     },
     "afk": {
+        "description": "Make you stay in afk mode.",
+        "usage": "[reason]",
         "success": "you're now AFK"
     },
     "choose": {
@@ -454,6 +483,8 @@
         "chosen": "I choose `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
+        "descripton": "Shows your avatar or avatar from someone.",
+        "usage": "[user]",
         "userAvatar": "{{user}}'s avatar",
         "download": "Click [here]({{link}}) to download"
     },
