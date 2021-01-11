@@ -14,7 +14,9 @@ module.exports = class ChinoClient extends Client {
 		this.emotes = require("./structures/emotes")
 		this.apis = require("./structures/api")
 		this.config = require("../config.json")
+		this.player = new Map()
 	}
+	
 	reloadCommand(commandName) {
 		const command = this.commands.get(commandName) || this.commands.get(this.aliases.get(commandName))
 		if (!command) return false

@@ -4,22 +4,26 @@ module.exports = class voiceStateUptade {
 	}
 
 	async run(oldMember, newMember) {
-		let server = await this.client.database.Guilds.findById(newMember.guild.id)
-		let newVoiceChannel = this.client.guilds.cache.get(server._id).channels.cache.get(server.animuChannel)
-		if (newVoiceChannel) {
-			if (server.animu) {
-				if (newVoiceChannel) {
-					if (newVoiceChannel.members.get(this.client.user.id) && newVoiceChannel.members.size === 1) {
-						newVoiceChannel.leave()
-					}
-					if (newVoiceChannel.members.size >= 1) {
-						if (newVoiceChannel.members.get(this.client.user.id)) return
-						newVoiceChannel.join().then(connection => {
-							connection.play("http://cast.animu.com.br:9021/stream", { volume: 0.5 })
-						})
-					}
+		const server = await this.client.database.Guilds.findById(newMember.guild.id)
+		const newVoiceChannel = this.client.guilds.cache.get(server._id).channels.cache.get(server.animuChannel)
+		const guild = this.client.guilds.cache.get(server._id)
+		if (server.animu) {
+			if (newVoiceChannel) {
+				if (newVoiceChannel.members.get(this.client.user.id) && newVoiceChannel.members.size === 1) {
+					await this.client.lavalink.manager.leave(guild.id)
+					this.client.lavalink.manager.players.delete(guild.id)
+					this.client.player.delete(guild.id)
+				}
+
+				if (newVoiceChannel.members.size >= 1) {
+					if (newVoiceChannel.members.get(this.client.user.id)) return
+					if (this.client.player.has(guild.id)) return
+					const song = await this.client.lavalink.join(newVoiceChannel.id)
+					song.playAnimu()
+					this.client.player.set(guild.id, song)
 				}
 			}
 		}
+
 	}
 }

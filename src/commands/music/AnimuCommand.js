@@ -1,6 +1,6 @@
 const Command = require("../../structures/command")
-const fetch = require("node-fetch")
 const { MessageEmbed } = require("discord.js")
+const axios = require('axios')
 module.exports = class AnimuCommand extends Command {
 	constructor(client) {
 		super(client, {
@@ -22,49 +22,52 @@ module.exports = class AnimuCommand extends Command {
 			.addField(`${server.prefix}animu join`, `**Usage:** ${server.prefix}animu leave\n**Aliases:** \`${server.prefix}animu sair, ${server.prefix}animu parar, ${server.prefix}animu stop\``)
 
 		if (!args[0]) return message.channel.send(argsNullEmbed)
-		let info = fetch("http://cast.animu.com.br:2199/rpc/animufm/streaminfo.get")
-		let infoJson = info.then(res => res.json())
+		const res = await axios.get("https://cast.animu.com.br:8021/status.json")
 		if (["join", "entrar", "tocar", "play"].includes(args[0])) {
-			message.member.voice.channel.join().then(connection => {
-				this.client.user.setPresence({ activity: { name: "Animu FM Radio Station - The Most Moe Radio of Brazil!", type: "LISTENING" } })
-				connection.play("http://cast.animu.com.br:9021/stream", { volume: 0.5 })
-				infoJson.then(infoData => {
-					let moreInfo = infoData.data[0]
-					let volume = message.guild.voice.connection ? message.guild.voice.connection.player.dispatcher.volume * 100 : "0"
-					const embed = new MessageEmbed()
-						.setColor(this.client.colors.default)
-						.setAuthor(moreInfo.title, message.guild.iconURL({ format: "png", dynamic: true }))
-						.setDescription(`**${t("commands:animu.np")}:** \`${moreInfo.song}\`\n**${t("commands:animu.total-listening")}:** \`${moreInfo.listenertotal}\`\n**${t("commands:animu.artist")}:** \`${moreInfo.track.artist}\`\n**${t("commands:animu.volume")}**: \`${volume}\``)
+			if (this.client.player.has(message.guild.id)) return message.chinoReply('error', 'I already playing the radio.')
+			const song = await this.client.lavalink.join(message.member.voice.channel.id)
+			song.playAnimu()
+			this.client.player.set(message.guild.id, song)
+			song.on("playNow", (track) => {
+				const volume = `${this.client.player.get(message.guild.id).player.state.volume}/100`
+				const embed = new MessageEmbed()
+					.setColor(this.client.colors.default)
+					.setAuthor(res.data.server_name, message.guild.iconURL({ format: "png", dynamic: true }))
+					.setDescription(`**${t("commands:animu.np")}:** \`${res.data.rawtitle}\`\n**${t("commands:animu.total-listening")}:** \`${res.data.listeners}\`\n**${t("commands:animu.artist")}:** \`${res.data.track.artist}\`\n**${t("commands:animu.volume")}**: \`${volume}\``)
 
-					message.channel.send(embed)
-				}).catch(console.log)
+				message.channel.send(embed)
+			})
+			
+			song.on('playEnd', async () => {
+				await this.client.lavalink.manager.leave(message.guild.id)
+				this.client.lavalink.manager.players.delete(message.guild.id)
+				this.client.player.delete(message.guild.id)
 			})
 		}
 
 		if (["tocando", "np", "nowplaying"].includes(args[0])) {
-			infoJson.then(infoData => {
-				let moreInfo = infoData.data[0]
-				let volume = message.guild.voice.connection ? message.guild.voice.connection.player.dispatcher.volume * 100 : "0"
-				const embed = new MessageEmbed()
-					.setColor(this.client.colors.default)
-					.setAuthor(moreInfo.title, message.guild.iconURL({ format: "png", dynamic: true }))
-					.setThumbnail(`https://cdn.statically.io/img/${moreInfo.track.imageurl.replace("https://", "")}?w=500&quality=100`)
-					.setDescription(`**${t("commands:animu.np")}:** \`${moreInfo.song}\`\n**${t("commands:animu.total-listening")}:** \`${moreInfo.listenertotal}\`\n**${t("commands:animu.artist")}:** \`${moreInfo.track.artist}\`\n**${t("commands:animu.volume")}**: \`${volume}\``)
+			const volume = `${this.client.player.get(message.guild.id).player.state.volume}/100`
+			const embed = new MessageEmbed()
+				.setColor(this.client.colors.default)
+				.setAuthor(res.data.server_name, message.guild.iconURL({ format: "png", dynamic: true }))
+				.setThumbnail(`https://cdn.statically.io/img/${res.data.track.cover.replace("https://", "")}?w=500&quality=100`)
+				.setDescription(`**${t("commands:animu.np")}:** \`${res.data.rawtitle}\`\n**${t("commands:animu.total-listening")}:** \`${res.data.listeners}\`\n**${t("commands:animu.artist")}:** \`${res.data.track.artist}\`\n**${t("commands:animu.volume")}**: \`${volume}\``)
 
-				message.channel.send(embed)
-			}).catch(console.log)
+			message.channel.send(embed)
 		}
 
 		if (["volume", "vol"].includes(args[0])) {
-			if (!message.guild.voice.connection) return message.chinoReply("error", t("commands:dj-module.another-channel"))
+			if (!message.member.voice.channel && !message.member.voice.channel.id !== server.animuChannel) return message.chinoReply("error", t("commands:dj-module.another-channel"))
 			if (!args[1]) return message.chinoReply("chino_peek", t("commands:volume.hisVol", { volume: message.guild.voice.connection.player.dispatcher.volume * 100 }))
 			if (parseInt(args[1]) > 100) return message.chinoReply("error", tt("commands:volume.maxVolume"))
-			message.guild.voice.connection.player.dispatcher.setVolume((parseInt(args[1]) / 100))
+			this.client.player.get(message.guild.id).setVolume(args[1])
 			message.chinoReply("cocoa_smile", t("commands:volume.volume", { volume: parseInt(args[1]) }))
 		}
 
 		if (["leave", "sair", "parar", "stop"].includes(args[0])) {
-			message.guild.me.voice.channel.leave()
+			await this.client.lavalink.manager.leave(message.guild.id)
+			this.client.lavalink.manager.players.delete(message.guild.id)
+			this.client.player.delete(message.guild.id)
 			message.chinoReply("chino_kek", t("commands:leave"))
 		}
 	}

@@ -1,12 +1,15 @@
 const DBL = require("dblapi.js")
 const Sentry = require('@sentry/node')
+const LavalinkManager = require('../lavalink/LavalinkManager')
 module.exports = class {
 	constructor(client) {
 		this.client = client
 	}
 
 	async run() {
-
+		const lavalink = new LavalinkManager(this.client)
+		this.client.lavalink = lavalink
+		await lavalink.connect()
 		if (!this.client.config.canary) {
 			const dbl = new DBL(this.client.config.dbltoken, this.client)
 			dbl.postStats(this.client.guilds.cache.size, this.client.shard.ids, this.client.shard.count)
