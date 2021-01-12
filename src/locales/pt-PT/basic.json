@@ -45,5 +45,9 @@
 		"playerNotFound": "I'm not playing any song",
 		"maxVolume": "calm down! The allowed max volume is `100`.",
 		"minVolume": "calm down! The allowed minimal volume is `5`."
+	},
+	"boolean": {
+		"true": "Yes",
+		"false": "No"
 	}
 }

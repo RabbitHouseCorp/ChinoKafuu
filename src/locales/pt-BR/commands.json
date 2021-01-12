@@ -1,4 +1,39 @@
 {
+    "channelinfo": {
+        "title": "`Information about #{{0}}`",
+        "noTopic": "This channel doesn't have a topic.",
+        "mention": "Channel Mention",
+        "channelID": "Channel ID",
+        "guild": "Servidor",
+        "category": "Category",
+        "createdAt": "Created At"
+    },
+    "favcolor": {
+        "description": "Changes your profile color to your favorite color.",
+        "usage": "<#color>",
+        "invalidColor": "the color what you inputed is invalid.",
+        "poorUser": "you need more `{{0}}` to change your favorite color.",
+        "successfullyChanged": "sure. I successfully changed your favorite color."
+    },
+    "profile": {
+        "description": "Shows your social profile or the social profile of someone.",
+        "usage": "[user]"
+    },
+    "emojiinfo": {
+        "usage": "<emoji>",
+        "description": "Get some info about some emoji.",
+        "embed": {
+            "title": "Emoji information",
+            "name": "Emoji name",
+            "id": "Emoji ID",
+            "mention": "Emoji mention",
+            "url": "Download"
+        }
+    },
+    "emoji": {
+        "usage": "<emoji>",
+        "description": "Get the emoji attachment and send to you."
+    },
     "tippy": {
         "description": "Make tippy tell you a joke"
     },
@@ -34,7 +69,7 @@
             "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
         }
     },
-    "reputation": {
+    "rep": {
         "cannotGiveRepForYourself": "você não pode dar reputação para si mesmo.",
         "forTheClient": "obrigada por me dar uma reputação, agora eu tenho `{{0}}` reputações",
         "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
@@ -330,8 +365,8 @@
         "description": "Beija um usuário"
     },
     "yens": {
-        "yens": "você possui {{yens}} Yens",
-        "onMention": "{{user}} possui {{yens}} Yens",
+        "yens": "you have {{yens}} yens",
+        "onMention": "{{user}} has {{yens}} yens",
         "description": "Shows you current balance or current balance of someone.",
         "usage": "[user]"
     },
@@ -371,10 +406,10 @@
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferência para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
-        "success": "transferência de {{yens}} Yens efetuada para {{user}} com sucesso",
-        "poorUser": "você não possui Yens para completar essa transferência",
+        "success": "successfully donated {{yens}} yens to {{user}}",
+        "poorUser": "you don't have enough yens to complete this payment",
         "cancelled": "certo, transferência cancelada",
-        "confirm": "{{user}} irá receber __`{{yens}}`__ Yens, taxado em **`{{fee}}%`** do valor total ({{total}}). Você quer continuar?"
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
