@@ -5,8 +5,8 @@ require('moment-duration-format')
 module.exports = class RepCommand extends Command {
     constructor() {
         super({
-            name: 'reputation',
-            aliases: ['rep', 'reputação', 'reputacao'],
+            name: 'rep',
+            aliases: ['reputation', 'reputação', 'reputacao'],
             arguments: 1,
             hasUsage: true
         })
@@ -17,12 +17,12 @@ module.exports = class RepCommand extends Command {
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
         let author = ctx.db.user
         let user = await ctx.client.database.users.getOrCreate(member.id)
-        if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:reputation.cannotGiveRepForYourself')
+        if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:rep.cannotGiveRepForYourself')
         if (member.id === ctx.client.user.id) {
             author.repTime = 3600000 + Date.now()
             user.rep += 1
             user.save().then(() => {
-                ctx.replyT('chino_maid', 'commands:reputation.forTheClient', { 0: user.rep })
+                ctx.replyT('chino_maid', 'commands:rep.forTheClient', { 0: user.rep })
             })
             author.save()
 
@@ -34,10 +34,10 @@ module.exports = class RepCommand extends Command {
             user.rep += 1
             author.save()
             user.save().then(() => {
-                ctx.replyT('success', 'commands:reputation.successffully', { 0: member.mention, 1: user.rep })
+                ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: user.rep })
             })   
         } else {
-            ctx.replyT('warn', 'commands:reputation.cooldown', { 0: time })
+            ctx.replyT('warn', 'commands:rep.cooldown', { 0: time })
         }
     }
 }
