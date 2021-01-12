@@ -28,8 +28,8 @@ module.exports = class ProfileCommand extends Command {
                 aboutMe: user.aboutme,
                 married: user.isMarry,
                 partnerName: `${couple?.username}#${couple.discriminator}`,
-                bgId: 'gochiusa_3',
-                stickerId: 'bjork_post',
+                bgId: user.background,
+                stickerId: user.sticker,
                 favColor: user.profileColor,
                 avatarUrl: member.avatarURL
             },
