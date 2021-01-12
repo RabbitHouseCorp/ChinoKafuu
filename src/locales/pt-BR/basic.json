@@ -45,5 +45,9 @@
 		"playerNotFound": "eu não estou tocando nenhuma música",
 		"maxVolume": "calma aí! O volume máximo permitido é `100`.",
 		"minVolume": "calma aí! O volume mínimo permitido é `5`."
+	},
+	"boolean": {
+		"true": "Yes",
+		"false": "No"
 	}
 }
