@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 module.exports = class VoteCommand extends Command {
     constructor() {
         super({
@@ -26,27 +26,24 @@ module.exports = class VoteCommand extends Command {
 
         if (!ctx.args[0]) return ctx.send(argsNullEmbed.build())
 
-        const req = fetch('http://cast.animu.com.br:2199/rpc/animufm/streaminfo.get')
-        const res = req.then(res => res.json())
+        const res = await axios.get('https://cast.animu.com.br:8021/status.json')
         if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0])) {
             if (ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
             const song = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
             song.playAnimu()
             ctx.client.player.set(ctx.message.guildID, song)
             song.on('playNow', (track) => {
-                res.then(info => {
-                    const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
-                    const embed = new EmbedBuilder()
-                    embed.setColor('ANIMU')
-                    embed.setAuthor(track.info.title)
-                    embed.setThumbnail(info.data[0].track.imageurl)
-                    embed.addField(ctx._locale('commands:animu.nowPlaying'), info.data[0].song)
-                    embed.addField(ctx._locale('commands:animu.totalListening.title'), `${info.data[0].listenertotal} ${ctx._locale('commands:animu.totalListening.total')}`)
-                    embed.addField(ctx._locale('commands:animu.artist'), info.data[0].track.artist)
-                    embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
+                const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
+                const embed = new EmbedBuilder()
+                embed.setColor('ANIMU')
+                embed.setAuthor(track.info.title)
+                embed.setThumbnail(`https://cdn.statically.io/img/${res.data.track.cover.replace('https://', '')}?width=465&height=465`)
+                embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
+                embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
+                embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
+                embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
-                    ctx.send(embed.build())
-                })
+                ctx.send(embed.build())
             })
 
             song.on('playEnd', async () => {
@@ -72,19 +69,17 @@ module.exports = class VoteCommand extends Command {
         }
 
         if (['nowplaying', 'tocandoagora', 'np'].includes(ctx.args[0])) {
-            res.then(info => {
-                const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
-                const embed = new EmbedBuilder()
-                embed.setColor('ANIMU')
-                embed.setAuthor(info.data[0].title)
-                embed.setThumbnail(info.data[0].track.imageurl)
-                embed.addField(ctx._locale('commands:animu.nowPlaying'), info.data[0].song)
-                embed.addField(ctx._locale('commands:animu.totalListening.title'), `${info.data[0].listenertotal} ${ctx._locale('commands:animu.totalListening.total')}`)
-                embed.addField(ctx._locale('commands:animu.artist'), info.data[0].track.artist)
-                embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
+            const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
+            const embed = new EmbedBuilder()
+            embed.setColor('ANIMU')
+            embed.setAuthor(res.data.server_name)
+            embed.setThumbnail(`https://cdn.statically.io/img/${res.data.track.cover.replace('https://', '')}?width=465&height=465`)
+            embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
+            embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
+            embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
+            embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
-                ctx.send(embed.build())
-            })
+            ctx.send(embed.build())
 
             return
         }

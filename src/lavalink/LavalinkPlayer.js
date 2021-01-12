@@ -11,12 +11,16 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     }
 
     async getSongs(node, search) {
-        const fetch = require('node-fetch')
+        const axios = require('axios')
         const { URLSearchParams } = require('url')
         const params = new URLSearchParams()
         params.append('identifier', search)
 
-        return fetch(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, { headers: { Authorization: node.password } }).then(res => res.json()).then(data => data.tracks).catch(err => {
+        return axios.get(`http://${node.host}:${node.port}/loadtracks?${params.toString()}`, {
+            headers: {
+                Authorization: node.password
+            }
+        }).then(res => res.data.tracks).catch(err => {
             Logger.error(err.message)
             return null
         })
