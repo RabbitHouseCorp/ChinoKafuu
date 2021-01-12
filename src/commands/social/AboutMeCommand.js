@@ -11,7 +11,7 @@ module.exports = class AboutMeCommand extends Command {
     }
 
     async run(ctx) {
-        if (ctx.args.join(' ') > 128) return ctx.replyT('error', 'commands:aboutme.bioLimit')
+        if (ctx.args.join(' ').length > 128) return ctx.replyT('error', 'commands:aboutme.bioLimit')
         const bio = ctx.args.join(' ').replace(/[`]/g, '')
         ctx.db.user.aboutme = bio
         ctx.db.user.save()
