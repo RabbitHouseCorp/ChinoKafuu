@@ -1,6 +1,6 @@
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
-class PayCommand extends Command {
+module.exports = class PayCommand extends Command {
     constructor() {
         super({
             name: 'pay',
@@ -65,5 +65,3 @@ class PayCommand extends Command {
         return [val - ((val / 100) * percent), percent]
     }
 }
-
-module.exports = PayCommand

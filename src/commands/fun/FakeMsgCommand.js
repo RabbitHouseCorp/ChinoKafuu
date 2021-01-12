@@ -1,4 +1,5 @@
-const { Command, FunCommandInstance, Emoji } = require('../../utils')
+const { Command } = require('../../utils')
+
 module.exports = class FakeMsgCommand extends Command {
     constructor() {
         super({
