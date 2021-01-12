@@ -18,9 +18,8 @@ module.exports = class ProfileCommand extends Command {
         let user = await ctx.client.database.users.getOrCreate(member.id)
         let couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
 
-        console.log(couple?.username)
-        require('axios')({
-            url: "http://127.0.0.1:1234/render/profile",
+        axios({
+            url: 'http://127.0.0.1:1234/render/profile',
             method: 'post',
             data: {
                 type: 'default',
@@ -29,7 +28,7 @@ module.exports = class ProfileCommand extends Command {
                 aboutMe: user.aboutme,
                 married: user.isMarry,
                 partnerName: `${couple?.username}#${couple.discriminator}`,
-                bgId: 'no-game-no-live-2',
+                bgId: 'gochiusa_3',
                 stickerId: 'bjork_post',
                 favColor: user.profileColor,
                 avatarUrl: member.avatarURL

@@ -16,6 +16,8 @@ module.exports = mongoose.model(
         marryWith: { type: String, default: '' },
         rep: { type: Number, default: 0 },
         repTime: { type: String, default: '000000000000' },
-        shipValue: { type: String, default: null }
+        shipValue: { type: String, default: null },
+        background: { type: String, default: 'gochiusa_3' },
+        sticker: { type: String, default: 'bjork_post' }
     })
 )
