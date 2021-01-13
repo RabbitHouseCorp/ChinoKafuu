@@ -5,7 +5,11 @@ module.exports = class ProfileCommand extends Command {
         super({
             name: 'profile',
             aliases: ['perfil'],
-            hasUsage: true
+            hasUsage: true,
+            permissions: [{
+                entity: 'bot',
+                permissions: ['attachFiles']
+            }]
         })
     }
 
@@ -31,7 +35,7 @@ module.exports = class ProfileCommand extends Command {
                 bgId: user.background,
                 stickerId: user.sticker,
                 favColor: user.profileColor,
-                avatarUrl: member.avatarURL
+                avatarUrl: member.dynamicAvatarURL('png', 2048)
             },
             responseType: 'arraybuffer'
         }).then(jesus => {
