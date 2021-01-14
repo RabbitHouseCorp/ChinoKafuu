@@ -70,6 +70,7 @@
         "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
         "economy": "Economy ({{0}})",
         "fun": "Fun ({{0}})",
+        "image": "Image Manipulation ({{0}})",
         "minecraft": "Minecraft ({{0}})",
         "misc": "Miscellaneous ({{0}})",
         "mod": "Moderation ({{0}})",
