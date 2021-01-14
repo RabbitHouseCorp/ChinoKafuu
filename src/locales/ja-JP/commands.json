@@ -1,4 +1,18 @@
 {
+    "laranjo": {
+        "usage": "<text>",
+        "description": "Make laranjo's says something silly."
+    },
+    "rize": {
+        "usage": "<text>",
+        "decription": "Make rize's write something in the paper."
+    },
+    "license": {
+        "licensedFor": "Licensed for",
+        "beCute": "Be cute",
+        "usage": "[user] [text]",
+        "description": "Are you licensed or someone are not licensed? No? Then create a license to you or to someone."
+    },
     "channelinfo": {
         "title": "`Information about #{{0}}`",
         "noTopic": "This channel doesn't have a topic.",
