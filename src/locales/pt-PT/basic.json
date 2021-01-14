@@ -49,5 +49,10 @@
 	"boolean": {
 		"true": "Yes",
 		"false": "No"
+	},
+	"guildban": {
+		"title": "Guild Banned",
+		"explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban is injust? Join in my [support server](https://discord.gg/CAm9cSU) and maybe get unban.",
+		"reason": "Razão"
 	}
 }
