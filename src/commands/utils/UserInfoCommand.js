@@ -26,9 +26,17 @@ module.exports = class UserInfoCommand extends Command {
         } else {
             member = ctx.message.author
         }
+        let hoist
         const guild = ctx.message.channel.guild
-        const highRole = guild.roles.get(guild.members.get(member.id)?.roles[0])
-        let roleSize = guild.members.get(member.id) ? guild.members.get(member.id).roles.length : '0'
+        if (guild.members.get(member.id)) {
+            const role = guild.members.get(member.id).roles
+                .map((a) => ctx.message.channel.guild.roles.get(a))
+                .filter((z) => z && z.color > 0)
+                .sort((a, b) => b.position - a.position)
+            hoist = role[0]
+        }
+
+        const highRole = guild.roles.get(hoist?.id)
         const embed = new EmbedBuilder()
         embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
         embed.setThumbnail(member.avatarURL)
@@ -36,10 +44,10 @@ module.exports = class UserInfoCommand extends Command {
         embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
         embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)
         guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), moment(guild.members.get(member.id).joinedAt).format('LLLL'), true) : null
-        guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.highRole'), guild.roles.get(guild.members.get(member.id)?.roles[0])?.mention, true) : null
+        guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
         guild.members.get(member.id)?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), moment(guild.members.get(member.id).premiumSince).format('LLLL'), true) : null
         guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), this.checkPermission(ctx._locale, guild, member).join(', ')) : null
-        
+
         ctx.send(embed.build())
     }
 

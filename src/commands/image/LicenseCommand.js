@@ -20,7 +20,16 @@ module.exports = class LicenseCommand extends Command {
         if (!member) {
             member = ctx.message.author
         }
-        let highRole = guild.roles.get(guild.members.get(member.id)?.roles[0])?.color.toString(16)
+        let hoist
+        if (guild.members.get(member.id)) {
+            const role = guild.members.get(member.id).roles
+                .map((a) => ctx.message.channel.guild.roles.get(a))
+                .filter((z) => z && z.color > 0)
+                .sort((a, b) => b.position - a.position)
+            hoist = role[0]
+        }
+
+        let highRole = guild.roles.get(hoist?.id)?.color.toString(16)
         if (!highRole) highRole = '#000000'
         const buffer = await axios({
             url: 'http://127.0.0.1:1234/render/license',
