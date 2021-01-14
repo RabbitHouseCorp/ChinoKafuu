@@ -9,6 +9,9 @@ module.exports = class CommandRunner {
         const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
         const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
+        if (guildData.blacklist) {
+            return client.leaveGuild(message.guildID)
+        }
         const _locale = client.i18nRegistry.getT(guildData.lang)
 
         if (userData.afk) {

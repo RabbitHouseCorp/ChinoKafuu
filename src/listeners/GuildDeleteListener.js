@@ -1,5 +1,4 @@
 const Listener = require('../structures/events/Listener')
-const EmbedBuilder = require('../structures/util/EmbedBuilder')
 
 module.exports = class GuildDeleteListener extends Listener {
     constructor() {
@@ -8,6 +7,9 @@ module.exports = class GuildDeleteListener extends Listener {
     }
 
     async on(client, guild) {
+        const server = await client.database.guilds.getOrCreate(guild.id)
+        if (server.blacklist) return
+
         await client.database.guilds.getAndDelete(guild.id)
     }
 }
