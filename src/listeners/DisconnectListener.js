@@ -7,7 +7,7 @@ module.exports = class DisconnectListener extends Listener {
         this.event = 'disconnect'
     }
 
-    async on(client, shardID) {
-        Logger.shardMessage(`Mayday! Shard ${shardID} has died!`)
+    async on(client) {
+        Logger.shardMessage(`Mayday! All shard has died!`)
     }
 }
