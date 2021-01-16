@@ -19,7 +19,7 @@
         "eris": "github:abalabahaha/eris#dev",
         "hound": "^1.0.5",
         "mal-scraper": "^2.11.2",
-        "mathjs": "^8.1.1",
+        "mathjs": "^9.0.0",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
         "mongoose": "^5.11.10",
