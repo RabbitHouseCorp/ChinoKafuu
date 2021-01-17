@@ -5,7 +5,7 @@
         "hasBeenPicked": "you've already received your daily yens today, wait until `{{0}}` and try to get your daily yens again.",
         "description": "You can get your daily yens by using this command"
     },
-    "laranjo":{
+    "laranjo": {
         "usage": "<text>",
         "description": "Laranjo will say something silly."
     },
@@ -438,7 +438,7 @@
         "description": "Calls a user baka"
     },
     "clap": {
-        "noArgs":"invalid input",
+        "noArgs": "invalid input",
         "usage": "<amount>",
         "description": "Let's clap clap clap clap, clap with your friends."
     },
