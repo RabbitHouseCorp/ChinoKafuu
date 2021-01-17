@@ -1,58 +1,58 @@
 {
-	"permissions": {
-		"permissionUserRequired": "You need to have {{0}} permissions to use this command.",
-		"permissionBotRequired": "Eu preciso das permissões para {{0}} para executar esse comando.",
-		"title": "Permissões"
-	},
-	"onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-	"missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
-	"missingUserPermission": "você não tem permissão para `{{perm}}`. Você não pode executar este comando.",
-	"invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
-	"invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
-	"invalidEmoji": "emoji não encontrado, tem certeza que este emoji pertence a este servidor?",
-	"noReason": "Nenhum motivo",
-	"onBehalf": "On {{member}}'s behalf: {{reason}}",
-	"clickHere": "Clique aqui",
-	"punishment": {
-		"banned": "{{0}} | Banido",
-		"unbanned": "{{0}} | Desbanido",
-		"kicked": "{{member}} | Expulso",
-		"softBan": "{{member}} | Banido suavemente",
-		"embed": {
-			"memberName": "Nome de usuário",
-			"memberID": "ID do usuário",
-			"staffName": "Quem puniu",
-			"reason": "Motivo"
-		},
-		"reason": "Banido por: {{0}} - Motivo: {{1}}"
-	},
-	"missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-	"howToUse": "Como usar?",
-	"aliases": "Alternativas",
-	"addedToGuild": {
-		"thanks": "Obrigada por me adicionar",
-		"description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Servidor {{0}} salvo com sucesso no banco de dados!"
-	},
-	"noAliases": "This command doesn't have any aliases.",
-	"onMentionAfk": "**{{user}}** está AFK.",
-	"onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
-	"voice": {
-		"authorAreNotInVoiceChannel": "you're not in a voice channel.",
-		"playerAlreadyPlaying": "I'm already playing something.",
-		"clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-		"playerNotFound": "eu não estou tocando nenhuma música",
-		"maxVolume": "calm down! The max volume allowed is `100`.",
-		"minVolume": "calm down! The minimal volume allowed is `5`."
-	},
-	"boolean": {
-		"true": "Yes",
-		"false": "No"
-	},
-	"guildban": {
-		"title": "Guild Banned",
-		"explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban was unjust? Join my [support server](https://discord.gg/CAm9cSU) and maybe get him/her unbanned.",
-		"reason": "Motivo"
-	}
+    "permissions": {
+        "permissionUserRequired": "You need to have {{0}} permissions to use this command.",
+        "permissionBotRequired": "Eu preciso das permissões para {{0}} para executar esse comando.",
+        "title": "Permissões"
+    },
+    "onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+    "missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
+    "missingUserPermission": "você não tem permissão para `{{perm}}`. Você não pode executar este comando.",
+    "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
+    "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
+    "invalidEmoji": "emoji não encontrado, tem certeza que este emoji pertence a este servidor?",
+    "noReason": "Nenhum motivo",
+    "onBehalf": "On {{member}}'s behalf: {{reason}}",
+    "clickHere": "Clique aqui",
+    "punishment": {
+        "banned": "{{0}} | Banido",
+        "unbanned": "{{0}} | Desbanido",
+        "kicked": "{{member}} | Expulso",
+        "softBan": "{{member}} | Banido suavemente",
+        "embed": {
+            "memberName": "Nome de usuário",
+            "memberID": "ID do usuário",
+            "staffName": "Quem puniu",
+            "reason": "Motivo"
+        },
+        "reason": "Banido por: {{0}} - Motivo: {{1}}"
+    },
+    "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+    "howToUse": "Como usar?",
+    "aliases": "Alternativas",
+    "addedToGuild": {
+        "thanks": "Obrigada por me adicionar",
+        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+        "guildSaved": "Servidor {{0}} salvo com sucesso no banco de dados!"
+    },
+    "noAliases": "This command doesn't have any aliases.",
+    "onMentionAfk": "**{{user}}** está AFK.",
+    "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+    "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+    "voice": {
+        "authorAreNotInVoiceChannel": "you're not in a voice channel.",
+        "playerAlreadyPlaying": "I'm already playing something.",
+        "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+        "playerNotFound": "eu não estou tocando nenhuma música",
+        "maxVolume": "calm down! The max volume allowed is `100`.",
+        "minVolume": "calm down! The minimal volume allowed is `5`."
+    },
+    "boolean": {
+        "true": "Yes",
+        "false": "No"
+    },
+    "guildban": {
+        "title": "Guild Banned",
+        "explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban was unjust? Join my [support server](https://discord.gg/CAm9cSU) and maybe get him/her unbanned.",
+        "reason": "Motivo"
+    }
 }
