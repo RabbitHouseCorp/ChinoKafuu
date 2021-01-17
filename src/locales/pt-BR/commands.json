@@ -58,28 +58,28 @@
         "description": "Faça o tippy contar uma piada para você"
     },
     "fakemsg": {
-        "argsNull": "you didn't put any arguments.",
-        "description": "Make a prank on someone with a fake message on the webhook.",
-        "usage": "<user> <text>"
+        "argsNull": "você não colocou nenhum argumento.",
+        "description": "Faça uma brincadeira em alguém com uma mensagem falsa no webhook.",
+        "usage": "<usuário> <texto>"
     },
     "divorce": {
-        "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
-        "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
-        "youNeedToDivorce": "you need have more `{{0}}` yens to divorce.",
-        "theyNeedToDivorce": "your partner needs more `{{0}}` yens to divorce.",
-        "requestConfirm": "are you sure you want divorce? This action is irrevocable.",
-        "successfullyDivorced": "Sure, I will call the lawyers. The both of you will pay `300` yens for it.",
-        "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
+        "description": "Te divorcia do seu parceiro atual (eu cobrarei 300 ienes para se divorciar).",
+        "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <user>` e seja feliz.",
+        "youNeedToDivorce": "você precisa ter mais `{{0}}` yens para se divorciar.",
+        "theyNeedToDivorce": "seu parceiro precisa de mais `{{0}}` yens para se divorciar.",
+        "requestConfirm": "tem certeza de que quer o divórcio? Esta ação é irreversível.",
+        "successfullyDivorced": "certo, chamarei os advogados. Ambos pagarão `300` yens por isso.",
+        "rejectedRequest": "Acho que o oráculo do amor não deixou você se separar. Estou feliz por vocês terem se entendido."
     },
     "help": {
-        "commandList": "Command list",
-        "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
-        "economy": "Economy ({{0}})",
-        "fun": "Fun ({{0}})",
-        "image": "Image Manipulation ({{0}})",
+        "commandList": "Lista de comandos",
+        "explain": "Se você quer saber mais sobre um comando, use `{{0}}ajuda [comando]` e eu explicarei como usar o comando.",
+        "economy": "Economia ({{0}})",
+        "fun": "Diversão ({{0}})",
+        "image": "Manipulação de Imagem ({{0}})",
         "minecraft": "Minecraft ({{0}})",
-        "misc": "Miscellaneous ({{0}})",
-        "mod": "Moderation ({{0}})",
+        "misc": "Miscelânea ({{0}})",
+        "mod": "Moderação ({{0}})",
         "social": "Social ({{0}})",
         "utils": "Utils ({{0}})",
         "usage": "[command]",
