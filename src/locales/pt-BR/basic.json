@@ -1,17 +1,17 @@
 {
     "permissions": {
-        "permissionUserRequired": "You need to have {{0}} permissions to use this command.",
+        "permissionUserRequired": "Você precisa ter as permissões para {{0}} para usar este comando.",
         "permissionBotRequired": "Eu preciso das permissões para {{0}} para executar esse comando.",
         "title": "Permissões"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-    "missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
+    "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
+    "missingBotPermission": "eu não tenho permissão para `{{perm}}`. Verifique as minhas permissões e tente novamente.",
     "missingUserPermission": "você não tem permissão para `{{perm}}`. Você não pode executar este comando.",
-    "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
-    "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
+    "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
+    "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
     "invalidEmoji": "emoji não encontrado, tem certeza que este emoji pertence a este servidor?",
     "noReason": "Nenhum motivo",
-    "onBehalf": "On {{member}}'s behalf: {{reason}}",
+    "onBehalf": "Em nome de {{member}}: {{reason}}",
     "clickHere": "Clique aqui",
     "punishment": {
         "banned": "{{0}} | Banido",
@@ -26,33 +26,33 @@
         },
         "reason": "Banido por: {{0}} - Motivo: {{1}}"
     },
-    "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+    "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
     "howToUse": "Como usar?",
     "aliases": "Alternativas",
     "addedToGuild": {
         "thanks": "Obrigada por me adicionar",
-        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+        "description": "Whoa {{0}}! Obrigado por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão**, **música** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
         "guildSaved": "Servidor {{0}} salvo com sucesso no banco de dados!"
     },
-    "noAliases": "This command doesn't have any aliases.",
+    "noAliases": "Esse comando não possui alternativas.",
     "onMentionAfk": "**{{user}}** está AFK.",
     "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-    "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+    "afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK.",
     "voice": {
-        "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-        "playerAlreadyPlaying": "I'm already playing something.",
-        "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+        "authorAreNotInVoiceChannel": "você não se encontra em um canal de voz.",
+        "playerAlreadyPlaying": "eu já estou tocando alguma coisa.",
+        "clientAreNotInVoiceChannel": "eu não estou em nenhum canal de voz.",
         "playerNotFound": "eu não estou tocando nenhuma música",
-        "maxVolume": "calm down! The max volume allowed is `100`.",
-        "minVolume": "calm down! The minimal volume allowed is `5`."
+        "maxVolume": "calma! O volume máximo permitido é `100`.",
+        "minVolume": "calma! O volume mínimo permitido é `5`."
     },
     "boolean": {
-        "true": "Yes",
-        "false": "No"
+        "true": "Sim",
+        "false": "Não"
     },
     "guildban": {
-        "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban was unjust? Join my [support server](https://discord.gg/CAm9cSU) and maybe get him/her unbanned.",
+        "title": "Servidor Banida",
+        "explain": "`{{0}}` está banido, você pode ver o motivo do banimento abaixo. Você acha que o banimento foi injusto? Junte-se ao meu [servidor de suporte](https://discord.gg/CAm9cSU) e talvez faça ele/ela solta.",
         "reason": "Motivo"
     }
 }
