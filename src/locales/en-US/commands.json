@@ -104,7 +104,7 @@
         "youAlreadyMarried": "you can't marry with another user, because you are already married.",
         "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
         "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
-        "successfullyMarried": "yay! Congratulations, you both now are married.",
+        "successfullyMarried": "yay! Congratulations, now you both are married.",
         "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share her life with you, maybe {{0}} isn't the love of her life, I think there was an error in the oracle of love.",
         "cannotMarryWithYourself": "you can't marry with yourself, are you blind or what? Sorry, but, I can't allow this.",
         "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
