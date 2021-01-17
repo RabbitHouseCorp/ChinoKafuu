@@ -81,13 +81,13 @@
         "misc": "Miscelânea ({{0}})",
         "mod": "Moderação ({{0}})",
         "social": "Social ({{0}})",
-        "utils": "Utils ({{0}})",
-        "usage": "[command]",
-        "description": "Show my command list to you.",
-        "commandsLoaded": "I have {{0}} public commands loaded.",
+        "utils": "Utilidades ({{0}})",
+        "usage": "[comando]",
+        "description": "Mostra minha lista de comandos para você.",
+        "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
         "additionalLinks": {
-            "embedTitle": "Additional Links",
-            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
+            "embedTitle": "Links Adicionais",
+            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/CAm9cSU)"
         }
     },
     "rep": {
@@ -104,9 +104,9 @@
         "youAlreadyMarried": "não se pode casar com outro usuário, porque você já é casado.",
         "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
         "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
-        "successfullyMarried": "yay! Congratulations, now you both are married.",
+        "successfullyMarried": "viva! Parabéns, agora vocês dois estão casados.",
         "rejectedRequest": "que pena. Parece que {{0}} não quer compartilhar sua vida com você. Talvez {{0}} não seja o amor da vida, eu acho que houve um erro no oráculo do amor.",
-        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or what? Sorry, but, I can't allow this.",
+        "cannotMarryWithYourself": "você não pode se casar com você mesmo, é cego ou algo assim? Desculpe, mas não posso permitir isso.",
         "cannotMarryWithMe": "desculpe coelhinho. Você não pode se casar comigo. Me desculpe, mas, eu não te amo da mesma forma que você me ama, eu te amo, mas como amigo.",
         "cannotMarryWithBot": "você não pode se casar com um bot, pois ele nunca vai aceitar.",
         "description": "Se case com o seu verdadeiro amor.",
@@ -194,8 +194,8 @@
         "description": "Mostra algumas informações sobre o cargo."
     },
     "userinfo": {
-        "usage": "[user]",
-        "description": "Shows some informations about a user.",
+        "usage": "[usuário]",
+        "description": "Mostra algumas informações sobre um usuário.",
         "username": "Tag do Usuário",
         "userid": "ID do usuário",
         "createdAt": "Conta Criada Em",
@@ -220,10 +220,10 @@
         "volumeChanged": "volume alterado com sucesso.",
         "currentVolume": "o volume atual é `{{volume}}/100`.",
         "leaving": "estou saindo agora do canal de voz.",
-        "description": "Plays some song when playing for the [Animu Radio](https://animu.com.br)."
+        "description": "Toca alguma música que está tocando na [Rádio Animu](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows some info about this server.",
+        "description": "Mostra algumas informações sobre este servidor.",
         "guildID": "ID do servidor",
         "guildOwner": "Dono do servidor",
         "guildRegion": "Região do servidor",
@@ -273,8 +273,8 @@
             "ANIMATED_ICON": "Ícone Animado",
             "BANNER": "Banner",
             "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas Ativada",
-            "PREVIEW_ENABLED": "Preview",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate"
+            "PREVIEW_ENABLED": "Pré-visualização",
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação"
         },
         "booster": {
             "title": "Impulsionador de Nitro",
@@ -285,13 +285,13 @@
     "servericon": {
         "missingIcon": "este servidor não possui um ícone",
         "download": "Baixe o ícone clicando [aqui]({{0}})",
-        "description": "Get and show the server icon to you."
+        "description": "Pega e mostra o ícone do servidor para você."
     },
     "serverbanner": {
         "missingFeature": "este servidor não possui o recurso de `banner`.",
         "missingBanner": "este servidor não possui um banner.",
         "download": "Baixe o banner clicando [aqui]({{0}})",
-        "description": "Get and show the server banner to you."
+        "description": "Pega e mostra o banner do servidor para você."
     },
     "money": {
         "invalidValue": "Por favor, me diga um valor válido.",
@@ -303,12 +303,12 @@
     "vote": {
         "title": "Vote em mim",
         "embedVoted": "Muito obrigada. Você pode votar em mim no link logo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
-        "description": "Shows how you can vote from me."
+        "description": "Mostra como você pode votar em mim."
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
         "canAddMe": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo.",
-        "description": "Shows how you can add me in your server."
+        "description": "Mostra como você pode me adicionar no seu servidor."
     },
     "botinfo": {
         "title": "Informação do bot",
@@ -321,7 +321,7 @@
         "shardUptime": "Tempo online atual da shard",
         "cpuModel": "Modelo do CPU",
         "supportServer": "Servidor de Suporte",
-        "description": "Shows more information about me."
+        "description": "Mostra mais informações sobre mim."
     },
     "mcavatar": {
         "description": "Mostra o avatar de um jogador de Minecraft.",
@@ -366,8 +366,8 @@
         "description": "Cutuque alguém no seu servidor."
     },
     "ping": {
-        "totalShard": "Total shards: {{totalShard}}",
-        "description": "Just a command test, you can see if I'm working."
+        "totalShard": "Total de shards: {{totalShard}}",
+        "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
     },
     "slap": {
         "slaped": "{{0}} deu um tapa em {{1}}",
@@ -386,10 +386,10 @@
         "description": "Beija um usuário"
     },
     "yens": {
-        "yens": "you have {{yens}} yens",
-        "onMention": "{{user}} has {{yens}} yens",
-        "description": "Shows you current balance or current balance of someone.",
-        "usage": "[user]"
+        "yens": "você possui {{yens}} yens",
+        "onMention": "{{user}} possui {{yens}} yens",
+        "description": "Mostra o saldo atual ou o saldo atual de alguém.",
+        "usage": "[usuário]"
     },
     "anime": {
         "synopsis": "Sinopse",
@@ -406,8 +406,8 @@
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
         "animeNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
-        "description": "Shows some info of the any anime.",
-        "usage": "<name>"
+        "description": "Mostra algumas informações de algum anime.",
+        "usage": "<nome>"
     },
     "manga": {
         "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
@@ -420,17 +420,17 @@
         "genres": "Gêneros",
         "characters": "Personagens",
         "description": "Shows some info of the any anime.",
-        "usage": "<name>"
+        "usage": "<nome>"
     },
     "pay": {
         "usage": "<userID|@user> <quantia>",
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferência para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
-        "success": "successfully donated {{yens}} yens to {{user}}",
-        "poorUser": "you don't have enough yens to complete this payment",
+        "success": "transferência de {{yens}} yens efetuada para {{user}} com sucesso",
+        "poorUser": "você não possui yens para completar essa transferência",
         "cancelled": "certo, transferência cancelada",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
+        "confirm": "{{user}} irá receber __`{{yens}}`__ yens, taxado em **`{{fee}}%`** do valor total ({{total}}). Você quer continuar?"
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
@@ -439,8 +439,8 @@
     },
     "clap": {
         "noArgs": "argumento inválido",
-        "usage": "<amount>",
-        "description": "Let's clap clap clap clap, clap with your friends."
+        "usage": "<quantidade>",
+        "description": "Vamos bater palmas com os seus amigos."
     },
     "congaparrot": {
         "usage": "<quantia-repetição>",
@@ -499,7 +499,7 @@
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
-        "description": "Change my language in the current guild.",
+        "description": "Altera o meu idioma no servidor atual.",
         "message": "Qual é sua língua? Reaja abaixo.",
         "helpUs": "Nos ajude a traduzir",
         "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
@@ -529,8 +529,8 @@
         "error": "Não consegui banir temporariamente esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
     "afk": {
-        "description": "Make you stay in afk mode.",
-        "usage": "[reason]",
+        "description": "Faz você ficar no modo afk.",
+        "usage": "[motivo]",
         "success": "Agora você está AFK"
     },
     "choose": {
