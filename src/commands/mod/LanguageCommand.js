@@ -25,8 +25,8 @@ module.exports = class LanguageCommand extends Command {
             await message.addReaction(Emoji.getEmoji('brazil').reaction)
             await message.addReaction(Emoji.getEmoji('portugal').reaction)
             await message.addReaction(Emoji.getEmoji('usa').reaction)
-            await message.addReaction(Emoji.getEmoji('usa').reaction)
-            await message.addReaction(Emoji.getEmoji('usa').reaction)
+            await message.addReaction(Emoji.getEmoji('es').reaction)
+            await message.addReaction(Emoji.getEmoji('ja').reaction)
 
             const filter = (_, emoji, userID) => ([Emoji.getEmoji('brazil').name, Emoji.getEmoji('portugal').name, Emoji.getEmoji('usa').name, Emoji.getEmoji('es').name, Emoji.getEmoji('ja').name].includes(emoji.name)) && userID === ctx.message.author.id
             const collector = new ReactionCollector(message, filter, { max: 1 })
