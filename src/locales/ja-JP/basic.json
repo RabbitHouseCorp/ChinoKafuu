@@ -1,58 +1,58 @@
 {
-	"permissions": {
-		"permissionUserRequired": "You need to have {{0}} permissions use this command.",
-		"permissionBotRequired": "I need {{0}} permissions to execute this command.",
-		"title": "Permissions"
-	},
-	"onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to find out what I can do, use `{{1}}help`.",
-	"missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions and try again.",
-	"missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
-	"invalidUser": "user not found. Make sure you have @mentioned them or double-check the ID.",
-	"invalidRole": "role not found. Make sure you have @mentioned it or double-check the ID.",
-	"invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
-	"noReason": "No reason",
-	"onBehalf": "on {{member}}'s behalf: {{reason}}",
-	"clickHere": "Click here",
-	"punishment": {
-		"banned": "{{0}} | Banned",
-		"unbanned": "{{0}} | Unbanned",
-		"kicked": "{{member}} | Kicked",
-		"softBan": "{{member}} | Soft banned",
-		"embed": {
-			"memberName": "Username",
-			"memberID": "User ID",
-			"staffName": "Who punished",
-			"reason": "Reason"
-		},
-		"reason": "Banned by: {{0}} - Reason: {{1}}"
-	},
-	"missingArgs": "invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-	"howToUse": "How to use?",
-	"aliases": "Aliases",
-	"addedToGuild": {
-		"thanks": "Thanks for adding me",
-		"description": "Whoa {{0}}! Thanks for adding me on `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my server support using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-		"guildSaved": "Successfully saved the server {{0}} in the database!"
-	},
-	"noAliases": "This command doesn't have aliases.",
-	"onMentionAfk": "**{{user}}** is AFK.",
-	"onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-	"afkRemoval": "{{user}}, as you're back, I had removed your AFK status.",
-	"voice": {
-		"authorAreNotInVoiceChannel": "you're not in any voice channel.",
-		"playerAlreadyPlaying": "I'm already playing anything.",
-		"clientAreNotInVoiceChannel": "I'm not in any voice channel.",
-		"playerNotFound": "I'm not playing any song",
-		"maxVolume": "calm down! The allowed max volume is `100`.",
-		"minVolume": "calm down! The allowed minimal volume is `5`."
-	},
-	"boolean": {
-		"true": "Yes",
-		"false": "No"
-	},
-	"guildban": {
-		"title": "Guild Banned",
-		"explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban is injust? Join in my [support server](https://discord.gg/CAm9cSU) and maybe get unban.",
-		"reason": "Reason"
-	}
+    "permissions": {
+        "permissionUserRequired": "You need to have {{0}} permissions to use this command.",
+        "permissionBotRequired": "I need {{0}} permissions to execute this command.",
+        "title": "Permissions"
+    },
+    "onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+    "missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
+    "missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
+    "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
+    "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
+    "invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
+    "noReason": "No reason",
+    "onBehalf": "On {{member}}'s behalf: {{reason}}",
+    "clickHere": "Click here",
+    "punishment": {
+        "banned": "{{0}} | Banned",
+        "unbanned": "{{0}} | Unbanned",
+        "kicked": "{{member}} | Kicked",
+        "softBan": "{{member}} | Soft banned",
+        "embed": {
+            "memberName": "Username",
+            "memberID": "User ID",
+            "staffName": "Who punished",
+            "reason": "Reason"
+        },
+        "reason": "Banned by: {{0}} - Reason: {{1}}"
+    },
+    "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+    "howToUse": "How to use?",
+    "aliases": "Aliases",
+    "addedToGuild": {
+        "thanks": "Thanks for adding me",
+        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+        "guildSaved": "Successfully saved the server {{0}} in the database!"
+    },
+    "noAliases": "This command doesn't have any aliases.",
+    "onMentionAfk": "**{{user}}** is AFK.",
+    "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
+    "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+    "voice": {
+        "authorAreNotInVoiceChannel": "you're not in a voice channel.",
+        "playerAlreadyPlaying": "I'm already playing something.",
+        "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+        "playerNotFound": "I'm not playing any song",
+        "maxVolume": "calm down! The max volume allowed is `100`.",
+        "minVolume": "calm down! The minimal volume allowed is `5`."
+    },
+    "boolean": {
+        "true": "Yes",
+        "false": "No"
+    },
+    "guildban": {
+        "title": "Guild Banned",
+        "explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban was unjust? Join my [support server](https://discord.gg/CAm9cSU) and maybe get him/her unbanned.",
+        "reason": "Reason"
+    }
 }
