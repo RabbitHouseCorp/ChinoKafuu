@@ -1,4 +1,10 @@
 {
+    "daily": {
+        "congrats": "Congratulations! You have picked `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
+        "yensDaily": "Daily yens",
+        "hasBeenPicked": "you've already picked your daily yens today, wait until `{{0}}` and try to get your daily again.",
+        "description": "You can get your daily yens by using this command"
+    },
     "laranjo": {
         "usage": "<text>",
         "description": "Make laranjo's says something silly."
