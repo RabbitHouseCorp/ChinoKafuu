@@ -1,17 +1,17 @@
 {
     "daily": {
-        "congrats": "Congratulations! You have picked `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
+        "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
         "yensDaily": "Daily yens",
-        "hasBeenPicked": "you've already picked your daily yens today, wait until `{{0}}` and try to get your daily again.",
+        "hasBeenPicked": "you've already received your daily yens today, wait until `{{0}}` and try to get your daily yens again.",
         "description": "You can get your daily yens by using this command"
     },
     "laranjo": {
         "usage": "<text>",
-        "description": "Make laranjo's says something silly."
+        "description": "Laranjo will say something silly."
     },
     "rize": {
         "usage": "<text>",
-        "decription": "Make rize's write something in the paper."
+        "decription": "Rize will write something in the paper."
     },
     "license": {
         "licensedFor": "Licensed for",
@@ -41,7 +41,7 @@
     },
     "emojiinfo": {
         "usage": "<emoji>",
-        "description": "Get some info about some emoji.",
+        "description": "Get some info about the emoji.",
         "embed": {
             "title": "Emoji information",
             "name": "Emoji name",
@@ -58,7 +58,7 @@
         "description": "Make tippy tell you a joke"
     },
     "fakemsg": {
-        "argsNull": "your don't input any argument.",
+        "argsNull": "you didn't put any arguments.",
         "description": "Make a prank on someone with a fake message on the webhook.",
         "usage": "<user> <text>"
     },
@@ -104,7 +104,7 @@
         "youAlreadyMarried": "não se pode casar com outro usuário, porque você já é casado.",
         "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
         "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
-        "successfullyMarried": "sim! Parabéns, agora você está casado.",
+        "successfullyMarried": "yay! Congratulations, now you both are married.",
         "rejectedRequest": "que pena. Parece que {{0}} não quer compartilhar sua vida com você. Talvez {{0}} não seja o amor da vida, eu acho que houve um erro no oráculo do amor.",
         "cannotMarryWithYourself": "you can't marry with yourself, are you blind or what? Sorry, but, I can't allow this.",
         "cannotMarryWithMe": "desculpe coelhinho. Você não pode se casar comigo. Me desculpe, mas, eu não te amo da mesma forma que você me ama, eu te amo, mas como amigo.",
