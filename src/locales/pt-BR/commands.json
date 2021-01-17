@@ -2,60 +2,60 @@
     "daily": {
         "congrats": "Parabéns! Você recebeu `{{0}}` ienes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tem um bom dia!",
         "yensDaily": "Ienes diários",
-        "hasBeenPicked": "you've already received your daily yens today, wait until `{{0}}` and try to get your daily yens again.",
-        "description": "You can get your daily yens by using this command"
+        "hasBeenPicked": "você já recebeu seus ienes diários hoje, espere mais `{{0}}` e tente pegar novamente seus ienes diários.",
+        "description": "Você pode obter seus ienes diários usando este comando"
     },
     "laranjo": {
-        "usage": "<text>",
-        "description": "Laranjo will say something silly."
+        "usage": "<texto>",
+        "description": "Laranjo irá dizer algo bobo."
     },
     "rize": {
-        "usage": "<text>",
-        "decription": "Rize will write something in the paper."
+        "usage": "<texto>",
+        "decription": "Rize vai escrever alguma coisa no papel."
     },
     "license": {
-        "licensedFor": "Licensed for",
-        "beCute": "Be cute",
-        "usage": "[user] [text]",
-        "description": "Are you licensed or someone are not licensed? No? Then create a license to you or to someone."
+        "licensedFor": "Licenciado para",
+        "beCute": "Ser fofo(a)",
+        "usage": "[usuario] [texto]",
+        "description": "Você está licenciado ou não tem licença? Não? Então crie uma licença para você ou para alguém."
     },
     "channelinfo": {
-        "title": "`Information about #{{0}}`",
-        "noTopic": "This channel doesn't have a topic.",
-        "mention": "Channel Mention",
-        "channelID": "Channel ID",
+        "title": "`Informações sobre #{{0}}`",
+        "noTopic": "Este canal não tem um tópico.",
+        "mention": "Menção do Canal",
+        "channelID": "ID do Canal",
         "guild": "Servidor",
-        "category": "Category",
-        "createdAt": "Created At"
+        "category": "Categoria",
+        "createdAt": "Criado Em"
     },
     "favcolor": {
-        "description": "Changes your profile color to your favorite color.",
-        "usage": "<#color>",
-        "invalidColor": "the color what you inputed is invalid.",
-        "poorUser": "you need more `{{0}}` to change your favorite color.",
-        "successfullyChanged": "sure. I successfully changed your favorite color."
+        "description": "Altera a cor do seu perfil para a sua cor favorita.",
+        "usage": "<#cor>",
+        "invalidColor": "a cor que você colocou é inválida.",
+        "poorUser": "você precisa de mais `{{0}}` para alterar a sua cor favorita.",
+        "successfullyChanged": "Certo. Eui alterei com sucesso a sua cor favorita."
     },
     "profile": {
-        "description": "Shows your social profile or the social profile of someone.",
-        "usage": "[user]"
+        "description": "Mostra o seu perfil social ou o perfil social de alguém.",
+        "usage": "[usuário]"
     },
     "emojiinfo": {
         "usage": "<emoji>",
-        "description": "Get some info about the emoji.",
+        "description": "Pega algumas informações sobre o emoji.",
         "embed": {
-            "title": "Emoji information",
-            "name": "Emoji name",
-            "id": "Emoji ID",
-            "mention": "Emoji mention",
+            "title": "Informações do emoji",
+            "name": "Nome do Emoji",
+            "id": "ID do Emoji",
+            "mention": "Menção do Emoji",
             "url": "Download"
         }
     },
     "emoji": {
         "usage": "<emoji>",
-        "description": "Get the emoji attachment and send to you."
+        "description": "Pega o emoji e envia por anexo para você."
     },
     "tippy": {
-        "description": "Make tippy tell you a joke"
+        "description": "Faça o tippy contar uma piada para você"
     },
     "fakemsg": {
         "argsNull": "you didn't put any arguments.",
