@@ -539,8 +539,8 @@
         "chosen": "Eu escolho `{{chosen}}`"
     },
     "avatar": {
-        "descripton": "Shows your avatar or avatar from someone.",
-        "usage": "[user]",
+        "descripton": "Mostra seu avatar ou avatar de alguém.",
+        "usage": "[usuário]",
         "userAvatar": "Avatar de {{user}}",
         "download": "Clique [here]({{link}}) para baixar"
     },
