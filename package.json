@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@lavacord/discord.js": "0.0.7",
-    "@sentry/node": "^5.29.2",
+    "@sentry/node": "^6.0.0",
     "anilist-node": "^1.6.0",
     "axios": "^0.21.1",
     "canvas": "^2.6.1",
