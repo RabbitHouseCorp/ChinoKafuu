@@ -17,14 +17,10 @@ module.exports = class FakeMsgCommand extends Command {
 		if (!botmsg) return message.chinoReply("error", t("commands:fakemsg"))
 		message.channel.createWebhook(member.username, { avatar: member.displayAvatarURL({ format: "png" }) }).then(webhook => {
 			if (message.member.hasPermission("MENTION_EVERYONE")) {
-				webhook.send(botmsg, {
-					disableEveryone: false
-				})
+				webhook.send(botmsg, { allowedMentions: { everyone: false, roles: false, users: true } })
 				setTimeout(() => webhook.delete(), 5000)
 			} else {
-				webhook.send(botmsg, {
-					disableEveryone: true
-				})
+				webhook.send(botmsg, { allowedMentions: { everyone: true, roles: true, users: true } })
 				setTimeout(() => webhook.delete(), 5000)
 			}
 		})
