@@ -82,16 +82,29 @@ module.exports = class CommandContext {
     /**
      * 
      * @param {string} args 
+     * @param {boolean} hasAuthor
      */
-    async getUser(args) {
-        if (!args) return false
+    async getUser(args, hasAuthor = false) {
+        if (!args) {
+            if (hasAuthor) {
+                return this.message.author
+            }
+
+            return false
+        }
         try {
-            const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, '')) || this.message.channel.guild.members.find((member) => member.user.username.toLowerCase().includes(args))
+            const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
             return member
         } catch {
             const member = this.message.channel.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
-            if (!member) return false
+            if (!member) {
+                if (hasAuthor) {
+                    return this.message.author
+                }
+
+                return false
+            }
 
             return member.user
         }
