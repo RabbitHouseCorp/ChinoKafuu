@@ -18,15 +18,14 @@ module.exports = class KickCommand extends Command {
     }
 
     async run(ctx) {
-        const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
-        const reason = ctx.args.slice(1)?.join(' ') || ctx._locale('basic:noReason')
-
+        const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
+        const reason = ctx.args.slice(1)?.join(' ') || ctx._locale('basic:noReason')
         if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
         if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
 
         const guildMember = ctx.message.channel.guild.members.get(member.id)
-
+        if (!guildMember) return ctx.replyT('error', 'basic:invalidUser')
         try {
             const embed = new EmbedBuilder()
             embed.setTitle(ctx._locale('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
@@ -42,7 +41,7 @@ module.exports = class KickCommand extends Command {
                     embed: embed
                 })
             }
-        } catch (e) {
+        } catch {
             return ctx.replyT('error', 'commands:kick.error')
         }
     }

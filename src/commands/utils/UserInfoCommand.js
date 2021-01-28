@@ -15,17 +15,7 @@ module.exports = class UserInfoCommand extends Command {
 
     async run(ctx) {
         moment.locale(ctx.db.guild.lang)
-        let member
-
-        if (ctx.args[0]) {
-            try {
-                member = await ctx.client.getRESTUser(ctx.args[0].replace(/[<@!>]/g, ''))
-            } catch {
-                member = ctx.message.author
-            }
-        } else {
-            member = ctx.message.author
-        }
+        let member = await ctx.getUser(ctx.args[0], true)
         let hoist
         const guild = ctx.message.channel.guild
         if (guild.members.get(member.id)) {

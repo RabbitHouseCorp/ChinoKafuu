@@ -15,7 +15,7 @@ module.exports = class MarryCommand extends Command {
     }
 
     async run(ctx) {
-        const member = ctx.client.users.get(ctx.args[0]?.replace(/[<@!>]/g, ''))
+        const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
         let author = ctx.db.user
         let couple = await ctx.client.database.users.getOrCreate(member.id)

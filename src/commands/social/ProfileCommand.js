@@ -14,11 +14,7 @@ module.exports = class ProfileCommand extends Command {
     }
 
     async run(ctx) {
-        let member = await ctx.getUser(ctx.args[0])
-        if (!member) {
-            member = ctx.message.author
-        }
-
+        let member = await ctx.getUser(ctx.args[0], true)
         let user = await ctx.client.database.users.getOrCreate(member.id)
         let couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
 

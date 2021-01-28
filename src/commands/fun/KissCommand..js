@@ -17,7 +17,8 @@ class KissCommand extends Command {
     }
 
     async run(ctx) {
-        const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
+        const member = await ctx.getUser(ctx.args[0])
+        if (!member) return ctx.replyT('error', 'basic:invalidUser')
         if (ctx.message.author.id === member.id) return ctx.replyT(':error:', 'commands:kiss.unable')
         const img = await NekoClient.sfw.kiss()
         const embed = new EmbedBuilder()

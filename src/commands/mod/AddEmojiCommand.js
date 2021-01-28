@@ -18,9 +18,8 @@ module.exports = class AddEmojiCommand extends Command {
 
     async run(ctx) {
 
-        const url = ctx.args[0] ?? ctx.message.attachments[0]
-        let name = ctx.args[1]
-        if (!url) name = ctx.args[0]
+        const url = ctx.args[1] ?? ctx.message.attachments[0]?.url
+        let name = ctx.args[0]
         if (!name || !url) return ctx.replyT('error', 'basic:missingArgs', {
             prefix: ctx.db.guild.prefix,
             commandName: this.name

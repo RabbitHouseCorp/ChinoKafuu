@@ -16,7 +16,7 @@ module.exports = class PayCommand extends Command {
 
 
     async run(ctx) {
-        const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
+        const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
         const fromUser = ctx.db.user

@@ -14,11 +14,10 @@ module.exports = class AddRoleCommand extends Command {
         })
     }
     async run(ctx) {
-        const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
-        const role = ctx.message.roleMentions[0] || ctx.message.channel.guild.roles.find(role => role.name === ctx.args.slice(1).join(' '))
-
+        const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
-        if (!role) return ctx.replyT('error', 'basic:invalidRole')
+        const role = await ctx.getRole(ctx.args[1])
+        if (!role) return ctx.replyT('error', 'basic:invalidUser')
 
         const guildMember = ctx.message.channel.guild.members.get(member.id)
         guildMember.addRole(role)

@@ -14,32 +14,22 @@ module.exports = class BanCommand extends Command {
     }
 
     async run(ctx) {
-        let member = ctx.args[0].replace(/[<@!>]/g, '')
-        let guildMember = ctx.message.channel.guild.members.get(member)
+        let member = await ctx.getUser(ctx.args[0])
+        if (!member) return ctx.replyT('error', 'basic:invalidUser')
+        let guildMember = ctx.message.channel.guild.members.get(member.id)
         if (guildMember) {
-            if (guildMember.user.id === ctx.message.author.id) return ctx.replyT('error', 'commands:ban.selfBan')
-            if (guildMember.user.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
-        } else {
-            member = ctx.client.users.get(member)
-            if (!member) return ctx.replyT('error', 'basic:invalidUser')
-            guildMember = {
-                user: {
-                    id: member.id,
-                    avatarURL: member.avatarURL,
-                    username: member.username,
-                    discriminator: member.discriminator
-                }
-            }
+            if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:ban.selfBan')
+            if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
         }
 
         const reason = ctx.args.slice(1).join(' ') || ctx._locale('basic:noReason')
         try {
-            ctx.client.banGuildMember(ctx.message.guildID, guildMember.user.id, 7, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
+            ctx.client.banGuildMember(ctx.message.guildID, member.id, 7, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
                 const embed = new EmbedBuilder()
                 embed.setColor('MODERATION')
-                embed.setThumbnail(guildMember.user.avatarURL)
-                embed.setTitle(ctx._locale('basic:punishment.banned', { 0: `${guildMember.user.username}#${guildMember.user.discriminator}` }))
-                embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
+                embed.setThumbnail(member.avatarURL)
+                embed.setTitle(ctx._locale('basic:punishment.banned', { 0: `${member.username}#${member.discriminator}` }))
+                embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
                 embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
                 embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
