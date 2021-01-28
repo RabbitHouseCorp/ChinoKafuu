@@ -1,4 +1,18 @@
 {
+    "jankenpon": {
+        "usage": "<choice> <value>",
+        "description": "Plays jankenpon and win or lose yens.",
+        "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
+        "valueNotInputed": "you didn't provide any value to bet.",
+        "tie": "draw! Nobody won or lost.",
+        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. I gave you `{{2}}` yens.",
+        "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+        "choice": {
+            "rock": "rock",
+            "paper": "paper",
+            "scissors": "scissors"
+        }
+    },
     "daily": {
         "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
         "yensDaily": "Daily yens",
