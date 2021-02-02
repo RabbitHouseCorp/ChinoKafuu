@@ -11,7 +11,7 @@ module.exports = class HelpCommand extends Command {
 
     async run(ctx) {
         const command = ctx.client.commandRegistry
-        const commandLength = command.filterByCategory('economy').length + command.filterByCategory('fun').length + command.filterByCategory('minecraft').length + command.filterByCategory('misc').length + command.filterByCategory('mod').length + command.filterByCategory('social').length + command.filterByCategory('utils').length + command.filterByCategory('image').length 
+        const commandLength = command.filterByCategory('economy').length + command.filterByCategory('fun').length + command.filterByCategory('minecraft').length + command.filterByCategory('misc').length + command.filterByCategory('mod').length + command.filterByCategory('social').length + command.filterByCategory('utils').length + command.filterByCategory('image').length
         const embed = new EmbedBuilder()
         embed.setColor('DEFAULT')
         embed.setThumbnail(ctx.client.user.avatarURL)
@@ -27,7 +27,7 @@ module.exports = class HelpCommand extends Command {
         embed.addField(ctx._locale('commands:help.mod', { 0: command.filterByCategory('mod').length }), command.filterByCategory('mod').map(cmd => `\`${ctx.db.guild.prefix}${cmd.name}\``).join(', '))
         embed.addField(ctx._locale('commands:help.social', { 0: command.filterByCategory('social').length }), command.filterByCategory('social').map(cmd => `\`${ctx.db.guild.prefix}${cmd.name}\``).join(', '))
         embed.addField(ctx._locale('commands:help.utils', { 0: command.filterByCategory('utils').length }), command.filterByCategory('utils').map(cmd => `\`${ctx.db.guild.prefix}${cmd.name}\``).join(', '))
-        embed.addField(ctx._locale('commands:help.additionalLinks.embedTitle'), ctx._locale('commands:help.additionalLinks.embedDescription'))
+        embed.addField(ctx._locale('commands:help.additionalLinks.embedTitle'), ctx._locale('commands:help.additionalLinks.embedDescription', { 0: ctx.client.user.id }))
 
         if (!ctx.args[0]) return ctx.send(embed.build())
         if (!command.findByName(ctx.args[0]?.toLowerCase())) return ctx.send(embed.build())

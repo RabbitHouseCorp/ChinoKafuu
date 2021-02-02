@@ -20,7 +20,7 @@ module.exports = class BotInfoCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('DEFAULT')
         embed.setTitle(ctx._locale('commands:botinfo.title'))
-        embed.setDescription(ctx._locale('commands:botinfo.inviteMe'))
+        embed.setDescription(ctx._locale('commands:botinfo.inviteMe', { 0: ctx.client.user.id }))
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
         embed.setUrl('https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239')
