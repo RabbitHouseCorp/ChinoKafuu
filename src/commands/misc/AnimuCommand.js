@@ -41,6 +41,7 @@ module.exports = class VoteCommand extends Command {
                 embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
                 embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
                 embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
+                embed.addField(ctx._locale('commands:animu.album'), res.data.track.album)
                 embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
                 ctx.send(embed.build())
@@ -77,6 +78,7 @@ module.exports = class VoteCommand extends Command {
             embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
             embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
             embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
+            embed.addField(ctx._locale('commands:animu.album'), res.data.track.album)
             embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
             ctx.send(embed.build())
