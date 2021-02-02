@@ -1,4 +1,15 @@
 {
+    "report": {
+        "moduleDisable": "this module is disabled on this server.",
+        "noReason": "no reason specified",
+        "successfullySent": "report sucessfully sent.",
+        "embed": {
+            "memberName": "Nome de usuário",
+            "authorName": "Who reported",
+            "channel": "Channel",
+            "reason": "Motivo"
+        }
+    },
     "jankenpon": {
         "usage": "<choice> <value>",
         "description": "Plays jankenpon and win or lose yens.",
@@ -101,7 +112,7 @@
         "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
         "additionalLinks": {
             "embedTitle": "Links Adicionais",
-            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/CAm9cSU)"
+            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
         }
     },
     "rep": {
@@ -230,6 +241,7 @@
             "total": "escutando agora"
         },
         "artist": "Autor da música",
+        "album": "Album",
         "volume": "Volume",
         "volumeChanged": "volume alterado com sucesso.",
         "currentVolume": "o volume atual é `{{volume}}/100`.",
@@ -321,12 +333,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
-        "canAddMe": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo.",
+        "canAddMe": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later.",
         "description": "Mostra como você pode me adicionar no seu servidor."
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have a fun, and see you later.",
         "guildsAmount": "Quantidade do servidores",
         "usersAmount": "Quantidade de usuários",
         "shardLatency": "Ping da shard",
