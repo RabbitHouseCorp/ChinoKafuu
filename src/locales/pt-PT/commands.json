@@ -1,4 +1,29 @@
 {
+    "report": {
+        "moduleDisable": "this module is disabled on this server.",
+        "noReason": "no reason specified",
+        "successfullySent": "report sucessfully sent.",
+        "embed": {
+            "memberName": "Nick",
+            "authorName": "Who reported",
+            "channel": "Channel",
+            "reason": "Razão"
+        }
+    },
+    "jankenpon": {
+        "usage": "<choice> <value>",
+        "description": "Plays jankenpon and win or lose yens.",
+        "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
+        "valueNotInputed": "you didn't provide any value to bet.",
+        "tie": "draw! Nobody won or lost.",
+        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. I gave you `{{2}}` yens.",
+        "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+        "choice": {
+            "rock": "rock",
+            "paper": "paper",
+            "scissors": "scissors"
+        }
+    },
     "daily": {
         "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
         "yensDaily": "Daily yens",
@@ -87,7 +112,7 @@
         "commandsLoaded": "I have {{0}} public commands loaded.",
         "additionalLinks": {
             "embedTitle": "Additional Links",
-            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
+            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/CAm9cSU)"
         }
     },
     "rep": {
@@ -216,6 +241,7 @@
             "total": "listening now"
         },
         "artist": "Author song",
+        "album": "Album",
         "volume": "Volume",
         "volumeChanged": "volume successfully changed.",
         "currentVolume": "the current volume is `{{volume}}/100`.",
@@ -307,12 +333,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Add me in your guild",
-        "canAddMe": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later.",
+        "canAddMe": "You can invite me to your Discord server clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote for me clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nYou need help? Join in my support server clicking [here](https://discord.gg/CAm9cSU). Thank you and see you later.",
         "description": "Shows how you can add me in your server."
     },
     "botinfo": {
         "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Have a fun, and see you later.",
+        "inviteMe": "You can add me in your Discord server [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have a fun, and see you later.",
         "guildsAmount": "Server amount",
         "usersAmount": "User amount",
         "shardLatency": "Shard latency",

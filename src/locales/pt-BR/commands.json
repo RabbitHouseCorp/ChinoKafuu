@@ -1,4 +1,29 @@
 {
+    "report": {
+        "moduleDisable": "este módulo está desativado neste servidor.",
+        "noReason": "nenhum motivo especificado",
+        "successfullySent": "denúncia enviada com sucesso.",
+        "embed": {
+            "memberName": "Nome de usuário",
+            "authorName": "Quem denunciou",
+            "channel": "Canal",
+            "reason": "Motivo"
+        }
+    },
+    "jankenpon": {
+        "usage": "<escolha> <valor>",
+        "description": "Jogue pedra papel ou tesoura e ganhe ou perda yens.",
+        "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
+        "valueNotInputed": "você não forneceu nenhum valor para apostar.",
+        "tie": "empate! Ninguém ganhou ou perdeu.",
+        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Eu te entreguei `{{2}}` yens.",
+        "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` yens de você, queridinho(a)",
+        "choice": {
+            "rock": "pedra",
+            "paper": "papel",
+            "scissors": "tesoura"
+        }
+    },
     "daily": {
         "congrats": "Parabéns! Você recebeu `{{0}}` ienes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tem um bom dia!",
         "yensDaily": "Ienes diários",
@@ -87,7 +112,7 @@
         "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
         "additionalLinks": {
             "embedTitle": "Links Adicionais",
-            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/CAm9cSU)"
+            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/CAm9cSU)"
         }
     },
     "rep": {
@@ -216,6 +241,7 @@
             "total": "escutando agora"
         },
         "artist": "Autor da música",
+        "album": "Álbum",
         "volume": "Volume",
         "volumeChanged": "volume alterado com sucesso.",
         "currentVolume": "o volume atual é `{{volume}}/100`.",
@@ -307,12 +333,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
-        "canAddMe": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo.",
+        "canAddMe": "Você pode me adicionar no eu servidor do Discord clicando [aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nNão se esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/CAm9cSU). Obrigada e até logo.",
         "description": "Mostra como você pode me adicionar no seu servidor."
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
         "guildsAmount": "Quantidade do servidores",
         "usersAmount": "Quantidade de usuários",
         "shardLatency": "Ping da shard",
@@ -419,7 +445,7 @@
         "aired": "Publicado",
         "genres": "Gêneros",
         "characters": "Personagens",
-        "description": "Shows some info of the any anime.",
+        "description": "Mostra algumas informações de algum anime.",
         "usage": "<nome>"
     },
     "pay": {
