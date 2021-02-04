@@ -12,7 +12,7 @@
     "invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
     "noReason": "No reason",
     "onBehalf": "On {{member}}'s behalf: {{reason}}",
-    "clickHere": "Click here",
+    "clickHere": "パチリここ",
     "punishment": {
         "banned": "{{0}} | Banned",
         "unbanned": "{{0}} | Unbanned",
