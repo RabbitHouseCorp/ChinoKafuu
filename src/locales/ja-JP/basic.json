@@ -19,8 +19,8 @@
         "kicked": "{{member}} | Kicked",
         "softBan": "{{member}} | Soft banned",
         "embed": {
-            "memberName": "Username",
-            "memberID": "User ID",
+            "memberName": "ユーザー名",
+            "memberID": "ユーザーID",
             "staffName": "Who punished",
             "reason": "Reason"
         },
