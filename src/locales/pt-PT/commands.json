@@ -456,7 +456,7 @@
         "success": "successfully donated {{yens}} yens to {{user}}",
         "poorUser": "you don't have enough yens to complete this payment",
         "cancelled": "Ok, Pagamento cancelado",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ yens, taxed in **`{{fee}}%`** of the total value ({{total}}). Do you want to proceed?"
+        "confirm": "{{user}} is going to receive __`{{yens}}`__ yens. Do you want to proceed?"
     },
     "baka": {
         "baka": "{{author}} chamou o(a) {{member}} de baka",
