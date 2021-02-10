@@ -23,7 +23,6 @@ module.exports = class PayCommand extends Command {
         const value = ctx.args[1]
         const toUser = await ctx.db.db.getOrCreate(member.id)
 
-        if (!ctx.message.mentions[0]) return
         if (ctx.message.author.id === member.id) return ctx.replyT('error', 'commands:pay.userMismatch')
         if (!value) return ctx.replyT('error', 'commands:pay.valueMismatch')
         if (isNaN(Number(value))) return ctx.replyT('error', 'commands:pay.valueMismatch')
@@ -31,9 +30,8 @@ module.exports = class PayCommand extends Command {
         if (value <= 0) return ctx.replyT('error', 'commands:pay.valueMismatch')
         if (value > fromUser.yens) return ctx.replyT('error', 'commands:pay.poorUser')
 
-        const realValue = this.getTax(value, 2)
-        const totalYens = Math.round(realValue[0])
-        const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, fee: realValue[1], total: value }) //TODO add warn emoji
+        const totalYens = Math.round(value)
+        const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
 
         await message.addReaction(Emoji.getEmoji('success').reaction)
         await message.addReaction(Emoji.getEmoji('error').reaction)
@@ -57,11 +55,5 @@ module.exports = class PayCommand extends Command {
                 }
             }
         })
-    }
-
-    getTax(val, percent) {
-        percent = parseFloat(val * (2 / 100))
-        if (percent > 25) percent = 25
-        return [val - ((val / 100) * percent), percent]
     }
 }
