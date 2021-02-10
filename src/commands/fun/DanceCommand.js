@@ -1,4 +1,6 @@
-const { Command, EmbedBuilder, FunCommandInstance } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
+const { UsagiAPI } = require('usagiapi')
+const usagi = new UsagiAPI()
 module.exports = class DanceCommand extends Command {
     constructor() {
         super({
@@ -15,11 +17,10 @@ module.exports = class DanceCommand extends Command {
     async run(ctx) {
         const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
-        const Dance = FunCommandInstance.dance
-        const dance = Dance[Math.round(Math.random() * Dance.length)]
+        const image = await usagi.dance()
         const embed = new EmbedBuilder()
         embed.setColor('ACTION')
-        embed.setImage(dance)
+        embed.setImage(image)
         embed.setDescription(ctx._locale('commands:dance.danced', { 0: ctx.message.author.mention, 1: member.mention }))
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()

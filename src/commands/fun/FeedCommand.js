@@ -1,7 +1,6 @@
 const { Command, EmbedBuilder } = require('../../utils')
-const NekosLife = require('nekos.life')
-const NekoClient = new NekosLife()
-
+const { UsagiAPI } = require('usagiapi')
+const usagi = new UsagiAPI()
 module.exports = class FeedCommand extends Command {
     constructor() {
         super({
@@ -19,10 +18,10 @@ module.exports = class FeedCommand extends Command {
     async run(ctx) {
         const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
-        const image = await NekoClient.sfw.feed()
+        const image = await usagi.feed()
         const embed = new EmbedBuilder()
         embed.setColor('ACTION')
-        embed.setImage(image.url)
+        embed.setImage(image)
         embed.setDescription(ctx._locale('commands:feed.feed', { author: ctx.message.author.mention, user: member.mention }))
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()

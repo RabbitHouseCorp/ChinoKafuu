@@ -1,8 +1,8 @@
 const { Command, EmbedBuilder } = require('../../utils')
-const NekosLife = require('nekos.life')
-const NekoClient = new NekosLife()
+const {UsagiAPI} = require('usagiapi')
+const usagi = new UsagiAPI()
 
-class KissCommand extends Command {
+module.exports = class KissCommand extends Command {
     constructor() {
         super({
             name: 'kiss',
@@ -20,16 +20,14 @@ class KissCommand extends Command {
         const member = await ctx.getUser(ctx.args[0])
         if (!member) return ctx.replyT('error', 'basic:invalidUser')
         if (ctx.message.author.id === member.id) return ctx.replyT(':error:', 'commands:kiss.unable')
-        const img = await NekoClient.sfw.kiss()
+        const img = await usagi.kiss()
         const embed = new EmbedBuilder()
         embed.setColor('ACTION')
         embed.setDescription(ctx._locale('commands:kiss.kissed', { author: ctx.message.author.mention, member: member.mention }))
-        embed.setImage(img.url)
+        embed.setImage(img)
         embed.setFooter(`©️ ${ctx.client.user.username}`)
         embed.setTimestamp()
 
         ctx.send(embed.build())
     }
 }
-
-module.exports = KissCommand
