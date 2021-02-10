@@ -13,6 +13,7 @@ module.exports = class YensCommand extends Command {
         if (!member) {
             const yens = Number(ctx.db.user.yens).toLocaleString()
             await ctx.replyT('yen', 'commands:yens.yens', { yens: `\`${yens}\`` })
+            return
         }
         
         const userData = await ctx.db.db.getOrCreate(member.id)

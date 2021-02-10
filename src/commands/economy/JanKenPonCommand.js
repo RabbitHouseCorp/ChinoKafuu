@@ -11,7 +11,7 @@ module.exports = class JanKePonCommand extends Command {
 
     async run(ctx) {
         let user = await ctx.db.user
-        let client = ctx.client.database.users.getOrCreate(ctx.client.user.id)
+        let client = await ctx.client.database.users.getOrCreate(ctx.client.user.id)
         let options = ['pedra', 'papel', 'tesoura']
         if (!['pedra', 'papel', 'tesoura', 'rock', 'paper', 'scissors'].includes(ctx.args[0])) return ctx.replyT('error', 'commands:jankenpon.optionNotFound')
         let clientChoice = options[Math.floor(Math.random() * options.length)]
