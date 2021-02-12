@@ -22,12 +22,12 @@
         "mathjs": "^9.0.0",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
-        "mongoose": "^5.11.10",
+        "mongoose": "^5.11.15",
         "nekos.life": "^2.0.7",
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
-        "workerpool": "^6.0.3"
+        "workerpool": "^6.1.0"
     },
     "devDependencies": {
         "axios": "^0.21.1"
