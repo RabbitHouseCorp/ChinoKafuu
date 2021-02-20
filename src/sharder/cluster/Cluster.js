@@ -42,7 +42,26 @@ module.exports = class Cluster {
                 'guildMessageReactions',
                 'directMessages',
                 'directMessageReactions'
-            ]
+            ],
+            disableEvents: {
+                CHANNEL_CREATE: true,
+                CHANNEL_DELETE: true,
+                CHANNEL_UPDATE: true,
+                GUILD_BAN_ADD: true,
+                GUILD_BAN_REMOVE: true,
+                GUILD_MEMBER_ADD: true,
+                GUILD_MEMBER_REMOVE: true,
+                GUILD_MEMBER_UPDATE: true,
+                GUILD_ROLE_CREATE: true,
+                GUILD_ROLE_DELETE: true,
+                GUILD_ROLE_UPDATE: true,
+                GUILD_UPDATE: true,
+                MESSAGE_DELETE: true,
+                MESSAGE_DELETE_BULK: true,
+                PRESENCE_UPDATE: true,
+                TYPING_START: true,
+                USER_UPDATE: true
+            }
         })
 
         try {
