@@ -4,7 +4,7 @@
         "noReason": "no reason specified",
         "successfullySent": "report sucessfully sent.",
         "embed": {
-            "memberName": "Username",
+            "memberName": "ユーザー名",
             "authorName": "Who reported",
             "channel": "Channel",
             "reason": "Reason"
