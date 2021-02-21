@@ -379,7 +379,7 @@
     "hug": {
         "huged": "{{0}} gave a very nice hug in {{1}}",
         "usage": "<ID de Usuario|@Usuario>",
-        "description": "Hug a friend and make they happy."
+        "description": "Hug a friend and make them happy."
     },
     "pat": {
         "pated": "{{0}} pated {{1}}",
