@@ -1,33 +1,33 @@
 {
     "report": {
-        "moduleDisable": "this module is disabled on this server.",
-        "noReason": "no reason specified",
-        "successfullySent": "report sucessfully sent.",
+        "moduleDisable": "este módulo está desativado neste servidor.",
+        "noReason": "nenhum motivo especificado",
+        "successfullySent": "denúncia enviado com sucesso.",
         "embed": {
             "memberName": "Nick",
-            "authorName": "Who reported",
-            "channel": "Channel",
+            "authorName": "Quem denunciou",
+            "channel": "Canal",
             "reason": "Razão"
         }
     },
     "jankenpon": {
         "usage": "<choice> <value>",
-        "description": "Plays jankenpon and win or lose yens.",
-        "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
-        "valueNotInputed": "you didn't provide any value to bet.",
-        "tie": "draw! Nobody won or lost.",
-        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. I gave you `{{2}}` yens.",
-        "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+        "description": "Joga jankenpon e ganha ou perde yens.",
+        "optionNotFound": "só podes escolher entre `rock`, `paper` ou `scissors`.",
+        "valueNotInputed": "não forneceste nenhum valor para apostar.",
+        "tie": "empate! Ninguém ganhou ou perdeu.",
+        "youWin": "escolheste `{{0}}` e eu escolhi `{{1}}`. Parabéns, ganhaste. Eu dei-te `{{2}} yens.",
+        "youLose": "escolheste `{{0}}` e eu escolhi `{{1}}`, eu ganho! Vou-te tirar `{{2}} yens xD, fofinho",
         "choice": {
-            "rock": "rock",
-            "paper": "paper",
-            "scissors": "scissors"
+            "rock": "pedra",
+            "paper": "papel",
+            "scissors": "tesoura"
         }
     },
     "daily": {
-        "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
-        "yensDaily": "Daily yens",
-        "hasBeenPicked": "you've already received your daily yens today, wait until `{{0}}` and try to get your daily yens again.",
+        "congrats": "Parabéns! Recebeste`{{0}} yens hoje. Podes obter mais yens amanhã. Até mais tarde e tem um bom dia!",
+        "yensDaily": "Yens diários",
+        "hasBeenPicked": "já recebeste os teus yens diários hoje, espera até `{{0}}` e volta a ter os teus yens diários.",
         "description": "You can get your daily yens by using this command"
     },
     "laranjo": {
