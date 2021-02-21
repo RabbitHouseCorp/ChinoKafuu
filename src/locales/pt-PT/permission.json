@@ -29,6 +29,6 @@
     "voiceSpeak": "Falar",
     "voiceMuteMembers": "Silenciar membros",
     "voiceDeafenMembers": "permissão para deixar a pessoa surda?",
-    "voiceMoveMembers": "Move Members",
-    "manageWebhooks": "Manage Webhooks"
+    "voiceMoveMembers": "Mover membros",
+    "manageWebhooks": "Gerenciar Webhooks"
 }
