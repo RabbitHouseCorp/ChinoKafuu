@@ -379,7 +379,7 @@
     "hug": {
         "huged": "{{0}} gave a very nice hug in {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make they happy."
+        "description": "Hug a friend and make them happy."
     },
     "pat": {
         "pated": "{{0}} pated {{1}}",
@@ -562,7 +562,7 @@
     "choose": {
         "usage": "argument1, argument2, argumentN",
         "description": "Makes the bot choose something",
-        "chosen": "I choose `{{chosen}}` \uD83D\uDC81\u200D♀️"
+        "chosen": "I choose `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
         "descripton": "Shows your avatar or avatar from someone.",
