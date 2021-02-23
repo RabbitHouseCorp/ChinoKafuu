@@ -14,7 +14,8 @@ module.exports = class HangmaidCommand extends Command {
 
     async run(ctx) {
         ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: 'az', g: "t sting", h: 'testing' })
-        .then(buffer => { console.log(buffer)
- ctx.send('', {}, { file: buffer.data, name: 'hangmaid.png' }) })
+            .then(buffer => {
+                ctx.send('', {}, { file: buffer.data, name: 'hangmaid.png' })
+            })
     }
 }
