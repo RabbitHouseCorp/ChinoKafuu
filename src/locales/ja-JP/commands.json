@@ -437,13 +437,13 @@
     },
     "manga": {
         "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
-        "type": "Type",
+        "type": "タイプ",
         "status": "ステータス",
         "vols": "刊行号",
         "chapters": "Chapters",
-        "score": "Score",
-        "aired": "Aired",
-        "genres": "Genres",
+        "score": "スコア",
+        "aired": "放映した",
+        "genres": "ジャンル",
         "characters": "キャラクター",
         "description": "Shows some info of the any anime.",
         "usage": "<name>"
