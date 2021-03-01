@@ -2,7 +2,7 @@
     "report": {
         "moduleDisable": "this module is disabled on this server.",
         "noReason": "no reason specified",
-        "successfullySent": "report sucessfully sent.",
+        "successfullySent": "report successfully sent.",
         "embed": {
             "memberName": "Username",
             "authorName": "Who reported",
@@ -16,7 +16,7 @@
         "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
         "valueNotInputed": "you didn't provide any value to bet.",
         "tie": "draw! Nobody won or lost.",
-        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. I gave you `{{2}}` yens.",
+        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
         "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
         "choice": {
             "rock": "rock",
@@ -27,7 +27,7 @@
     "daily": {
         "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
         "yensDaily": "Daily yens",
-        "hasBeenPicked": "you've already received your daily yens today, wait until `{{0}}` and try to get your daily yens again.",
+        "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
         "description": "You can get your daily yens by using this command"
     },
     "laranjo": {
@@ -42,7 +42,7 @@
         "licensedFor": "Licensed for",
         "beCute": "Be cute",
         "usage": "[user] [text]",
-        "description": "Are you licensed or someone are not licensed? No? Then create a license to you or to someone."
+        "description": "Are you licensed? No? Then create one for yourself! Or for someone else."
     },
     "channelinfo": {
         "title": "`Information about #{{0}}`",
@@ -116,24 +116,24 @@
         }
     },
     "rep": {
-        "cannotGiveRepForYourself": "you can't give reputation for yourself.",
-        "forTheClient": "thank you for gave me a reputation, now I have `{{0}}` reputations",
+        "cannotGiveRepForYourself": "you can't give reputation to yourself.",
+        "forTheClient": "thank you for giving me a rep point! Now I have `{{0}}` reputations",
         "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
-        "cooldown": "calm down, you can't gave a reputation now, you have to wait `{{0}}` for can give a reputation again.",
+        "cooldown": "calm down! You can't give a reputation now. You must wait for `{{0}}` before giving reputation points again.",
         "usage": "<user>",
-        "description": "Gives a reputation for someone."
+        "description": "Gives a reputation to someone."
     },
     "marry": {
-        "youNeedToMarry": "you need have more `{{0}}` yens to marry.",
+        "youNeedToMarry": "you need `{{0}}` more yens to marry.",
         "theyNeedToMarry": "sorry, but {{0}} need more `{{1}}` yens to marry.",
-        "youAlreadyMarried": "you can't marry with another user, because you are already married.",
+        "youAlreadyMarried": "what a shame! You can't marry someone else because you already are.",
         "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
         "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
         "successfullyMarried": "yay! Congratulations, now you both are married.",
-        "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share her life with you, maybe {{0}} isn't the love of her life, I think there was an error in the oracle of love.",
-        "cannotMarryWithYourself": "you can't marry with yourself, are you blind or what? Sorry, but, I can't allow this.",
-        "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
-        "cannotMarryWithBot": "you can't marry with a bot, because he's will never accept.",
+        "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of their life. The oracle of love fails once more...",
+        "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
+        "cannotMarryWithMe": "sorry, little Usagi. You can't marry me. I'm sorry, but, I don't love you the same as you love me, I love you... as a friend.",
+        "cannotMarryWithBot": "you can't marry with a bot, because they will never accept it.",
         "description": "Marry with your true love.",
         "usage": "<user>"
     },
@@ -148,26 +148,26 @@
     "seticon": {
         "success": "icon sucessfully changed.",
         "usage": "<attachment-or-url>",
-        "description": "Set a icon from the current guild."
+        "description": "Set an icon in the current guild."
     },
     "rolecolor": {
-        "invalidColor": "you're specified a invalid color.",
-        "colorChanged": "color of the role has been successfully changed.",
+        "invalidColor": "you've specified an invalid color.",
+        "colorChanged": "the role color has been successfully changed.",
         "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
         "description": "Changes the color of a role.",
         "usage": "<role> <#color>"
     },
     "renamechannel": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
+        "channelNotFound": "I can't find this channel, make sure it exists.",
         "invalidName": "I can't rename this channel because the name is invalid.",
         "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
         "usage": "<#channel> <new-name>",
-        "description": "Rename a channel from the current guild."
+        "description": "Renames a channel in the current guild."
     },
     "renameemoji": {
         "successfullyRenamed": "emoji successfully renamed.",
         "usage": "<emoji> <new-name>",
-        "description": "Rename a emoji from the current guild."
+        "description": "Renames a emoji in the current guild."
     },
     "removerole": {
         "success": "role successfully removed.",
@@ -180,10 +180,10 @@
         "successfullyRemoved": "emoji successfully removed.",
         "emojiNotFound": "this emoji isn't from this guild.",
         "usage": "<emoji>",
-        "description": "Remove a emoji from the current guild."
+        "description": "Removes a emoji in the current guild."
     },
     "announce": {
-        "channelNotFound": "I can't find this channel, make sure if this channel exist.",
+        "channelNotFound": "I can't find this channel, make sure it exists.",
         "argsNotFound": "your didn't anything, I can't send a empty message.",
         "embedSendBy": "Announcement sent by: {{0}}",
         "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
@@ -249,7 +249,7 @@
         "description": "Plays some song when playing for the [Animu Radio](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows some info about this server.",
+        "description": "Shows information about this server.",
         "guildID": "Guild ID",
         "guildOwner": "Guild's Owner",
         "guildRegion": "Guild's Region",
