@@ -1,15 +1,15 @@
 {
     "permissions": {
-        "permissionUserRequired": "You need to have {{0}} permissions to use this command.",
-        "permissionBotRequired": "I need {{0}} permissions to execute this command.",
+        "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+        "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
         "title": "Permissions"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Hello {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+    "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
     "missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
     "missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
-    "invalidEmoji": "emoji not found, are you sure if this emoji is from this guild?",
+    "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
     "noReason": "No reason",
     "onBehalf": "On {{member}}'s behalf: {{reason}}",
     "clickHere": "パチリここ",
@@ -31,7 +31,7 @@
     "aliases": "Aliases",
     "addedToGuild": {
         "thanks": "Thanks for adding me",
-        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **Moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join in my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
         "guildSaved": "Successfully saved the server {{0}} in the database!"
     },
     "noAliases": "This command doesn't have any aliases.",
@@ -40,7 +40,7 @@
     "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
     "voice": {
         "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-        "playerAlreadyPlaying": "I'm already playing something.",
+        "playerAlreadyPlaying": "The track is already playing.",
         "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
         "playerNotFound": "I'm not playing any song",
         "maxVolume": "calm down! The max volume allowed is `100`.",
@@ -52,7 +52,7 @@
     },
     "guildban": {
         "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, you can see the reason of the ban below. Do you think the ban was unjust? Join my [support server](https://discord.gg/CAm9cSU) and maybe get him/her unbanned.",
+        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/CAm9cSU) and maybe get them unbanned.",
         "reason": "Reason"
     }
 }
