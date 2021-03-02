@@ -47,8 +47,8 @@
         "minVolume": "calm down! The minimal volume allowed is `5`."
     },
     "boolean": {
-        "true": "Yes",
-        "false": "No"
+        "true": "はい",
+        "false": "いいえ"
     },
     "guildban": {
         "title": "Guild Banned",
