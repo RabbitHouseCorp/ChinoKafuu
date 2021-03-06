@@ -48,7 +48,7 @@
         "title": "`Information about #{{0}}`",
         "noTopic": "This channel doesn't have a topic.",
         "mention": "Channel Mention",
-        "channelID": "Channel ID",
+        "channelID": "チャネルID",
         "guild": "Guild",
         "category": "Category",
         "createdAt": "Created At"
