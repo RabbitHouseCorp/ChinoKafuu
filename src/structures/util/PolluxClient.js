@@ -6,7 +6,7 @@ module.exports = class PolluxClient {
         this.userGame = new Map()
     }
     
-    createHandmaid(id, channel, ctx) {
+    createHangmaid(id, channel, ctx) {
         const getGame = this.userGame
         const returns = this
      
@@ -16,13 +16,13 @@ module.exports = class PolluxClient {
             time: setTimeout(function()  {
                 if (typeof getGame.get(id) === 'undefined') {
                 } else {
-                    returns.removeHandmaid(id)
+                    returns.removeHangmaid(id)
                 }
             }, 900000)
         })
     }
 
-    removeHandmaid(id) {
+    removeHangmaid(id) {
         clearTimeout(this.userGame.get(id))
         try { this.userGame.get(id).ctx.send('O jogo foi finalizado com sucesso!')  } catch (error) {   }
         this.userGame.delete(id)
