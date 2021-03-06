@@ -1,5 +1,54 @@
 const { Command } = require('../../utils')
 const axios = require('axios')
+
+const flags = [
+    {
+        flag: 1 << 0,
+        name: "discord_employee",  
+    },
+    {
+        flag: 1 << 1,
+        name: "discord_partner",  
+    },
+    {
+        flag: 1 << 2,
+        name: "hypesquad_events",  
+    },
+    {
+        flag: 1 << 3,
+        name: "bug_hunter",  
+    },{
+        flag: 1 << 6,
+        name: "hypesquad_bravery",  
+    },
+    {
+        flag: 1 << 7,
+        name: "hypesquad_brilliance",  
+    },
+    {
+        flag: 1 << 8,
+        name: "hypesquad_balance",  
+    },
+    {
+        flag: 1 << 9,
+        name: "early_supporter",  
+    },
+    {
+        flag: 1 << 12,
+        name: "null",  
+    },
+    {
+        flag: 1 << 14,
+        "name": "bug_hunter",  
+    },
+    {
+        flag: 1 << 17,
+        "name": "bot_developer",  
+    },
+
+    
+]
+
 module.exports = class ProfileCommand extends Command {
     constructor() {
         super({
@@ -14,9 +63,35 @@ module.exports = class ProfileCommand extends Command {
     }
 
     async run(ctx) {
+      
         let member = await ctx.getUser(ctx.args[0], true)
         let user = await ctx.client.database.users.getOrCreate(member.id)
         let couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
+
+        const arrayBadges = [
+           /**
+            * This is a badge list.
+            */
+        ]
+
+
+        for (let flag of flags) {
+            switch ((flag.flag & member.publicFlags) === flag.flag) {
+                case true:
+                    arrayBadges.push(flag.name)
+                break;
+                case false:
+                    /**
+                     * @returns null
+                     */
+                default:
+                      /**
+                     * @returns null
+                     */
+            }
+        }
+
+      
 
         axios({
             url: 'http://127.0.0.1:1234/render/profile',
@@ -31,11 +106,13 @@ module.exports = class ProfileCommand extends Command {
                 bgId: user.background,
                 stickerId: user.sticker,
                 favColor: user.profileColor,
-                avatarUrl: member.dynamicAvatarURL('png', 2048)
+                avatarUrl: member.dynamicAvatarURL('png', 2048),
+                badges: arrayBadges
             },
             responseType: 'arraybuffer'
         }).then(jesus => {
             ctx.send('', {}, { file: jesus.data, name: 'profile.png' })
         })
     }
+
 }
