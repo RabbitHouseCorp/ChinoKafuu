@@ -14,7 +14,7 @@
     "onBehalf": "On {{member}}'s behalf: {{reason}}",
     "clickHere": "パチリここ",
     "punishment": {
-        "banned": "{{0}} | Banned",
+        "banned": "{{0}} | アク禁",
         "unbanned": "{{0}} | Unbanned",
         "kicked": "{{member}} | Kicked",
         "softBan": "{{member}} | Soft banned",
