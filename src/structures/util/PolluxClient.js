@@ -3,6 +3,29 @@ const axios = require('axios')
 module.exports = class PolluxClient {
     constructor(data = require('../../../pollux.json')) {
         this.data = data
+        this.userGame = new Map()
+    }
+    
+    createHandmaid(id, channel, ctx) {
+        const getGame = this.userGame
+        const returns = this
+     
+        return this.userGame.set(id, {
+            channel: channel,
+            ctx: ctx,
+            time: setTimeout(function()  {
+                if (typeof getGame.get(id) === 'undefined') {
+                } else {
+                    returns.removeHandmaid(id)
+                }
+            }, 900000)
+        })
+    }
+
+    removeHandmaid(id) {
+        clearTimeout(this.userGame.get(id))
+        try { this.userGame.get(id).ctx.send('O jogo foi finalizado com sucesso!')  } catch (error) {   }
+        this.userGame.delete(id)
     }
 
     request(path, field, parameters = {}) {
