@@ -73,7 +73,7 @@ module.exports = class HangmaidCommand extends Command {
         }
 
         if (typeof ctx.client.polluxClient.userGame.get(member.id) === 'undefined') {
-            ctx.client.polluxClient.createHandmaid(member.id, ctx.channel, ctx)
+            ctx.client.polluxClient.createHangmaid(member.id, ctx.channel, ctx)
         } else {
             return ctx.send("Você não pode criar outra jogada porquê já existe um! Espere 15 minutos para terminar a jogada!");
         }
@@ -174,7 +174,7 @@ module.exports = class HangmaidCommand extends Command {
                         try {
                             ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""),  g: correctMap(), h: Theme })
                             .then(buffer => {
-                                ctx.client.polluxClient.removeHandmaid(member.id)
+                                ctx.client.polluxClient.removeHangmaid(member.id)
                                 ctx.send(`😔 Você perdeu! ${letterCorrect > 1 ? `${ChosenLetter.length - letterCorrect > ChosenLetter.length ? `Acertou **${letterCorrectUser}** letras no jogo!` : `Acertou **${letterCorrectUser}** letras e faltava **${ChosenLetter.length - letterCorrect}** para terminar o jogo!`}` : "Não acertou nenhuma letra."}`,
                                  {}, { file: buffer.data, name: 'hangmaid.png' })
                             })
@@ -190,7 +190,7 @@ module.exports = class HangmaidCommand extends Command {
                   
                     if (letterCorrect > ChosenLetter.length - 1) {
                         try {
-                            ctx.client.polluxClient.removeHandmaid(member.id)
+                            ctx.client.polluxClient.removeHangmaid(member.id)
                             ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""),  g: correctMap(), h: Theme })
                     .then(buffer => {
                         ctx.send(`🎉 Acertou todas as letra do jogo!`,
