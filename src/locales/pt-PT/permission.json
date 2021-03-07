@@ -1,5 +1,5 @@
 {
-    "botDeveloper": "Desenvolvedor.",
+    "botDeveloper": "Desenvolvedor",
     "createInstantInvite": "Criar convite instantâneo",
     "kickMembers": "Expulsar membros",
     "banMembers": "Banir membros",
@@ -21,7 +21,7 @@
     "manageEmojis": "Gerenciar emojis",
     "externalEmojis": "Usar Emojis externos",
     "viewAuditLogs": "Ver logs de auditoria",
-    "voicePrioritySpeaker": "Priorify Speaker",
+    "voicePrioritySpeaker": "Voz prioritária",
     "stream": "Transmitir",
     "readMessages": "Ler mensagens",
     "viewGuildInsights": "Ver Insights do server",
