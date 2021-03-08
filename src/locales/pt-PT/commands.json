@@ -4,7 +4,7 @@
         "noReason": "nenhum motivo especificado",
         "successfullySent": "denúncia enviado com sucesso.",
         "embed": {
-            "memberName": "Nick",
+            "memberName": "Nome do usuário",
             "authorName": "Quem denunciou",
             "channel": "Canal",
             "reason": "Razão"
