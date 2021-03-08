@@ -17,9 +17,9 @@
         "banned": "{{0}} | Banido",
         "unbanned": "{{0}} | Unbanned",
         "kicked": "{{member}} | Kickado",
-        "softBan": "{{member}} | Soft Banned",
+        "softBan": "{{member}} | Banido levemente",
         "embed": {
-            "memberName": "Nick",
+            "memberName": "Nome do usuário",
             "memberID": "ID do Usuário",
             "staffName": "Quem puniu",
             "reason": "Razão"
