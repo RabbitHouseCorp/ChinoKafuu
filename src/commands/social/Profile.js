@@ -4,49 +4,50 @@ const axios = require('axios')
 const flags = [
     {
         flag: 1 << 0,
-        name: "discord_employee",  
+        name: "discord_employee",
     },
     {
         flag: 1 << 1,
-        name: "discord_partner",  
+        name: "discord_partner",
     },
     {
         flag: 1 << 2,
-        name: "hypesquad_events",  
+        name: "hypesquad_events",
     },
     {
         flag: 1 << 3,
-        name: "bug_hunter",  
-    },{
+        name: "bug_hunter",
+    },
+    {
         flag: 1 << 6,
-        name: "hypesquad_bravery",  
+        name: "hypesquad_bravery",
     },
     {
         flag: 1 << 7,
-        name: "hypesquad_brilliance",  
+        name: "hypesquad_brilliance",
     },
     {
         flag: 1 << 8,
-        name: "hypesquad_balance",  
+        name: "hypesquad_balance",
     },
     {
         flag: 1 << 9,
-        name: "early_supporter",  
+        name: "early_supporter",
     },
     {
         flag: 1 << 12,
-        name: "null",  
+        name: "null",
     },
     {
         flag: 1 << 14,
-        "name": "bug_hunter",  
+        "name": "bug_hunter",
     },
     {
         flag: 1 << 17,
-        "name": "bot_developer",  
+        "name": "bot_developer",
     },
 
-    
+
 ]
 
 module.exports = class ProfileCommand extends Command {
@@ -63,15 +64,15 @@ module.exports = class ProfileCommand extends Command {
     }
 
     async run(ctx) {
-      
+
         let member = await ctx.getUser(ctx.args[0], true)
         let user = await ctx.client.database.users.getOrCreate(member.id)
         let couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
 
         const arrayBadges = [
-           /**
-            * This is a badge list.
-            */
+            /**
+             * This is a badge list.
+             */
         ]
 
 
@@ -79,28 +80,28 @@ module.exports = class ProfileCommand extends Command {
             switch ((flag.flag & member.publicFlags) === flag.flag) {
                 case true:
                     arrayBadges.push(flag.name)
-                break;
+                    break;
                 case false:
-                    /**
-                     * @returns null
-                     */
+                /**
+                 * @returns null
+                 */
                 default:
-                      /**
-                     * @returns null
-                     */
+                /**
+               * @returns null
+               */
             }
         }
 
-      
+
 
         axios({
             url: 'http://127.0.0.1:1234/render/profile',
             method: 'post',
             data: {
-                type: 'default',
+                type: user.profileType,
                 name: member.username,
                 money: Number(user.yens).toLocaleString(),
-                aboutMe: user.aboutme,
+                aboutMe: user.aboutme !== 'default' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
                 married: user.isMarry,
                 partnerName: `${couple?.username}#${couple.discriminator}`,
                 bgId: user.background,
@@ -110,8 +111,8 @@ module.exports = class ProfileCommand extends Command {
                 badges: arrayBadges
             },
             responseType: 'arraybuffer'
-        }).then(jesus => {
-            ctx.send('', {}, { file: jesus.data, name: 'profile.png' })
+        }).then(profile => {
+            ctx.send('', {}, { file: profile.data, name: 'profile.png' })
         })
     }
 
