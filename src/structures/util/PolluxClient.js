@@ -19,14 +19,15 @@ module.exports = class PolluxClient {
      * @description This to reload the word list.
      * @returns {this}
      */
-    reloadWords() {
+    async reloadWords() {
         for (let data of this.words) {
             this.words.pop()
+            this.words.pop()
         }
-        this.request(`/api/games/hangmaid/words`, 'constants').then(res => {
+        await this.request(`/api/games/hangmaid/words`, 'constants').then(res => {
             for (let data of res.data) {
                 this.words.push(data)
-            
+
             }
         })
         return this
@@ -49,15 +50,28 @@ module.exports = class PolluxClient {
         const arrayWord = []
      
         for (let wordData of this.words) {
-            if (wordData.level !== level) {
-            } else {
+          
+            if (`${wordData.level}` === `${level}`) {
                 arrayWord.push(wordData)
+                /**
+                 * Don't ask me, I don't know why number doesn't work and string works.
+                 */
             }
         }
+    
         
         const randomNb = Math.floor(Math.random() * Math.floor(Math.random() * arrayWord.length))
 
-        first = arrayWord[randomNb]
+
+        /**
+         * When the item is not in the list, it can return any.
+         */
+        if (arrayWord.length > 2) {
+            first = arrayWord[randomNb]
+        } else {
+            first = this.words[Math.floor(Math.random() * Math.floor(Math.random() * this.words.length))]
+        }
+      
         
         return first
     }
