@@ -1,6 +1,6 @@
 {
     "name": "chino-kafuu",
-    "version": "2021.01.10-rc11",
+    "version": "2021.02.23-rc03",
     "description": "Discord Bot.",
     "main": "index.js",
     "scripts": {
@@ -12,7 +12,7 @@
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
         "@lavacord/eris": "0.0.3",
-        "anilist-node": "^1.6.1",
+        "anilist-node": "^1.7.0",
         "chalk": "^4.1.0",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
@@ -22,12 +22,12 @@
         "mathjs": "^9.0.0",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
-        "mongoose": "^5.11.15",
+        "mongoose": "^5.11.18",
         "nekos.life": "^2.0.7",
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
-        "workerpool": "^6.1.0"
+        "workerpool": "^6.0.0"
     },
     "devDependencies": {
         "axios": "^0.21.1"

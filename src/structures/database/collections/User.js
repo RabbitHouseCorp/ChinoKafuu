@@ -10,7 +10,7 @@ module.exports = mongoose.model(
         afkReason: { type: String, default: null },
         blacklist: { type: Boolean, default: false },
         blacklistReason: { type: String, default: null },
-        aboutme: { type: String, default: '\'A Chino é minha amiga!\' Você pode mudar isto usando k.sobremim' },
+        aboutme: { type: String, default: 'default' },
         profileColor: { type: String, default: '#6b8dff' },
         isMarry: { type: Boolean, default: false },
         marryWith: { type: String, default: '' },
@@ -18,6 +18,7 @@ module.exports = mongoose.model(
         repTime: { type: String, default: '000000000000' },
         shipValue: { type: String, default: null },
         background: { type: String, default: 'gochiusa_3' },
-        sticker: { type: String, default: 'bjork_post' }
+        sticker: { type: String, default: 'bjork_post' },
+        profileType: { type: String, default: 'default' }
     })
 )

@@ -15,6 +15,12 @@ class MessageCollector extends Collector {
     }
 
     collect(message) {
+        if (this.ended == true) {
+            /**
+             * Someone forgot to implement this. To hold the event
+             */
+            return;
+        }
         if (message.author.bot) {
             return null
         }
