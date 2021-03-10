@@ -69,14 +69,16 @@ module.exports = class CommandContext {
      * @param content
      * @param data
      * @param options
+     * @param file
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-    async replyT(emoji, content, data = {}, options = {}) {
+    async replyT(emoji, content, data = {}, options = {}, file) {
 
         return await this.message.channel.createMessage({
             content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
             messageReferenceID: this.message.id,
-            options
+            options,
+            file
         })
     }
     /**
