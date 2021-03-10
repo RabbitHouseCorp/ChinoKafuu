@@ -209,14 +209,14 @@
         "description": "Set slowmode in the current channel."
     },
     "unban": {
-        "notBanned": "this user is not banned, check out if you mention the correct user.",
+        "notBanned": "this user is not banned, check if you mentioned the correct user and try again.",
         "usage": "<userID|userName> <reason>",
-        "description": "Unban a user if they're banned."
+        "description": "Unbans a user if they're banned."
     },
     "roleinfo": {
-        "roleNotExist": "I can't find this role or this role doesn't exist",
+        "roleNotExist": "I can't find this role! Perhaps it doesn't exist...",
         "roleName": "Role information: {{0}}",
-        "roleMention": "Mention of role",
+        "roleMention": "Role Mention",
         "roleID": "Role ID",
         "roleColor": "Role Color",
         "roleGuild": "Guild",
@@ -225,21 +225,21 @@
         "roleManaged": "Integration",
         "roleCreatedAt": "Role Created At",
         "usage": "<role-mention/ID/name>",
-        "description": "Shows some informations about the role."
+        "description": "Shows some informations about a role."
     },
     "userinfo": {
         "usage": "[user]",
-        "description": "Shows some informations about a user.",
+        "description": "Shows some information about a user.",
         "username": "User Tag",
         "userid": "ID de Usuario",
         "createdAt": "Account Created",
         "joinedAt": "User Joined At",
         "highRole": "Highest role",
-        "boostSince": "Boosting since",
+        "boostSince": "Boosting Since",
         "hasPermissions": "Permissions"
     },
     "translate": {
-        "description": "Translate a text without having to access google translate.",
+        "description": "Translate a text without having to use online translator services.",
         "usage": "<language-code> <text>"
     },
     "animu": {
@@ -247,18 +247,18 @@
         "nowPlaying": "Now playing",
         "totalListening": {
             "title": "Total listening",
-            "total": "listening now"
+            "total": "Listening now"
         },
-        "artist": "Author song",
+        "artist": "Song author",
         "album": "Album",
         "volume": "Volume",
         "volumeChanged": "volume successfully changed.",
         "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving": "I'm leaving now from the voice channel.",
-        "description": "Plays some song when playing for the [Animu Radio](https://animu.com.br)."
+        "leaving": "I'm leaving the voice channel.",
+        "description": "Starts the [Animu Radio](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows some info about this server.",
+        "description": "Shows information about this server.",
         "guildID": "Guild ID",
         "guildOwner": "Guild's Owner",
         "guildRegion": "Guild's Region",
@@ -307,7 +307,7 @@
             "FEATURABLE": "Featurable",
             "ANIMATED_ICON": "Animated Icon",
             "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable",
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
             "PREVIEW_ENABLED": "Preview",
             "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate"
         },
@@ -318,26 +318,26 @@
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have a icon",
+        "missingIcon": "this guild doesn't have an icon",
         "download": "Download the icon clicking [here]({{0}})",
-        "description": "Get and show the server icon to you."
+        "description": "Shows the server icon."
     },
     "serverbanner": {
         "missingFeature": "this guild doesn't have the `banner` feature.",
         "missingBanner": "this guild doesn't have a banner.",
         "download": "Download the banner clicking [here]({{0}})",
-        "description": "Get and show the server banner to you."
+        "description": "Shows the server banner (if available)."
     },
     "money": {
         "invalidValue": "please, give me a valid value.",
         "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
+        "invalidArgs": "the currency `{{arg}}` is invalid.\n**Supported Currencies:** `{{supported}}`",
         "usage": "<from> <to> <amount>",
-        "description": "Check the currency what it’s worth today."
+        "description": "Converts a currency to another."
     },
     "vote": {
-        "title": "Vote for me",
-        "embedVoted": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "title": "Vote me",
+        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
         "description": "Shows how you can vote me."
     },
     "invite": {
