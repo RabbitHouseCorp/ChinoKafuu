@@ -258,7 +258,7 @@
         "description": "Toca alguma música que está tocando na [Rádio Animu](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows some info about this server.",
+        "description": "Shows information about this server.",
         "guildID": "ID do servidor",
         "guildOwner": "Dono do servidor",
         "guildRegion": "Região do servidor",
@@ -307,7 +307,7 @@
             "FEATURABLE": "Recursos",
             "ANIMATED_ICON": "Ícone Animado",
             "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enable",
+            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
             "PREVIEW_ENABLED": "Pré-visualização",
             "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação"
         },
@@ -318,26 +318,26 @@
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have a icon",
+        "missingIcon": "this guild doesn't have an icon",
         "download": "Baixe o ícone clicando [aqui]({{0}})",
-        "description": "Get and show the server icon to you."
+        "description": "Shows the server icon."
     },
     "serverbanner": {
         "missingFeature": "este servidor não possui o recurso de `banner`.",
         "missingBanner": "este servidor não possui um banner.",
         "download": "Baixe o banner clicando [aqui]({{0}})",
-        "description": "Get and show the server banner to you."
+        "description": "Shows the server banner (if available)."
     },
     "money": {
         "invalidValue": "Por favor, me diga um valor válido.",
         "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is a invalid currency.\n**Currency supported:** `{{supported}}`",
+        "invalidArgs": "the currency `{{arg}}` is invalid.\n**Supported Currencies:** `{{supported}}`",
         "usage": "<de> <para> <quantia>",
         "description": "Verifique o valor da moeda hoje."
     },
     "vote": {
-        "title": "Vote for me",
-        "embedVoted": "Thank you so much. You can vote for me on link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "title": "Vote me",
+        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
         "description": "Shows how you can vote me."
     },
     "invite": {
