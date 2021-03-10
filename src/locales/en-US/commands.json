@@ -71,7 +71,7 @@
         "winner": "Congratulations! You won the game!",
         "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
         "wrongLength": "Miss hit: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard"
+        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard."
     },
     "emojiinfo": {
         "usage": "<emoji>",
