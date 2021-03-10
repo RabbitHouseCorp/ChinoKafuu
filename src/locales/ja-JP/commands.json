@@ -273,15 +273,15 @@
             "voice": "Voice"
         },
         "guildMember": {
-            "title": "Members ({{0}})",
-            "userCount": "Users",
-            "botCount": "Bots"
+            "title": "メンバー({{0}})",
+            "userCount": "ユーザー",
+            "botCount": "ボツト"
         },
         "region": {
-            "brazil": "Brazil",
+            "brazil": "ブラジル",
             "europe": "Europe",
             "hongkong": "Hong Kong",
-            "japan": "Japan",
+            "japan": "日本",
             "russia": "Russia",
             "singapore": "Singapore",
             "southafrica": "South Africa",
