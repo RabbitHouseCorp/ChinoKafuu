@@ -62,7 +62,16 @@
     },
     "profile": {
         "description": "Shows your social profile or the social profile of someone.",
-        "usage": "[user]"
+        "usage": "[user]",
+        "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
+    },
+    "hangmaid": {
+        "usage": "<difficult-1-to-easy-or-2-to-hard>",
+        "description": "A classic hangman game but with your favorite maid, pollux",
+        "winner": "Congratulations! You won the game. I'm happy to you.",
+        "loser": "Owwwn... You lose the game. Don't be sad, you can try one more time.",
+        "wrongLength": "Miss hit: **{{0}}**\n",
+        "missingArgs": "wait a minute... You didn't put the difficult, is 1 to easy and 2 to hard"
     },
     "emojiinfo": {
         "usage": "<emoji>",
