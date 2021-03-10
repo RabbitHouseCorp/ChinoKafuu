@@ -49,7 +49,7 @@
         "noTopic": "This channel doesn't have a topic.",
         "mention": "Channel Mention",
         "channelID": "チャネルID",
-        "guild": "Guild",
+        "guild": "サーバ",
         "category": "Category",
         "createdAt": "Created At"
     },
