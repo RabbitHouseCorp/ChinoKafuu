@@ -1,5 +1,6 @@
-const { Command, MessageCollector } = require('../../utils')
-
+const { Command, MessageCollector, Emoji } = require('../../utils')
+const moment = require("moment")
+require("moment-duration-format")
 module.exports = class HangmaidCommand extends Command {
     constructor() {
         super({
@@ -10,12 +11,19 @@ module.exports = class HangmaidCommand extends Command {
                 permissions: ['attachFiles']
             }]
         })
+        
+        this.color = false
     }
 
     async run(ctx) {
+
+        this.color = typeof ctx.client.polluxClient.data.letterColor === 'boolean' ? ctx.client.polluxClient.data.letterColor : false
+        const _locale = ctx._locale
         let countError = 0
         let letterCorrect = 0
         let letterCorrectUser = 0 /** Do not ask me  */
+        let removeLetter = 0
+        let time = Date.now()
         let member = await ctx.getUser(ctx.args[0], true)
         let mode = '0'
         if (typeof ctx.args[0] === 'string') {
@@ -23,12 +31,10 @@ module.exports = class HangmaidCommand extends Command {
         }
 
         const a = []
-        let Theme = "".toLocaleUpperCase()
-        const textRandom = await ctx.client.polluxClient.request(`/api/games/hangmaid/words?q=1&l=${mode === '1' ? Math.floor(Math.random() * 5) : '5'}`.replace("0", "1"), 'constants').then(res => {
-            Theme = res.data[0].theme.toLocaleUpperCase()
-            return res.data[0].word
-        })
-        let ChosenLetter = `${textRandom}`.toLocaleUpperCase()
+        const textRandom = await ctx.client.polluxClient.randomWord(mode === '1' ? Math.floor(Math.random() * 5) : '5')
+        let Theme = `${textRandom.theme}`.toLocaleUpperCase()
+      
+        let ChosenLetter = `${textRandom.word}`.toLocaleUpperCase()
             .replace(/( +)/g, '{')
             .split('')
 
@@ -68,13 +74,13 @@ module.exports = class HangmaidCommand extends Command {
                 })
                 break;
             default:
-                return ctx.send('Dificuldade:\n`1` - Fácil\n`2` - Difícil')
+                return ctx.replyT('chino_think', _locale('commands:hangmaid.mode'))
         }
 
         if (typeof ctx.client.polluxClient.userGame.get(member.id) === 'undefined') {
             ctx.client.polluxClient.createHangmaid(member.id, ctx.channel, ctx)
         } else {
-            return ctx.send("Você não pode criar outra jogada porquê já existe um! Espere 15 minutos para terminar a jogada!");
+            return ctx.replyT(_locale('commands:hangmaid.cannot'));
         }
 
         const checkLetter = (letter) => {
@@ -156,9 +162,35 @@ module.exports = class HangmaidCommand extends Command {
         ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""), g: g, h: Theme })
             .then(buffer => {
 
-                ctx.send(`Errou **${a.length} letras** e falta **${6 - a.length}** chances\nAcertou: ${correctMap()}\nVocê só pode errar no máximo 6 vezes`, {}, { file: buffer.data, name: 'hangmaid.png' }).then(msg => {
-
+                ctx.send('', {
+                    embed: {
+                        color: 0xff3b6f,
+                        title: '✍️| Hangmaid',
+                        description: `\n${_locale('commands:hangmaid.stats_1', {
+                            0: this.convertNumberForEmote(a.length, '_err', this.color), 
+                            1: this.convertNumberForEmote(letterCorrectUser, '_default', this.color), 
+                            2: this.convertNumberForEmote(mode, '_default', this.color), 
+                            3: this.convertNumberForEmote(ChosenLetter.length - letterCorrect, '_default', this.color),
+                            4: `${moment.duration(Date.now() - time).format(_locale('commands:hangmaid.time'))}`
+                        })}`.replace('{emote_wrong}', Emoji.getEmoji('wrong').reaction).replace('{emote_correct}', Emoji.getEmoji('correct').reaction),
+                        image: { 
+                            url: `attachment://hangmaid.png` }, 
+                    }
+                }, {
+                    file: buffer.data, 
+                    name: `hangmaid.png`
+                }).then(msg => {
+                   
                     const collect = new MessageCollector(msg.channel, (message) => {
+                        if (member.id === message.member.id) {
+                          
+
+                        } else {
+                            return /** Ignore users */;
+                        }
+                        if (msg.member.user.bot === false) {
+                            return;
+                        }
                         if (typeof ctx.client.polluxClient.userGame.get(member.id) === 'undefined') {
                             collect.ended = true
                             collect.emit('end', null, true);
@@ -169,9 +201,30 @@ module.exports = class HangmaidCommand extends Command {
                                 try {
                                     ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""), g: correctMap(), h: Theme })
                                         .then(buffer => {
-                                            ctx.client.polluxClient.removeHangmaid(member.id)
-                                            ctx.send(`😔 Você perdeu! ${letterCorrect > 1 ? `${ChosenLetter.length - letterCorrect > ChosenLetter.length ? `Acertou **${letterCorrectUser}** letras no jogo!` : `Acertou **${letterCorrectUser}** letras e faltava **${ChosenLetter.length - letterCorrect}** para terminar o jogo!`}` : "Não acertou nenhuma letra."}`,
-                                                {}, { file: buffer.data, name: 'hangmaid.png' })
+                                            ctx.client.polluxClient.removeHangmaid(member.id, true)
+                                         
+
+                                            ctx.send('', {
+                                                    embed: {
+                                                        color: 0xff3b6f,
+                                                        title: `✍️| ${_locale('commands:hangmaid.resultloser')}`,
+                                                        description: `${_locale('commands:hangmaid.loser')}\n\n${_locale('commands:hangmaid.stats_2', {
+                                                            0: this.convertNumberForEmote(a.length, '_err', this.color), 
+                                                            1: this.convertNumberForEmote(letterCorrectUser, '_default', this.color), 
+                                                            2: this.convertNumberForEmote(mode, '_default', this.color), 
+                                                            3: this.convertNumberForEmote(ChosenLetter.length - letterCorrect, '_default', this.color),
+                                                            4: `${moment.duration(Date.now() - time).format(_locale('commands:hangmaid.time'))}`
+                                                        })}`.replace('{emote_wrong}', Emoji.getEmoji('wrong').reaction).replace('{emote_correct}', Emoji.getEmoji('correct').reaction),
+                                                        
+                                                        image: { 
+                                                            url: `attachment://hangmaid.png` },
+                                                        
+                                                        
+                                                    }
+                                                }, {
+                                                    file: buffer.data, 
+                                                    name: `hangmaid.png`
+                                            })
                                         })
                                     collect.ended = true
                                     collect.emit('end', null, true);
@@ -181,10 +234,32 @@ module.exports = class HangmaidCommand extends Command {
 
                             if (letterCorrect > ChosenLetter.length - 1) {
                                 try {
-                                    ctx.client.polluxClient.removeHangmaid(member.id)
+                                    ctx.client.polluxClient.removeHangmaid(member.id, false)
                                     ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""), g: correctMap(), h: Theme })
                                         .then(buffer => {
-                                            ctx.replyT('tada', 'commands:hangmaid.winner', {}, {}, { file: buffer.data, name: 'hangmaid.png' })
+                                                ctx.send('', {
+                                                    embed: {
+                                                        color: 0xff3b6f,
+                                                        title: `🎉| ${_locale('commands:hangmaid.winner')}`,
+                                                        description: `${_locale('commands:hangmaid.stats_2', {
+                                                            0: this.convertNumberForEmote(a.length, '_err', this.color), 
+                                                            1: this.convertNumberForEmote(letterCorrectUser, '_default', this.color), 
+                                                            2: this.convertNumberForEmote(mode, '_default', this.color), 
+                                                            3: this.convertNumberForEmote(ChosenLetter.length - letterCorrect, '_default', this.color),
+                                                            4: `${moment.duration(Date.now() - time).format(_locale('commands:hangmaid.time'))}`
+                                                        })}`.replace('{emote_wrong}', Emoji.getEmoji('wrong').reaction).replace('{emote_correct}', Emoji.getEmoji('correct').reaction),
+                                                        
+                                                        image: { 
+                                                            url: `attachment://hangmaid.png` },
+                                                        
+                                                        
+                                                    }
+                                                }, {
+                                                    file: buffer.data, 
+                                                    name: `hangmaid.png`
+                                            })
+                                    
+                                         
                                         })
                                     collect.ended = true
                                     collect.emit('end', null, true);
@@ -195,17 +270,116 @@ module.exports = class HangmaidCommand extends Command {
                             }
                             ctx.client.polluxClient.request('/generators/hangmaid', 'generator', { a: a.join(""), g: correctMap(), h: Theme })
                                 .then(buffer => {
+                                    const idGenerator = Math.floor(Math.random() * 12000000000)
 
-                                    ctx.send(`😔 Errou **${a.length} letras** e falta **${6 - countError}** chances\nJogo: ${correctMap().replace("_", "\_")}\nVocê só pode errar no máximo 6 vezes.`,
-                                        {}, { file: buffer.data, name: 'hangmaid.png' })
+                                    ctx.send('', {
+                                        embed: {
+                                            color: 0xff3b6f,
+                                            title: '✍️| Hangmaid',
+                                            description: `\n${_locale('commands:hangmaid.stats_1', {
+                                                0: this.convertNumberForEmote(a.length, '_err', this.color), 
+                                                1: this.convertNumberForEmote(letterCorrectUser, '_default', this.color), 
+                                                2: this.convertNumberForEmote(mode, '_default', this.color), 
+                                                3: this.convertNumberForEmote(ChosenLetter.length - letterCorrect, '_default', this.color),
+                                                4: `${moment.duration(Date.now() - time).format(_locale('commands:hangmaid.time'))}`
+                                            })}`.replace('{emote_wrong}', Emoji.getEmoji('wrong').reaction).replace('{emote_correct}', Emoji.getEmoji('correct').reaction),
+                                            image: { 
+                                                url: `attachment://hangmaid.png` }, 
+                                        }
+                                    }, {
+                                        file: buffer.data, 
+                                        name: `hangmaid.png`
+                                    })
+
+                            
                                 })
                         }
                     })
                 })
             })
+    }
 
 
-
-
+    convertNumberForEmote(nb, emotePath, yes) {
+        const arrayNb = `${nb}`.split("")
+        const arrayLetters = []
+        for (let numberStr of arrayNb) {
+            switch(numberStr) {
+                case '0':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('0'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('0')
+                    }
+                break;
+                case '1':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('1'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('1')
+                    }
+                break;
+                case '2':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('2'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('2')
+                    }
+                break;
+                case '3':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('3'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('3')
+                    }
+                break;
+                case '4':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('4'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('4')
+                    }
+                break;
+                case '5':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('5'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('5')
+                    }
+                break;
+                case '6':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('6'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('6')
+                    }
+                break;
+                case '7':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('7'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('7')
+                    }
+                break;
+                case '8':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('8'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('8')
+                    }
+                break;
+                case '9':
+                    if (this.color === true) {
+                        arrayLetters.push(Emoji.getEmoji('9'+emotePath).mention)
+                    } else {
+                        arrayLetters.push('9')
+                    }
+                break;
+                default: 
+                /** No */
+            }
+        }
+        return yes === true ? arrayLetters.join("") : `**${arrayLetters.join("")}**`
+    
     }
 }
