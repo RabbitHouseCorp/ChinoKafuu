@@ -24,5 +24,8 @@ module.exports = {
     chino_upset: '<:chino_upset:682017961149464645>',
     chino_tea: '<:chino_tea:545430851895427080>',
     chino_kek: '<:chino_kek:594995063747117083>',
-    tada: '🎉'
+    tada: '🎉',
+    correct: '🔺',
+    wrong: '🔻'
+
 }
