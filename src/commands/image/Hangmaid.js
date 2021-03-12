@@ -20,11 +20,11 @@ module.exports = class HangmaidCommand extends Command {
         this.color = typeof ctx.client.polluxClient.data.letterColor === 'boolean' ? ctx.client.polluxClient.data.letterColor : false
         const _locale = ctx._locale
         let countError = 0
-        let letterCorrect = 0
+        let letterCorrect = 0   
         let letterCorrectUser = 0 /** Do not ask me  */
         let removeLetter = 0
         let time = Date.now()
-        let member = await ctx.getUser(ctx.args[0], true)
+        let member = ctx.message.author
         let mode = '0'
         if (typeof ctx.args[0] === 'string') {
             mode = ctx.args[0]
