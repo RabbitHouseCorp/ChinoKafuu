@@ -188,9 +188,7 @@ module.exports = class HangmaidCommand extends Command {
                         } else {
                             return /** Ignore users */;
                         }
-                        if (msg.member.user.bot === false) {
-                            return;
-                        }
+                
                         if (typeof ctx.client.polluxClient.userGame.get(member.id) === 'undefined') {
                             collect.ended = true
                             collect.emit('end', null, true);
