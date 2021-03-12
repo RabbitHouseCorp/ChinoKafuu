@@ -66,12 +66,18 @@
         "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
     },
     "hangmaid": {
-        "usage": "<1-to-easy-or-2-to-hard>",
-        "description": "A classic hangman game but with your favorite maid, Pollux",
-        "winner": "Congratulations! You won the game!",
-        "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
+        "usage": "<difficult-1-to-easy-or-2-to-hard>",
+        "description": "A classic hangman game but with your favorite maid, pollux",
+        "winner": "Congratulations! You won the game. I'm happy to you.",
+        "loser": "Owwwn... You lose the game. Don't be sad, you can try one more time.",
         "wrongLength": "Miss hit: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard"
+        "missingArgs": "wait a minute... You didn't put the difficult, is 1 to easy and 2 to hard",
+        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the move.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "resultloser": "You lost",
+        "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
+        "cannot": "You cannot create another move because there is already one! Wait 15 minutes to finish the move!",
+        "mode": "You need to mention a number to start playing:\n`1` - Easy\n`2` - Hard"
     },
     "emojiinfo": {
         "usage": "<emoji>",
