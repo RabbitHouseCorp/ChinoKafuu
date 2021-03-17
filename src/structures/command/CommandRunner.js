@@ -36,7 +36,7 @@ module.exports = class CommandRunner {
         }))
         if (message.content === guildData.prefix) return
 
-        const regexp = new RegExp(`^(${guildData.prefix}|<@!?${client.user.id}>)( )*`, 'gi')
+        const regexp = new RegExp(`^(${guildData.prefix.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}|<@!?${client.user.id}>)( )*`, 'gi')
 
         if (!message.content.match(regexp)) return
 
