@@ -496,6 +496,7 @@
     "addemoji": {
         "description": "Adds an emoji to your server",
         "usage": "<link> <name>",
+        "added": "emoji successfully added.",
         "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
     },
     "addrole": {

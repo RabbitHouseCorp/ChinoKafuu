@@ -29,11 +29,12 @@ module.exports = class AddEmojiCommand extends Command {
             const buffer = await request.buffer()
             const data = `data:image/${url.substr(url.length - 3)};base64,`
             const base64Emoji = buffer.toString('base64')
-            return ctx.message.channel.guild.createEmoji({
+            const emoji = await ctx.message.channel.guild.createEmoji({
                 name: name,
                 image: data + base64Emoji
-
-            }).then(emoji => ctx.send(emoji.name)).catch(() => ctx.replyT('error', 'commands:addemoji.error'))
+            })
+            const getEmoji = await ctx.getEmoji(emoji.id)
+            ctx.send(`${getEmoji.mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
         } catch {
             return ctx.replyT('error', 'commands:addemoji.error')
         }
