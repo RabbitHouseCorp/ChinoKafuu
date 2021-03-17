@@ -110,7 +110,6 @@ module.exports = class CommandContext {
 
             return member.user
         }
-
     }
 
     /**
@@ -122,7 +121,7 @@ module.exports = class CommandContext {
         if (!args) return false
         if (args.includes('%')) args = decodeURIComponent(args)
         if (!args.includes(':')) {
-            const emoji = this.message.channel.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.emojis.get(args)
+            const emoji = this.message.channel.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.emojis.find(emoji => emoji.id === args)
             if (emoji) {
                 return {
                     animated: emoji.animated,
