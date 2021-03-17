@@ -66,18 +66,18 @@
         "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
     },
     "hangmaid": {
-        "usage": "<1-to-easy-or-2-to-hard>",
-        "description": "A classic hangman game but with your favorite maid, Pollux",
-        "winner": "Congratulations! You won the game!",
-        "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
+        "usage": "<difficult-1-to-easy-or-2-to-hard>",
+        "description": "A classic hangman game but with your favorite maid, pollux",
+        "winner": "Congratulations! You won the game. I'm happy to you.",
+        "loser": "Owwwn... You lose the game. Don't be sad, you can try one more time.",
         "wrongLength": "Miss hit: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard.",
-        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "missingArgs": "wait a minute... You didn't put the difficult, is 1 to easy and 2 to hard",
+        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the move.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
         "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
         "resultloser": "You lost",
         "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
-        "cannot": "You cannot create another match because there is already one! Wait for the match to end and try again.",
-        "mode": "You need to specify the difficult to start playing:\n`1` - Easy\n`2` - Hard"
+        "cannot": "You cannot create another move because there is already one! Wait 15 minutes to finish the move!",
+        "mode": "You need to mention a number to start playing:\n`1` - Easy\n`2` - Hard"
     },
     "emojiinfo": {
         "usage": "<emoji>",
@@ -441,13 +441,13 @@
         "aired": "Exibido",
         "score": "Pontuação",
         "scoreStats": "Estatísticas de pontuação",
-        "duration": "Duração dos episódios",
+        "duration": "Episodes duraction",
         "ranked": "Classificação",
         "popularity": "Popularidade",
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
-        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
-        "description": "Shows some information about a manga.",
+        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`.",
+        "description": "Shows some info of the any anime.",
         "usage": "<nome>"
     },
     "manga": {
@@ -460,7 +460,7 @@
         "aired": "Publicado",
         "genres": "Gêneros",
         "characters": "Personagens",
-        "description": "Shows some information about an anime.",
+        "description": "Shows some info of the any anime.",
         "usage": "<nome>"
     },
     "pay": {
@@ -481,22 +481,23 @@
     "clap": {
         "noArgs": "argumento inválido",
         "usage": "<quantidade>",
-        "description": "Let's clap, clap, clap, clap, clap with your friends."
+        "description": "Let's clap clap clap clap, clap with your friends."
     },
     "congaparrot": {
         "usage": "<quantia-repetição>",
         "description": "Envia parrots animados",
-        "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
+        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
     },
     "feed": {
-        "feed": "{{author}} has fed {{user}}",
+        "feed": "{{author}} has feed {{user}}",
         "usage": "<usuário>",
         "description": "Alimenta um usuário"
     },
     "addemoji": {
         "description": "Adiciona um emoji ao seu servidor",
         "usage": "<link> <nome>",
-        "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
+        "added": "emoji successfully added.",
+        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
@@ -510,7 +511,7 @@
         "usage": "<userID|@user> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
-        "missingNickname": "you didn't specify the nickname."
+        "missingNickname": "you didin't any nickname for I change."
     },
     "chat": {
         "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
@@ -534,7 +535,7 @@
     },
     "ban": {
         "usage": "<userID|@user> [motivo]",
-        "description": "Bane um usuário do servidor",
+        "description": "Bans an user from the server",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
@@ -542,8 +543,8 @@
     "language": {
         "description": "Altera o meu idioma no servidor atual.",
         "message": "Qual é sua língua? Reaja abaixo.",
-        "helpUs": "Nos ajude a traduzir",
-        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
+        "helpUs": "Help us to translate",
+        "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
