@@ -30,7 +30,7 @@
     "nekos.life": "^2.0.7",
     "node-fetch": "^2.6.1",
     "os": "^0.1.1",
-    "parse-duration": "^0.4.4",
+    "parse-duration": "^1.0.0",
     "request": "^2.88.2",
     "workerpool": "^6.0.0"
   },
