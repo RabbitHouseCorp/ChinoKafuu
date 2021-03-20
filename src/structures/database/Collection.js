@@ -9,7 +9,7 @@ module.exports = class Collection {
      * @returns {*}
      */
     findOneByID(id) {
-        return this.findOne({ _id: id })
+        return this.findOne({ id })
     }
 
     /**
@@ -28,7 +28,7 @@ module.exports = class Collection {
     async getAndDelete(id) {
         const data = await this.findOneByID(id)
         if (data) {
-            return this.model.findByIdAndDelete(id)
+            return this.model.findOneAndDelete({ id })
         } else {
             return undefined
         }
@@ -43,7 +43,7 @@ module.exports = class Collection {
     async getOrCreate(id, defaultValues = {}) {
         const data = await this.findOneByID(id)
         if (!data) {
-            return this.model({ _id: id, ...defaultValues }).save()
+            return this.model({ id, ...defaultValues }).save()
         }
         return data
     }
