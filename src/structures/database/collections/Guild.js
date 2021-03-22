@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 module.exports = mongoose.model(
     'Guilds',
     new mongoose.Schema({
-        _id: { type: String },
+        id: { type: String, index: { unique: true } },
         prefix: { type: String, default: process.env.BOT_PREFIX },
         channelReport: { type: String, default: '' },
         reportModule: { type: Boolean, default: false },
