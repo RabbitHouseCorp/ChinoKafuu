@@ -1,1 +1,1 @@
-new(require('./cluster/Cluster'))()
+new (require('./cluster/Cluster'))()

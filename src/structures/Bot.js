@@ -7,43 +7,43 @@ const Database = require('./database/Database')
 const PolluxClient = require('./util/PolluxClient')
 
 module.exports = class Bot extends Client {
-    constructor(...data) {
-        super(...data)
+  constructor (...data) {
+    super(...data)
 
-        /**
+    /**
          *
          * @type {ListenerRegistry}
          */
-        this.listenerRegistry = new ListenerRegistry(this)
-        /**
+    this.listenerRegistry = new ListenerRegistry(this)
+    /**
          *
          * @type {I18NRegistry}
          */
-        this.i18nRegistry = new I18NRegistry()
-        /**
+    this.i18nRegistry = new I18NRegistry()
+    /**
          *
          * @type {CommandRegistry}
          */
-        this.commandRegistry = new CommandRegistry()
-        /**
+    this.commandRegistry = new CommandRegistry()
+    /**
          *
          * @type {ClusteringInterface}
          */
-        this.clusters = new ClusteringInterface(this)
-        /**
+    this.clusters = new ClusteringInterface(this)
+    /**
          *
          * @type {Database}
          */
-        this.database = new Database()
-        /**
-         * 
+    this.database = new Database()
+    /**
+         *
          * @type {Map}
          */
-        this.shardUptime = new Map()
-        /**
+    this.shardUptime = new Map()
+    /**
          *
          * @type {PolluxClient}
          */
-         this.polluxClient = new PolluxClient()
-    }
+    this.polluxClient = new PolluxClient()
+  }
 }
