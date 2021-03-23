@@ -408,6 +408,13 @@
     },
     "ping": {
         "totalShard": "Total de shards: {{totalShard}}",
+        "operational": "Operational",
+        "unstable": "Unstable",
+        "unoperational": "Extremely unstable",
+        "clusterdown": "Restarting soon (cluster fully offline)",
+        "totalClusters": "Total clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% functional",
+        "avgPing": "{{avg}}ms average ping",
         "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
     },
     "slap": {
