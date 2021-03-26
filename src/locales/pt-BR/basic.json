@@ -1,7 +1,7 @@
 {
     "permissions": {
-        "permissionUserRequired": "Você precisa ter as permissões para {{0}} para usar este comando.",
-        "permissionBotRequired": "Eu preciso das permissões para {{0}} para executar esse comando.",
+        "permissionUserRequired": "Você precisa ter as seguintes permissões para usar esse comando: {{0}}.",
+        "permissionBotRequired": "Preciso ter as seguintes permissões para usar esse comando: {{0}}.",
         "title": "Permissões"
     },
     "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
@@ -9,7 +9,7 @@
     "missingUserPermission": "você não tem permissão para `{{perm}}`. Você não pode executar este comando.",
     "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
     "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-    "invalidEmoji": "emoji não encontrado, tem certeza que este emoji pertence a este servidor?",
+    "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
     "noReason": "Nenhum motivo",
     "onBehalf": "Em nome de {{member}}: {{reason}}",
     "clickHere": "Clique aqui",
@@ -52,7 +52,7 @@
     },
     "guildban": {
         "title": "Servidor Banida",
-        "explain": "`{{0}}` está banido, você pode ver o motivo do banimento abaixo. Você acha que o banimento foi injusto? Junte-se ao meu [servidor de suporte](https://discord.gg/CAm9cSU) e talvez faça ele/ela solta.",
+        "explain": "`{{0}}` está banido, de acordo com o motivo abaixo. Você acha que o banimento foi injusto? Entre em meu [servidor de suporte](https://discord.gg/CAm9cSU) e solicite uma revisão.",
         "reason": "Motivo"
     }
 }
