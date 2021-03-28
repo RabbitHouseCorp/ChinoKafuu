@@ -3,7 +3,7 @@ const Helper = require('../../structures/util/Helper')
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class CommandRunner {
-  static async run (client, message) {
+  static async run(client, message) {
     if (message.author.bot) return
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
@@ -32,7 +32,7 @@ module.exports = class CommandRunner {
 
     if (message.content === guildData.prefix) return
 
-    const regexp = new RegExp(`^(${guildData.prefix.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}|ck\!|<@!?${client.user.id}>)( )*`, 'gi')
+    const regexp = new RegExp(`^(${guildData.prefix.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}|${process.env.GLOBAL_BOT_PREFIX}|<@!?${client.user.id}>)( )*`, 'gi')
 
     if (!message.content.match(regexp)) return
 
