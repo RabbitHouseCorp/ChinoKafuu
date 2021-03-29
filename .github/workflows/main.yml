@@ -3,10 +3,15 @@ name: Test
 on:
   push:
     branches: [ dev ]
+  workflow_dispatch:
+    
 jobs:
   jesus:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - name: Send Jesus
-        run: mkdir quem-ler-e-gay
+        run: |
+          echo "jesus eh mais"
+          echo "jesus eh mais"
+          echo "jesus eh mais"
