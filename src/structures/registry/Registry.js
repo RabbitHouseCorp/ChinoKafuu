@@ -6,79 +6,79 @@ const path = require('path')
 const { resolve } = require('path')
 
 module.exports = class Registry extends EventEmitter {
-    constructor(options) {
-        super()
+  constructor (options) {
+    super()
 
-        this.path = path.resolve(options.path) || process.exit()
-        this.autoReload = options.autoReload || true
+    this.path = path.resolve(options.path) || process.exit()
+    this.autoReload = options.autoReload || true
 
-        this.modules = []
-        if (this.autoReload) this.startWatcher()
+    this.modules = []
+    if (this.autoReload) this.startWatcher()
+  }
+
+  loadModule (path) {
+    try {
+      delete require.cache[require.resolve(path)]
+      const module = new (require(path))()
+      if (this.modules.filter((a) => a.__path === path)[0]) return true
+
+      module.__path = path
+      this.modules.push(module)
+
+      this.emit('load', module)
+      return true
+    } catch (e) {
+      Logger.error(`Error loading ${path}: ${e.stack}`)
+      return false
     }
+  }
 
-    loadModule(path) {
-        try {
-            delete require.cache[require.resolve(path)]
-            const module = new (require(path))()
-            if (this.modules.filter((a) => a.__path === path)[0]) return true
+  loadAll (path) {
+    readdirSync(path).forEach((file) => {
+      const fullpath = resolve(path, file)
+      if (lstatSync(fullpath).isDirectory()) {
+        return this.loadAll(fullpath)
+      }
+      this.loadModule(fullpath)
+    })
+  }
 
-            module.__path = path
-            this.modules.push(module)
+  deleteModule (obj) {
+    this.modules.splice(this.modules.findIndex((a) => a.__path === obj.__path), 1)
+    this.emit('removal', obj)
+  }
 
-            this.emit('load', module)
-            return true
-        } catch (e) {
-            Logger.error(`Error loading ${path}: ${e.stack}`)
-            return false
-        }
+  reloadModule (object, safeReload = true) {
+    const obj = this.modules.filter(a => a.__path === object.__path)[0]
+    this.deleteModule(obj)
+    if (this.loadModule(obj.__path)) {
+      return true
+    } else {
+      if (safeReload) {
+        this.modules.push(obj)
+        this.emit('load', obj)
+      }
+      return false
     }
+  }
 
-    loadAll(path) {
-        readdirSync(path).forEach((file) => {
-            const fullpath = resolve(path, file)
-            if (lstatSync(fullpath).isDirectory()) {
-                return this.loadAll(fullpath)
-            }
-            this.loadModule(fullpath)
-        })
-    }
+  reloadAllModules (safeReload = true) {
+    this.modules.forEach((module) => this.reloadModule(module.__path, safeReload))
+  }
 
-    deleteModule(obj) {
-        this.modules.splice(this.modules.findIndex((a) => a.__path === obj.__path), 1)
-        this.emit('removal', obj)
-    }
+  startWatcher () {
+    const watcher = hound.watch(this.path)
 
-    reloadModule(object, safeReload = true) {
-        const obj = this.modules.filter(a => a.__path === object.__path)[0]
-        this.deleteModule(obj)
-        if (this.loadModule(obj.__path)) {
-            return true
-        } else {
-            if (safeReload) {
-                this.modules.push(obj)
-                this.emit('load', obj)
-            }
-            return false
-        }
-    }
+    watcher.on('create', (file) => setTimeout(() => this.loadAll(this.path), 2000))
+    watcher.on('change', (file) => setTimeout(() => this.reloadModule(this.findByFileName(file)), 2000))
+    watcher.on('delete', (file) => setTimeout(() => this.deleteModule(this.findByFileName(file)), 2000))
+  }
 
-    reloadAllModules(safeReload = true) {
-        this.modules.forEach((module) => this.reloadModule(module.__path, safeReload))
-    }
+  findByProperty (property, value) {
+    return this.modules.filter((a) => a[property] === value)[0]
+  }
 
-    startWatcher() {
-        const watcher = hound.watch(this.path)
-
-        watcher.on('create', (file) => setTimeout(() => this.loadAll(this.path), 2000))
-        watcher.on('change', (file) => setTimeout(() => this.reloadModule(this.findByFileName(file)), 2000))
-        watcher.on('delete', (file) => setTimeout(() => this.deleteModule(this.findByFileName(file)), 2000))
-    }
-
-    findByProperty(property, value) {
-        return this.modules.filter((a) => a[property] === value)[0]
-    }
-
-    findByFileName(path) {
-        return this.modules.filter((a) => a.__path === path)[0]
-    }
+  findByFileName (path) {
+    return this.modules.filter((a) => a.__path === path)[0]
+  }
 }
