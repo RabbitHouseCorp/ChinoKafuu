@@ -1,0 +1,15 @@
+
+
+name: Test
+
+on:
+  push:
+    branches: [ dev ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: Send Jesus
+        run: echo "Jesus Cristo estou aqui"
