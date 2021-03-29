@@ -16,4 +16,4 @@ jobs:
           echo "jesus eh mais"
           echo "jesus eh mais"
           mkdir quem-ler-e-gay
-          la
+          ls
