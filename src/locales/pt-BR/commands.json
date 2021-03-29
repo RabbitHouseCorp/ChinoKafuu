@@ -70,8 +70,14 @@
         "description": "A classic hangman game but with your favorite maid, Pollux",
         "winner": "Congratulations! You won the game!",
         "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
-        "wrongLength": "Miss hit: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard."
+        "wrongLength": "Missed: **{{0}}**\n",
+        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to easy or `2` to hard.",
+        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "resultloser": "You lost",
+        "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
+        "cannot": "You cannot create another match because there is already one! Wait for the match to end and try again.",
+        "mode": "You need to specify the difficult to start playing:\n`1` - Easy\n`2` - Hard"
     },
     "emojiinfo": {
         "usage": "<emoji>",
@@ -255,7 +261,7 @@
         "volumeChanged": "volume alterado com sucesso.",
         "currentVolume": "o volume atual é `{{volume}}/100`.",
         "leaving": "estou saindo agora do canal de voz.",
-        "description": "Toca alguma música que está tocando na [Rádio Animu](https://animu.com.br)."
+        "description": "Inicia a [Rádio Animu](https://animu.com.br)."
     },
     "serverinfo": {
         "description": "Shows information about this server.",
@@ -402,6 +408,13 @@
     },
     "ping": {
         "totalShard": "Total de shards: {{totalShard}}",
+        "operational": "Operational",
+        "unstable": "Unstable",
+        "unoperational": "Extremely unstable",
+        "clusterdown": "Offline - Restart Scheduled",
+        "totalClusters": "Total clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% functional",
+        "avgPing": "{{avg}}ms average ping",
         "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
     },
     "slap": {
@@ -435,13 +448,13 @@
         "aired": "Exibido",
         "score": "Pontuação",
         "scoreStats": "Estatísticas de pontuação",
-        "duration": "Duração dos episódios",
+        "duration": "Episodes duration",
         "ranked": "Classificação",
         "popularity": "Popularidade",
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
-        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`.",
-        "description": "Shows some info of the any anime.",
+        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
+        "description": "Shows some information about a manga.",
         "usage": "<nome>"
     },
     "manga": {
@@ -454,7 +467,7 @@
         "aired": "Publicado",
         "genres": "Gêneros",
         "characters": "Personagens",
-        "description": "Shows some info of the any anime.",
+        "description": "Shows some information about an anime.",
         "usage": "<nome>"
     },
     "pay": {
@@ -475,22 +488,23 @@
     "clap": {
         "noArgs": "argumento inválido",
         "usage": "<quantidade>",
-        "description": "Let's clap clap clap clap, clap with your friends."
+        "description": "Let's clap, clap, clap, clap, clap with your friends."
     },
     "congaparrot": {
         "usage": "<quantia-repetição>",
         "description": "Envia parrots animados",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
+        "feed": "{{author}} has fed {{user}}",
         "usage": "<usuário>",
         "description": "Alimenta um usuário"
     },
     "addemoji": {
         "description": "Adiciona um emoji ao seu servidor",
         "usage": "<link> <nome>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "added": "emoji successfully added.",
+        "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
@@ -504,7 +518,7 @@
         "usage": "<userID|@user> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
-        "missingNickname": "you didin't any nickname for I change."
+        "missingNickname": "you didn't specify the nickname."
     },
     "chat": {
         "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
@@ -528,7 +542,7 @@
     },
     "ban": {
         "usage": "<userID|@user> [motivo]",
-        "description": "Bane um usuário do servidor",
+        "description": "Bans a user from the server",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
@@ -536,8 +550,8 @@
     "language": {
         "description": "Altera o meu idioma no servidor atual.",
         "message": "Qual é sua língua? Reaja abaixo.",
-        "helpUs": "Nos ajude a traduzir",
-        "explaining": "Você pode nos ajudar a traduzir a Chino Kafuu para o seu idioma acessando o nosso [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), se você traduzir para qualquer idioma, você ganhará um cargo no meu servidor de suporte. Obrigada coelhinho(a), eu te amo (como um amigo, claro)"
+        "helpUs": "Help us translating",
+        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://rabbithouse.crowdin.com/chino-kafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
@@ -564,7 +578,7 @@
         "error": "Não consegui banir temporariamente esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
     "afk": {
-        "description": "Faz você ficar no modo afk.",
+        "description": "Te coloca no modo AFK.",
         "usage": "[motivo]",
         "success": "Agora você está AFK"
     },
