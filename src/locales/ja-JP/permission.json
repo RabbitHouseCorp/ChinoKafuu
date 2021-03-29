@@ -28,7 +28,7 @@
     "voiceConnect": "接続",
     "voiceSpeak": "発言",
     "voiceMuteMembers": "メンバーをミユーと",
-    "voiceDeafenMembers": "Deafen Members",
-    "voiceMoveMembers": "Move Members",
+    "voiceDeafenMembers": "メンバーのスピーをミュート",
+    "voiceMoveMembers": "メンバーを移動",
     "manageWebhooks": "Manage Webhooks"
 }
