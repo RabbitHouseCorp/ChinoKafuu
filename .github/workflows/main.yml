@@ -1,15 +1,11 @@
-
-
 name: Test
 
 on:
   push:
     branches: [ dev ]
-  workflow_dispatch:
 jobs:
-  build:
+  jesus:
     runs-on: self-hosted
-
     steps:
       - name: Send Jesus
-        run: echo "Jesus Cristo estou aqui"
+        run: echo "quem ler é gay"
