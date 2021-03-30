@@ -11,7 +11,7 @@
     "license": "AGPL-3.0",
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
-        "@lavacord/eris": "0.0.3",
+        "@lavacord/eris": "^0.0.3",
         "anilist-node": "^1.7.0",
         "chalk": "^4.1.0",
         "cron": "^1.8.2",
