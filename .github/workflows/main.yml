@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: rabbithousecorp/chinokafuu
+          tags: rabbithousecorp/chinokafuu:dev
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
