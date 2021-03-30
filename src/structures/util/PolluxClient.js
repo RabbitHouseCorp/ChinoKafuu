@@ -1,8 +1,7 @@
 const axios = require('axios')
 
 module.exports = class PolluxClient {
-  constructor (data = require('../../../pollux.json')) {
-    this.data = data
+  constructor () {
     this.userGame = new Map()
 
     /**
@@ -102,11 +101,11 @@ module.exports = class PolluxClient {
 
   request (path, field, parameters = {}) {
     return axios({
-      url: (this.data[field] + path),
+      url: (process.env["POLLUX_" + field.toUpperCase()] + path),
       params: parameters,
       method: 'GET',
       headers: {
-        'User-Agent': this.data.useragent
+        'User-Agent': process.env.POLLUX_USER_AGENT
       },
       responseType: (path.includes('generator') ? 'arraybuffer' : 'json'),
       paramsSerializer: (params) => {
