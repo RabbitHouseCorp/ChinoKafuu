@@ -26,7 +26,7 @@ module.exports = class VoteCommand extends Command {
 
     if (!ctx.args[0]) return ctx.send(argsNullEmbed.build())
 
-    const res = await axios.get('https://cast.animu.com.br:8021/status.json')
+    const res = await axios.get('https://cast.animu.com.br:9000/api/v2/history/?format=json&limit=1&offset=0&server=1')
     if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0])) {
       if (ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
       const song = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
@@ -37,11 +37,11 @@ module.exports = class VoteCommand extends Command {
         const embed = new EmbedBuilder()
         embed.setColor('ANIMU')
         embed.setAuthor(track.info.title)
-        embed.setThumbnail(`https://cdn.statically.io/img/${res.data.track.cover.replace('https://', '')}?width=465&height=465`)
-        embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
-        embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
-        embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
-        embed.addField(ctx._locale('commands:animu.album'), res.data.track.album)
+        embed.setThumbnail(res.data.results[0].img_medium_url)
+        embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.results[0].metadata)
+        embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.results[0].n_listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
+        embed.addField(ctx._locale('commands:animu.artist'), res.data.results[0].author)
+        embed.addField('DJ', res.data.results[0].dj_name)
         embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
         ctx.send(embed.build())
@@ -73,12 +73,12 @@ module.exports = class VoteCommand extends Command {
       const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
       const embed = new EmbedBuilder()
       embed.setColor('ANIMU')
-      embed.setAuthor(res.data.server_name)
-      embed.setThumbnail(`https://cdn.statically.io/img/${res.data.track.cover.replace('https://', '')}?width=465&height=465`)
-      embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.rawtitle)
-      embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
-      embed.addField(ctx._locale('commands:animu.artist'), res.data.track.artist)
-      embed.addField(ctx._locale('commands:animu.album'), res.data.track.album)
+      embed.setAuthor('Rádio Animu')
+      embed.setThumbnail(res.data.results[0].img_medium_url)
+      embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.results[0].metadata)
+      embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.results[0].n_listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
+      embed.addField(ctx._locale('commands:animu.artist'), res.data.results[0].author)
+      embed.addField('DJ', res.data.results[0].dj_name)
       embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
       ctx.send(embed.build())

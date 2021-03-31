@@ -70,8 +70,14 @@
         "description": "A classic hangman game but with your favorite maid, Pollux",
         "winner": "Congratulations! You won the game!",
         "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
-        "wrongLength": "Miss hit: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to Easy or `2` to hard."
+        "wrongLength": "Missed: **{{0}}**\n",
+        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to easy or `2` to hard.",
+        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
+        "resultloser": "You lost",
+        "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
+        "cannot": "You cannot create another match because there is already one! Wait for the match to end and try again.",
+        "mode": "You need to specify the difficult to start playing:\n`1` - Easy\n`2` - Hard"
     },
     "emojiinfo": {
         "usage": "<emoji>",
@@ -402,6 +408,13 @@
     },
     "ping": {
         "totalShard": "Total shards: {{totalShard}}",
+        "operational": "Operational",
+        "unstable": "Unstable",
+        "unoperational": "Extremely unstable",
+        "clusterdown": "Offline - Restart Scheduled",
+        "totalClusters": "Total clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% functional",
+        "avgPing": "{{avg}}ms average ping",
         "description": "Just a test command. Use it to check my ping."
     },
     "slap": {
@@ -435,13 +448,13 @@
         "aired": "放映した",
         "score": "スコア",
         "scoreStats": "スコアのステータス",
-        "duration": "エピソードの長さ",
+        "duration": "Episodes duration",
         "ranked": "ランク",
         "popularity": "人気",
         "genres": "ジャンル",
         "invalidAnime": "enter the name of the desired anime",
-        "animeNotFound": "I didn't find any anime with the name like: `{{0}}`.",
-        "description": "Shows some info of the any anime.",
+        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
+        "description": "Shows some information about a manga.",
         "usage": "<name>"
     },
     "manga": {
@@ -454,7 +467,7 @@
         "aired": "放映した",
         "genres": "ジャンル",
         "characters": "キャラクター",
-        "description": "Shows some info of the any anime.",
+        "description": "Shows some information about an anime.",
         "usage": "<name>"
     },
     "pay": {
@@ -475,22 +488,23 @@
     "clap": {
         "noArgs": "invalid input",
         "usage": "<amount>",
-        "description": "Let's clap clap clap clap, clap with your friends."
+        "description": "Let's clap, clap, clap, clap, clap with your friends."
     },
     "congaparrot": {
         "usage": "<repeatCount>",
         "description": "Sends funny parrots",
-        "maxAllowed": "for client-side reasons you're allowed to send up to 20 parrots"
+        "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
     },
     "feed": {
-        "feed": "{{author}} has feed {{user}}",
+        "feed": "{{author}} has fed {{user}}",
         "usage": "<user>",
         "description": "Feeds a user"
     },
     "addemoji": {
         "description": "Adds an emoji to your server",
         "usage": "<link> <name>",
-        "error": "something bad happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg or gif."
+        "added": "emoji successfully added.",
+        "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
     },
     "addrole": {
         "description": "ギルドメンバーにロールを追加",
@@ -504,7 +518,7 @@
         "usage": "<userID|@user> <nickname>",
         "success": "**{{member}}**'s nickname is now `{{nickname}}`",
         "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again",
-        "missingNickname": "you didin't any nickname for I change."
+        "missingNickname": "you didn't specify the nickname."
     },
     "chat": {
         "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
@@ -528,7 +542,7 @@
     },
     "ban": {
         "usage": "<userID|@user> [reason]",
-        "description": "Bans an user from the server",
+        "description": "Bans a user from the server",
         "selfBan": "自分をBANできません!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
@@ -536,8 +550,8 @@
     "language": {
         "description": "Change my language in the current guild.",
         "message": "What is your language? React below.",
-        "helpUs": "Help us to translate",
-        "explaining": "You can help us to translate Chino Kafuu for your language accessing our [crowdin](https://rabbithouse.crowdin.com/chino-kafuu), if you translate for any language, you will won a role in my support server. Thank you little rabbit, I love you (like a friend, of course)"
+        "helpUs": "Help us translating",
+        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://rabbithouse.crowdin.com/chino-kafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
@@ -546,7 +560,7 @@
         "length": "プレフィックスのサイズは 3 文字に制限されています"
     },
     "setbanner": {
-        "description": "Sets the banner of your server. Command available only for server with the \"Banner\" feature enabled",
+        "description": "Sets the banner of your server (not available for all servers).",
         "usage": "<URL|Attachment>",
         "success": "Whoa! Your server has now a new banner",
         "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
