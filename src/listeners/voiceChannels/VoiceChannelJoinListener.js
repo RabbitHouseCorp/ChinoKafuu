@@ -1,4 +1,4 @@
-const Listener = require('../structures/events/Listener')
+const Listener = require('../../structures/events/Listener')
 
 module.exports = class VoiceChannelJoinListener extends Listener {
   constructor () {

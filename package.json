@@ -4,7 +4,7 @@
     "description": "Discord Bot.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "jest",
         "start": "node index.js --experimental--worker"
     },
     "author": "",
@@ -31,6 +31,10 @@
         "workerpool": "^6.0.0"
     },
     "devDependencies": {
-        "axios": "^0.21.1"
-    }
+        "axios": "^0.21.1",
+        "jest": "^26.6.3"
+    },
+  "jest": {
+    "collectCoverage": true
+  }
 }

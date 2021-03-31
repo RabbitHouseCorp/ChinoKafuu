@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'dev'
+      - 'live'
 
 jobs:
   docker:
@@ -27,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: rabbithousecorp/chinokafuu:dev
+          tags: rabbithousecorp/chinokafuu:${GITHUB_REF##*/}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

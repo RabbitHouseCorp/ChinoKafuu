@@ -1,5 +1,5 @@
-const Listener = require('../structures/events/Listener')
-const Logger = require('../structures/util/Logger')
+const Listener = require('../../structures/events/Listener')
+const Logger = require('../../structures/util/Logger')
 
 module.exports = class ShardReadyListener extends Listener {
   constructor () {

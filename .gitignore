@@ -3,5 +3,6 @@ config.json
 src/lavalink/LavalinkConfig.json
 *.env
 .idea
+coverage/
 # BJORK COMERCIANTE NO INSTAGRAM 
 pollux.json

@@ -3,7 +3,7 @@ const Helper = require('../../structures/util/Helper')
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class CommandRunner {
-  static async run(client, message) {
+  static async run (client, message) {
     if (message.author.bot) return
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
