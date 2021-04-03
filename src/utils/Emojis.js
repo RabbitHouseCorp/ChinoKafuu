@@ -417,7 +417,7 @@ module.exports = {
   privacy: "<:Privacy:338152581429985281>",
   like: "<:Like:338154351128346635>",
   dislike: "<:Dislike:338154671522840576>",
-  error: "<:Error:338155247946039307>",
+  Error: "<:Error:338155247946039307>",
   download: "<:Download:338155248155885568>",
   hourglass: "<:Hourglass:338157886259855361>",
   commandline: "<:CommandLine:338158927332114434>",
