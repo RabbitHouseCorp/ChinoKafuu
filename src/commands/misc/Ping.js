@@ -16,12 +16,12 @@ module.exports = class PingCommand extends Command {
   }
 
   async run (ctx) {
-    console.log("PING")
+
     await axios.post(process.env.POLLUX_CONSTANTS+"/api/internal/ping",{
       instance: "RABBITHOUSE",
       cluster: process.env.CLUSTER_ID,
       last: Date.now() 
-    }).then(res=>console.log(res.status)).catch(err=>console.error("Ping Error".red))
+    }).catch(err=>console.error("Ping Error".red));
 
     return;
     //TODO[epic=KafuuTeam] Deal with this later
@@ -43,7 +43,7 @@ module.exports = class PingCommand extends Command {
         })
 
         ctx.send(embed.build())
-        //break
+        break
       }
       case 'clusters': {
         const clusters = await ctx.client.clusters.getAveragePing()
