@@ -12,6 +12,7 @@
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
+        "@polestar/emoji": "github:PolestarLabs/emoji-grimoire",
         "anilist-node": "^1.7.0",
         "chalk": "^4.1.0",
         "cron": "^1.8.2",
@@ -28,6 +29,7 @@
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "axios": "^0.21.1",
+        "colors": "^1.4.0",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
         "workerpool": "^6.0.0"
     },
