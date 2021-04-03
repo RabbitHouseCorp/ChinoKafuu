@@ -1,6 +1,6 @@
 {
     "name": "chino-kafuu",
-    "version": "2021.03.30-rc03",
+    "version": "2021.04.02-rc04",
     "description": "Discord Bot.",
     "main": "index.js",
     "scripts": {
