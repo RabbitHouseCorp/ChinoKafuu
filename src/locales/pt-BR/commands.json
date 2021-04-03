@@ -2,7 +2,7 @@
     "report": {
         "moduleDisable": "este módulo está desativado neste servidor.",
         "noReason": "nenhum motivo especificado",
-        "successfullySent": "report successfully sent.",
+        "successfullySent": "denúncia enviada com sucesso.",
         "embed": {
             "memberName": "Nome de usuário",
             "authorName": "Quem denunciou",
@@ -16,7 +16,7 @@
         "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
         "valueNotInputed": "você não forneceu nenhum valor para apostar.",
         "tie": "empate! Ninguém ganhou ou perdeu.",
-        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
+        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` yens.",
         "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` yens de você, queridinho(a)",
         "choice": {
             "rock": "pedra",
@@ -27,7 +27,7 @@
     "daily": {
         "congrats": "Parabéns! Você recebeu `{{0}}` ienes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tem um bom dia!",
         "yensDaily": "Ienes diários",
-        "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
+        "hasBeenPicked": "você já pegou seus ienes diários hoje. Espere por `{{0}}` antes de pegá-los novamente.",
         "description": "Você pode obter seus ienes diários usando este comando"
     },
     "laranjo": {
@@ -42,7 +42,7 @@
         "licensedFor": "Licenciado para",
         "beCute": "Ser fofo(a)",
         "usage": "[usuario] [texto]",
-        "description": "Are you licensed? No? Then create one for yourself! Or for someone else."
+        "description": "Está licenciado? Não? Então crie um para você mesmo! Ou para outra pessoa."
     },
     "channelinfo": {
         "title": "`Informações sobre #{{0}}`",
@@ -56,8 +56,8 @@
     "favcolor": {
         "description": "Altera a cor do seu perfil para a sua cor favorita.",
         "usage": "<#cor>",
-        "invalidColor": "the color you've chose is invalid.",
-        "poorUser": "you need more `{{0}}` yens to change your favorite color.",
+        "invalidColor": "a cor escolhida é inválida.",
+        "poorUser": "você precisa de mais `{{0}}` ienes para alterar a sua cor favorita.",
         "successfullyChanged": "Certo. Eui alterei com sucesso a sua cor favorita."
     },
     "profile": {
@@ -66,12 +66,12 @@
         "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
     },
     "hangmaid": {
-        "usage": "<1-to-easy-or-2-to-hard>",
+        "usage": "<1-para-fácil-ou-2-para-difícil>",
         "description": "A classic hangman game but with your favorite maid, Pollux",
-        "winner": "Congratulations! You won the game!",
-        "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
-        "wrongLength": "Missed: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to easy or `2` to hard.",
+        "winner": "Parabéns! Você ganhou o jogo!",
+        "loser": "Owwwn... Você perdeu o jogo. Não fique triste, você pode tentar mais uma vez.",
+        "wrongLength": "Erradas: **{{0}}**\n",
+        "missingArgs": "espere um minuto... você não especificou a dificuldade! Use `1` para fácil ou `2` para difícil.",
         "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
         "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
         "resultloser": "You lost",
