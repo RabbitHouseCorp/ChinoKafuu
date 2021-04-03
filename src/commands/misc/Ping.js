@@ -19,8 +19,8 @@ module.exports = class PingCommand extends Command {
 
     await axios.post(process.env.POLLUX_CONSTANTS+"/api/internal/ping",{
       instance: "RABBITHOUSE",
-      cluster: Number(process.env.CLUSTER_ID) - 1,
-      last: Date.now() 
+      cluster: process.env.CLUSTER_ID,
+      last: ctx.message.timestamp
     }).catch(err=>console.error("Ping Error".red));
 
     return;
