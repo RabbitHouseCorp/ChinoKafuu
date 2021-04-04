@@ -3,11 +3,10 @@
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
-
-const axios = require("axios");
+const axios = require('axios');
 
 module.exports = class PingCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'ping',
       permissions: [{
@@ -17,20 +16,21 @@ module.exports = class PingCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
 
-    await axios.post(process.env.POLLUX_CONSTANTS+"/api/internal/ping",{
-      instance: "RABBITHOUSE",
-      cluster: process.env.CLUSTER_ID,
-      last: ctx.message.timestamp,
-      diff: Date.now() - ctx.message.timestamp
-    }).catch(err=>console.error("Ping Error".red));
+    // const plxPing = await axios.post(`${process.env.POLLUX_CONSTANTS}/api/internal/ping`, {
+    //   instance: 'RABBITHOUSE',
+    //   cluster: process.env.CLUSTER_ID,
+    //   last: ctx.message.timestamp,
+    //   diff: Date.now() - ctx.message.timestamp
+    // })
 
-    return;
+    // console.log(plxPing)
+    // return;
     //TODO[epic=KafuuTeam] Deal with this later
-    /*
- {
 
+    switch (ctx.args[0]) {
+      case 'shards': {
         const embed = new EmbedBuilder()
         embed.setFooter(ctx._locale('commands:ping.totalShard', { totalShard: ctx.client.shards.size }))
         embed.setColor('DEFAULT')
@@ -48,6 +48,7 @@ module.exports = class PingCommand extends Command {
         ctx.send(embed.build())
         break
       }
+
       case 'clusters': {
         const clusters = await ctx.client.clusters.getAveragePing()
 
@@ -72,6 +73,5 @@ module.exports = class PingCommand extends Command {
         await msg.edit(ping)
       }
     }
-    */
   }
 }
