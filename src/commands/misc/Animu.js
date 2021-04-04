@@ -1,3 +1,5 @@
+//FUTURE[epic=KafuuTeam,] Deprecated?
+
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
 module.exports = class VoteCommand extends Command {

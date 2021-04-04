@@ -1,3 +1,7 @@
+//TODO[epic=KafuuTeam] Expand
+//NOTE introduce this to Polaris
+
+
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ReportCommand extends Command {

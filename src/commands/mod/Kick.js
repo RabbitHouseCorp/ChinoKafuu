@@ -1,3 +1,7 @@
+//FUTURE[epic=KafuuTeam] Deprecate/Overlap
+//NOTE Moderation downscale
+
+
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class KickCommand extends Command {

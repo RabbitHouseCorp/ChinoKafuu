@@ -1,3 +1,7 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//NOTE Possible command clutter
+
+
 const { Command } = require('../../utils')
 
 module.exports = class SetNickCommand extends Command {

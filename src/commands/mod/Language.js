@@ -1,3 +1,9 @@
+//FIXME[epic=anyone] Do we have a set lang command?
+//FIXME[epic=KafuuTeam] make this silent
+//NOTE Problematic
+
+
+
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 module.exports = class LanguageCommand extends Command {
   constructor () {

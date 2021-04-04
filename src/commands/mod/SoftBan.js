@@ -1,3 +1,8 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//NOTE Possible command clutter
+//NOTE Moderation Downscale
+
+
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class SoftBanCommand extends Command {

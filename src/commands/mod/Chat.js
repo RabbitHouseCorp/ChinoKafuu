@@ -1,3 +1,6 @@
+//FIXME[epic=KafuuTeam] Confusing command design, make command name and usage more obvious (e.g. lockdown)
+//NOTE Moderation downscale
+
 const { Command } = require('../../utils')
 
 module.exports = class ChatCommand extends Command {

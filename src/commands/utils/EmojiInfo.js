@@ -1,3 +1,6 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//NOTE command clutter
+
 const { Command, EmbedBuilder } = require('../../utils')
 module.exports = class EmojiInfoCommand extends Command {
   constructor () {

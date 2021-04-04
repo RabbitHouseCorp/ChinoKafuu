@@ -1,3 +1,5 @@
+//FUTURE[epic=KafuuTeam] Can be actually useful
+
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class BanInfoCommand extends Command {

@@ -1,3 +1,5 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class PayCommand extends Command {

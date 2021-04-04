@@ -1,3 +1,6 @@
+//TODO[epic=KafuuTeam] aliases (rps, janken)
+//TRANSLATE[epic=KafuuTeam] strings 
+
 const { Command } = require('../../utils')
 module.exports = class JanKePonCommand extends Command {
   constructor () {

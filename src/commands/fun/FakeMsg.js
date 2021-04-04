@@ -1,3 +1,5 @@
+//FIXME[epic=KafuuTeam] Webhook perms error
+
 const { Command } = require('../../utils')
 
 module.exports = class FakeMsgCommand extends Command {

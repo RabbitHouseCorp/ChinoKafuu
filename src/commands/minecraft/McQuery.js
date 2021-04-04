@@ -1,3 +1,6 @@
+//TODO[epic=KafuuTeam] This can be more interesting
+//FIXME[epic=KafuuTeam] Server Icon?
+
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const fetch = require('node-fetch')
 module.exports = class McQueryCommand extends Command {
