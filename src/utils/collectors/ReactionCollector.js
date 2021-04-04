@@ -1,7 +1,7 @@
 const Collector = require('./Collector')
 
-class MessageCollector extends Collector {
-  constructor (message, filter, options = {}) {
+class ReactionCollector extends Collector {
+  constructor(message, filter, options = {}) {
     super(filter, options)
 
     this.message = message
@@ -21,14 +21,13 @@ class MessageCollector extends Collector {
     })
   }
 
-  handleCollect (message, emoji, reactor) {
+  handleCollect(message, emoji, reactor) {
     const userId = reactor?.id ?? reactor
     return super.handleCollect(message, emoji, userId)
   }
 
-  collect (message, _, userId) {
+  collect(message, _, userId) {
     const user = this.client.users.get(userId)
-
     if (user?.bot) {
       return null
     }
@@ -41,4 +40,4 @@ class MessageCollector extends Collector {
   }
 }
 
-module.exports = MessageCollector
+module.exports = ReactionCollector

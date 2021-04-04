@@ -4,12 +4,12 @@ const util = require('util')
 module.exports = class EvalCommand extends Command {
   constructor () {
     super({
-      name: 'eval',
+      name: 'keval',
       permissions: [{
         entity: 'user',
         permissions: ['botDeveloper']
       }],
-      aliases: ['ev']
+      aliases: ['kev','ev-all']
     })
   }
 

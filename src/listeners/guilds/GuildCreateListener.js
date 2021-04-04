@@ -1,5 +1,5 @@
-const Listener = require('../structures/events/Listener')
-const EmbedBuilder = require('../structures/util/EmbedBuilder')
+const Listener = require('../../structures/events/Listener')
+const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class GuildCreateListener extends Listener {
   constructor () {

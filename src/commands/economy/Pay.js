@@ -35,7 +35,7 @@ module.exports = class PayCommand extends Command {
     await message.addReaction(Emoji.getEmoji('success').reaction)
     await message.addReaction(Emoji.getEmoji('error').reaction)
 
-    const filter = (_, emoji, userID) => (['✅', 'error'].includes(emoji.name)) && userID === ctx.message.author.id
+    const filter = (_, emoji, userID) => ([Emoji.getEmoji('success').name, Emoji.getEmoji('error').name].includes(emoji.name)) && userID === ctx.message.author.id
     const collector = new ReactionCollector(message, filter, { max: 1 })
     collector.on('collect', async (_, emoji) => {
       switch (emoji.name) {

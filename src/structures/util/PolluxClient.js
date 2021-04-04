@@ -101,7 +101,7 @@ module.exports = class PolluxClient {
 
   request (path, field, parameters = {}) {
     return axios({
-      url: (process.env["POLLUX_" + field.toUpperCase()] + path),
+      url: (process.env['POLLUX_' + field.toUpperCase()] + path),
       params: parameters,
       method: 'GET',
       headers: {

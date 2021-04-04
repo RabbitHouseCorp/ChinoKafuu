@@ -1,6 +1,9 @@
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
+
+const axios = require("axios");
+
 module.exports = class PingCommand extends Command {
   constructor () {
     super({
@@ -13,8 +16,19 @@ module.exports = class PingCommand extends Command {
   }
 
   async run (ctx) {
-    switch (ctx.args[0]) {
-      case 'shards': {
+
+    await axios.post(process.env.POLLUX_CONSTANTS+"/api/internal/ping",{
+      instance: "RABBITHOUSE",
+      cluster: process.env.CLUSTER_ID,
+      last: ctx.message.timestamp,
+      diff: Date.now() - ctx.message.timestamp
+    }).catch(err=>console.error("Ping Error".red));
+
+    return;
+    //TODO[epic=KafuuTeam] Deal with this later
+    /*
+ {
+
         const embed = new EmbedBuilder()
         embed.setFooter(ctx._locale('commands:ping.totalShard', { totalShard: ctx.client.shards.size }))
         embed.setColor('DEFAULT')
@@ -56,5 +70,6 @@ module.exports = class PingCommand extends Command {
         await msg.edit(ping)
       }
     }
+    */
   }
 }

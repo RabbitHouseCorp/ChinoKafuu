@@ -2,7 +2,9 @@ node_modules/
 config.json
 src/lavalink/LavalinkConfig.json
 *.env
-package-lock.json
+*config.json
+.env
 .idea
+coverage/
 # BJORK COMERCIANTE NO INSTAGRAM 
 pollux.json

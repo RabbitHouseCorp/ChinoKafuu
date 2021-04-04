@@ -21,11 +21,10 @@ module.exports = class LavalinkPlayer extends EventEmitter {
           Authorization: node.password
         }
       })
-      
+
       return res.data.tracks
     } catch (err) {
       Logger.error(err.message)
-      
       return null
     }
   }
@@ -38,7 +37,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     })
   }
 
-  playAnimu() {
+  playAnimu () {
     return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(result => {
       if (!result[0]) return
       this._addToQueue(result[0])
