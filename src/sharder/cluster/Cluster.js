@@ -42,7 +42,7 @@ module.exports = class Cluster {
         'directMessages',
         'directMessageReactions'
       ],
-      disableEvents: {
+      /* disableEvents: {
         CHANNEL_CREATE: true,
         CHANNEL_DELETE: true,
         CHANNEL_UPDATE: true,
@@ -60,7 +60,7 @@ module.exports = class Cluster {
         PRESENCE_UPDATE: true,
         TYPING_START: true,
         USER_UPDATE: true
-      }
+      } */
     })
 
     try {
