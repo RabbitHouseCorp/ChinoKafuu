@@ -26,24 +26,24 @@
         },
         "reason": "Baneado por: {{0}} - Motivo: {{1}}"
     },
-    "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+    "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
     "howToUse": "¿Cómo se usa?",
     "aliases": "Alias",
     "addedToGuild": {
         "thanks": "Gracias por añadirme",
-        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+        "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión**, **música** y otras **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
         "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
     },
-    "noAliases": "This command doesn't have any aliases.",
+    "noAliases": "Este comando no tiene ningún alias.",
     "onMentionAfk": "**{{user}}** está AFK.",
     "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-    "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+    "afkRemoval": "{{user}}, como estás de vuelta, he eliminado tu estado AFK.",
     "voice": {
-        "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-        "playerAlreadyPlaying": "The track is already playing.",
-        "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+        "authorAreNotInVoiceChannel": "no estás en ningún canal de voz.",
+        "playerAlreadyPlaying": "La pista ya se está reproduciendo.",
+        "clientAreNotInVoiceChannel": "no estoy en ningún canal de voz.",
         "playerNotFound": "no estoy tocando ninguna canción",
-        "maxVolume": "calm down! The max volume allowed is `100`.",
+        "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
         "minVolume": "calm down! The minimal volume allowed is `5`."
     },
     "boolean": {
