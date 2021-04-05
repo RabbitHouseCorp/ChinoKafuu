@@ -44,15 +44,15 @@
         "clientAreNotInVoiceChannel": "no estoy en ningún canal de voz.",
         "playerNotFound": "no estoy tocando ninguna canción",
         "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
-        "minVolume": "calm down! The minimal volume allowed is `5`."
+        "minVolume": "¡tranquilo! El volumen mínimo permitido es `5`."
     },
     "boolean": {
-        "true": "Yes",
+        "true": "Sí",
         "false": "No"
     },
     "guildban": {
         "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/CAm9cSU) and maybe get them unbanned.",
+        "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el ban es injusto? Únete a mi [servidor de soporte](https://discord.gg/CAm9cSU) y tal vez se desbanea.",
         "reason": "Motivo"
     }
 }
