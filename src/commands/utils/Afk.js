@@ -1,3 +1,5 @@
+
+
 const { Command } = require('../../utils')
 
 module.exports = class AfkCommand extends Command {
