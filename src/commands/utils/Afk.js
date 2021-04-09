@@ -18,7 +18,7 @@ module.exports = class AfkCommand extends Command {
 
     const hasInvite = reason.match(guildInviteRegex)
 
-    if (hasInvite !== null && hasInvite >= 1) reason = '¯\\_(ツ)_/¯'
+    if (hasInvite !== null && hasInvite.length >= 1) reason = '¯\\_(ツ)_/¯'
 
     member.afk = true
     member.afkReason = reason
