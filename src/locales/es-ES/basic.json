@@ -52,7 +52,7 @@
     },
     "guildban": {
         "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
+        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
         "reason": "Motivo"
     }
 }
