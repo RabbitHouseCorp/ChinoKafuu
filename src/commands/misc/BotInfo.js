@@ -35,7 +35,7 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField(ctx._locale('commands:botinfo.shardUptime'), this.markDown('js', `${moment.duration(Date.now() - shard.uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`), true)
     embed.addField(ctx._locale('commands:botinfo.cpuModel'), this.markDown('diff', `- ${os.cpus().map(i => i.model)[0]}`), true)
     embed.addBlankField()
-    embed.addField(ctx._locale('commands:botinfo.supportServer'), `[${ctx._locale('basic:clickHere')}](https://discord.gg/CAm9cSU)`, true)
+    embed.addField(ctx._locale('commands:botinfo.supportServer'), `[${ctx._locale('basic:clickHere')}](https://discord.gg/https://discord.gg/Jr57UrsXeC)`, true)
     embed.addField('Github', `[${ctx._locale('basic:clickHere')}](https://github.com/RabbitHouseCorp/ChinoKafuu)`, true)
     embed.addField('Twitter', '[@ChinoKafuuBot](https://twitter.com/ChinoKafuuBot)', true)
     embed.addField('top.gg', '[top.gg](https://top.gg/bot/481282441294905344/vote)', true)
