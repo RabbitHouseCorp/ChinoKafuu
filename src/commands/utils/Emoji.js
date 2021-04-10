@@ -1,3 +1,5 @@
+//FUTURE[epic=KafuuTeam]  Possible command clutter
+
 const { Command } = require('../../utils')
 const fetch = require('node-fetch')
 module.exports = class EmojiCommand extends Command {

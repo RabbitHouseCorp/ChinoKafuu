@@ -1,3 +1,4 @@
+//TODO[epic=KafuuTeam] This can be more interesting
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 
 module.exports = class McSkinCommand extends Command {

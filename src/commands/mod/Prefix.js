@@ -1,3 +1,7 @@
+//FIXME[epic=KafuuTeam] make this silent
+//NOTE Problematic
+
+
 const { Command } = require('../../utils')
 
 module.exports = class PrefixCommand extends Command {

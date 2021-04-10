@@ -1,3 +1,8 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//NOTE Possible command clutter
+
+
+
 const Helper = require('../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../utils')
 const fetch = require('node-fetch')

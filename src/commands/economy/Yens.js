@@ -1,3 +1,6 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//FIXME[epic=flicky] Bring yens in
+
 const { Command } = require('../../utils')
 
 module.exports = class YensCommand extends Command {

@@ -1,3 +1,7 @@
+//FUTURE[epic=KafuuTeam] Deprecate
+//FUTURE[epic=KafuuTeam] Overlap
+
+
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class AnnounceCommand extends Command {

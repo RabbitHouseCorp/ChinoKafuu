@@ -1,6 +1,8 @@
+//FUTURE[epic=KafuuTeam,] Deprecated? No
+
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
-module.exports = class VoteCommand extends Command {
+module.exports = class AnimuCommand extends Command {
   constructor () {
     super({
       name: 'animu',
