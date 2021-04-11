@@ -41,7 +41,7 @@ module.exports = class Cluster {
         'guildMessageReactions',
         'directMessages',
         'directMessageReactions'
-      ],
+      ]
       /* disableEvents: {
         CHANNEL_CREATE: true,
         CHANNEL_DELETE: true,
