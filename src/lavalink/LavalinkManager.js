@@ -1,7 +1,16 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
-const { connect } = require('./LavalinkConfig')
 const { Logger } = require('../utils')
+
+// fallback for test env
+let connect
+try {
+  connect = require('./LavalinkConfig').connect
+} catch (e) {
+  Logger.info('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
+  connect = []
+}
+
 
 module.exports = class LavalinkManager {
   constructor (client) {
