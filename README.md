@@ -10,7 +10,7 @@
 
 ### Greetings! I'm Chino Kafuu and I'm just another simple Discord bot.
 ### Well... As you can see, I'm a bot with many features like fun, moderation and utility.
-#### You can find out my commands using *k.help*, and if you get any issue, please join my [support server](https://discord.gg/CAm9cSU)!
+#### You can find out my commands using *k.help*, and if you get any issue, please join my [support server](https://discord.gg/Jr57UrsXeC)!
 
 ## Self-hosted instances
 As Chino has grown over the time, the repository became open, meaning everyone can see the source code, open issues, etc, and as you may expect, copies were created.
@@ -65,7 +65,7 @@ We are now working with Crowdin. Please check out our [Crowdin repo](https://rab
 
 We are looking for high-experienced people in these languages: Japanese & Portuguese (Portugal)
 
-Isn't your languages listed above? Join our [support server](https://discord.gg/CAm9cSU) and talk to us.
+Isn't your languages listed above? Join our [support server](https://discord.gg/Jr57UrsXeC) and talk to us.
 
 ### For issues, please [open an issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose)
 

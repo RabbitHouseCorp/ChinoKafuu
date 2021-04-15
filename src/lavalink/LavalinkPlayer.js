@@ -25,7 +25,6 @@ module.exports = class LavalinkPlayer extends EventEmitter {
       return res.data.tracks
     } catch (err) {
       Logger.error(err.message)
-
       return null
     }
   }

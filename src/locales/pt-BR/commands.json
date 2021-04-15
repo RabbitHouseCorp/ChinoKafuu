@@ -127,7 +127,7 @@
         "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
         "additionalLinks": {
             "embedTitle": "Links Adicionais",
-            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/Jr57UrsXeC)"
+            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
         }
     },
     "rep": {

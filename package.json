@@ -12,8 +12,11 @@
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
+        "@polestar/emoji": "github:PolestarLabs/emoji-grimoire",
         "anilist-node": "^1.7.0",
+        "axios": "^0.21.1",
         "chalk": "^4.1.0",
+        "colors": "^1.4.0",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
         "eris": "github:abalabahaha/eris#dev",
@@ -31,7 +34,6 @@
         "workerpool": "^6.0.0"
     },
     "devDependencies": {
-        "axios": "^0.21.1",
         "jest": "^26.6.3"
     },
     "jest": {
