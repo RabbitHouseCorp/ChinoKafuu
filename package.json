@@ -38,6 +38,14 @@
     },
     "jest": {
         "collectCoverage": true,
-        "moduleFileExtensions": ["js", "json", "jsx", "ts", "tsx", "node", "json.example"]
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "jsx",
+            "ts",
+            "tsx",
+            "node",
+            "json.example"
+        ]
     }
 }

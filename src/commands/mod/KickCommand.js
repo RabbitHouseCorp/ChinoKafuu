@@ -10,6 +10,7 @@ module.exports = class KickCommand extends Command {
       arguments: 1,
       aliases: ['expulsar'],
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'user',
         permissions: ['kickMembers']

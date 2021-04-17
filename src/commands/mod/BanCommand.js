@@ -9,6 +9,7 @@ module.exports = class BanCommand extends Command {
       aliases: ['banir'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['banMembers', 'embedLinks']

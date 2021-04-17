@@ -11,6 +11,7 @@ module.exports = class RepCommand extends Command {
       name: 'rep',
       aliases: ['reputation', 'reputação', 'reputacao'],
       arguments: 1,
+      overlaps: true,
       hasUsage: true
     })
   }

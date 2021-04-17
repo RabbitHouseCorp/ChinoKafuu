@@ -9,6 +9,7 @@ module.exports = class PingCommand extends Command {
   constructor () {
     super({
       name: 'ping',
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -16,18 +17,16 @@ module.exports = class PingCommand extends Command {
     })
   }
 
+  async fallback (ctx) { // If we're on Pollux compatibility mode...
+    await axios.post(`${process.env.POLLUX_CONSTANTS}/api/internal/ping`, {
+      instance: 'RABBITHOUSE',
+      cluster: process.env.CLUSTER_ID,
+      last: ctx.message.timestamp,
+      diff: Date.now() - ctx.message.timestamp
+    })
+  }
+
   async run (ctx) {
-    // const plxPing = await axios.post(`${process.env.POLLUX_CONSTANTS}/api/internal/ping`, {
-    //   instance: 'RABBITHOUSE',
-    //   cluster: process.env.CLUSTER_ID,
-    //   last: ctx.message.timestamp,
-    //   diff: Date.now() - ctx.message.timestamp
-    // })
-
-    // console.log(plxPing)
-    // return;
-    // TODO[epic=KafuuTeam] Deal with this later
-
     switch (ctx.args[0]) {
       case 'shards': {
         const embed = new EmbedBuilder()

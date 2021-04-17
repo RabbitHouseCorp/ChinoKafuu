@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 
 module.exports = class ChangeAvatarCommand extends Command {
   constructor () {
@@ -17,10 +17,8 @@ module.exports = class ChangeAvatarCommand extends Command {
     if (!ctx.message.attachments[0] && !ctx.args[0]) return ctx.reply('error', 'você não informou a imagem em que eu devo colocar como meu avatar.')
 
     const url = ctx.args[0] || ctx.message.attachments[0].url
-    const request = await fetch(url)
-    const buffer = await request.buffer()
-    const data = `data:image/${url.substring(url.length, 3)};base64,`
-    const base64Avatar = data + buffer.toString('base64')
+    const request = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d, 'binary').toString('base64'))
+    const base64Avatar = `data:image/${url.substring(url.length, 3)};base64,${request}`
 
     ctx.client.editSelf({
       avatar: base64Avatar

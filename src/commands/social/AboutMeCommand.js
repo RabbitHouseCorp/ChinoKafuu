@@ -8,7 +8,8 @@ module.exports = class AboutMeCommand extends Command {
       name: 'aboutme',
       aliases: ['bio', 'sobremim'],
       arguments: 1,
-      hasUsage: true
+      hasUsage: true,
+      overlaps: true
     })
   }
 

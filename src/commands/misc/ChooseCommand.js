@@ -8,6 +8,7 @@ module.exports = class ChooseCommand extends Command {
       name: 'choose',
       aliases: ['escolher'],
       arguments: 1,
+      overlaps: true,
       hasUsage: true
     })
   }

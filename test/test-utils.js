@@ -6,11 +6,11 @@ String.prototype.isUpperCase = function (index) {
 }
 
 String.prototype.getAt = function (splitter, index) {
-  return this.split(splitter)[index == -1 ? this.split(splitter).length-1:index]
+  return this.split(splitter)[index == -1 ? this.split(splitter).length - 1 : index]
 }
 
 const getAllFilesRecursive = (path) => {
-  let list = []
+  const list = []
   const rec = (patht) => {
     readdirSync(patht).forEach((df) => {
       const fp = `${patht}/${df}`

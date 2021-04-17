@@ -11,6 +11,7 @@ module.exports = class PatCommand extends Command {
       aliases: ['cafune', 'cafuné'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

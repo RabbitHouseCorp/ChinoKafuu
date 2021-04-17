@@ -1,4 +1,4 @@
-// FUTURE[epic=KafuuTeam,] Deprecated? No
+// FUTURE[epic=KafuuTeam,] Deprecated? yup
 
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
@@ -8,6 +8,7 @@ module.exports = class AnimuCommand extends Command {
       name: 'animu',
       aliases: ['moeanimu'],
       arguments: 0,
+      overlaps: true, // don't overlap with meteora
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

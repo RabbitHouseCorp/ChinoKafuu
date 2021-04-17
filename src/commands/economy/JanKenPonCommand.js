@@ -1,4 +1,3 @@
-// TODO[epic=KafuuTeam] aliases (rps, janken)
 // TRANSLATE[epic=KafuuTeam] strings
 
 const { Command } = require('../../utils')
@@ -6,7 +5,7 @@ module.exports = class JanKenPonCommand extends Command {
   constructor () {
     super({
       name: 'jankenpon',
-      aliases: ['ppt', 'pedrapapeltesoura'],
+      aliases: ['ppt', 'pedrapapeltesoura', 'rps', 'janken'],
       arguments: 1,
       hasUsage: true
     })

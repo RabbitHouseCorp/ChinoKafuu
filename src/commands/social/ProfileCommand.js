@@ -58,6 +58,7 @@ module.exports = class ProfileCommand extends Command {
       name: 'profile',
       aliases: ['perfil'],
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']

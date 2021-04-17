@@ -8,6 +8,7 @@ module.exports = class LanguageCommand extends Command {
     super({
       name: 'language',
       aliases: ['lang', 'idioma'],
+      overlaps: true,
       permissions: [{
         entity: 'user',
         permissions: ['manageGuild']

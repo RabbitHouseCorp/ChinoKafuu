@@ -9,6 +9,7 @@ module.exports = class ClearCommand extends Command {
       aliases: ['limpar'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageMessages', 'readMessageHistory', 'readMessages']

@@ -7,6 +7,7 @@ module.exports = class DailyCommand extends Command {
   constructor () {
     super({
       name: 'daily',
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

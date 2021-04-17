@@ -10,6 +10,7 @@ module.exports = class AnnounceCommand extends Command {
       aliases: ['anunciar'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['mentionEveryone', 'embedLinks', 'addReactions']

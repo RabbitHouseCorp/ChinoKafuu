@@ -1,7 +1,7 @@
 // FUTURE[epic=KafuuTeam] Overlap
 
 const { Command, TranslatorFun } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 
 module.exports = class TranslateCommand extends Command {
   constructor () {
@@ -9,6 +9,7 @@ module.exports = class TranslateCommand extends Command {
       name: 'translate',
       aliases: ['traduzir'],
       arguments: 1,
+      overlaps: true,
       hasUsage: true,
       permissions: [{
         entity: 'bot',
@@ -25,9 +26,8 @@ module.exports = class TranslateCommand extends Command {
     }
 
     const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${content.slice(0)}&ie=UTF-8&oe=UTF-8`
-    const info = await fetch(encodeURI(url))
-    const res = await info.text()
-    const body = JSON.parse(await res)[0][0][0]
+    const res = await axios.get(encodeURI(url))
+    const body = res[0][0][0]
 
     ctx.reply('map', body.toString())
   }

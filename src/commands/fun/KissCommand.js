@@ -11,6 +11,7 @@ module.exports = class KissCommand extends Command {
       aliases: ['beijar'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

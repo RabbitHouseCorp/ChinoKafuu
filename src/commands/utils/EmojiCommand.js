@@ -1,7 +1,6 @@
-// FUTURE[epic=KafuuTeam]  Possible command clutter
-
 const { Command } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
+
 module.exports = class EmojiCommand extends Command {
   constructor () {
     super({
@@ -19,10 +18,8 @@ module.exports = class EmojiCommand extends Command {
   async run (ctx) {
     const emoji = await ctx.getEmoji(ctx.args[0])
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
-    const url = emoji.url
-    const request = await fetch(url)
-    const buffer = await request.buffer()
 
+    const buffer = await axios.get(emoji.url, { responseType: 'arraybuffer' }).then(d => d.buffer())
     ctx.send('', {}, { file: buffer, name: `${emoji.name}.${emoji.animated ? 'gif' : 'png'}` })
   }
 }

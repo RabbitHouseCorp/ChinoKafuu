@@ -8,6 +8,7 @@ module.exports = class InviteCommand extends Command {
       name: 'invite',
       aliases: ['convite', 'convidar'],
       arguments: 0,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

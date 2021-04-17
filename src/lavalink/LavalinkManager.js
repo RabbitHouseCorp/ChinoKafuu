@@ -11,7 +11,6 @@ try {
   connect = []
 }
 
-
 module.exports = class LavalinkManager {
   constructor (client) {
     this.client = client

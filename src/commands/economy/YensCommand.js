@@ -7,7 +7,8 @@ module.exports = class YensCommand extends Command {
   constructor () {
     super({
       name: 'yens',
-      aliases: ['yen']
+      aliases: ['yen'],
+      overlaps: true
     })
   }
 

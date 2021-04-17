@@ -10,6 +10,7 @@ module.exports = class BotInfoCommand extends Command {
       name: 'botinfo',
       aliases: ['infobot'],
       arguments: 0,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

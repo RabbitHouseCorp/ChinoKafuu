@@ -9,6 +9,7 @@ module.exports = class MarryCommand extends Command {
       aliases: ['casar'],
       arguments: 1,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']

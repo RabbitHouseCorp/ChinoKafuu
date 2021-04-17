@@ -1,9 +1,6 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const Helper = require('../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 
 module.exports = class SetIconCommand extends Command {
   constructor () {
@@ -11,6 +8,7 @@ module.exports = class SetIconCommand extends Command {
       name: 'seticon',
       arguments: 0,
       hasUsage: true,
+      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageGuild']
@@ -21,10 +19,8 @@ module.exports = class SetIconCommand extends Command {
   async run (ctx) {
     if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, ctx._locale(`commands:${this.name}.description`))).help()
     const url = ctx.args[0] ?? ctx.message.attachments[0].url
-    const request = await fetch(url)
-    const buffer = await request.buffer()
-    const data = `data:image/${url.substr(url.length - 3)};base64,`
-    const base64Icon = data + buffer.toString('base64')
+    const buffer = await axios.get(url, { responseType: true }).then(d => Buffer.from(d, 'binary').toString('base64'))
+    const base64Icon = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 
     ctx.message.channel.guild.edit({
       icon: base64Icon

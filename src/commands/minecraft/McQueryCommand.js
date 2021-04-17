@@ -2,7 +2,7 @@
 // FIXME[epic=KafuuTeam] Server Icon?
 
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 module.exports = class McQueryCommand extends Command {
   constructor () {
     super({
@@ -18,8 +18,8 @@ module.exports = class McQueryCommand extends Command {
   }
 
   async run (ctx) {
-    const res = await fetch(`http://mcapi.us/server/status?ip=${ctx.args[0]}`)
-    const body = await res.json()
+    const body = await axios.get(`http://mcapi.us/server/status?ip=${ctx.args[0]}`)
+
     if (body.online) {
       const embed = new EmbedBuilder()
       embed.setColor('MINECRAFT')

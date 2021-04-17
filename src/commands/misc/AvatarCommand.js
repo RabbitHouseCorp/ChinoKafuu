@@ -8,6 +8,7 @@ module.exports = class AvatarCommand extends Command {
       name: 'avatar',
       permissions: [{
         entity: 'bot',
+        overlaps: true,
         permissions: ['embedLinks']
       }]
     })

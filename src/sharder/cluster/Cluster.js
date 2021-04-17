@@ -20,7 +20,6 @@ module.exports = class Cluster {
       maxShards: parseInt(process.env.SHARD_AMOUNT),
       defaultImageFormat: 'png',
       defaultImageSize: 2048,
-      getAllUsers: false,
       restMode: true,
       allowedMentions: {
         everyone: false,
@@ -28,20 +27,20 @@ module.exports = class Cluster {
         users: true,
         repliedUser: true
       },
-      intents: [
+      intents: 14079 /* [
         'guilds',
         'guildMembers',
         'guildBans',
         'guildEmojis',
-        'guildIntegrations',
         'guildWebhooks',
         'guildInvites',
         'guildVoiceStates',
+        'guildIntegrations',
         'guildMessages',
         'guildMessageReactions',
         'directMessages',
         'directMessageReactions'
-      ]
+      ] */
       /* disableEvents: {
         CHANNEL_CREATE: true,
         CHANNEL_DELETE: true,

@@ -8,6 +8,7 @@ module.exports = class FavColorCommand extends Command {
       name: 'favcolor',
       aliases: ['favoritecolor', 'corfavorita'],
       arguments: 1,
+      overlaps: true,
       hasUsage: true
     })
   }

@@ -8,6 +8,7 @@ module.exports = class HelpCommand extends Command {
     super({
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
+      overlaps: true,
       hasUsage: true
     })
   }
