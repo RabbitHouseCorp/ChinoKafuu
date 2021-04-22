@@ -408,13 +408,13 @@
     },
     "ping": {
         "totalShard": "Total de shards: {{totalShard}}",
-        "operational": "Operational",
-        "unstable": "Unstable",
-        "unoperational": "Extremely unstable",
-        "clusterdown": "Offline - Restart Scheduled",
-        "totalClusters": "Total clusters: {{totalClusters}}",
-        "percentOn": "{{perc}}% functional",
-        "avgPing": "{{avg}}ms average ping",
+        "operational": "Operacional",
+        "unstable": "Instável",
+        "unoperational": "Extremamente instável",
+        "clusterdown": "Offline - Reinicialização Agendada",
+        "totalClusters": "Total de clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% funcional",
+        "avgPing": "{{avg}}ms ping médio",
         "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
     },
     "slap": {
@@ -448,13 +448,13 @@
         "aired": "Exibido",
         "score": "Pontuação",
         "scoreStats": "Estatísticas de pontuação",
-        "duration": "Episodes duration",
+        "duration": "Duração dos episódios",
         "ranked": "Classificação",
         "popularity": "Popularidade",
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
-        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
-        "description": "Shows some information about a manga.",
+        "animeNotFound": "Eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
+        "description": "Mostra algumas informações sobre um mangá.",
         "usage": "<nome>"
     },
     "manga": {
