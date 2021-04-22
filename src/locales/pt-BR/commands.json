@@ -63,7 +63,7 @@
     "profile": {
         "description": "Mostra o seu perfil social ou o perfil social de alguém.",
         "usage": "[usuário]",
-        "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
+        "defaultAboutMe": "\"Chino é minha amiga!\" Você pode mudar isso usando {{0}}aboutme"
     },
     "hangmaid": {
         "usage": "<1-para-fácil-ou-2-para-difícil>",
@@ -326,7 +326,7 @@
     "servericon": {
         "missingIcon": "this guild doesn't have an icon",
         "download": "Baixe o ícone clicando [aqui]({{0}})",
-        "description": "Shows the server icon."
+        "description": "Mostra o ícone do servidor."
     },
     "serverbanner": {
         "missingFeature": "este servidor não possui o recurso de `banner`.",
@@ -342,9 +342,9 @@
         "description": "Verifique o valor da moeda hoje."
     },
     "vote": {
-        "title": "Vote me",
-        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
-        "description": "Shows how you can vote me."
+        "title": "Vote em mim",
+        "embedVoted": "Muito obrigada. Você pode votar em mim nos links abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "description": "Mostra como você pode votar em mim."
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
@@ -353,9 +353,9 @@
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "You can add me in your Discord server by [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
-        "guildsAmount": "Total guilds",
-        "usersAmount": "Total users",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "guildsAmount": "Servidores totais",
+        "usersAmount": "Usuários totais",
         "shardLatency": "Ping da shard",
         "memoryUsage": "Uso de memória RAM",
         "clientVersion": "Versão atual",
@@ -394,7 +394,7 @@
     "hug": {
         "huged": "{{0}} deu um belo abraço em {{1}}",
         "usage": "<userID|@user>",
-        "description": "Hug a friend and make them happy."
+        "description": "Abrace um amigo e o faça feliz."
     },
     "pat": {
         "pated": "{{0}} acariciou {{1}}",
@@ -408,13 +408,13 @@
     },
     "ping": {
         "totalShard": "Total de shards: {{totalShard}}",
-        "operational": "Operational",
-        "unstable": "Unstable",
-        "unoperational": "Extremely unstable",
-        "clusterdown": "Offline - Restart Scheduled",
-        "totalClusters": "Total clusters: {{totalClusters}}",
-        "percentOn": "{{perc}}% functional",
-        "avgPing": "{{avg}}ms average ping",
+        "operational": "Operacional",
+        "unstable": "Instável",
+        "unoperational": "Extremamente instável",
+        "clusterdown": "Offline - Reinicialização Agendada",
+        "totalClusters": "Total de clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% funcional",
+        "avgPing": "{{avg}}ms ping médio",
         "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
     },
     "slap": {
@@ -448,13 +448,13 @@
         "aired": "Exibido",
         "score": "Pontuação",
         "scoreStats": "Estatísticas de pontuação",
-        "duration": "Episodes duration",
+        "duration": "Duração dos episódios",
         "ranked": "Classificação",
         "popularity": "Popularidade",
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
-        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
-        "description": "Shows some information about a manga.",
+        "animeNotFound": "Eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
+        "description": "Mostra algumas informações sobre um mangá.",
         "usage": "<nome>"
     },
     "manga": {
