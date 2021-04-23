@@ -9,13 +9,13 @@ module.exports = class FakeMsgCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'bot',
-        permissions: ['manageWebhooks']
+        permissions: ['manageChannels','manageWebhooks']
       }]
     })
   }
 
   async run(ctx) {
-    const member = ctx.client.users.get(ctx.args[0]?.replace(/[<@!>]/g, ''))
+    const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const args = ctx.args.slice(1).join(' ')
     if (!args) return ctx.replyT('error', 'commands:fakemsg.argsNull')

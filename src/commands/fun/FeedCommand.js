@@ -1,6 +1,7 @@
 const { Command, EmbedBuilder } = require('../../utils')
 const { UsagiAPI } = require('usagiapi')
 const usagi = new UsagiAPI()
+
 module.exports = class FeedCommand extends Command {
   constructor() {
     super({

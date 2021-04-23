@@ -5,7 +5,7 @@ module.exports = class McQueryCommand extends Command {
   constructor () {
     super({
       name: 'mcquery',
-      aliases: ['mcpesquisa'],
+      aliases: ['mcpesquisa', 'mcstatus'],
       arguments: 1,
       hasUsage: true,
       permissions: [{

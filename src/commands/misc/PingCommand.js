@@ -1,7 +1,6 @@
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
-const axios = require('axios')
 
 module.exports = class PingCommand extends Command {
   constructor() {
@@ -11,15 +10,6 @@ module.exports = class PingCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }]
-    })
-  }
-
-  async fallback(ctx) { // If we're on Pollux compatibility mode...
-    await axios.post(`${process.env.POLLUX_CONSTANTS}/api/internal/ping`, {
-      instance: 'RABBITHOUSE',
-      cluster: process.env.CLUSTER_ID,
-      last: ctx.message.timestamp,
-      diff: Date.now() - ctx.message.timestamp
     })
   }
 

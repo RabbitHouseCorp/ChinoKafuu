@@ -6,7 +6,11 @@ module.exports = class HelpCommand extends Command {
     super({
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
-      hasUsage: true
+      hasUsage: true,
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

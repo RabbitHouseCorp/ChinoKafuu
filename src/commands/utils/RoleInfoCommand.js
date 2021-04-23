@@ -15,7 +15,7 @@ module.exports = class RoleInfoCommand extends Command {
         },
         {
           entity: 'bot',
-          permissions: ['embedLinks']
+          permissions: ['embedLinks', 'manageRoles']
         }]
     })
   }
