@@ -7,7 +7,8 @@ module.exports = class Command extends Module {
     this.arguments = options.arguments || 0
     this.aliases = options.aliases || []
     this.hasUsage = options.hasUsage || false
-    this.permissions = options.permissions || []
+    this.permissions = options.permissions || [],
+    this.cooldown = options.cooldown || 5
   }
 
   run (ctx) {}
