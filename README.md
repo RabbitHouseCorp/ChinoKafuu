@@ -61,7 +61,7 @@ Ah, sure, you wanna know how to, don't ya? Sure, I'll explain:
 
 ### Translating
 Of course we do not support only English. We're looking to expand to a variety of new languages and for such thing we need your help!
-We are now working with Crowdin. Please check out our [Crowdin repo](https://rabbithouse.crowdin.com/chino-kafuu)!
+We are now working with Crowdin. Please check out our [Crowdin repo](https://https://crowdin.com/project/chinokafuu)!
 
 We are looking for high-experienced people in these languages: Japanese & Portuguese (Portugal)
 

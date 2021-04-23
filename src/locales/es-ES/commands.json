@@ -551,7 +551,7 @@
         "description": "Change my language in the current guild.",
         "message": "What is your language? React below.",
         "helpUs": "Help us translating",
-        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://rabbithouse.crowdin.com/chino-kafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",

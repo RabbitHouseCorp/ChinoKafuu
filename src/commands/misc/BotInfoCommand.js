@@ -4,7 +4,7 @@ const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')
 module.exports = class BotInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'botinfo',
       aliases: ['infobot'],
@@ -17,7 +17,7 @@ module.exports = class BotInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const shard = ctx.client.shardUptime.get(ctx.message.channel.guild.shard.id)
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
@@ -40,12 +40,12 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField('Twitter', '[@ChinoKafuuBot](https://twitter.com/ChinoKafuuBot)', true)
     embed.addField('top.gg', '[top.gg](https://top.gg/bot/481282441294905344/vote)', true)
     embed.addField('Zuraaa.com', '[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)', true)
-    embed.addField('Crowdin', '[rabbithouse.crowdin.com](https://rabbithouse.crowdin.com/chino-kafuu)', true)
+    embed.addField('Crowdin', '[crowdin.com/project/chinokafuu](https://https://crowdin.com/project/chinokafuu)', true)
 
     ctx.send(embed.build())
   }
 
-  markDown (code, text) {
+  markDown(code, text) {
     return `\`\`\`${code}\n${text}\`\`\``
   }
 }
