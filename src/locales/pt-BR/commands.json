@@ -325,7 +325,7 @@
         "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
         "invalidArgs": "a moeda `{{arg}}` é inválida.\n**Moedas Suportadas:** `{{supported}}`",
         "usage": "<de> <para> <quantia>",
-        "description": "Verifique o valor da moeda hoje."
+        "description": "Converte o valor de uma moeda para outra moeda."
     },
     "vote": {
         "title": "Vote em mim",
@@ -334,15 +334,15 @@
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
-        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+        "canAddMe": "Você pode me convidar para o seu servidor do discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions2117578239).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC).",
         "description": "Mostra como você pode me adicionar no seu servidor."
     },
     "botinfo": {
         "title": "Informação do bot",
         "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
-        "guildsAmount": "Servidores totais",
-        "usersAmount": "Usuários totais",
-        "shardLatency": "Ping da shard",
+        "guildsAmount": "Total de servidores",
+        "usersAmount": "Total de usuários",
+        "shardLatency": "Latência da shard",
         "memoryUsage": "Uso de memória RAM",
         "clientVersion": "Versão atual",
         "shardUptime": "Tempo online atual da shard",
@@ -383,7 +383,7 @@
         "description": "Abrace um amigo e o faça feliz."
     },
     "pat": {
-        "pated": "{{0}} acariciou {{1}}",
+        "pated": "{{0}} fez cafuné em {{1}}",
         "usage": "<userID|@user>",
         "description": "Cafuné, cafuné, me faça um cafuné, por favor. Faça um cafuné no seu amigo."
     },
