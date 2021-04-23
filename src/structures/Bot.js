@@ -40,10 +40,6 @@ module.exports = class Bot extends Client {
          * @type {Map}
          */
     this.shardUptime = new Map()
-    /**
-         *
-         * @type {PolluxClient}
-         */
-    this.polluxClient = new PolluxClient()
+
   }
 }

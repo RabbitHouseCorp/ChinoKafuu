@@ -1,4 +1,3 @@
-// TODO[epic=flicky] This can be fancier
 
 const { Command, EmbedBuilder } = require('../../utils')
 const malScraper = require('mal-scraper')

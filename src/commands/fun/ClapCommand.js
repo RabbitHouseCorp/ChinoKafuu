@@ -1,4 +1,3 @@
-// FIXME[epic=KafuuTeam] Do not accept < 2 args
 
 const { Command } = require('../../utils')
 

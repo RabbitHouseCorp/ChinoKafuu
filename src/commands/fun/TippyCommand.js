@@ -1,4 +1,3 @@
-// FIXME[epic=KafuuTeam] Webhook perms
 
 const { Command, FunCommandInstance, Emoji } = require('../../utils')
 module.exports = class TippyCommand extends Command {

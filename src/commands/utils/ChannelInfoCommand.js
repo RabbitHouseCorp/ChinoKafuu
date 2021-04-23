@@ -1,5 +1,4 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
+
 
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')

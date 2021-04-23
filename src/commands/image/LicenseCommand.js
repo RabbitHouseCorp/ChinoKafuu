@@ -1,4 +1,4 @@
-// FIXME[epic=KafuuTeam] Tokamak not available - convert to generator?
+
 
 const { Command } = require('../../utils')
 const axios = require('axios')

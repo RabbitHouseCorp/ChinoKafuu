@@ -1,4 +1,3 @@
-// FIXME[epic=KafuuTeam] Webhook perms error
 
 const { Command } = require('../../utils')
 

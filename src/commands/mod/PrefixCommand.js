@@ -1,5 +1,4 @@
-// FIXME[epic=KafuuTeam] make this silent
-// NOTE Problematic
+
 
 const { Command } = require('../../utils')
 

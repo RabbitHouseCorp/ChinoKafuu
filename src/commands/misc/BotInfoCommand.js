@@ -1,4 +1,3 @@
-// FUTURE[epic=KafuuTeam] Overlap
 
 const { Command, EmbedBuilder, version } = require('../../utils')
 const moment = require('moment')

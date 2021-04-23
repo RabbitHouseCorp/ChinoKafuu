@@ -1,5 +1,4 @@
-// TODO[epic=KafuuTeam] This can be more interesting
-// FIXME[epic=KafuuTeam] Server Icon?
+
 
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const axios = require('axios')

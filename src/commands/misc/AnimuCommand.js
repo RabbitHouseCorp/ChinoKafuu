@@ -1,4 +1,3 @@
-// FUTURE[epic=KafuuTeam,] Deprecated? yup
 
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')

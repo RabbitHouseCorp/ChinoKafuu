@@ -1,4 +1,3 @@
-// TRANSLATE[epic=KafuuTeam] strings
 
 const { Command } = require('../../utils')
 module.exports = class JanKenPonCommand extends Command {

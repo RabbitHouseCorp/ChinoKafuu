@@ -1,4 +1,3 @@
-// FUTURE[epic=KafuuTeam] Deprecate/Overlap
 
 const { Command } = require('../../utils')
 
