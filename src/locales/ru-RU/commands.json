@@ -65,20 +65,6 @@
         "usage": "[user]",
         "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
     },
-    "hangmaid": {
-        "usage": "<1-to-easy-or-2-to-hard>",
-        "description": "A classic hangman game but with your favorite maid, Pollux",
-        "winner": "Congratulations! You won the game!",
-        "loser": "Owwwn... You've lost the game. Don't be sad, you can try one more time.",
-        "wrongLength": "Missed: **{{0}}**\n",
-        "missingArgs": "wait a minute... you didn't specify the difficult! Use `1` to easy or `2` to hard.",
-        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
-        "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
-        "resultloser": "You lost",
-        "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
-        "cannot": "You cannot create another match because there is already one! Wait for the match to end and try again.",
-        "mode": "You need to specify the difficult to start playing:\n`1` - Easy\n`2` - Hard"
-    },
     "emojiinfo": {
         "usage": "<emoji>",
         "description": "Get some info about an emoji.",
@@ -551,7 +537,7 @@
         "description": "Change my language in the current guild.",
         "message": "What is your language? React below.",
         "helpUs": "Help us translating",
-        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://rabbithouse.crowdin.com/chino-kafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
