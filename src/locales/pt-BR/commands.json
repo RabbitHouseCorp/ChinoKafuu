@@ -528,16 +528,16 @@
     },
     "ban": {
         "usage": "<userID|@user> [motivo]",
-        "description": "Bans a user from the server",
+        "description": "Bane um usuário do servidor",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
         "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "language": {
         "description": "Altera o meu idioma no servidor atual.",
-        "message": "Qual é sua língua? Reaja abaixo.",
-        "helpUs": "Help us translating",
-        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+        "message": "Qual é o seu idioma? Reaja abaixo.",
+        "helpUs": "Ajude-nos a traduzir",
+        "explaining": "Você pode nos ajudar a traduzir Chino Kafuu para seu idioma acessando o nosso [Crowdin](https://https://crowdin.com/project/chinokafuu). Claro, sua contribuição será recompensada! Você ganhará um cargo no meu servidor de suporte. Obrigado, pequeno coelho, eu te amo (como um amigo, claro)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
@@ -547,13 +547,13 @@
     },
     "setbanner": {
         "description": "Define o banner do seu servidor. Comando disponível apenas para o servidor com o recurso \"Banner\" ativado",
-        "usage": "<URL|Attachment>",
+        "usage": "<URL|Anexo>",
         "success": "Opa! Seu servidor agora tem um novo banner",
         "missingFeature": "seu servidor não possui o recurso `Banner`, você não pode executar este comando"
     },
     "aboutme": {
         "description": "Altera a descrição do seu perfil",
-        "usage": "<bio>",
+        "usage": "<biografia>",
         "success": "incrível! Sua nova biografia foi definida como: `{{bio}}`",
         "bioLimit": "sua bio pode ter até 128 caracteres"
     },
