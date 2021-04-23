@@ -440,7 +440,7 @@
         "genres": "Gêneros",
         "invalidAnime": "diga o nome do anime que você deseja",
         "animeNotFound": "Eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
-        "description": "Mostra algumas informações sobre um mangá.",
+        "description": "Mostra algumas informações sobre um anime.",
         "usage": "<nome>"
     },
     "manga": {
@@ -453,18 +453,18 @@
         "aired": "Publicado",
         "genres": "Gêneros",
         "characters": "Personagens",
-        "description": "Shows some information about an anime.",
+        "description": "Mostra algumas informações sobre um mangá.",
         "usage": "<nome>"
     },
     "pay": {
-        "usage": "<userID|@user> <quantia>",
+        "usage": "<usuário> <quantia>",
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "você não pode fazer uma transferência para você mesmo!",
         "valueMismatch": "você inseriu um valor inválido",
-        "success": "transferência de {{yens}} yens efetuada para {{user}} com sucesso",
-        "poorUser": "você não possui yens para completar essa transferência",
+        "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
+        "poorUser": "você não possui ienes para completar essa transferência",
         "cancelled": "certo, transferência cancelada",
-        "confirm": "{{user}} irá receber __`{{yens}}`__ yens. Deseja continuar?"
+        "confirm": "{{user}} irá receber __`{{yens}}`__ ienes. Deseja continuar?"
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
@@ -474,7 +474,7 @@
     "clap": {
         "noArgs": "argumento inválido",
         "usage": "<quantidade>",
-        "description": "Let's clap, clap, clap, clap, clap with your friends."
+        "description": "Vamos todos bater palmas com os seus amigos."
     },
     "congaparrot": {
         "usage": "<quantia-repetição>",
