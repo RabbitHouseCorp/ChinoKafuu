@@ -558,9 +558,9 @@
         "bioLimit": "sua bio pode ter até 128 caracteres"
     },
     "softban": {
-        "description": "Bane temporariamente um usuário. Se o tempo terminar não especificado, o valor padrão (7) será usado.",
+        "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado.",
         "usage": "<@user|userID> [purge-days] [reason]",
-        "owner": "Você não pode banir temporariamente o dono do servidor!",
+        "owner": "você não pode soft banir o dono do servidor!",
         "error": "Não consegui banir temporariamente esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
     "afk": {
