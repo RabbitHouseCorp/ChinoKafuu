@@ -9,7 +9,7 @@ module.exports = class CommandContext {
      * @param db
      * @param t
      */
-  constructor (bot, message, args, db, _locale) {
+  constructor(bot, message, args, db, _locale) {
     this.client = bot
     this.message = message
     this.args = args
@@ -23,7 +23,7 @@ module.exports = class CommandContext {
      * @param options {object}
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
-  async send (content, options, file) {
+  async send(content, options, file) {
     if (typeof content === 'object') {
       return await this.message.channel.createMessage(Object.assign(content, { messageReferenceID: this.message.id }, options), file)
     }
@@ -38,7 +38,7 @@ module.exports = class CommandContext {
      * @param options
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-  async sendT (content, data = {}, options = {}) {
+  async sendT(content, data = {}, options = {}) {
     return await this.message.channel.createMessage({
       content: this._locale(content, data),
       messageReferenceID: this.message.id,
@@ -53,7 +53,7 @@ module.exports = class CommandContext {
      * @param options
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
-  async reply (emoji, content, options = {}) {
+  async reply(emoji, content, options = {}) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
       messageReferenceID: this.message.id,
@@ -70,7 +70,7 @@ module.exports = class CommandContext {
      * @param file
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-  async replyT (emoji, content, data = {}, options = {}, file) {
+  async replyT(emoji, content, data = {}, options = {}, file) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
       messageReferenceID: this.message.id,
@@ -84,7 +84,7 @@ module.exports = class CommandContext {
      * @param {string} args
      * @param {boolean} hasAuthor
      */
-  async getUser (args, hasAuthor = false) {
+  async getUser(args, hasAuthor = false) {
     if (!args) {
       if (hasAuthor) {
         return this.message.author
@@ -115,7 +115,7 @@ module.exports = class CommandContext {
      * @param {string} args
      */
 
-  async getEmoji (args) {
+  async getEmoji(args) {
     if (!args) return false
     if (args.includes('%')) args = decodeURIComponent(args)
     if (!args.includes(':')) {
@@ -166,7 +166,7 @@ module.exports = class CommandContext {
      * @param {string} text
      */
 
-  toUnicode (text) {
+  toUnicode(text) {
     const emojis = []
     for (const codePoint of text) {
       emojis.push(codePoint.codePointAt(0).toString(16))
@@ -174,8 +174,9 @@ module.exports = class CommandContext {
     return emojis
   }
 
-  getRole (role) {
+  getRole(role) {
     const getRole = this.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.channel.guild.roles.get(role.replace(/[<@&>]/g, ''))
     if (!getRole) return false
+    return getRole
   }
 }

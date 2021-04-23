@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const axios = require('axios')
 const InvalidArgumentError = require('./InvalidArgumentError')
 const TIME_CACHE_MINUTES = 15
 
@@ -45,8 +45,7 @@ class ExchangeAPI {
     if (this._isCacheValid(cached)) {
       data = { ...cached, isCached: true }
     } else {
-      const res = await fetch(`${this._url}/latest?base=${from}&symbols=${to}`)
-      data = await res.json()
+      data = await axios.get(`${this._url}/latest?base=${from}&symbols=${to}`)
       data.timestamp = new Date().getTime()
       this._cache[key] = data
     }

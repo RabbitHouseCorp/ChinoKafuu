@@ -1,7 +1,7 @@
 const { EventEmitter } = require('events')
 const { Logger } = require('../utils')
 module.exports = class LavalinkPlayer extends EventEmitter {
-  constructor(player) {
+  constructor (player) {
     super()
     this.player = player
     this.queue = []
@@ -10,7 +10,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     this.repeat = false
   }
 
-  async getSongs(node, search) {
+  async getSongs (node, search) {
     const axios = require('axios')
     const { URLSearchParams } = require('url')
     const params = new URLSearchParams()
@@ -29,7 +29,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     }
   }
 
-  play(query) {
+  play (query) {
     return this.getSongs(this.player.node, `ytsearch:${query}`).then(result => {
       if (!result[0]) return
       this._addToQueue(result[0])
@@ -45,7 +45,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     })
   }
 
-  skip() {
+  skip () {
     const queue = this.queue.shift()
     if (!queue) return
     this.player.play(queue.track)
@@ -53,25 +53,25 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     this.repeatTrack = queue.track
   }
 
-  setVolume(value) {
+  setVolume (value) {
     if (value > 100) value = 100
     return this.player.volume(value)
   }
 
-  pause() {
+  pause () {
     return this.player.paused ? this.player.resume() : this.player.pause()
   }
 
-  shuffle() {
+  shuffle () {
     return this.queue.sort(() => Math.random() > 0.5 ? -1 : 1)
   }
 
-  _addToQueue(track) {
+  _addToQueue (track) {
     if (!this.player.playing && !this.player.paused) return this._play(track)
     return this.queue.push(track)
   }
 
-  _play(song) {
+  _play (song) {
     this.player.on('end', (data) => {
       if (data.reason === 'REPLACED') return
       if (this.repeat) {

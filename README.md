@@ -40,7 +40,7 @@ node .
 ### How to connect a Lavalink
 > Create a file named `LavalinkConfig.json` in the folder `lavalink` and input this informations on this file
 
-> Download the Lavalink jar in: https://github.com/Frederikam/Lavalink/blob/master/README.md (Please read with attention)
+> Download the Lavalink jar in: https://github.com/freyacodes/Lavalink/blob/master/README.md (Please read with attention)
 ```json
 {
   "connect": [{
@@ -61,7 +61,7 @@ Ah, sure, you wanna know how to, don't ya? Sure, I'll explain:
 
 ### Translating
 Of course we do not support only English. We're looking to expand to a variety of new languages and for such thing we need your help!
-We are now working with Crowdin. Please check out our [Crowdin repo](https://rabbithouse.crowdin.com/chino-kafuu)!
+We are now working with Crowdin. Please check out our [Crowdin repo](https://https://crowdin.com/project/chinokafuu)!
 
 We are looking for high-experienced people in these languages: Japanese & Portuguese (Portugal)
 

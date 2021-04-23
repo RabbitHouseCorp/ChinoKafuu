@@ -41,13 +41,22 @@ module.exports = class CommandRunner {
 
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
-
+ 
     const ctx = new CommandContext(client, message, args, {
       user: userData,
       guild: guildData,
       db: client.database.users
     }, _locale)
+    if (typeof client.commandCooldown.users.get(message.author.id) === 'undefined') {
+      client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
+    } else {
+      try {
+        ctx.replyT('cooldown', `Wait \`${new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()}\` seconds to execute this command again!`)
+      } catch(ignore) {
 
+      }
+      return
+    }
     if (userData?.blacklist) {
       const avatar = message.author.avatarURL
       const embed = new EmbedBuilder()

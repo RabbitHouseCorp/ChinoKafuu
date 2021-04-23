@@ -1,20 +1,24 @@
 {
     "name": "chino-kafuu",
-    "version": "2021.04.02-rc04",
-    "description": "Discord Bot.",
+    "version": "2021.04.23-rc15",
+    "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
     "main": "index.js",
     "scripts": {
         "test": "jest",
         "start": "node index.js --experimental--worker"
     },
-    "author": "",
+    "engines": {
+        "node": ">=14.0.0"
+    },
+    "author": "DanielaGC_",
     "license": "AGPL-3.0",
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
-        "@polestar/emoji": "github:PolestarLabs/emoji-grimoire",
         "anilist-node": "^1.7.0",
+        "axios": "^0.21.1",
         "chalk": "^4.1.0",
+        "colors": "^1.4.0",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
         "eris": "github:abalabahaha/eris#dev",
@@ -28,15 +32,22 @@
         "nekos.life": "^2.0.7",
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
-        "axios": "^0.21.1",
-        "colors": "^1.4.0",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
         "workerpool": "^6.0.0"
     },
-    "devDependencies": {        
+    "devDependencies": {
         "jest": "^26.6.3"
     },
     "jest": {
-        "collectCoverage": true
+        "collectCoverage": true,
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "jsx",
+            "ts",
+            "tsx",
+            "node",
+            "json.example"
+        ]
     }
 }

@@ -4,10 +4,10 @@ const CommandRegistry = require('./command/CommandRegistry')
 const I18NRegistry = require('./i18n/I18NRegistry')
 const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
-const PolluxClient = require('./util/PolluxClient')
+const CommandCooldown = require('./command/CommandCooldown')
 
 module.exports = class Bot extends Client {
-  constructor (...data) {
+  constructor(...data) {
     super(...data)
 
     /**
@@ -40,10 +40,12 @@ module.exports = class Bot extends Client {
          * @type {Map}
          */
     this.shardUptime = new Map()
+    
     /**
-         *
-         * @type {PolluxClient}
-         */
-    this.polluxClient = new PolluxClient()
+          * @type {CommandCooldown}
+          * @description This class is for blocking access to commands globally and Soon will have future implementations
+          */
+    this.commandCooldown = new CommandCooldown()
+
   }
 }
