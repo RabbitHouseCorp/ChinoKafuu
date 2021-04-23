@@ -174,7 +174,7 @@
         "success": "cargo removido com sucesso.",
         "alreadyRemoved": "o membro não tem este cargo.",
         "higher": "eu não pude remover este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente.",
-        "usage": "<@user> <role>",
+        "usage": "<usuário> <cargo>",
         "description": "Remove um cargo a um membro do servidor."
     },
     "removeemoji": {
