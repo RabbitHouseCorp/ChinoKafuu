@@ -1,14 +1,11 @@
-
-
 const { Command } = require('../../utils')
 
 module.exports = class PrefixCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'prefix',
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'user',
         permissions: ['manageGuild']
@@ -16,7 +13,7 @@ module.exports = class PrefixCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (ctx.args[0].length > 3) return ctx.replyT('error', 'commands:prefix.length')
     const prefix = ctx.args[0]
     ctx.db.guild.prefix = prefix

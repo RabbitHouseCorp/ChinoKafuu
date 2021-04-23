@@ -1,11 +1,10 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 const Anilist = require('anilist-node')
 const anilist = new Anilist()
 const Logger = require('../../structures/util/Logger')
 
 module.exports = class MangaCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'manga',
       aliases: [],
@@ -17,7 +16,7 @@ module.exports = class MangaCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const search = ctx.args.join(' ')
     const t = ctx._locale
     if (!search) return ctx.replyT('error', 'commands:manga.invalidManga')

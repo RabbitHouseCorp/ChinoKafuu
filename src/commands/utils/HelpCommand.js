@@ -1,18 +1,16 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
 const Helper = require('../../structures/util/Helper')
+
 module.exports = class HelpCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
-      overlaps: true,
       hasUsage: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const command = ctx.client.commandRegistry
     const commandLength = command.filterByCategory('economy').length + command.filterByCategory('fun').length + command.filterByCategory('minecraft').length + command.filterByCategory('misc').length + command.filterByCategory('mod').length + command.filterByCategory('social').length + command.filterByCategory('utils').length + command.filterByCategory('image').length
     const embed = new EmbedBuilder()

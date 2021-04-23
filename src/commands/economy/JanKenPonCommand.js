@@ -1,7 +1,7 @@
-
 const { Command } = require('../../utils')
+
 module.exports = class JanKenPonCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'jankenpon',
       aliases: ['ppt', 'pedrapapeltesoura', 'rps', 'janken'],
@@ -10,7 +10,7 @@ module.exports = class JanKenPonCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const user = await ctx.db.user
     const client = await ctx.client.database.users.getOrCreate(ctx.client.user.id)
     const options = ['pedra', 'papel', 'tesoura']

@@ -1,18 +1,16 @@
-
 const { Command } = require('../../utils')
 
 module.exports = class ChooseCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'choose',
       aliases: ['escolher'],
       arguments: 1,
-      overlaps: true,
       hasUsage: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const argArray = ctx.args.join(' ').split(', ')
     const chosen = argArray[Math.floor(Math.random() * argArray.length)]
 

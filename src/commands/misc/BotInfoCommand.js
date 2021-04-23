@@ -1,15 +1,14 @@
-
 const { Command, EmbedBuilder, version } = require('../../utils')
 const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')
+
 module.exports = class BotInfoCommand extends Command {
   constructor() {
     super({
       name: 'botinfo',
       aliases: ['infobot'],
       arguments: 0,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

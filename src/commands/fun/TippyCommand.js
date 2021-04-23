@@ -1,7 +1,7 @@
-
 const { Command, FunCommandInstance, Emoji } = require('../../utils')
+
 module.exports = class TippyCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'tippy',
       aliases: ['piada'],
@@ -12,7 +12,7 @@ module.exports = class TippyCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const url = 'https://cdn.discordapp.com/attachments/468878707449397258/753395078202130602/209374d243fd45aaddf68b8f5ceb2ce6qfdbg9ohK8LFt8NR-0.png'
     const jokes = FunCommandInstance.jokes[Math.floor(Math.random() * FunCommandInstance.jokes.length)]
     let webhook = await ctx.message.channel.getWebhooks()

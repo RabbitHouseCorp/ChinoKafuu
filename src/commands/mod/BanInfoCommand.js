@@ -1,9 +1,7 @@
-
-
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class BanInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'baninfo',
       aliases: [],
@@ -20,7 +18,7 @@ module.exports = class BanInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const guild = ctx.message.channel.guild
     const bans = await guild.getBans()
     const member = bans.find(ban => ban.user.username.toLowerCase().includes(ctx.args[0]?.toLowerCase())) || bans.find(ban => ban.user.id === ctx.args[0])

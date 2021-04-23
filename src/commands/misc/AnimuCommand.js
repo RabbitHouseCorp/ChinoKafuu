@@ -1,13 +1,12 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
+
 module.exports = class AnimuCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'animu',
       aliases: ['moeanimu'],
       arguments: 0,
-      overlaps: true, // don't overlap with meteora
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -15,7 +14,7 @@ module.exports = class AnimuCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
 
     const argsNullEmbed = new EmbedBuilder()

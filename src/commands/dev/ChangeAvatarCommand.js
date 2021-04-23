@@ -2,7 +2,7 @@ const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class ChangeAvatarCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'changeavatar',
       permissions: [{
@@ -13,7 +13,7 @@ module.exports = class ChangeAvatarCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (!ctx.message.attachments[0] && !ctx.args[0]) return ctx.reply('error', 'você não informou a imagem em que eu devo colocar como meu avatar.')
 
     const url = ctx.args[0] || ctx.message.attachments[0].url

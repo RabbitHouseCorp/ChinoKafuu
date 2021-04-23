@@ -1,9 +1,8 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 const malScraper = require('mal-scraper')
 
-class AnimeCommand extends Command {
-  constructor () {
+module.exports = class AnimeCommand extends Command {
+  constructor() {
     super({
       name: 'anime',
       aliases: ['malanime'],
@@ -15,7 +14,7 @@ class AnimeCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const search = ctx.args.join(' ')
     const t = ctx._locale
     if (!search) return ctx.replyT('error', 'commands:anime.argsNull')
@@ -48,5 +47,3 @@ class AnimeCommand extends Command {
     }
   }
 }
-
-module.exports = AnimeCommand

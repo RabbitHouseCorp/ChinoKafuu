@@ -2,18 +2,18 @@ const { Command, EmbedBuilder } = require('../../utils')
 const util = require('util')
 
 module.exports = class EvalCommand extends Command {
-  constructor () {
+  constructor() {
     super({
-      name: 'keval',
+      name: 'eval',
       permissions: [{
         entity: 'user',
         permissions: ['botDeveloper']
       }],
-      aliases: ['kev', 'ev-all']
+      aliases: ['ev']
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     try {
       let evaled = await eval(ctx.args.join(' '))
       evaled = util.inspect(evaled, { depth: 1 })

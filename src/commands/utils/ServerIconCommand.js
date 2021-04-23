@@ -1,9 +1,7 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ServerIconCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'servericon',
       aliases: ['guildicon'],
@@ -14,7 +12,7 @@ module.exports = class ServerIconCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const guild = ctx.message.channel.guild
     if (!guild.icon) return ctx.replyT('error', 'commands:servericon.missingIcon')
 

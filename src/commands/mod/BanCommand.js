@@ -1,14 +1,12 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
+
 module.exports = class BanCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'ban',
       aliases: ['banir'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['banMembers', 'embedLinks']
@@ -16,7 +14,7 @@ module.exports = class BanCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const guildMember = ctx.message.channel.guild.members.get(member.id)

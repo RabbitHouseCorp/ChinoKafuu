@@ -1,12 +1,10 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
 
 module.exports = class DailyCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'daily',
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -14,7 +12,7 @@ module.exports = class DailyCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const user = ctx.db.user
     if (parseInt(user.timeDaily) > Date.now()) {
       return ctx.replyT('error', 'commands:daily.hasBeenPicked', {

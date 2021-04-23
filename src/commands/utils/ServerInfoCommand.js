@@ -1,9 +1,8 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
+
 module.exports = class ServerInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'serverinfo',
       aliases: ['guildinfo'],
@@ -14,7 +13,7 @@ module.exports = class ServerInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     moment.locale(ctx.db.guild.lang)
     const guild = ctx.message.channel.guild
     const owner = await ctx.getUser(guild.ownerID)

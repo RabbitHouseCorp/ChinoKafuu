@@ -1,7 +1,7 @@
 const { Command } = require('../../utils')
 
 module.exports = class GuildBanCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'guildban',
       permissions: [{
@@ -11,7 +11,7 @@ module.exports = class GuildBanCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
         const guild = ctx.args[1]

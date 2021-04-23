@@ -1,21 +1,18 @@
-
-
 const { Command } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
 
 module.exports = class RepCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'rep',
       aliases: ['reputation', 'reputação', 'reputacao'],
       arguments: 1,
-      overlaps: true,
       hasUsage: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = ctx.client.users.get(ctx.args[0]?.replace(/[<@!>]/g, ''))
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const author = ctx.db.user

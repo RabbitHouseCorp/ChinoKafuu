@@ -1,8 +1,7 @@
-
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 
 module.exports = class McSkinCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'mcskin',
       aliases: [],
@@ -15,7 +14,7 @@ module.exports = class McSkinCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const body = `https://minotar.net/skin/${ctx.args[0]}`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')

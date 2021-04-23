@@ -1,9 +1,7 @@
-
-
-const { Command, EmbedBuilder } = require('../../utils')
+const { Command } = require('../../utils')
 
 module.exports = class SlowmodeCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'slowmode',
       aliases: ['modolento'],
@@ -15,7 +13,7 @@ module.exports = class SlowmodeCommand extends Command {
     })
   }
 
-  run (ctx) {
+  run(ctx) {
     const time = Math.round(ctx.args[0])
     if (time >= 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')
     if (time < 0) return ctx.replyT('error', 'commands:slowmode.minimalTimeLimited')

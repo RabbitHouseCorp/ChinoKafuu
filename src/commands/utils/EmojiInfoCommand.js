@@ -1,7 +1,7 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
+
 module.exports = class EmojiInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'emojiinfo',
       aliases: [],
@@ -14,7 +14,7 @@ module.exports = class EmojiInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const emoji = await ctx.getEmoji(ctx.args[0])
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
     const embed = new EmbedBuilder()

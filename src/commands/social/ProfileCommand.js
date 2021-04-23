@@ -1,5 +1,3 @@
-
-
 const { Command } = require('../../utils')
 const axios = require('axios')
 
@@ -52,12 +50,11 @@ const flags = [
 ]
 
 module.exports = class ProfileCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'profile',
       aliases: ['perfil'],
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']
@@ -65,7 +62,7 @@ module.exports = class ProfileCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0], true)
     const user = await ctx.client.database.users.getOrCreate(member.id)
     const couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
@@ -82,13 +79,13 @@ module.exports = class ProfileCommand extends Command {
           arrayBadges.push(flag.name)
           break
         case false:
-          /**
-                 * @returns null
-                 */
-        default:
-                /**
+        /**
                * @returns null
                */
+        default:
+        /**
+       * @returns null
+       */
       }
     }
 

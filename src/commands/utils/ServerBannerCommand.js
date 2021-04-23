@@ -1,12 +1,14 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ServerBannerCommand extends Command {
   constructor () {
     super({
       name: 'serverbanner',
-      aliases: ['guildbanner']
+      aliases: ['guildbanner'],
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

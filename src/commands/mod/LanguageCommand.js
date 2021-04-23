@@ -1,12 +1,10 @@
-
-
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
+
 module.exports = class LanguageCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'language',
       aliases: ['lang', 'idioma'],
-      overlaps: true,
       permissions: [{
         entity: 'user',
         permissions: ['manageGuild']
@@ -17,7 +15,7 @@ module.exports = class LanguageCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)

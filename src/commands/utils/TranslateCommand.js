@@ -1,15 +1,12 @@
-
-
 const { Command, TranslatorFun } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class TranslateCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'translate',
       aliases: ['traduzir'],
       arguments: 1,
-      overlaps: true,
       hasUsage: true,
       permissions: [{
         entity: 'bot',
@@ -18,7 +15,7 @@ module.exports = class TranslateCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const language = ctx.args[0]
     let content = ctx.args.slice(1).join(' ')
     if (ctx.args[1] === undefined) {

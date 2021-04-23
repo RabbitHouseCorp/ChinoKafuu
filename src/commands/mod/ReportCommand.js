@@ -1,9 +1,7 @@
-
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ReportCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'report',
       aliases: ['reportar'],
@@ -16,7 +14,7 @@ module.exports = class ReportCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const server = ctx.db.guild
     if (!server.reportModule) return ctx.replyT('error', 'commands:report.moduleDisable')
     const member = await ctx.getUser(ctx.args[0])

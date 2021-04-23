@@ -1,14 +1,12 @@
-
 const { Command } = require('../../utils')
 
 module.exports = class ClearCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'clear',
       aliases: ['limpar'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageMessages', 'readMessageHistory', 'readMessages']
@@ -16,7 +14,7 @@ module.exports = class ClearCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (ctx.args[0] > 100) return ctx.replyT('error', 'commands:clear.limit')
     if (isNaN(ctx.args[0])) return ctx.replyT('error', 'commands:clear.nan')
 

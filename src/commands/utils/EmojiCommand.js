@@ -2,7 +2,7 @@ const { Command } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class EmojiCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'emoji',
       aliases: [],
@@ -15,7 +15,7 @@ module.exports = class EmojiCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const emoji = await ctx.getEmoji(ctx.args[0])
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
 

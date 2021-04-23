@@ -1,8 +1,7 @@
-
 const { Command } = require('../../utils')
 
 module.exports = class RenameEmojiCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'renameemoji',
       aliases: ['renomearemoji'],
@@ -15,7 +14,7 @@ module.exports = class RenameEmojiCommand extends Command {
     })
   }
 
-  run (ctx) {
+  run(ctx) {
     const guild = ctx.message.channel.guild
     const getEmoji = ctx.args[0].replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')
     const emoji = guild.emojis.find(emoji => emoji.id === getEmoji[1])

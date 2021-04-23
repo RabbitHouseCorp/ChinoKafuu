@@ -1,9 +1,7 @@
-
-
 const { Command } = require('../../utils')
 
 module.exports = class RemoveRoleCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'removerole',
       arguments: 2,
@@ -16,7 +14,7 @@ module.exports = class RemoveRoleCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const role = await ctx.getRole(ctx.args[1])

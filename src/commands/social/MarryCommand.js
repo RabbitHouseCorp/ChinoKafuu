@@ -1,15 +1,12 @@
-
-
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class MarryCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'marry',
       aliases: ['casar'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']
@@ -17,7 +14,7 @@ module.exports = class MarryCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const author = ctx.db.user

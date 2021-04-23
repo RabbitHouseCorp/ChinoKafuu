@@ -1,9 +1,7 @@
-
-
 const { Command } = require('../../utils')
 
 module.exports = class RoleColorCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'rolecolor',
       arguments: 2,
@@ -16,7 +14,7 @@ module.exports = class RoleColorCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const getRole = ctx.args[0]?.toLowerCase()
     const role = ctx.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.channel.guild.roles.get(getRole.replace(/[<@&>]/g, ''))
     const color = ctx.args[1]

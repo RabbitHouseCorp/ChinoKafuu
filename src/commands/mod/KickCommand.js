@@ -1,14 +1,12 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class KickCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'kick',
       arguments: 1,
       aliases: ['expulsar'],
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'user',
         permissions: ['kickMembers']
@@ -19,7 +17,7 @@ module.exports = class KickCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const reason = ctx.args.slice(1)?.join(' ') || ctx._locale('basic:noReason')

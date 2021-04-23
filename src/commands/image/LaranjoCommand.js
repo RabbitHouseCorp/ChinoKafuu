@@ -1,9 +1,8 @@
-
 const { Command } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class LaranjoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'laranjo',
       hasUsage: true,
@@ -14,7 +13,7 @@ module.exports = class LaranjoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const buffer = await axios({
       url: 'http://127.0.0.1:1234/render/laranjo',
       method: 'post',

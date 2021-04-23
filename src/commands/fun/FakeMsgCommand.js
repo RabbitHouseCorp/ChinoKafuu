@@ -1,8 +1,7 @@
-
 const { Command } = require('../../utils')
 
 module.exports = class FakeMsgCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'fakemsg',
       aliases: [],
@@ -15,7 +14,7 @@ module.exports = class FakeMsgCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = ctx.client.users.get(ctx.args[0]?.replace(/[<@!>]/g, ''))
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const args = ctx.args.slice(1).join(' ')

@@ -1,19 +1,17 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class AvatarCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'avatar',
       permissions: [{
         entity: 'bot',
-        overlaps: true,
         permissions: ['embedLinks']
       }]
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0], true)
     const embed = new EmbedBuilder()
     embed.setTitle(ctx._locale('commands:avatar.userAvatar', { user: member.username }))
