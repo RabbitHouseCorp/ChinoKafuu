@@ -561,10 +561,10 @@
         "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado.",
         "usage": "<@user|userID> [purge-days] [reason]",
         "owner": "você não pode soft banir o dono do servidor!",
-        "error": "Não consegui banir temporariamente esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
+        "error": "não consegui soft banir esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
     "afk": {
-        "description": "Te coloca no modo AFK.",
+        "description": "Te coloca no modo ausente.",
         "usage": "[motivo]",
         "success": "Agora você está AFK"
     },
