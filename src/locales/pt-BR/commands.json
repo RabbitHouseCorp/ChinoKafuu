@@ -58,7 +58,7 @@
         "usage": "<#cor>",
         "invalidColor": "a cor escolhida é inválida.",
         "poorUser": "você precisa de mais `{{0}}` ienes para alterar a sua cor favorita.",
-        "successfullyChanged": "Certo. Eui alterei com sucesso a sua cor favorita."
+        "successfullyChanged": "certo. Eu alterei com sucesso a sua cor favorita."
     },
     "profile": {
         "description": "Mostra o seu perfil social ou o perfil social de alguém.",
@@ -67,34 +67,34 @@
     },
     "emojiinfo": {
         "usage": "<emoji>",
-        "description": "Get some info about an emoji.",
+        "description": "Obtem algumas informações sobre um emoji.",
         "embed": {
             "title": "Informações do emoji",
             "name": "Nome do Emoji",
             "id": "ID do Emoji",
             "mention": "Menção do Emoji",
-            "url": "Download"
+            "url": "Baixar"
         }
     },
     "emoji": {
         "usage": "<emoji>",
-        "description": "Get the emoji attachment."
+        "description": "Pega o anexo de emojis."
     },
     "tippy": {
-        "description": "Make Tippy tell you a joke"
+        "description": "Faça o Tippy te contar uma piada"
     },
     "fakemsg": {
-        "argsNull": "missing arguments.",
-        "description": "Prank on someone with a fake message through webhook.",
+        "argsNull": "faltam argumentos.",
+        "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook.",
         "usage": "<usuário> <texto>"
     },
     "divorce": {
         "description": "Te divorcia do seu parceiro atual (eu cobrarei 300 ienes para se divorciar).",
-        "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <user>` e seja feliz.",
-        "youNeedToDivorce": "you must have `{{0}}` more yens to divorce.",
-        "theyNeedToDivorce": "your partner must have`{{0}}` more yens to divorce.",
-        "requestConfirm": "are you sure you want divorce? This action is irreversible.",
-        "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
+        "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <usuário>` e seja feliz.",
+        "youNeedToDivorce": "você precisa ter mais `{{0}}` ienes para se divorciar.",
+        "theyNeedToDivorce": "seu parceiro precisa ter mais `{{0}}` ienes para se divorciar.",
+        "requestConfirm": "tem certeza que quer divorciar-se? Esta ação é irreversível.",
+        "successfullyDivorced": "Certo, eu chamarei os advogados. Ambos pagarão `300` ienes por isso.",
         "rejectedRequest": "Acho que o oráculo do amor não deixou você se separar. Estou feliz por vocês terem se entendido."
     },
     "help": {
@@ -117,24 +117,24 @@
         }
     },
     "rep": {
-        "cannotGiveRepForYourself": "you can't give reputation to yourself.",
-        "forTheClient": "thank you for giving me a rep point! Now I have `{{0}}` reputations",
+        "cannotGiveRepForYourself": "você não pode dar reputação a si mesmo.",
+        "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
         "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
-        "cooldown": "calm down! You can't give a reputation now. You must wait for `{{0}}` before giving reputation points again.",
+        "cooldown": "calma lá! Você não pode dar reputação agora. Você deve esperar por `{{0}}` antes de dar pontos de reputação novamente.",
         "usage": "<usuário>",
-        "description": "Gives a reputation to someone."
+        "description": "Dá uma reputação a alguém."
     },
     "marry": {
-        "youNeedToMarry": "you need `{{0}}` more yens to marry.",
-        "theyNeedToMarry": "desculpe, mas {{0}} precisa de mais `{{1}}` yens para se casar.",
-        "youAlreadyMarried": "what a shame! You can't marry someone else because you already are.",
+        "youNeedToMarry": "você precisa de mais `{{0}}` ienes para se casar.",
+        "theyNeedToMarry": "desculpe, mas {{0}} precisa de mais `{{1}}` ienes para se casar.",
+        "youAlreadyMarried": "que vergonha! Você não pode se casar com outra pessoa porque já está casado.",
         "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
         "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
         "successfullyMarried": "viva! Parabéns, agora vocês dois estão casados.",
-        "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of their life. The oracle of love fails once more...",
-        "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
-        "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
-        "cannotMarryWithBot": "you can't marry with a bot because they will never accept it.",
+        "rejectedRequest": "que pena. Parece que {{0}} não deseja compartilhar sua vida com você, talvez {{0}} não seja o amor da sua vida. O oráculo do amor falha mais uma vez...",
+        "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
+        "cannotMarryWithMe": "me desculpe pequeno usagi. Você não pode se casar comigo. Sinto muito, mas não te amo da mesma que você me ama, eu te amo, mas como amigo.",
+        "cannotMarryWithBot": "você não pode se casar com um bot porque ele nunca o aceitará.",
         "description": "Se case com o seu verdadeiro amor.",
         "usage": "<usuário>"
     },
@@ -149,26 +149,26 @@
     "seticon": {
         "success": "ícone alterado com sucesso.",
         "usage": "<arquivo-ou-url>",
-        "description": "Set an icon in the current guild."
+        "description": "Coloca um ícone no servidor atual."
     },
     "rolecolor": {
-        "invalidColor": "you've specified an invalid color.",
-        "colorChanged": "the role color has been successfully changed.",
+        "invalidColor": "você especificou uma cor inválida.",
+        "colorChanged": "a cor do cargo foi alterada com sucesso.",
         "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu cargo mais alto. Verifique os cargos e tente novamente.",
         "description": "Altera a cor de um cargo.",
         "usage": "<cargo> <#cor>"
     },
     "renamechannel": {
-        "channelNotFound": "I can't find this channel, make sure it exists.",
+        "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que existe.",
         "invalidName": "eu não posso renomear este canal porque o nome é inválido.",
         "successfullyRenamed": "o canal `{{0}} foi renomeado com sucesso.",
         "usage": "<#canal> <novo-nome>",
-        "description": "Renames a channel in the current guild."
+        "description": "Renomeia um canal do servidor atual."
     },
     "renameemoji": {
         "successfullyRenamed": "emoji renomeado com sucesso.",
         "usage": "<emoji> <novo-nome>",
-        "description": "Renames an emoji in the current guild."
+        "description": "Renomeia um emoji no servidor atual."
     },
     "removerole": {
         "success": "cargo removido com sucesso.",
