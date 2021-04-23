@@ -420,9 +420,9 @@
         "description": "Beija um usuário"
     },
     "yens": {
-        "yens": "você possui {{yens}} yens",
-        "onMention": "{{user}} possui {{yens}} yens",
-        "description": "Mostra o saldo atual ou o saldo atual de alguém.",
+        "yens": "você possui {{yens}} ienes",
+        "onMention": "{{user}} possui {{yens}} ienes",
+        "description": "Mostra o seu saldo atual ou o saldo atual de alguém.",
         "usage": "[usuário]"
     },
     "anime": {
@@ -447,7 +447,7 @@
         "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
         "type": "Tipo",
         "status": "Status",
-        "vols": "Volume",
+        "vols": "Volumes",
         "chapters": "Capítulos",
         "score": "Pontuação",
         "aired": "Publicado",
