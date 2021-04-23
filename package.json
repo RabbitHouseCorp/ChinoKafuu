@@ -17,7 +17,7 @@
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
         "anilist-node": "^1.7.0",
         "axios": "^0.21.1",
-        "chalk": "^4.1.0",
+        "chalk": "^4.1.1",
         "colors": "^1.4.0",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
