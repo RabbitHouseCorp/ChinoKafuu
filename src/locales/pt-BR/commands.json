@@ -175,26 +175,26 @@
         "alreadyRemoved": "o membro não tem este cargo.",
         "higher": "eu não pude remover este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente.",
         "usage": "<usuário> <cargo>",
-        "description": "Remove um cargo a um membro do servidor."
+        "description": "Remove um cargo de um membro do servidor."
     },
     "removeemoji": {
         "successfullyRemoved": "emoji removido com sucesso.",
         "emojiNotFound": "este emoji não é deste servidor.",
         "usage": "<emoji>",
-        "description": "Removes an emoji in the current guild."
+        "description": "Remove um emoji do servidor atual."
     },
     "announce": {
-        "channelNotFound": "I can't find this channel, make sure it exists.",
+        "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
         "argsNotFound": "você não disse nada, eu não posso enviar uma mensagem vazia.",
         "embedSendBy": "Anúncio enviado por: {{0}}",
         "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
-        "announceSent": "Anúncio enviado com sucesso.",
+        "announceSent": "anúncio enviado com sucesso.",
         "usage": "<#canal> <mensagem>",
         "description": "Envia um anúncio no servidor atual para todos os membros (ou não)."
     },
     "slowmode": {
         "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
-        "rateLimitEnable": "o chat {{0}} está agora no modo lento ({{1}} segundos)",
+        "rateLimitEnable": "o canal {{0}} agora está no modo lento ({{1}} segundos)",
         "rateLimited": "calma! O limite é `600` segundos",
         "minimalTimeLimited": "você não pode definir um tempo menor que 0.",
         "usage": "<tempo>",
@@ -202,11 +202,11 @@
     },
     "unban": {
         "notBanned": "este usuário não está banido, confira se você mencionou o usuário correto.",
-        "usage": "<userID|userName> <motivo>",
+        "usage": "<usuário> <motivo>",
         "description": "Desbane um usuário se estiver banido."
     },
     "roleinfo": {
-        "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe",
+        "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe...",
         "roleName": "Informações do cargo: {{0}}",
         "roleMention": "Menção do cargo",
         "roleID": "ID do cargo",
@@ -216,7 +216,7 @@
         "roleMentionable": "Mencionável",
         "roleManaged": "Integração",
         "roleCreatedAt": "Cargo criado em",
-        "usage": "<role-mention/ID/name>",
+        "usage": "<cargo>",
         "description": "Mostra algumas informações sobre o cargo."
     },
     "userinfo": {
@@ -250,7 +250,7 @@
         "description": "Inicia a [Rádio Animu](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows information about this server.",
+        "description": "Mostra informações sobre este servidor.",
         "guildID": "ID do servidor",
         "guildOwner": "Dono do servidor",
         "guildRegion": "Região do servidor",
@@ -267,7 +267,7 @@
         "guildMember": {
             "title": "Membros ({{0}})",
             "userCount": "Usuários",
-            "botCount": "Bots"
+            "botCount": "Robôs"
         },
         "region": {
             "brazil": "Brasil",
@@ -275,7 +275,7 @@
             "hongkong": "Hong Kong",
             "japan": "Japão",
             "russia": "Rússia",
-            "singapore": "Cingapura",
+            "singapore": "Singapura",
             "southafrica": "África do Sul",
             "sydney": "Sidney",
             "us-central": "Centro dos EUA",
@@ -289,28 +289,28 @@
             "dontHave": "Este servidor não possui nenhum recurso.",
             "INVITE_SPLASH": "Fundo de Convite",
             "VIP_REGIONS": "Regiões VIP",
-            "VANITY_URL": "URL personalizado",
+            "VANITY_URL": "Convite personalizado",
             "VERIFIED": "Verificado",
             "PARTNERED": "Parceiro",
             "COMMUNITY": "Comunidade",
-            "COMMERCE": "Comércio",
+            "COMMERCE": "Comercial",
             "NEWS": "Canal de Notícias",
             "DISCOVERABLE": "Descobrível",
             "FEATURABLE": "Recursos",
             "ANIMATED_ICON": "Ícone Animado",
-            "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
+            "BANNER": "Faixa",
+            "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas ativada",
             "PREVIEW_ENABLED": "Pré-visualização",
             "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação"
         },
         "booster": {
             "title": "Impulsionador de Nitro",
             "levelCount": "Nível de Impulsionamento",
-            "boosterCount": "Total de Boosters"
+            "boosterCount": "Total de Impulsos"
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have an icon",
+        "missingIcon": "este servidor não possui um ícone!",
         "download": "Baixe o ícone clicando [aqui]({{0}})",
         "description": "Mostra o ícone do servidor."
     },
@@ -318,12 +318,12 @@
         "missingFeature": "este servidor não possui o recurso de `banner`.",
         "missingBanner": "este servidor não possui um banner.",
         "download": "Baixe o banner clicando [aqui]({{0}})",
-        "description": "Shows the server banner (if available)."
+        "description": "Mostra o banner do servidor (se disponível)."
     },
     "money": {
-        "invalidValue": "Por favor, me diga um valor válido.",
+        "invalidValue": "por favor, me diga um valor válido.",
         "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is invalid.\n**Supported Currencies:** `{{supported}}`",
+        "invalidArgs": "a moeda `{{arg}}` é inválida.\n**Moedas Suportadas:** `{{supported}}`",
         "usage": "<de> <para> <quantia>",
         "description": "Verifique o valor da moeda hoje."
     },
