@@ -495,7 +495,7 @@
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
         "usage": "<userID|@user> <cargo>",
-        "roleNotFound": "Não consegui encontrar nenhum cargo que correspondesse a {{name}}",
+        "roleNotFound": "não consegui encontrar nenhum cargo que correspondesse a {{name}}",
         "success": "cargo adicionado com sucesso",
         "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
     },
