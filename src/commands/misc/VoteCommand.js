@@ -1,4 +1,3 @@
-// FUTURE[epic=KafuuTeam] Deprecate
 
 const { Command, EmbedBuilder } = require('../../utils')
 

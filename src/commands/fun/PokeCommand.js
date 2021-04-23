@@ -1,4 +1,3 @@
-// FIXME[epic=KafuuTeam] Accept no-args
 
 const { Command, EmbedBuilder } = require('../../utils')
 const NekosLife = require('nekos.life')

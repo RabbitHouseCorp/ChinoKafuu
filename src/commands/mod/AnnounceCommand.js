@@ -1,5 +1,4 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// FUTURE[epic=KafuuTeam] Overlap
+
 
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 

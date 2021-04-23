@@ -1,5 +1,3 @@
-// TODO[epic=flicky] This can be fancier
-// FIXME[epic=KafuuTeam] "Aired"
 
 const { Command, EmbedBuilder } = require('../../utils')
 const Anilist = require('anilist-node')

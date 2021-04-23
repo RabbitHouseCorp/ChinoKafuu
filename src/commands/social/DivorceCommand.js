@@ -1,6 +1,4 @@
 
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class DivorceCommand extends Command {

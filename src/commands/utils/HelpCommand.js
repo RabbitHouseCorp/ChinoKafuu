@@ -1,5 +1,4 @@
-// TODO[epic=KafuuTeam] Merge
-// TODO[epic=flicky] Merge
+
 
 const { Command, EmbedBuilder } = require('../../utils')
 const Helper = require('../../structures/util/Helper')

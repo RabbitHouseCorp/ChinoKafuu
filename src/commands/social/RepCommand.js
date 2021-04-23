@@ -1,5 +1,4 @@
 
-// FUTURE[epic=KafuuTeam] Overlap/Deprecate
 
 const { Command } = require('../../utils')
 const moment = require('moment')

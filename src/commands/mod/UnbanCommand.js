@@ -1,6 +1,4 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-// NOTE Moderation downscale
+
 
 const { Command, EmbedBuilder } = require('../../utils')
 
