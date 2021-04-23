@@ -4,7 +4,7 @@
         "noReason": "no reason specified",
         "successfullySent": "report successfully sent.",
         "embed": {
-            "memberName": "ユーザー名",
+            "memberName": "Username",
             "authorName": "Who reported",
             "channel": "Channel",
             "reason": "Reason"
@@ -48,8 +48,8 @@
         "title": "`Information about #{{0}}`",
         "noTopic": "This channel doesn't have a topic.",
         "mention": "Channel Mention",
-        "channelID": "チャネルID",
-        "guild": "サーバ",
+        "channelID": "Channel ID",
+        "guild": "Guild",
         "category": "Category",
         "createdAt": "Created At"
     },
@@ -140,7 +140,7 @@
     },
     "baninfo": {
         "title": "Ban information",
-        "memberName": "ユーザーがアク禁",
+        "memberName": "User banned",
         "reason": "Reason",
         "unban": "React with {{0}} to unban the user.",
         "usage": "<user>",
@@ -211,7 +211,7 @@
         "roleMention": "Role Mention",
         "roleID": "Role ID",
         "roleColor": "Role Color",
-        "roleGuild": "サーバ",
+        "roleGuild": "Guild",
         "roleHoist": "Separate Category",
         "roleMentionable": "Mentionable",
         "roleManaged": "Integration",
@@ -223,7 +223,7 @@
         "usage": "[user]",
         "description": "Shows some information about a user.",
         "username": "User Tag",
-        "userid": "ユーザーID",
+        "userid": "User ID",
         "createdAt": "Account Created",
         "joinedAt": "User Joined At",
         "highRole": "Highest role",
@@ -251,7 +251,7 @@
     },
     "serverinfo": {
         "description": "Shows information about this server.",
-        "guildID": "サーバーID",
+        "guildID": "Guild ID",
         "guildOwner": "Guild's Owner",
         "guildRegion": "Guild's Region",
         "guildCreateAt": "Guild Created At",
@@ -265,15 +265,15 @@
             "voice": "Voice"
         },
         "guildMember": {
-            "title": "メンバー({{0}})",
-            "userCount": "ユーザー",
-            "botCount": "ボツト"
+            "title": "Members ({{0}})",
+            "userCount": "Users",
+            "botCount": "Bots"
         },
         "region": {
-            "brazil": "ブラジル",
+            "brazil": "Brazil",
             "europe": "Europe",
             "hongkong": "Hong Kong",
-            "japan": "日本",
+            "japan": "Japan",
             "russia": "Russia",
             "singapore": "Singapore",
             "southafrica": "South Africa",
@@ -351,23 +351,23 @@
         "description": "Shows more information about me."
     },
     "mcavatar": {
-        "description": "プレイヤーのMinecraftアバターを表示します。",
+        "description": "Shows a player's minecraft avatar.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "プレイヤーのMinecraftのボディーを表示します。",
+        "description": "Shows a player's Minecraft body.",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
-        "description": "プレイヤーのMinecraftヘッドを表示します。",
+        "description": "Shows a player's Minecraft head.",
         "usage": "<minecraft-nickname>"
     },
     "mcskin": {
-        "description": "プレイヤーの Minecraft のスキンを表示します。",
+        "description": "Shows a player's Minecraft skin.",
         "usage": "<minecraft-nickname>"
     },
     "mcquery": {
-        "description": "Minecraftサーバーのインフォを表示します。",
+        "description": "Show a Minecraft server info",
         "usage": "<minecraft-server-ip>",
         "version": "Version",
         "serverOffline": "the server `{{0}}` is offline or doesn't exist."
@@ -375,7 +375,7 @@
     "dance": {
         "danced": "{{0}} danced with {{1}}",
         "usage": "<userID|@user>",
-        "description": "友達と踊ります。"
+        "description": "Dance with your friend."
     },
     "hug": {
         "huged": "{{0}} gave a very warm hug in {{1}}",
@@ -383,14 +383,14 @@
         "description": "Hug a friend and make them happy."
     },
     "pat": {
-        "pated": "{{0}} が {{1}} をなでしました",
+        "pated": "{{0}} pated {{1}}",
         "usage": "<userID|@user>",
-        "description": "なで、なで、なでお願いします。友達をなでくれ。"
+        "description": "Pat, pat, pat me, please! Give a pat to your friend."
     },
     "poke": {
-        "poked": "{{0}} が {{1}} つついだしました",
+        "poked": "{{0}} poked {{1}}",
         "usage": "<userID|@user>",
-        "description": "サーバーに誰かをつついます。"
+        "description": "Poke someone on your server."
     },
     "ping": {
         "totalShard": "Total shards: {{totalShard}}",
@@ -404,20 +404,20 @@
         "description": "Just a test command. Use it to check my ping."
     },
     "slap": {
-        "slaped": "{{0}} が {{1}} をぱんぱんしました。",
+        "slaped": "{{0}} slapped on {{1}}",
         "usage": "<userID|@user>",
         "description": "Slap someone on your server."
     },
     "tickle": {
-        "tickle": "{{0}} が {{1}} をくすぐりました。",
+        "tickle": "{{0}} tickled on {{1}}",
         "usage": "<userID|@user>",
         "description": "Hahahaha, it tickles! Make it stop! Tickle someone on your server."
     },
     "kiss": {
         "kissed": "{{author}} kissed {{member}}",
-        "unable": "自分をキスはできないだよ!",
+        "unable": "uh... you can't kiss yourself.",
         "usage": "<userID|@user>",
-        "description": "ユーザーにキス"
+        "description": "Kisses a user"
     },
     "yens": {
         "yens": "you have {{yens}} yens",
@@ -426,18 +426,18 @@
         "usage": "[user]"
     },
     "anime": {
-        "synopsis": "あらすじ",
-        "animeName": "アニメ名",
-        "type": "タイプ",
-        "episodes": "エピソード",
-        "rating": "評価",
-        "aired": "放映した",
-        "score": "スコア",
-        "scoreStats": "スコアのステータス",
+        "synopsis": "Synopsis",
+        "animeName": "Anime name",
+        "type": "Type",
+        "episodes": "Episodes",
+        "rating": "Rating",
+        "aired": "Aired",
+        "score": "Score",
+        "scoreStats": "Score stats",
         "duration": "Episodes duration",
-        "ranked": "ランク",
-        "popularity": "人気",
-        "genres": "ジャンル",
+        "ranked": "Ranked",
+        "popularity": "Popularity",
+        "genres": "Genres",
         "invalidAnime": "enter the name of the desired anime",
         "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
         "description": "Shows some information about a manga.",
@@ -445,14 +445,14 @@
     },
     "manga": {
         "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
-        "type": "タイプ",
-        "status": "ステータス",
-        "vols": "刊行号",
+        "type": "Type",
+        "status": "Status",
+        "vols": "Volumes",
         "chapters": "Chapters",
-        "score": "スコア",
-        "aired": "放映した",
-        "genres": "ジャンル",
-        "characters": "キャラクター",
+        "score": "Score",
+        "aired": "Aired",
+        "genres": "Genres",
+        "characters": "Characters",
         "description": "Shows some information about an anime.",
         "usage": "<name>"
     },
@@ -493,7 +493,7 @@
         "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
     },
     "addrole": {
-        "description": "ギルドメンバーにロールを追加",
+        "description": "Adds a role to a guild member",
         "usage": "<userID|@user> <role>",
         "roleNotFound": "I couldn't find any role matching {{name}}",
         "success": "successfully added the role",
@@ -509,8 +509,8 @@
     "chat": {
         "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
         "usage": "<on|off>",
-        "locked": "わかったよ、チャネルロックする!",
-        "unlocked": "わかったよ、チャネルアンロックする！"
+        "locked": "got it, channel locked",
+        "unlocked": "got it, channel unlocked"
     },
     "clear": {
         "usage": "<quantity>",
@@ -529,7 +529,7 @@
     "ban": {
         "usage": "<userID|@user> [reason]",
         "description": "Bans a user from the server",
-        "selfBan": "自分をBANできません!",
+        "selfBan": "you can't self ban!",
         "ownerBan": "uh... you can't really ban the owner of the guild",
         "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
     },
@@ -542,8 +542,8 @@
     "prefix": {
         "success": "got it! The new prefix is now `{{prefix}}`",
         "usage": "<prefix>",
-        "description": "ボットのプレフィックスを変更します",
-        "length": "プレフィックスのサイズは 3 文字に制限されています"
+        "description": "Changes the prefix of the bot",
+        "length": "the prefix size is limited to 3 characters"
     },
     "setbanner": {
         "description": "Sets the banner of your server (not available for all servers).",
@@ -566,23 +566,23 @@
     "afk": {
         "description": "Make you AFK.",
         "usage": "[reason]",
-        "success": "AFKになりました"
+        "success": "you're now AFK"
     },
     "choose": {
         "usage": "argument1, argument2, argumentN",
-        "description": "ボットが何かを選択するようにします",
-        "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
+        "description": "Makes the bot choose something",
+        "chosen": "I choose `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
         "descripton": "Shows your avatar or someone else's.",
         "usage": "[user]",
-        "userAvatar": "{{user}}のアバター",
-        "download": "ダウンロードするには[こちら]({{link}})をクリック"
+        "userAvatar": "{{user}}'s avatar",
+        "download": "Click [here]({{link}}) to download"
     },
     "calculate": {
-        "description": "数式をエバルします。",
+        "description": "Evaluates a math expression.",
         "usage": "<expression>",
-        "invalidArgs": "有効な値を入力してください。",
-        "result": "結果は `{{result}} `だ"
+        "invalidArgs": "you must enter a valid value.",
+        "result": "the result is `{{result}}`"
     }
 }

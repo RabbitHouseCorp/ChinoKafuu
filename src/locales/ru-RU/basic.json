@@ -10,33 +10,33 @@
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
     "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
-    "noReason": "Sem razão",
+    "noReason": "No reason",
     "onBehalf": "On {{member}}'s behalf: {{reason}}",
-    "clickHere": "Clica aqui",
+    "clickHere": "Click here",
     "punishment": {
-        "banned": "{{0}} | Banido",
+        "banned": "{{0}} | Banned",
         "unbanned": "{{0}} | Unbanned",
-        "kicked": "{{member}} | Kickado",
-        "softBan": "{{member}} | Banido levemente",
+        "kicked": "{{member}} | Kicked",
+        "softBan": "{{member}} | Soft banned",
         "embed": {
-            "memberName": "Nome do usuário",
-            "memberID": "ID do Usuário",
-            "staffName": "Quem puniu",
-            "reason": "Razão"
+            "memberName": "Username",
+            "memberID": "User ID",
+            "staffName": "Who punished",
+            "reason": "Reason"
         },
-        "reason": "Banido por: {{0}} - Razão: {{1}}"
+        "reason": "Banned by: {{0}} - Reason: {{1}}"
     },
     "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-    "howToUse": "Como usar?",
-    "aliases": "Apelidos",
+    "howToUse": "How to use?",
+    "aliases": "Aliases",
     "addedToGuild": {
-        "thanks": "Obrigado por me adicionares",
+        "thanks": "Thanks for adding me",
         "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun**, **music** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-        "guildSaved": "O servidor {{0}} foi adicionado à database com sucesso!"
+        "guildSaved": "Successfully saved the server {{0}} in the database!"
     },
     "noAliases": "This command doesn't have any aliases.",
-    "onMentionAfk": "**{{user}}** está AFK.",
-    "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+    "onMentionAfk": "**{{user}}** is AFK.",
+    "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
     "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
     "voice": {
         "authorAreNotInVoiceChannel": "you're not in a voice channel.",
@@ -47,12 +47,12 @@
         "minVolume": "calm down! The minimal volume allowed is `5`."
     },
     "boolean": {
-        "true": "Sim",
-        "false": "Não"
+        "true": "Yes",
+        "false": "No"
     },
     "guildban": {
         "title": "Guild Banned",
         "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-        "reason": "Razão"
+        "reason": "Reason"
     }
 }
