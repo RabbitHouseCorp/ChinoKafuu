@@ -70,7 +70,7 @@ module.exports = class AnimuCommand extends Command {
       return
     }
 
-    if (['nowplaying', 'tocandoagora', 'np'].includes(ctx.args[0])) {
+    if (['nowplaying', 'tocandoagora', 'np', 'tocando'].includes(ctx.args[0])) {
       const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
       const embed = new EmbedBuilder()
       embed.setColor('ANIMU')
