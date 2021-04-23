@@ -478,19 +478,19 @@
     },
     "congaparrot": {
         "usage": "<quantia-repetição>",
-        "description": "Envia parrots animados",
-        "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
+        "description": "Envia papagaios engraçados",
+        "maxAllowed": "por motivos do lado do cliente, é permitido enviar até 20 papagaios"
     },
     "feed": {
-        "feed": "{{author}} has fed {{user}}",
+        "feed": "{{author}} alimentou {{user}}",
         "usage": "<usuário>",
         "description": "Alimenta um usuário"
     },
     "addemoji": {
         "description": "Adiciona um emoji ao seu servidor",
         "usage": "<link> <nome>",
-        "added": "emoji successfully added.",
-        "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
+        "added": "emoji adicionado com sucesso.",
+        "error": "algo terrível aconteceu enquanto eu tentei adicionar seu emoji. Verifique a URL e também verifique se o seu formato de arquivo é png, jpg, jpeg, ou gif."
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
