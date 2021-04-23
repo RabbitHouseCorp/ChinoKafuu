@@ -1,13 +1,14 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ServerBannerCommand extends Command {
   constructor () {
     super({
       name: 'serverbanner',
-      aliases: ['guildbanner']
+      aliases: ['guildbanner'],
+      permissions: [{
+        entity: 'bot',
+        permissions: ['embedLinks']
+      }]
     })
   }
 

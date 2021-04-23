@@ -1,27 +1,19 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command } = require('../../utils')
 
 module.exports = class ChooseCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'choose',
       aliases: ['escolher'],
       arguments: 1,
-      overlaps: true,
       hasUsage: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const argArray = ctx.args.join(' ').split(', ')
     const chosen = argArray[Math.floor(Math.random() * argArray.length)]
 
-    return ctx.replyT('TODO', 'commands:choose.chosen', { chosen: chosen }, {
-      allowedMentions: {
-        everyone: false,
-        roles: false
-      }
-    })
+    return ctx.replyT('cocoa_what', 'commands:choose.chosen', { chosen: chosen })
   }
 }

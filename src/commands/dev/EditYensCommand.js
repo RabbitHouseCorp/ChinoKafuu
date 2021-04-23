@@ -1,7 +1,7 @@
 const { Command } = require('../../utils')
 
 module.exports = class EditYensCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'edityens',
       permissions: [{
@@ -11,7 +11,7 @@ module.exports = class EditYensCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
         let user = ctx.args[1]

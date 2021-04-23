@@ -1,10 +1,7 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const { Command } = require('../../utils')
 
 module.exports = class RemoveEmojiCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'removeemoji',
       aliases: ['removeremoji'],
@@ -17,7 +14,7 @@ module.exports = class RemoveEmojiCommand extends Command {
     })
   }
 
-  run (ctx) {
+  run(ctx) {
     const guild = ctx.message.channel.guild
     const getEmoji = ctx.args[0].replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')
     const emoji = guild.emojis.find(emoji => emoji.id === getEmoji[1])

@@ -1,19 +1,16 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command } = require('../../utils')
 
 module.exports = class AboutMeCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'aboutme',
       aliases: ['bio', 'sobremim'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (ctx.args.join(' ').length > 128) return ctx.replyT('error', 'commands:aboutme.bioLimit')
     const bio = ctx.args.join(' ').replace(/[`]/g, '')
     ctx.db.user.aboutme = bio

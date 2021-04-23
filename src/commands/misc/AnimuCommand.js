@@ -1,14 +1,12 @@
-// FUTURE[epic=KafuuTeam,] Deprecated? yup
-
 const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
+
 module.exports = class AnimuCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'animu',
       aliases: ['moeanimu'],
       arguments: 0,
-      overlaps: true, // don't overlap with meteora
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -16,7 +14,7 @@ module.exports = class AnimuCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
 
     const argsNullEmbed = new EmbedBuilder()
@@ -72,7 +70,7 @@ module.exports = class AnimuCommand extends Command {
       return
     }
 
-    if (['nowplaying', 'tocandoagora', 'np'].includes(ctx.args[0])) {
+    if (['nowplaying', 'tocandoagora', 'np', 'tocando'].includes(ctx.args[0])) {
       const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
       const embed = new EmbedBuilder()
       embed.setColor('ANIMU')

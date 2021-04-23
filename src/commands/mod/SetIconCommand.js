@@ -3,12 +3,11 @@ const { Command, EmbedBuilder } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class SetIconCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'seticon',
       arguments: 0,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageGuild']
@@ -16,7 +15,7 @@ module.exports = class SetIconCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, ctx._locale(`commands:${this.name}.description`))).help()
     const url = ctx.args[0] ?? ctx.message.attachments[0].url
     const buffer = await axios.get(url, { responseType: true }).then(d => Buffer.from(d, 'binary').toString('base64'))

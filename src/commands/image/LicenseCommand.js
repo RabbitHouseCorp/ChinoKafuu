@@ -1,10 +1,8 @@
-// FIXME[epic=KafuuTeam] Tokamak not available - convert to generator?
-
 const { Command } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class LicenseCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'license',
       aliases: ['licence', 'licenca', 'licença'],
@@ -16,7 +14,7 @@ module.exports = class LicenseCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const guild = ctx.message.channel.guild
     let member = await ctx.getUser(ctx.args[0])
     if (!member) {

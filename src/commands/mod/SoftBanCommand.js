@@ -1,11 +1,7 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-// NOTE Moderation Downscale
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class SoftBanCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'softban',
       arguments: 1,
@@ -16,7 +12,7 @@ module.exports = class SoftBanCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')

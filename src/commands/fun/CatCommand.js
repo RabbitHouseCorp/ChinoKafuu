@@ -3,7 +3,7 @@ const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
 
 module.exports = class CatCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'cat',
       aliases: ['gato', 'kitty'],
@@ -14,7 +14,7 @@ module.exports = class CatCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const image = await NekoClient.sfw.meow()
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')

@@ -1,12 +1,9 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
 const axios = require('axios')
 
 module.exports = class ChannelInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'channelinfo',
       aliases: ['chatinfo'],
@@ -17,7 +14,7 @@ module.exports = class ChannelInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const args = ctx.args[0]?.replace(/<#>/g, '') ?? ctx.message.channel.id
     let channel = ctx.client.getChannel(args) || ctx.message.channel.guild.channels.find(channel => channel.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
     if (!channel) {

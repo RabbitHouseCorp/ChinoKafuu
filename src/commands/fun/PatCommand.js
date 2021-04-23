@@ -1,17 +1,14 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, EmbedBuilder } = require('../../utils')
 const NekosLife = require('nekos.life')
 const NekoClient = new NekosLife()
 
 module.exports = class PatCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'pat',
       aliases: ['cafune', 'cafuné'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -19,7 +16,7 @@ module.exports = class PatCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const img = await NekoClient.sfw.pat()

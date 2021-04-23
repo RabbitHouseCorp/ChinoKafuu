@@ -1,9 +1,7 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class VoteCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'vote',
       aliases: ['votar'],
@@ -15,7 +13,7 @@ module.exports = class VoteCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:vote.title'))

@@ -1,15 +1,12 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class PayCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'pay',
       aliases: ['pagar', 'doar'],
       arguments: 2,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']
@@ -17,7 +14,7 @@ module.exports = class PayCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 

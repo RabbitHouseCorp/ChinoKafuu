@@ -1,8 +1,7 @@
-// TODO[epic=KafuuTeam] This can be more interesting
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 
 module.exports = class McBodyCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'mcbody',
       aliases: [],
@@ -15,7 +14,7 @@ module.exports = class McBodyCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const body = `https://mc-heads.net/body/${ctx.args[0]}`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')

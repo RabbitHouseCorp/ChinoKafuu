@@ -1,27 +1,20 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, TranslatorFun } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class TranslateCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'translate',
       aliases: ['traduzir'],
       arguments: 1,
-      overlaps: true,
-      hasUsage: true,
-      permissions: [{
-        entity: 'bot',
-        permissions: ['embedLinks']
-      }]
+      hasUsage: true
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const language = ctx.args[0]
     let content = ctx.args.slice(1).join(' ')
-    if (ctx.args[1] === undefined) {
+    if (!ctx.args[1]) {
       content = 'I\'m a little girl'
     }
 

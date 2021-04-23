@@ -1,10 +1,7 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const { Command } = require('../../utils')
 
 module.exports = class SetNickCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'setnick',
       aliases: ['changenick', 'updatenick', 'alterarnickname', 'setnickname'],
@@ -16,7 +13,7 @@ module.exports = class SetNickCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
     const newNick = ctx.args.slice(1).join(' ')
 

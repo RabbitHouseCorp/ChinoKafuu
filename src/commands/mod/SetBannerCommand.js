@@ -1,12 +1,9 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const Helper = require('../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../utils')
 const fetch = require('node-fetch')
 
 module.exports = class SetBannerCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'setbanner',
       hasUsage: true,
@@ -17,7 +14,7 @@ module.exports = class SetBannerCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     if (!ctx.message.channel.guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:setbanner.missingFeature')
     if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, ctx._locale(`commands:${this.name}.description`))).help()
 

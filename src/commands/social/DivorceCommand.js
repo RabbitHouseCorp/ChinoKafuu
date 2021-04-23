@@ -1,15 +1,11 @@
-
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class DivorceCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'divorce',
       aliases: ['divorciar'],
       arguments: 0,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']
@@ -17,7 +13,7 @@ module.exports = class DivorceCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const author = ctx.db.user
     if (!author.isMarry) return ctx.replyT('error', 'commands:divorce.youAreNotMarried', { 0: ctx.db.guild.prefix })
     const couple = await ctx.client.database.users.getOrCreate(author.marryWith)

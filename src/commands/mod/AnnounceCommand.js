@@ -1,16 +1,12 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../utils')
 
 module.exports = class AnnounceCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'announce',
       aliases: ['anunciar'],
       arguments: 1,
       hasUsage: true,
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['mentionEveryone', 'embedLinks', 'addReactions']
@@ -22,7 +18,7 @@ module.exports = class AnnounceCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const guild = ctx.message.channel.guild
     const channel = guild.channels.get(ctx.args[0]?.replace(/[<#>]/g, ''))
     if (!channel) return ctx.replyT('error', 'commands:announce.channelNotFound')

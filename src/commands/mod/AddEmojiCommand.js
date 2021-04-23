@@ -1,9 +1,5 @@
-// FUTURE[epic=KafuuTeam] Deprecate
-// NOTE Possible command clutter
-
 const { Command } = require('../../utils')
-const fetch = require('node-fetch')
-const Helper = require('../../structures/util/Helper')
+const axios = require('axios')
 
 module.exports = class AddEmojiCommand extends Command {
   constructor () {

@@ -1,9 +1,7 @@
-// TODO[epic=KafuuTeam] This can be more interesting
-
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 
 module.exports = class McAvatarCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'mcavatar',
       aliases: [],
@@ -16,7 +14,7 @@ module.exports = class McAvatarCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const body = `https://mc-heads.net/avatar/${ctx.args[0]}/256.png`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')

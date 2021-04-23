@@ -1,10 +1,7 @@
-// FIXME[epic=KafuuTeam] Confusing command design, make command name and usage more obvious (e.g. lockdown)
-// NOTE Moderation downscale
-
 const { Command } = require('../../utils')
 
 module.exports = class ChatCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'chat',
       arguments: 1,
@@ -16,7 +13,7 @@ module.exports = class ChatCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const role = ctx.message.channel.guild.roles.get(ctx.message.channel.guild.id)
     if (ctx.args[0] === 'off') {
       return ctx.message.channel.editPermission(role.id, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))

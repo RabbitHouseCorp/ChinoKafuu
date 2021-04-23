@@ -1,11 +1,9 @@
-// FIXME[epic=KafuuTeam] Accept no-args
-
 const { Command, EmbedBuilder } = require('../../utils')
 const { UsagiAPI } = require('usagiapi')
 const usagi = new UsagiAPI()
 
 module.exports = class SlapCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'slap',
       aliases: ['tapa'],
@@ -18,7 +16,7 @@ module.exports = class SlapCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const img = await usagi.slap()

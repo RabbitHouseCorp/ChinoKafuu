@@ -1,9 +1,7 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, ExchangeAPI, InvalidArgumentError } = require('../../utils')
 
 module.exports = class MoneyCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'money',
       aliases: ['grana', 'dinheiro'],
@@ -12,7 +10,7 @@ module.exports = class MoneyCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     let [from, to, amount = 1] = ctx.args
 
     if (!from || !to || amount === null) return ctx.replyT('error', 'basic:missingArgs', { prefix: ctx.db.guild.prefix, commandName: this.name })

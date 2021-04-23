@@ -1,15 +1,11 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const moment = require('moment')
 require('moment-duration-format')
-const axios = require('axios')
 
 module.exports = class PingCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'ping',
-      overlaps: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -17,16 +13,7 @@ module.exports = class PingCommand extends Command {
     })
   }
 
-  async fallback (ctx) { // If we're on Pollux compatibility mode...
-    await axios.post(`${process.env.POLLUX_CONSTANTS}/api/internal/ping`, {
-      instance: 'RABBITHOUSE',
-      cluster: process.env.CLUSTER_ID,
-      last: ctx.message.timestamp,
-      diff: Date.now() - ctx.message.timestamp
-    })
-  }
-
-  async run (ctx) {
+  async run(ctx) {
     switch (ctx.args[0]) {
       case 'shards': {
         const embed = new EmbedBuilder()

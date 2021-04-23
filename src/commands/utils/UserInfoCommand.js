@@ -1,9 +1,8 @@
-// FUTURE[epic=KafuuTeam] Overlap
-
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
+
 module.exports = class UserInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'userinfo',
       aliases: [],
@@ -15,7 +14,7 @@ module.exports = class UserInfoCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     moment.locale(ctx.db.guild.lang)
     const member = await ctx.getUser(ctx.args[0], true)
     let hoist
@@ -43,7 +42,7 @@ module.exports = class UserInfoCommand extends Command {
     ctx.send(embed.build())
   }
 
-  checkPermission (_locale, guild, member) {
+  checkPermission(_locale, guild, member) {
     const allowedPerms = []
     const perms = [
       'createInstantInvite',

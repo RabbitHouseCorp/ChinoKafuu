@@ -1,11 +1,8 @@
-// FUTURE[epic=KafuuTeam] Overlap?
-// NOTE Possible command clutter
-
 const { Command, EmbedBuilder } = require('../../utils')
 const moment = require('moment')
 
 module.exports = class RoleInfoCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'roleinfo',
       aliases: ['cargoinfo'],
@@ -18,12 +15,12 @@ module.exports = class RoleInfoCommand extends Command {
         },
         {
           entity: 'bot',
-          permissions: ['embedLinks']
+          permissions: ['embedLinks', 'manageRoles']
         }]
     })
   }
 
-  run (ctx) {
+  run(ctx) {
     moment.locale(ctx.db.guild.lang)
     const guild = ctx.message.channel.guild
     const role = guild.roles.get(ctx.args[0]?.replace(/[<@&>]/g, '')) || guild.roles.find(role => role.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
