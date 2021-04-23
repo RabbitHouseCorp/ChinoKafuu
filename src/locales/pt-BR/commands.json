@@ -65,20 +65,6 @@
         "usage": "[usuário]",
         "defaultAboutMe": "\"Chino é minha amiga!\" Você pode mudar isso usando {{0}}aboutme"
     },
-    "hangmaid": {
-        "usage": "<1-para-fácil-ou-2-para-difícil>",
-        "description": "A classic hangman game but with your favorite maid, Pollux",
-        "winner": "Parabéns! Você ganhou o jogo!",
-        "loser": "Owwwn... Você perdeu o jogo. Não fique triste, você pode tentar mais uma vez.",
-        "wrongLength": "Erradas: **{{0}}**\n",
-        "missingArgs": "espere um minuto... você não especificou a dificuldade! Use `1` para fácil ou `2` para difícil.",
-        "stats_1": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔹Missing **{{3}}** letters to complete the match.\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
-        "stats_2": "**Stats**:\n{emote_correct} **Hit**: {{1}}\n{emote_wrong} **Missed**: {{0}}\n🔸 **Mode**: {{2}}\n⏰ The match ended in **{{4}}**",
-        "resultloser": "You lost",
-        "time": "dd [d, ] hh [h, ] mm [m, ] ss [s, ]",
-        "cannot": "You cannot create another match because there is already one! Wait for the match to end and try again.",
-        "mode": "You need to specify the difficult to start playing:\n`1` - Easy\n`2` - Hard"
-    },
     "emojiinfo": {
         "usage": "<emoji>",
         "description": "Get some info about an emoji.",
@@ -551,7 +537,7 @@
         "description": "Altera o meu idioma no servidor atual.",
         "message": "Qual é sua língua? Reaja abaixo.",
         "helpUs": "Help us translating",
-        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://rabbithouse.crowdin.com/chino-kafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
     },
     "prefix": {
         "success": "entendido! O novo prefixo agora é `{{prefix}}`",
