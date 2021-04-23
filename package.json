@@ -33,7 +33,7 @@
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
-        "workerpool": "^6.0.0"
+        "workerpool": "^6.1.4"
     },
     "devDependencies": {
         "jest": "^26.6.3"
