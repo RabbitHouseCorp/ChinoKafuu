@@ -571,17 +571,17 @@
     "choose": {
         "usage": "argumento1, argumento2, argumento",
         "description": "Faça o bot escolher algo",
-        "chosen": "Eu escolho `{{chosen}}`"
+        "chosen": "eu escolho `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
         "descripton": "Mostra seu avatar ou avatar de alguém.",
         "usage": "[usuário]",
         "userAvatar": "Avatar de {{user}}",
-        "download": "Clique [here]({{link}}) para baixar"
+        "download": "Clique [aqui]({{link}}) para baixar"
     },
     "calculate": {
         "description": "Resolva uma expressão matemática.",
-        "usage": "<expression>",
+        "usage": "<expressão>",
         "invalidArgs": "você deve inserir um valor válido.",
         "result": "o resultado é `{{result}}`"
     }
