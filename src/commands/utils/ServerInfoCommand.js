@@ -40,7 +40,7 @@ module.exports = class ServerInfoCommand extends Command {
     embed.addField(_locale('commands:serverinfo.guildID'), guild.id, true)
     embed.addField(_locale('commands:serverinfo.guildOwner'), `${owner.username}#${owner.discriminator}`, true)
     embed.addField(_locale('commands:serverinfo.guildRegion'), _locale(`commands:serverinfo.region.${guild.region}`), true)
-    embed.addField(_locale('commands:serverinfo.guildAFKChannel.title'), guild.channels.get(guild.afkChannelID) ?? _locale('commands:serverinfo.guildAFKChannel.noAfkChannel'), true)
+    embed.addField(_locale('commands:serverinfo.guildAFKChannel.title'), guild.channels.get(guild.afkChannelID)?.name ?? _locale('commands:serverinfo.guildAFKChannel.noAfkChannel'), true)
     embed.addField(_locale('commands:serverinfo.booster.title'), `**${_locale('commands:serverinfo.booster.levelCount')}:** ${guild.premiumTier}\n**${_locale('commands:serverinfo.booster.boosterCount')}:** ${guild.premiumSubscriptionCount}`, true)
     embed.addField(_locale('commands:serverinfo.guildMember.title', { 0: guild.memberCount }), `**${_locale('commands:serverinfo.guildMember.userCount')}:** ${memberCount.userCount}\n**${_locale('commands:serverinfo.guildMember.botCount')}:** ${memberCount.botCount}`, true)
     embed.addField(_locale('commands:serverinfo.guildCreateAt'), moment(guild.createdAt).format('LLLL'), true)
