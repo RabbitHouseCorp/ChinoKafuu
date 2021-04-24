@@ -31,7 +31,7 @@ module.exports = class RoleInfoCommand extends Command {
     embed.setTitle(ctx._locale('commands:roleinfo.roleName', { 0: role.name }))
     embed.addField(ctx._locale('commands:roleinfo.roleMention'), role.mention, true)
     embed.addField(ctx._locale('commands:roleinfo.roleID'), role.id, true)
-    embed.addField(ctx._locale('commands:roleinfo.roleColor'), `#${role.color.toString(16)}`, true)
+    embed.addField(ctx._locale('commands:roleinfo.roleColor'), `#${role.color.toString(16).toUpperCase()}`, true)
     embed.addField(ctx._locale('commands:roleinfo.roleGuild'), `\`${role.guild.name}\``, true)
     embed.addField(ctx._locale('commands:roleinfo.roleHoist'), role.hoist.toString(), true)
     embed.addField(ctx._locale('commands:roleinfo.roleMentionable'), role.mentionable.toString(), true)
