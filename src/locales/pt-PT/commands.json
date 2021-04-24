@@ -162,7 +162,7 @@
         "channelNotFound": "I can't find this channel, make sure it exists.",
         "invalidName": "I can't rename this channel because the name is invalid.",
         "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
-        "usage": "<#channel> <new-name>",
+        "usage": "<channel> <new-name>",
         "description": "Renames a channel in the current guild."
     },
     "renameemoji": {
@@ -189,7 +189,7 @@
         "embedSendBy": "Announcement sent by: {{0}}",
         "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
         "announceSent": "announcement successfully sent.",
-        "usage": "<#channel> <message>",
+        "usage": "<channel> <message>",
         "description": "Send a announce to current server for all members (or not)."
     },
     "slowmode": {
@@ -202,7 +202,7 @@
     },
     "unban": {
         "notBanned": "this user is not banned, check if you mentioned the correct user and try again.",
-        "usage": "<userID|userName> <reason>",
+        "usage": "<user> <reason>",
         "description": "Unbans a user if they're banned."
     },
     "roleinfo": {
@@ -374,22 +374,22 @@
     },
     "dance": {
         "danced": "{{0}} dançou com {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Dança com o teu amigo."
     },
     "hug": {
         "huged": "{{0}} deu um bom abraço em {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Hug a friend and make them happy."
     },
     "pat": {
         "pated": "{{0}} deu uma festa no(a) {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Pat, pat, pat me, please! Give a pat to your friend."
     },
     "poke": {
         "poked": "{{0}} cutucou {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Cutucar alguém no teu servidor."
     },
     "ping": {
@@ -405,19 +405,19 @@
     },
     "slap": {
         "slaped": "{{0}} dei uma chapada no(a) {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Dá 1 chapada a alguém no teu servidor."
     },
     "tickle": {
         "tickle": "{{0}} fez cocegas no(a) {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Hahahaha, it tickles! Make it stop! Tickle someone on your server."
     },
     "kiss": {
         "kissed": "{{author}} beijou {{member}}",
         "unable": "Uh... não podes beijar tu próprio.",
-        "usage": "<userID|@user>",
-        "description": "Beijou um usuário"
+        "usage": "<user>",
+        "description": "Kiss your true love (or not)."
     },
     "yens": {
         "yens": "you have {{yens}} yens",
@@ -440,7 +440,7 @@
         "genres": "Géneros",
         "invalidAnime": "Coloca o nome do anime desejado",
         "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
-        "description": "Shows some information about a manga.",
+        "description": "Shows some information about a anime.",
         "usage": "<name>"
     },
     "manga": {
@@ -453,11 +453,11 @@
         "aired": "Exibido",
         "genres": "Géneros",
         "characters": "Personagens",
-        "description": "Shows some information about an anime.",
+        "description": "Shows some information about an manga.",
         "usage": "<name>"
     },
     "pay": {
-        "usage": "<userID|@user> <amount>",
+        "usage": "<user> <amount>",
         "description": "Envia dinheiro para um usuário",
         "userMismatch": "Não podes enviar dinheiro para ti próprio!",
         "valueMismatch": "Tu tens que introduzir um valor válido",
@@ -468,7 +468,7 @@
     },
     "baka": {
         "baka": "{{author}} chamou o(a) {{member}} de baka",
-        "usage": "<userID|@user>",
+        "usage": "<user>",
         "description": "Chama um usuário de baka"
     },
     "clap": {
@@ -494,14 +494,14 @@
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
-        "usage": "<userID|@user> <role>",
+        "usage": "<user> <role>",
         "roleNotFound": "Eu não consigo encontrar nenhum cargo chamado {{name}}",
         "success": "Cargo adicionado com sucesso",
         "higher": "Eu não consigo atribuir esse cargo, porque, provavelmente, é um cargo mais alto que o meu. Verifica os cargos e tenta outra vez."
     },
     "setnick": {
         "description": "Define o apelido de um membro",
-        "usage": "<userID|@user> <nickname>",
+        "usage": "<user> <nickname>",
         "success": "** O apelido de {{member}} é `{{nickname}}` agora",
         "error": "Eu não consigo mudar o apelido desse membro. Verifica se ele não é o dono do servidor e tenta novamente",
         "missingNickname": "you didn't specify the nickname."
@@ -520,14 +520,14 @@
         "nan": "Valor inválido. Esse argumento é um número?"
     },
     "kick": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<user> [reason]",
         "description": "Kick an user from the server",
         "selfKick": "Não te podes kickar a ti próprio! Tu queres sair do servidor?",
         "ownerKick": "uh... Tu não podes kickar o dono do servidor...",
         "error": "Eu não posso banir esse usuário. Provavelmente, os cargos dele são mais altos que os meus. Verifica e tenta outra vez"
     },
     "ban": {
-        "usage": "<userID|@user> [reason]",
+        "usage": "<user> [reason]",
         "description": "Bans a user from the server",
         "selfBan": "Tu não te podes banir a ti próprio!",
         "ownerBan": "Uh... Tu não podes banir o dono do servidor",
@@ -547,7 +547,7 @@
     },
     "setbanner": {
         "description": "Insere o banner do teu servidor. Comando disponível apenas para servidores com a funcionalidade \"Banner\" ativada",
-        "usage": "<URL|Attachment>",
+        "usage": "<attachment|URL>",
         "success": "Whoa! O teu servidor tem um banner novo agora",
         "missingFeature": "O teu servidor não tem a funcionalidade \"Banner\", tu não podes executar esse comando"
     },
@@ -559,7 +559,7 @@
     },
     "softban": {
         "description": "Soft bane um usuário. Se não colocares nada em `purge-days`, o valor padrão (7) será utilizado.",
-        "usage": "<@user|userID> [purge-days] [reason]",
+        "usage": "<user> [purge-days] [reason]",
         "owner": "Tu não podes soft-banir o dono do servidor!",
         "error": "Eu não posso soft-banir esse usuário. Provavelmente, ele tem cargos mais altos que os meus ou ele é impossível de banir.\nPara mais informação: `{{error}}`"
     },
@@ -569,8 +569,8 @@
         "success": "Tu estás AFK agora"
     },
     "choose": {
-        "usage": "argumento1, argumento2, argumentoN",
-        "description": "Faz com que a Chino escolha alguma cena",
+        "usage": "<args>",
+        "description": "Makes the bot choose something (Use `,` to separate)",
         "chosen": "Eu escolho `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
@@ -578,11 +578,5 @@
         "usage": "[user]",
         "userAvatar": "avatar do {{user}}",
         "download": "Clica [here]({{link}}) para fazer download"
-    },
-    "calculate": {
-        "description": "Resolve uma expressão matemática.",
-        "usage": "<expression>",
-        "invalidArgs": "Tu tens que introduzir um valor válido.",
-        "result": "o resultado é `{{result}}`"
     }
 }
