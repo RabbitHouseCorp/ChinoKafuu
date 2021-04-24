@@ -91,7 +91,7 @@
     "divorce": {
         "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
         "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
-        "youNeedToDivorce": "you must have `{{0}}` more yens to divorce.",
+        "youNeedToDivorce": "you must have more `{{0}}` yens to divorce.",
         "theyNeedToDivorce": "your partner must have`{{0}}` more yens to divorce.",
         "requestConfirm": "are you sure you want divorce? This action is irreversible.",
         "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
