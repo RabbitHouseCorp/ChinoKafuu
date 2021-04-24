@@ -3,7 +3,7 @@ const Helper = require('../../structures/util/Helper')
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class CommandRunner {
-  static async run (client, message) {
+  static async run(client, message) {
     if (message.author.bot) return
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
@@ -12,19 +12,25 @@ module.exports = class CommandRunner {
     if (guildData.blacklist) {
       return client.leaveGuild(message.guildID)
     }
+
     const _locale = client.i18nRegistry.getT(guildData.lang)
 
     if (userData.afk) {
       userData.afk = false
       userData.afkReason = undefined
       userData.save()
-      await client.createMessage(message.channel.id, _locale('basic:afkRemoval', { user: message.author.mention }))
+      await message.channel.createMessage( _locale('basic:afkRemoval', { user: message.author.mention }))
     }
+
+    if (message.content.replace('!', '') === `<@${client.user.id}>`) return message.channel.createMessage(_locale('basic:onMention', {
+      0: message.author.mention,
+      1: guildData.prefix
+    }))
 
     for (const user of message.mentions) {
       const afkUser = await client.database.users.findOneByID(user.id)
       if (!afkUser?.afk) break
-      await client.createMessage(message.channel.id, afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
+      await message.channel.createMessage( afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
         user: user.username,
         reason: afkUser.afkReason
       }) : _locale('basic:onMentionAfk', { user: user.username }))
@@ -41,7 +47,7 @@ module.exports = class CommandRunner {
 
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
- 
+
     const ctx = new CommandContext(client, message, args, {
       user: userData,
       guild: guildData,
@@ -51,8 +57,8 @@ module.exports = class CommandRunner {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
       try {
-        ctx.replyT('cooldown', `Wait \`${new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()}\` seconds to execute this command again!`)
-      } catch(ignore) {
+        ctx.replyT('error', 'basic:cooldown', { 0: new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds() })
+      } catch (ignore) {
 
       }
       return

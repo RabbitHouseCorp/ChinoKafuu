@@ -162,7 +162,7 @@
         "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que existe.",
         "invalidName": "eu não posso renomear este canal porque o nome é inválido.",
         "successfullyRenamed": "o canal `{{0}} foi renomeado com sucesso.",
-        "usage": "<#canal> <novo-nome>",
+        "usage": "<canal> <nome-novo>",
         "description": "Renomeia um canal do servidor atual."
     },
     "renameemoji": {
@@ -189,7 +189,7 @@
         "embedSendBy": "Anúncio enviado por: {{0}}",
         "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
         "announceSent": "anúncio enviado com sucesso.",
-        "usage": "<#canal> <mensagem>",
+        "usage": "<canal> <mensagem>",
         "description": "Envia um anúncio no servidor atual para todos os membros (ou não)."
     },
     "slowmode": {
@@ -374,22 +374,22 @@
     },
     "dance": {
         "danced": "{{0}} dançou com {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Dance com seu amigo."
     },
     "hug": {
         "huged": "{{0}} deu um belo abraço em {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Abrace um amigo e o faça feliz."
     },
     "pat": {
         "pated": "{{0}} fez cafuné em {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Cafuné, cafuné, me faça um cafuné, por favor. Faça um cafuné no seu amigo."
     },
     "poke": {
         "poked": "{{0}} cutucou {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Cutuque alguém no seu servidor."
     },
     "ping": {
@@ -405,19 +405,19 @@
     },
     "slap": {
         "slaped": "{{0}} deu um tapa em {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Dê um tapa em alguém do seu servidor."
     },
     "tickle": {
         "tickle": "{{0}} fez cócegas em {{1}}",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Ha ha ha, isso faz cócegas. Faça cócegas em alguém no seu servidor."
     },
     "kiss": {
         "kissed": "{{author}} beijou {{member}}",
         "unable": "uh... você não pode beijar você mesmo.",
-        "usage": "<userID|@user>",
-        "description": "Beija um usuário"
+        "usage": "<usuário>",
+        "description": "Beije seu amor verdadeiro (ou não)."
     },
     "yens": {
         "yens": "você possui {{yens}} ienes",
@@ -468,7 +468,7 @@
     },
     "baka": {
         "baka": "{{author}} chamou {{member}} de baka",
-        "usage": "<userID|@user>",
+        "usage": "<usuário>",
         "description": "Chama um usuário de baka"
     },
     "clap": {
@@ -494,14 +494,14 @@
     },
     "addrole": {
         "description": "Adiciona um cargo a um membro do servidor",
-        "usage": "<userID|@user> <cargo>",
+        "usage": "<usuário> <cargo>",
         "roleNotFound": "não consegui encontrar nenhum cargo que correspondesse a {{name}}",
         "success": "cargo adicionado com sucesso",
         "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
     },
     "setnick": {
         "description": "Define o apelido de um membro",
-        "usage": "<userID|@user> <apelido>",
+        "usage": "<usuário> <apelido>",
         "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
         "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
         "missingNickname": "você não especificou o apelido."
@@ -520,14 +520,14 @@
         "nan": "valor inválido. O seu argumento é um número?"
     },
     "kick": {
-        "usage": "<userID|@user> [motivo]",
+        "usage": "<usuário> [motivo]",
         "description": "Expulsa um usuário do servidor",
         "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
         "ownerKick": "uh... você não pode expulsar o dono do servidor...",
         "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
     },
     "ban": {
-        "usage": "<userID|@user> [motivo]",
+        "usage": "<usuário> [motivo]",
         "description": "Bane um usuário do servidor",
         "selfBan": "você não pode se banir!",
         "ownerBan": "uh... você não pode banir o dono do servidor",
@@ -547,7 +547,7 @@
     },
     "setbanner": {
         "description": "Define o banner do seu servidor. Comando disponível apenas para o servidor com o recurso \"Banner\" ativado",
-        "usage": "<URL|Anexo>",
+        "usage": "<anexo|URL>",
         "success": "Opa! Seu servidor agora tem um novo banner",
         "missingFeature": "seu servidor não possui o recurso `Banner`, você não pode executar este comando"
     },
@@ -559,7 +559,7 @@
     },
     "softban": {
         "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado.",
-        "usage": "<@user|userID> [purge-days] [reason]",
+        "usage": "<usuário> [dias] [motivo]",
         "owner": "você não pode soft banir o dono do servidor!",
         "error": "não consegui soft banir esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
     },
@@ -569,8 +569,8 @@
         "success": "Agora você está AFK"
     },
     "choose": {
-        "usage": "argumento1, argumento2, argumento",
-        "description": "Faça o bot escolher algo",
+        "usage": "<args>",
+        "description": "Faça o bot escolher algo (use `,` para separar)",
         "chosen": "eu escolho `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
@@ -578,11 +578,5 @@
         "usage": "[usuário]",
         "userAvatar": "Avatar de {{user}}",
         "download": "Clique [aqui]({{link}}) para baixar"
-    },
-    "calculate": {
-        "description": "Resolva uma expressão matemática.",
-        "usage": "<expressão>",
-        "invalidArgs": "você deve inserir um valor válido.",
-        "result": "o resultado é `{{result}}`"
     }
 }

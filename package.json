@@ -17,23 +17,23 @@
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
         "anilist-node": "^1.7.0",
         "axios": "^0.21.1",
-        "chalk": "^4.1.0",
+        "chalk": "^4.1.1",
         "colors": "^1.4.0",
         "cron": "^1.8.2",
         "dotenv": "^8.2.0",
         "eris": "github:abalabahaha/eris#dev",
         "hound": "^1.0.5",
-        "ioredis": "^4.24.3",
+        "ioredis": "^4.26.0",
         "mal-scraper": "^2.11.3",
         "mathjs": "^9.0.0",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
-        "mongoose": "^5.12.2",
+        "mongoose": "^5.12.5",
         "nekos.life": "^2.0.7",
         "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
-        "workerpool": "^6.0.0"
+        "workerpool": "^6.1.4"
     },
     "devDependencies": {
         "jest": "^26.6.3"
