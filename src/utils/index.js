@@ -9,7 +9,8 @@ const collectors = {
   version: require('../../package.json').version,
   ExchangeAPI: require('./exchangeApi/ExchangeAPI'),
   InvalidArgumentError: require('./exchangeApi/InvalidArgumentError'),
-  TranslatorFun: require('./TranslatorFun')
+  TranslatorFun: require('./TranslatorFun'),
+  TopGGUtils: require('./botlists/TopGGUtils')
 }
 
 module.exports = collectors

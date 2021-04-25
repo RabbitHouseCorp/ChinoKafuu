@@ -1,14 +1,17 @@
 const Listener = require('../structures/events/Listener')
 const Logger = require('../structures/util/Logger')
 const LavalinkManager = require('../lavalink/LavalinkManager')
+const { TopGGUtils } = require('../utils')
 module.exports = class ReadyListener extends Listener {
-  constructor () {
+  constructor() {
     super()
 
     this.event = 'ready'
   }
 
-  async on (client) {
+  async on(client) {
+    const top_gg = new TopGGUtils(process.env.TOPGG_TOKEN)
+    await top_gg.post(client)
     const lavalink = new LavalinkManager(client)
     client.lavalink = lavalink
     client.player = new Map()
