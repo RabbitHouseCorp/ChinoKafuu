@@ -28,7 +28,11 @@
         "congrats": "Parabéns! Você recebeu `{{0}}` ienes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tem um bom dia!",
         "yensDaily": "Ienes diários",
         "hasBeenPicked": "você já pegou seus ienes diários hoje. Espere por `{{0}}` antes de pegá-los novamente.",
-        "description": "Você pode obter seus ienes diários usando este comando"
+        "description": "Você pode obter seus ienes diários usando este comando",
+        "almostThere": "We're almost there!",
+        "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some secounds after voting.",
+        "proceed": "Do you want to proceed?",
+        "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
     },
     "laranjo": {
         "usage": "<texto>",
