@@ -20,7 +20,7 @@ module.exports = class DailyCommand extends Command {
       })
     }
 
-    const amount = Math.floor(Math.random() * 1500)
+    const amount = Math.floor(Math.random() * (3500 - 300 + 1)) + 300
     user.yens += amount
     user.timeDaily = 43200000 + Date.now()
     user.save().then(() => {
