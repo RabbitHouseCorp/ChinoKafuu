@@ -1,12 +1,13 @@
 const { Api } = require('@top-gg/sdk')
 
 module.exports = class TopGGUtils extends Api {
-  constructor(token = null) {
+  constructor(token) {
     super(token)
     this.token = token
   }
 
   async getVote(id) {
+    if (!id || !this.token) return true
     return await this.hasVoted(id)
   }
 
