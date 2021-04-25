@@ -17,7 +17,7 @@ module.exports = class AnimeCommand extends Command {
   async run(ctx) {
     const search = ctx.args.join(' ')
     const t = ctx._locale
-    if (!search) return ctx.replyT('error', 'commands:anime.argsNull')
+    if (!search) return ctx.replyT('error', 'commands:anime.invalidAnime')
 
     try {
       const anime = await malScraper.getInfoFromName(search)
