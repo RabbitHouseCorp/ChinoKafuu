@@ -46,7 +46,7 @@ class ExchangeAPI {
       data = { ...cached, isCached: true }
     } else {
       data = await axios.get(`${this._url}/latest?base=${from}&symbols=${to}`)
-      data.timestamp = new Date().getTime()
+      data.data.timestamp = new Date().getTime()
       this._cache[key] = data
     }
 
