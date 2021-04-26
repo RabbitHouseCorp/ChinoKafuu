@@ -14,7 +14,7 @@ module.exports = class ChatCommand extends Command {
   }
 
   async run(ctx) {
-    const role = ctx.message.channel.guild.roles.get(ctx.message.channel.guild.id)
+    const role = ctx.message.channel.guild.roles.get(ctx.message.guildID)
     if (ctx.args[0] === 'off') {
       return ctx.message.channel.editPermission(role.id, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
     }
