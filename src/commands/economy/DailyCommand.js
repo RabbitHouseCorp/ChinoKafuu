@@ -13,7 +13,7 @@ module.exports = class DailyCommand extends Command {
   }
 
   async run(ctx) {
-    const top_gg = new TopGGUtils(process.env.TOKEN)
+    const top_gg = new TopGGUtils(process.env.TOPGG_TOKEN)
     const user = ctx.db.user
     if (parseInt(user.timeDaily) > Date.now()) {
       return ctx.replyT('error', 'commands:daily.hasBeenPicked', {
