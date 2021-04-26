@@ -8,7 +8,7 @@ module.exports = class CommandRunner {
     if (message.channel.type !== 0) return
       const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
-    const guildData = await client.database.guilds.getOrCreate(ctx.message.guildID)
+    const guildData = await client.database.guilds.getOrCreate(message.guildID)
     if (guildData.blacklist) {
       return client.leaveGuild(message.guildID)
     }
