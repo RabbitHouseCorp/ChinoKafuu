@@ -26,7 +26,7 @@ module.exports = class AddEmojiCommand extends Command {
     }
     try {
       const buffer = await axios.get(url, { responseType: 'arraybuffer' })
-      const base64Emoji = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
+      const base64Emoji = `data:image/${url.substr(url.length - 3)};base64,${buffer.data}`
 
       const emoji = await ctx.message.channel.guild.createEmoji({
         name: name,

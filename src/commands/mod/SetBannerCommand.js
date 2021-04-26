@@ -1,6 +1,6 @@
 const Helper = require('../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../utils')
-const fetch = require('node-fetch')
+const axios = require('axios')
 
 module.exports = class SetBannerCommand extends Command {
   constructor() {
@@ -19,10 +19,8 @@ module.exports = class SetBannerCommand extends Command {
     if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, ctx._locale(`commands:${this.name}.description`))).help()
 
     const url = ctx.args[0] ?? ctx.message.attachments[0].url
-    const request = await fetch(url)
-    const buffer = await request.buffer()
-    const data = `data:image/${url.substr(url.length - 3)};base64,`
-    const base64Banner = data + buffer.toString('base64')
+    const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
+    const base64Banner = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 
     ctx.message.channel.guild.edit({
       banner: base64Banner

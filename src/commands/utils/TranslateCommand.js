@@ -19,8 +19,8 @@ module.exports = class TranslateCommand extends Command {
     }
 
     const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${content.slice(0)}&ie=UTF-8&oe=UTF-8`
-    const res = await axios.get(encodeURI(url))
-    const body = res[0][0][0]
+    const res = await axios.get(encodeURI(url), { responseType: 'json' })
+    const body = res.data[0][0][0]
 
     ctx.reply('map', body.toString())
   }

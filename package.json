@@ -15,6 +15,7 @@
     "dependencies": {
         "@clusterws/cws": "^3.0.0",
         "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
+        "@top-gg/sdk": "^3.1.1",
         "anilist-node": "^1.7.0",
         "axios": "^0.21.1",
         "chalk": "^4.1.1",
@@ -30,7 +31,6 @@
         "moment-duration-format": "^2.3.2",
         "mongoose": "^5.12.5",
         "nekos.life": "^2.0.7",
-        "node-fetch": "^2.6.1",
         "os-utils": "0.0.14",
         "usagiapi": "github:DanielaGC/UsagiAPI#master",
         "workerpool": "^6.1.4"

@@ -22,8 +22,8 @@ module.exports = class McQueryCommand extends Command {
       const embed = new EmbedBuilder()
       embed.setColor('MINECRAFT')
       embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${ctx.args[0]}`)
-      embed.addField('Players', `${body.players.now}/${body.players.max}`, true)
-      embed.addField(ctx._locale('commands:mcquery.version'), body.server.name, true)
+      embed.addField('Players', `${body.data.players.now}/${body.data.players.max}`, true)
+      embed.addField(ctx._locale('commands:mcquery.version'), body.data.server.name, true)
       embed.setFooter(`©️ ${ctx.client.user.username}`)
       embed.setTimestamp()
 
