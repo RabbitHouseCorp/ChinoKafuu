@@ -10,7 +10,7 @@
     "invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
     "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
     "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
-    "noReason": "Sin motivo",
+    "noReason": "Sin razón",
     "onBehalf": "En nombre de {{member}}: {{reason}}",
     "clickHere": "Clic aquí",
     "punishment": {
@@ -19,16 +19,16 @@
         "kicked": "{{member}} | Expulsado",
         "softBan": "{{member}} | Baneado suave",
         "embed": {
-            "memberName": "Usuario",
+            "memberName": "Nombre de usuario",
             "memberID": "ID de Usuario",
             "staffName": "Quien ha castigado",
-            "reason": "Motivo"
+            "reason": "Razón"
         },
-        "reason": "Baneado por: {{0}} - Motivo: {{1}}"
+        "reason": "Baneado por: {{0}} - Razón: {{1}}"
     },
     "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
     "howToUse": "¿Cómo se usa?",
-    "aliases": "Alias",
+    "aliases": "Aliases",
     "addedToGuild": {
         "thanks": "Gracias por añadirme",
         "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión**, **música** y otras **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
@@ -42,7 +42,7 @@
         "authorAreNotInVoiceChannel": "no estás en ningún canal de voz.",
         "playerAlreadyPlaying": "La pista ya se está reproduciendo.",
         "clientAreNotInVoiceChannel": "no estoy en ningún canal de voz.",
-        "playerNotFound": "no estoy tocando ninguna canción",
+        "playerNotFound": "No estoy reproduciendo ninguna canción",
         "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
         "minVolume": "¡tranquilo! El volumen mínimo permitido es `5`."
     },
@@ -51,9 +51,9 @@
         "false": "No"
     },
     "guildban": {
-        "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-        "reason": "Motivo"
+        "title": "Servidor Baneado",
+        "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
+        "reason": "Razón"
     },
-    "cooldown": "please, more wait `{{0}}` seconds to execute this command again!"
+    "cooldown": "por favor, ¡espera `{{0}}` segundos más para ejecutar este comando de nuevo!"
 }
