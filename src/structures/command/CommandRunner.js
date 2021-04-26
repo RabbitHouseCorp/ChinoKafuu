@@ -5,10 +5,10 @@ const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
+    if (message.channel.type !== 0) return
+      const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
-    const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-
-    const guildData = await client.database.guilds.getOrCreate(message.channel.guild.id)
+    const guildData = await client.database.guilds.getOrCreate(ctx.message.guildID)
     if (guildData.blacklist) {
       return client.leaveGuild(message.guildID)
     }
@@ -19,7 +19,7 @@ module.exports = class CommandRunner {
       userData.afk = false
       userData.afkReason = undefined
       userData.save()
-      await message.channel.createMessage( _locale('basic:afkRemoval', { user: message.author.mention }))
+      await message.channel.createMessage(_locale('basic:afkRemoval', { user: message.author.mention }))
     }
 
     if (message.content.replace('!', '') === `<@${client.user.id}>`) return message.channel.createMessage(_locale('basic:onMention', {
@@ -30,7 +30,7 @@ module.exports = class CommandRunner {
     for (const user of message.mentions) {
       const afkUser = await client.database.users.findOneByID(user.id)
       if (!afkUser?.afk) break
-      await message.channel.createMessage( afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
+      await message.channel.createMessage(afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
         user: user.username,
         reason: afkUser.afkReason
       }) : _locale('basic:onMentionAfk', { user: user.username }))
