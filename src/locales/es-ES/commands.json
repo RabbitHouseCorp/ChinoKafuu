@@ -13,32 +13,32 @@
         }
     },
     "jankenpon": {
-        "usage": "<choice> <value>",
-        "description": "Plays jankenpon and win or lose yens.",
-        "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
-        "valueNotInputed": "you didn't provide any value to bet.",
-        "tie": "draw! Nobody won or lost.",
-        "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
-        "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+        "usage": "<opciones> <valor>",
+        "description": "Juega a jankenpon y gana o pierde yenes.",
+        "optionNotFound": "sólo puedes escoger entre `rock`, `paper` o `scissors`.",
+        "valueNotInputed": "usted no proporcionó ningún valor para apostar.",
+        "tie": "¡empate! Nadie ganó o perdió.",
+        "youWin": "elegiste `{{0}}` y elegí `{{1}}`. Felicidades, has ganado. Aquí están sus `{{2}}` yenes.",
+        "youLose": "usted eligió \"{{0}}\" y yo elegí \"{{1}}\", ¡gané! Estoy tomando \"{{2}}\" yenes de ti, cariño",
         "choice": {
-            "rock": "rock",
-            "paper": "paper",
-            "scissors": "scissors"
+            "rock": "roca",
+            "paper": "papel",
+            "scissors": "tijeras"
         }
     },
     "daily": {
-        "congrats": "Congratulations! You've received `{{0}}` yens today. You can get more yens tomorrow. See you later and have a nice day!",
-        "yensDaily": "Daily yens",
-        "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
-        "description": "You can get your daily yens by using this command",
-        "almostThere": "We're almost there!",
-        "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
-        "proceed": "Do you want to proceed?",
-        "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
+        "congrats": "¡Felicidades! Has recibido `{{0}}` yenes hoy. Puedes obtener más yenes mañana. ¡Nos vemos más tarde y tenemos un buen día!",
+        "yensDaily": "Yenes diarios",
+        "hasBeenPicked": "ya has recogido tus yenes diarios hoy. Espera `{{0}}` antes de reclamarlos de nuevo.",
+        "description": "Puedes obtener tus yenes diarios usando este comando",
+        "almostThere": "¡Casi estamos ahí!",
+        "explaining": "Para conseguir sus yenes, tendrá que votar sobre mí. Cada 12 horas podrás reclamar de nuevo tus yenes. Por favor, espera unos segundos después de votar.",
+        "proceed": "¿Quieres continuar?",
+        "confirm": "Si es así, haz clic en [aquí](https://top.gg/bot/481282441294905344/vote) para votar sobre mí. Una vez que hayas votado, ejecuta este comando de nuevo."
     },
     "laranjo": {
-        "usage": "<text>",
-        "description": "Laranjo will say something silly."
+        "usage": "<texto>",
+        "description": "Laranjo dirá algo tonto."
     },
     "rize": {
         "usage": "<text>",
