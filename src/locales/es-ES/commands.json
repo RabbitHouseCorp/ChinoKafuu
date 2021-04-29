@@ -127,7 +127,7 @@
         "forTheClient": "thank you for giving me a rep point! Now I have `{{0}}` reputations",
         "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
         "cooldown": "calm down! You can't give a reputation now. You must wait for `{{0}}` before giving reputation points again.",
-        "usage": "<Usuario>",
+        "usage": "<usuario>",
         "description": "Gives a reputation to someone."
     },
     "marry": {
@@ -142,14 +142,14 @@
         "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
         "cannotMarryWithBot": "you can't marry with a bot because they will never accept it.",
         "description": "Marry with your true love.",
-        "usage": "<Usuario>"
+        "usage": "<usuario>"
     },
     "baninfo": {
         "title": "Ban information",
         "memberName": "User banned",
         "reason": "Motivo",
         "unban": "React with {{0}} to unban the user.",
-        "usage": "<Usuario>",
+        "usage": "<usuario>",
         "description": "Check the ban information about a user"
     },
     "seticon": {
@@ -452,7 +452,7 @@
     "manga": {
         "mangaNotFound": "No he encontrado ningún manga que contenga un nombre parecido a: `{{0}}`.",
         "type": "Tipo",
-        "status": "Estado",
+        "status": "Status",
         "vols": "Volúmenes",
         "chapters": "Capítulos",
         "score": "Puntuación",
@@ -483,18 +483,18 @@
         "description": "Let's clap, clap, clap, clap, clap with your friends."
     },
     "congaparrot": {
-        "usage": "<Cantidad De Repeticiones>",
+        "usage": "<cantidad-de-repeticiones>",
         "description": "Envía divertidos loros",
         "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
     },
     "feed": {
         "feed": "{{author}} has fed {{user}}",
-        "usage": "<Usuario>",
+        "usage": "<usuario>",
         "description": "Alimenta a un usuario"
     },
     "addemoji": {
         "description": "Agrega un emoji a tu servidor",
-        "usage": "<Enlace> <Nombre>",
+        "usage": "<enlace> <nombre>",
         "added": "emoji successfully added.",
         "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
     },
@@ -519,7 +519,7 @@
         "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<Cantidad>",
+        "usage": "<cantidad>",
         "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
         "limit": "No puedo eliminar más de cien mensajes",
         "success": "{{messages}} mensajes eliminados con éxito",
