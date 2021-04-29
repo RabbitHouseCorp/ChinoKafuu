@@ -1,14 +1,14 @@
 {
     "report": {
-        "usage": "<user> <reason> -p <proof|attachment>",
-        "description": "Reports a user on this server if the module is enable.",
-        "moduleDisable": "this module is disabled on this server.",
-        "noReason": "no reason specified",
-        "successfullySent": "report successfully sent.",
+        "usage": "<usuario> <razón> -p <prueba|archivos-adjuntos>",
+        "description": "Reporta un usuario en este servidor si el módulo está activado.",
+        "moduleDisable": "este módulo está desactivado en este servidor.",
+        "noReason": "ninguna razón especificada",
+        "successfullySent": "reporte enviado con éxito.",
         "embed": {
             "memberName": "Usuario",
-            "authorName": "Who reported",
-            "channel": "Channel",
+            "authorName": "Quién reportó",
+            "channel": "Canal",
             "reason": "Motivo"
         }
     },
@@ -547,7 +547,7 @@
     },
     "prefix": {
         "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",
-        "usage": "<Prefijo>",
+        "usage": "<prefijo>",
         "description": "Cambia el prefijo del bot",
         "length": "El tamaño del prefijo está limitado a 3 caracteres"
     },
