@@ -31,7 +31,7 @@
     "aliases": "Alternativas",
     "addedToGuild": {
         "thanks": "Obrigada por me adicionar",
-        "description": "Whoa {{0}}! Obrigado por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão**, **música** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
+        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
         "guildSaved": "O servidor {{0}} salvo com sucesso no banco de dados!"
     },
     "noAliases": "Esse comando não possui alternativas.",
