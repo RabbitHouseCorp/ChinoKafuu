@@ -63,17 +63,17 @@
         "description": "Cambia el color de tu perfil a tu color favorito.",
         "usage": "<#color>",
         "invalidColor": "el color que has escogido no es válido.",
-        "poorUser": "you need more `{{0}}` yens to change your favorite color.",
-        "successfullyChanged": "sure. I successfully changed your favorite color."
+        "poorUser": "necesitas más `{{0}}` yenes para cambiar tu color favorito.",
+        "successfullyChanged": "ok. He cambiado con éxito tu color favorito."
     },
     "profile": {
-        "description": "Shows your social profile or the social profile of someone.",
-        "usage": "[user]",
-        "defaultAboutMe": "\"Chino is my friend!\" You can change this using {{0}}aboutme"
+        "description": "Muestra tu perfil social o el perfil social de alguien.",
+        "usage": "[usuario]",
+        "defaultAboutMe": "\"¡Chino es mi amiga!\" Puedes cambiar esto usando {{0}}aboutme"
     },
     "emojiinfo": {
         "usage": "<emoji>",
-        "description": "Get some info about an emoji.",
+        "description": "Obtén información sobre un emoji.",
         "embed": {
             "title": "Emoji information",
             "name": "Emoji name",
