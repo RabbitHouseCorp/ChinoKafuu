@@ -22,6 +22,7 @@ module.exports = class ReportCommand extends Command {
     const reason = ctx.args.slice(1).join(' ').trim().split('-p')
     if (!reason[0]) return ctx.replyT('error', 'commands:report.noReason')
     const channel = ctx.client.getChannel(server.channelReport)
+    const proof = reason[1] || ctx.message.attachments[0]?.url
     if (!channel) {
       server.reportModule = false
       server.channelReport = ''
@@ -34,7 +35,7 @@ module.exports = class ReportCommand extends Command {
     embed.addField(ctx._locale('commands:report.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
     embed.addField(ctx._locale('commands:report.embed.authorName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
     embed.addField(ctx._locale('commands:report.embed.channel'), ctx.message.channel.mention)
-    embed.addField(ctx._locale('commands:report.embed.reason'), reason[1] ? `[${reason[0]}](${reason[1]})` : reason[0])
+    embed.addField(ctx._locale('commands:report.embed.reason'), proof ? `[${reason[0]}](${proof})` : reason[0])
 
     channel.createMessage(embed.build())
     ctx.replyT('success', 'commands:report.successfullySent')

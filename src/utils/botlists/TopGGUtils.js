@@ -1,9 +1,9 @@
 const { Api } = require('@top-gg/sdk')
 
 module.exports = class TopGGUtils extends Api {
-  constructor(token) {
-    super(token)
-    this.token = token
+  constructor() {
+    super(process.env.TOPGG_TOKEN)
+    this.token = process.env.TOPGG_TOKEN ? process.env.TOPGG_TOKEN : null
   }
 
   async getVote(id) {
