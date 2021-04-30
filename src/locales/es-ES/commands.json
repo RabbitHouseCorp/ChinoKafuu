@@ -328,24 +328,24 @@
     },
     "money": {
         "invalidValue": "por favor, dame un valor válido.",
-        "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
-        "invalidArgs": "the currency `{{arg}}` is invalid.\n**Supported Currencies:** `{{supported}}`",
-        "usage": "<from> <to> <amount>",
-        "description": "Converts a currency to another."
+        "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
+        "invalidArgs": "la moneda `{{arg}}` es inválida.\n**Monedas soportadas:** `{{supported}}`",
+        "usage": "<desde> <para> <cantidad>",
+        "description": "Convierte una moneda a otra."
     },
     "vote": {
-        "title": "Vote me",
-        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
-        "description": "Shows how you can vote me."
+        "title": "Votame",
+        "embedVoted": "Muchas gracias. Puedes votarme en el enlace abajo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "description": "Muestra cómo puedes votarme."
     },
     "invite": {
-        "addMeInYourGuild": "Add me in your guild",
-        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
-        "description": "Shows how you can add me in your server."
+        "addMeInYourGuild": "Añádame a tu servidor",
+        "canAddMe": "Puedes invitarme a tu servidor de Discord haciendo clic en [aquí](https://discordapp. om/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nNo olvide votarme haciendo clic en [aquí](https://top. g/bot/481282441294905344/vote)\n\n¿Necesitas ayuda? Únete a mi servidor de soporte haciendo clic en [aquí](https://discord.gg/Jr57UrsXeC). Gracias y verte más tarde.",
+        "description": "Muestra cómo puedes añadirme a tu servidor."
     },
     "botinfo": {
-        "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server by [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
+        "title": "Información del bot",
+        "inviteMe": "Puedes añadirme a tu servidor de Discord haciendo [clic aquí](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Diviértete y verte más tarde.",
         "guildsAmount": "Total guilds",
         "usersAmount": "Total users",
         "shardLatency": "Shard latency",
