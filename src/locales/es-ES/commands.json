@@ -199,26 +199,26 @@
         "description": "Envía un anuncio al servidor actual para todos los miembros (o no)."
     },
     "slowmode": {
-        "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
-        "rateLimitEnable": "the chat {{0}} is now in slowmode ({{1}} seconds)",
-        "rateLimited": "calm down! The limit is `600` seconds",
-        "minimalTimeLimited": "you can't set a time less than 0.",
-        "usage": "<time>",
-        "description": "Set slowmode in the current channel."
+        "rateLimitDisable": "el chat {{0}} no está más en modo lento.",
+        "rateLimitEnable": "el chat {{0}} está ahora en modo lento ({{1}} segundos)",
+        "rateLimited": "¡calma! El límite es de `600` segundos",
+        "minimalTimeLimited": "no puedes establecer un tiempo menor que 0.",
+        "usage": "<tiempo>",
+        "description": "Establece el modo lento en el canal actual."
     },
     "unban": {
-        "notBanned": "this user is not banned, check if you mentioned the correct user and try again.",
-        "usage": "<user> <reason>",
-        "description": "Unbans a user if they're banned."
+        "notBanned": "este usuario no está baneado, compruebe si ha mencionado al usuario correcto e inténtelo de nuevo.",
+        "usage": "<usuario> <razón>",
+        "description": "Desbanea a un usuario si está baneado."
     },
     "roleinfo": {
-        "roleNotExist": "I can't find this role! Perhaps it doesn't exist...",
-        "roleName": "Role information: {{0}}",
-        "roleMention": "Role Mention",
-        "roleID": "Role ID",
-        "roleColor": "Role Color",
-        "roleGuild": "Guild",
-        "roleHoist": "Separate Category",
+        "roleNotExist": "¡No puedo encontrar este rol! Tal vez no exista...",
+        "roleName": "Información del rol: {{0}}",
+        "roleMention": "Mención de Rol",
+        "roleID": "ID del Rol",
+        "roleColor": "Color del Rol",
+        "roleGuild": "Servidor",
+        "roleHoist": "Categoría separada",
         "roleMentionable": "Mentionable",
         "roleManaged": "Integration",
         "roleCreatedAt": "Role Created At",
@@ -287,37 +287,37 @@
             "us-central": "US Central",
             "us-east": "US East",
             "us-south": "US South",
-            "us-west": "US west",
+            "us-west": "Oeste de EE.UU.",
             "india": "India"
         },
         "features": {
-            "title": "Features",
-            "dontHave": "This guild doesn't have any feature.",
-            "INVITE_SPLASH": "Invite Splash",
-            "VIP_REGIONS": "Vip Regions",
-            "VANITY_URL": "Vanity URL",
-            "VERIFIED": "Verfied",
-            "PARTNERED": "Partnered",
-            "COMMUNITY": "Community",
-            "COMMERCE": "Commerce",
-            "NEWS": "News Channel",
-            "DISCOVERABLE": "Discoverable",
-            "FEATURABLE": "Featurable",
-            "ANIMATED_ICON": "Animated Icon",
+            "title": "Funcionalidades",
+            "dontHave": "Este servidor no tiene ninguna funcionalidad.",
+            "INVITE_SPLASH": "Fondo de invitación",
+            "VIP_REGIONS": "Regiones Vip",
+            "VANITY_URL": "URL personalizada",
+            "VERIFIED": "Verificado",
+            "PARTNERED": "Asociado",
+            "COMMUNITY": "Comunidad",
+            "COMMERCE": "Comercial",
+            "NEWS": "Canal de Noticias",
+            "DISCOVERABLE": "Descubrible",
+            "FEATURABLE": "Funcionable",
+            "ANIMATED_ICON": "Icono animado",
             "BANNER": "Banner",
-            "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
-            "PREVIEW_ENABLED": "Preview",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate"
+            "WELCOME_SCREEN_ENABLED": "Pantalla de bienvenida activada",
+            "PREVIEW_ENABLED": "Previsualización",
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Puerta de verificación de miembros"
         },
         "booster": {
             "title": "Nitro Booster",
-            "levelCount": "Level Booster",
-            "boosterCount": "Total Boosters"
+            "levelCount": "Nivel de Impulso",
+            "boosterCount": "Total de impulsores"
         }
     },
     "servericon": {
-        "missingIcon": "this guild doesn't have an icon",
-        "download": "Download the icon clicking [here]({{0}})",
+        "missingIcon": "este servidor no tiene un icono",
+        "download": "Descarga el icono haciendo clic en [aquí]({{0}})",
         "description": "Shows the server icon."
     },
     "serverbanner": {
