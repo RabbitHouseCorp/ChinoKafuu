@@ -87,12 +87,12 @@
         "description": "Consigue el archivo adjunto de emoji."
     },
     "tippy": {
-        "description": "Make Tippy tell you a joke"
+        "description": "Haz que Tippy te diga una broma"
     },
     "fakemsg": {
-        "argsNull": "missing arguments.",
-        "description": "Prank on someone with a fake message through webhook.",
-        "usage": "<user> <text>"
+        "argsNull": "falta argumentos.",
+        "description": "Bromea con alguien con un mensaje falso usando un webhook.",
+        "usage": "<usuario> <texto>"
     },
     "divorce": {
         "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
