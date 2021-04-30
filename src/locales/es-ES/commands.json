@@ -160,20 +160,20 @@
     "rolecolor": {
         "invalidColor": "has especificado un color inválido.",
         "colorChanged": "el color del rol se ha cambiado con éxito.",
-        "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
-        "description": "Changes the color of a role.",
-        "usage": "<role> <#color>"
+        "higher": "No pude cambiar el color de este rol porque probablemente está, por encima de mi más alta. Comprueba los roles e inténtalo de nuevo.",
+        "description": "Cambia el color de un rol.",
+        "usage": "<rol> <#color>"
     },
     "renamechannel": {
-        "channelNotFound": "I can't find this channel, make sure it exists.",
-        "invalidName": "I can't rename this channel because the name is invalid.",
-        "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
-        "usage": "<channel> <new-name>",
-        "description": "Renames a channel in the current guild."
+        "channelNotFound": "No puedo encontrar este canal, asegúrate de que existe.",
+        "invalidName": "No puedo renombrar este canal porque el nombre es inválido.",
+        "successfullyRenamed": "renombró con éxito el canal `{{0}}`.",
+        "usage": "<canal> <nuevo-nombre>",
+        "description": "Renombrar un canal en el servidor actual."
     },
     "renameemoji": {
-        "successfullyRenamed": "emoji successfully renamed.",
-        "usage": "<emoji> <new-name>",
+        "successfullyRenamed": "emoji renombrado con éxito.",
+        "usage": "<emoji> <nuevo-nombre>",
         "description": "Renames an emoji in the current guild."
     },
     "removerole": {
