@@ -155,11 +155,11 @@
     "seticon": {
         "success": "Icono cambiado con éxito.",
         "usage": "<archivo-adjunto|url>",
-        "description": "Set an icon in the current guild."
+        "description": "Establece un icono en el servidor actual."
     },
     "rolecolor": {
-        "invalidColor": "you've specified an invalid color.",
-        "colorChanged": "the role color has been successfully changed.",
+        "invalidColor": "has especificado un color inválido.",
+        "colorChanged": "el color del rol se ha cambiado con éxito.",
         "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
         "description": "Changes the color of a role.",
         "usage": "<role> <#color>"
