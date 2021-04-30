@@ -146,15 +146,15 @@
     },
     "baninfo": {
         "title": "Ban information",
-        "memberName": "User banned",
+        "memberName": "Usuario Baneado",
         "reason": "Motivo",
-        "unban": "React with {{0}} to unban the user.",
+        "unban": "React con {{0}} para desbanear al usuario.",
         "usage": "<usuario>",
-        "description": "Check the ban information about a user"
+        "description": "Compruebe la información del baneo sobre un usuario"
     },
     "seticon": {
         "success": "Icono cambiado con éxito.",
-        "usage": "<attachment-or-url>",
+        "usage": "<archivo-adjunto|url>",
         "description": "Set an icon in the current guild."
     },
     "rolecolor": {
