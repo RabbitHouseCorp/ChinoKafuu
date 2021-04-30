@@ -137,15 +137,15 @@
         "theyAlreadyMarried": "no puedes casarte con {{0}}, porque {{0}} ya está casado.",
         "requestConfirm": "{{0}}, ¿estás de acuerdo en casarte con {{1}} en la enfermedad y en la salud, en la riqueza y en la pobreza hasta la muerte los dos partes?",
         "successfullyMarried": "felicidades, ahora ambos están casados.",
-        "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of their life. The oracle of love fails once more...",
-        "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
-        "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
-        "cannotMarryWithBot": "you can't marry with a bot because they will never accept it.",
-        "description": "Marry with your true love.",
+        "rejectedRequest": "¡Qué lástima! Parece que {{0}} no quiere compartir su vida contigo, tal vez {{0}} no sea el amor de su vida. El oráculo del amor falla una vez más...",
+        "cannotMarryWithYourself": "imagina intentar casarte tú mismo. No puedo hacer que suceda, lo siento.",
+        "cannotMarryWithMe": "lo siento conejito. No puedes casarte conmigo. Lo siento, pero no te amo como me amas, te amo, pero como amigo.",
+        "cannotMarryWithBot": "no puedes casarte con un bot porque nunca lo aceptarán.",
+        "description": "Cásate con su verdadero amor.",
         "usage": "<usuario>"
     },
     "baninfo": {
-        "title": "Ban information",
+        "title": "Información del ban",
         "memberName": "Usuario Baneado",
         "reason": "Motivo",
         "unban": "React con {{0}} para desbanear al usuario.",
@@ -354,22 +354,22 @@
         "shardUptime": "Tiempo de actividad actual de la shard",
         "cpuModel": "Modelo de CPU",
         "supportServer": "Servidor de soporte",
-        "description": "Shows more information about me."
+        "description": "Muestra más información sobre mí."
     },
     "mcavatar": {
-        "description": "Shows a player's minecraft avatar.",
+        "description": "Muestra el avatar de un jugador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcbody": {
-        "description": "Shows a player's Minecraft body.",
+        "description": "Muestra el cuerpo de un jugador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mchead": {
-        "description": "Shows a player's Minecraft head.",
+        "description": "Muestra la cabeza de un jugador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcskin": {
-        "description": "Shows a player's Minecraft skin.",
+        "description": "Muestra la skin de un jugador de Minecraft.",
         "usage": "<minecraft-nickname>"
     },
     "mcquery": {
