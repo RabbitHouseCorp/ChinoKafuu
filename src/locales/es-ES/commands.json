@@ -219,50 +219,50 @@
         "roleColor": "Color del Rol",
         "roleGuild": "Servidor",
         "roleHoist": "Categoría separada",
-        "roleMentionable": "Mentionable",
-        "roleManaged": "Integration",
-        "roleCreatedAt": "Role Created At",
+        "roleMentionable": "Mencionable",
+        "roleManaged": "Integración",
+        "roleCreatedAt": "Rol creado en",
         "usage": "<role-mention/ID/name>",
-        "description": "Shows some informations about a role."
+        "description": "Muestra algunas informaciones sobre un rol."
     },
     "userinfo": {
-        "usage": "[user]",
-        "description": "Shows some information about a user.",
-        "username": "User Tag",
+        "usage": "[usuario]",
+        "description": "Muestra alguna información sobre un usuario.",
+        "username": "Usuario",
         "userid": "ID de Usuario",
-        "createdAt": "Account Created",
-        "joinedAt": "User Joined At",
-        "highRole": "Highest role",
-        "boostSince": "Boosting Since",
-        "hasPermissions": "Permissions"
+        "createdAt": "Cuenta Creada",
+        "joinedAt": "Usuario unido en",
+        "highRole": "Rol mas alto",
+        "boostSince": "Impulsando Desde",
+        "hasPermissions": "Permisos"
     },
     "translate": {
-        "description": "Translate a text without having to use online translator services.",
-        "usage": "<language-code> <text>"
+        "description": "Traducir un texto sin tener que utilizar otros servicios de traductores.",
+        "usage": "<código-de-lenguaje> <texto>"
     },
     "animu": {
-        "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
-        "nowPlaying": "Now playing",
+        "title": "Radio Animu - ¡La Radio más Moe de Brasil!",
+        "nowPlaying": "Reproduciendo ahora",
         "totalListening": {
-            "title": "Total listening",
-            "total": "Listening now"
+            "title": "Total escuchando",
+            "total": "Escuchando ahora"
         },
-        "artist": "Song author",
-        "album": "Album",
-        "volume": "Volume",
-        "volumeChanged": "volume successfully changed.",
-        "currentVolume": "the current volume is `{{volume}}/100`.",
-        "leaving": "I'm leaving the voice channel.",
-        "description": "Starts the [Animu Radio](https://animu.com.br)."
+        "artist": "Autor de la canción",
+        "album": "Álbum",
+        "volume": "Volumen",
+        "volumeChanged": "volumen cambiado con éxito.",
+        "currentVolume": "el volumen actual es `{{volume}}/100`.",
+        "leaving": "Estoy dejando el canal de voz.",
+        "description": "Inicia el [Radio Animu](https://animu.com.br)."
     },
     "serverinfo": {
-        "description": "Shows information about this server.",
-        "guildID": "Guild ID",
-        "guildOwner": "Guild's Owner",
-        "guildRegion": "Guild's Region",
-        "guildCreateAt": "Guild Created At",
+        "description": "Muestra información sobre este servidor.",
+        "guildID": "ID del Servidor",
+        "guildOwner": "Propietario del Servidor",
+        "guildRegion": "Región del Servidor",
+        "guildCreateAt": "Servidor creado en",
         "guildAFKChannel": {
-            "title": "AFK Channel",
+            "title": "Canal de AFK",
             "noAfkChannel": "No AFK Channel"
         },
         "guildChannel": {
@@ -446,8 +446,8 @@
         "genres": "Géneros",
         "invalidAnime": "Ingresa el nombre del anime que deseas",
         "animeNotFound": "No encontré ningún anime con el nombre como `{{0}}`.",
-        "description": "Shows some information about a anime.",
-        "usage": "<name>"
+        "description": "Muestra alguna información sobre un anime.",
+        "usage": "<nombre>"
     },
     "manga": {
         "mangaNotFound": "No he encontrado ningún manga que contenga un nombre parecido a: `{{0}}`.",
