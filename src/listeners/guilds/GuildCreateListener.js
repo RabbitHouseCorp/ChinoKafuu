@@ -24,7 +24,7 @@ module.exports = class GuildCreateListener extends Listener {
   }
 
   async on(client, guild) {
-    await client.database.guilds.getOrCreate(guild.id, {
+    const server = await client.database.guilds.getOrCreate(guild.id, {
       lang: this.region[guild.region]
     })
 
@@ -36,6 +36,7 @@ module.exports = class GuildCreateListener extends Listener {
       if (server.blacklist) return guild.leave()
       return
     }
+
     const audit = await guild.getAuditLogs()
     const guildAudit = audit.entries.filter(action => action.actionType === 28)
     const user = await client.users.get(guildAudit[0].user.id)
@@ -49,6 +50,7 @@ module.exports = class GuildCreateListener extends Listener {
 
       return user.getDMChannel().then(channel => channel.createMessage(embed.build()))
     }
+    
     const embed = new EmbedBuilder()
     embed.setImage('https://cdn.discordapp.com/attachments/648188298149232644/770759671552016414/gc9DEF.png')
     embed.setColor('DEFAULT')
