@@ -1,7 +1,7 @@
 {
     "report": {
-        "usage": "<user> <reason> -p <proof|attachment>",
-        "description": "Reports a user on this server if the module is enable.",
+        "usage": "<usuário> <motivo> -p <prova|anexo>",
+        "description": "Denuncia um usuário neste servidor se o módulo estiver ativado.",
         "moduleDisable": "este módulo está desativado neste servidor.",
         "noReason": "nenhum motivo especificado",
         "successfullySent": "denúncia enviada com sucesso.",
