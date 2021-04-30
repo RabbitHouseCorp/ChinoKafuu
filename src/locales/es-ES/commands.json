@@ -346,14 +346,14 @@
     "botinfo": {
         "title": "Información del bot",
         "inviteMe": "Puedes añadirme a tu servidor de Discord haciendo [clic aquí](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Diviértete y verte más tarde.",
-        "guildsAmount": "Total guilds",
-        "usersAmount": "Total users",
-        "shardLatency": "Shard latency",
-        "memoryUsage": "RAM usage",
-        "clientVersion": "Current version",
-        "shardUptime": "Current shard uptime",
-        "cpuModel": "CPU model",
-        "supportServer": "Support server",
+        "guildsAmount": "Total de servidores",
+        "usersAmount": "Total de usuarios",
+        "shardLatency": "Latencia de la shard",
+        "memoryUsage": "Uso de RAM",
+        "clientVersion": "Versión actual",
+        "shardUptime": "Tiempo de actividad actual de la shard",
+        "cpuModel": "Modelo de CPU",
+        "supportServer": "Servidor de soporte",
         "description": "Shows more information about me."
     },
     "mcavatar": {
@@ -459,43 +459,43 @@
         "aired": "Emitido",
         "genres": "Géneros",
         "characters": "Personajes",
-        "description": "Shows some information about an manga.",
-        "usage": "<name>"
+        "description": "Muestra alguna información sobre un manga.",
+        "usage": "<nombre>"
     },
     "pay": {
-        "usage": "<user> <amount>",
+        "usage": "<usuario> <cuantidad>",
         "description": "Envía dinero a un usuario",
         "userMismatch": "¡No puedes pagarte a ti mismo/a!",
         "valueMismatch": "Debes ingresar un valor válido",
-        "success": "successfully donated {{yens}} yens to {{user}}",
-        "poorUser": "you don't have enough yens to complete this payment",
+        "success": "{{yens}} yenes donados con éxito a {{user}}",
+        "poorUser": "no tienes yenes suficientes para completar este pago",
         "cancelled": "Bien, pago cancelado",
-        "confirm": "{{user}} is going to receive __`{{yens}}`__ yens. Do you want to proceed?"
+        "confirm": "{{user}} va a recibir __`{{yens}}`__ yenes. ¿Quieres continuar?"
     },
     "baka": {
         "baka": "{{author}} acaba de llamarle idiota a {{member}}",
-        "usage": "<user>",
+        "usage": "<usuario>",
         "description": "Dile a un usuario lo idiota que es"
     },
     "clap": {
         "noArgs": "Argumento inválido",
-        "usage": "<amount>",
-        "description": "Let's clap, clap, clap, clap, clap with your friends."
+        "usage": "<cuantidad>",
+        "description": "Aplaude con tus amigos."
     },
     "congaparrot": {
         "usage": "<cantidad-de-repeticiones>",
         "description": "Envía divertidos loros",
-        "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
+        "maxAllowed": "por razones de el client, se le permite enviar hasta 20 loros"
     },
     "feed": {
-        "feed": "{{author}} has fed {{user}}",
+        "feed": "{{author}} ha alimentado {{user}}",
         "usage": "<usuario>",
         "description": "Alimenta a un usuario"
     },
     "addemoji": {
         "description": "Agrega un emoji a tu servidor",
         "usage": "<enlace> <nombre>",
-        "added": "emoji successfully added.",
+        "added": "emoji añadido con éxito.",
         "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
     },
     "addrole": {
