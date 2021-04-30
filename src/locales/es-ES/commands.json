@@ -318,16 +318,16 @@
     "servericon": {
         "missingIcon": "este servidor no tiene un icono",
         "download": "Descarga el icono haciendo clic en [aquí]({{0}})",
-        "description": "Shows the server icon."
+        "description": "Muestra el icono del servidor."
     },
     "serverbanner": {
-        "missingFeature": "this guild doesn't have the `banner` feature.",
-        "missingBanner": "this guild doesn't have a banner.",
-        "download": "Download the banner clicking [here]({{0}})",
-        "description": "Shows the server banner (if available)."
+        "missingFeature": "este servidor no tiene la función `banner`.",
+        "missingBanner": "este servidor no tiene un banner.",
+        "download": "Descarga el banner haciendo clic en [aquí\n]({{0}})",
+        "description": "Muestra el banner del servidor (si está disponible)."
     },
     "money": {
-        "invalidValue": "please, give me a valid value.",
+        "invalidValue": "por favor, dame un valor válido.",
         "resultAmount": "**{{amount}} {{from}}** to **{{to}}**: **{{total}}** {{to}}",
         "invalidArgs": "the currency `{{arg}}` is invalid.\n**Supported Currencies:** `{{supported}}`",
         "usage": "<from> <to> <amount>",
