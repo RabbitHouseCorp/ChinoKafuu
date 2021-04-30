@@ -75,16 +75,16 @@
         "usage": "<emoji>",
         "description": "Obtén información sobre un emoji.",
         "embed": {
-            "title": "Emoji information",
-            "name": "Emoji name",
-            "id": "Emoji ID",
-            "mention": "Emoji mention",
-            "url": "Download"
+            "title": "Información de Emoji",
+            "name": "Nombre del emoji",
+            "id": "ID del emoji",
+            "mention": "Mención de emoji",
+            "url": "Descargue"
         }
     },
     "emoji": {
         "usage": "<emoji>",
-        "description": "Get the emoji attachment."
+        "description": "Consigue el archivo adjunto de emoji."
     },
     "tippy": {
         "description": "Make Tippy tell you a joke"
@@ -496,21 +496,21 @@
         "description": "Agrega un emoji a tu servidor",
         "usage": "<enlace> <nombre>",
         "added": "emoji añadido con éxito.",
-        "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
+        "error": "algo terrible pasó mientras intentaba añadir sus emoji. Compruebe la URL y compruebe también si su formato de archivo es png, jpg, jpeg o gif."
     },
     "addrole": {
         "description": "Añade un rol a un miembro del servidor",
-        "usage": "<user> <role>",
+        "usage": "<usuario> <rol>",
         "roleNotFound": "No he encontrado ningún rol que coincida con {{name}}",
         "success": "Rol añadido exitosamente",
         "higher": "No he podido añadir este rol porque probablemente esté por encima de la mía. Por favor verifique los roles e inténtelo de nuevo."
     },
     "setnick": {
         "description": "Establece el apodo de un miembro del servidor",
-        "usage": "<user> <nickname>",
+        "usage": "<usuario> <apodo>",
         "success": "El apodo de **{{member}}** ahora es `{{nickname}}`",
         "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo",
-        "missingNickname": "you didn't specify the nickname."
+        "missingNickname": "no especificaste el apodo."
     },
     "chat": {
         "description": "Bloquea el canal, actualizando el permiso de `Enviar Mensajes` del rol `@everyone`",
@@ -526,24 +526,24 @@
         "nan": "Valor inválido. ¿Es tu argumento un número?"
     },
     "kick": {
-        "usage": "<user> [reason]",
+        "usage": "<usuario> [razón]",
         "description": "Expulsa a un miembro del servidor",
         "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
         "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
         "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "ban": {
-        "usage": "<user> [reason]",
-        "description": "Bans a user from the server",
+        "usage": "<usuario> [razón]",
+        "description": "Banea a un usuario del servidor",
         "selfBan": "¡No puedes banearte a ti mismo/a!",
         "ownerBan": "Uh... No puedes banear al dueño del servidor",
         "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
     },
     "language": {
-        "description": "Change my language in the current guild.",
-        "message": "What is your language? React below.",
-        "helpUs": "Help us translating",
-        "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+        "description": "Cambia mi idioma en el servidor actual.",
+        "message": "¿Cuál es tu idioma? React abajo.",
+        "helpUs": "Ayúdanos a traducir",
+        "explaining": "Puedes ayudarnos a traducir Chino Kafuu a tu idioma accediendo a nuestro [Crowdin](https://https://crowdin.com/project/chinokafuu). ¡Por supuesto, tu contribución será recompensada! Ganarás un rol en mi servidor de soporte. Gracias, pequeño conejo, te amo (como un amigo, por supuesto)"
     },
     "prefix": {
         "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",
@@ -553,36 +553,36 @@
     },
     "setbanner": {
         "description": "Establece el banner de tu servidor. Comando sólo disponible en un servidor con la función \"Banner\" habilitada",
-        "usage": "<attachment|URL>",
+        "usage": "<archivos-adjuntos|URL>",
         "success": "¡Guau! Tu servidor ahora tiene un nuevo banner",
         "missingFeature": "Tu servidor no cuenta con la función `Banner`, no puedes ejecutar este comando"
     },
     "aboutme": {
         "description": "Cambia la descripción de tu perfil",
-        "usage": "<bio>",
+        "usage": "<biografía>",
         "success": "¡Asombroso! Tu nueva biografía se ha establecido a: `{{bio}}`",
         "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
     },
     "softban": {
         "description": "Banea suavemente por un momento a un usuario. Si `Días-Purga` no se especifica, se utilizará el valor por defecto (7).",
-        "usage": "<user> [purge-days] [reason]",
+        "usage": "<usuario> [tiempo] [razón]",
         "owner": "¡No puedes hacer banear suave al dueño del servidor!",
         "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
     },
     "afk": {
-        "description": "Make you AFK.",
-        "usage": "[reason]",
-        "success": "you're now AFK"
+        "description": "Haz que te quedes AFK.",
+        "usage": "[razón]",
+        "success": "ahora estás AFK"
     },
     "choose": {
         "usage": "<args>",
-        "description": "Makes the bot choose something (Use `,` to separate)",
-        "chosen": "I choose `{{chosen}}` 💁‍♀️"
+        "description": "Hace que el bot elija algo (Use `,` para separar)",
+        "chosen": "Yo escojo `{{chosen}}` 💁‍♀️"
     },
     "avatar": {
-        "descripton": "Shows your avatar or someone else's.",
-        "usage": "[user]",
-        "userAvatar": "{{user}}'s avatar",
-        "download": "Click [here]({{link}}) to download"
+        "descripton": "Muestra tu avatar o de otra persona.",
+        "usage": "[usuario]",
+        "userAvatar": "Avatar de {{user}}",
+        "download": "Haga clic en [aquí]({{link}}) para descargar"
     }
 }
