@@ -263,30 +263,30 @@
         "guildCreateAt": "Servidor creado en",
         "guildAFKChannel": {
             "title": "Canal de AFK",
-            "noAfkChannel": "No AFK Channel"
+            "noAfkChannel": "Sin canal de AFK"
         },
         "guildChannel": {
-            "title": "Channels ({{0}})",
-            "text": "Text",
-            "voice": "Voice"
+            "title": "Canales ({{0}})",
+            "text": "Texto",
+            "voice": "Voz"
         },
         "guildMember": {
-            "title": "Members ({{0}})",
-            "userCount": "Users",
+            "title": "Miembros ({{0}})",
+            "userCount": "Usuarios",
             "botCount": "Bots"
         },
         "region": {
-            "brazil": "Brazil",
-            "europe": "Europe",
+            "brazil": "Brasil",
+            "europe": "Europa",
             "hongkong": "Hong Kong",
-            "japan": "Japan",
-            "russia": "Russia",
-            "singapore": "Singapore",
-            "southafrica": "South Africa",
-            "sydney": "Sydney",
-            "us-central": "US Central",
-            "us-east": "US East",
-            "us-south": "US South",
+            "japan": "Japón",
+            "russia": "Rusia",
+            "singapore": "Singapur",
+            "southafrica": "Sudáfrica",
+            "sydney": "Sídney",
+            "us-central": "EE.UU Central",
+            "us-east": "EEUU Este",
+            "us-south": "EEUU Sur",
             "us-west": "Oeste de EE.UU.",
             "india": "India"
         },
@@ -391,7 +391,7 @@
     "pat": {
         "pated": "{{0}} hizo un lío en {{1}}",
         "usage": "<usuario>",
-        "description": "Pat, pat, pat me, please! Give a pat to your friend."
+        "description": "¡Afecto, Afecto, Afecto, por favor! Dame afecto a tu amigo."
     },
     "poke": {
         "poked": "{{0}} poked {{1}}",
