@@ -373,63 +373,63 @@
         "usage": "<minecraft-nickname>"
     },
     "mcquery": {
-        "description": "Show a Minecraft server info",
+        "description": "Mostrar información del servidor de Minecraft",
         "usage": "<minecraft-server-ip>",
-        "version": "Version",
-        "serverOffline": "the server `{{0}}` is offline or doesn't exist."
+        "version": "Versión",
+        "serverOffline": "el servidor `{{0}}` está sin conexión o no existe."
     },
     "dance": {
-        "danced": "{{0}} danced with {{1}}",
-        "usage": "<user>",
-        "description": "Dance with your friend."
+        "danced": "{{0}} bailó con {{1}}",
+        "usage": "<usuario>",
+        "description": "Baile con tu amigo."
     },
     "hug": {
-        "huged": "{{0}} gave a very warm hug in {{1}}",
-        "usage": "<user>",
-        "description": "Hug a friend and make them happy."
+        "huged": "{{0}} dio un abrazo muy caliente en {{1}}",
+        "usage": "<usuario>",
+        "description": "Abraza a un amigo y hazlo feliz."
     },
     "pat": {
-        "pated": "{{0}} pated {{1}}",
-        "usage": "<user>",
+        "pated": "{{0}} hizo un lío en {{1}}",
+        "usage": "<usuario>",
         "description": "Pat, pat, pat me, please! Give a pat to your friend."
     },
     "poke": {
         "poked": "{{0}} poked {{1}}",
-        "usage": "<user>",
-        "description": "Poke someone on your server."
+        "usage": "<usuario>",
+        "description": "Poke a alguien en tu servidor."
     },
     "ping": {
-        "totalShard": "Total shards: {{totalShard}}",
-        "operational": "Operational",
-        "unstable": "Unstable",
-        "unoperational": "Extremely unstable",
-        "clusterdown": "Offline - Restart Scheduled",
-        "totalClusters": "Total clusters: {{totalClusters}}",
-        "percentOn": "{{perc}}% functional",
-        "avgPing": "{{avg}}ms average ping",
-        "description": "Just a test command. Use it to check my ping."
+        "totalShard": "Totales de shards: {{totalShard}}",
+        "operational": "Operacional",
+        "unstable": "Inestable",
+        "unoperational": "Inestable en extremo",
+        "clusterdown": "Desconectado: Reinicio programado",
+        "totalClusters": "Total de clusters: {{totalClusters}}",
+        "percentOn": "{{perc}}% funcional",
+        "avgPing": "{{avg}}ms ping medio",
+        "description": "Sólo un comando de prueba. Úsalo para comprobar mi ping."
     },
     "slap": {
-        "slaped": "{{0}} slapped on {{1}}",
-        "usage": "<user>",
-        "description": "Slap someone on your server."
+        "slaped": "{{0}} abofeteado en {{1}}",
+        "usage": "<usuario>",
+        "description": "Golpea a alguien en tu servidor."
     },
     "tickle": {
-        "tickle": "{{0}} tickled on {{1}}",
-        "usage": "<user>",
-        "description": "Hahahaha, it tickles! Make it stop! Tickle someone on your server."
+        "tickle": "{{0}} ha cosquillas {{1}}",
+        "usage": "<usuario>",
+        "description": "¡Jajajaja, eso me hace cosquillas! ¡Para! Hazle cosquillas a alguien en tu servidor."
     },
     "kiss": {
         "kissed": "{{author}} besó a {{member}}",
         "unable": "Uh... No puedes besarte a ti mismo/a.",
-        "usage": "<user>",
-        "description": "Kiss your true love (or not)."
+        "usage": "<usuario>",
+        "description": "Besa tu verdadero amor (o no)."
     },
     "yens": {
-        "yens": "you have {{yens}} yens",
-        "onMention": "{{user}} has {{yens}} yens",
-        "description": "Shows you current balance or someone else's balance.",
-        "usage": "[user]"
+        "yens": "tienes {{yens}} yenes",
+        "onMention": "{{user}} tiene {{yens}} yenes",
+        "description": "Muestra su saldo actual o el saldo de otra persona.",
+        "usage": "[usuario]"
     },
     "anime": {
         "synopsis": "Sinopsis",
@@ -440,12 +440,12 @@
         "aired": "Emitido",
         "score": "Puntuación",
         "scoreStats": "Estadísticas",
-        "duration": "Episodes duration",
+        "duration": "Duración de los episodios",
         "ranked": "Clasificado",
         "popularity": "Popularidad",
         "genres": "Géneros",
         "invalidAnime": "Ingresa el nombre del anime que deseas",
-        "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
+        "animeNotFound": "No encontré ningún anime con el nombre como `{{0}}`.",
         "description": "Shows some information about a anime.",
         "usage": "<name>"
     },
