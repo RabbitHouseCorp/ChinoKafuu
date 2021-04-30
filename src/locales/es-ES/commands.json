@@ -174,29 +174,29 @@
     "renameemoji": {
         "successfullyRenamed": "emoji renombrado con éxito.",
         "usage": "<emoji> <nuevo-nombre>",
-        "description": "Renames an emoji in the current guild."
+        "description": "Renombra un emoji en el servidor actual."
     },
     "removerole": {
-        "success": "role successfully removed.",
-        "alreadyRemoved": "the member doesn't have this role.",
-        "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
-        "usage": "<user> <role>",
-        "description": "Removes a role from a guild member."
+        "success": "rol eliminado con éxito.",
+        "alreadyRemoved": "el miembro no tiene este rol.",
+        "higher": "No pude eliminar este rol porque probablemente está por encima de mi rol más alto. Comprueba los roles e inténtalo de nuevo.",
+        "usage": "<usuario> <rol>",
+        "description": "Elimina un rol de un miembro de el servidor."
     },
     "removeemoji": {
-        "successfullyRemoved": "emoji successfully removed.",
-        "emojiNotFound": "this emoji isn't from this guild.",
+        "successfullyRemoved": "emoji eliminado con éxito.",
+        "emojiNotFound": "este emojis no es de este servidor.",
         "usage": "<emoji>",
-        "description": "Removes an emoji in the current guild."
+        "description": "Remueve un emoji en el servidor actual."
     },
     "announce": {
-        "channelNotFound": "I can't find this channel, make sure it exists.",
-        "argsNotFound": "your didn't write anything, I can't send an empty message.",
-        "embedSendBy": "Announcement sent by: {{0}}",
-        "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
-        "announceSent": "announcement successfully sent.",
-        "usage": "<channel> <message>",
-        "description": "Send a announce to current server for all members (or not)."
+        "channelNotFound": "No puedo encontrar este canal, asegúrate de que existe.",
+        "argsNotFound": "usted en la oficina nada, no puedo enviar un mensaje de vacia.",
+        "embedSendBy": "Anuncio enviado por: {{0}}",
+        "requestConfirm": "advertencia, estás a punto de enviar un anuncio en {{0}}, por favor, confirma con el emoji de abajo\n\nPara mencionar a `@everyone`, reaccionar {{1}}\nPara mencionar `@aquí`, reaccionar {{2}}\nPara mencionar a `cualquiera`, reaccionar {{3}}",
+        "announceSent": "anuncio enviado con éxito.",
+        "usage": "<canal> <mensaje>",
+        "description": "Envía un anuncio al servidor actual para todos los miembros (o no)."
     },
     "slowmode": {
         "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
