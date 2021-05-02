@@ -1,12 +1,12 @@
 {
     "permissions": {
-        "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+        "permissionUserRequired": "Sie müssen über die folgenden Berechtigungen verfügen, um diesen Befehl verwenden zu können: {{0}}.",
         "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
-        "title": "Permissions"
+        "title": "Berechtigungen"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-    "missingBotPermission": "I don't have the `{{perm}}` permission. Check my permissions/roles and try again.",
-    "missingUserPermission": "you don't have the `{{perm}}` permission. You can't execute this command.",
+    "onMention": "Hallo, {{0}}. Mein Präfix in dieser Gilde ist `{{1}}`. Wenn Sie sehen möchten, was ich tun kann, verwenden Sie `{{1}}hilfe`.",
+    "missingBotPermission": "Ich habe nicht die `{{perm}} ` Berechtigung. Überprüfen Sie meine Berechtigungen/Rollen, und versuchen Sie es erneut.",
+    "missingUserPermission": "sie nicht über die `{{perm}}` Berechtigung. Sie können diesen Befehl nicht ausführen.",
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
     "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
