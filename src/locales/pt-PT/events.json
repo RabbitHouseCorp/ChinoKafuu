@@ -2,6 +2,6 @@
     "executionFailure": {
         "embedTitle": "Gomenasai! Ocorreu um erro!",
         "fieldTitle": "Notifique-nos",
-        "fieldValue": "Como, provavelmente nós não sabemos nada sobre esse erro, tu podes [Abrir uma ocorrência(https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) no GitHub ou contactar-nos no nosso [Servidor de Suporte](https://discord.gg/rabbithouse).\nNão te esqueças de referir esta _pequena mensagem_ quando reportares o erro.\nObrigado e desculpa!"
+        "fieldValue": "As we probably don't know about this error, you can either [open an issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) on GitHub or contact us in our [support server](https://discord.gg/Jr57UrsXeC). Don't forget to attach this _little message_ when reporting the error.\nThanks and sorry!"
     }
 }
