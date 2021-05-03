@@ -340,12 +340,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Me adicione no seu servidor",
-        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+        "canAddMe": "Você pode me convidar para o seu servidor do discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions2117578239).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nVocê precisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC).",
         "description": "Mostra como você pode me adicionar no seu servidor."
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
         "guildsAmount": "Total de servidores",
         "usersAmount": "Total de usuários",
         "shardLatency": "Latência da shard",
