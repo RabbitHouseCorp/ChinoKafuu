@@ -14,10 +14,9 @@ module.exports = class BlackListCommand extends Command {
   async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
         let reason = ctx.args.slice(2).join(' ')
         if (!reason) {
           reason = 'No reason'
@@ -30,20 +29,18 @@ module.exports = class BlackListCommand extends Command {
       }
         break
       case 'view': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
-        const userInfo = ctx.client.users.get(dbUser._id) ? `${ctx.client.users.get(dbUser._id).username}#${ctx.client.users.get(dbUser._id).discriminator} - (${dbUser._id})` : dbUser._id
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
+        const userInfo = user ? `${user.username}#${user.discriminator} - (${user.id})` : dbUser.id
         const msg = `\`\`\`asciidoc\n== USER BANNED INFO ==\n\n• User :: ${userInfo}\n• Banned :: ${dbUser.blacklist}\n• Reason :: ${dbUser.blacklistReason}\`\`\``
         ctx.send(msg)
       }
         break
       case 'remove': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
         dbUser.blacklist = false
         dbUser.blacklistReason = null
         dbUser.save().then(() => {
