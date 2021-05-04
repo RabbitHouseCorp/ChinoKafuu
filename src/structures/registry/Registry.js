@@ -21,12 +21,7 @@ module.exports = class Registry extends EventEmitter {
       delete require.cache[require.resolve(path)]
       const module = new (require(path))()
       if (this.modules.filter((a) => a.__path === path)[0]) return true
-      if (process.env.POLLUX_MODE && module.overlaps) {
-        // This means that this module overlaps with Pollux. It will not be loaded if POLLUX_MODE is present. However, if a fallback method is avaliable, it'll be used.
-        if (module.fallback) module.run = module.fallback
-        else return
-      }
-
+  
       module.__path = path
       this.modules.push(module)
 
