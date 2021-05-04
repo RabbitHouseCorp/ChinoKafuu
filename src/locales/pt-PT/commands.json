@@ -519,7 +519,7 @@
         "unlocked": "Entendido, chat desbloqueado"
     },
     "clear": {
-        "usage": "<quantity>",
+        "usage": "<quantity> [user]",
         "description": "Apaga mensagens em um canal. Se especificares usuário, eu apago as mensagens desse usuário",
         "limit": "Eu não posso apagar mais de cem mensagens",
         "success": "Apaguei {{messages}} mensagens com sucesso",
