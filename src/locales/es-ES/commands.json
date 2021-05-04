@@ -519,7 +519,7 @@
         "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<cantidad>",
+        "usage": "<quantity> [user]",
         "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
         "limit": "No puedo eliminar más de cien mensajes",
         "success": "{{messages}} mensajes eliminados con éxito",
