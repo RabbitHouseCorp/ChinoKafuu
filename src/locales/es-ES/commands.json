@@ -340,12 +340,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Añádame a tu servidor",
-        "canAddMe": "Puedes invitarme a tu servidor de Discord haciendo clic en [aquí](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nNo olvide votarme haciendo clic en [aquí](https://top.gg/bot/481282441294905344/vote)\n\n¿Necesitas ayuda? Únete a mi servidor de soporte haciendo clic en [aquí](https://discord.gg/Jr57UrsXeC). Gracias y verte más tarde.",
+        "canAddMe": "Puedes invitarme a tu servidor de Discord haciendo clic en [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nNo olvide votarme haciendo clic en [aquí](https://top.gg/bot/481282441294905344/vote)\n\n¿Necesitas ayuda? Únete a mi servidor de soporte haciendo clic en [aquí](https://discord.gg/Jr57UrsXeC). Gracias y verte más tarde.",
         "description": "Muestra cómo puedes añadirme a tu servidor."
     },
     "botinfo": {
         "title": "Información del bot",
-        "inviteMe": "Puedes añadirme a tu servidor de Discord haciendo [clic aquí](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Diviértete y verte más tarde.",
+        "inviteMe": "Puedes añadirme a tu servidor de Discord haciendo [clic aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Diviértete y verte más tarde.",
         "guildsAmount": "Total de servidores",
         "usersAmount": "Total de usuarios",
         "shardLatency": "Latencia de la shard",
@@ -519,7 +519,7 @@
         "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<cantidad>",
+        "usage": "<quantity> [user]",
         "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
         "limit": "No puedo eliminar más de cien mensajes",
         "success": "{{messages}} mensajes eliminados con éxito",

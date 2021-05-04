@@ -1,4 +1,4 @@
-const { Command } = require('../../utils')
+const { Command, Emoji } = require('../../utils')
 
 module.exports = class ClearCommand extends Command {
   constructor() {
@@ -17,11 +17,10 @@ module.exports = class ClearCommand extends Command {
   async run(ctx) {
     if (ctx.args[0] > 100) return ctx.replyT('error', 'commands:clear.limit')
     if (isNaN(ctx.args[0])) return ctx.replyT('error', 'commands:clear.nan')
-
-    ctx.message.channel.purge(Number(ctx.args[0]) + 1).then((msg) => {
-      ctx.replyT('success', 'commands:clear.success', { messages: msg })
+    const user = await ctx.getUser(ctx.args.slice(1).join(' '))
+    const filter = user ? ((msg) => msg.author.id === user?.id) : null
+    ctx.message.channel.purge(Number(ctx.args[0]), filter).then((msg) => {
+      ctx.message.channel.createMessage(`${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:clear.success', { messages: msg })}`)
     })
   }
-
-  // TODO Clear messages by user
 }

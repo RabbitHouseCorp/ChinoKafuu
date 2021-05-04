@@ -345,7 +345,7 @@
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
         "guildsAmount": "Total de servidores",
         "usersAmount": "Total de usuários",
         "shardLatency": "Latência da shard",
@@ -519,7 +519,7 @@
         "unlocked": "canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantidade>",
+        "usage": "<quantity> [user]",
         "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
         "limit": "eu não consigo apagar mais de cem mensagens",
         "success": "{{messages}} apagadas com sucesso",

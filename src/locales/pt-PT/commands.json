@@ -340,12 +340,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Add me in your guild",
-        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
         "description": "Shows how you can add me in your server."
     },
     "botinfo": {
         "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server by [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
+        "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
         "guildsAmount": "Total guilds",
         "usersAmount": "Total users",
         "shardLatency": "Shard latency",
@@ -519,7 +519,7 @@
         "unlocked": "Entendido, chat desbloqueado"
     },
     "clear": {
-        "usage": "<quantity>",
+        "usage": "<quantity> [user]",
         "description": "Apaga mensagens em um canal. Se especificares usuário, eu apago as mensagens desse usuário",
         "limit": "Eu não posso apagar mais de cem mensagens",
         "success": "Apaguei {{messages}} mensagens com sucesso",
