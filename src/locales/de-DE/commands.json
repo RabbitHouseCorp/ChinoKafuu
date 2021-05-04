@@ -519,7 +519,7 @@
         "unlocked": "got it, channel unlocked"
     },
     "clear": {
-        "usage": "<quantity>",
+        "usage": "<quantity> [user]",
         "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
         "limit": "I can't delete more than a hundred messages",
         "success": "successfully cleared {{messages}} messages",
