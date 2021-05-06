@@ -175,8 +175,17 @@ module.exports = class CommandContext {
   }
 
   getRole(role) {
+    if (!role) return false
     const getRole = this.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.channel.guild.roles.get(role.replace(/[<@&>]/g, ''))
     if (!getRole) return false
     return getRole
+  }
+
+  getChannel(channel) {
+    if (!channel) return false
+    const getChannel = this.client.getChannel(channel.replace(/[<#>]/g, ''))
+    if (!getChannel) return false
+
+    return getChannel
   }
 }
