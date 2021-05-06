@@ -16,40 +16,17 @@ module.exports = class McQueryCommand extends Command {
   }
 
   async run(ctx) {
-    const body = await axios.get(`${encodeURI(`https://eu.mc-api.net/v3/server/ping/${ctx.args[0]}`)}`)
-    if (body.data.online === true) {
+    const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.args[0]}`)}`, { responseType: 'json' })
+    const mcserver = body.data
+    if (mcserver.online) {
       const embed = new EmbedBuilder()
       embed.setColor('MINECRAFT')
-      embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${ctx.args[0]}`)
-      embed.addField('Players', `${body.data.players.online}/${body.data.players.max}`)
-      const parseLetter = []
-
-      if (typeof body.data.description.extra === 'object') {
-        let format = false
-        let nb = -1
-        for (let letter of body.data.description.extra) {
-          nb++
-          if (typeof letter.bold === 'boolean') {
-            if (letter.bold === true) {
-              if (typeof body.data.description.extra[nb + 1] === 'object') {
-                if (letter.bold === true) {
-                  format = true
-                } else {
-                  format = false
-                }
-              }
-              parseLetter.push(`**${letter.text}${format === true ? '' : '**'}`)
-            }
-          } else {
-            parseLetter.push(letter.text)
-          }
-        }
-      }
-
-      embed.setDescription(`${typeof body.data.description === 'string' ? body.data.description.replace(/(\§[A-Za-z0-9])/g, '') : parseLetter.join('')}`)
-      embed.addField(ctx._locale('commands:mcquery.version'), `${body.data.version.name.split(',').length === 0 ? ctx._locale('commands:mcquery.withoutversion') : body.data.version.name.split(',').join(' ')}`)
+      embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${mcserver.hostname}`)
+      embed.setDescription(mcserver.motd.clean.join('\n'))
       embed.setFooter(`©️ ${ctx.client.user.username}`)
       embed.setTimestamp()
+      embed.addField('Players', `${mcserver.players.online}/${mcserver.players.max}`)
+      embed.addField(ctx._locale('commands:mcquery.version'), mcserver.version)
 
       return ctx.send(embed.build())
     } else {
