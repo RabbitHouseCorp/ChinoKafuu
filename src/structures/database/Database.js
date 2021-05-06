@@ -1,4 +1,5 @@
 const Logger = require('../util/Logger')
+const command = require('./collections/Command')
 const guild = require('./collections/Guild')
 const user = require('./collections/User')
 const Collection = require('./Collection')
@@ -13,6 +14,7 @@ module.exports = class Database {
       })
     }
 
+    this.commands = new Collection(command)
     this.guilds = new Collection(guild)
     this.users = new Collection(user)
   }
