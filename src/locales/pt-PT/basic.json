@@ -55,5 +55,6 @@
         "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
         "reason": "Razão"
     },
-    "cooldown": "please, more wait `{{0}}` seconds to execute this command again!"
+    "cooldown": "please, more wait `{{0}}` seconds to execute this command again!",
+    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`"
 }
