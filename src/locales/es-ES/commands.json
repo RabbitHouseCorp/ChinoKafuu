@@ -519,7 +519,7 @@
         "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity> [user]",
+        "usage": "<cantidad> [usuario]",
         "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
         "limit": "No puedo eliminar más de cien mensajes",
         "success": "{{messages}} mensajes eliminados con éxito",
@@ -584,5 +584,37 @@
         "usage": "[usuario]",
         "userAvatar": "Avatar de {{user}}",
         "download": "Haga clic en [aquí]({{link}}) para descargar"
+    },
+    "config": {
+        "title": "Configuración de Módulos del Servidor",
+        "howUse": "Cómo se usa",
+        "usage": "<opiciones> <set/disable> [canal]",
+        "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
+        "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
+        "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
+        "modules": {
+            "title": "Módulos",
+            "enable": "Activado",
+            "disable": "Desactivado",
+            "noChannel": "Sin Canal",
+            "animu": {
+                "module": "Radio Animu",
+                "channel": "Canal de voz de Animu",
+                "enable": "El módulo de `Radio Animu` está ahora habilitado.",
+                "disable": "El módulo de `Radio Animu` está deshabilitado."
+            },
+            "mod": {
+                "module": "Módulo de Moderación",
+                "channel": "Canal de Reg. de Moderación",
+                "enable": "El módulo de `Moderation` ahora está habilitado.",
+                "disable": "El módulo de `Moderation` ha sido deshabilitado."
+            },
+            "report": {
+                "module": "Módulo de Denuncia",
+                "channel": "Canal de Informes",
+                "enable": "El módulo de `Informes` está ahora habilitado.",
+                "disable": "El módulo de `Informes` está ahora deshabilitado."
+            }
+        }
     }
 }
