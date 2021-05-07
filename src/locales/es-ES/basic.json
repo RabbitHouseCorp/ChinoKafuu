@@ -56,5 +56,5 @@
         "reason": "Razón"
     },
     "cooldown": "por favor, ¡espera `{{0}}` segundos más para ejecutar este comando de nuevo!",
-    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`"
+    "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`"
 }
