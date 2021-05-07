@@ -606,14 +606,14 @@
             "mod": {
                 "module": "Módulo de Moderação",
                 "channel": "Reg. Canal de Mod",
-                "enable": "`Moderation`'s module is now enabled.",
-                "disable": "`Moderation`'s module is now disabled."
+                "enable": "O módulo `Moderação` agora está ativado.",
+                "disable": "O módulo `Moderação` agora está desativado."
             },
             "report": {
                 "module": "Módulo de Denúncias",
                 "channel": "Reg. Canal de Denúncias",
-                "enable": "`Report`'s module is now enabled.",
-                "disable": "`Report`'s module is now disabled."
+                "enable": "O módulo `Denúncias` agora está ativado.",
+                "disable": "O módulo `Denúncias` agora está desativado."
             }
         }
     }
