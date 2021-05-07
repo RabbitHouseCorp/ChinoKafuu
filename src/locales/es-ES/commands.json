@@ -519,7 +519,7 @@
         "unlocked": "Entendido, canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity> [user]",
+        "usage": "<cantidad> [usuario]",
         "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
         "limit": "No puedo eliminar más de cien mensajes",
         "success": "{{messages}} mensajes eliminados con éxito",
@@ -586,11 +586,11 @@
         "download": "Haga clic en [aquí]({{link}}) para descargar"
     },
     "config": {
-        "title": "Guild Modules Config",
-        "howUse": "How to use",
-        "usage": "<options> <set/disable> [channel]",
-        "description": "Enable and disable some modules who I have in your guild.",
-        "channelNull": "I can't find this channel, make sure if it exist.",
+        "title": "Configuración de Módulos del Servidor",
+        "howUse": "Cómo se usa",
+        "usage": "<opiciones> <set/disable> [canal]",
+        "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
+        "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
         "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
         "modules": {
             "title": "Modules",
@@ -613,7 +613,7 @@
                 "module": "Report Module",
                 "channel": "Report Channel Log",
                 "enable": "`Report`'s module is now enabled.",
-                "disable": "`Report`'s module is now disabled."
+                "disable": "El módulo de `Denuncia` está ahora deshabilitado."
             }
         }
     }
