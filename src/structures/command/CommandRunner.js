@@ -6,7 +6,7 @@ module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
     if (message.channel.type !== 0) return
-      const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
+    const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
     const guildData = await client.database.guilds.getOrCreate(message.guildID)
     if (guildData.blacklist) {
@@ -77,6 +77,10 @@ module.exports = class CommandRunner {
     }
 
     await ctx.message.channel.sendTyping()
+    const commandData = await client.database.commands.getOrCreate(command.name)
+    if (commandData?.disable) {
+      return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason })
+    }
     const fixedPermissionList = command.permissions.flatMap(object => object.entity === 'both' ? [{
       entity: 'user',
       permissions: object.permissions

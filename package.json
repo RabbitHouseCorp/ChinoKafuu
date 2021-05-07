@@ -1,6 +1,6 @@
 {
     "name": "chino-kafuu",
-    "version": "2021.05.03-rc11",
+    "version": "2021.05.06-rc11",
     "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
     "main": "index.js",
     "scripts": {
@@ -21,10 +21,10 @@
         "chalk": "^4.1.1",
         "colors": "^1.4.0",
         "cron": "^1.8.2",
-        "dotenv": "^8.2.0",
+        "dotenv": "^9.0.0",
         "eris": "github:abalabahaha/eris#dev",
         "hound": "^1.0.5",
-        "ioredis": "^4.26.0",
+        "ioredis": "^4.27.2",
         "mal-scraper": "^2.11.3",
         "mathjs": "^9.0.0",
         "moment": "^2.29.1",

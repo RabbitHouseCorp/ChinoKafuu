@@ -519,7 +519,7 @@
         "unlocked": "canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity> [user]",
+        "usage": "<quantidade> [usuário]",
         "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
         "limit": "eu não consigo apagar mais de cem mensagens",
         "success": "{{messages}} apagadas com sucesso",
@@ -584,5 +584,37 @@
         "usage": "[usuário]",
         "userAvatar": "Avatar de {{user}}",
         "download": "Clique [aqui]({{link}}) para baixar"
+    },
+    "config": {
+        "title": "Configuração de Módulos do Servidor",
+        "howUse": "Como usar",
+        "usage": "<opções> <set/disable> [canal]",
+        "description": "Ativa e desativa alguns módulos que eu tenho no seu servidor.",
+        "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
+        "optionsNotFound": "esta opção é inválida, por favor use as opções `set` ou `disable`.",
+        "modules": {
+            "title": "Módulos",
+            "enable": "Ativado",
+            "disable": "Desativado",
+            "noChannel": "Sem Canal",
+            "animu": {
+                "module": "Rádio Animu",
+                "channel": "Canal de Voz da Animu",
+                "enable": "O módulo 'Rádio Animu' agora está ativado.",
+                "disable": "O módulo 'Rádio Animu' agora está desativado."
+            },
+            "mod": {
+                "module": "Módulo de Moderação",
+                "channel": "Reg. Canal de Mod",
+                "enable": "O módulo `Moderação` agora está ativado.",
+                "disable": "O módulo `Moderação` agora está desativado."
+            },
+            "report": {
+                "module": "Módulo de Denúncias",
+                "channel": "Reg. Canal de Denúncias",
+                "enable": "O módulo `Denúncias` agora está ativado.",
+                "disable": "O módulo `Denúncias` agora está desativado."
+            }
+        }
     }
 }
