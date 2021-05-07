@@ -606,14 +606,14 @@
             "mod": {
                 "module": "Mod Module",
                 "channel": "Mod Channel Log",
-                "enable": "`Mod Module`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "enable": "`Moderation`'s module is now enabled.",
+                "disable": "`Moderation`'s module is now disabled."
             },
             "report": {
                 "module": "Report Module",
                 "channel": "Report Channel Log",
-                "enable": "`Report Module`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "enable": "`Report`'s module is now enabled.",
+                "disable": "`Report`'s module is now disabled."
             }
         }
     }
