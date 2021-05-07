@@ -591,29 +591,29 @@
         "usage": "<opiciones> <set/disable> [canal]",
         "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
         "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
-        "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
+        "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
         "modules": {
-            "title": "Modules",
-            "enable": "Enable",
-            "disable": "Disable",
-            "noChannel": "No Channel",
+            "title": "Módulos",
+            "enable": "Activado",
+            "disable": "Desactivado",
+            "noChannel": "Sin Canal",
             "animu": {
-                "module": "Animu Radio",
-                "channel": "Animu Voice Channel",
-                "enable": "`Animu Radio`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "module": "Radio Animu",
+                "channel": "Canal de voz de Animu",
+                "enable": "El módulo de `Radio Animu` está ahora habilitado.",
+                "disable": "El módulo de `Radio Animu` está deshabilitado."
             },
             "mod": {
-                "module": "Mod Module",
-                "channel": "Mod Channel Log",
-                "enable": "`Moderation`'s module is now enabled.",
-                "disable": "`Moderation`'s module is now disabled."
+                "module": "Módulo de Moderación",
+                "channel": "Canal de Reg. de Moderación",
+                "enable": "El módulo de `Moderation` ahora está habilitado.",
+                "disable": "El módulo de `Moderation` ha sido deshabilitado."
             },
             "report": {
-                "module": "Report Module",
-                "channel": "Report Channel Log",
-                "enable": "`Report`'s module is now enabled.",
-                "disable": "El módulo de `Denuncia` está ahora deshabilitado."
+                "module": "Módulo de Denuncia",
+                "channel": "Canal de Informes",
+                "enable": "El módulo de `Informes` está ahora habilitado.",
+                "disable": "El módulo de `Informes` está ahora deshabilitado."
             }
         }
     }
