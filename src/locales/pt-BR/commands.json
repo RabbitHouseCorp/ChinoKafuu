@@ -519,7 +519,7 @@
         "unlocked": "canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantity> [user]",
+        "usage": "<quantidade> [usuário]",
         "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
         "limit": "eu não consigo apagar mais de cem mensagens",
         "success": "{{messages}} apagadas com sucesso",
@@ -586,9 +586,9 @@
         "download": "Clique [aqui]({{link}}) para baixar"
     },
     "config": {
-        "title": "Guild Modules Config",
-        "howUse": "How to use",
-        "usage": "<options> <set/disable> [channel]",
+        "title": "Configuração de Módulos do Servidor",
+        "howUse": "Como usar",
+        "usage": "<opções> <set/disable> [canal]",
         "description": "Enable and disable some modules who I have in your guild.",
         "channelNull": "I can't find this channel, make sure if it exist.",
         "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
