@@ -589,31 +589,31 @@
         "title": "Configuração de Módulos do Servidor",
         "howUse": "Como usar",
         "usage": "<opções> <set/disable> [canal]",
-        "description": "Enable and disable some modules who I have in your guild.",
-        "channelNull": "I can't find this channel, make sure if it exist.",
-        "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
+        "description": "Ativa e desativa alguns módulos que eu tenho no seu servidor.",
+        "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
+        "optionsNotFound": "esta opção é inválida, por favor use as opções `set` ou `disable`.",
         "modules": {
-            "title": "Modules",
-            "enable": "Enable",
-            "disable": "Disable",
-            "noChannel": "No Channel",
+            "title": "Módulos",
+            "enable": "Ativado",
+            "disable": "Desativado",
+            "noChannel": "Sem Canal",
             "animu": {
-                "module": "Animu Radio",
-                "channel": "Animu Voice Channel",
-                "enable": "`Animu Radio`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "module": "Rádio Animu",
+                "channel": "Canal de Voz da Animu",
+                "enable": "O módulo 'Rádio Animu' agora está ativado.",
+                "disable": "O módulo 'Rádio Animu' agora está desativado."
             },
             "mod": {
-                "module": "Mod Module",
-                "channel": "Mod Channel Log",
-                "enable": "`Mod Module`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "module": "Módulo de Moderação",
+                "channel": "Reg. Canal de Mod",
+                "enable": "`Moderation`'s module is now enabled.",
+                "disable": "`Moderation`'s module is now disabled."
             },
             "report": {
-                "module": "Report Module",
-                "channel": "Report Channel Log",
-                "enable": "`Report Module`'s module is now enabled.",
-                "disable": "`Animu Radio`'s module is now disabled."
+                "module": "Módulo de Denúncias",
+                "channel": "Reg. Canal de Denúncias",
+                "enable": "`Report`'s module is now enabled.",
+                "disable": "`Report`'s module is now disabled."
             }
         }
     }
