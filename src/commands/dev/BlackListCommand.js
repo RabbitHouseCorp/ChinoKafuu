@@ -12,7 +12,7 @@ module.exports = class BlackListCommand extends Command {
   }
 
   async run(ctx) {
-    switch (ctx.args[0]) {
+    switch (ctx.args[0]?.toLowerCase()) {
       case 'add': {
         const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
