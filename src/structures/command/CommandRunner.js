@@ -19,7 +19,7 @@ module.exports = class CommandRunner {
         embed.setColor('DEFAULT')
         embed.setAuthor(message.author.username, message.author.avatarURL)
         embed.setThumbnail(invite.guild.iconURL)
-        embed.setDescription(`Hey, here is my invite to adding me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
+        embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
         dmChannel.createMessage(embed.build())
         return
       }
