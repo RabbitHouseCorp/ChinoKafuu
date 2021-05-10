@@ -29,7 +29,7 @@ module.exports = class CommandRunner {
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
 
-    const guildData = await message.channel.type !== 0 ?client.database.guilds.getOrCreate(message.guildID) : null
+    const guildData = await client.database.guilds.getOrCreate(message.guildID)
     if (guildData.blacklist) {
       return client.leaveGuild(message.guildID)
     }
