@@ -14,12 +14,12 @@
     },
     "jankenpon": {
         "usage": "<escolha> <valor>",
-        "description": "Jogue pedra papel ou tesoura e ganhe ou perda yens.",
+        "description": "Jogue pedra papel ou tesoura e ganhe ou perda ienes.",
         "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
         "valueNotInputed": "você não forneceu nenhum valor para apostar.",
         "tie": "empate! Ninguém ganhou ou perdeu.",
-        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` yens.",
-        "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` yens de você, queridinho(a)",
+        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` ienes.",
+        "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` ienes de você, queridinho(a)",
         "choice": {
             "rock": "pedra",
             "paper": "papel",
