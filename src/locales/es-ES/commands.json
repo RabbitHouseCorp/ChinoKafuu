@@ -27,7 +27,7 @@
         }
     },
     "daily": {
-        "congrats": "¡Felicidades! Has recibido `{{0}}` yenes hoy. Puedes obtener más yenes mañana. ¡Nos vemos más tarde y tenemos un buen día!",
+        "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
         "yensDaily": "Yenes diarios",
         "hasBeenPicked": "ya has recogido tus yenes diarios hoy. Espera `{{0}}` antes de reclamarlos de nuevo.",
         "description": "Puedes obtener tus yenes diarios usando este comando",
@@ -426,8 +426,8 @@
         "description": "Besa tu verdadero amor (o no)."
     },
     "yens": {
-        "yens": "tienes {{yens}} yenes",
-        "onMention": "{{user}} tiene {{yens}} yenes",
+        "yens": "you have {{yens}} yen(s) and {{sugarcube}} sugarcube(s).",
+        "onMention": "{{user}} has {{yens}} yen(s) and {{sugarcube}} sugarcube(s).",
         "description": "Muestra su saldo actual o el saldo de otra persona.",
         "usage": "[usuario]"
     },
