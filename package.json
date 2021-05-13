@@ -1,6 +1,6 @@
 {
     "name": "chino-kafuu",
-    "version": "2021.05.13-rc05",
+    "version": "2021.05.13-rc08",
     "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
     "main": "index.js",
     "scripts": {
