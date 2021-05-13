@@ -3,6 +3,7 @@ const Users = new mongoose.Schema({
   id: { type: String, index: { unique: true } },
   yens: { type: Number, default: 0, index: true },
   timeDaily: { type: Number, default: 0 },
+  sugarcube: { type: Number, default: 0 },
   afk: { type: Boolean, default: false, index: true },
   afkReason: { type: String, default: null },
   blacklist: { type: Boolean, default: false, index: true },
