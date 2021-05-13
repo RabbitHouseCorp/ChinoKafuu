@@ -78,8 +78,9 @@ module.exports = class CommandRunner {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
       try {
-        ctx.replyT('error', 'basic:cooldown', { 0: new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds() })
-      } catch (ignore) {
+        const time = new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()
+        ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+      } catch {
 
       }
       return
