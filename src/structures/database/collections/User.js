@@ -16,7 +16,9 @@ const Users = new mongoose.Schema({
   shipValue: { type: String, default: null },
   background: { type: String, default: 'gochiusa_3' },
   sticker: { type: String, default: 'bjork_post' },
-  profileType: { type: String, default: 'default' }
+  profileType: { type: String, default: 'default' },
+  backgroundList: { type: Array, default: ['gochiusa_3'] },
+  profileList: { type: Array, default: ['default'] }
 })
 
 module.exports = mongoose.model('Users', Users)
