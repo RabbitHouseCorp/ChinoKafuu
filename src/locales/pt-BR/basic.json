@@ -55,6 +55,7 @@
         "explain": "`{{0}}` está banido, de acordo com o motivo abaixo. Você acha que o banimento foi injusto? Entre em meu [servidor de suporte](https://discord.gg/Jr57UrsXeC) e solicite uma revisão.",
         "reason": "Motivo"
     },
-    "cooldown": "por favor, aguarde mais `{{0}}` segundos para executar este comando novamente!",
+    "cooldown": "please, wait more {{0}} seconds to execute this command again!",
+    "cooldownLowThanZero": "some",
     "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`"
 }
