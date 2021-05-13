@@ -31,7 +31,7 @@
     "aliases": "Alternativas",
     "addedToGuild": {
         "thanks": "Obrigada por me adicionar",
-        "description": "Whoa {{0}}! Obrigado por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão**, **música** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
+        "description": "Whoa {{0}}! Obrigada por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
         "guildSaved": "O servidor {{0}} salvo com sucesso no banco de dados!"
     },
     "noAliases": "Esse comando não possui alternativas.",
@@ -55,5 +55,6 @@
         "explain": "`{{0}}` está banido, de acordo com o motivo abaixo. Você acha que o banimento foi injusto? Entre em meu [servidor de suporte](https://discord.gg/Jr57UrsXeC) e solicite uma revisão.",
         "reason": "Motivo"
     },
-    "cooldown": "por favor, aguarde mais `{{0}}` segundos para executar este comando novamente!"
+    "cooldown": "por favor, aguarde mais `{{0}}` segundos para executar este comando novamente!",
+    "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`"
 }

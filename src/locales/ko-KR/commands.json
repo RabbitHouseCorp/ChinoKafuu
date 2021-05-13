@@ -1,5 +1,7 @@
 {
     "report": {
+        "usage": "<user> <reason> -p <proof|attachment>",
+        "description": "Reports a user on this server if the module is enable.",
         "moduleDisable": "this module is disabled on this server.",
         "noReason": "no reason specified",
         "successfullySent": "report successfully sent.",
@@ -338,12 +340,12 @@
     },
     "invite": {
         "addMeInYourGuild": "Add me in your guild",
-        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+        "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
         "description": "Shows how you can add me in your server."
     },
     "botinfo": {
         "title": "Bot information",
-        "inviteMe": "You can add me in your Discord server by [clicking here](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
+        "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Have fun, and see you later.",
         "guildsAmount": "Total guilds",
         "usersAmount": "Total users",
         "shardLatency": "Shard latency",
@@ -517,7 +519,7 @@
         "unlocked": "got it, channel unlocked"
     },
     "clear": {
-        "usage": "<quantity>",
+        "usage": "<quantity> [user]",
         "description": "Clears messages in this channel. If specified a user, it clears messages from that user",
         "limit": "I can't delete more than a hundred messages",
         "success": "successfully cleared {{messages}} messages",
@@ -582,5 +584,37 @@
         "usage": "[user]",
         "userAvatar": "{{user}}'s avatar",
         "download": "Click [here]({{link}}) to download"
+    },
+    "config": {
+        "title": "Guild Modules Config",
+        "howUse": "How to use",
+        "usage": "<options> <set/disable> [channel]",
+        "description": "Enable and disable some modules who I have in your guild.",
+        "channelNull": "I can't find this channel, make sure if it exist.",
+        "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
+        "modules": {
+            "title": "Modules",
+            "enable": "Enable",
+            "disable": "Disable",
+            "noChannel": "No Channel",
+            "animu": {
+                "module": "Animu Radio",
+                "channel": "Animu Voice Channel",
+                "enable": "`Animu Radio`'s module is now enabled.",
+                "disable": "`Animu Radio`'s module is now disabled."
+            },
+            "mod": {
+                "module": "Mod Module",
+                "channel": "Mod Channel Log",
+                "enable": "`Moderation`'s module is now enabled.",
+                "disable": "`Moderation`'s module is now disabled."
+            },
+            "report": {
+                "module": "Report Module",
+                "channel": "Report Channel Log",
+                "enable": "`Report`'s module is now enabled.",
+                "disable": "`Report`'s module is now disabled."
+            }
+        }
     }
 }

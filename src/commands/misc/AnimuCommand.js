@@ -71,6 +71,8 @@ module.exports = class AnimuCommand extends Command {
     }
 
     if (['nowplaying', 'tocandoagora', 'np', 'tocando'].includes(ctx.args[0])) {
+      if (!ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
+      if (!ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerNotFound')
       const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
       const embed = new EmbedBuilder()
       embed.setColor('ANIMU')

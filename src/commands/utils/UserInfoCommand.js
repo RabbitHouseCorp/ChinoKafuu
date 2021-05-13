@@ -22,7 +22,7 @@ module.exports = class UserInfoCommand extends Command {
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
         .map((a) => ctx.message.channel.guild.roles.get(a))
-        .filter((z) => z && z.color > 0)
+        .filter((z) => z && z.color >= 0)
         .sort((a, b) => b.position - a.position)
       hoist = role[0]
     }

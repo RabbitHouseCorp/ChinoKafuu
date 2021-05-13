@@ -1,5 +1,7 @@
 {
     "report": {
+        "usage": "<usuário> <motivo> -p <prova|anexo>",
+        "description": "Denuncia um usuário neste servidor se o módulo estiver ativado.",
         "moduleDisable": "este módulo está desativado neste servidor.",
         "noReason": "nenhum motivo especificado",
         "successfullySent": "denúncia enviada com sucesso.",
@@ -12,12 +14,12 @@
     },
     "jankenpon": {
         "usage": "<escolha> <valor>",
-        "description": "Jogue pedra papel ou tesoura e ganhe ou perda yens.",
+        "description": "Jogue pedra papel ou tesoura e ganhe ou perda ienes.",
         "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
         "valueNotInputed": "você não forneceu nenhum valor para apostar.",
         "tie": "empate! Ninguém ganhou ou perdeu.",
-        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` yens.",
-        "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` yens de você, queridinho(a)",
+        "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` ienes.",
+        "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` ienes de você, queridinho(a)",
         "choice": {
             "rock": "pedra",
             "paper": "papel",
@@ -343,7 +345,7 @@
     },
     "botinfo": {
         "title": "Informação do bot",
-        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discordapp.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
+        "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239). Divirta-se e te vejo mais tarde.",
         "guildsAmount": "Total de servidores",
         "usersAmount": "Total de usuários",
         "shardLatency": "Latência da shard",
@@ -517,7 +519,7 @@
         "unlocked": "canal desbloqueado"
     },
     "clear": {
-        "usage": "<quantidade>",
+        "usage": "<quantidade> [usuário]",
         "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
         "limit": "eu não consigo apagar mais de cem mensagens",
         "success": "{{messages}} apagadas com sucesso",
@@ -582,5 +584,37 @@
         "usage": "[usuário]",
         "userAvatar": "Avatar de {{user}}",
         "download": "Clique [aqui]({{link}}) para baixar"
+    },
+    "config": {
+        "title": "Configuração de Módulos do Servidor",
+        "howUse": "Como usar",
+        "usage": "<opções> <set/disable> [canal]",
+        "description": "Ativa e desativa alguns módulos que eu tenho no seu servidor.",
+        "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
+        "optionsNotFound": "esta opção é inválida, por favor use as opções `set` ou `disable`.",
+        "modules": {
+            "title": "Módulos",
+            "enable": "Ativado",
+            "disable": "Desativado",
+            "noChannel": "Sem Canal",
+            "animu": {
+                "module": "Rádio Animu",
+                "channel": "Canal de Voz da Animu",
+                "enable": "O módulo 'Rádio Animu' agora está ativado.",
+                "disable": "O módulo 'Rádio Animu' agora está desativado."
+            },
+            "mod": {
+                "module": "Módulo de Moderação",
+                "channel": "Reg. Canal de Mod",
+                "enable": "O módulo `Moderação` agora está ativado.",
+                "disable": "O módulo `Moderação` agora está desativado."
+            },
+            "report": {
+                "module": "Módulo de Denúncias",
+                "channel": "Reg. Canal de Denúncias",
+                "enable": "O módulo `Denúncias` agora está ativado.",
+                "disable": "O módulo `Denúncias` agora está desativado."
+            }
+        }
     }
 }

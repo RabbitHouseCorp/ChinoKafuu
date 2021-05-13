@@ -31,7 +31,7 @@
     "aliases": "Aliases",
     "addedToGuild": {
         "thanks": "Gracias por añadirme",
-        "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión**, **música** y otras **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
+        "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
         "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
     },
     "noAliases": "Este comando no tiene ningún alias.",
@@ -55,5 +55,6 @@
         "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
         "reason": "Razón"
     },
-    "cooldown": "por favor, ¡espera `{{0}}` segundos más para ejecutar este comando de nuevo!"
+    "cooldown": "por favor, ¡espera `{{0}}` segundos más para ejecutar este comando de nuevo!",
+    "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`"
 }

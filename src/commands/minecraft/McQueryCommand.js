@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, Emoji } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class McQueryCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'mcquery',
       aliases: ['mcpesquisa', 'mcstatus'],
@@ -15,17 +15,18 @@ module.exports = class McQueryCommand extends Command {
     })
   }
 
-  async run (ctx) {
-    const body = await axios.get(`http://mcapi.us/server/status?ip=${ctx.args[0]}`)
-
-    if (body.online) {
+  async run(ctx) {
+    const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.args[0]}`)}`, { responseType: 'json' })
+    const mcserver = body.data
+    if (mcserver.online) {
       const embed = new EmbedBuilder()
       embed.setColor('MINECRAFT')
-      embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${ctx.args[0]}`)
-      embed.addField('Players', `${body.data.players.now}/${body.data.players.max}`, true)
-      embed.addField(ctx._locale('commands:mcquery.version'), body.data.server.name, true)
+      embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${mcserver.hostname}`)
+      embed.setDescription(mcserver.motd.clean.join('\n'))
       embed.setFooter(`©️ ${ctx.client.user.username}`)
       embed.setTimestamp()
+      embed.addField('Players', `${mcserver.players.online}/${mcserver.players.max}`)
+      embed.addField(ctx._locale('commands:mcquery.version'), mcserver.version)
 
       return ctx.send(embed.build())
     } else {

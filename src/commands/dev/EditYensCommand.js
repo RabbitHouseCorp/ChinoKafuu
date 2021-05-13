@@ -14,11 +14,9 @@ module.exports = class EditYensCommand extends Command {
   async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
-        if (!dbUser) return ctx.reply('error', `eu não encontrei esse ID \`${user}\` no meu banco de dados.`)
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
         const amount = ctx.args[2]
         if (!amount) return ctx.reply('error', 'você não falou o valor que você deseja adicionar para o usuário.')
         dbUser.yens += Math.round(amount)
@@ -28,11 +26,9 @@ module.exports = class EditYensCommand extends Command {
       }
         break
       case 'edit': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
-        if (!dbUser) return ctx.reply('error', `eu não encontrei esse ID \`${user}\` no meu banco de dados.`)
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
         const amount = ctx.args[2]
         if (!amount) return ctx.reply('error', 'você não falou o valor que você deseja alterei para o usuário.')
         dbUser.yens = Math.round(amount)
@@ -42,11 +38,9 @@ module.exports = class EditYensCommand extends Command {
       }
         break
       case 'remove': {
-        let user = ctx.args[1]
+        const user = await ctx.getUser(ctx.args[1])
         if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        user = user.replace(/[<@!>]/g, '')
-        const dbUser = await ctx.db.db.getOrCreate(user)
-        if (!dbUser) return ctx.reply('error', `eu não encontrei esse ID \`${user}\` no meu banco de dados.`)
+        const dbUser = await ctx.db.db.getOrCreate(user.id)
         const amount = ctx.args[2]
         if (!amount) return ctx.reply('error', 'você não falou o valor que você deseja remover para o usuário.')
         dbUser.yens -= Math.round(amount)
