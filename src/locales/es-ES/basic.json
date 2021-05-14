@@ -55,7 +55,7 @@
         "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
         "reason": "Razón"
     },
-    "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-    "cooldownLowThanZero": "some",
+    "cooldown": "por favor, ¡espera más `{{0}}` segundos para ejecutar este comando de nuevo!",
+    "cooldownLowThanZero": "algunos",
     "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`"
 }
