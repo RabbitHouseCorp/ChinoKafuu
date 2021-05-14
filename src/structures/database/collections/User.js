@@ -3,6 +3,7 @@ const Users = new mongoose.Schema({
   id: { type: String, index: { unique: true } },
   yens: { type: Number, default: 0, index: true },
   timeDaily: { type: Number, default: 0 },
+  sugarcube: { type: Number, default: 0 },
   afk: { type: Boolean, default: false, index: true },
   afkReason: { type: String, default: null },
   blacklist: { type: Boolean, default: false, index: true },
@@ -16,7 +17,9 @@ const Users = new mongoose.Schema({
   shipValue: { type: String, default: null },
   background: { type: String, default: 'gochiusa_3' },
   sticker: { type: String, default: 'bjork_post' },
-  profileType: { type: String, default: 'default' }
+  profileType: { type: String, default: 'default' },
+  backgroundList: { type: Array, default: ['gochiusa_3'] },
+  profileList: { type: Array, default: ['default'] }
 })
 
 module.exports = mongoose.model('Users', Users)
