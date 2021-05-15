@@ -35,14 +35,16 @@ module.exports = class DailyCommand extends Command {
     }
 
     const amount = Math.floor(Math.random() * (3500 - 300 + 1)) + 300
+    const amountSg = Math.floor(Math.random() * (350 - 15 + 1)) + 15
     user.yens += amount
+    user.sugarcube += amountSg
     user.timeDaily = 43200000 + Date.now()
     user.save().then(() => {
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
       embed.setThumbnail('https://cdn.discordapp.com/attachments/504668288798949376/800132564227719193/artworks-000454557840-nvbn35-t500x500.png')
       embed.setTitle(ctx._locale('commands:daily.yensDaily'))
-      embed.setDescription(ctx._locale('commands:daily.congrats', { 0: Number(amount).toLocaleString() }))
+      embed.setDescription(ctx._locale('commands:daily.congrats', { 0: Number(amount).toLocaleString(), 1: Number(amountSg).toLocaleString() }))
 
       ctx.send(embed.build())
     })

@@ -1,22 +1,27 @@
 const Listener = require('../../structures/events/Listener')
 
 module.exports = class VoiceChannelLeaveListener extends Listener {
-  constructor () {
+  constructor() {
     super()
     this.event = 'voiceChannelLeave'
   }
 
-  async on (client, member, oldChannel) {
+  async on(client, member, oldChannel) {
     const guild = member.guild
-    const voiceChannel = client.guilds.get(guild.id).channels.get(oldChannel.id)
-    const server = await client.database.guilds.getOrCreate(guild.id)
-    if (!server.animu) return
-    if (voiceChannel.id !== server.animuChannel) return
+    const guildBot = client.guilds.get(guild.id).members.get(client.user.id)
     if (!client.player.has(guild.id)) return
-    if (oldChannel.voiceMembers.size === 1) {
+    if (oldChannel.id !== guildBot.voiceState.channelID) return
+    if (oldChannel.voiceMembers.filter(member => !member.user.bot).length === 0) {
       await client.lavalink.manager.leave(guild.id)
       client.lavalink.manager.players.delete(guild.id)
       client.player.delete(guild.id)
+      return
+    }
+
+    if (member.user.id === client.user.id) {
+      client.lavalink.manager.players.delete(guild.id)
+      client.player.delete(guild.id)
+      return
     }
   }
 }

@@ -1,6 +1,6 @@
-const Listener = require('../structures/events/Listener')
-const LavalinkManager = require('../lavalink/LavalinkManager')
-const { TopGGUtils, Logger } = require('../utils')
+const Listener = require('../../structures/events/Listener')
+const LavalinkManager = require('../../lavalink/LavalinkManager')
+const { TopGGUtils, Logger } = require('../../utils')
 module.exports = class ReadyListener extends Listener {
   constructor() {
     super()

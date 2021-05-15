@@ -1,5 +1,5 @@
-const Listener = require('../structures/events/Listener')
-const { Logger } = require('../utils')
+const Listener = require('../../structures/events/Listener')
+const { Logger } = require('../../utils')
 
 module.exports = class ErrorListener extends Listener {
   constructor () {

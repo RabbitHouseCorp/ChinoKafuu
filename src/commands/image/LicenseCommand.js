@@ -24,13 +24,13 @@ module.exports = class LicenseCommand extends Command {
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
         .map((a) => ctx.message.channel.guild.roles.get(a))
-        .filter((z) => z && z.color > 0)
+        .filter((z) => z)
         .sort((a, b) => b.position - a.position)
       hoist = role[0]
     }
 
     let highRole = guild.roles.get(hoist?.id)?.color.toString(16)
-    if (!highRole) highRole = '#000000'
+    if (!highRole || highRole <= 0) highRole = '#000000'
     const buffer = await axios({
       url: 'http://127.0.0.1:1234/render/license',
       method: 'post',
@@ -43,6 +43,6 @@ module.exports = class LicenseCommand extends Command {
       responseType: 'arraybuffer'
     })
 
-    ctx.send('', {}, { file: buffer.data, name: 'license.png' })
+    ctx.send('', { file: { file: buffer.data, name: 'license.png' } })
   }
 }

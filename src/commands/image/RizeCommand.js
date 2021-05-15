@@ -25,6 +25,6 @@ module.exports = class RizeCommand extends Command {
       responseType: 'arraybuffer'
     })
 
-    ctx.send('', {}, { file: buffer.data, name: 'rize.png' })
+    ctx.send('', { file: { file: buffer.data, name: 'rize.png' } })
   }
 }

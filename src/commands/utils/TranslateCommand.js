@@ -12,16 +12,24 @@ module.exports = class TranslateCommand extends Command {
   }
 
   async run(ctx) {
+    const args = Object.values(ctx.args.join(' ').split(' '))
     const language = ctx.args[0]
-    let content = ctx.args.slice(1).join(' ')
+    let content = ctx.args.join(' ')
+
+    args.shift() // For remove first object of translate
+
     if (!ctx.args[1]) {
       content = 'I\'m a little girl'
     }
 
-    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${content.slice(0)}&ie=UTF-8&oe=UTF-8`
+    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${args.join(' ')}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
-    const body = res.data[0][0][0]
 
-    ctx.reply('map', body.toString())
+    let letters = []
+    for (let translateOutput of res.data[0]) {
+      letters.push(translateOutput[0])
+    }
+
+    ctx.reply('map', letters.toString())
   }
 }
