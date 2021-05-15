@@ -25,7 +25,7 @@ module.exports = class CommandContext {
      */
   async send(content, ...props) {
     return await this.message.channel.createMessage({
-      content: content?.content ?? content,
+      content: (typeof content === 'string') ? content : content.content,
       embed: content?.embed,
       messageReferenceID: this.message.id,
       options: props[0]?.options
@@ -70,7 +70,7 @@ module.exports = class CommandContext {
      * @param props
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-  async replyT(emoji, content, data = {}, props) {
+  async replyT(emoji, content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
       messageReferenceID: this.message.id,
