@@ -24,7 +24,6 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
   async send(content, ...props) {
-    console.log(content?.content)
     return await this.message.channel.createMessage({
       content: (typeof content === 'string') ? content : content.content,
       embed: content?.embed,
