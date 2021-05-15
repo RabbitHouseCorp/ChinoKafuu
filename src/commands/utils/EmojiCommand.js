@@ -20,6 +20,12 @@ module.exports = class EmojiCommand extends Command {
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
 
     const buffer = await axios.get(emoji.url, { responseType: 'arraybuffer' }).then(d => d.data)
-    ctx.send('', {}, { file: buffer, name: `${emoji.name}.${emoji.animated ? 'gif' : 'png'}` })
+    ctx.send('', {
+      file:
+      {
+        file: buffer,
+        name: `${emoji.name}.${emoji.animated ? 'gif' : 'png'}`
+      }
+    })
   }
 }

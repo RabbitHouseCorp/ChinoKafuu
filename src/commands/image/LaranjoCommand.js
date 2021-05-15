@@ -24,6 +24,6 @@ module.exports = class LaranjoCommand extends Command {
       responseType: 'arraybuffer'
     })
 
-    ctx.send('', {}, { file: buffer.data, name: 'laranjo.png' })
+    ctx.send('', { file: { file: buffer.data, name: 'laranjo.png' } })
   }
 }

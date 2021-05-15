@@ -20,45 +20,54 @@ module.exports = class CommandContext {
   /**
      * Sends a message to this channel
      * @param content The content to be sent
-     * @param options {object}
+     * @param props {object}
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
-  async send(content, options, file) {
+  async send(content, ...props) {
     if (typeof content === 'object') {
-      return await this.message.channel.createMessage(Object.assign(content, { messageReferenceID: this.message.id }, options), file)
+      return await this.message.channel.createMessage(Object.assign(content,
+        {
+          messageReferenceID: this.message.id,
+          failIfNotExists: false
+        }, props[0]?.options), props[0]?.file)
     }
 
-    return await this.message.channel.createMessage(Object.assign({ content: content }, { messageReferenceID: this.message.id }, options), file)
+    return await this.message.channel.createMessage(Object.assign({
+      content: content
+    }, {
+      messageReferenceID: this.message.id,
+      failIfNotExists: false
+    }, props[0]?.options), props[0]?.file)
   }
 
   /**
      *
      * @param content
      * @param data
-     * @param options
+     * @param props
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-  async sendT(content, data = {}, options = {}) {
+  async sendT(content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: this._locale(content, data),
       messageReferenceID: this.message.id,
-      options
-    })
+      options: props[0]?.options
+    }, props[0]?.file)
   }
 
   /**
      * Sends a message with the author mention and an emoji
      * @param emoji The emoji of the message
      * @param content The content to be sent
-     * @param options
+     * @param props
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
-  async reply(emoji, content, options = {}) {
+  async reply(emoji, content, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
       messageReferenceID: this.message.id,
-      options
-    })
+      options: props[0]?.options
+    }, props[0]?.file)
   }
 
   /**
@@ -66,17 +75,15 @@ module.exports = class CommandContext {
      * @param emoji
      * @param content
      * @param data
-     * @param options
-     * @param file
+     * @param props
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
-  async replyT(emoji, content, data = {}, options = {}, file) {
+  async replyT(emoji, content, data = {}, props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
       messageReferenceID: this.message.id,
-      options,
-      file
-    })
+      options: props[0]?.options
+    }, props[0]?.file)
   }
 
   /**

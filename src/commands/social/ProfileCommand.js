@@ -107,7 +107,12 @@ module.exports = class ProfileCommand extends Command {
       },
       responseType: 'arraybuffer'
     }).then(profile => {
-      ctx.send('', {}, { file: profile.data, name: 'profile.png' })
+      ctx.send('', {
+        file: {
+          file: profile.data,
+          name: 'profile.png'
+        }
+      })
     })
   }
 }
