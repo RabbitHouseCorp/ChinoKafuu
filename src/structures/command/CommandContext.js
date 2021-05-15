@@ -32,12 +32,12 @@ module.exports = class CommandContext {
         }, props[0]?.options), props[0]?.file)
     }
 
-    return await this.message.channel.createMessage(Object.assign({
-      content: content
-    }, {
+    return await this.message.channel.createMessage({
+      content: content,
       messageReferenceID: this.message.id,
-      failIfNotExists: false
-    }, props[0]?.options), props[0]?.file)
+      failIfNotExists: false,
+      options: props[0]?.options
+    }, props[0]?.file)
   }
 
   /**
