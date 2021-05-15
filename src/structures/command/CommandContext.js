@@ -24,18 +24,10 @@ module.exports = class CommandContext {
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
   async send(content, ...props) {
-    if (typeof content === 'object') {
-      return await this.message.channel.createMessage(Object.assign(content,
-        {
-          messageReferenceID: this.message.id,
-          failIfNotExists: false
-        }, props[0]?.options), props[0]?.file)
-    }
-
     return await this.message.channel.createMessage({
-      content: content,
+      content: content?.content ?? content,
+      embed: content?.embed,
       messageReferenceID: this.message.id,
-      failIfNotExists: false,
       options: props[0]?.options
     }, props[0]?.file)
   }
