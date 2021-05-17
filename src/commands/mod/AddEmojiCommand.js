@@ -16,7 +16,8 @@ module.exports = class AddEmojiCommand extends Command {
   }
 
   async run (ctx) {
-    const url = ctx.args[1] ?? ctx.message.attachments[0]?.url
+    const emoji = await ctx.getEmoji(ctx.args[1]);
+    const url = !emoji ? ctx.args[1] ?? ctx.message.attachments[0]?.url : emoji.url;
     const name = ctx.args[0]
     if (!name || !url) {
       return ctx.replyT('error', 'basic:missingArgs', {
