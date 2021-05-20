@@ -26,7 +26,6 @@
         "hound": "^1.0.5",
         "ioredis": "^4.27.2",
         "mal-scraper": "^2.11.3",
-        "mathjs": "^9.0.0",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
         "mongoose": "^5.12.9",
