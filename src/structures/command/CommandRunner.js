@@ -1,7 +1,7 @@
 const CommandContext = require('./CommandContext')
 const Helper = require('../../structures/util/Helper')
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
-
+const CommandPermissions = require('./CommandPermissions')
 module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
@@ -103,32 +103,16 @@ module.exports = class CommandRunner {
     if (commandData?.disable) {
       return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason })
     }
-    const fixedPermissionList = command.permissions.flatMap(object => object.entity === 'both' ? [{
-      entity: 'user',
-      permissions: object.permissions
-    }, { entity: 'bot', permissions: object.permissions }] : object)
 
-    const checkedPermissions = fixedPermissionList.map((object) => {
-      const member = object.entity === 'user' ? ctx.message.member : ctx.message.channel.guild.members.get(client.user.id)
+    const permissions = new CommandPermissions(client, message.member, message.channel.guild)
+    const userPermissions = permissions.userHas(command.permissions)
+    const botPermissions = permissions.botHas(command.permissions)
+    if (userPermissions[0]) {
+      return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms =>`\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+    }
 
-      object.permissions.forEach((permission) => {
-        if (permission === 'botDeveloper') {
-          if (!process.env.BOT_DEVELOPERS.includes(ctx.message.author.id)) object.missing = permission
-        } else {
-          if (!member.permission.has(permission)) object.missing = permission
-        }
-      })
-
-      return object
-    })
-
-    if (checkedPermissions.filter(object => object.missing)[0]) {
-      const missingPerm = checkedPermissions.filter(z => z.missing)[0]
-      const key = checkedPermissions.entity === 'bot' ? 'Bot' : 'User'
-
-      ctx.replyT('error', `basic:missing${key}Permission`, { perm: ctx._locale(`permission:${missingPerm.missing}`) })
-      missingPerm.missing = null
-      return
+    if (botPermissions[0]) {
+      return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
 
     if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
