@@ -6,24 +6,27 @@ module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
     if (message.channel.type !== 0) {
-      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite|discord\.me|discord\.io))/g).test(message.content)
+      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
       if (isInvite) {
-        const dmChannel = await message.author.getDMChannel()
-        const text = message.content.trim().split(' ')
-        const findInvite = text.find(invite => invite.includes('discord.gg'))
-          .replace(/(https:\/\/)?(http:\/\/)/g, '')
-          .replace(/(discord\.gg|discordapp\.com\/invite|discord\.com\/invite|discord\.me|discord\.io)/g, '')
-          .replace(/(\/)/g, '')
-        const invite = await client.getInvite(findInvite)
-        const embed = new EmbedBuilder()
-        embed.setColor('DEFAULT')
-        embed.setAuthor(message.author.username, message.author.avatarURL)
-        embed.setThumbnail(invite.guild.iconURL)
-        embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
-        dmChannel.createMessage(embed.build())
+        try {
+          const dmChannel = await message.author.getDMChannel()
+          const text = message.author.bot ? '' : message.content.trim().split(' ')
+          const findInvite = text.find(invite => invite.includes('discord.gg'))
+            .replace('https:', '')
+            .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
+            .replace(/(\/)/g, '')
+          const invite = await client.getInvite(findInvite)
+          const embed = new EmbedBuilder()
+          embed.setColor('DEFAULT')
+          embed.setAuthor(message.author.username, message.author.avatarURL)
+          embed.setThumbnail(invite.guild.iconURL)
+          embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
+          dmChannel.createMessage(embed.build())
+        } catch {
+          return
+        }
         return
       }
-
       return
     }
 
@@ -35,22 +38,26 @@ module.exports = class CommandRunner {
     }
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
-
     if (userData.afk) {
       userData.afk = false
       userData.afkReason = undefined
       userData.save()
+      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
       await message.channel.createMessage(_locale('basic:afkRemoval', { user: message.author.mention }))
     }
 
-    if (message.content.replace('!', '') === `<@${client.user.id}>`) return message.channel.createMessage(_locale('basic:onMention', {
-      0: message.author.mention,
-      1: guildData.prefix
-    }))
+    if (message.content.replace('!', '') === `<@${client.user.id}>`) {
+      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
+      return message.channel.createMessage(_locale('basic:onMention', {
+        0: message.author.mention,
+        1: guildData.prefix
+      }))
+    }
 
     for (const user of message.mentions) {
       const afkUser = await client.database.users.findOneByID(user.id)
       if (!afkUser?.afk) break
+      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
       await message.channel.createMessage(afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
         user: user.username,
         reason: afkUser.afkReason
@@ -69,6 +76,17 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
+    if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) {
+      try {
+        const channel = await message.author.getDMChannel()
+        channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: `\`${_locale(`permission:sendMessages`)}\``, 1: message.channel.mention }))
+      } catch {
+        return
+      }
+
+      return
+    }
+
     const ctx = new CommandContext(client, message, args, {
       user: userData,
       guild: guildData,
@@ -81,7 +99,7 @@ module.exports = class CommandRunner {
         const time = new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()
         ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
       } catch {
-
+        return
       }
       return
     }
@@ -107,14 +125,16 @@ module.exports = class CommandRunner {
     const permissions = new CommandPermissions(client, message.member, message.channel.guild)
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
-
+    const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
   
     if (userPermissions[0]) {
-      return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms =>`\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
-
     if (botPermissions[0]) {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+    }
+    if (botPermissionsOnChannel[0]) {
+      return ctx.replyT('error', `basic:missingBotPermissionOnChannel`, { 0: botPermissionsOnChannel.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', '), 1: message.channel.mention })
     }
 
     if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
