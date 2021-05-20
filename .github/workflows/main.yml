@@ -7,7 +7,10 @@ on:
 jobs:
   ci:
     runs-on: [ubuntu-latest]
-
+    strategy:
+        matrix:
+           os: [ubuntu-latest]
+           node: [14.0]
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -15,7 +18,7 @@ jobs:
       - name: Setup node env
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: 14
+          node-version: ${{ matrix.node }}
 
       - name: Cache node_modules
         uses: actions/cache@v2.1.5
