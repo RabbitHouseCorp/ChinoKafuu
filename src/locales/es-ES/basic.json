@@ -7,6 +7,7 @@
     "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`. Si deseas saber lo que puedo hacer, utiliza `{{1}}help`.",
     "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
     "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
+    "missingBotPermissionOnChannel": "I don't have the {{0}} permission on {{1}}. Please, check my permissions and try again.",
     "invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
     "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
     "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
