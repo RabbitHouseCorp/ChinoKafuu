@@ -107,14 +107,16 @@ module.exports = class CommandRunner {
     const permissions = new CommandPermissions(client, message.member, message.channel.guild)
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
-
+    const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
   
     if (userPermissions[0]) {
       return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms =>`\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
-
     if (botPermissions[0]) {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+    }
+    if (botPermissionsOnChannel[0]) {
+      return ctx.replyT('error', `basic:missingBotPermissionOnChannel`, { 0: botPermissionsOnChannel.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', '), 1: message.channel.mention })
     }
 
     if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
