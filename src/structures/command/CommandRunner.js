@@ -6,24 +6,27 @@ module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
     if (message.channel.type !== 0) {
-      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite|discord\.me|discord\.io))/g).test(message.content)
+      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
       if (isInvite) {
-        const dmChannel = await message.author.getDMChannel()
-        const text = message.content.trim().split(' ')
-        const findInvite = text.find(invite => invite.includes('discord.gg'))
-          .replace(/(https:\/\/)?(http:\/\/)/g, '')
-          .replace(/(discord\.gg|discordapp\.com\/invite|discord\.com\/invite|discord\.me|discord\.io)/g, '')
-          .replace(/(\/)/g, '')
-        const invite = await client.getInvite(findInvite)
-        const embed = new EmbedBuilder()
-        embed.setColor('DEFAULT')
-        embed.setAuthor(message.author.username, message.author.avatarURL)
-        embed.setThumbnail(invite.guild.iconURL)
-        embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
-        dmChannel.createMessage(embed.build())
+        try {
+          const dmChannel = await message.author.getDMChannel()
+          const text = message.author.bot ? '' : message.content.trim().split(' ')
+          const findInvite = text.find(invite => invite.includes('discord.gg'))
+            .replace('https:', '')
+            .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
+            .replace(/(\/)/g, '')
+          const invite = await client.getInvite(findInvite)
+          const embed = new EmbedBuilder()
+          embed.setColor('DEFAULT')
+          embed.setAuthor(message.author.username, message.author.avatarURL)
+          embed.setThumbnail(invite.guild.iconURL)
+          embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
+          dmChannel.createMessage(embed.build())
+        } catch {
+          return
+        }
         return
       }
-
       return
     }
 
