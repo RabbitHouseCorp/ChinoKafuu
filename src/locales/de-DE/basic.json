@@ -5,8 +5,8 @@
         "title": "Berechtigungen"
     },
     "onMention": "Hallo, {{0}}. Mein Präfix in dieser Gilde ist `{{1}}`. Wenn Sie sehen möchten, was ich tun kann, verwenden Sie `{{1}}hilfe`.",
-    "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
-    "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
+    "missingBotPermission": "Ich habe nicht die {{perm}} Berechtigung. Überprüfen Sie meine Berechtigungen/Rollen, und versuchen Sie es erneut.",
+    "missingUserPermission": "sie nicht über die {{perm}} Berechtigung. Sie können diesen Befehl nicht ausführen.",
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
     "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
