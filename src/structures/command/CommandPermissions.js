@@ -1,3 +1,6 @@
+
+
+
 module.exports = class CommandPermissions {
   constructor(client, member, guild) {
     this.client = client
@@ -7,7 +10,7 @@ module.exports = class CommandPermissions {
 
   userHas(permissions) {
     const perms = []
-    permissions.filter(({ entity }) => entity === 'both' ? 'both' : 'user').forEach(perm => {
+    permissions.filter(({ entity }) => entity === 'user' || entity === 'both').forEach(perm => {
       if (perm.permissions[0]) {
         perm.permissions.forEach(p => {
           if (p === 'botDeveloper') {
@@ -24,7 +27,8 @@ module.exports = class CommandPermissions {
 
   botHas(permissions) {
     const perms = []
-    permissions.filter(({ entity }) => entity === 'both' ? 'both' : 'bot').forEach(perm => {
+
+    permissions.filter(({ entity }) => entity === 'bot' || entity === 'both').forEach(perm => {
       if (perm.permissions[0]) {
         perm.permissions.forEach(p => {
           if (!this.guild.members.get(this.client.user.id).permissions.has(p)) perms.push(p)
