@@ -7,7 +7,7 @@
     "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
     "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
     "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
-    "missingBotPermissionOnChannel": "I don't have the {{0}} permission on {{1}}. Please, check my permissions and try again.",
+    "missingBotPermissionOnChannel": "eu não tenho a permissão {{0}} no {{1}}. Por favor, verifique as minhas permissões e tente novamente.",
     "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
     "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
     "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
