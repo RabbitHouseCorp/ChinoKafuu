@@ -614,6 +614,19 @@
                 "channel": "Reg. Canal de Denúncias",
                 "enable": "O módulo `Denúncias` agora está ativado.",
                 "disable": "O módulo `Denúncias` agora está desativado."
+            },
+            "allowedChannel": {
+                "roles": {
+                    "added": "roles sucessfully added on whitelist.",
+                    "remove": "all roles are successfully removed of whitelist."
+                },
+                "channels": {
+                    "added": "channels sucessfully added on whitelist.",
+                    "remove": "all channels are successfully removed of whitelist."
+                },
+                "module": "Allowed Command Channels",
+                "enable": "`Allowed Command Channels`'s module is now enabled",
+                "disable": "`Allowed Command Channels`'s module is now disabled"
             }
         }
     }
