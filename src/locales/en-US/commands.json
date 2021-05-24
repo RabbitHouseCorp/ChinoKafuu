@@ -591,7 +591,7 @@
         "usage": "<options> <set/disable> [channel]",
         "description": "Enable and disable some modules who I have in your guild.",
         "channelNull": "I can't find this channel, make sure if it exist.",
-        "optionsNotFound":"this option is invalid, please use `set` or `disable` options.",
+        "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
         "modules": {
             "title": "Modules",
             "enable": "Enable",
@@ -614,6 +614,19 @@
                 "channel": "Report Channel Log",
                 "enable": "`Report`'s module is now enabled.",
                 "disable": "`Report`'s module is now disabled."
+            },
+            "allowedChannel": {
+                "roles": {
+                    "added": "roles sucessfully added on whitelist.",
+                    "remove": "all roles are successfully removed of whitelist."
+                },
+                "channels": {
+                    "added": "channels sucessfully added on whitelist.",
+                    "remove": "all channels are successfully removed of whitelist."
+                },
+                "module": "Allowed Command Channels",
+                "enable": "`Allowed Command Channels`'s module is now enabled",
+                "disable": "`Allowed Command Channels`'s module is now disabled"
             }
         }
     }
