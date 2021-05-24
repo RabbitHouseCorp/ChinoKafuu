@@ -122,6 +122,67 @@ module.exports = class ConfigCommand extends Command {
         }
       }
         break;
+      case 'allowed_channel': {
+        if (!ctx.args[1]) return ctx.replyT('error', 'commands:config.optionsNotFound')
+        if (!['set', 'disable'].includes(ctx.args[1].toLowerCase())) return ctx.replyT('error', 'commands:config.optionsNotFound')
+        if (ctx.args[1].toLowerCase() === 'disable') {
+          const roles = ctx.db.guild.allowedChannel.roles
+          const channels = ctx.db.guild.allowedChannel.channels
+          if (ctx.args[2].toLowerCase() === 'roles') {
+            roles.splice(0, roles.length)
+            ctx.db.guild.markModified('allowedChannel.roles')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.roles.removed')
+            })
+
+            return 
+          }
+
+          if (ctx.args[2].toLowerCase() === 'channels') {
+            channels.splice(0, channels.length)
+            ctx.db.guild.markModified('allowedChannel.channels')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.channels.removed')
+            })
+
+            return 
+          }
+        }
+
+        if (!ctx.args[2]) return ctx.replyT('error', 'commands:config.channelNull')
+        if (ctx.args[1].toLowerCase() === 'set') {
+          if (ctx.args[2].toLowerCase() === 'roles') {
+            const role = ctx.message.channel.guild.roles.get(ctx.args[3]?.replace(/[<@&>]/g, ''))
+            if (!role) return ctx.replyT('error', 'basic:invalidRole')
+            for (const r of ctx.args.slice(3)) {
+              if (ctx.message.channel.guild.roles.get(r?.replace(/[<@&>]/g, ''))) ctx.db.guild.allowedChannel.roles.push(r?.replace(/[<@&>]/g, ''))
+            }
+            
+            ctx.db.guild.markModified('allowedChannel.roles')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.roles.added')
+            })
+
+            return
+          }
+
+          if (ctx.args[2].toLowerCase() === 'channels') {
+            const channel = ctx.getChannel(ctx.args[3])
+            if (!channel) return ctx.replyT('error', 'commands:config.channelNull')
+            for (const c of ctx.args.slice(3)) {
+              if (ctx.getChannel(c)) ctx.db.guild.allowedChannel.channels.push(c?.replace(/[<@#>]/g, ''))
+            }
+
+            ctx.db.guild.markModified('allowedChannel.channels')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.channels.added')
+            })
+
+            return
+          }
+        }
+      }
+        break;
       default: {
         ctx.send(embed.build())
       }

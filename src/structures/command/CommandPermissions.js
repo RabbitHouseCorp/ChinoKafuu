@@ -1,6 +1,3 @@
-
-
-
 module.exports = class CommandPermissions {
   constructor(client, member, guild) {
     this.client = client
@@ -41,6 +38,7 @@ module.exports = class CommandPermissions {
   botHasOnChannel(channel, permissions) {
     const perms = []
     permissions.filter(({ entity }) => entity === 'bot' || entity === 'both').forEach(perm => {
+      perm.permissions.push('readMessageHistory')
       if (perm.permissions[0]) {
         perm.permissions.forEach(p => {
           if (!channel.permissionsOf(this.client.user.id).has(p)) perms.push(p)

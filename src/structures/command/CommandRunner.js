@@ -126,14 +126,29 @@ module.exports = class CommandRunner {
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
     const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
-  
-    if (userPermissions[0]) {
+
+    if (guildData.allowedChannel.channels.length > 0) {
+      const roles = ctx.db.guild.allowedChannel.roles.length > 0 ? ctx.db.guild.allowedChannel.roles : []
+      const role = []
+      for (const r of roles) {
+        if (roles.length > 0) {
+          if (message.member.roles.includes(r)) role.push(r)
+        } else {
+          role.push(true)
+        }
+      }
+      
+      if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
+        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
+      }
+    }
+    if (userPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
-    if (botPermissions[0]) {
+    if (botPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
-    if (botPermissionsOnChannel[0]) {
+    if (botPermissionsOnChannel.length > 0) {
       return ctx.replyT('error', `basic:missingBotPermissionOnChannel`, { 0: botPermissionsOnChannel.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', '), 1: message.channel.mention })
     }
 
