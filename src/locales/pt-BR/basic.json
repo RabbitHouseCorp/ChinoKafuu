@@ -58,5 +58,6 @@
     },
     "cooldown": "por favor, aguarde mais {{0}} segundos para executar este comando novamente!",
     "cooldownLowThanZero": "alguns",
-    "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`"
+    "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`",
+    "blockedChannel": "you can't use commands here, go to {{0}} and try again."
 }
