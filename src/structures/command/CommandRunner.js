@@ -76,16 +76,18 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
-    if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) {
-      try {
-        const channel = await message.author.getDMChannel()
-        channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: `\`${_locale(`permission:sendMessages`)}\``, 1: message.channel.mention }))
-      } catch {
-        return
-      }
+    const permissions = new CommandPermissions(client, message.member, message.channel.guild)
+    try {
+      const channel = await message.author.getDMChannel()
+      const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, ['sendMessages', 'readMessageHistory'])
 
+      if (botPermissionsOnChannel.length > 0) {
+        return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
+      }
+    } catch {
       return
     }
+
 
     const ctx = new CommandContext(client, message, args, {
       user: userData,
@@ -122,10 +124,8 @@ module.exports = class CommandRunner {
       return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason })
     }
 
-    const permissions = new CommandPermissions(client, message.member, message.channel.guild)
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
-    const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
 
     if (guildData.allowedChannel.channels.length > 0) {
       const roles = ctx.db.guild.allowedChannel.roles.length > 0 ? ctx.db.guild.allowedChannel.roles : []
@@ -137,7 +137,7 @@ module.exports = class CommandRunner {
           role.push(true)
         }
       }
-      
+
       if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
         return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
       }
@@ -147,9 +147,6 @@ module.exports = class CommandRunner {
     }
     if (botPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
-    }
-    if (botPermissionsOnChannel.length > 0) {
-      return ctx.replyT('error', `basic:missingBotPermissionOnChannel`, { 0: botPermissionsOnChannel.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', '), 1: message.channel.mention })
     }
 
     if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
