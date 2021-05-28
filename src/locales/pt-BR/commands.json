@@ -617,13 +617,13 @@
             },
             "allowedChannel": {
                 "roles": {
-                    "title": "Allowed roles",
-                    "added": "roles sucessfully added on whitelist.",
-                    "removed": "all roles are successfully removed of whitelist."
+                    "title": "Cargos permitidos",
+                    "added": "cargos adicionados com sucesso na lista branca.",
+                    "removed": "todos os cargos forão removidos com sucesso da lista branca."
                 },
                 "channels": {
-                    "title": "Allowed channels",
-                    "added": "channels sucessfully added on whitelist.",
+                    "title": "Canais permitidos",
+                    "added": "canais adicionados com sucesso na lista branca.",
                     "removed": "all channels are successfully removed of whitelist."
                 },
                 "module": "Allowed Command Channels"
