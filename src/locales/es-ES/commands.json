@@ -617,16 +617,16 @@
             },
             "allowedChannel": {
                 "roles": {
-                    "title": "Allowed roles",
-                    "added": "roles sucessfully added on whitelist.",
-                    "removed": "all roles are successfully removed of whitelist."
+                    "title": "Roles permitidos",
+                    "added": "roles añadidos con éxito en la lista blanca.",
+                    "removed": "todos los roles se eliminaron con éxito de la lista blanca."
                 },
                 "channels": {
-                    "title": "Allowed channels",
-                    "added": "channels sucessfully added on whitelist.",
-                    "removed": "all channels are successfully removed of whitelist."
+                    "title": "Canales permitidos",
+                    "added": "canales agregados con éxito en la lista blanca.",
+                    "removed": "todos los canales se eliminaron correctamente de la lista blanca."
                 },
-                "module": "Allowed Command Channels"
+                "module": "Canales de Comando Permitidos"
             }
         }
     }
