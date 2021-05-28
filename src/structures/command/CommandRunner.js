@@ -79,7 +79,10 @@ module.exports = class CommandRunner {
     const permissions = new CommandPermissions(client, message.member, message.channel.guild)
     try {
       const channel = await message.author.getDMChannel()
-      const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, ['sendMessages', 'readMessageHistory'])
+      const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
+        entity: 'bot',
+        permissions: ['sendMessages', 'readMessageHistory']
+      }])
 
       if (botPermissionsOnChannel.length > 0) {
         return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
@@ -128,6 +131,9 @@ module.exports = class CommandRunner {
     const botPermissions = permissions.botHas(command.permissions)
     const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
 
+    if (botPermissionsOnChannel.length > 0) {
+      return message.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
+    }
     if (guildData.allowedChannel.channels.length > 0) {
       const roles = ctx.db.guild.allowedChannel.roles.length > 0 ? ctx.db.guild.allowedChannel.roles : []
       const role = []
@@ -142,10 +148,6 @@ module.exports = class CommandRunner {
       if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
         return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
       }
-    }
-
-    if (botPermissionsOnChannel.length > 0) {
-      return message.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
     }
 
     if (userPermissions.length > 0) {
