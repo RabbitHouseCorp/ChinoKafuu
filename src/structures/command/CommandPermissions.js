@@ -1,6 +1,3 @@
-
-
-
 module.exports = class CommandPermissions {
   constructor(client, member, guild) {
     this.client = client
@@ -40,13 +37,11 @@ module.exports = class CommandPermissions {
 
   botHasOnChannel(channel, permissions) {
     const perms = []
-    permissions.filter(({ entity }) => entity === 'bot' || entity === 'both').forEach(perm => {
-      if (perm.permissions[0]) {
-        perm.permissions.forEach(p => {
-          if (!channel.permissionsOf(this.client.user.id).has(p)) perms.push(p)
-        })
-      }
-    })
+    if (permissions.length > 0) {
+      permissions.forEach(p => {
+        if (!channel.permissionsOf(this.client.user.id).has(p)) perms.push(p)
+      })
+    }
 
     return perms
   }

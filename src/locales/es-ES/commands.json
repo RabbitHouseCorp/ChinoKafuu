@@ -614,6 +614,19 @@
                 "channel": "Canal de Informes",
                 "enable": "El módulo de `Informes` está ahora habilitado.",
                 "disable": "El módulo de `Informes` está ahora deshabilitado."
+            },
+            "allowedChannel": {
+                "roles": {
+                    "title": "Roles permitidos",
+                    "added": "roles añadidos con éxito en la lista blanca.",
+                    "removed": "todos los roles se eliminaron con éxito de la lista blanca."
+                },
+                "channels": {
+                    "title": "Canales permitidos",
+                    "added": "canales agregados con éxito en la lista blanca.",
+                    "removed": "todos los canales se eliminaron correctamente de la lista blanca."
+                },
+                "module": "Canales de Comando Permitidos"
             }
         }
     }
