@@ -624,9 +624,9 @@
                 "channels": {
                     "title": "Canais permitidos",
                     "added": "canais adicionados com sucesso na lista branca.",
-                    "removed": "all channels are successfully removed of whitelist."
+                    "removed": "todos os canais foram removidos com sucesso da lista branca."
                 },
-                "module": "Allowed Command Channels"
+                "module": "Canais de Comandos Permitidos"
             }
         }
     }
