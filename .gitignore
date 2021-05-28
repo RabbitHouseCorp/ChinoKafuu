@@ -6,3 +6,4 @@ src/lavalink/LavalinkConfig.json
 .env
 .idea
 coverage/
+package-lock.json
