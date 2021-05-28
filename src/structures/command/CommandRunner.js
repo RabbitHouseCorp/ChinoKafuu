@@ -126,6 +126,7 @@ module.exports = class CommandRunner {
 
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
+    const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
 
     if (guildData.allowedChannel.channels.length > 0) {
       const roles = ctx.db.guild.allowedChannel.roles.length > 0 ? ctx.db.guild.allowedChannel.roles : []
@@ -142,6 +143,11 @@ module.exports = class CommandRunner {
         return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
       }
     }
+
+    if (botPermissionsOnChannel.length > 0) {
+      return message.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
+    }
+
     if (userPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
