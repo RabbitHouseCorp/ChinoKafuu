@@ -38,7 +38,6 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField('Github', `[${ctx._locale('basic:clickHere')}](https://github.com/RabbitHouseCorp/ChinoKafuu)`, true)
     embed.addField('Twitter', '[@ChinoKafuuBot](https://twitter.com/ChinoKafuuBot)', true)
     embed.addField('top.gg', '[top.gg](https://top.gg/bot/481282441294905344/vote)', true)
-    embed.addField('Zuraaa.com', '[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)', true)
     embed.addField('Crowdin', '[crowdin.com/project/chinokafuu](https://https://crowdin.com/project/chinokafuu)', true)
 
     ctx.send(embed.build())
