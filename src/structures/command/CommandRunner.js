@@ -1,67 +1,28 @@
+const { EmbedBuilder, Helper, AwayFromKeyboardUtils, InviteDMUtils, BlacklistUtils } = require('../../utils')
 const CommandContext = require('./CommandContext')
-const Helper = require('../../structures/util/Helper')
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 const CommandPermissions = require('./CommandPermissions')
+
 module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
     if (message.channel.type !== 0) {
-      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
-      if (isInvite) {
-        try {
-          const dmChannel = await message.author.getDMChannel()
-          const text = message.author.bot ? '' : message.content.trim().split(' ')
-          const findInvite = text.find(invite => invite.includes('discord.gg'))
-            .replace('https:', '')
-            .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
-            .replace(/(\/)/g, '')
-          const invite = await client.getInvite(findInvite)
-          const embed = new EmbedBuilder()
-          embed.setColor('DEFAULT')
-          embed.setAuthor(message.author.username, message.author.avatarURL)
-          embed.setThumbnail(invite.guild.iconURL)
-          embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
-          dmChannel.createMessage(embed.build())
-        } catch {
-          return
-        }
-        return
-      }
+      InviteDMUtils(client, message)
       return
     }
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-
     const guildData = await client.database.guilds.getOrCreate(message.guildID)
-    if (guildData.blacklist) {
-      return client.leaveGuild(message.guildID)
-    }
+    const blacklist = new BlacklistUtils(client)
+    if (await blacklist.verifyGuild(message.channel.guild)) return client.leaveGuild(message.guildID)
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
-    if (userData.afk) {
-      userData.afk = false
-      userData.afkReason = undefined
-      userData.save()
-      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      await message.channel.createMessage(_locale('basic:afkRemoval', { user: message.author.mention }))
-    }
-
-    if (message.content.replace('!', '') === `<@${client.user.id}>`) {
+    AwayFromKeyboardUtils(client, message, _locale)
+    if (message.content.replace('!', '') === client.user.mention) {
       if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
       return message.channel.createMessage(_locale('basic:onMention', {
         0: message.author.mention,
         1: guildData.prefix
       }))
-    }
-
-    for (const user of message.mentions) {
-      const afkUser = await client.database.users.findOneByID(user.id)
-      if (!afkUser?.afk) break
-      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      await message.channel.createMessage(afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
-        user: user.username,
-        reason: afkUser.afkReason
-      }) : _locale('basic:onMentionAfk', { user: user.username }))
     }
 
     if (message.content === guildData.prefix) return

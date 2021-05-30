@@ -9,8 +9,12 @@ const collectors = {
   version: require('../../package.json').version,
   ExchangeAPI: require('./exchangeApi/ExchangeAPI'),
   InvalidArgumentError: require('./exchangeApi/InvalidArgumentError'),
-  TranslatorFun: require('./TranslatorFun'),
-  TopGGUtils: require('./botlists/TopGGUtils')
+  TranslatorUtils: require('./TranslatorUtils'),
+  TopGGUtils: require('./botlists/TopGGUtils'),
+  Helper: require('../structures/util/Helper'),
+  AwayFromKeyboardUtils: require('./AwayFromKeyboardUtils'),
+  InviteDMUtils: require('./InviteDMUtil'),
+  BlacklistUtils: require('./BlacklistUtils')
 }
 
 module.exports = collectors
