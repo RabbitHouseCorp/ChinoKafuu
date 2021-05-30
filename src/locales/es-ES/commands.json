@@ -119,7 +119,7 @@
         "commandsLoaded": "Tengo {{0}} comandos públicos cargados.",
         "additionalLinks": {
             "embedTitle": "Enlaces Adicionales",
-            "embedDescription": "[Mi invitación](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Mi servidor](https://discord.gg/Jr57UrsXeC)"
+            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
         }
     },
     "rep": {
@@ -335,7 +335,7 @@
     },
     "vote": {
         "title": "Votame",
-        "embedVoted": "Muchas gracias. Puedes votarme en el enlace abajo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
         "description": "Muestra cómo puedes votarme."
     },
     "invite": {
