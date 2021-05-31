@@ -19,10 +19,27 @@ module.exports = class CommandRunner {
     AwayFromKeyboardUtils(client, message, _locale)
     if (message.content.replace('!', '') === client.user.mention) {
       if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      return message.channel.createMessage(_locale('basic:onMention', {
-        0: message.author.mention,
-        1: guildData.prefix
-      }))
+      const roles = []
+      guildData.allowedChannel.roles.forEach((role) => {
+        if (message.member.roles.includes(role)) roles.push(role)
+      })
+      if (roles.length > 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
+        return message.channel.createMessage(_locale('basic:onMention', {
+          0: message.author.mention,
+          1: guildData.prefix
+        }))
+      } else if (roles.length === 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
+        return message.channel.createMessage(_locale('basic:onMentionWithRole', {
+          0: message.author.mention,
+          1: guildData.prefix,
+          2: guildData.allowedChannel.channels.map(channel => `<#${channel}>`).join(' ')
+        }))
+      } else {
+        return message.channel.createMessage(_locale('basic:onMention', {
+          0: message.author.mention,
+          1: guildData.prefix
+        }))
+      }
     }
 
     if (message.content === guildData.prefix) return
