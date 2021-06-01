@@ -23,11 +23,11 @@ module.exports = class BanCommand extends Command {
       if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
     }
 
-        // If the reason was greater than 512 letters, there will be an error.
+    // If the reason was greater than 512 letters, there will be an error.
     // But as we have a try and a catch down there, this will return an error to the user saying that Chino does not have permissions to ban members, which may not be true and the error is being given by the size of the message, not due to lack of permissions.
 
-    const reason = ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: !ctx.args[1] ? ctx._locale('basic:noReason') : ctx.args.slice(1).join(' ') })
-    if ( reason.trim().length > 512 ) return ctx.reply('error', 'basic:bigReason')
+    const reason = ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: ctx.args[1] ? ctx.args.slice(1).join(' ') : ctx._locale('basic:noReason') })
+    if (reason.trim().length > 512) return ctx.reply('error', 'basic:bigReason')
 
     try {
       ctx.client.banGuildMember(ctx.message.guildID, member.id, 7, reason).then(() => {
