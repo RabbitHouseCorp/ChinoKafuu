@@ -1,5 +1,6 @@
 const { Eris } = require('eris')
 const Emoji = require('../../utils/EmotesInstance')
+const CommandInteractions = require('../interactions/CommandInteractions')
 module.exports = class CommandContext {
   /**
      *
@@ -15,6 +16,7 @@ module.exports = class CommandContext {
     this.args = args
     this.db = db
     this._locale = _locale
+    this.commandInteractions = new CommandInteractions(message, this)
   }
 
   /**
@@ -28,6 +30,7 @@ module.exports = class CommandContext {
       content: (typeof content === 'string') ? content : content.content,
       embed: content?.embed,
       messageReferenceID: this.message.id,
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -43,6 +46,7 @@ module.exports = class CommandContext {
     return await this.message.channel.createMessage({
       content: this._locale(content, data),
       messageReferenceID: this.message.id,
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -58,9 +62,12 @@ module.exports = class CommandContext {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
       messageReferenceID: this.message.id,
-      options: props[0]?.options
+      components: this.commandInteractions.component,
+      options: props[0]?.options,
     }, props[0]?.file)
   }
+
+  
 
   /**
      *
@@ -74,6 +81,7 @@ module.exports = class CommandContext {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
       messageReferenceID: this.message.id,
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -171,6 +179,10 @@ module.exports = class CommandContext {
       emojis.push(codePoint.codePointAt(0).toString(16))
     }
     return emojis
+  }
+
+  interaction() {
+    return this.commandInteractions;
   }
 
   getRole(role) {
