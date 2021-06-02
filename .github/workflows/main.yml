@@ -10,17 +10,17 @@ jobs:
     strategy:
         matrix:
            os: [ubuntu-latest]
-           node: [14.0]
+           node: [14.x]
     steps:
-      - name: Checkout
+      - name: Checkout 📝
         uses: actions/checkout@master
 
-      - name: Setup node env
+      - name: Setup node env 👨🏻‍💻
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Cache node_modules
+      - name: Cache node_modules 📦
         uses: actions/cache@v2.1.5
         with:
           path: ~/.npm
@@ -28,8 +28,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Install dependencies
+      - name: Install dependencies ⚙
         run: npm install --force
 
-      - name: Run tests
+      - name: Run tests 🧪
         run: npm test

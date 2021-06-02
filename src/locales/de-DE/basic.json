@@ -7,6 +7,7 @@
     "onMention": "Hallo, {{0}}. Mein Präfix in dieser Gilde ist `{{1}}`. Wenn Sie sehen möchten, was ich tun kann, verwenden Sie `{{1}}hilfe`.",
     "missingBotPermission": "Ich habe nicht die {{perm}} Berechtigung. Überprüfen Sie meine Berechtigungen/Rollen, und versuchen Sie es erneut.",
     "missingUserPermission": "sie nicht über die {{perm}} Berechtigung. Sie können diesen Befehl nicht ausführen.",
+    "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
     "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
@@ -57,5 +58,6 @@
     },
     "cooldown": "please, wait more {{0}} seconds to execute this command again!",
     "cooldownLowThanZero": "some",
-    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`"
+    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+    "blockedChannel": "you can't use commands here, go to {{0}} and try again."
 }

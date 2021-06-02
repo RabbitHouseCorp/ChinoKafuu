@@ -18,30 +18,38 @@ module.exports = class ConfigCommand extends Command {
 
   run(ctx) {
 
-    let listReport = [
+    const listReport = [
       `${ctx.db.guild.prefix}config report set <channel>`,
       `${ctx.db.guild.prefix}config report disable`
     ]
 
-    let listPunish = [
+    const listPunish = [
       `${ctx.db.guild.prefix}config mod set <channel>`,
       `${ctx.db.guild.prefix}config mod disable`
     ]
 
-    let listAnimu = [
+    const listAnimu = [
       `${ctx.db.guild.prefix}config animu set <channel ID>`,
       `${ctx.db.guild.prefix}config animu disable`
     ]
 
-    let modules = [
+    const allowed_channel_list = [
+      `${ctx.db.guild.prefix}config allowed_channel set channels <channels>`,
+      `${ctx.db.guild.prefix}config allowed_channel disable channels`,
+      `${ctx.db.guild.prefix}config allowed_channel set roles <roles>`,
+      `${ctx.db.guild.prefix}config allowed_channel disable roles`
+    ]
+
+    const modules = [
       `• ${ctx._locale('commands:config.modules.animu.module')} :: ${ctx.db.guild.animu ? ctx._locale('commands:config.modules.enable') : ctx._locale('commands:config.modules.disable')}`,
       `• ${ctx._locale('commands:config.modules.animu.channel')} :: ${ctx.db.guild.animuChannel ? ctx.getChannel(ctx.db.guild.animuChannel)?.name ?? ctx._locale('commands:config.modules.noChannel') : ctx._locale('commands:config.modules.noChannel')}`,
       `• ${ctx._locale('commands:config.modules.mod.channel')} :: ${ctx.db.guild.punishChannel ? `#${ctx.getChannel(ctx.db.guild.punishChannel).name}` : ctx._locale('commands:config.modules.noChannel')}`,
       `• ${ctx._locale('commands:config.modules.mod.module')} :: ${ctx.db.guild.punishModule ? ctx._locale('commands:config.modules.enable') : ctx._locale('commands:config.modules.disable')}`,
       `• ${ctx._locale('commands:config.modules.report.channel')} :: ${ctx.db.guild.channelReport ? `#${ctx.getChannel(ctx.db.guild.channelReport).name}` : ctx._locale('commands:config.modules.noChannel')}`,
       `• ${ctx._locale('commands:config.modules.report.module')} :: ${ctx.db.guild.reportModule ? ctx._locale('commands:config.modules.enable') : ctx._locale('commands:config.modules.disable')}`,
+      `• ${ctx._locale('commands:config.modules.allowedChannel.channels.title')} :: ${ctx.db.guild.allowedChannel.channels.length}`,
+      `• ${ctx._locale('commands:config.modules.allowedChannel.roles.title')} :: ${ctx.db.guild.allowedChannel.roles.length}`
     ]
-
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:config.title'))
@@ -50,6 +58,7 @@ module.exports = class ConfigCommand extends Command {
     embed.addField(ctx._locale('commands:config.modules.animu.module'), listAnimu.join('\n'))
     embed.addField(ctx._locale('commands:config.modules.mod.module'), listPunish.join('\n'))
     embed.addField(ctx._locale('commands:config.modules.report.module'), listReport.join('\n'))
+    embed.addField(ctx._locale('commands:config.modules.allowedChannel.module'), allowed_channel_list.join('\n'))
     embed.addField(ctx._locale('commands:config.modules.title'), `\`\`\`asciidoc\n${modules.join('\n')}\`\`\``)
 
     switch (ctx.args[0]?.toLowerCase()) {
@@ -119,6 +128,67 @@ module.exports = class ConfigCommand extends Command {
           ctx.db.guild.save()
 
           return ctx.replyT('success', 'commands:config.modules.report.enable')
+        }
+      }
+        break;
+      case 'allowed_channel': {
+        if (!ctx.args[1]) return ctx.replyT('error', 'commands:config.optionsNotFound')
+        if (!['set', 'disable'].includes(ctx.args[1].toLowerCase())) return ctx.replyT('error', 'commands:config.optionsNotFound')
+        if (ctx.args[1].toLowerCase() === 'disable') {
+          const roles = ctx.db.guild.allowedChannel.roles
+          const channels = ctx.db.guild.allowedChannel.channels
+          if (ctx.args[2].toLowerCase() === 'roles') {
+            roles.splice(0, roles.length)
+            ctx.db.guild.markModified('allowedChannel.roles')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.roles.removed')
+            })
+
+            return
+          }
+
+          if (ctx.args[2].toLowerCase() === 'channels') {
+            channels.splice(0, channels.length)
+            ctx.db.guild.markModified('allowedChannel.channels')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.channels.removed')
+            })
+
+            return
+          }
+        }
+
+        if (!ctx.args[2]) return ctx.replyT('error', 'commands:config.channelNull')
+        if (ctx.args[1].toLowerCase() === 'set') {
+          if (ctx.args[2].toLowerCase() === 'roles') {
+            const role = ctx.message.channel.guild.roles.get(ctx.args[3]?.replace(/[<@&>]/g, ''))
+            if (!role) return ctx.replyT('error', 'basic:invalidRole')
+            for (const r of ctx.args.slice(3)) {
+              if (ctx.message.channel.guild.roles.get(r?.replace(/[<@&>]/g, ''))) ctx.db.guild.allowedChannel.roles.push(r?.replace(/[<@&>]/g, ''))
+            }
+
+            ctx.db.guild.markModified('allowedChannel.roles')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.roles.added')
+            })
+
+            return
+          }
+
+          if (ctx.args[2].toLowerCase() === 'channels') {
+            const channel = ctx.getChannel(ctx.args[3])
+            if (!channel) return ctx.replyT('error', 'commands:config.channelNull')
+            for (const c of ctx.args.slice(3)) {
+              if (ctx.getChannel(c)) ctx.db.guild.allowedChannel.channels.push(c?.replace(/[<@#>]/g, ''))
+            }
+
+            ctx.db.guild.markModified('allowedChannel.channels')
+            ctx.db.guild.save().then(() => {
+              ctx.replyT('success', 'commands:config.modules.allowedChannel.channels.added')
+            })
+
+            return
+          }
         }
       }
         break;

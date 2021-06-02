@@ -23,7 +23,7 @@ module.exports = class TickleCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setDescription(ctx._locale('commands:tickle.tickle', { 0: ctx.message.author.mention, 1: member.mention }))
-    embed.setImage(img.url)
+    embed.setImage(img)
     embed.setFooter(`©️ ${ctx.client.user.username}`)
     embed.setTimestamp()
 

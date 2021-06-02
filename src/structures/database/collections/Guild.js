@@ -12,13 +12,8 @@ const Guilds = new mongoose.Schema({
   animuChannel: { type: String, default: '' },
   blacklist: { type: Boolean, default: false },
   blacklistReason: { type: String, default: '' },
-  antiflood: {
-    type: Object,
-    default: {
-      enabled: false,
-      messagesLimit: 5
-    }
-  }
+  allowedChannel: { type: Object, default: { roles: [], channels: [] } },
+  antiflood: { type: Object, default: { enabled: false, messagesLimit: 5 } }
 })
 
 module.exports = mongoose.model('Guilds', Guilds)

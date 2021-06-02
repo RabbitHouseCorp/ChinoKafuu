@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { TopGGUtils } = require('../../utils')
+const { TopGGUtils, BlacklistUtils } = require('../../utils')
 
 module.exports = class GuildDeleteListener extends Listener {
   constructor() {
@@ -10,8 +10,8 @@ module.exports = class GuildDeleteListener extends Listener {
   async on(client, guild) {
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
-    const server = await client.database.guilds.getOrCreate(guild.id)
-    if (server.blacklist) return
+    const blacklist = new BlacklistUtils(client)
+    if (await blacklist.verifyGuild(guild)) return
 
     await client.database.guilds.getAndDelete(guild.id)
   }

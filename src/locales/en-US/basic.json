@@ -5,8 +5,10 @@
         "title": "Permissions"
     },
     "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+    "onMentionWithRole":"<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`, but you're not allowed execute commands here. If you want to see what I can do, use `{{1}}help` on {{2}}.",
     "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
     "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
+    "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
     "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
     "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
     "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
@@ -57,5 +59,6 @@
     },
     "cooldown": "please, wait more {{0}} seconds to execute this command again!",
     "cooldownLowThanZero": "some",
-    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`"
+    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+    "blockedChannel": "you can't use commands here, go to {{0}} and try again."
 }
