@@ -5,7 +5,7 @@
         "title": "Permissões"
     },
     "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
-    "onMentionWithRole": "<:chino_rawr:751215250245943318> ** Olá {{0}},. Meu prefixo nesta guilda é `{{1}}`, mas você não pode executar comandos aqui. Se você quiser ver o que eu posso fazer, use `{{1}}ajuda` em {{2}}.",
+    "onMentionWithRole": "<:chino_rawr:751215250245943318> ** Olá {{0}}, meu prefixo neste servidor é `{{1}}`, mas você não pode executar comandos aqui. Caso queira saber o que posso fazer, use `{{1}}ajuda` no {{2}}.",
     "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
     "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
     "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
