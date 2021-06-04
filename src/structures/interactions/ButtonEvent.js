@@ -1,5 +1,3 @@
-
-
 module.exports = class ButtonEvent {
     constructor(button) {
         this.customID = button.customID

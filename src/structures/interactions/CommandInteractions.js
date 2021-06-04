@@ -1,7 +1,3 @@
-const { Message, Client } = require('eris')
-const CommandContext = require('../command/CommandContext')
-const Button = require('./Button')
-
 module.exports = class CommandInteractions {
 	constructor(message, commandContext) {
 		this.message = message

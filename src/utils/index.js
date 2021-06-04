@@ -14,7 +14,9 @@ const collectors = {
   Helper: require('../structures/util/Helper'),
   AwayFromKeyboardUtils: require('./AwayFromKeyboardUtils'),
   InviteDMUtils: require('./InviteDMUtil'),
-  BlacklistUtils: require('./BlacklistUtils')
+  BlacklistUtils: require('./BlacklistUtils'),
+  Button: require('../structures/interactions/Button'),
+  ResponseAck: require('../structures/interactions/ResponseAck')
 }
 
 module.exports = collectors

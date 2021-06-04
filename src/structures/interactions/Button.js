@@ -7,7 +7,7 @@ module.exports = class Button {
 	}
 
 	setEmoji(emoji) {
-		this.emoji = null
+		this.emoji = emoji ? emoji : null
 		return this
 	}
 
