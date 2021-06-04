@@ -1,4 +1,4 @@
-const { Command, ReactionCollector, Emoji } = require('../../utils')
+const { Command, Button, ResponseAck, Emoji } = require('../../utils')
 
 module.exports = class PayCommand extends Command {
   constructor() {
@@ -28,31 +28,81 @@ module.exports = class PayCommand extends Command {
     if (Number(value) === Infinity) return ctx.replyT('error', 'commands:pay.valueMismatch')
     if (value <= 0) return ctx.replyT('error', 'commands:pay.valueMismatch')
     if (value > fromUser.yens) return ctx.replyT('error', 'commands:pay.poorUser')
-
     const totalYens = Math.round(value)
-    const message = await ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
 
-    await message.addReaction(Emoji.getEmoji('success').reaction)
-    await message.addReaction(Emoji.getEmoji('error').reaction)
-
-    const filter = (_, emoji, userID) => ([Emoji.getEmoji('success').name, Emoji.getEmoji('error').name].includes(emoji.name)) && userID === ctx.message.author.id
-    const collector = new ReactionCollector(message, filter, { max: 1 })
-    collector.on('collect', async (_, emoji) => {
-      switch (emoji.name) {
-        case Emoji.getEmoji('success').name: {
-          fromUser.yens -= totalYens
-          toUser.yens += totalYens
-          await message.delete()
-          await ctx.replyT('yen', 'commands:pay.success', { yens: totalYens, user: member.mention })
-          ctx.db.user.save()
-          toUser.save()
-        }
-          break
-        case Emoji.getEmoji('error').name: {
-          await ctx.replyT('error', 'commands:pay.cancelled')
-          return message.delete()
-        }
-      }
-    })
+    ctx.interaction()
+      .components(new Button()
+        .setLabel(ctx._locale('basic:boolean.true'))
+        .customID('confirm_button')
+        .setStyle(3),
+        new Button()
+          .setLabel(ctx._locale('basic:boolean.false'))
+          .customID('reject_button')
+          .setStyle(4))
+      .returnCtx()
+      .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
+      .then(message => {
+        const ack = new ResponseAck(message)
+        ack.on('collect', (data) => {
+          if (data.d.member.user.id !== ctx.message.author.id) return
+          switch (data.d.data.custom_id) {
+            case 'confirm_button': {
+              fromUser.yens -= totalYens
+              toUser.yens += totalYens
+              ctx.db.user.save()
+              toUser.save().then(() => {
+                ack.sendAck('update', {
+                  content: `${Emoji.getEmoji('yen').mention} **|** ${message.author.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
+                  components: [
+                    {
+                      type: 1,
+                      components: [
+                        new Button()
+                          .setLabel(ctx._locale('basic:boolean.true'))
+                          .customID('confirm_button')
+                          .setStyle(3)
+                          .setStatus(true)
+                          .data(),
+                        new Button()
+                          .setLabel(ctx._locale('basic:boolean.false'))
+                          .customID('reject_button')
+                          .setStyle(4)
+                          .setStatus(true)
+                          .data()
+                      ]
+                    }
+                  ]
+                })
+              })
+            }
+              break
+            case 'reject_button': {
+              ack.sendAck('update', {
+                content: `${Emoji.getEmoji('error').mention} **|** ${message.author.mention}, ${ctx._locale('commands:pay.cancelled')}`,
+                components: [
+                  {
+                    type: 1,
+                    components: [
+                      new Button()
+                        .setLabel(ctx._locale('basic:boolean.true'))
+                        .customID('confirm_button')
+                        .setStyle(3)
+                        .setStatus(true)
+                        .data(),
+                      new Button()
+                        .setLabel(ctx._locale('basic:boolean.false'))
+                        .customID('reject_button')
+                        .setStyle(4)
+                        .setStatus(true)
+                        .data()
+                    ]
+                  }
+                ]
+              })
+            }
+              break
+          }
+        })
+      })
   }
 }
