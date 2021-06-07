@@ -44,7 +44,7 @@ module.exports = class PayCommand extends Command {
       .then(message => {
         const ack = new ResponseAck(message)
         ack.on('collect', (data) => {
-          if (data.d.member.user.id !== ctx.message.author.id && message.author.id !== ctx.client.user.id) return
+          if ((data.d.member.user.id !== message.mentions[0].id && message.author.id === ctx.client.user.id)) return
           switch (data.d.data.custom_id) {
             case 'confirm_button': {
               fromUser.yens -= totalYens

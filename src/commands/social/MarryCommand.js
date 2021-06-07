@@ -40,7 +40,7 @@ module.exports = class MarryCommand extends Command {
       .then(message => {
         const ack = new ResponseAck(message)
         ack.on('collect', (data) => {
-          if (data.d.member.user.id !== member.id && message.author.id !== ctx.client.user.id) return
+          if ((data.d.member.user.id !== message.mentions[0].id && message.author.id === ctx.client.user.id)) return
           switch (data.d.data.custom_id) {
             case 'confirm_button': {
               author.yens -= Number(7500)
