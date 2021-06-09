@@ -19,7 +19,10 @@ module.exports = class TippyCommand extends Command {
     webhook = webhook.filter(webhook => webhook.name.toLowerCase() === 'tippy')[0]
     if (!webhook) {
       webhook = await ctx.message.channel.createWebhook({
-        name: 'Tippy'
+        name: 'Tippy',
+        options: {
+          type: 1
+        }
       })
     }
 

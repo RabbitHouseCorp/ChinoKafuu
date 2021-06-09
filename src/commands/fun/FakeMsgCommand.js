@@ -23,7 +23,10 @@ module.exports = class FakeMsgCommand extends Command {
     webhook = webhook.filter(webhook => webhook.name === 'Fake Message')[0]
     if (!webhook) {
       webhook = await ctx.message.channel.createWebhook({
-        name: 'Fake Message'
+        name: 'Fake Message',
+        options: {
+          type: 1
+        }
       })
     }
 
