@@ -17,7 +17,7 @@ module.exports = class TippyCommand extends Command {
     const jokes = FunCommandInstance.jokes[Math.floor(Math.random() * FunCommandInstance.jokes.length)]
     let webhook = await ctx.message.channel.getWebhooks()
     webhook = webhook.filter(webhook => webhook.name.toLowerCase() === 'tippy')[0]
-    if (!webhook) {
+    if (!webhook || webhook.user.id !== ctx.client.user.id) {
       webhook = await ctx.message.channel.createWebhook({
         name: 'Tippy',
         options: {
