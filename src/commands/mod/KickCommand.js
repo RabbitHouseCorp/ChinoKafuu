@@ -21,12 +21,8 @@ module.exports = class KickCommand extends Command {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
-    // If the reason was greater than 512 letters, there will be an error.
-    // But as we have a try and a catch down there, this will return an error to the user saying that Chino does not have permissions to ban members, which may not be true and the error is being given by the size of the message, not due to lack of permissions.
-
     const reason = ctx.args[1] ? ctx.args.slice(1).join(' ') : ctx._locale('basic:noReason')
-
-    if (reason.trim().length > 512) return ctx.reply('error', 'basic:bigReason')
+    if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
     if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
 
