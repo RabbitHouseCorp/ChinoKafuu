@@ -26,7 +26,8 @@
             "staffName": "Quien ha castigado",
             "reason": "Razón"
         },
-        "reason": "Baneado por: {{0}} - Razón: {{1}}"
+        "reason": "Baneado por: {{0}} - Razón: {{1}}",
+        "bigReason": "your must to put an shorter reason, this reason is so big to me."
     },
     "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
     "howToUse": "¿Cómo se usa?",
