@@ -22,7 +22,7 @@
         "colors": "^1.4.0",
         "cron": "^1.8.2",
         "dotenv": "^10.0.0",
-        "eris": "github:abalabahaha/eris#dev",
+        "eris": "github:RabbitHouseCorp/eris#master",
         "hound": "^1.0.5",
         "ioredis": "^4.27.2",
         "mal-scraper": "^2.11.3",
