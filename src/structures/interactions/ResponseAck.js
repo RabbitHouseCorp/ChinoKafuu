@@ -61,7 +61,7 @@ module.exports = class ResponseAck extends EventEmitter {
   }
 
   messageInteraction(data, returns) {
-    this.client.shards.get(this.message.channel.guild.shardID).sendWS(5, data, false)
+    this.client.shards.get(this.message.guild.shardID).sendWS(5, data, false)
     return this;
   }
 }

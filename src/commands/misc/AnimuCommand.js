@@ -29,7 +29,7 @@ module.exports = class AnimuCommand extends Command {
 
     const res = await axios.get('https://cast.animu.com.br:9000/api/v2/history/?format=json&limit=1&offset=0&server=1')
     if (!['play', 'join', 'tocar', 'entrar', 'volume', 'vol', 'nowplaying', 'tocandoagora', 'np', 'tocando', 'stop', 'leave', 'parar', 'sair'].includes(ctx.args[0])) return ctx.send(argsNullEmbed.build())
-    
+
     if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0].toLowerCase())) {
       if (ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
       const song = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
@@ -60,7 +60,7 @@ module.exports = class AnimuCommand extends Command {
     }
 
     if (['volume', 'vol'].includes(ctx.args[0].toLowerCase())) {
-      if (!ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
+      if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
       if (!ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerNotFound')
       if (!ctx.args[1]) return ctx.replyT('warn', 'commands:animu.currentVolume', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume })
       if (parseInt(ctx.args[1]) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
@@ -73,7 +73,7 @@ module.exports = class AnimuCommand extends Command {
     }
 
     if (['nowplaying', 'tocandoagora', 'np', 'tocando'].includes(ctx.args[0].toLowerCase())) {
-      if (!ctx.message.channel.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
+      if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
       if (!ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerNotFound')
       const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
       const embed = new EmbedBuilder()

@@ -2,7 +2,7 @@ const { Command } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class AddEmojiCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'addemoji',
       aliases: ['adicionaremoji'],
@@ -15,7 +15,7 @@ module.exports = class AddEmojiCommand extends Command {
     })
   }
 
-  async run (ctx) {
+  async run(ctx) {
     const url = ctx.args[1] ?? ctx.message.attachments[0]?.url
     const name = ctx.args[0]
     if (!name || !url) {
@@ -28,7 +28,7 @@ module.exports = class AddEmojiCommand extends Command {
       const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
       const base64Emoji = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 
-      const emoji = await ctx.message.channel.guild.createEmoji({
+      const emoji = await ctx.message.guild.createEmoji({
         name: name,
         image: base64Emoji
       })

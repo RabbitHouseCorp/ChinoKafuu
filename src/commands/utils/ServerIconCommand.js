@@ -13,7 +13,7 @@ module.exports = class ServerIconCommand extends Command {
   }
 
   async run(ctx) {
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     if (!guild.icon) return ctx.replyT('error', 'commands:servericon.missingIcon')
 
     const embed = new EmbedBuilder()

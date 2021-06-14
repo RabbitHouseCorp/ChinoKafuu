@@ -21,7 +21,7 @@ module.exports = class SetIconCommand extends Command {
     const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
     const base64Icon = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 
-    ctx.message.channel.guild.edit({
+    ctx.message.guild.edit({
       icon: base64Icon
     }).then(() => {
       const embed = new EmbedBuilder()

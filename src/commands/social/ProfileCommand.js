@@ -102,7 +102,7 @@ module.exports = class ProfileCommand extends Command {
         bgId: user.background,
         stickerId: user.sticker,
         favColor: user.profileColor,
-        avatarUrl: member.dynamicAvatarURL('png', 2048),
+        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.dynamicAvatarURL('png', 2048),
         badges: arrayBadges
       },
       responseType: 'arraybuffer'

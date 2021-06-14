@@ -17,7 +17,7 @@ module.exports = class BotInfoCommand extends Command {
   }
 
   async run(ctx) {
-    const shard = ctx.client.shardUptime.get(ctx.message.channel.guild.shard.id)
+    const shard = ctx.client.shardUptime.get(ctx.message.guild.shard.id)
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:botinfo.title'))
@@ -28,7 +28,7 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField(ctx._locale('commands:botinfo.guildsAmount'), this.markDown('js', Number(ctx.client.guilds.size).toLocaleString()), true)
     embed.addField(ctx._locale('commands:botinfo.usersAmount'), this.markDown('js', Number(ctx.client.users.size).toLocaleString()), true)
     embed.addBlankField()
-    embed.addField(ctx._locale('commands:botinfo.shardLatency'), this.markDown('glsl', `#[Shard: ${shard.shardID}] ${ctx.message.channel.guild.shard.latency}ms`), true)
+    embed.addField(ctx._locale('commands:botinfo.shardLatency'), this.markDown('glsl', `#[Shard: ${shard.shardID}] ${ctx.message.guild.shard.latency}ms`), true)
     embed.addField(ctx._locale('commands:botinfo.memoryUsage'), this.markDown('glsl', `#${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`), true)
     embed.addField(ctx._locale('commands:botinfo.clientVersion'), this.markDown('glsl', `#${version}`), true)
     embed.addField(ctx._locale('commands:botinfo.shardUptime'), this.markDown('js', `${moment.duration(Date.now() - shard.uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`), true)

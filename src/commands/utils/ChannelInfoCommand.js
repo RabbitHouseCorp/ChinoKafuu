@@ -16,7 +16,7 @@ module.exports = class ChannelInfoCommand extends Command {
 
   async run(ctx) {
     const args = ctx.args[0]?.replace(/<#>/g, '') ?? ctx.message.channel.id
-    let channel = ctx.client.getChannel(args) || ctx.message.channel.guild.channels.find(channel => channel.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
+    let channel = ctx.client.getChannel(args) || ctx.message.guild.channels.find(channel => channel.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
     if (!channel) {
       channel = ctx.message.channel
     }

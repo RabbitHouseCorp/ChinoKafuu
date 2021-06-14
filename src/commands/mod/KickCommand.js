@@ -24,9 +24,9 @@ module.exports = class KickCommand extends Command {
     const reason = ctx.args[1] ? ctx.args.slice(1).join(' ') : ctx._locale('basic:noReason')
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
-    if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
+    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
 
-    const guildMember = ctx.message.channel.guild.members.get(member.id)
+    const guildMember = ctx.message.guild.members.get(member.id)
     if (!guildMember) return ctx.replyT('error', 'basic:invalidUser')
     try {
       const embed = new EmbedBuilder()
@@ -39,7 +39,7 @@ module.exports = class KickCommand extends Command {
       guildMember.kick(reason).then(() => ctx.send(embed.build()))
 
       if (ctx.db.guild.punishModule) {
-        await ctx.message.channel.guild.channels.get(ctx.db.guild.punishChannel).createMessage({
+        await ctx.message.guild.channels.get(ctx.db.guild.punishChannel).createMessage({
           embed: embed
         })
       }

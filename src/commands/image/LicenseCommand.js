@@ -15,7 +15,7 @@ module.exports = class LicenseCommand extends Command {
   }
 
   async run(ctx) {
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     let member = await ctx.getUser(ctx.args[0])
     if (!member) {
       member = ctx.message.author
@@ -23,7 +23,7 @@ module.exports = class LicenseCommand extends Command {
     let hoist
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
-        .map((a) => ctx.message.channel.guild.roles.get(a))
+        .map((a) => ctx.message.guild.roles.get(a))
         .filter((z) => z)
         .sort((a, b) => b.position - a.position)
       hoist = role[0]

@@ -67,7 +67,7 @@ module.exports = class CommandContext {
     }, props[0]?.file)
   }
 
-  
+
 
   /**
      *
@@ -104,7 +104,7 @@ module.exports = class CommandContext {
 
       return member
     } catch {
-      const member = this.message.channel.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
+      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
           return this.message.author
@@ -126,7 +126,7 @@ module.exports = class CommandContext {
     if (!args) return false
     if (args.includes('%')) args = decodeURIComponent(args)
     if (!args.includes(':')) {
-      const emoji = this.message.channel.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.emojis.find(emoji => emoji.id === args)
+      const emoji = this.message.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.guild.emojis.find(emoji => emoji.id === args)
       if (emoji) {
         return {
           animated: emoji.animated,
@@ -187,7 +187,7 @@ module.exports = class CommandContext {
 
   getRole(role) {
     if (!role) return false
-    const getRole = this.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.channel.guild.roles.get(role.replace(/[<@&>]/g, ''))
+    const getRole = this.message.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.guild.roles.get(role.replace(/[<@&>]/g, ''))
     if (!getRole) return false
     return getRole
   }

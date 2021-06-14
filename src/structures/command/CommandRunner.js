@@ -13,7 +13,7 @@ module.exports = class CommandRunner {
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
     const guildData = await client.database.guilds.getOrCreate(message.guildID)
     const blacklist = new BlacklistUtils(client)
-    if (await blacklist.verifyGuild(message.channel.guild)) return client.leaveGuild(message.guildID)
+    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guildID)
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
     AwayFromKeyboardUtils(client, message, _locale)
@@ -54,7 +54,7 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
-    const permissions = new CommandPermissions(client, message.member, message.channel.guild)
+    const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
       const channel = await message.author.getDMChannel()
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
@@ -124,7 +124,7 @@ module.exports = class CommandRunner {
       }
 
       if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
-        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
+        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.guild.channels.get(id)?.mention).join(' ') })
       }
     }
 
