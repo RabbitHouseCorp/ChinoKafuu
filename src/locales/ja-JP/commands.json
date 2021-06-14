@@ -8,7 +8,7 @@
         "embed": {
             "memberName": "ユーザー名",
             "authorName": "Who reported",
-            "channel": "Channel",
+            "channel": "チャンネル",
             "reason": "Reason"
         }
     },
