@@ -15,7 +15,7 @@ module.exports = class AvatarCommand extends Command {
     const member = await ctx.getUser(ctx.args[0], true)
     let avatar = member.avatarURL
     if (ctx.args.includes('--guild')) {
-      avatar = `${ctx.message.guild.members.get(member.id)?.guildAvatar}?size=2048` ?? member.avatarURL
+      avatar = ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
     }
     const embed = new EmbedBuilder()
     embed.setTitle(ctx._locale('commands:avatar.userAvatar', { user: member.username }))

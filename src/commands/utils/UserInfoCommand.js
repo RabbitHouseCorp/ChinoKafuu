@@ -18,6 +18,8 @@ module.exports = class UserInfoCommand extends Command {
     moment.locale(ctx.db.guild.lang)
     const member = await ctx.getUser(ctx.args[0], true)
     let hoist
+    const avatar = ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
+    
     const guild = ctx.message.guild
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
@@ -30,7 +32,7 @@ module.exports = class UserInfoCommand extends Command {
     const highRole = guild.roles.get(hoist?.id)
     const embed = new EmbedBuilder()
     embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
-    embed.setThumbnail(member.avatarURL)
+    embed.setThumbnail(avatar)
     embed.addField(ctx._locale('commands:userinfo.username'), `${member.username}#${member.discriminator}`, true)
     embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
     embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)

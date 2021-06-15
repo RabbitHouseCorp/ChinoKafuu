@@ -16,10 +16,7 @@ module.exports = class LicenseCommand extends Command {
 
   async run(ctx) {
     const guild = ctx.message.guild
-    let member = await ctx.getUser(ctx.args[0])
-    if (!member) {
-      member = ctx.message.author
-    }
+    let member = await ctx.getUser(ctx.args[0], true)
     let hoist
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
@@ -38,7 +35,7 @@ module.exports = class LicenseCommand extends Command {
         name: member.username,
         text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.args.join(' ') || ctx._locale('commands:license.beCute') : ctx.args.slice(1).join(' ') || ctx._locale('commands:license.beCute')}`,
         hexColor: highRole,
-        avatarUrl: member.dynamicAvatarURL('png', 2048)
+        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.dynamicAvatarURL('png', 2048)
       },
       responseType: 'arraybuffer'
     })

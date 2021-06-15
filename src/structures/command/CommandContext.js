@@ -29,7 +29,11 @@ module.exports = class CommandContext {
     return await this.message.channel.createMessage({
       content: (typeof content === 'string') ? content : content.content,
       embed: content?.embed,
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
       components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
