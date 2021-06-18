@@ -307,7 +307,8 @@
             "BANNER": "Banner",
             "WELCOME_SCREEN_ENABLED": "Pantalla de bienvenida activada",
             "PREVIEW_ENABLED": "Previsualización",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Puerta de verificación de miembros"
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Puerta de verificación de miembros",
+            "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before"
         },
         "booster": {
             "title": "Nitro Booster",
