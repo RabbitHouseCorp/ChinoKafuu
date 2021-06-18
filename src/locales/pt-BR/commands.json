@@ -307,7 +307,8 @@
             "BANNER": "Faixa",
             "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas ativada",
             "PREVIEW_ENABLED": "Pré-visualização",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação"
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
+            "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before"
         },
         "booster": {
             "title": "Impulsionador de Nitro",
