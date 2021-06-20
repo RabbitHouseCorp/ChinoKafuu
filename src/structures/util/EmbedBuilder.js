@@ -140,6 +140,6 @@ module.exports = class EmbedBuilder {
      * @param {string} content
      */
   build (content) {
-    return { content, embeds: [this] }
+    return { content, embed: this }
   }
 }

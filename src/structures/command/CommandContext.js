@@ -28,7 +28,7 @@ module.exports = class CommandContext {
   async send(content, ...props) {
     return await this.message.channel.createMessage({
       content: (typeof content === 'string') ? content : content.content,
-      embed: content?.embed,
+      embeds: [content?.embed],
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
