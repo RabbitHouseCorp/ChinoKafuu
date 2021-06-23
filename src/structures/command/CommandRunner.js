@@ -56,13 +56,14 @@ module.exports = class CommandRunner {
 
     const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
-      const channel = await message.author.getDMChannel()
+  
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
         entity: 'bot',
         permissions: ['sendMessages', 'readMessageHistory']
       }])
 
       if (botPermissionsOnChannel.length > 0) {
+        const channel = await message.author.getDMChannel()
         return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
       }
     } catch {
@@ -79,8 +80,38 @@ module.exports = class CommandRunner {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
       try {
-        const time = new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()
-        ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+        const userLimited = client.commandCooldown.users.get(message.author.id)
+        userLimited.request++
+        
+        
+        if (userLimited.request >  userLimited.requestLimit) {
+          if (!(userLimited._try > 2)) {
+            // This is to avoid long time. Not to reach 1 billion years.
+            client.commandCooldown.removeUser(message.author.id)
+            client.commandCooldown._addUserStress(
+              message.author.id, 
+              userLimited._commandCooldown + command.cooldown * 1000,
+              userLimited.requestLimit + 10,
+              userLimited._try+=1
+              )
+          } else {
+            userLimited.user_was_warned = true
+            return
+          }
+          if (!userData.user_was_warned) {
+               
+        const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
+        ctx.replyT('error', 'I\'m limiting your command usage by too many command requests, wait for \`{time}\` seconds and try again.', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+          }
+          return
+        }
+
+        if (!userLimited._warn) {
+          const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
+
+          ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+          userLimited._warn = true
+        }
       } catch {
         return
       }
