@@ -1,12 +1,13 @@
 # Hey there! Welcome to my official GitHub repository!
-  <p align="center">
-    <a href="https://jetbrains.com/?from=ChinoKafuu">
+<p align="center">
+  <a href="https://jetbrains.com/?from=ChinoKafuu">
     <img src="https://img.shields.io/badge/Powered_by_WebStorm-gray.svg?logo=webstorm&style=for-the-badge" />
   </a>
-  <a href="https://crowdin.com/">
+  <a href="https://crowdin.com/project/chinokafuu">
     <img src="https://img.shields.io/badge/Powered_by_Crowdin-gray.svg?logo=crowdin&style=for-the-badge" />
+    <img src="https://badges.crowdin.net/chinokafuu/localized.svg">
   </a>
-  </p>
+</p>
 
 ### Greetings! I'm Chino Kafuu and I'm just another simple Discord bot.
 ### Well... As you can see, I'm a bot with many features like fun, moderation and utility.
