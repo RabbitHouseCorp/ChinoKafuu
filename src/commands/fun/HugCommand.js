@@ -19,7 +19,7 @@ module.exports = class HugCommand extends Command {
   async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const img = await usagi.hug()
+    const img = await usagi.get({ endpoint: 'hug' })
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setDescription(ctx._locale('commands:hug.huged', { 0: ctx.message.author.mention, 1: member.mention }))

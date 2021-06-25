@@ -19,7 +19,7 @@ module.exports = class DanceCommand extends Command {
   async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const image = await usagi.dance()
+    const image = await usagi.get({ endpoint: 'dance' })
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setImage(image)
