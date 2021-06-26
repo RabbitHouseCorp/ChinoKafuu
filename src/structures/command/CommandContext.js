@@ -28,7 +28,7 @@ module.exports = class CommandContext {
   async send(content, ...props) {
     return await this.message.channel.createMessage({
       content: (typeof content === 'string') ? content : content.content,
-      embeds: [content?.embed],
+      embeds: content?.embeds,
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
@@ -49,7 +49,11 @@ module.exports = class CommandContext {
   async sendT(content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: this._locale(content, data),
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
       components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
@@ -65,7 +69,11 @@ module.exports = class CommandContext {
   async reply(emoji, content, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
       components: this.commandInteractions.component,
       options: props[0]?.options,
     }, props[0]?.file)
@@ -84,7 +92,11 @@ module.exports = class CommandContext {
   async replyT(emoji, content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
       components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
