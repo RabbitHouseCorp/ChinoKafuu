@@ -98,7 +98,7 @@
         "description": "Divoriza a su pareja actual (cargaré 300 yenes de divorce).",
         "youAreNotMarried": "no estás casado, si quieres casarte, usa `{{0}}marry <user>` y sé feliz.",
         "youNeedToDivorce": "debes tener más `{{0}}` yenes para divorciar.",
-        "theyNeedToDivorce": "tu pareja debe tener más `{{0}}` yenes para divorciar.",
+        "theyNeedToDivorce": "your partner must have `{{0}}` more yens to divorce.",
         "requestConfirm": "¿Estás seguro de que quieres divorciar? Esta acción es irreversible.",
         "successfullyDivorced": "Claro, llamaré a los abogados. Ambos pagarán `300` yenes por divorciarse.",
         "rejectedRequest": "Creo que el oráculo del amor no les permitió separarse, y me alegro de que se llevaran bien."
