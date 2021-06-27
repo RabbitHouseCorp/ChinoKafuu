@@ -98,7 +98,7 @@
         "description": "Te divorcia do seu parceiro atual (eu cobrarei 300 ienes para se divorciar).",
         "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <usuário>` e seja feliz.",
         "youNeedToDivorce": "você precisa ter mais `{{0}}` ienes para se divorciar.",
-        "theyNeedToDivorce": "your partner must have `{{0}}` more yens to divorce.",
+        "theyNeedToDivorce": "seu parceiro precisa ter mais `{{0}}` ienes para se divorciar.",
         "requestConfirm": "tem certeza que quer divorciar-se? Esta ação é irreversível.",
         "successfullyDivorced": "Certo, eu chamarei os advogados. Ambos pagarão `300` ienes por isso.",
         "rejectedRequest": "Acho que o oráculo do amor não deixou você se separar. Estou feliz por vocês terem se entendido."
