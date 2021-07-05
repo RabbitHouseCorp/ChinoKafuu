@@ -1,4 +1,3 @@
-
 const { Command, EmbedBuilder } = require('../../utils')
 const { UsagiAPI } = require('usagiapi')
 const usagi = new UsagiAPI()
