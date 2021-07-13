@@ -1,6 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const Logger = require('../../structures/util/Logger')
-
+const { EmbedBuilder } = require('../../utils')
 module.exports = class GuildMemberRemoveListener extends Listener {
   constructor() {
     super()
