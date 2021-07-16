@@ -27,7 +27,7 @@ module.exports = class LavalinkManager {
   async connect () {
     try {
       await this.manager.connect()
-      Logger.debug('Lavalink nodes has been sucessfully connected.')
+      Logger.info('Lavalink nodes has been sucessfully connected.')
     } catch {
       Logger.warning('Lavalink nodes aren\'t connected.')
     }
