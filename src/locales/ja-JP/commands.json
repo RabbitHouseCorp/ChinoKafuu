@@ -8,7 +8,7 @@
         "embed": {
             "memberName": "ユーザー名",
             "authorName": "Who reported",
-            "channel": "Channel",
+            "channel": "チャンネル",
             "reason": "Reason"
         }
     },
@@ -98,7 +98,7 @@
         "description": "Divorces you to your current partner (I will charge 300 yens to divorce).",
         "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
         "youNeedToDivorce": "you must have more `{{0}}` yens to divorce.",
-        "theyNeedToDivorce": "your partner must have`{{0}}` more yens to divorce.",
+        "theyNeedToDivorce": "your partner must have `{{0}}` more yens to divorce.",
         "requestConfirm": "are you sure you want divorce? This action is irreversible.",
         "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
         "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
@@ -119,7 +119,7 @@
         "commandsLoaded": "I have {{0}} public commands loaded.",
         "additionalLinks": {
             "embedTitle": "Additional Links",
-            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [My server](https://discord.gg/Jr57UrsXeC)"
+            "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
         }
     },
     "rep": {
@@ -307,7 +307,8 @@
             "BANNER": "Banner",
             "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
             "PREVIEW_ENABLED": "Preview",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate"
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate",
+            "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before"
         },
         "booster": {
             "title": "Nitro Booster",
@@ -335,7 +336,7 @@
     },
     "vote": {
         "title": "Vote me",
-        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "embedVoted": "Thank you so much. You can vote me on the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
         "description": "Shows how you can vote me."
     },
     "invite": {

@@ -119,7 +119,7 @@
         "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
         "additionalLinks": {
             "embedTitle": "Links Adicionais",
-            "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Zuraaa.com](https://zuraaa.com/bots/481282441294905344/) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
+            "embedDescription": "[Me adicione](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot&permissions=2117578239) | [top.gg](https://top.gg/bot/481282441294905344) | [Servidor de suporte](https://discord.gg/Jr57UrsXeC)"
         }
     },
     "rep": {
@@ -307,7 +307,8 @@
             "BANNER": "Faixa",
             "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas ativada",
             "PREVIEW_ENABLED": "Pré-visualização",
-            "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação"
+            "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
+            "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before"
         },
         "booster": {
             "title": "Impulsionador de Nitro",
@@ -335,7 +336,7 @@
     },
     "vote": {
         "title": "Vote em mim",
-        "embedVoted": "Muito obrigada. Você pode votar em mim nos links abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)\n[Zuraaa.com](https://zuraaa.com/bots/481282441294905344/votar)",
+        "embedVoted": "Muito obrigada. Você pode votar no link para baixo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
         "description": "Mostra como você pode votar em mim."
     },
     "invite": {
