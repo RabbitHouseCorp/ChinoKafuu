@@ -15,7 +15,7 @@ module.exports = class RenameChannelCommand extends Command {
   }
 
   run(ctx) {
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     const channel = guild.channels.get(ctx.args[0].replace(/[<#>]/g, ''))
     const name = ctx.args.slice(1).join(' ').replace('&', '＆').replace('|', '│')
     if (!channel) return ctx.replyT('error', 'commands:renamechannel.channelNotFound')

@@ -1,4 +1,4 @@
-const { Command, ReactionCollector, Emoji } = require('../../utils')
+const { Command, Button, ResponseAck, Emoji } = require('../../utils')
 
 module.exports = class MarryCommand extends Command {
   constructor() {
@@ -26,33 +26,83 @@ module.exports = class MarryCommand extends Command {
     if (couple.yens < Number(7500)) return ctx.replyT('error', 'commands:marry.theyNeedToMarry', { 0: member.mention, 1: Number(7500 - couple.yens).toLocaleString() })
     if (author.isMarry) return ctx.replyT('error', 'commands:marry.youAlreadyMarried')
     if (couple.isMarry) return ctx.replyT('error', 'commands:marry.theyAlreadyMarried', { 0: member.mention })
-
-    ctx.sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention }).then(async msg => {
-      await msg.addReaction(Emoji.getEmoji('success').reaction)
-      await msg.addReaction(Emoji.getEmoji('error').reaction)
-
-      const collector = new ReactionCollector(msg, (_, emoji, userID) => ([Emoji.getEmoji('success').name, Emoji.getEmoji('error').name].includes(emoji.name)) && (userID === member.id))
-      collector.on('collect', (_, emoji) => {
-        switch (emoji.name) {
-          case Emoji.getEmoji('success').name: {
-            author.yens -= Number(7500)
-            author.isMarry = true
-            author.marryWith = member.id
-            couple.yens -= Number(7500)
-            couple.isMarry = true
-            couple.marryWith = ctx.message.author.id
-            author.save()
-            couple.save()
-            msg.delete()
-            ctx.replyT('ring_couple', 'commands:marry.successfullyMarried')
+    ctx.interaction()
+      .components(new Button()
+        .setLabel(ctx._locale('basic:boolean.true'))
+        .customID('confirm_button')
+        .setStyle(3),
+        new Button()
+          .setLabel(ctx._locale('basic:boolean.false'))
+          .customID('reject_button')
+          .setStyle(4))
+      .returnCtx()
+      .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
+      .then(message => {
+        const ack = new ResponseAck(message)
+        ack.on('collect', (data) => {
+          if ((data.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) return
+          switch (data.d.data.custom_id) {
+            case 'confirm_button': {
+              author.yens -= Number(7500)
+              author.isMarry = true
+              author.marryWith = member.id
+              couple.yens -= Number(7500)
+              couple.isMarry = true
+              couple.marryWith = ctx.message.author.id
+              author.save()
+              couple.save().then(() => {
+                ack.sendAck('update', {
+                  content: `${Emoji.getEmoji('ring_couple').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
+                  components: [
+                    {
+                      type: 1,
+                      components: [
+                        new Button()
+                          .setLabel(ctx._locale('basic:boolean.true'))
+                          .customID('confirm_button')
+                          .setStyle(3)
+                          .setStatus(true)
+                          .data(),
+                        new Button()
+                          .setLabel(ctx._locale('basic:boolean.false'))
+                          .customID('reject_button')
+                          .setStyle(4)
+                          .setStatus(true)
+                          .data()
+                      ]
+                    }
+                  ]
+                })
+              })
+            }
+              break
+            case 'reject_button': {
+              ack.sendAck('update', {
+                content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
+                components: [
+                  {
+                    type: 1,
+                    components: [
+                      new Button()
+                        .setLabel(ctx._locale('basic:boolean.true'))
+                        .customID('confirm_button')
+                        .setStyle(3)
+                        .setStatus(true)
+                        .data(),
+                      new Button()
+                        .setLabel(ctx._locale('basic:boolean.false'))
+                        .customID('reject_button')
+                        .setStyle(4)
+                        .setStatus(true)
+                        .data()
+                    ]
+                  }
+                ]
+              })
+            }
+              break
           }
-            break
-          case Emoji.getEmoji('error').name: {
-            msg.delete()
-            ctx.replyT('broken_heart', 'commands:marry.rejectedRequest', { 0: member.mention })
-          }
-        }
+        })
       })
-    })
   }
 }

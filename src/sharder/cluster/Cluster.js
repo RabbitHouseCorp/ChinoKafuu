@@ -27,7 +27,10 @@ module.exports = class Cluster {
         users: true,
         repliedUser: true
       },
-      intents: 14079
+      intents: 14079,
+      rest: {
+        baseURL: '/api/v9'
+      }
     })
 
     try {

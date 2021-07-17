@@ -5,6 +5,7 @@
         "title": "Permisos"
     },
     "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`. Si deseas saber lo que puedo hacer, utiliza `{{1}}help`.",
+    "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`, pero no puedes ejecutar comandos aquí. Si quieres ver lo que puedo hacer, usa `{{1}}help` en {{2}}.",
     "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
     "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
     "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
@@ -25,7 +26,8 @@
             "staffName": "Quien ha castigado",
             "reason": "Razón"
         },
-        "reason": "Baneado por: {{0}} - Razón: {{1}}"
+        "reason": "Baneado por: {{0}} - Razón: {{1}}",
+        "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
     },
     "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
     "howToUse": "¿Cómo se usa?",

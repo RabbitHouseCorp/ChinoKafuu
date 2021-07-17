@@ -20,7 +20,7 @@ module.exports = class RemoveRoleCommand extends Command {
     const role = await ctx.getRole(ctx.args[1])
     if (!role) return ctx.replyT('error', 'basic:invalidUser')
 
-    const guildMember = ctx.message.channel.guild.members.get(member.id)
+    const guildMember = ctx.message.guild.members.get(member.id)
     if (!guildMember.roles.includes(role.id)) return ctx.replyT('error', 'commands:removerole.alreadyRemoved')
     guildMember.removeRole(role.id).then(() => {
       ctx.replyT('success', 'commands:removerole.success')

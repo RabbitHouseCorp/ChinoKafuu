@@ -1,5 +1,6 @@
 const { Eris } = require('eris')
 const Emoji = require('../../utils/EmotesInstance')
+const CommandInteractions = require('../interactions/CommandInteractions')
 module.exports = class CommandContext {
   /**
      *
@@ -15,6 +16,7 @@ module.exports = class CommandContext {
     this.args = args
     this.db = db
     this._locale = _locale
+    this.commandInteractions = new CommandInteractions(message, this)
   }
 
   /**
@@ -26,8 +28,13 @@ module.exports = class CommandContext {
   async send(content, ...props) {
     return await this.message.channel.createMessage({
       content: (typeof content === 'string') ? content : content.content,
-      embed: content?.embed,
-      messageReferenceID: this.message.id,
+      embeds: content?.embeds,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -42,7 +49,12 @@ module.exports = class CommandContext {
   async sendT(content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: this._locale(content, data),
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -57,10 +69,17 @@ module.exports = class CommandContext {
   async reply(emoji, content, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
-      messageReferenceID: this.message.id,
-      options: props[0]?.options
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
+      components: this.commandInteractions.component,
+      options: props[0]?.options,
     }, props[0]?.file)
   }
+
+
 
   /**
      *
@@ -73,7 +92,12 @@ module.exports = class CommandContext {
   async replyT(emoji, content, data = {}, ...props) {
     return await this.message.channel.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
-      messageReferenceID: this.message.id,
+      messageReference: {
+        messageID: this.message.id,
+        channelID: this.message.channel.id,
+        guildID: this.message.guildID
+      },
+      components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }
@@ -96,7 +120,7 @@ module.exports = class CommandContext {
 
       return member
     } catch {
-      const member = this.message.channel.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
+      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
           return this.message.author
@@ -118,7 +142,7 @@ module.exports = class CommandContext {
     if (!args) return false
     if (args.includes('%')) args = decodeURIComponent(args)
     if (!args.includes(':')) {
-      const emoji = this.message.channel.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.channel.guild.emojis.find(emoji => emoji.id === args)
+      const emoji = this.message.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.guild.emojis.find(emoji => emoji.id === args)
       if (emoji) {
         return {
           animated: emoji.animated,
@@ -173,9 +197,13 @@ module.exports = class CommandContext {
     return emojis
   }
 
+  interaction() {
+    return this.commandInteractions;
+  }
+
   getRole(role) {
     if (!role) return false
-    const getRole = this.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.channel.guild.roles.get(role.replace(/[<@&>]/g, ''))
+    const getRole = this.message.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.guild.roles.get(role.replace(/[<@&>]/g, ''))
     if (!getRole) return false
     return getRole
   }

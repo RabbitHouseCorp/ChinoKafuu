@@ -20,7 +20,7 @@ module.exports = class AddRoleCommand extends Command {
     const role = ctx.getRole(ctx.args[1])
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
 
-    const guildMember = ctx.message.channel.guild.members.get(member.id)
+    const guildMember = ctx.message.guild.members.get(member.id)
     guildMember.addRole(role.id)
       .then(() => {
         ctx.replyT('success', 'commands:addrole.success')

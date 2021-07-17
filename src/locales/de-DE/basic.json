@@ -5,6 +5,7 @@
         "title": "Berechtigungen"
     },
     "onMention": "Hallo, {{0}}. Mein Präfix in dieser Gilde ist `{{1}}`. Wenn Sie sehen möchten, was ich tun kann, verwenden Sie `{{1}}hilfe`.",
+    "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`, but you're not allowed execute commands here. If you want to see what I can do, use `{{1}}help` on {{2}}.",
     "missingBotPermission": "Ich habe nicht die {{perm}} Berechtigung. Überprüfen Sie meine Berechtigungen/Rollen, und versuchen Sie es erneut.",
     "missingUserPermission": "sie nicht über die {{perm}} Berechtigung. Sie können diesen Befehl nicht ausführen.",
     "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
@@ -25,7 +26,8 @@
             "staffName": "Who punished",
             "reason": "Reason"
         },
-        "reason": "Banned by: {{0}} - Reason: {{1}}"
+        "reason": "Banned by: {{0}} - Reason: {{1}}",
+        "bigReason": "your must to put an shorter reason, this reason is so big to me."
     },
     "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
     "howToUse": "How to use?",

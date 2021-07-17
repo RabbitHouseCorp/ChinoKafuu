@@ -19,7 +19,7 @@ module.exports = class BanInfoCommand extends Command {
   }
 
   async run(ctx) {
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     const bans = await guild.getBans()
     const member = bans.find(ban => ban.user.username.toLowerCase().includes(ctx.args[0]?.toLowerCase())) || bans.find(ban => ban.user.id === ctx.args[0])
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
@@ -54,7 +54,7 @@ module.exports = class BanInfoCommand extends Command {
 
               const server = ctx.db.guild
               if (server.punishModule) {
-                const channel = ctx.message.channel.guild.channels.get(server.punishChannel)
+                const channel = ctx.message.guild.channels.get(server.punishChannel)
                 if (!channel) {
                   server.punishModule = false
                   server.punishChannel = ''

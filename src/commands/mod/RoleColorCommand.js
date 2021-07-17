@@ -16,7 +16,7 @@ module.exports = class RoleColorCommand extends Command {
 
   async run(ctx) {
     const getRole = ctx.args[0]?.toLowerCase()
-    const role = ctx.message.channel.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.channel.guild.roles.get(getRole.replace(/[<@&>]/g, ''))
+    const role = ctx.message.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.guild.roles.get(getRole.replace(/[<@&>]/g, ''))
     const color = ctx.args[1]
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
     if (!color?.startsWith('#')) return ctx.replyT('error', 'commands:rolecolor.invalidColor')

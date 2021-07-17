@@ -17,15 +17,17 @@ module.exports = class BanCommand extends Command {
   async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const guildMember = ctx.message.channel.guild.members.get(member.id)
+    const guildMember = ctx.message.guild.members.get(member.id)
     if (guildMember) {
       if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:ban.selfBan')
-      if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
+      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
     }
 
-    const reason = ctx.args.slice(1).join(' ') || ctx._locale('basic:noReason')
+    const reason = ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: ctx.args[1] ? ctx.args.slice(1).join(' ') : ctx._locale('basic:noReason') })
+    if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
+
     try {
-      ctx.client.banGuildMember(ctx.message.guildID, member.id, 7, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
+      ctx.client.banGuildMember(ctx.message.guildID, member.id, 7, reason).then(() => {
         const embed = new EmbedBuilder()
         embed.setColor('MODERATION')
         embed.setThumbnail(member.avatarURL)
@@ -38,7 +40,7 @@ module.exports = class BanCommand extends Command {
 
         const server = ctx.db.guild
         if (server.punishModule) {
-          const channel = ctx.message.channel.guild.channels.get(server.punishChannel)
+          const channel = ctx.message.guild.channels.get(server.punishChannel)
           if (!channel) {
             server.punishModule = false
             server.punishChannel = ''

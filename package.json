@@ -1,51 +1,51 @@
 {
-    "name": "chino-kafuu",
-    "version": "2021.05.28-rc108",
-    "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
-    "main": "index.js",
-    "scripts": {
-        "test": "jest",
-        "start": "node index.js --experimental--worker"
-    },
-    "engines": {
-        "node": ">=14.0.0"
-    },
-    "author": "DanielaGC_",
-    "license": "AGPL-3.0",
-    "dependencies": {
-        "@clusterws/cws": "^3.0.0",
-        "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
-        "@top-gg/sdk": "^3.0.0",
-        "anilist-node": "^1.8.1",
-        "axios": "^0.21.1",
-        "chalk": "^4.1.1",
-        "colors": "^1.4.0",
-        "cron": "^1.8.2",
-        "dotenv": "^10.0.0",
-        "eris": "github:abalabahaha/eris#dev",
-        "hound": "^1.0.5",
-        "ioredis": "^4.27.2",
-        "mal-scraper": "^2.11.3",
-        "moment": "^2.29.1",
-        "moment-duration-format": "^2.3.2",
-        "mongoose": "^5.12.10",
-        "nekos.life": "^2.0.7",
-        "os-utils": "0.0.14",
-        "usagiapi": "github:DanielaGC/UsagiAPI#master"
-    },
-    "devDependencies": {
-        "jest": "^27.0.1"
-    },
-    "jest": {
-        "collectCoverage": true,
-        "moduleFileExtensions": [
-            "js",
-            "json",
-            "jsx",
-            "ts",
-            "tsx",
-            "node",
-            "json.example"
-        ]
-    }
+  "name": "chino-kafuu",
+  "version": "2021.07.17-rc174",
+  "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node index.js --experimental--worker"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": "DanielaGC_",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "@clusterws/cws": "^3.0.0",
+    "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
+    "@top-gg/sdk": "^3.0.0",
+    "anilist-node": "^1.8.1",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.1",
+    "colors": "^1.4.0",
+    "cron": "^1.8.2",
+    "dotenv": "^10.0.0",
+    "eris": "github:RabbitHouseCorp/eris#feature/interaction",
+    "hound": "^1.0.5",
+    "ioredis": "^4.27.2",
+    "mal-scraper": "^2.11.3",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.12.10",
+    "nekos.life": "^2.0.7",
+    "os-utils": "0.0.14",
+    "usagiapi": "github:DanielaGC/UsagiAPI#master"
+  },
+  "devDependencies": {
+    "jest": "^27.0.1"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "ts",
+      "tsx",
+      "node",
+      "json.example"
+    ]
+  }
 }

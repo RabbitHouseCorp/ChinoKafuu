@@ -1,67 +1,45 @@
+const { EmbedBuilder, Helper, AwayFromKeyboardUtils, InviteDMUtils, BlacklistUtils } = require('../../utils')
 const CommandContext = require('./CommandContext')
-const Helper = require('../../structures/util/Helper')
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 const CommandPermissions = require('./CommandPermissions')
+
 module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
-    if (message.channel.type !== 0) {
-      const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
-      if (isInvite) {
-        try {
-          const dmChannel = await message.author.getDMChannel()
-          const text = message.author.bot ? '' : message.content.trim().split(' ')
-          const findInvite = text.find(invite => invite.includes('discord.gg'))
-            .replace('https:', '')
-            .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
-            .replace(/(\/)/g, '')
-          const invite = await client.getInvite(findInvite)
-          const embed = new EmbedBuilder()
-          embed.setColor('DEFAULT')
-          embed.setAuthor(message.author.username, message.author.avatarURL)
-          embed.setThumbnail(invite.guild.iconURL)
-          embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=2117578239&guild_id=${invite.guild.id})`)
-          dmChannel.createMessage(embed.build())
-        } catch {
-          return
-        }
-        return
-      }
+    if (message.channel.type === 1) {
+      InviteDMUtils(client, message)
       return
     }
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-
     const guildData = await client.database.guilds.getOrCreate(message.guildID)
-    if (guildData.blacklist) {
-      return client.leaveGuild(message.guildID)
-    }
+    const blacklist = new BlacklistUtils(client)
+    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guildID)
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
-    if (userData.afk) {
-      userData.afk = false
-      userData.afkReason = undefined
-      userData.save()
+    AwayFromKeyboardUtils(client, message, _locale)
+    if (message.content.replace('!', '') === client.user.mention) {
       if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      await message.channel.createMessage(_locale('basic:afkRemoval', { user: message.author.mention }))
-    }
-
-    if (message.content.replace('!', '') === `<@${client.user.id}>`) {
-      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      return message.channel.createMessage(_locale('basic:onMention', {
-        0: message.author.mention,
-        1: guildData.prefix
-      }))
-    }
-
-    for (const user of message.mentions) {
-      const afkUser = await client.database.users.findOneByID(user.id)
-      if (!afkUser?.afk) break
-      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      await message.channel.createMessage(afkUser.afkReason ? _locale('basic:onMentionAfkReasoned', {
-        user: user.username,
-        reason: afkUser.afkReason
-      }) : _locale('basic:onMentionAfk', { user: user.username }))
+      const roles = []
+      guildData.allowedChannel.roles.forEach((role) => {
+        if (message.member.roles.includes(role)) roles.push(role)
+      })
+      if (roles.length > 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
+        return message.channel.createMessage(_locale('basic:onMention', {
+          0: message.author.mention,
+          1: guildData.prefix
+        }))
+      } else if (roles.length === 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
+        return message.channel.createMessage(_locale('basic:onMentionWithRole', {
+          0: message.author.mention,
+          1: guildData.prefix,
+          2: guildData.allowedChannel.channels.map(channel => `<#${channel}>`).join(' ')
+        }))
+      } else {
+        return message.channel.createMessage(_locale('basic:onMention', {
+          0: message.author.mention,
+          1: guildData.prefix
+        }))
+      }
     }
 
     if (message.content === guildData.prefix) return
@@ -76,15 +54,15 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
-    const permissions = new CommandPermissions(client, message.member, message.channel.guild)
+    const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
-      const channel = await message.author.getDMChannel()
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
         entity: 'bot',
         permissions: ['sendMessages', 'readMessageHistory']
       }])
 
       if (botPermissionsOnChannel.length > 0) {
+        const channel = await message.author.getDMChannel()
         return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
       }
     } catch {
@@ -101,8 +79,34 @@ module.exports = class CommandRunner {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
       try {
-        const time = new Date(new Date(client.commandCooldown.users.get(message.author.id).timeSet - Date.now())).getSeconds()
-        ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+        const userLimited = client.commandCooldown.users.get(message.author.id)
+        userLimited.request++
+        if (userLimited.request > userLimited.requestLimit) {
+          if (!(userLimited._try > 2)) {
+            // This is to avoid long time. Not to reach 1 billion years.
+            client.commandCooldown.removeUser(message.author.id)
+            client.commandCooldown._addUserStress(
+              message.author.id,
+              userLimited._commandCooldown + command.cooldown * 1000,
+              userLimited.requestLimit + 10,
+              userLimited._try += 1
+            )
+          } else {
+            userLimited.user_was_warned = true
+            return
+          }
+          if (!userData.user_was_warned) {
+            const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
+            ctx.replyT('error', 'I\'m limiting your command usage by too many command requests, wait for \`{time}\` seconds and try again.', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+          }
+          return
+        }
+
+        if (!userLimited._warn) {
+          const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
+          ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+          userLimited._warn = true
+        }
       } catch {
         return
       }
@@ -146,7 +150,7 @@ module.exports = class CommandRunner {
       }
 
       if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
-        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.channel.guild.channels.get(id)?.mention).join(' ') })
+        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.guild.channels.get(id)?.mention).join(' ') })
       }
     }
 

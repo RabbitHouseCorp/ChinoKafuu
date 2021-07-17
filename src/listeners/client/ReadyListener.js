@@ -14,7 +14,7 @@ module.exports = class ReadyListener extends Listener {
     const lavalink = new LavalinkManager(client)
     client.lavalink = lavalink
     client.player = new Map()
-    await lavalink.connect()
+    lavalink.connect()
     const game = [
       { name: 'Petit Rabbit\'s - Tokimeki Poporon', type: 2 },
       { name: 'Petit Rabbit\'s - Daydream café', type: 2 },

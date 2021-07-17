@@ -53,7 +53,7 @@ module.exports = class ConfigCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:config.title'))
-    embed.setThumbnail(ctx.message.channel.guild.iconURL)
+    embed.setThumbnail(ctx.message.guild.iconURL)
     embed.addField(ctx._locale('commands:config.howUse'), `${ctx.db.guild.prefix}config <options> <set/disable>`)
     embed.addField(ctx._locale('commands:config.modules.animu.module'), listAnimu.join('\n'))
     embed.addField(ctx._locale('commands:config.modules.mod.module'), listPunish.join('\n'))
@@ -161,10 +161,10 @@ module.exports = class ConfigCommand extends Command {
         if (!ctx.args[2]) return ctx.replyT('error', 'commands:config.channelNull')
         if (ctx.args[1].toLowerCase() === 'set') {
           if (ctx.args[2].toLowerCase() === 'roles') {
-            const role = ctx.message.channel.guild.roles.get(ctx.args[3]?.replace(/[<@&>]/g, ''))
+            const role = ctx.message.guild.roles.get(ctx.args[3]?.replace(/[<@&>]/g, ''))
             if (!role) return ctx.replyT('error', 'basic:invalidRole')
             for (const r of ctx.args.slice(3)) {
-              if (ctx.message.channel.guild.roles.get(r?.replace(/[<@&>]/g, ''))) ctx.db.guild.allowedChannel.roles.push(r?.replace(/[<@&>]/g, ''))
+              if (ctx.message.guild.roles.get(r?.replace(/[<@&>]/g, ''))) ctx.db.guild.allowedChannel.roles.push(r?.replace(/[<@&>]/g, ''))
             }
 
             ctx.db.guild.markModified('allowedChannel.roles')

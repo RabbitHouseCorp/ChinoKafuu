@@ -15,7 +15,7 @@ module.exports = class SlowmodeCommand extends Command {
 
   run(ctx) {
     const time = Math.round(ctx.args[0])
-    if (time >= 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')
+    if (time > 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')
     if (time < 0) return ctx.replyT('error', 'commands:slowmode.minimalTimeLimited')
     if (time <= 0) {
       ctx.message.channel.edit({

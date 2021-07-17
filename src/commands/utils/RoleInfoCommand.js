@@ -22,7 +22,7 @@ module.exports = class RoleInfoCommand extends Command {
 
   run(ctx) {
     moment.locale(ctx.db.guild.lang)
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     const role = guild.roles.get(ctx.args[0]?.replace(/[<@&>]/g, '')) || guild.roles.find(role => role.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
     if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')
 

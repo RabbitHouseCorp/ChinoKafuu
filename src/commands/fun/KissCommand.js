@@ -20,7 +20,7 @@ module.exports = class KissCommand extends Command {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (ctx.message.author.id === member.id) return ctx.replyT(':error:', 'commands:kiss.unable')
-    const img = await usagi.kiss()
+    const img = await usagi.get({ endpoint: 'kiss' })
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setDescription(ctx._locale('commands:kiss.kissed', { author: ctx.message.author.mention, member: member.mention }))

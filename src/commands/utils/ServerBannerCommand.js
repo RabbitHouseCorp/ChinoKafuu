@@ -1,7 +1,7 @@
 const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class ServerBannerCommand extends Command {
-  constructor () {
+  constructor() {
     super({
       name: 'serverbanner',
       aliases: ['guildbanner'],
@@ -12,8 +12,8 @@ module.exports = class ServerBannerCommand extends Command {
     })
   }
 
-  async run (ctx) {
-    const guild = ctx.message.channel.guild
+  async run(ctx) {
+    const guild = ctx.message.guild
     if (!guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:serverbanner.missingFeature')
     if (!guild.banner) return ctx.replyT('error', 'commands:serverbanner.missingBanner')
 

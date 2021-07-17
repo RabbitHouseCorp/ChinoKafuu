@@ -12,6 +12,11 @@ module.exports = class CommandRegistry extends Registry {
   }
 
   filterByCategory (category) {
-    return this.modules.filter((cmd) => cmd.__path.trim().split('/').includes(category))
+    return this.modules.filter((cmd) => 
+    cmd.__path
+        .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remove file name.
+        .trim()
+        .replace(/(.(.*)(commands)|(\/+|\\+)|(^[a-zA-Z0-9_.,])(\/+|\\+))/, '') // Remove all encounters from the folder.
+        .split(/(\\+|\/+)/g).includes(category))
   }
 }

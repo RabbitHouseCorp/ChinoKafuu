@@ -1,4 +1,4 @@
-const { Command, TranslatorFun } = require('../../utils')
+const { Command, TranslatorUtils } = require('../../utils')
 const axios = require('axios')
 
 module.exports = class TranslateCommand extends Command {
@@ -22,7 +22,7 @@ module.exports = class TranslateCommand extends Command {
       content = 'I\'m a little girl'
     }
 
-    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorFun(language)}&dt=t&q=${args.join(' ')}&ie=UTF-8&oe=UTF-8`
+    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${args.join(' ')}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
 
     let letters = []

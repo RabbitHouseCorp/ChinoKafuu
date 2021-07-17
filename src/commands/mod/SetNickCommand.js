@@ -20,7 +20,7 @@ module.exports = class SetNickCommand extends Command {
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (!newNick) return ctx.replyT('error', 'commands:setnick.missingNickname')
 
-    const guildMember = ctx.message.channel.guild.members.get(member.id)
+    const guildMember = ctx.message.guild.members.get(member.id)
     try {
       await guildMember.edit({
         nick: newNick

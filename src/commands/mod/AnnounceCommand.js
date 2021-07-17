@@ -19,7 +19,7 @@ module.exports = class AnnounceCommand extends Command {
   }
 
   async run(ctx) {
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     const channel = guild.channels.get(ctx.args[0]?.replace(/[<#>]/g, ''))
     if (!channel) return ctx.replyT('error', 'commands:announce.channelNotFound')
     const announce = ctx.args.slice(1).join(' ')

@@ -15,7 +15,7 @@ module.exports = class SoftBanCommand extends Command {
   async run(ctx) {
     const member = await ctx.getUser(ctx.args[0])
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (member.id === ctx.message.channel.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
+    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
     const reason = ctx.args.slice(2).join(' ') || ctx._locale('basic:noReason')
     const days = Number(ctx.args[1]) || 7
 
@@ -37,7 +37,7 @@ module.exports = class SoftBanCommand extends Command {
         ctx.client.unbanGuildMember(ctx.message.guildID, member.id)
         if (ctx.db.guild.punishModule && ctx.db.guild.punishChannel) {
           const channel = ctx.db.guild.punishChannel
-          const guildChannel = ctx.message.channel.guild.channels.get(channel)
+          const guildChannel = ctx.message.guild.channels.get(channel)
           return guildChannel.createMessage({ embed: embed })
         }
       })

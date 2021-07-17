@@ -15,7 +15,7 @@ module.exports = class ServerInfoCommand extends Command {
 
   async run(ctx) {
     moment.locale(ctx.db.guild.lang)
-    const guild = ctx.message.channel.guild
+    const guild = ctx.message.guild
     const owner = await ctx.getUser(guild.ownerID)
     const _locale = ctx._locale
     const memberCount = {
