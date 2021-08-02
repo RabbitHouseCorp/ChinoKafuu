@@ -54,6 +54,13 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
+    const ctx = new CommandContext(client, message, args, {
+      user: userData,
+      guild: guildData,
+      db: client.database.users
+    }, _locale)
+
+    ctx.sendT('basic:migrateToSlashCommand', { 0: client.user.id, 1: message.guildID })
     const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
@@ -69,12 +76,6 @@ module.exports = class CommandRunner {
       return
     }
 
-
-    const ctx = new CommandContext(client, message, args, {
-      user: userData,
-      guild: guildData,
-      db: client.database.users
-    }, _locale)
     if (typeof client.commandCooldown.users.get(message.author.id) === 'undefined') {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
