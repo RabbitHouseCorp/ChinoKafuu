@@ -309,9 +309,9 @@
       "PREVIEW_ENABLED": "Pré-visualização",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
       "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before",
-      "SEVEN_DAY_THREAD_ARCHIVE": "Arquivar Thread Em Sete Dias",
+      "SEVEN_DAY_THREAD_ARCHIVE": "Sete Dias Para Arquivar Threads",
       "PRIVATE_THREADS": "Threads Privadas",
-      "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
+      "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Threads",
       "THREADS_ENABLED": "Threads Ativadas"
     },
     "booster": {
