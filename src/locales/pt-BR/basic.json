@@ -61,5 +61,6 @@
     "cooldown": "por favor, aguarde mais {{0}} segundos para executar este comando novamente!",
     "cooldownLowThanZero": "alguns",
     "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`",
-    "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente."
+    "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente.",
+    "migrateToSlashCommand": "Hey! Soon I'll only aswner by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
 }
