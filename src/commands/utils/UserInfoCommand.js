@@ -56,7 +56,7 @@ module.exports = class UserInfoCommand extends Command {
       'addReactions',
       'viewAuditLogs',
       'voicePrioritySpeaker',
-      'stream',
+      'voiceStream',
       'readMessages',
       'sendMessages',
       'sendTTSMessages',
@@ -77,7 +77,12 @@ module.exports = class UserInfoCommand extends Command {
       'manageNicknames',
       'manageRoles',
       'manageWebhooks',
-      'manageEmojis'
+      'manageEmojis',
+      'useSlashCommands',
+      'manageThreads',
+      'usePrivateThreads',
+      'useExternalStickers',
+      'usePublicThreads'
     ]
 
     perms.forEach(perms => {
