@@ -24,7 +24,7 @@ module.exports = class BotInfoCommand extends Command {
     embed.setDescription(ctx._locale('commands:botinfo.inviteMe', { 0: ctx.client.user.id }))
     embed.setFooter(`©️ ${ctx.client.user.username}`)
     embed.setTimestamp()
-    embed.setUrl('https://discord.com/oauth2/authorize?client_id=481282441294905344&scope=bot&permissions=2117578239')
+    embed.setUrl(`https://discord.com/oauth2/authorize?client_id=${ctx.client.user.id}&scope=bot%20applications.commands&permissions=8560045566`)
     embed.addField(ctx._locale('commands:botinfo.guildsAmount'), this.markDown('js', Number(ctx.client.guilds.size).toLocaleString()), true)
     embed.addField(ctx._locale('commands:botinfo.usersAmount'), this.markDown('js', Number(ctx.client.users.size).toLocaleString()), true)
     embed.addBlankField()

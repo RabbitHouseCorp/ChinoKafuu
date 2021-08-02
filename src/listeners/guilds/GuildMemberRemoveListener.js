@@ -13,6 +13,7 @@ module.exports = class GuildMemberRemoveListener extends Listener {
       const audit = await guild.getAuditLogs()
       const guildBanAdd = audit.entries.filter(action => action.actionType === 20)
       if (guildBanAdd[0].user.id === client.user.id) return
+      if (!guildBanAdd[0]) return
       const mod = guildBanAdd[0].user
       const reason = guildBanAdd[0].reason ?? _locale('basic:noReason')
       const embed = new EmbedBuilder()
