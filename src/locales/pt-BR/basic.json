@@ -1,66 +1,66 @@
 {
-    "permissions": {
-        "permissionUserRequired": "Você precisa ter as seguintes permissões para usar esse comando: {{0}}.",
-        "permissionBotRequired": "Eu preciso ter as seguintes permissões para usar esse comando: {{0}}.",
-        "title": "Permissões"
+  "permissions": {
+    "permissionUserRequired": "Você precisa ter as seguintes permissões para usar esse comando: {{0}}.",
+    "permissionBotRequired": "Eu preciso ter as seguintes permissões para usar esse comando: {{0}}.",
+    "title": "Permissões"
+  },
+  "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
+  "onMentionWithRole": "<:chino_rawr:751215250245943318> ** Olá {{0}}, meu prefixo neste servidor é `{{1}}`, mas você não pode executar comandos aqui. Caso queira saber o que posso fazer, use `{{1}}ajuda` no {{2}}.",
+  "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
+  "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
+  "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
+  "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
+  "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
+  "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
+  "noReason": "Nenhum motivo",
+  "onBehalf": "Em nome de {{member}}: {{reason}}",
+  "clickHere": "Clique aqui",
+  "punishment": {
+    "banned": "{{0}} | Banido",
+    "unbanned": "{{0}} | Desbanido",
+    "kicked": "{{member}} | Expulso",
+    "softBan": "{{member}} | Banido suavemente",
+    "embed": {
+      "memberName": "Nome de usuário",
+      "memberID": "ID do usuário",
+      "staffName": "Quem puniu",
+      "reason": "Motivo"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Olá {{0}}, meu prefix neste servidor é `{{1}}`, caso queira saber o que eu posso fazer, use `{{1}}ajuda`.",
-    "onMentionWithRole": "<:chino_rawr:751215250245943318> ** Olá {{0}}, meu prefixo neste servidor é `{{1}}`, mas você não pode executar comandos aqui. Caso queira saber o que posso fazer, use `{{1}}ajuda` no {{2}}.",
-    "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
-    "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
-    "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
-    "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-    "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-    "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
-    "noReason": "Nenhum motivo",
-    "onBehalf": "Em nome de {{member}}: {{reason}}",
-    "clickHere": "Clique aqui",
-    "punishment": {
-        "banned": "{{0}} | Banido",
-        "unbanned": "{{0}} | Desbanido",
-        "kicked": "{{member}} | Expulso",
-        "softBan": "{{member}} | Banido suavemente",
-        "embed": {
-            "memberName": "Nome de usuário",
-            "memberID": "ID do usuário",
-            "staffName": "Quem puniu",
-            "reason": "Motivo"
-        },
-        "reason": "Banido por: {{0}} - Motivo: {{1}}",
-        "bigReason": "você tem que colocar um motivo menor, esse motivo é muito grande para mim."
-    },
-    "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
-    "howToUse": "Como usar?",
-    "aliases": "Alternativas",
-    "addedToGuild": {
-        "thanks": "Obrigada por me adicionar",
-        "description": "Whoa {{0}}! Obrigada por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
-        "guildSaved": "O servidor {{0}} salvo com sucesso no banco de dados!"
-    },
-    "noAliases": "Esse comando não possui alternativas.",
-    "onMentionAfk": "**{{user}}** está AFK.",
-    "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-    "afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK.",
-    "voice": {
-        "authorAreNotInVoiceChannel": "você não se encontra em um canal de voz.",
-        "playerAlreadyPlaying": "eu já estou tocando alguma coisa.",
-        "clientAreNotInVoiceChannel": "eu não estou em nenhum canal de voz.",
-        "playerNotFound": "eu não estou tocando nenhuma música",
-        "maxVolume": "calma! O volume máximo permitido é `100`.",
-        "minVolume": "calma! O volume mínimo permitido é `5`."
-    },
-    "boolean": {
-        "true": "Sim",
-        "false": "Não"
-    },
-    "guildban": {
-        "title": "Servidor Banido",
-        "explain": "`{{0}}` está banido, de acordo com o motivo abaixo. Você acha que o banimento foi injusto? Entre em meu [servidor de suporte](https://discord.gg/Jr57UrsXeC) e solicite uma revisão.",
-        "reason": "Motivo"
-    },
-    "cooldown": "por favor, aguarde mais {{0}} segundos para executar este comando novamente!",
-    "cooldownLowThanZero": "alguns",
-    "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`",
-    "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente.",
-    "migrateToSlashCommand": "Hey! Soon I'll only answer by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
+    "reason": "Banido por: {{0}} - Motivo: {{1}}",
+    "bigReason": "você tem que colocar um motivo menor, esse motivo é muito grande para mim."
+  },
+  "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
+  "howToUse": "Como usar?",
+  "aliases": "Alternativas",
+  "addedToGuild": {
+    "thanks": "Obrigada por me adicionar",
+    "description": "Whoa {{0}}! Obrigada por me adicionar em `{{1}}`, deixe-me me apresentar.\n\nEu sou uma pequena bot com muitas funções que podem ser úteis, como... **moderação**, **diversão** e **utilitários**. Por padrão, meu prefixo é `{{2}}`\n\nSe precisar de ajuda, entre no meu servidor de suporte usando `{{2}}ajuda` ou `{{2}}convite`. Divirta-se e te vejo em breve.",
+    "guildSaved": "O servidor {{0}} salvo com sucesso no banco de dados!"
+  },
+  "noAliases": "Esse comando não possui alternativas.",
+  "onMentionAfk": "**{{user}}** está AFK.",
+  "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK.",
+  "voice": {
+    "authorAreNotInVoiceChannel": "você não se encontra em um canal de voz.",
+    "playerAlreadyPlaying": "eu já estou tocando alguma coisa.",
+    "clientAreNotInVoiceChannel": "eu não estou em nenhum canal de voz.",
+    "playerNotFound": "eu não estou tocando nenhuma música",
+    "maxVolume": "calma! O volume máximo permitido é `100`.",
+    "minVolume": "calma! O volume mínimo permitido é `5`."
+  },
+  "boolean": {
+    "true": "Sim",
+    "false": "Não"
+  },
+  "guildban": {
+    "title": "Servidor Banido",
+    "explain": "`{{0}}` está banido, de acordo com o motivo abaixo. Você acha que o banimento foi injusto? Entre em meu [servidor de suporte](https://discord.gg/Jr57UrsXeC) e solicite uma revisão.",
+    "reason": "Motivo"
+  },
+  "cooldown": "por favor, aguarde mais {{0}} segundos para executar este comando novamente!",
+  "cooldownLowThanZero": "alguns",
+  "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`",
+  "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente.",
+  "migrateToSlashCommand": "Hey! After January 2022 I'll only answer by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
 }
