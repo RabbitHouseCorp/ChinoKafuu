@@ -1,66 +1,66 @@
 {
-    "permissions": {
-        "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
-        "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
-        "title": "Permissions"
+  "permissions": {
+    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+    "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
+    "title": "Permissions"
+  },
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`, but you're not allowed execute commands here. If you want to see what I can do, use `{{1}}help` on {{2}}.",
+  "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
+  "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
+  "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
+  "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
+  "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
+  "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
+  "noReason": "Sem razão",
+  "onBehalf": "On {{member}}'s behalf: {{reason}}",
+  "clickHere": "Clica aqui",
+  "punishment": {
+    "banned": "{{0}} | Banido",
+    "unbanned": "{{0}} | Unbanned",
+    "kicked": "{{member}} | Kickado",
+    "softBan": "{{member}} | Banido levemente",
+    "embed": {
+      "memberName": "Nome do usuário",
+      "memberID": "ID do Usuário",
+      "staffName": "Quem puniu",
+      "reason": "Razão"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-    "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`, but you're not allowed execute commands here. If you want to see what I can do, use `{{1}}help` on {{2}}.",
-    "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
-    "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
-    "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
-    "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
-    "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
-    "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
-    "noReason": "Sem razão",
-    "onBehalf": "On {{member}}'s behalf: {{reason}}",
-    "clickHere": "Clica aqui",
-    "punishment": {
-        "banned": "{{0}} | Banido",
-        "unbanned": "{{0}} | Unbanned",
-        "kicked": "{{member}} | Kickado",
-        "softBan": "{{member}} | Banido levemente",
-        "embed": {
-            "memberName": "Nome do usuário",
-            "memberID": "ID do Usuário",
-            "staffName": "Quem puniu",
-            "reason": "Razão"
-        },
-        "reason": "Banido por: {{0}} - Razão: {{1}}",
-        "bigReason": "your must to put an shorter reason, this reason is so big to me."
-    },
-    "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-    "howToUse": "Como usar?",
-    "aliases": "Apelidos",
-    "addedToGuild": {
-        "thanks": "Obrigado por me adicionares",
-        "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-        "guildSaved": "O servidor {{0}} foi adicionado à database com sucesso!"
-    },
-    "noAliases": "This command doesn't have any aliases.",
-    "onMentionAfk": "**{{user}}** está AFK.",
-    "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-    "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
-    "voice": {
-        "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-        "playerAlreadyPlaying": "The track is already playing.",
-        "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-        "playerNotFound": "I'm not playing any song",
-        "maxVolume": "calm down! The max volume allowed is `100`.",
-        "minVolume": "calm down! The minimal volume allowed is `5`."
-    },
-    "boolean": {
-        "true": "Sim",
-        "false": "Não"
-    },
-    "guildban": {
-        "title": "Guild Banned",
-        "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-        "reason": "Razão"
-    },
-    "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-    "cooldownLowThanZero": "some",
-    "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
-    "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
-    "migrateToSlashCommand": "Hey! Soon I'll only answer by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
+    "reason": "Banido por: {{0}} - Razão: {{1}}",
+    "bigReason": "your must to put an shorter reason, this reason is so big to me."
+  },
+  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+  "howToUse": "Como usar?",
+  "aliases": "Apelidos",
+  "addedToGuild": {
+    "thanks": "Obrigado por me adicionares",
+    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+    "guildSaved": "O servidor {{0}} foi adicionado à database com sucesso!"
+  },
+  "noAliases": "This command doesn't have any aliases.",
+  "onMentionAfk": "**{{user}}** está AFK.",
+  "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "voice": {
+    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
+    "playerAlreadyPlaying": "The track is already playing.",
+    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+    "playerNotFound": "I'm not playing any song",
+    "maxVolume": "calm down! The max volume allowed is `100`.",
+    "minVolume": "calm down! The minimal volume allowed is `5`."
+  },
+  "boolean": {
+    "true": "Sim",
+    "false": "Não"
+  },
+  "guildban": {
+    "title": "Guild Banned",
+    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
+    "reason": "Razão"
+  },
+  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
+  "cooldownLowThanZero": "some",
+  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
+  "migrateToSlashCommand": "Hey! After January 2022 I'll only answer by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
 }
