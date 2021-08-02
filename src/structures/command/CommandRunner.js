@@ -60,7 +60,10 @@ module.exports = class CommandRunner {
       db: client.database.users
     }, _locale)
 
-    ctx.sendT('basic:migrateToSlashCommand', { 0: client.user.id, 1: message.guildID })
+    if (message.member.permissions.has('manageGuild')) {
+      ctx.sendT('basic:migrateToSlashCommand', { 0: client.user.id, 1: message.guildID })
+    }
+
     const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
