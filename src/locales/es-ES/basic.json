@@ -62,5 +62,5 @@
     "cooldownLowThanZero": "algunos",
     "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
     "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
-    "migrateToSlashCommand": "Hey! Soon I'll only aswner by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
+    "migrateToSlashCommand": "Hey! Soon I'll only answer by slash commands, please, if you want continue using me, then re-add me clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
 }
