@@ -119,7 +119,7 @@
     "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
     "additionalLinks": {
       "embedTitle": "Links Adicionais",
-      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
@@ -309,10 +309,10 @@
       "PREVIEW_ENABLED": "Pré-visualização",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
       "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before",
-      "SEVEN_DAY_THREAD_ARCHIVE": "Seven Days Thread Archive",
-      "PRIVATE_THREADS": "Private Threads",
+      "SEVEN_DAY_THREAD_ARCHIVE": "Arquivar Thread Em Sete Dias",
+      "PRIVATE_THREADS": "Threads Privadas",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
-      "THREADS_ENABLED": "Thread Enabled"
+      "THREADS_ENABLED": "Threads Ativadas"
     },
     "booster": {
       "title": "Impulsionador de Nitro",
@@ -345,12 +345,12 @@
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
-    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
     "title": "Informação do bot",
-    "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Have fun, and see you later.",
+    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicanod aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
