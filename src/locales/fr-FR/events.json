@@ -1,7 +1,7 @@
 {
-    "executionFailure": {
-        "embedTitle": "Gomenasai! Une erreur est survenue!",
-        "fieldTitle": "Avertissez-nous",
-        "fieldValue": "Comme nous ne savons probablement pas de cette erreur, vous pouvez soit [ouvrir une issue](https://github.com/RabbitHouseCorp/ChinoKafu/issues/new/choose) sur GitHub, soit nous contacter dans notre [serveur de support](https://discord.gg/Jr57UrsXeC). N'oubliez pas d'attacher ce _petit message_ en signalant l'erreur.\nMerci et désolé!"
-    }
+  "executionFailure": {
+    "embedTitle": "Gomenasai! Une erreur est survenue!",
+    "fieldTitle": "Avertissez-nous",
+    "fieldValue": "Comme nous ne savons probablement pas de cette erreur, vous pouvez soit [ouvrir une issue](https://github.com/RabbitHouseCorp/ChinoKafu/issues/new/choose) sur GitHub, soit nous contacter dans notre [serveur de support](https://discord.gg/Jr57UrsXeC). N'oubliez pas d'attacher ce _petit message_ en signalant l'erreur.\nMerci et désolé!"
+  }
 }
