@@ -34,5 +34,6 @@
   "useSlashCommands": "Usar comandos /",
   "usePrivateThreads": "Usar conversas privadas",
   "usePublicThreads": "Usar conversas públicas",
-  "useExternalStickers": "Usar figurinhas externas"
+  "useExternalStickers": "Usar figurinhas externas",
+  "manageThreads": "Manage Threads"
 }
