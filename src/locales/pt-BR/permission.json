@@ -31,9 +31,9 @@
   "voiceDeafenMembers": "Ensurdecer membros",
   "voiceMoveMembers": "Mover membros",
   "manageWebhooks": "Gerenciar webhooks",
-  "useSlashCommands": "Usar comandos /",
+  "useSlashCommands": "Usar comandos em /",
   "usePrivateThreads": "Usar conversas privadas",
   "usePublicThreads": "Usar conversas públicas",
   "useExternalStickers": "Usar figurinhas externas",
-  "manageThreads": "Manage Threads"
+  "manageThreads": "Gerenciar conversas"
 }
