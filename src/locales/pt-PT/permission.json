@@ -34,5 +34,6 @@
   "useSlashCommands": "Use Slash Commands",
   "usePrivateThreads": "Use Private Threads",
   "usePublicThreads": "Use Public Threads",
-  "useExternalStickers": "Use External Stickers"
+  "useExternalStickers": "Use External Stickers",
+  "manageThreads": "Manage Threads"
 }
