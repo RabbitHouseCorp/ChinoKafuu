@@ -38,7 +38,7 @@ module.exports = class SoftBanCommand extends Command {
         if (ctx.db.guild.punishModule && ctx.db.guild.punishChannel) {
           const channel = ctx.db.guild.punishChannel
           const guildChannel = ctx.message.guild.channels.get(channel)
-          return guildChannel.createMessage({ embed: embed })
+          return guildChannel.createMessage(embed.build())
         }
       })
       .catch(err => {
