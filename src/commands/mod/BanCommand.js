@@ -48,7 +48,7 @@ module.exports = class BanCommand extends Command {
             return ctx.replyT('error', 'events:channel-not-found')
           }
 
-          channel.createMessage({ embed: embed })
+          channel.createMessage(embed.build())
         }
       })
     } catch {
