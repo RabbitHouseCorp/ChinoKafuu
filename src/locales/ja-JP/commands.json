@@ -62,9 +62,9 @@
   "favcolor": {
     "description": "Changes your profile color to your favorite color.",
     "usage": "<#color>",
-    "invalidColor": "the color you've chose is invalid.",
+    "invalidColor": "the color you've chosen is invalid.",
     "poorUser": "you need more `{{0}}` yens to change your favorite color.",
-    "successfullyChanged": "sure. I successfully changed your favorite color."
+    "successfullyChanged": "sure. I have successfully changed your favorite color."
   },
   "profile": {
     "description": "Shows your social profile or the social profile of someone.",
