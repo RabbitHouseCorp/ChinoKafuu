@@ -14,7 +14,7 @@
   "license": "AGPL-3.0",
   "dependencies": {
     "@clusterws/cws": "^3.0.0",
-    "@lavacord/eris": "github:blueslimee/lavacord-eris#master",
+    "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
     "@top-gg/sdk": "^3.0.0",
     "anilist-node": "^1.8.1",
     "axios": "^0.21.1",
