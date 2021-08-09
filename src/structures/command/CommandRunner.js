@@ -175,6 +175,7 @@ module.exports = class CommandRunner {
       await command.run(ctx)
     } catch (e) {
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
+      client.emit('error', e, message.guild.shard)
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
