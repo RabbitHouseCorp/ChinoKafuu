@@ -14,6 +14,7 @@ module.exports = class GuildMemberRemoveListener extends Listener {
       const guildBanAdd = audit.entries.filter(action => action.actionType === 20)
       if (guildBanAdd[0]) {
         if (guildBanAdd[0].user.id === client.user.id) return
+        if (guildBanAdd[0].targetID !== member.id) return
         const mod = guildBanAdd[0].user
         const reason = guildBanAdd[0].reason ?? _locale('basic:noReason')
         const embed = new EmbedBuilder()
@@ -32,30 +33,11 @@ module.exports = class GuildMemberRemoveListener extends Listener {
           server.save()
           return
         }
-      }
 
-      channel.createMessage(embed.build())
+        channel.createMessage(embed.build())
+      }
     } catch (err) {
-      const server = await client.database.guilds.getOrCreate(guild.id)
-      const _locale = client.i18nRegistry.getT(server.lang)
-      const reason = _locale('basic:noReason')
-      const embed = new EmbedBuilder()
-      embed.setColor('MODERATION')
-      embed.setThumbnail(member.avatarURL)
-      embed.setTitle(_locale('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
-      embed.addField(_locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
-      embed.addField(_locale('basic:punishment.embed.reason'), reason)
-
-      if (!server.punishModule) return
-      const channel = guild.channels.get(server.punishChannel)
-      if (!channel) {
-        server.punishModule = false
-        server.punishChannel = ''
-        server.save()
-        return
-      }
-
-      channel.createMessage(embed.build())
+      client.emit('error', err, guild.shard)
     }
   }
 }
