@@ -11,24 +11,7 @@ module.exports = class PingCommand extends Command {
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
-      }],
-      slash: new CommandBase()
-          .setName('ping')
-          .setDescription('View the latency of Discord.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('options')
-                  .setDescription('Choose one of these options to view.')
-                  .addChoices(
-                      new Choice()
-                          .setName('shards')
-                          .setValue('View the status of instances.'),
-                      new Choice()
-                          .setName('clusters')
-                          .setValue('View the status of clusters.')
-                  )
-          )
+      }]
 
     })
   }

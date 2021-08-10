@@ -13,8 +13,7 @@ module.exports = class SlashRunner  {
      * @returns {Promise<Eris.Interaction>}
      */
     static async run(client, interaction) {
-
-        const userData = await client.database.users.getOrCreate(interaction.member.user.id, { shipValue: Math.floor(Math.random() * 55) })
+        const userData = await client.database.users.getOrCreate(interaction.member.id, { shipValue: Math.floor(Math.random() * 55) })
         const guildData = await client.database.guilds.getOrCreate(interaction.guildID)
         const blacklist = new BlacklistUtils(client)
         if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
