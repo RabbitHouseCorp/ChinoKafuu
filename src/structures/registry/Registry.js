@@ -21,7 +21,7 @@ module.exports = class Registry extends EventEmitter {
       delete require.cache[require.resolve(path)]
       const module = new (require(path))()
       if (this.modules.filter((a) => a.__path === path)[0]) return true
-  
+
       module.__path = path
       this.modules.push(module)
 
@@ -49,16 +49,20 @@ module.exports = class Registry extends EventEmitter {
   }
 
   reloadModule (object, safeReload = true) {
-    const obj = this.modules.filter(a => a.__path === object.__path)[0]
-    this.deleteModule(obj)
-    if (this.loadModule(obj.__path)) {
-      return true
-    } else {
-      if (safeReload) {
-        this.modules.push(obj)
-        this.emit('load', obj)
+    try {
+      const obj = this.modules.filter(a => a.__path === object.__path)[0]
+      this.deleteModule(obj)
+      if (this.loadModule(obj.__path)) {
+        return true
+      } else {
+        if (safeReload) {
+          this.modules.push(obj)
+          this.emit('load', obj)
+        }
+        return false
       }
-      return false
+    } catch (error) {
+      console.error(error)
     }
   }
 

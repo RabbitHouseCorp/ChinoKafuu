@@ -1,7 +1,7 @@
 const Registry = require('../registry/Registry')
 
 module.exports = class CommandRegistry extends Registry {
-  constructor (path = __dirname + '/../../commands') {
+  constructor (path = __dirname + '/../../commands/vanilla') {
     super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
 
     this.loadAll(this.path)
@@ -12,7 +12,7 @@ module.exports = class CommandRegistry extends Registry {
   }
 
   filterByCategory (category) {
-    return this.modules.filter((cmd) => 
+    return this.modules.filter((cmd) =>
     cmd.__path
         .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remove file name.
         .trim()
