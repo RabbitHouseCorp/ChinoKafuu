@@ -1,7 +1,7 @@
 {
   "permissions": {
-    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
-    "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
+    "permissionUserRequired": "Bạn phải có các quyền sau đây để sử dụng lệnh này: {{0}}.",
+    "permissionBotRequired": "Bạn phải có những quyền sau đây mới có thể dùng lệnh này: {{0}}.",
     "title": "Permissions"
   },
   "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
