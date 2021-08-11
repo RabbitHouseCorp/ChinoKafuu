@@ -62,9 +62,9 @@
   "favcolor": {
     "description": "Altera a cor do seu perfil para a sua cor favorita.",
     "usage": "<#cor>",
-    "invalidColor": "the color you've chosen is invalid.",
+    "invalidColor": "a cor que você escolheu é invalida.",
     "poorUser": "você precisa de mais `{{0}}` ienes para alterar a sua cor favorita.",
-    "successfullyChanged": "sure. I have successfully changed your favorite color."
+    "successfullyChanged": "certo. Eu mudei com sucesso a sua cor favorita."
   },
   "profile": {
     "description": "Mostra o seu perfil social ou o perfil social de alguém.",
