@@ -13,12 +13,15 @@ module.exports = class ResponseAck extends EventEmitter {
     this.user = message.member.user.toJSON()
     this.client.on('rawWS', (packet) => {
       if (packet.t === 'INTERACTION_CREATE') {
-        if (this.message.id === packet.d.message.id) {
-          this.token = packet.d.token
-          this.id = packet.d.id
-          this.emit('collect', (new Message(packet.d.message, this.client), new InteractionPacket(packet.d), packet))
+        if (packet.d.type === 3) {
+          if (this.message.id === packet.d.message.id) {
+            this.token = packet.d.token
+            this.id = packet.d.id
+            this.emit('collect', (new Message(packet.d.message, this.client), new InteractionPacket(packet.d), packet))
+          }
         }
       }
+
     })
   }
 
