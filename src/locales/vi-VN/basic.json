@@ -22,19 +22,19 @@
     "softBan": "{{member}} | Bị ban cảnh cáo",
     "embed": {
       "memberName": "Tên người dùng",
-      "memberID": "User ID",
-      "staffName": "Who punished",
-      "reason": "Reason"
+      "memberID": "ID người dùng",
+      "staffName": "Người thực thi hình phạt",
+      "reason": "Lý do"
     },
-    "reason": "Banned by: {{0}} - Reason: {{1}}",
-    "bigReason": "you must write an shorter reason, this reason is too big to me."
+    "reason": "Bị ban bởi: {{0}} - Lý do: {{1}}",
+    "bigReason": "viết lý do ngắn lại giúp mình, viết dài như thế thì quá sức mình mất."
   },
-  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-  "howToUse": "How to use?",
-  "aliases": "Aliases",
+  "missingArgs": "Cú pháp không hợp lệ! Chat `{{prefix}}{{commandName}}` để xem cách dùng đúng của lệnh đó.",
+  "howToUse": "Dùng như nào?",
+  "aliases": "Bí danh",
   "addedToGuild": {
-    "thanks": "Thanks for adding me",
-    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+    "thanks": "Cảm ơn vì đã thêm tôi vào server",
+    "description": "Whoa {{0}}! Cảm ơn vì đã đưa mình đến với `{{1}}`, mình xin được mạn phép giới thiệu bản thân đôi chút.\n\nMình là một \"cô bot\" bé bỏng mang trong mình rất nhiều chức năng hữu ích, như là... **moderation**, **fun** and **utilities**. Mặc định thì prefix của mình sẽ là `{{2}}`\n\nNếu thấy cần giúp đỡ thì còn ngại gì nữa mà không tham gia ngay server của mình bằng cách chat `{{2}}help` hoặc `{{2}}invite`. Chúc vui vẻ và hẹn gặp lại.",
     "guildSaved": "Successfully saved the server {{0}} in the database!"
   },
   "noAliases": "This command doesn't have any aliases.",
