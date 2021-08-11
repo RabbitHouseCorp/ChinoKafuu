@@ -18,7 +18,7 @@ module.exports = class SlashCommand extends Listener {
             }
 
             // commandRegistry:
-            client.slashCommand.createCommand(commandFolder)
+            client.slashCommand.addVolumeOfCommands(commandFolder)
         }
 
     }
