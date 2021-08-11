@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class ChatCommand extends Command {
   constructor() {
@@ -12,23 +12,23 @@ module.exports = class ChatCommand extends Command {
         permissions: ['manageChannels']
       }],
       slash: new CommandBase()
-          .setName('chat')
-          .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('mode')
-                  .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
-                  .addChoices(
-                      new Choice()
-                          .setName('off')
-                          .setValue('off'),
-                      new Choice()
-                          .setName('on')
-                          .setValue('on'),
-                  )
-                  .isRequired()
-          )
+        .setName('chat')
+        .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('mode')
+            .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
+            .addChoices(
+              new Choice()
+                .setName('off')
+                .setValue('off'),
+              new Choice()
+                .setName('on')
+                .setValue('on'),
+            )
+            .isRequired()
+        )
     })
   }
 

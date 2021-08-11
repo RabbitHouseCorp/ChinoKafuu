@@ -1,7 +1,7 @@
 const Helper = require('../../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class SetBannerCommand extends Command {
   constructor() {
@@ -13,8 +13,8 @@ module.exports = class SetBannerCommand extends Command {
         permissions: ['manageGuild']
       }],
       slash: new CommandBase()
-          .setName('setbanner')
-          .setDescription('Sets the banner of your server (not available for all servers).')
+        .setName('setbanner')
+        .setDescription('Sets the banner of your server (not available for all servers).')
     })
   }
 

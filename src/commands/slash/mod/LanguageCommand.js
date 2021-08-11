@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class LanguageCommand extends Command {
   constructor() {
@@ -14,8 +14,8 @@ module.exports = class LanguageCommand extends Command {
         permissions: ['embedLinks', 'addReactions']
       }],
       slash: new CommandBase()
-          .setName('language')
-          .setDescription('Change my language in the current guild.')
+        .setName('language')
+        .setDescription('Change my language in the current guild.')
     })
   }
 

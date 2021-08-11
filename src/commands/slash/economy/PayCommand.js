@@ -1,5 +1,5 @@
 const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class PayCommand extends Command {
   constructor() {
@@ -13,25 +13,26 @@ module.exports = class PayCommand extends Command {
         permissions: ['addReactions']
       }],
       slash: new CommandBase()
-          .setName('pay')
-          .setDescription('Sends money to a user')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(4)
-                  .setName('amount')
-                  .setDescription('Amount of yen you want to transfer.')
-                  .isRequired(),
-          )
+        .setName('pay')
+        .setDescription('Sends money to a user')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server')
+            .isRequired(),
+          new CommandOptions()
+            .setType(4)
+            .setName('amount')
+            .setDescription('Amount of yen you want to transfer.')
+            .isRequired(),
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.message.command.interface.get('user').value.id)
+    const user = ctx.message.command.interface.get('user').value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
     const fromUser = ctx.db.user

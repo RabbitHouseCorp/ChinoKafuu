@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class SoftBanCommand extends Command {
   constructor() {
@@ -10,26 +10,26 @@ module.exports = class SoftBanCommand extends Command {
         entity: 'both',
         permissions: ['banMembers']
       }],
-        slash: new CommandBase()
-            .setName('softban')
-            .setDescription('Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.')
-            .addOptions(
-                new CommandOptions()
-                    .setType(6)
-                    .setName('user')
-                    .setDescription('Mention member on server.')
-                    .isRequired(),
-                new CommandOptions()
-                    .setType(4)
-                    .setName('purge-days')
-                    .setDescription('Mention the duration')
-                    .isRequired(),
-                new CommandOptions()
-                    .setType(3)
-                    .setName('reason')
-                    .setDescription('Inform reason')
-                    .isRequired(),
-            )
+      slash: new CommandBase()
+        .setName('softban')
+        .setDescription('Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(4)
+            .setName('purge-days')
+            .setDescription('Mention the duration')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Inform reason')
+            .isRequired(),
+        )
     })
   }
 

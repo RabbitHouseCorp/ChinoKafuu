@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const Helper = require('../../../structures/util/Helper')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class HelpCommand extends Command {
   constructor() {
@@ -13,15 +13,15 @@ module.exports = class HelpCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('help')
-          .setDescription('Command Help for more information about commands.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('command')
-                  .setDescription('Command name')
-                  .isRequired(),
-          )
+        .setName('help')
+        .setDescription('Command Help for more information about commands.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('command')
+            .setDescription('Command name')
+            .isRequired(),
+        )
     })
   }
 

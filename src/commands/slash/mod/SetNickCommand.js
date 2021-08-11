@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class SetNickCommand extends Command {
   constructor() {
@@ -12,20 +12,20 @@ module.exports = class SetNickCommand extends Command {
         permissions: ['manageNicknames']
       }],
       slash: new CommandBase()
-          .setName('setnick')
-          .setDescription('Sets the nickname of a member')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('nickname')
-                  .setDescription('Add a new nickname.')
-                  .isRequired(),
-          )
+        .setName('setnick')
+        .setDescription('Sets the nickname of a member')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('nickname')
+            .setDescription('Add a new nickname.')
+            .isRequired(),
+        )
     })
   }
 

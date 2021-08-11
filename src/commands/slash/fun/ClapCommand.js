@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ClapCommand extends Command {
   constructor() {
@@ -12,14 +12,14 @@ module.exports = class ClapCommand extends Command {
         permissions: ['externalEmojis']
       }],
       slash: new CommandBase()
-          .setName('clap')
-          .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.'),
-          )
+        .setName('clap')
+        .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.'),
+        )
     })
   }
 

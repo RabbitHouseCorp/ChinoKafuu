@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RoleColorCommand extends Command {
   constructor() {
@@ -13,20 +13,20 @@ module.exports = class RoleColorCommand extends Command {
         permissions: ['manageRoles']
       }],
       slash: new CommandBase()
-          .setName('rolecolor')
-          .setDescription('Changes the color of a role.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(7)
-                  .setName('role')
-                  .setDescription('Mention role on server.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('color')
-                  .setDescription('For example: #f55f96')
-                  .isRequired(),
-          )
+        .setName('rolecolor')
+        .setDescription('Changes the color of a role.')
+        .addOptions(
+          new CommandOptions()
+            .setType(7)
+            .setName('role')
+            .setDescription('Mention role on server.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('color')
+            .setDescription('For example: #f55f96')
+            .isRequired(),
+        )
     })
   }
 

@@ -1,5 +1,5 @@
 const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
-const {CommandBase} = require("eris");
+const { CommandBase } = require('eris')
 
 module.exports = class DivorceCommand extends Command {
   constructor() {
@@ -12,8 +12,8 @@ module.exports = class DivorceCommand extends Command {
         permissions: ['addReactions']
       }],
       slash: new CommandBase()
-          .setName('divorce')
-          .setDescription('Divorces you to your current partner (I will charge 300 yens to divorce).')
+        .setName('divorce')
+        .setDescription('Divorces you to your current partner (I will charge 300 yens to divorce).')
     })
   }
 

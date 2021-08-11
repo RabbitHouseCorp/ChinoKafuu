@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const moment = require('moment')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class UserInfoCommand extends Command {
   constructor() {
@@ -13,15 +13,15 @@ module.exports = class UserInfoCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('userinfo')
-          .setDescription('Shows some information about a user.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-                  .isRequired(),
-          )
+        .setName('userinfo')
+        .setDescription('Shows some information about a user.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+        )
 
     })
   }

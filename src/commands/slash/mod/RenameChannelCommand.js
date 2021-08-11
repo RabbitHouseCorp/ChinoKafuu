@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RenameChannelCommand extends Command {
   constructor() {
@@ -13,37 +13,37 @@ module.exports = class RenameChannelCommand extends Command {
       }],
       arguments: 1,
       slash: new CommandBase()
-          .setName('rename')
-          .setDescription('Renames a channel in the current guild.')
-          .addOptions(
+        .setName('rename')
+        .setDescription('Renames a channel in the current guild.')
+        .addOptions(
+          new CommandOptions()
+            .setType(1)
+            .setName('emoji')
+            .setDescription('Renames a channel in the current guild.')
+            .addOptions(
               new CommandOptions()
-                  .setType(1)
-                  .setName('emoji')
-                  .setDescription('Renames a channel in the current guild.')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(3)
-                          .setName('input')
-                          .setDescription('Enter the emoji you are adding to the server.')
-                          .isRequired()
-                  ),
+                .setType(3)
+                .setName('input')
+                .setDescription('Enter the emoji you are adding to the server.')
+                .isRequired()
+            ),
+          new CommandOptions()
+            .setType(1)
+            .setName('role')
+            .setDescription('Removes a role from a guild member.')
+            .addOptions(
               new CommandOptions()
-                  .setType(1)
-                  .setName('role')
-                  .setDescription('Removes a role from a guild member.')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(7)
-                          .setName('channel')
-                          .setDescription('Mention member on server.')
-                          .isRequired(),
-                      new CommandOptions()
-                          .setType(3)
-                          .setName('new-name')
-                          .setDescription('New name for the channel.')
-                          .isRequired()
-                  ),
-          )
+                .setType(7)
+                .setName('channel')
+                .setDescription('Mention member on server.')
+                .isRequired(),
+              new CommandOptions()
+                .setType(3)
+                .setName('new-name')
+                .setDescription('New name for the channel.')
+                .isRequired()
+            ),
+        )
     })
   }
 

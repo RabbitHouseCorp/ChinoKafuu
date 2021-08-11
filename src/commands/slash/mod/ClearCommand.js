@@ -1,5 +1,5 @@
 const { Command, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class ClearCommand extends Command {
   constructor() {
@@ -13,20 +13,20 @@ module.exports = class ClearCommand extends Command {
         permissions: ['manageMessages', 'readMessageHistory', 'readMessages']
       }],
       slash: new CommandBase()
-          .setName('clear')
-          .setDescription('Clears messages in this channel. If specified a user, it clears messages from that user')
-          .addOptions(
-              new CommandOptions()
-                  .setType(4)
-                  .setName('quantity')
-                  .setDescription('Amount of message to delete.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server')
-                  .isRequired()
-          )
+        .setName('clear')
+        .setDescription('Clears messages in this channel. If specified a user, it clears messages from that user')
+        .addOptions(
+          new CommandOptions()
+            .setType(4)
+            .setName('quantity')
+            .setDescription('Amount of message to delete.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server')
+            .isRequired()
+        )
     })
   }
 

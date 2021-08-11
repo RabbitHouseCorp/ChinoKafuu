@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ParrotCommand extends Command {
   constructor() {
@@ -12,14 +12,14 @@ module.exports = class ParrotCommand extends Command {
         permissions: ['externalEmojis']
       }],
       slash: new CommandBase()
-          .setName('congaparrot')
-          .setDescription('Sends funny parrots')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server'),
-          )
+        .setName('congaparrot')
+        .setDescription('Sends funny parrots')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server'),
+        )
     })
   }
 

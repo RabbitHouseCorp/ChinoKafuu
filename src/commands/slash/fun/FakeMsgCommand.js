@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class FakeMsgCommand extends Command {
   constructor() {
@@ -10,23 +10,23 @@ module.exports = class FakeMsgCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'bot',
-        permissions: ['manageChannels','manageWebhooks']
+        permissions: ['manageChannels', 'manageWebhooks']
       }],
       slash: new CommandBase()
-          .setName('fakemsg')
-          .setDescription('Prank on someone with a fake message through webhook.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Enter random text')
-                  .isRequired(),
-          )
+        .setName('fakemsg')
+        .setDescription('Prank on someone with a fake message through webhook.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Enter random text')
+            .isRequired(),
+        )
     })
   }
 

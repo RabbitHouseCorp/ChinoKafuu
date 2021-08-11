@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, Emoji } = require('../../../utils')
 
 const moment = require('moment')
 require('moment-duration-format')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class PingCommand extends Command {
   constructor() {
@@ -13,23 +13,22 @@ module.exports = class PingCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('ping')
-          .setDescription('View the latency of Discord.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('options')
-                  .setDescription('Choose one of these options to view.')
-                  .addChoices(
-                      new Choice()
-                          .setName('shards')
-                          .setValue('View the status of instances.'),
-                      new Choice()
-                          .setName('clusters')
-                          .setValue('View the status of clusters.')
-                  )
-                  .isRequired()
-          )
+        .setName('ping')
+        .setDescription('View the latency of Discord.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('options')
+            .setDescription('Choose one of these options to view.')
+            .addChoices(
+              new Choice()
+                .setName('shards')
+                .setValue('View the status of instances.'),
+              new Choice()
+                .setName('clusters')
+                .setValue('View the status of clusters.')
+            )
+        )
 
     })
   }

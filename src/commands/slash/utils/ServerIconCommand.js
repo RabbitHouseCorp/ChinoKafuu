@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ServerIconCommand extends Command {
   constructor() {
@@ -11,8 +11,8 @@ module.exports = class ServerIconCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('servericon')
-          .setDescription('Shows the server icon.')
+        .setName('servericon')
+        .setDescription('Shows the server icon.')
     })
   }
 

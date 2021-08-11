@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class EmojiInfoCommand extends Command {
   constructor() {
@@ -13,15 +13,15 @@ module.exports = class EmojiInfoCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('emojiinfo')
-          .setDescription('Get some info about an emoji.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Mention an emoji added on the server. (Remembering that this doesn\'t work by placing other emoji from another server.)')
-                  .isRequired(),
-          )
+        .setName('emojiinfo')
+        .setDescription('Get some info about an emoji.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Mention an emoji added on the server. (Remembering that this doesn\'t work by placing other emoji from another server.)')
+            .isRequired(),
+        )
     })
   }
 

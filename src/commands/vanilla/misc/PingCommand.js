@@ -1,8 +1,6 @@
 const { Command, EmbedBuilder, Emoji } = require('../../../utils')
-
 const moment = require('moment')
 require('moment-duration-format')
-const {CommandBase, CommandOptions, Choice} = require("eris");
 
 module.exports = class PingCommand extends Command {
   constructor() {

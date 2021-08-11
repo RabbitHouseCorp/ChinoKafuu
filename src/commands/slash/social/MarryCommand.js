@@ -1,5 +1,5 @@
 const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class MarryCommand extends Command {
   constructor() {
@@ -13,20 +13,21 @@ module.exports = class MarryCommand extends Command {
         permissions: ['addReactions']
       }],
       slash: new CommandBase()
-          .setName('marry')
-          .setDescription('Marry with your true love.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention your partner to get married.')
-                  .isRequired(),
-          )
+        .setName('marry')
+        .setDescription('Marry with your true love.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention your partner to get married.')
+            .isRequired(),
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0])
+    const user = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const author = ctx.db.user
     const couple = await ctx.client.database.users.getOrCreate(member.id)

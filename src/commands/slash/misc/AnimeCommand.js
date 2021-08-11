@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const malScraper = require('mal-scraper')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AnimeCommand extends Command {
   constructor() {
@@ -13,15 +13,15 @@ module.exports = class AnimeCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('anime')
-          .setDescription('Shows some information about a anime.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('name')
-                  .setDescription('Insert anime name to search result.')
-                  .isRequired(),
-          )
+        .setName('anime')
+        .setDescription('Shows some information about a anime.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('name')
+            .setDescription('Insert anime name to search result.')
+            .isRequired(),
+        )
     })
   }
 

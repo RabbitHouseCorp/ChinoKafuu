@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class SlowmodeCommand extends Command {
   constructor() {
@@ -12,15 +12,15 @@ module.exports = class SlowmodeCommand extends Command {
         permissions: ['manageChannels']
       }],
       slash: new CommandBase()
-          .setName('slowmode')
-          .setDescription('Set slowmode in the current channel.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(4)
-                  .setName('time')
-                  .setDescription('Set slowmode in the current channel.')
-                  .isRequired(),
-          )
+        .setName('slowmode')
+        .setDescription('Set slowmode in the current channel.')
+        .addOptions(
+          new CommandOptions()
+            .setType(4)
+            .setName('time')
+            .setDescription('Set slowmode in the current channel.')
+            .isRequired(),
+        )
     })
   }
 

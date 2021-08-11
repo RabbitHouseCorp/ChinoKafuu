@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AnimuCommand extends Command {
   constructor() {
@@ -13,26 +13,26 @@ module.exports = class AnimuCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('animu')
-          .setDescription('Starts the Animu Radio')
-          .addOptions(
-              new CommandOptions()
-                  .setType(1)
-                  .setName('leave')
-                  .setDescription('Disconnect Chino Kafuu in the voice channel.'),
-              new CommandOptions()
-                  .setType(1)
-                  .setName('nowplaying')
-                  .setDescription('Show what\'s playing on Animu'),
-              new CommandOptions()
-                  .setType(1)
-                  .setName('volume')
-                  .setDescription('Change the volume sound.'),
-              new CommandOptions()
-                  .setType(1)
-                  .setName('play')
-                  .setDescription('Play Animu music on voice channel.'),
-          )
+        .setName('animu')
+        .setDescription('Starts the Animu Radio')
+        .addOptions(
+          new CommandOptions()
+            .setType(1)
+            .setName('leave')
+            .setDescription('Disconnect Chino Kafuu in the voice channel.'),
+          new CommandOptions()
+            .setType(1)
+            .setName('nowplaying')
+            .setDescription('Show what\'s playing on Animu'),
+          new CommandOptions()
+            .setType(1)
+            .setName('volume')
+            .setDescription('Change the volume sound.'),
+          new CommandOptions()
+            .setType(1)
+            .setName('play')
+            .setDescription('Play Animu music on voice channel.'),
+        )
     })
   }
 

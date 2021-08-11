@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class FavColorCommand extends Command {
   constructor() {
@@ -9,15 +9,15 @@ module.exports = class FavColorCommand extends Command {
       arguments: 1,
       hasUsage: true,
       slash: new CommandBase()
-          .setName('favcolor')
-          .setDescription('Changes your profile color to your favorite color.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('color')
-                  .setDescription('For example: #f55f96')
-                  .isRequired(),
-          )
+        .setName('favcolor')
+        .setDescription('Changes your profile color to your favorite color.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('color')
+            .setDescription('For example: #f55f96')
+            .isRequired(),
+        )
     })
   }
 

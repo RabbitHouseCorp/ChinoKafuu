@@ -1,7 +1,7 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const moment = require('moment')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ChannelInfoCommand extends Command {
   constructor() {
@@ -13,21 +13,21 @@ module.exports = class ChannelInfoCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('channelinfo')
-          .setDescription('{need.description}')
-          .addOptions(
-              new CommandOptions()
-                  .setType(7)
-                  .setName('channel')
-                  .setDescription('Mention a text channel.')
-                  .isRequired(),
-          )
+        .setName('channelinfo')
+        .setDescription('Hows some informations about a channel.')
+        .addOptions(
+          new CommandOptions()
+            .setType(7)
+            .setName('channel')
+            .setDescription('Mention a text channel.')
+            .isRequired(),
+        )
     })
   }
 
   async run(ctx) {
     const args = ctx.args[0]?.replace(/<#>/g, '') ?? ctx.message.channel.id
-    let channel = ctx.client.getChannel(args) || ctx.message.guild.channels.find(channel => channel.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
+    let channel = ctx.client.getChannel(args)
     if (!channel) {
       channel = ctx.message.channel
     }

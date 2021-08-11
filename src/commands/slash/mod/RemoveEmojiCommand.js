@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RemoveEmojiCommand extends Command {
   constructor() {
@@ -13,37 +13,37 @@ module.exports = class RemoveEmojiCommand extends Command {
       }],
       arguments: 1,
       slash: new CommandBase()
-          .setName('remove')
-          .setDescription('Removes an emoji in the current guild.')
-          .addOptions(
+        .setName('remove')
+        .setDescription('Removes an emoji in the current guild.')
+        .addOptions(
+          new CommandOptions()
+            .setType(1)
+            .setName('emoji')
+            .setDescription('Removes an emoji in the current guild.')
+            .addOptions(
               new CommandOptions()
-                  .setType(1)
-                  .setName('emoji')
-                  .setDescription('Removes an emoji in the current guild.')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(3)
-                          .setName('input')
-                          .setDescription('Enter the emoji you are adding to the server.')
-                          .isRequired()
-                  ),
+                .setType(3)
+                .setName('input')
+                .setDescription('Enter the emoji you are adding to the server.')
+                .isRequired()
+            ),
+          new CommandOptions()
+            .setType(1)
+            .setName('role')
+            .setDescription('Removes a role from a guild member.')
+            .addOptions(
               new CommandOptions()
-                  .setType(1)
-                  .setName('role')
-                  .setDescription('Removes a role from a guild member.')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(6)
-                          .setName('user')
-                          .setDescription('Mention member on server.')
-                          .isRequired(),
-                      new CommandOptions()
-                          .setType(7)
-                          .setName('role')
-                          .setDescription('Mention role on server.')
-                          .isRequired()
-                  ),
-          )
+                .setType(6)
+                .setName('user')
+                .setDescription('Mention member on server.')
+                .isRequired(),
+              new CommandOptions()
+                .setType(7)
+                .setName('role')
+                .setDescription('Mention role on server.')
+                .isRequired()
+            ),
+        )
     })
   }
 

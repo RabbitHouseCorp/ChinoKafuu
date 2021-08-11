@@ -1,6 +1,6 @@
 const { Command } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class LicenseCommand extends Command {
   constructor() {
@@ -13,18 +13,18 @@ module.exports = class LicenseCommand extends Command {
         permissions: ['attachFiles']
       }],
       slash: new CommandBase()
-          .setName('license')
-          .setDescription('Are you licensed? No? Then create one for yourself! Or for someone else.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server'),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Enter random text'),
-          )
+        .setName('license')
+        .setDescription('Are you licensed? No? Then create one for yourself! Or for someone else.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server'),
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Enter random text'),
+        )
     })
   }
 

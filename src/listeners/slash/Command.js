@@ -1,9 +1,9 @@
 const Listener = require("../../structures/events/Listener");
-const {Interaction} = require("eris");
+const { Interaction } = require('eris')
 const SlashRunner = require("../../structures/command/SlashRunner");
 
 module.exports = class Command extends Listener {
-    constructor () {
+    constructor() {
         super()
         this.event = 'slashCommand'
         this.loadStarted = false

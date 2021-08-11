@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class AvatarCommand extends Command {
   constructor() {
@@ -10,28 +10,29 @@ module.exports = class AvatarCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('avatar')
-          .setDescription('Shows your avatar or someone else\'s.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server.'),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('argument')
-                  .setDescription('Choose one of these arguments.')
-                  .addChoices(
-                      new Choice()
-                          .setName('guild-avatar')
-                          .setValue('guild-avatar')
-                  ),
-          )
+        .setName('avatar')
+        .setDescription('Shows your avatar or someone else\'s.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server.'),
+          new CommandOptions()
+            .setType(3)
+            .setName('argument')
+            .setDescription('Choose one of these arguments.')
+            .addChoices(
+              new Choice()
+                .setName('guild-avatar')
+                .setValue('guild-avatar')
+            ),
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0], true)
+    const user = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user?.id ?? user, true)
     let avatar = member.avatarURL
 
     if (!(ctx.interactionMessage.command.interface.get('guild-avatar') == null)) {

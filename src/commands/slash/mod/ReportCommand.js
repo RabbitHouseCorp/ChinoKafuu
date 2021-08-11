@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ReportCommand extends Command {
   constructor() {
@@ -13,20 +13,20 @@ module.exports = class ReportCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('report')
-          .setDescription('Reports a user on this server if the module is enable.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('reason')
-                  .setDescription('Inform the reason why to report the user. (Arguments:  -p <proof|attachment>)')
-                  .isRequired(),
-          )
+        .setName('report')
+        .setDescription('Reports a user on this server if the module is enable.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Inform the reason why to report the user. (Arguments:  -p <proof|attachment>)')
+            .isRequired(),
+        )
     })
   }
 

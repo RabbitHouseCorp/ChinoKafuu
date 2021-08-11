@@ -2,7 +2,7 @@ const { Command, EmbedBuilder } = require('../../../utils')
 const Anilist = require('anilist-node')
 const anilist = new Anilist()
 const Logger = require('../../../structures/util/Logger')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class MangaCommand extends Command {
   constructor() {
@@ -15,15 +15,15 @@ module.exports = class MangaCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('manga')
-          .setDescription('Shows some information about an manga')
-          .addOptions(
-              new CommandOptions()
-                  .setName('name')
-                  .setDescription('Shows some information about an manga')
-                  .setType(3)
-                  .isRequired()
-          )
+        .setName('manga')
+        .setDescription('Shows some information about an manga')
+        .addOptions(
+          new CommandOptions()
+            .setName('name')
+            .setDescription('Shows some information about an manga')
+            .setType(3)
+            .isRequired()
+        )
     })
   }
 

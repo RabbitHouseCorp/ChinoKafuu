@@ -1,6 +1,6 @@
 const { Command } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class EmojiCommand extends Command {
   constructor() {
@@ -14,8 +14,8 @@ module.exports = class EmojiCommand extends Command {
         permissions: ['attachFiles']
       }],
       slash: new CommandBase()
-          .setName('emoji')
-          .setDescription('Get the emoji attachment.')
+        .setName('emoji')
+        .setDescription('Get the emoji attachment.')
 
     })
   }

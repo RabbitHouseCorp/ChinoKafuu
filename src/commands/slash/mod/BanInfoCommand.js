@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class BanInfoCommand extends Command {
   constructor() {
@@ -17,15 +17,15 @@ module.exports = class BanInfoCommand extends Command {
       }],
       arguments: 1,
       slash: new CommandBase()
-          .setName('baninfo')
-          .setDescription('Check the ban information about a user')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server')
-                  .isRequired()
-          )
+        .setName('baninfo')
+        .setDescription('Check the ban information about a user')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server')
+            .isRequired()
+        )
     })
   }
 

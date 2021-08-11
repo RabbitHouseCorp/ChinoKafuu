@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class KickCommand extends Command {
   constructor() {
@@ -16,15 +16,15 @@ module.exports = class KickCommand extends Command {
         permissions: ['kickMembers', 'embedLinks']
       }],
       slash: new CommandBase()
-          .setName('kick')
-          .setDescription('Kicks an user from the server')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('To kick user.')
-                  .isRequired()
-          )
+        .setName('kick')
+        .setDescription('Kicks an user from the server')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('To kick user.')
+            .isRequired()
+        )
     })
   }
 

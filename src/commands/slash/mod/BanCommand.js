@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class BanCommand extends Command {
   constructor() {
@@ -13,19 +13,19 @@ module.exports = class BanCommand extends Command {
         permissions: ['banMembers', 'embedLinks']
       }],
       slash: new CommandBase()
-          .setName('ban')
-          .setDescription('Bans a user from the server')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('To ban user.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('reason')
-                  .setDescription('Enter reason to ban user.')
-          )
+        .setName('ban')
+        .setDescription('Bans a user from the server')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('To ban user.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Enter reason to ban user.')
+        )
     })
   }
 
@@ -38,8 +38,10 @@ module.exports = class BanCommand extends Command {
       if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
     }
 
-    const reason = ctx._locale('basic:punishment.reason', { 0: `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator}`, 1: ctx.interactionMessage.command.interface.get('reason') ?
-          ctx.interactionMessage.command.interface.get('reason').value : ctx._locale('basic:noReason') })
+    const reason = ctx._locale('basic:punishment.reason', {
+      0: `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator}`, 1: ctx.interactionMessage.command.interface.get('reason') ?
+        ctx.interactionMessage.command.interface.get('reason').value : ctx._locale('basic:noReason')
+    })
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
 
     try {

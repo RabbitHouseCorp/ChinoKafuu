@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ChooseCommand extends Command {
   constructor() {
@@ -9,14 +9,14 @@ module.exports = class ChooseCommand extends Command {
       arguments: 1,
       hasUsage: true,
       slash: new CommandBase()
-          .setName('choose')
-          .setDescription('Makes the bot choose something')
-          .addOptions(
-              new CommandOptions()
-                  .setName('choose')
-                  .setDescription('Use `,` to separate')
-                  .setType(3)
-          )
+        .setName('choose')
+        .setDescription('Makes the bot choose something')
+        .addOptions(
+          new CommandOptions()
+            .setName('choose')
+            .setDescription('Use `,` to separate')
+            .setType(3)
+        )
     })
   }
 

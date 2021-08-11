@@ -1,5 +1,5 @@
 const Command = require("../../../structures/command/Command");
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 
 module.exports = class McBaseCommand extends Command {

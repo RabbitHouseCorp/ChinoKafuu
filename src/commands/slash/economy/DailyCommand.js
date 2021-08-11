@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder, TopGGUtils } = require('../../../utils')
 const moment = require('moment')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class DailyCommand extends Command {
   constructor() {
@@ -11,8 +11,8 @@ module.exports = class DailyCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('daily')
-          .setDescription('You can get your daily yens by using this command')
+        .setName('daily')
+        .setDescription('You can get your daily yens by using this command')
     })
   }
 

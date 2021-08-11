@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class ConfigCommand extends Command {
   constructor() {
@@ -15,75 +15,75 @@ module.exports = class ConfigCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('config')
-          .setDescription('Enable and disable some modules who I have in your guild.')
-          .addOptions(
+        .setName('config')
+        .setDescription('Enable and disable some modules who I have in your guild.')
+        .addOptions(
+          new CommandOptions()
+            .setType(2)
+            .setName('animu')
+            .setDescription('Animu Radio')
+            .addOptions(
               new CommandOptions()
-                  .setType(2)
-                  .setName('animu')
-                  .setDescription('Animu Radio')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('set')
-                          .setDescription('Configure Animu Radio')
-                          .addOptions(
-                              new CommandOptions()
-                                  .setType(7)
-                                  .setName('channel')
-                                  .setDescription('Mention the text channel.')
-                                  .isRequired(),
-                          ),
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('disable')
-                          .setDescription('Disable the module.'),
+                .setType(1)
+                .setName('set')
+                .setDescription('Configure Animu Radio')
+                .addOptions(
+                  new CommandOptions()
+                    .setType(7)
+                    .setName('channel')
+                    .setDescription('Mention the text channel.')
+                    .isRequired(),
+                ),
+              new CommandOptions()
+                .setType(1)
+                .setName('disable')
+                .setDescription('Disable the module.'),
 
-                  ),
+            ),
+          new CommandOptions()
+            .setType(2)
+            .setName('mod')
+            .setDescription('Mod Log')
+            .addOptions(
               new CommandOptions()
-                  .setType(2)
-                  .setName('mod')
-                  .setDescription('Mod Log')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('set')
-                          .setDescription('Set text channel to send logs to the configured channel.')
-                          .addOptions(
-                              new CommandOptions()
-                                  .setType(7)
-                                  .setName('channel')
-                                  .setDescription('Mention the text channel.')
-                                  .isRequired(),
-                          ),
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('disable')
-                          .setDescription('Disable the module.'),
-                  ),
+                .setType(1)
+                .setName('set')
+                .setDescription('Set text channel to send logs to the configured channel.')
+                .addOptions(
+                  new CommandOptions()
+                    .setType(7)
+                    .setName('channel')
+                    .setDescription('Mention the text channel.')
+                    .isRequired(),
+                ),
               new CommandOptions()
-                  .setType(2)
-                  .setName('report')
-                  .setDescription('Report Module')
-                  .addOptions(
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('set')
-                          .setDescription('Set text channel to send report to the configured channel.')
-                          .addOptions(
-                              new CommandOptions()
-                                  .setType(7)
-                                  .setName('channel')
-                                  .setDescription('Mention the text channel.')
-                                  .isRequired(),
+                .setType(1)
+                .setName('disable')
+                .setDescription('Disable the module.'),
+            ),
+          new CommandOptions()
+            .setType(2)
+            .setName('report')
+            .setDescription('Report Module')
+            .addOptions(
+              new CommandOptions()
+                .setType(1)
+                .setName('set')
+                .setDescription('Set text channel to send report to the configured channel.')
+                .addOptions(
+                  new CommandOptions()
+                    .setType(7)
+                    .setName('channel')
+                    .setDescription('Mention the text channel.')
+                    .isRequired(),
 
-                          ),
-                      new CommandOptions()
-                          .setType(1)
-                          .setName('disable')
-                          .setDescription('Disable the module.'),
-                  ),
-          )
+                ),
+              new CommandOptions()
+                .setType(1)
+                .setName('disable')
+                .setDescription('Disable the module.'),
+            ),
+        )
     })
   }
 

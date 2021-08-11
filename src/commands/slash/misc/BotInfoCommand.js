@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, version } = require('../../../utils')
 const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class BotInfoCommand extends Command {
   constructor() {
@@ -15,8 +15,8 @@ module.exports = class BotInfoCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('botinfo')
-          .setDescription('Shows more information about me.')
+        .setName('botinfo')
+        .setDescription('Shows more information about me.')
     })
   }
 

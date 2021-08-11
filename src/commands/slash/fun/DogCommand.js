@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const NekosLife = require('nekos.life')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 const NekoClient = new NekosLife()
 
 module.exports = class DogCommand extends Command {
@@ -13,8 +13,8 @@ module.exports = class DogCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('dog')
-          .setDescription('Sends an image or gif of a dog')
+        .setName('dog')
+        .setDescription('Sends an image or gif of a dog')
     })
   }
 

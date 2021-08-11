@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class YensCommand extends Command {
   constructor() {
@@ -7,13 +7,19 @@ module.exports = class YensCommand extends Command {
       name: 'yens',
       aliases: ['yen'],
       slash: new CommandBase()
-          .setName('yens')
-          .setDescription('Shows you current balance or someone else\'s balance.')
+        .setName('yens')
+        .setDescription('Shows you current balance or someone else\'s balance.')
+        .addOptions(new CommandOptions()
+          .setType(6)
+          .setName('user')
+          .setDescription('Mention of the member.')
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0])
+    const user = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) {
       const sugarcube = Number(ctx.db.user?.sugarcube ?? 0).toLocaleString()
       const yens = Number(ctx.db.user.yens).toLocaleString()

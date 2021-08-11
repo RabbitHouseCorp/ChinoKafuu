@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const moment = require('moment')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RoleInfoCommand extends Command {
   constructor() {
@@ -19,15 +19,15 @@ module.exports = class RoleInfoCommand extends Command {
           permissions: ['embedLinks', 'manageRoles']
         }],
       slash: new CommandBase()
-          .setName('roleinfo')
-          .setDescription('Shows some informations about a role.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(8)
-                  .setName('role')
-                  .setDescription('Mention the role for more information.')
-                  .isRequired(),
-          )
+        .setName('roleinfo')
+        .setDescription('Shows some informations about a role.')
+        .addOptions(
+          new CommandOptions()
+            .setType(8)
+            .setName('role')
+            .setDescription('Mention the role for more information.')
+            .isRequired(),
+        )
     })
   }
 

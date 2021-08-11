@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AnnounceCommand extends Command {
   constructor() {
@@ -17,20 +17,20 @@ module.exports = class AnnounceCommand extends Command {
         permissions: ['manageGuild', 'mentionEveryone']
       }],
       slash: new CommandBase()
-          .setName('announce')
-          .setDescription('Send a announce to current server for all members (or not).')
-          .addOptions(
-              new CommandOptions()
-                  .setType(7)
-                  .setName('channel')
-                  .setDescription('Send a announce to channel.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Send a announce to current server for all members (or not).')
-                  .isRequired()
-          )
+        .setName('announce')
+        .setDescription('Send a announce to current server for all members (or not).')
+        .addOptions(
+          new CommandOptions()
+            .setType(7)
+            .setName('channel')
+            .setDescription('Send a announce to channel.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Send a announce to current server for all members (or not).')
+            .isRequired()
+        )
     })
   }
 

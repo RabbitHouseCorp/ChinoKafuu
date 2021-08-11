@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class JanKenPonCommand extends Command {
   constructor() {
@@ -9,25 +9,25 @@ module.exports = class JanKenPonCommand extends Command {
       arguments: 1,
       hasUsage: true,
       slash: new CommandBase()
-          .setName('jankenpon')
-          .setDescription('Plays jankenpon and win or lose yens.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('choice')
-                  .setDescription('Choose one of these options.')
-                  .addChoices(
-                      new Choice()
-                          .setName('rock')
-                          .setValue('rock'),
-                      new Choice()
-                          .setName('paper')
-                          .setValue('paper'),
-                      new Choice()
-                          .setName('scissors')
-                          .setValue('scissors'),
-                  )
-          )
+        .setName('jankenpon')
+        .setDescription('Plays jankenpon and win or lose yens.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('choice')
+            .setDescription('Choose one of these options.')
+            .addChoices(
+              new Choice()
+                .setName('rock')
+                .setValue('rock'),
+              new Choice()
+                .setName('paper')
+                .setValue('paper'),
+              new Choice()
+                .setName('scissors')
+                .setValue('scissors'),
+            )
+        )
     })
   }
 

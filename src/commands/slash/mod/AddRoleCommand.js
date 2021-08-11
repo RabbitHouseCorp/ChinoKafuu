@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AddRoleCommand extends Command {
   constructor() {
@@ -13,20 +13,20 @@ module.exports = class AddRoleCommand extends Command {
         permissions: ['manageRoles']
       }],
       slash: new CommandBase()
-          .setName('addrole')
-          .setDescription('You can get your daily yens by using this command')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(8)
-                  .setName('role')
-                  .setDescription('Mention the role on the server')
-                  .isRequired(),
-          )
+        .setName('addrole')
+        .setDescription('You can get your daily yens by using this command')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server')
+            .isRequired(),
+          new CommandOptions()
+            .setType(8)
+            .setName('role')
+            .setDescription('Mention the role on the server')
+            .isRequired(),
+        )
     })
   }
 

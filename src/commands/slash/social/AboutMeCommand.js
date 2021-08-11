@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandOptions, CommandBase} = require("eris");
+const { CommandOptions, CommandBase } = require('eris')
 
 module.exports = class AboutMeCommand extends Command {
   constructor() {
@@ -8,15 +8,15 @@ module.exports = class AboutMeCommand extends Command {
       aliases: ['bio', 'sobremim'],
       arguments: 1,
       hasUsage: true,
-        slash: new CommandBase()
+      slash: new CommandBase()
         .setName('aboutme')
         .setDescription('Change about me in Profile by using /profile.')
         .addOptions(
-            new CommandOptions()
-                .setType(3)
-                .setName('text')
-                .setDescription('Change about me in Profile by using /profile.')
-                .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Change about me in Profile by using /profile.')
+            .isRequired(),
         )
     })
   }

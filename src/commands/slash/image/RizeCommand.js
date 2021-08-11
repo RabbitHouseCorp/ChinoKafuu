@@ -1,6 +1,6 @@
 const { Command } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RizeCommand extends Command {
   constructor() {
@@ -14,15 +14,15 @@ module.exports = class RizeCommand extends Command {
         permissions: ['attachFiles']
       }],
       slash: new CommandBase()
-          .setName('rize')
-          .setDescription('Makes Rize writes on the paper')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Enter random text')
-                  .isRequired(),
-          )
+        .setName('rize')
+        .setDescription('Makes Rize writes on the paper')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Enter random text')
+            .isRequired(),
+        )
     })
   }
 

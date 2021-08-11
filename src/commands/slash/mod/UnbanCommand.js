@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class UnbanCommand extends Command {
   constructor() {
@@ -16,20 +16,20 @@ module.exports = class UnbanCommand extends Command {
       }],
       arguments: 1,
       slash: new CommandBase()
-          .setName('unban')
-          .setDescription('Unbans a user if they\'re banned.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('reason')
-                  .setDescription('Inform reason')
-                  .isRequired(),
-          )
+        .setName('unban')
+        .setDescription('Unbans a user if they\'re banned.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Inform reason')
+            .isRequired(),
+        )
     })
   }
 

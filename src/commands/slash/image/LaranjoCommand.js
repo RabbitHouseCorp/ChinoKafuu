@@ -1,6 +1,6 @@
 const { Command } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class LaranjoCommand extends Command {
   constructor() {
@@ -13,14 +13,14 @@ module.exports = class LaranjoCommand extends Command {
         permissions: ['attachFiles']
       }],
       slash: new CommandBase()
-          .setName('laranjo')
-          .setDescription('Laranjo will say something silly.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Enter random text'),
-          )
+        .setName('laranjo')
+        .setDescription('Laranjo will say something silly.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Enter random text'),
+        )
     })
   }
 

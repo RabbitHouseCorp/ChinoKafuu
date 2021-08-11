@@ -1,5 +1,5 @@
 const { Command, FunCommandInstance, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class TippyCommand extends Command {
   constructor() {
@@ -11,8 +11,8 @@ module.exports = class TippyCommand extends Command {
         permissions: ['manageWebhooks']
       }],
       slash: new CommandBase()
-          .setName('tippy')
-          .setDescription('Make Tippy tell you a joke')
+        .setName('tippy')
+        .setDescription('Make Tippy tell you a joke')
     })
   }
 

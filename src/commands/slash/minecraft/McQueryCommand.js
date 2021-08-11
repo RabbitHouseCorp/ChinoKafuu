@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder, Emoji } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class McQueryCommand extends Command {
   constructor() {

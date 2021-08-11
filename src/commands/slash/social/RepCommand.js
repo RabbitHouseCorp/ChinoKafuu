@@ -1,7 +1,7 @@
 const { Command } = require('../../../utils')
 const moment = require('moment')
 require('moment-duration-format')
-const {CommandOptions, CommandBase} = require("eris");
+const { CommandOptions, CommandBase } = require('eris')
 
 module.exports = class RepCommand extends Command {
   constructor() {
@@ -11,15 +11,15 @@ module.exports = class RepCommand extends Command {
       arguments: 1,
       hasUsage: true,
       slash: new CommandBase()
-          .setName('rep')
-          .setDescription('Gives a reputation to someone.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-                  .isRequired(),
-          )
+        .setName('rep')
+        .setDescription('Gives a reputation to someone.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+            .isRequired(),
+        )
     })
   }
 

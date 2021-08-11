@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const {CommandBase, CommandOptions, Choice} = require("eris");
+const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class VoteCommand extends Command {
   constructor() {
@@ -12,8 +12,8 @@ module.exports = class VoteCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('vote')
-          .setDescription('Shows how you can vote me.')
+        .setName('vote')
+        .setDescription('Shows how you can vote me.')
 
     })
   }

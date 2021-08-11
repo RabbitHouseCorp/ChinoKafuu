@@ -1,5 +1,5 @@
 const { Command, ExchangeAPI, InvalidArgumentError } = require('../../../utils')
-const {CommandOptions, CommandBase} = require("eris");
+const { CommandOptions, CommandBase } = require('eris')
 
 module.exports = class MoneyCommand extends Command {
   constructor() {
@@ -9,25 +9,25 @@ module.exports = class MoneyCommand extends Command {
       arguments: 1,
       hasUsage: true,
       slash: new CommandBase()
-          .setName('money')
-          .setDescription('Make you AFK.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('from')
-                  .setDescription('What kind of currency')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('to')
-                  .setDescription('What kind of currency')
-                  .isRequired(),
-              new CommandOptions()
-                  .setType(3)
-                  .setName('amount')
-                  .setDescription('Value to convert')
-                  .isRequired(),
-          )
+        .setName('money')
+        .setDescription('Make you AFK.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('from')
+            .setDescription('What kind of currency')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('to')
+            .setDescription('What kind of currency')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('amount')
+            .setDescription('Value to convert')
+            .isRequired(),
+        )
     })
   }
 

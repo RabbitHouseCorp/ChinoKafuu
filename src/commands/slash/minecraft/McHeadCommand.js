@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder, Emoji } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class McHeadCommand extends Command {
   constructor() {

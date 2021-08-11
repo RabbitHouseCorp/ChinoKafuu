@@ -1,7 +1,7 @@
 const Helper = require('../../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../../utils')
 const axios = require('axios')
-const {CommandBase} = require("eris");
+const { CommandBase } = require('eris')
 
 module.exports = class SetIconCommand extends Command {
   constructor() {
@@ -14,8 +14,8 @@ module.exports = class SetIconCommand extends Command {
         permissions: ['manageGuild']
       }],
       slash: new CommandBase()
-          .setName('seticon')
-          .setDescription('Set an icon in the current guild.')
+        .setName('seticon')
+        .setDescription('Set an icon in the current guild.')
     })
   }
 

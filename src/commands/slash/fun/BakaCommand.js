@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const NekosLife = require('nekos.life')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 const NekoClient = new NekosLife()
 
 module.exports = class BakaCommand extends Command {
@@ -14,19 +14,20 @@ module.exports = class BakaCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('baka')
-          .setDescription('Calls a user baka')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server'),
-          )
+        .setName('baka')
+        .setDescription('Calls a user baka')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server'),
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.message.command.interface.get('user').value.id)
+    const user = ctx.message.command.interface.get('user').value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const image = await NekoClient.sfw.baka()
     const embed = new EmbedBuilder()

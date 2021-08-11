@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const { UsagiAPI } = require('usagiapi')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 const usagi = new UsagiAPI()
 
 module.exports = class PatCommand extends Command {
@@ -15,19 +15,20 @@ module.exports = class PatCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-          .setName('pat')
-          .setDescription('Pat, pat, pat me, please! Give a pat to your friend.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention the member on the server'),
-          )
+        .setName('pat')
+        .setDescription('Pat, pat, pat me, please! Give a pat to your friend.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention the member on the server'),
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.message.command.interface.get('user').value.id)
+    const user = ctx.message.command.interface.get('user').value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const img = await usagi.get({ endpoint: 'pat' })
     const embed = new EmbedBuilder()

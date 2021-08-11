@@ -1,5 +1,5 @@
 const { Command } = require('../../../utils')
-const {CommandBase, CommandOptions} = require("eris");
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AfkCommand extends Command {
   constructor() {
@@ -8,15 +8,15 @@ module.exports = class AfkCommand extends Command {
       aliases: ['awayfromthekeyboard'],
       hasUsage: true,
       slash: new CommandBase()
-          .setName('afk')
-          .setDescription('Make you AFK.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(3)
-                  .setName('text')
-                  .setDescription('Enter a text to leave a message.')
-                  .isRequired(),
-          )
+        .setName('afk')
+        .setDescription('Make you AFK.')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('text')
+            .setDescription('Enter a text to leave a message.')
+            .isRequired(),
+        )
     })
   }
 

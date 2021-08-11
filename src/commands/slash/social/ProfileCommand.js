@@ -1,6 +1,6 @@
 const { Command } = require('../../../utils')
 const axios = require('axios')
-const {CommandOptions, CommandBase} = require("eris");
+const { CommandOptions, CommandBase } = require('eris')
 
 const flags = [
   {
@@ -61,19 +61,20 @@ module.exports = class ProfileCommand extends Command {
         permissions: ['attachFiles']
       }],
       slash: new CommandBase()
-          .setName('profile')
-          .setDescription('Shows your social profile or the social profile of someone.')
-          .addOptions(
-              new CommandOptions()
-                  .setType(6)
-                  .setName('user')
-                  .setDescription('Mention member on server.')
-          )
+        .setName('profile')
+        .setDescription('Shows your social profile or the social profile of someone.')
+        .addOptions(
+          new CommandOptions()
+            .setType(6)
+            .setName('user')
+            .setDescription('Mention member on server.')
+        )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0], true)
+    const user1 = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user1?.id ?? user1, true)
     const user = await ctx.client.database.users.getOrCreate(member.id)
     const couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
 
@@ -112,7 +113,7 @@ module.exports = class ProfileCommand extends Command {
         bgId: user.background,
         stickerId: user.sticker,
         favColor: user.profileColor,
-        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.dynamicAvatarURL('png', 2048),
+        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL,
         badges: arrayBadges
       },
       responseType: 'arraybuffer'
