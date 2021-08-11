@@ -27,7 +27,7 @@
       "reason": "Motivo"
     },
     "reason": "Banido por: {{0}} - Motivo: {{1}}",
-    "bigReason": "you must write an shorter reason, this reason is too big to me."
+    "bigReason": "você deve digitar um motivo menor, esse motivo é muito grande para mim."
   },
   "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
   "howToUse": "Como usar?",
@@ -62,5 +62,5 @@
   "cooldownLowThanZero": "alguns",
   "disabledCommand": "desculpe, mas este comando teve alguns problemas e está desativado por um tempo\n**Motivo:** `{{0}}`",
   "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente.",
-  "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
+  "migrateToSlashCommand": "Ei! Depois Janeiro 2022 eu irei responder apenas em slash commands, por favor, se você deseja continuar me usando, então você deve me re-adicionar, você pode fazer isso clicando nessa url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, você não precisa me expulsar do servidor, só clicar na url. Obrigado! <a:chino_petpet:760564885280784405>"
 }
