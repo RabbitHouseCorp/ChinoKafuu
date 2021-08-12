@@ -26,31 +26,31 @@ module.exports = class GuildDeleteListener extends Listener {
 
       const owner = await client.getRESTUser(guild.ownerID)
       if (await blacklist.verifyGuild(guild)) {
-        const embed = new EmbedBuilder()
-        embed.setColor('#730101')
-        embed.setTitle('Guild Blacklisted')
-        embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
-        embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+        // const embed = new EmbedBuilder()
+        // embed.setColor('#730101')
+        // embed.setTitle('Guild Blacklisted')
+        // embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
+        // embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
 
-        client.executeWebhook(webhook.id, webhook.token, {
-          embeds: [embed],
-          avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-          username: 'Megumi Natsu'
-        })
+        // client.executeWebhook(webhook.id, webhook.token, {
+        //   embeds: [embed],
+        //   avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
+        //   username: 'Megumi Natsu'
+        // })
         return
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('#eb2323')
-      embed.setTitle('Guild Deleted')
-      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      // const embed = new EmbedBuilder()
+      // embed.setColor('#eb2323')
+      // embed.setTitle('Guild Deleted')
+      // embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
+      // embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
 
-      client.executeWebhook(webhook.id, webhook.token, {
-        embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-        username: 'Megumi Natsu'
-      })
+      // client.executeWebhook(webhook.id, webhook.token, {
+      //   embeds: [embed],
+      //   avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
+      //   username: 'Megumi Natsu'
+      // })
 
       client.database.guilds.getAndDelete(guild.id)
     })

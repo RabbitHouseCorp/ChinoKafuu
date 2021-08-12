@@ -21,17 +21,17 @@ module.exports = class ShardPreReadyListener extends Listener {
         })
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('ERROR')
-      embed.setTitle('Shard Reconnecting')
-      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID} = Shard: ${shardID} => \`Reconnecting\``)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      // const embed = new EmbedBuilder()
+      // embed.setColor('ERROR')
+      // embed.setTitle('Shard Reconnecting')
+      // embed.setDescription(`Cluster: #${process.env.CLUSTER_ID} = Shard: ${shardID} => \`Reconnecting\``)
+      // embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
       
-      client.executeWebhook(webhook.id, webhook.token, {
-        embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874315596060311602/tumblr_ox2eeks2My1uctmvwo8_1280.png',
-        username: 'Syaro Kirima'
-      })
+      // client.executeWebhook(webhook.id, webhook.token, {
+      //   embeds: [embed],
+      //   avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874315596060311602/tumblr_ox2eeks2My1uctmvwo8_1280.png',
+      //   username: 'Syaro Kirima'
+      // })
     })
 
     Logger.shardMessage(`Alright! Connecting shard ${shardID}...`)
