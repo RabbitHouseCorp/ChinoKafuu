@@ -22,16 +22,16 @@ module.exports = class ErrorListener extends Listener {
         })
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('ERROR')
-      embed.setTitle(_locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${error.stack.slice(0, 1800)}\`\`\``)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
-      client.executeWebhook(webhook.id, webhook.token, {
-        embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874309295049699378/xXDyDuW1M9anceZCtbbUr8sdFP_GE-1kfQVyWWr5zwnpcttU6iW2TSa8LbPJS-97J88XBDu-ulkDiQWPBymMWSswK3bu29vwjoUI.png',
-        username: 'Chiya Ujimatsu'
-      })
+      // const embed = new EmbedBuilder()
+      // embed.setColor('ERROR')
+      // embed.setTitle(_locale('events:executionFailure.embedTitle'))
+      // embed.setDescription(`\`\`\`js\n${error.stack.slice(0, 1800)}\`\`\``)
+      // embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      // client.executeWebhook(webhook.id, webhook.token, {
+      //   embeds: [embed],
+      //   avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874309295049699378/xXDyDuW1M9anceZCtbbUr8sdFP_GE-1kfQVyWWr5zwnpcttU6iW2TSa8LbPJS-97J88XBDu-ulkDiQWPBymMWSswK3bu29vwjoUI.png',
+      //   username: 'Chiya Ujimatsu'
+      // })
     })
 
     Logger.error(error)
