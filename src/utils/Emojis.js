@@ -12,7 +12,7 @@ module.exports = {
   ping_pong: '🏓',
   trash: '🗑️',
   brazil: '🇧🇷',
-  portugal: '🇵🇹',
+  vn: '🇻🇳',
   usa: '🇺🇸',
   es: '🇪🇸',
   ja: '🇯🇵',

@@ -23,17 +23,17 @@ module.exports = class LanguageCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)
-    embed.setDescription('🇧🇷 **Português, Brasil**\n🇵🇹 **Português, Portugal**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
+    embed.setDescription('🇧🇷 **Português, Brasil**\n🇻🇳 **Tiếng Việt, Việt Nam**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
     embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
 
     ctx.send(embed.build()).then(async message => {
       await message.addReaction(Emoji.getEmoji('brazil').reaction)
-      await message.addReaction(Emoji.getEmoji('portugal').reaction)
+      await message.addReaction(Emoji.getEmoji('vn').reaction)
       await message.addReaction(Emoji.getEmoji('usa').reaction)
       await message.addReaction(Emoji.getEmoji('es').reaction)
       await message.addReaction(Emoji.getEmoji('ja').reaction)
 
-      const filter = (_, emoji, userID) => ([Emoji.getEmoji('brazil').name, Emoji.getEmoji('portugal').name, Emoji.getEmoji('usa').name, Emoji.getEmoji('es').name, Emoji.getEmoji('ja').name].includes(emoji.name)) && userID === ctx.message.author.id
+      const filter = (_, emoji, userID) => ([Emoji.getEmoji('brazil').name, Emoji.getEmoji('vn').name, Emoji.getEmoji('usa').name, Emoji.getEmoji('es').name, Emoji.getEmoji('ja').name].includes(emoji.name)) && userID === ctx.message.author.id
       const collector = new ReactionCollector(message, filter, { max: 1 })
       collector.on('collect', async (_, emoji) => {
         switch (emoji.name) {
@@ -45,11 +45,11 @@ module.exports = class LanguageCommand extends Command {
             })
           }
             break
-          case '🇵🇹': {
-            ctx.db.guild.lang = 'pt-PT'
+          case '🇻🇳': {
+            ctx.db.guild.lang = 'vi-VN'
             ctx.db.guild.save().then(() => {
               message.delete()
-              ctx.reply('success', 'agora eu irei falar em `Português, Portugal`.')
+              ctx.reply('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.')
             })
           }
             break
