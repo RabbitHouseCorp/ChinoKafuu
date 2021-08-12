@@ -38,25 +38,25 @@
     "guildSaved": "Lưu thành công dữ liệu của {{0}} vào database!"
   },
   "noAliases": "Lệnh này không có bí danh nào cả.",
-  "onMentionAfk": "**{{user}}** is AFK.",
-  "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "onMentionAfk": "**{{user}}** hiện đang AFK.",
+  "onMentionAfkReasoned": "**{{user}}** hiện đang AFK: `{{reason}}`.",
+  "afkRemoval": "Xin chào {{user}}, đã quay lại. Mình gỡ trạng thái AFK rồi nhé.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
+    "authorAreNotInVoiceChannel": "bạn chưa tham gia kênh thoại nào cả.",
     "playerAlreadyPlaying": "The track is already playing.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-    "playerNotFound": "I'm not playing any song",
-    "maxVolume": "calm down! The max volume allowed is `100`.",
-    "minVolume": "calm down! The minimal volume allowed is `5`."
+    "clientAreNotInVoiceChannel": "Mình chưa tham gia kênh thoại.",
+    "playerNotFound": "Mình hiện đang không phát bài nào cả",
+    "maxVolume": "bình tĩnh nào! Âm lượng tối đa được cho phép là `100` thôi.",
+    "minVolume": "bình tĩnh đê! Âm lượng tối thiểu được cho phép là `5`."
   },
   "boolean": {
-    "true": "Yes",
-    "false": "No"
+    "true": "Có",
+    "false": "Không"
   },
   "guildban": {
-    "title": "Guild Banned",
-    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-    "reason": "Reason"
+    "title": "Server Banned",
+    "explain": "`{{0}}` đã bị ban vì lý do dưới đây. Bạn có thấy điều đó có gì hơi bất công? Tham gia ngay [support server](https://discord.gg/Jr57UrsXeC) của tụi mình để phóng thích bọn họ nhé.",
+    "reason": "Lý do"
   },
   "cooldown": "please, wait more {{0}} seconds to execute this command again!",
   "cooldownLowThanZero": "some",
