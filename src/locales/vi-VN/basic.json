@@ -37,7 +37,7 @@
     "description": "Whoa {{0}}! Cảm ơn vì đã đưa mình đến với `{{1}}`, mình xin được mạn phép giới thiệu bản thân đôi chút.\n\nMình là một \"cô bot\" bé bỏng mang trong mình rất nhiều chức năng hữu ích, như là... **moderation**, **fun** and **utilities**. Mặc định thì prefix của mình sẽ là `{{2}}`\n\nNếu thấy cần giúp đỡ thì còn ngại gì nữa mà không tham gia ngay server của mình bằng cách chat `{{2}}help` hoặc `{{2}}invite`. Chúc vui vẻ và hẹn gặp lại.",
     "guildSaved": "Lưu thành công dữ liệu của {{0}} vào database!"
   },
-  "noAliases": "This command doesn't have any aliases.",
+  "noAliases": "Lệnh này không có bí danh nào cả.",
   "onMentionAfk": "**{{user}}** is AFK.",
   "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
   "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
