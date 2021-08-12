@@ -58,9 +58,9 @@
     "explain": "`{{0}}` đã bị ban vì lý do dưới đây. Bạn có thấy điều đó có gì hơi bất công? Tham gia ngay [support server](https://discord.gg/Jr57UrsXeC) của tụi mình để phóng thích bọn họ nhé.",
     "reason": "Lý do"
   },
-  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-  "cooldownLowThanZero": "some",
-  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+  "cooldown": "vui lòng chờ thêm {{0}} giây nữa để tiếp tục thực thi lệnh này!",
+  "cooldownLowThanZero": "một số",
+  "disabledCommand": "xin lỗi, lệnh này có vẻ gặp đôi chút vấn đề nên tạm thời đã bị vô hiệu hóa\n**Lý do:** `{{0}}`",
   "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
   "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking on this url: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, you don't need kick me out of the server, just click on the url. Thank you! <a:chino_petpet:760564885280784405>"
 }
