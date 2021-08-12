@@ -15,19 +15,19 @@
   "jankenpon": {
     "usage": "<lựa chọn> <tiền cược>",
     "description": "Chơi búa bao kéo, thắng ăn tiền, thua mất tiền.",
-    "optionNotFound": "chỉ có thể chọn một trong `rock`, `paper` hoặc `scissors` thôi.",
+    "optionNotFound": "chỉ có thể chọn một trong `búa`, `bao` hoặc `kéo` thôi.",
     "valueNotInputed": "bạn vẫn chưa ghi ra số tền muốn đặt cược.",
     "tie": "hòa! Không ai thắng cả.",
-    "youWin": "bạn ra `{{0}}` và tôi ra `{{1}}`. Chúc mừng, bạn thắng rồi. `{{2}}` yên của bạn đây.",
-    "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+    "youWin": "bạn ra `{{0}}` và mình ra `{{1}}`. Chúc mừng, bạn thắng rồi. `{{2}}` yên của bạn đây.",
+    "youLose": "bạn ra `{{0}}` và mình ra `{{1}}`, Mình thắng rồi! Xin nhẹ `{{2}}` yên, em iu",
     "choice": {
-      "rock": "rock",
-      "paper": "paper",
-      "scissors": "scissors"
+      "rock": "búa",
+      "paper": "bao",
+      "scissors": "kéo"
     }
   },
   "daily": {
-    "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
+    "congrats": "Xin chúc mừng! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
     "yensDaily": "Daily yens",
     "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
     "description": "You can get your daily yens by using this command",
