@@ -1,24 +1,24 @@
 {
   "report": {
-    "usage": "<user> <reason> -p <proof|attachment>",
-    "description": "Reports a user on this server if the module is enable.",
-    "moduleDisable": "this module is disabled on this server.",
-    "noReason": "no reason specified",
-    "successfullySent": "report successfully sent.",
+    "usage": "<người dùng> <lý do> -p <bằng chứng | đính kèm file>",
+    "description": "Khi đã bật module này, bạn có thể báo cáo về một người dùng trong server.",
+    "moduleDisable": "module bị vô hiệu hóa trong server này.",
+    "noReason": "không đưa ra lí do",
+    "successfullySent": "báo cáo của bạn đã được gửi đi.",
     "embed": {
-      "memberName": "Username",
-      "authorName": "Who reported",
-      "channel": "Channel",
-      "reason": "Reason"
+      "memberName": "Tên người dùng",
+      "authorName": "Người báo cáo",
+      "channel": "Kênh",
+      "reason": "Lý do"
     }
   },
   "jankenpon": {
-    "usage": "<choice> <value>",
-    "description": "Plays jankenpon and win or lose yens.",
-    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
-    "valueNotInputed": "you didn't provide any value to bet.",
-    "tie": "draw! Nobody won or lost.",
-    "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
+    "usage": "<lựa chọn> <tiền cược>",
+    "description": "Chơi búa bao kéo, thắng ăn tiền, thua mất tiền.",
+    "optionNotFound": "chỉ có thể chọn một trong `rock`, `paper` hoặc `scissors` thôi.",
+    "valueNotInputed": "bạn vẫn chưa ghi ra số tền muốn đặt cược.",
+    "tie": "hòa! Không ai thắng cả.",
+    "youWin": "bạn ra `{{0}}` và tôi ra `{{1}}`. Chúc mừng, bạn thắng rồi. `{{2}}` yên của bạn đây.",
     "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
     "choice": {
       "rock": "rock",
