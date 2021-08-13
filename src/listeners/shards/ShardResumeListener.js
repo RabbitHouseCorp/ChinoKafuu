@@ -10,16 +10,16 @@ module.exports = class ShardResumeListener extends Listener {
   async on(client, shardID) {
     client.getRESTChannel(process.env.SHARD_CHANNEL_LOG).then(async (channel) => {
       if (!channel) return
-      let webhook = await channel.getWebhooks()
-      webhook = webhook.filter((w) => w.name === 'Syaro Kirima')[0]
-      if (!webhook || webhook.user.id !== client.user.id) {
-        webhook = await channel.createWebhook({
-          name: 'Syaro Kirima',
-          options: {
-            type: 1
-          }
-        })
-      }
+      // let webhook = await channel.getWebhooks()
+      // webhook = webhook.filter((w) => w.name === 'Syaro Kirima')[0]
+      // if (!webhook || webhook.user.id !== client.user.id) {
+      //   webhook = await channel.createWebhook({
+      //     name: 'Syaro Kirima',
+      //     options: {
+      //       type: 1
+      //     }
+      //   })
+      // }
 
       // const embed = new EmbedBuilder()
       // embed.setColor('ERROR')

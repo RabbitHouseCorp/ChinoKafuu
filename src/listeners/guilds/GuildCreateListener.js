@@ -17,17 +17,17 @@ module.exports = class GuildCreateListener extends Listener {
     const blacklist = new BlacklistUtils(client)
 
     client.getRESTChannel(process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG).then(async (channel) => {
-      if (!channel) return
-      let webhook = await channel.getWebhooks()
-      webhook = webhook.filter((w) => w.name === 'Megumi Natsu')[0]
-      if (!webhook || webhook.user.id !== client.user.id) {
-        webhook = await channel.createWebhook({
-          name: 'Megumi Natsu',
-          options: {
-            type: 1
-          }
-        })
-      }
+      // if (!channel) return
+      // let webhook = await channel.getWebhooks()
+      // webhook = webhook.filter((w) => w.name === 'Megumi Natsu')[0]
+      // if (!webhook || webhook.user.id !== client.user.id) {
+      //   webhook = await channel.createWebhook({
+      //     name: 'Megumi Natsu',
+      //     options: {
+      //       type: 1
+      //     }
+      //   })
+      // }
 
       const owner = await client.getRESTUser(guild.ownerID)
       if (await blacklist.verifyGuild(guild)) {
