@@ -21,7 +21,7 @@ module.exports = class RizeCommand extends Command {
             .setType(3)
             .setName('text')
             .setDescription('Enter random text')
-            .isRequired(),
+            .isRequired()
         )
     })
   }

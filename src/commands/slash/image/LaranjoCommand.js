@@ -19,7 +19,8 @@ module.exports = class LaranjoCommand extends Command {
           new CommandOptions()
             .setType(3)
             .setName('text')
-            .setDescription('Enter random text'),
+            .setDescription('Enter random text')
+            .isRequired()
         )
     })
   }
@@ -29,7 +30,7 @@ module.exports = class LaranjoCommand extends Command {
       url: 'http://127.0.0.1:1234/render/laranjo',
       method: 'post',
       data: {
-        text: ctx.args.join(' ')
+        text: ctx.message.command.interface.get('text').value
       },
       responseType: 'arraybuffer'
     })

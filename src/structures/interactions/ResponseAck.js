@@ -1,6 +1,6 @@
-const { Message } = require("eris")
-const EventEmitter = require("events")
-const InteractionPacket = require("./InteractionPacket")
+const { Message } = require('eris')
+const EventEmitter = require('events')
+const InteractionPacket = require('./InteractionPacket')
 
 module.exports = class ResponseAck extends EventEmitter {
   constructor(message) {
@@ -55,7 +55,7 @@ module.exports = class ResponseAck extends EventEmitter {
       default:
         type = 4
     }
-    this.client.requestHandler.request("POST", `/interactions/${this.id}/${this.token}/callback`, true, {
+    this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
       type: type,
       token: this.token,
       data: data

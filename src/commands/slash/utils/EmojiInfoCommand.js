@@ -18,15 +18,15 @@ module.exports = class EmojiInfoCommand extends Command {
         .addOptions(
           new CommandOptions()
             .setType(3)
-            .setName('text')
+            .setName('emoji')
             .setDescription('Mention an emoji added on the server. (Remembering that this doesn\'t work by placing other emoji from another server.)')
-            .isRequired(),
+            .isRequired()
         )
     })
   }
 
   async run(ctx) {
-    const emoji = await ctx.getEmoji(ctx.args[0])
+    const emoji = await ctx.getEmoji(ctx.message.command.interface.get('emoji').value)
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')

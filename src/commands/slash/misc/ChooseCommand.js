@@ -16,6 +16,7 @@ module.exports = class ChooseCommand extends Command {
             .setName('choose')
             .setDescription('Use `,` to separate')
             .setType(3)
+            .isRequired()
         )
     })
   }

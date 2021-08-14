@@ -19,19 +19,17 @@ module.exports = class UserInfoCommand extends Command {
           new CommandOptions()
             .setType(6)
             .setName('user')
-            .setDescription('Mention member on server.')
-            .isRequired(),
+            .setDescription('Mention a user.')
         )
-
     })
   }
 
   async run(ctx) {
     moment.locale(ctx.db.guild.lang)
-    const member = await ctx.getUser(ctx.args[0], true)
+    const user = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user?.id ?? user, true)
     let hoist
     const avatar = ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
-
     const guild = ctx.message.guild
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles

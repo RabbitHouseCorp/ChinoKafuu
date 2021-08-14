@@ -1,13 +1,13 @@
-const Listener = require("../../structures/events/Listener");
+const Listener = require('../../structures/events/Listener')
 
 module.exports = class CommandError extends Listener {
-    constructor () {
-        super()
-        this.event = 'commandOK'
+        constructor() {
+            super()
+            this.event = 'commandOK'
+        }
+
+        async on(client, commandError, error) {
+
+        }
+
     }
-
-    async on(client, commandError, error) {
-
-    }
-
-}

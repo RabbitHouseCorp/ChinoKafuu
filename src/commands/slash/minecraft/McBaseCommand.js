@@ -1,4 +1,4 @@
-const Command = require("../../../structures/command/Command");
+const Command = require('../../../structures/command/Command')
 const { CommandBase, CommandOptions } = require('eris')
 
 
