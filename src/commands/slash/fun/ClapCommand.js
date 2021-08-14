@@ -18,7 +18,8 @@ module.exports = class ClapCommand extends Command {
           new CommandOptions()
             .setType(3)
             .setName('text')
-            .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.'),
+            .setDescription('Let\'s clap, clap, clap, clap, clap with your friends.')
+            .isRequired()
         )
     })
   }

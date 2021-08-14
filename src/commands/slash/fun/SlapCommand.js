@@ -21,7 +21,8 @@ module.exports = class SlapCommand extends Command {
           new CommandOptions()
             .setType(6)
             .setName('user')
-            .setDescription('Mention the member on the server'),
+            .setDescription('Mention the member on the server')
+            .isRequired()
         )
     })
   }
