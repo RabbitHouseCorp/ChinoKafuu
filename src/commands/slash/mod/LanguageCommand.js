@@ -1,5 +1,8 @@
-const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
+const { Command, EmbedBuilder, ReactionCollector, Emoji, ResponseAck} = require('../../../utils')
 const { CommandBase, CommandOptions } = require('eris')
+const SelectionMenu = require('../../../structures/interactions/SelectionMenu');
+const Options = require("../../../structures/interactions/Options");
+const CommandInteractions = require("../../../structures/interactions/CommandInteractions");
 
 module.exports = class LanguageCommand extends Command {
   constructor() {
@@ -25,60 +28,116 @@ module.exports = class LanguageCommand extends Command {
     embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)
     embed.setDescription('🇧🇷 **Português, Brasil**\n🇻🇳 **Tiếng Việt, Việt Nam**\n🇺🇸 **English, US**\n🇪🇸 **Espanõl**\n🇯🇵 **日本語**')
     embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
+    const selectionMenu = new SelectionMenu()
+        .addItem(
+            new Options()
+                .addEmoji({
+                  name: '🇧🇷'
+                })
+                .setLabel('Brasil')
+                .addDescription('Português')
+                .setValue('br'),
+            new Options()
+                .addEmoji({
+                  name: '🇻🇳'
+                })
+                .setLabel('Việt Nam')
+                .addDescription('Tiếng Việt')
+                .setValue('vn'),
+            new Options()
+                .addEmoji({
+                  name: '🇺🇸'
+                })
+                .setLabel('US')
+                .addDescription('English')
+                .setValue('us'),
+            new Options()
+                .addEmoji({
+                  name: '🇪🇸'
+                })
+                .setLabel('Espanõl')
+                .setValue('es'),
+            new Options()
+                .addEmoji({
+                  name: '🇯🇵'
+                })
+                .setLabel('日本語')
+                .setValue('jp'),
 
-    ctx.send(embed.build()).then(async message => {
-      await message.addReaction(Emoji.getEmoji('brazil').reaction)
-      await message.addReaction(Emoji.getEmoji('vn').reaction)
-      await message.addReaction(Emoji.getEmoji('usa').reaction)
-      await message.addReaction(Emoji.getEmoji('es').reaction)
-      await message.addReaction(Emoji.getEmoji('ja').reaction)
+        )
+        .addPlaceHolder('{locale}')
+        .setCustomID('testing')
+    ctx
+        .interaction()
+        .components(selectionMenu)
+        .returnCtx()
+        .send(embed.build()).then(async message => {
+      const ack = new ResponseAck(message)
 
-      const filter = (_, emoji, userID) => ([Emoji.getEmoji('brazil').name, Emoji.getEmoji('vn').name, Emoji.getEmoji('usa').name, Emoji.getEmoji('es').name, Emoji.getEmoji('ja').name].includes(emoji.name)) && userID === ctx.message.author.id
-      const collector = new ReactionCollector(message, filter, { max: 1 })
-      collector.on('collect', async (_, emoji) => {
-        switch (emoji.name) {
-          case '🇧🇷': {
-            ctx.db.guild.lang = 'pt-BR'
-            ctx.db.guild.save().then(() => {
-              message.delete()
-              ctx.reply('success', 'agora eu irei falar em `Português, Brasil`.')
-            })
+      ack.on('collect', ({messageCollect, interaction}) => {
+        if (message.id === messageCollect.id) {
+          selectionMenu.isDisable()
+          switch (interaction.values[0]) {
+            case 'br': {
+              ctx.db.guild.lang = 'pt-BR'
+              ctx.db.guild.save().then(() => {
+                ack.sendAck('update', {
+                  content: ctx.replyTData('success', 'agora eu irei falar em `Português, Brasil`.').content,
+                  embeds: [],
+                  components: []
+                })
+              })
+            }
+              break
+            case 'vn': {
+              ctx.db.guild.lang = 'vi-VN'
+              ctx.db.guild.save().then(() => {
+                ack.sendAck('update', {
+                  content: ctx.replyTData('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.').content,
+                  embeds: [],
+                  components: []
+                })
+              })
+            }
+              break
+            case 'us': {
+              ctx.db.guild.lang = 'en-US'
+              ctx.db.guild.save().then(() => {
+                ack.sendAck('update', {
+                  content: ctx.replyTData('success', 'now I\'ll speak `English, US`.').content,
+                  embeds: [],
+                  components: []
+                })
+              })
+            }
+              break
+            case 'es': {
+              ctx.db.guild.lang = 'es-ES'
+              ctx.db.guild.save().then(() => {
+                ack.sendAck('update', {
+                  content: ctx.replyTData('success', 'ahora hablaré en `Espanõl`.').content,
+                  embeds: [],
+                  components: []
+                })
+              })
+            }
+              break
+            case 'jp': {
+              ctx.db.guild.lang = 'ja-JP'
+              ctx.db.guild.save().then(() => {
+                ack.sendAck('update', {
+                  content: ctx.replyTData('success', '今、私は`日本語`で話します').content,
+                  embeds: [],
+                  components: []
+                })
+              })
+            }
+              break
           }
-            break
-          case '🇻🇳': {
-            ctx.db.guild.lang = 'vi-VN'
-            ctx.db.guild.save().then(() => {
-              message.delete()
-              ctx.reply('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.')
-            })
-          }
-            break
-          case '🇺🇸': {
-            ctx.db.guild.lang = 'en-US'
-            ctx.db.guild.save().then(() => {
-              message.delete()
-              ctx.reply('success', 'now I\'ll speak `English, US`.')
-            })
-          }
-            break
-          case '🇪🇸': {
-            ctx.db.guild.lang = 'es-ES'
-            ctx.db.guild.save().then(() => {
-              message.delete()
-              ctx.reply('success', 'ahora hablaré en `Espanõl`.')
-            })
-          }
-            break
-          case '🇯🇵': {
-            ctx.db.guild.lang = 'ja-JP'
-            ctx.db.guild.save().then(() => {
-              message.delete()
-              ctx.reply('success', '今、私は`日本語`で話します')
-            })
-          }
-            break
+
         }
       })
+
     })
   }
 }

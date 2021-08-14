@@ -60,7 +60,8 @@ module.exports = class PayCommand extends Command {
       .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
       .then(message => {
         const ack = new ResponseAck(message)
-        ack.on('collect', (data) => {
+        ack.on('collect', ({packet}) => {
+          const data = packet
           if ((data.d.member.user.id !== message.mentions[0].id && message.member.id === ctx.client.user.id)) return
           switch (data.d.data.custom_id) {
             case 'confirm_button': {

@@ -36,7 +36,8 @@ module.exports = class DivorceCommand extends Command {
       .replyT('warn', 'commands:divorce.requestConfirm')
       .then(message => {
         const ack = new ResponseAck(message)
-        ack.on('collect', (data) => {
+        ack.on('collect', ({packet}) => {
+          const data = packet
           if ((data.d.member.user.id !== message.mentions[0].id && message.author.id === ctx.client.user.id)) return
           switch (data.d.data.custom_id) {
             case 'confirm_button': {

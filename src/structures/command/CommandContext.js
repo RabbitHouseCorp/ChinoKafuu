@@ -102,6 +102,12 @@ module.exports = class CommandContext {
     }, props[0]?.file)
   }
 
+  replyTData(emoji, content, data = {}, ...props) {
+    return {
+      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
+    }
+  }
+
   /**
      *
      * @param {string} args

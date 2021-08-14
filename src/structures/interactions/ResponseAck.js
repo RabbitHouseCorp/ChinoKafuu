@@ -17,7 +17,12 @@ module.exports = class ResponseAck extends EventEmitter {
           if (this.message.id === packet.d.message.id) {
             this.token = packet.d.token
             this.id = packet.d.id
-            this.emit('collect', (new Message(packet.d.message, this.client), new InteractionPacket(packet.d), packet))
+            this.emit('collect', ({
+                messageCollect: new Message(packet.d.message, this.client),
+                interaction: new InteractionPacket(packet.d),
+                packet: packet
+            }))
+
           }
         }
       }
@@ -55,7 +60,8 @@ module.exports = class ResponseAck extends EventEmitter {
       default:
         type = 4
     }
-    this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
+
+    this.client.requestHandler.request("POST", `/interactions/${this.id}/${this.token}/callback`, true, {
       type: type,
       token: this.token,
       data: data
