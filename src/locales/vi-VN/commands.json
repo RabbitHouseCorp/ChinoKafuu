@@ -28,11 +28,11 @@
   },
   "daily": {
     "congrats": "Xin chúc mừng! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
-    "yensDaily": "Daily yens",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
-    "description": "You can get your daily yens by using this command",
-    "almostThere": "We're almost there!",
-    "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
+    "yensDaily": "Điểm danh",
+    "hasBeenPicked": "hôm nay bạn đã điểm danh rồi. Hãy đợi thêm `{{0}}` nữa để có thể điểm danh tiếp.",
+    "description": "Bằng cách điểm danh, bạn có thể nhận được yên mỗi ngày",
+    "almostThere": "Sắp đến rồi!",
+    "explaining": "Để nhận thêm yên, bạn có thể vote cho mình. Cứ mỗi 12 giờ thì bạn có thể vote và nhận yên một lần. Nhưng vote xong thì phải chờ xíu mới có yên nhé.",
     "proceed": "Do you want to proceed?",
     "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
   },
