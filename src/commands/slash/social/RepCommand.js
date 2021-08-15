@@ -28,12 +28,12 @@ module.exports = class RepCommand extends Command {
     const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const author = ctx.db.user
-    const user = await ctx.client.database.users.getOrCreate(member.id)
+    const receiver = await ctx.client.database.users.getOrCreate(member.id)
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:rep.cannotGiveRepForYourself')
     if (member.id === ctx.client.user.id) {
       author.repTime = 3600000 + Date.now()
-      user.rep += 1
-      user.save().then(() => {
+      receiver.rep += 1
+      receiver.save().then(() => {
         ctx.replyT('chino_maid', 'commands:rep.forTheClient', { 0: user.rep })
       })
       author.save()
