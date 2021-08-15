@@ -26,7 +26,7 @@ module.exports = class ChannelInfoCommand extends Command {
   }
 
   async run(ctx) {
-    const args = ctx.args[0]?.replace(/<#>/g, '') ?? ctx.message.channel.id
+    const args = ctx.message.command.interface.get('channel').value.id
     let channel = ctx.client.getChannel(args)
     if (!channel) {
       channel = ctx.message.channel

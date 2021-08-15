@@ -28,17 +28,14 @@ module.exports = class TranslateCommand extends Command {
   }
 
   async run(ctx) {
-    const args = Object.values(ctx.args.join(' ').split(' '))
-    const language = ctx.args[0]
-    let content = ctx.args.join(' ')
+    const language = ctx.message.command.interface.get('language').value
+    let content = ctx.message.command.interface.get('text').value
 
-    args.shift() // For remove first object of translate
-
-    if (!ctx.args[1]) {
+    if (!content) {
       content = 'I\'m a little girl'
     }
 
-    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${args.join(' ')}&ie=UTF-8&oe=UTF-8`
+    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
 
     let letters = []
@@ -46,6 +43,6 @@ module.exports = class TranslateCommand extends Command {
       letters.push(translateOutput[0])
     }
 
-    ctx.reply('map', letters.toString())
+    ctx.reply('map', letters.join(' '))
   }
 }

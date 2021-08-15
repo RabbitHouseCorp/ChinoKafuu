@@ -24,7 +24,8 @@ module.exports = class RepCommand extends Command {
   }
 
   async run(ctx) {
-    const member = ctx.client.users.get(ctx.args[0]?.replace(/[<@!>]/g, ''))
+    const user = ctx.message.command.interface.get('user')?.value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const author = ctx.db.user
     const user = await ctx.client.database.users.getOrCreate(member.id)
