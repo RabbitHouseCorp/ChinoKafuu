@@ -312,7 +312,8 @@
       "SEVEN_DAY_THREAD_ARCHIVE": "Sete Dias Para Arquivar Threads",
       "PRIVATE_THREADS": "Threads Privadas",
       "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Threads",
-      "THREADS_ENABLED": "Threads Ativadas"
+      "THREADS_ENABLED": "Threads Ativadas",
+      "ROLE_ICONS": "Role Icons"
     },
     "booster": {
       "title": "Impulsionador de Nitro",
