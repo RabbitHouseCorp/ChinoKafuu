@@ -184,14 +184,14 @@
     "description": "Removes a role from a guild member."
   },
   "removeemoji": {
-    "successfullyRemoved": "emoji successfully removed.",
-    "emojiNotFound": "this emoji isn't from this guild.",
+    "successfullyRemoved": "đã xoá thành công emoji.",
+    "emojiNotFound": "emoji này không ở trong server.",
     "usage": "<emoji>",
-    "description": "Removes an emoji in the current guild."
+    "description": "Xoá một emoji trong server."
   },
   "announce": {
-    "channelNotFound": "I can't find this channel, make sure it exists.",
-    "argsNotFound": "your didn't write anything, I can't send an empty message.",
+    "channelNotFound": "Mình tìm mãi cũng không thấy kênh đó, bạn có chắc là kênh đó có tồn tại không?",
+    "argsNotFound": "bạn chưa viết gì cả, mình không thể gửi tin nhắn trống được.",
     "embedSendBy": "Announcement sent by: {{0}}",
     "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the emoji below\n\nTo mention `@everyone`, react {{1}}\nTo mention `@here`, react {{2}}\nTo mention `anyone`, react {{3}}",
     "announceSent": "announcement successfully sent.",
