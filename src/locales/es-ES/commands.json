@@ -312,7 +312,8 @@
       "SEVEN_DAY_THREAD_ARCHIVE": "Seven Days Thread Archive",
       "PRIVATE_THREADS": "Hilos privados",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
-      "THREADS_ENABLED": "Hilo habilitado"
+      "THREADS_ENABLED": "Hilo habilitado",
+      "ROLE_ICONS": "Role Icons"
     },
     "booster": {
       "title": "Nitro Booster",
