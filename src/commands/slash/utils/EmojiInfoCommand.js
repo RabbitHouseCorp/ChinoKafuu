@@ -19,7 +19,7 @@ module.exports = class EmojiInfoCommand extends Command {
           new CommandOptions()
             .setType(3)
             .setName('emoji')
-            .setDescription('Mention an emoji added on the server. (Remembering that this doesn\'t work by placing other emoji from another server.)')
+            .setDescription('Mention an emoji to see some info about it')
             .isRequired()
         )
     })
