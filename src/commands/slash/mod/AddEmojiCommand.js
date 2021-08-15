@@ -1,4 +1,5 @@
 const { Command } = require('../../../utils')
+const { CommandBase, CommandOptions } = require('eris')
 const axios = require('axios')
 
 module.exports = class AddEmojiCommand extends Command {
@@ -11,13 +12,28 @@ module.exports = class AddEmojiCommand extends Command {
       permissions: [{
         entity: 'both',
         permissions: ['manageEmojis']
-      }]
+      }],
+      slash: new CommandBase()
+        .setName('addemoji')
+        .setDescription('Adds an emoji to your server')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('name')
+            .setDescription('The name of the emoji')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('url')
+            .setDescription('The URL of the image')
+            .isRequired()
+        )
     })
   }
 
   async run(ctx) {
-    const url = ctx.args[1] ?? ctx.message.attachments[0]?.url
-    const name = ctx.args[0]
+    const name = ctx.message.command.interface.get('name').value
+    const url = ctx.message.command.interface.get('url').value
     if (!name || !url) {
       return ctx.replyT('error', 'basic:missingArgs', {
         prefix: ctx.db.guild.prefix,
@@ -32,7 +48,7 @@ module.exports = class AddEmojiCommand extends Command {
         name: name,
         image: base64Emoji
       })
-      const getEmoji = await ctx.getEmoji(emoji.id)
+      const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a': ''}:${emoji.name}:${emoji.id}>`)
       ctx.send(`${getEmoji.mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
     } catch {
       return ctx.replyT('error', 'commands:addemoji.error')

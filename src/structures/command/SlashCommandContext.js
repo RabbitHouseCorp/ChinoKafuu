@@ -125,7 +125,7 @@ module.exports = class SlashCommandContext extends CommandContext {
     if (!args) return false
     if (args.includes('%')) args = decodeURIComponent(args)
     if (!args.includes(':')) {
-      const emoji = this.interactionMessage.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.interactionMessage.guild.emojis.find(emoji => emoji.id === args)
+      const emoji = this.interactionMessage.guild.emojis.find(emoji => emoji.id === args)
       if (emoji) {
         return {
           animated: emoji.animated,
