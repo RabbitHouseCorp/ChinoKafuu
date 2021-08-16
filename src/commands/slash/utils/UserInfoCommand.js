@@ -56,49 +56,10 @@ module.exports = class UserInfoCommand extends Command {
 
   checkPermission(_locale, guild, member) {
     const allowedPerms = []
-    const perms = [
-      'createInstantInvite',
-      'kickMembers',
-      'banMembers',
-      'administrator',
-      'manageChannels',
-      'manageGuild',
-      'addReactions',
-      'viewAuditLog',
-      'voicePrioritySpeaker',
-      'voiceStream',
-      'viewChannel',
-      'sendMessages',
-      'sendTTSMessages',
-      'manageMessages',
-      'embedLinks',
-      'attachFiles',
-      'readMessageHistory',
-      'mentionEveryone',
-      'useExternalEmojis',
-      'viewGuildInsights',
-      'voiceConnect',
-      'voiceSpeak',
-      'voiceMuteMembers',
-      'voiceDeafenMembers',
-      'voiceMoveMembers',
-      'voiceUseVAD',
-      'changeNickname',
-      'manageNicknames',
-      'manageRoles',
-      'manageWebhooks',
-      'manageEmojis',
-      'useSlashCommands',
-      'manageThreads',
-      'usePrivateThreads',
-      'useExternalStickers',
-      'usePublicThreads'
-    ]
+    const perms = guild.members.get(member.id).permissions.array
 
     perms.forEach(perms => {
-      if (guild.members.get(member.id).permissions.array[perms]) {
-        allowedPerms.push(`\`${_locale(`permission:${perms}`)}\``)
-      }
+      allowedPerms.push(`\`${_locale(`permission:${perms}`)}\``)
     })
 
     return allowedPerms
