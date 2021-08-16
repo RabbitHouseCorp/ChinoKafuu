@@ -74,7 +74,7 @@ module.exports = class SlashRunner {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
 
-    if ((command.arguments && ctx.interactioninteraction.command.interface.size < command.arguments)) {
+    if ((command.arguments && ctx.message.command.interface.size < command.arguments)) {
       const aliases = command.aliases
       const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`), command.permissions)
       return helper.help()
