@@ -10,7 +10,7 @@ module.exports = class ClearCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'both',
-        permissions: ['manageMessages', 'readMessageHistory', 'readMessages']
+        permissions: ['manageMessages', 'readMessageHistory', 'viewChannel']
       }],
       slash: new CommandBase()
         .setName('clear')
