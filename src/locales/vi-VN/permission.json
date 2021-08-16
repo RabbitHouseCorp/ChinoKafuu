@@ -28,6 +28,7 @@
   "voiceConnect": "Connect",
   "voiceSpeak": "Speak",
   "voiceMuteMembers": "Mute Members",
+  "voiceRequestToSpeak": "Request to Speak",
   "voiceDeafenMembers": "Deafen Members",
   "voiceMoveMembers": "Move Members",
   "manageWebhooks": "Manage Webhooks",
