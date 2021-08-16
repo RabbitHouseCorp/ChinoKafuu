@@ -9,7 +9,7 @@ module.exports = class ParrotCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'bot',
-        permissions: ['externalEmojis']
+        permissions: ['useExternalEmojis']
       }],
       slash: new CommandBase()
         .setName('congaparrot')
