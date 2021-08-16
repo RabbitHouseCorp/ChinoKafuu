@@ -28,6 +28,7 @@
   "voiceConnect": "接続",
   "voiceSpeak": "発言",
   "voiceMuteMembers": "メンバーをミユーと",
+  "voiceRequestToSpeak": "Request to Speak",
   "voiceDeafenMembers": "メンバーのスピーをミュート",
   "voiceMoveMembers": "メンバーを移動",
   "manageWebhooks": "ウエブフツクの管理",
