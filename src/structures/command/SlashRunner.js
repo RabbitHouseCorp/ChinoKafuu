@@ -21,7 +21,6 @@ module.exports = class SlashRunner {
     const commandName = interaction.command.commandName
     const command = client.slashCommandRegistry.findByName(commandName)
     if (!command) return
-    console.log(command)
     const ctx = new SlashCommandContext(client, interaction, [], {
       user: userData,
       guild: guildData,
