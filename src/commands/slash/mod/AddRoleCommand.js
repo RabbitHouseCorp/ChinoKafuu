@@ -31,12 +31,13 @@ module.exports = class AddRoleCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.message.command.interface.get('user').value.id)
+    const user = ctx.message.command.interface.get('user').value
+    const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const role = ctx.getRole(ctx.message.command.interface.get('role').value)
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
 
-    const guildMember = ctx.message.guild.members.get(member.id)
+    const guildMember = await ctx.client.getRESTGuildMember(ctx.message.guild.id, member.id)
     guildMember.addRole(role.id)
       .then(() => {
         ctx.replyT('success', 'commands:addrole.success')

@@ -183,7 +183,7 @@ module.exports = class SlashCommandContext extends CommandContext {
 
   getRole(role) {
     if (!role) return false
-    const getRole = this.interaction.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.interactionMessage.guild.roles.get(role.replace(/[<@&>]/g, ''))
+    const getRole = this.interactionMessage.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.interactionMessage.guild.roles.get(role.replace(/[<@&>]/g, ''))
     if (!getRole) return false
     return getRole
   }
