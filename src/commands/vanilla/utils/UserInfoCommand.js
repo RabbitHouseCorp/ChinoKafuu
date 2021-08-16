@@ -87,7 +87,7 @@ module.exports = class UserInfoCommand extends Command {
     ]
 
     perms.forEach(perms => {
-      if (guild.members.get(member.id).permissions.json[perms]) {
+      if (guild.members.get(member.id).permissions.array[perms]) {
         allowedPerms.push(`\`${_locale(`permission:${perms}`)}\``)
       }
     })
