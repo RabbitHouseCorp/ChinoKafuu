@@ -114,12 +114,12 @@
     "mod": "Quản lý ({{0}})",
     "social": "Xã hội ({{0}})",
     "utils": "Tiện ích ({{0}})",
-    "usage": "[command]",
-    "description": "Show my command list to you.",
-    "commandsLoaded": "I have {{0}} public commands loaded.",
+    "usage": "[lệnh]",
+    "description": "Cho bạn thấy toàn bộ khả năng của mình.",
+    "commandsLoaded": "Mình có {{0}} các lệnh công khai đã load.",
     "additionalLinks": {
-      "embedTitle": "Additional Links",
-      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedTitle": "Link Bổ Sung",
+      "embedDescription": "[Mời mình](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
