@@ -128,15 +128,15 @@
     "successffully": "bạn đã tặng cho {{0}} một rep, và giờ, {{0}} đã có `{{1}}` rep.",
     "cooldown": "bình tĩnh nào! Bạn giờ vẫn chưa tăng rep được đâu. Phải đợi thêm `{{0}}` nữa rồi mới cho tiếp được.",
     "usage": "<người dùng>",
-    "description": "Gives a reputation to someone."
+    "description": "Tặng điểm rep (uy tín) cho người khác."
   },
   "marry": {
-    "youNeedToMarry": "you need `{{0}}` more yens to marry.",
-    "theyNeedToMarry": "sorry, but {{0}} need more `{{1}}` yens to marry.",
-    "youAlreadyMarried": "what a shame! You can't marry someone else because you already are.",
-    "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
-    "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
-    "successfullyMarried": "yay! Congratulations, now you both are married.",
+    "youNeedToMarry": "bạn cần thêm `{{0}}` yên nữa để kết hôn.",
+    "theyNeedToMarry": "xin lỗi nhưng, {{0}} cần thêm `{{1}}` yên nữa để cưới.",
+    "youAlreadyMarried": "thật đáng xấu hổ! Bạn không thể cưới thêm người khác nữa bởi vì bạn đã cưới trước rồi.",
+    "theyAlreadyMarried": "bạn không thể làm đám cưới với {{0}} nữa, bởi vì {{0}} đã là hoa có chủ rồi.",
+    "requestConfirm": "{{0}}, bạn có đồng ý để nên duyên với {{1}}, dù là khi mạnh khỏe cũng như lúc đau yếu, khi thịnh vượng cũng như lúc gian nan để yêu nhau và sống hạnh phúc với nhau suốt đời không?",
+    "successfullyMarried": "yay! Xin chúc mừng, từ giờ thì hai người đã chính thức thuộc về nhau.",
     "rejectedRequest": "what a pity. It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of their life. The oracle of love fails once more...",
     "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
     "cannotMarryWithMe": "sorry little usagi. You can't marry with me. I'm sorry, but, I don't love you the same as you love me, I love you, but as, a friend.",
