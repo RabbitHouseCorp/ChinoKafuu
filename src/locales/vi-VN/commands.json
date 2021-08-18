@@ -123,11 +123,11 @@
     }
   },
   "rep": {
-    "cannotGiveRepForYourself": "you can't give reputation to yourself.",
-    "forTheClient": "thank you for giving me a rep point! Now I have `{{0}}` reputations",
-    "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
-    "cooldown": "calm down! You can't give a reputation now. You must wait for `{{0}}` before giving reputation points again.",
-    "usage": "<user>",
+    "cannotGiveRepForYourself": "bạn không thể tự thêm rep cho bản thân.",
+    "forTheClient": "cảm ơn đã cho mình một rep! Giờ mình đã có `{{0}}` rep",
+    "successffully": "bạn đã tặng cho {{0}} một rep, và giờ, {{0}} đã có `{{1}}` rep.",
+    "cooldown": "bình tĩnh nào! Bạn giờ vẫn chưa tăng rep được đâu. Phải đợi thêm `{{0}}` nữa rồi mới cho tiếp được.",
+    "usage": "<người dùng>",
     "description": "Gives a reputation to someone."
   },
   "marry": {
