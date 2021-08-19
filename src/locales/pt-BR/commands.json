@@ -549,7 +549,7 @@
     "description": "Altera o meu idioma no servidor atual.",
     "message": "What's your language?.",
     "helpUs": "Ajude-nos a traduzir",
-    "chooseYourLanguage": "Choose your language here.",
+    "chooseYourLanguage": "Escolha seu idioma aqui.",
     "explaining": "Você pode nos ajudar a traduzir Chino Kafuu para seu idioma acessando o nosso [Crowdin](https://https://crowdin.com/project/chinokafuu). Claro, sua contribuição será recompensada! Você ganhará um cargo no meu servidor de suporte. Obrigado, pequeno coelho, eu te amo (como um amigo, claro)"
   },
   "prefix": {
