@@ -32,16 +32,16 @@ module.exports = class BanInfoCommand extends Command {
   async run(ctx) {
     const guild = ctx.message.guild
     const bans = await guild.getBans()
-    const member = bans.find(ban => ctx.interactionMessage.command.interface.get('user').value.id)
+    const user = ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value
+    const member = bans.find(ban => ban.user.id === user)
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
-
     const embed = new EmbedBuilder()
     embed.setColor('MODERATION')
     embed.setThumbnail(member.user.avatarURL)
     embed.setFooter(ctx._locale('commands:baninfo.unban', { 0: Emoji.getEmoji('heart').mention }))
     embed.setTitle(ctx._locale('commands:baninfo.title'))
     embed.addField(ctx._locale('commands:baninfo.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
-    embed.addField(ctx._locale('commands:baninfo.reason'), member.reason)
+    embed.addField(ctx._locale('commands:baninfo.reason'), member.reason ? member.reason : ctx._locale('basic:noReason'))
 
     ctx.send(embed.build()).then(async (msg) => {
       await msg.addReaction(Emoji.getEmoji('heart').reaction)

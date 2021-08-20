@@ -25,7 +25,6 @@ module.exports = class ClearCommand extends Command {
             .setType(6)
             .setName('user')
             .setDescription('Mention the member on the server')
-            .isRequired()
         )
     })
   }

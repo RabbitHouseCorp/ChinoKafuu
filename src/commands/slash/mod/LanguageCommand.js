@@ -70,7 +70,7 @@ module.exports = class LanguageCommand extends Command {
         const ack = new ResponseAck(message)
 
         ack.on('collect', ({ messageCollect, interaction }) => {
-          if (message.id === messageCollect.id) {
+          if (message.id === messageCollect.id && interaction.buttonEvent.member.id === ctx.message.author.id) {
             selectionMenu.isDisable()
             switch (interaction.values[0]) {
               case 'br': {
