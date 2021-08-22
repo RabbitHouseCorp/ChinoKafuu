@@ -33,12 +33,16 @@ module.exports = class ChatCommand extends Command {
   }
 
   async run(ctx) {
-    const role = ctx.message.guild.roles.get(ctx.message.guild.id)
-    if (ctx.args[0] === 'off') {
-      return ctx.message.channel.editPermission(role.id, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
-    }
-    if (ctx.args[0] === 'on') {
-      return ctx.message.channel.editPermission(role.id, 2048, 0, 'role').then(ctx.replyT('success', 'commands:chat.unlocked'))
+    const role = ctx.message.guild.id
+    switch (ctx.message.command.interface.get('mode').value) {
+      case 'on': {
+        ctx.message.channel.editPermission(role, 2048, 0, 'role').then(ctx.replyT('success', 'commands:chat.unlocked'))
+      }
+        break;
+      case 'off': {
+        ctx.message.channel.editPermission(role, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
+      }
+        break;
     }
   }
 }

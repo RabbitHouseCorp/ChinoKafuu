@@ -27,7 +27,7 @@ module.exports = class AnimeCommand extends Command {
 
   async run(ctx) {
 
-    const search = ctx.interactionMessage.command.interface.get('name').value
+    const search = ctx.message.command.interface.get('name').value
     const t = ctx._locale
     if (!search) return ctx.replyT('error', 'commands:anime.invalidAnime')
 

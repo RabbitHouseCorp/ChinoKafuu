@@ -1,8 +1,5 @@
 const CommandContext = require('./CommandContext')
-const CommandInteractions = require('../interactions/CommandInteractions')
 const Emoji = require('../../utils/EmotesInstance')
-const axios = require('axios')
-
 
 module.exports = class SlashCommandContext extends CommandContext {
   /**
@@ -66,8 +63,6 @@ module.exports = class SlashCommandContext extends CommandContext {
       options: props[0]?.options,
     }, props[0]?.file)
   }
-
-
 
   /**
    *

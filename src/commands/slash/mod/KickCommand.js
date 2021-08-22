@@ -23,16 +23,20 @@ module.exports = class KickCommand extends Command {
             .setType(6)
             .setName('user')
             .setDescription('To kick user.')
-            .isRequired()
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Reason fo the punishment')
         )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0])
+    const member = await ctx.getUser(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
-    const reason = ctx.args[1] ? ctx.args.slice(1).join(' ') : ctx._locale('basic:noReason')
+    const reason = ctx.message.command.interface.get('reason')?.value ?? ctx._locale('basic:noReason')
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
     if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')

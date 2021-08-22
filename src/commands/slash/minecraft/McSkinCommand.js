@@ -16,7 +16,7 @@ module.exports = class McSkinCommand extends Command {
   }
 
   async run(ctx) {
-    const body = `https://minotar.net/skin/${ctx.interactionMessage.command.interface.get('minecraft-nickname').value}`
+    const body = `https://minotar.net/skin/${ctx.message.command.interface.get('minecraft-nickname').value}`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')
     embed.setImage(body)

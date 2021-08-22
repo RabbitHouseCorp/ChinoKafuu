@@ -36,9 +36,9 @@ module.exports = class AnnounceCommand extends Command {
 
   async run(ctx) {
     const guild = ctx.message.guild
-    const channel = guild.channels.get(ctx.interactionMessage.command.interface.get('channel').value.id)
+    const channel = guild.channels.get(ctx.message.command.interface.get('channel').value.id)
     if (!channel) return ctx.replyT('error', 'commands:announce.channelNotFound')
-    const announce = ctx.interactionMessage.command.interface.get('text').value
+    const announce = ctx.message.command.interface.get('text').value
     if (!announce) return ctx.replyT('error', 'commands:announce.argsNotFound')
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')

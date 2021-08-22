@@ -16,7 +16,7 @@ module.exports = class McAvatarCommand extends Command {
   }
 
   async run(ctx) {
-    const body = `https://mc-heads.net/avatar/${ctx.interactionMessage.command.interface.get('minecraft-nickname').value}/256.png`
+    const body = `https://mc-heads.net/avatar/${ctx.message.command.interface.get('minecraft-nickname').value}/256.png`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')
     embed.setImage(body)
