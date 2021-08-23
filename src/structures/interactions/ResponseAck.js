@@ -22,11 +22,9 @@ module.exports = class ResponseAck extends EventEmitter {
                 interaction: new InteractionPacket(packet.d),
                 packet: packet
             }))
-
           }
         }
       }
-
     })
   }
 
