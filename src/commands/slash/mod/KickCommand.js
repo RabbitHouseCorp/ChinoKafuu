@@ -41,7 +41,7 @@ module.exports = class KickCommand extends Command {
     if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
     if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
 
-    const guildMember = ctx.message.guild.members.get(member.id)
+    const guildMember = await ctx.getMember(member.id)
     if (!guildMember) return ctx.replyT('error', 'basic:invalidUser')
     try {
       const embed = new EmbedBuilder()

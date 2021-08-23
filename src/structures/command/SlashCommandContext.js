@@ -12,7 +12,6 @@ module.exports = class SlashCommandContext extends CommandContext {
    */
   constructor(bot, interaction, args, db, _locale) {
     super(bot, interaction.message, args, db, _locale)
-    this.interactionMessage = interaction
     this.message = interaction
     this.args = args
     this.db = db
@@ -26,7 +25,7 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
   async send(content, ...props) {
-    return this.interactionMessage.hook.createMessage({
+    return this.message.hook.createMessage({
       content: (typeof content === 'string') ? content : content.content,
       embeds: content?.embeds,
       components: this.commandInteractions.component,
@@ -42,7 +41,7 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @returns {Promise<Eris.MessageInteraction>}
    */
   async sendT(content, data = {}, ...props) {
-    return this.interactionMessage.hook.createMessage({
+    return this.message.hook.createMessage({
       content: this._locale(content, data),
       components: this.commandInteractions.component,
       options: props[0]?.options
@@ -57,8 +56,8 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
   async reply(emoji, content, ...props) {
-    return this.interactionMessage.hook.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.interactionMessage.member.user.id}>, ${content}`,
+    return this.message.hook.createMessage({
+      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.member.user.id}>, ${content}`,
       components: this.commandInteractions.component,
       options: props[0]?.options,
     }, props[0]?.file)
@@ -73,8 +72,8 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @returns {Promise<Eris.MessageInteraction>}
    */
   async replyT(emoji, content, data = {}, ...props) {
-    return this.interactionMessage.hook.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.interactionMessage.member.user.id}>, ${this._locale(content, data)}`,
+    return this.message.hook.createMessage({
+      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.member.user.id}>, ${this._locale(content, data)}`,
       components: this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
@@ -88,23 +87,23 @@ module.exports = class SlashCommandContext extends CommandContext {
   async getUser(args, hasAuthor = false) {
     if (!args) {
       if (hasAuthor) {
-        return this.interactionMessage.member
+        return this.message.member
       }
 
-      return false
+      return undefined
     }
     try {
       let member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
       return member
     } catch {
-      const member = this.interactionMessage.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.interactionMessage.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
+      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
-          return this.interactionMessage.member
+          return this.message.member
         }
 
-        return false
+        return undefined
       }
 
       return member.user
@@ -117,10 +116,10 @@ module.exports = class SlashCommandContext extends CommandContext {
    */
 
   async getEmoji(args) {
-    if (!args) return false
+    if (!args) return undefined
     if (args.includes('%')) args = decodeURIComponent(args)
     if (!args.includes(':')) {
-      const emoji = this.interactionMessage.guild.emojis.find(emoji => emoji.id === args)
+      const emoji = this.message.guild.emojis.find(emoji => emoji.id === args)
       if (emoji) {
         return {
           animated: emoji.animated,
@@ -142,16 +141,16 @@ module.exports = class SlashCommandContext extends CommandContext {
             url: `https://twemoji.maxcdn.com/2/72x72/${this.toUnicode(args).join('-')}.png`
           }
         } else {
-          return false
+          return undefined
         }
       } catch {
-        return false
+        return undefined
       }
     }
 
     const m = args.match(/<?(?:(a):)?(\w{2,32}):(\d{17,19})?>?/)
-    if (!m) return false
-    if (m[2] && !m[3]) return false
+    if (!m) return undefined
+    if (m[2] && !m[3]) return undefined
 
     return {
       animated: Boolean(m[1]),
@@ -177,17 +176,32 @@ module.exports = class SlashCommandContext extends CommandContext {
 
 
   getRole(role) {
-    if (!role) return false
-    const getRole = this.interactionMessage.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.interactionMessage.guild.roles.get(role.replace(/[<@&>]/g, ''))
-    if (!getRole) return false
+    if (!role) return undefined
+    const getRole = this.message.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.guild.roles.get(role.replace(/[<@&>]/g, ''))
+    if (!getRole) return undefined
     return getRole
   }
 
   getChannel(channel) {
-    if (!channel) return false
+    if (!channel) return undefined
     const getChannel = this.client.getChannel(channel.replace(/[<#>]/g, ''))
-    if (!getChannel) return false
+    if (!getChannel) return undefined
 
     return getChannel
+  }
+
+  async getMember(user) {
+    if (!user) return undefined
+    try {
+      
+      const member = this.message.guild.members.get(user.replace(/<@!>/g, ''))
+      if (member) {
+        return member
+      } else {
+        return await this.client.getRESTGuildMember(this.message.guild.id, user.replace(/<@!>/g, ''))
+      }
+    } catch {
+      return undefined
+    }
   }
 }

@@ -99,7 +99,7 @@ module.exports = class ProfileCommand extends Command {
        */
       }
     }
-
+    const guildMember = await ctx.getMember(member.id) ?? undefined
     axios({
       url: 'http://127.0.0.1:1234/render/profile',
       method: 'post',
@@ -113,7 +113,7 @@ module.exports = class ProfileCommand extends Command {
         bgId: user.background,
         stickerId: user.sticker,
         favColor: user.profileColor,
-        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL,
+        avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
         badges: arrayBadges
       },
       responseType: 'arraybuffer'
