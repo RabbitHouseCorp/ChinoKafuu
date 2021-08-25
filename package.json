@@ -27,7 +27,7 @@
     "mal-scraper": "^2.11.3",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^5.13.7",
+    "mongoose": "^6.0.0",
     "nekos.life": "^2.0.7",
     "os-utils": "^0.0.14",
     "usagiapi": "github:DanielaGC/UsagiAPI#master"
