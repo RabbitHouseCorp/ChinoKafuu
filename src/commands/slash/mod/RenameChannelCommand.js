@@ -13,44 +13,27 @@ module.exports = class RenameChannelCommand extends Command {
       }],
       arguments: 1,
       slash: new CommandBase()
-        .setName('rename')
+        .setName('renamechannel')
         .setDescription('Renames a channel in the current guild.')
         .addOptions(
           new CommandOptions()
-            .setType(1)
-            .setName('emoji')
-            .setDescription('Renames a channel in the current guild.')
-            .addOptions(
-              new CommandOptions()
-                .setType(3)
-                .setName('input')
-                .setDescription('Enter the emoji you are adding to the server.')
-                .isRequired()
-            ),
+            .setName('channel')
+            .setDescription('Mention of the channel who you want rename.')
+            .setType(7)
+            .isRequired(),
           new CommandOptions()
-            .setType(1)
-            .setName('role')
-            .setDescription('Removes a role from a guild member.')
-            .addOptions(
-              new CommandOptions()
-                .setType(7)
-                .setName('channel')
-                .setDescription('Mention member on server.')
-                .isRequired(),
-              new CommandOptions()
-                .setType(3)
-                .setName('new-name')
-                .setDescription('New name for the channel.')
-                .isRequired()
-            ),
+            .setName('name')
+            .setDescription('The new name of the channel.')
+            .setType(3)
+          .isRequired()
         )
     })
   }
 
   run(ctx) {
     const guild = ctx.message.guild
-    const channel = guild.channels.get(ctx.args[0].replace(/[<#>]/g, ''))
-    const name = ctx.args.slice(1).join(' ').replace('&', '＆').replace('|', '│')
+    const channel = guild.channels.get(ctx.message.command.interface.get('channel').value)
+    const name = ctx.message.command.interface.get('name').value.replace('&', '＆').replace('|', '│')
     if (!channel) return ctx.replyT('error', 'commands:renamechannel.channelNotFound')
     if (!name) return ctx.replyT('error', 'commands:renamechannel.invalidName')
     channel.edit({
