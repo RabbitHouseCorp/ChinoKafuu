@@ -193,7 +193,6 @@ module.exports = class SlashCommandContext extends CommandContext {
   async getMember(user) {
     if (!user) return undefined
     try {
-      
       const member = this.message.guild.members.get(user.replace(/<@!>/g, ''))
       if (member) {
         return member
