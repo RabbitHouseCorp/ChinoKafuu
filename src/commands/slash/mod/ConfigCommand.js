@@ -19,70 +19,17 @@ module.exports = class ConfigCommand extends Command {
         .setDescription('Enable and disable some modules who I have in your guild.')
         .addOptions(
           new CommandOptions()
-            .setType(2)
+            .setType(1)
             .setName('animu')
-            .setDescription('Animu Radio')
-            .addOptions(
-              new CommandOptions()
-                .setType(1)
-                .setName('set')
-                .setDescription('Configure Animu Radio')
-                .addOptions(
-                  new CommandOptions()
-                    .setType(7)
-                    .setName('channel')
-                    .setDescription('Mention the text channel.')
-                    .isRequired(),
-                ),
-              new CommandOptions()
-                .setType(1)
-                .setName('disable')
-                .setDescription('Disable the module.'),
-
-            ),
+            .setDescription('Animu Radio'),
           new CommandOptions()
-            .setType(2)
+            .setType(1)
             .setName('mod')
-            .setDescription('Mod Log')
-            .addOptions(
-              new CommandOptions()
-                .setType(1)
-                .setName('set')
-                .setDescription('Set text channel to send logs to the configured channel.')
-                .addOptions(
-                  new CommandOptions()
-                    .setType(7)
-                    .setName('channel')
-                    .setDescription('Mention the text channel.')
-                    .isRequired(),
-                ),
-              new CommandOptions()
-                .setType(1)
-                .setName('disable')
-                .setDescription('Disable the module.'),
-            ),
+            .setDescription('Mod Log'),
           new CommandOptions()
-            .setType(2)
+            .setType(1)
             .setName('report')
-            .setDescription('Report Module')
-            .addOptions(
-              new CommandOptions()
-                .setType(1)
-                .setName('set')
-                .setDescription('Set text channel to send report to the configured channel.')
-                .addOptions(
-                  new CommandOptions()
-                    .setType(7)
-                    .setName('channel')
-                    .setDescription('Mention the text channel.')
-                    .isRequired(),
-
-                ),
-              new CommandOptions()
-                .setType(1)
-                .setName('disable')
-                .setDescription('Disable the module.'),
-            ),
+            .setDescription('Report Module'),
         )
     })
   }

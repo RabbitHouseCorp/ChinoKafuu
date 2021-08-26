@@ -31,6 +31,12 @@ module.exports = class SelectionMenu {
     return this;
   }
   addItem(...items) {
+    if (Array.isArray(items[0])) {
+      for (let itemKey of items[0]) {
+        this.options.push(itemKey.data);
+      }
+      return this;
+    }
     for (const item of items) {
       this.options.push(item.data);
     }
