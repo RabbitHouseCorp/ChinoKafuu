@@ -3,7 +3,7 @@ const SelectionMenu = require('../../../../structures/interactions/SelectionMenu
 const Options = require('../../../../structures/interactions/Options');
 const {ResponseAck} = require("../../../../utils");
 
-module.exports = class ConfigCommand extends Command {
+module.exports = class ModConfigSubCommand extends Command {
     constructor() {
         super({
             name: 'config mod',
