@@ -25,16 +25,16 @@ module.exports = class ConfigCommand extends Command {
             .minValues(1)
             .addItem(
                 new Options()
-                    .setLabel('Configurar')
-                    .addDescription('Configurar o módulo')
+                    .setLabel(ctx._locale('commands:config.config'))
+                    .addDescription(ctx._locale('commands:config.configDescription'))
                     .setValue('set'),
                 new Options()
-                    .setLabel('Desativar')
-                    .addDescription('Desativar o módulo')
+                    .setLabel(ctx._locale('commands:config.disabled'))
+                    .addDescription(ctx._locale('commands:config.disabledDescription'))
                     .setValue('disable')
             )
-            .addPlaceHolder(ctx._locale('commands:language.chooseYourLanguage'))
-            .setCustomID('language-select')
+            .addPlaceHolder(ctx._locale('commands:config.chooseYourAction'))
+            .setCustomID('config-select')
         ctx
             .interaction()
             .components(selectionMenu)
@@ -69,8 +69,8 @@ module.exports = class ConfigCommand extends Command {
                                     .maxValues(1)
                                     .minValues(1)
                                     .addItem(components)
-                                    .addPlaceHolder(ctx._locale('commands:language.chooseYourLanguage'))
-                                    .setCustomID('language-select')
+                                    .addPlaceHolder(ctx._locale('commands:language.selectChannel'))
+                                    .setCustomID('channel-select')
                                 ack.sendAck('update', {
                                     content: `Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___`,
                                     components: [{type: 1, components: [selectionMenuUpdate]}]
