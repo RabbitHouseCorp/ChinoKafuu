@@ -18,8 +18,16 @@ module.exports = class VoiceChannelLeaveListener extends Listener {
       client.player.set(guild.id, song)
     }
 
+    if (newChannel.id !== guildBot.voiceState.channelID) return
+    if (newChannel.voiceMembers.filter(member => member.user.bot === false).length === 0) {
+      await client.lavalink.manager.leave(guild.id)
+      client.lavalink.manager.players.delete(guild.id)
+      client.player.delete(guild.id)
+      return
+    }
+
     if (oldChannel.id !== guildBot.voiceState.channelID) return
-    if (oldChannel.voiceMembers.filter(member => !member.user.bot).length === 0) {
+    if (oldChannel.voiceMembers.filter(member => member.user.bot === false).length === 0) {
       await client.lavalink.manager.leave(guild.id)
       client.lavalink.manager.players.delete(guild.id)
       client.player.delete(guild.id)

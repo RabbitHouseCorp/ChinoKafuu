@@ -1,8 +1,9 @@
 const { EventEmitter } = require('events')
 const { Logger } = require('../utils')
 module.exports = class LavalinkPlayer extends EventEmitter {
-  constructor(player) {
+  constructor(player, clientManager) {
     super()
+    this.clientManager = clientManager
     this.player = player
     this.queue = []
     this.np = ''
@@ -29,11 +30,16 @@ module.exports = class LavalinkPlayer extends EventEmitter {
 
 
   playAnimu() {
-    return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(result => {
-      if (!result[0]) return
-      this._addToQueue(result[0])
-      return result[0].info
-    })
+    if (this.clientManager.track == null) {
+      return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(async result => {
+        if (!result[0]) return
+        this._addToQueue(result[0])
+        return result[0].info
+      })
+    } else {
+      this._addToQueue(this.clientManager.track)
+      return this.clientManager.track.info
+    }
   }
 
   setVolume(value) {
@@ -42,6 +48,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
   }
 
   _addToQueue(track) {
+    this.queue.shift()
     if (!this.player.playing && !this.player.paused) return this._play(track)
     return this.queue.push(track)
   }
@@ -52,7 +59,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
       const queue = this.queue.shift()
       if (!queue) return this.emit('playEnd')
     })
-
+    this.clientManager.track = song
     this.player.play(song.track)
     this.np = song.info
     this.repeatTrack = song.track
