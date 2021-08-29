@@ -14,12 +14,10 @@ module.exports = class AnimuVolumeCommand extends Command {
   run(ctx) {
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
     if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
-    if (!ctx.args[1]) return ctx.replyT('warn', 'commands:animu.currentVolume', { volume: ctx.client.player.get(ctx.message.guild.id).player.state.volume })
-    if (parseInt(ctx.args[1]) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
-    if (parseInt(ctx.args[1]) < 5) return ctx.replyT('error', 'basic:voice.minVolume')
+    if (parseInt(ctx.message.command.interface.get('value').value) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
+    if (parseInt(ctx.message.command.interface.get('value').value) < 5) return ctx.replyT('error', 'basic:voice.minVolume')
 
-    ctx.client.player.get(ctx.message.guild.id).setVolume(ctx.args[1])
+    ctx.client.player.get(ctx.message.guild.id).setVolume(ctx.message.command.interface.get('value').value)
     ctx.replyT('success', 'commands:animu.volumeChanged')
-
   }
 }

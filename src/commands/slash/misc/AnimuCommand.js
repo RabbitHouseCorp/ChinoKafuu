@@ -27,7 +27,14 @@ module.exports = class AnimuCommand extends Command {
           new CommandOptions()
             .setType(1)
             .setName('volume')
-            .setDescription('Change the volume sound.'),
+            .setDescription('Change the volume sound.')
+            .addOptions(
+              new CommandOptions()
+                .setType(4)
+                .setName('value')
+                .setDescription('The value of the volume')
+                .isRequired()
+            ),
           new CommandOptions()
             .setType(1)
             .setName('play')
