@@ -243,6 +243,7 @@
   "animu": {
     "title": "Rádio Animu - A Rádio Mais Moe do Brasil!",
     "nowPlaying": "Tocando Agora",
+    "newNowPlaying": "now playing `{{0}}` with DJ `{{1}}`",
     "totalListening": {
       "title": "Total ouvindo",
       "total": "escutando agora"
