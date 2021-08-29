@@ -30,15 +30,11 @@ module.exports = class SetNickCommand extends Command {
   }
 
   async run(ctx) {
-    const member = ctx.message.mentions[0] || ctx.client.users.get(ctx.args[0])
-    const newNick = ctx.args.slice(1).join(' ')
-
+    const member = await ctx.getMember(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
+    const newNick = ctx.message.command.interface.get('nickname').value
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (!newNick) return ctx.replyT('error', 'commands:setnick.missingNickname')
-
-    const guildMember = ctx.message.guild.members.get(member.id)
     try {
-      await guildMember.edit({
+      await member.edit({
         nick: newNick
       })
       return ctx.replyT('success', 'commands:setnick.success', { member: member.username, nickname: newNick })

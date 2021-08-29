@@ -20,25 +20,23 @@ module.exports = class SoftBanCommand extends Command {
             .setDescription('Mention member on server.')
             .isRequired(),
           new CommandOptions()
+            .setType(3)
+            .setName('reason')
+            .setDescription('Inform reason'),
+          new CommandOptions()
             .setType(4)
             .setName('purge-days')
             .setDescription('Mention the duration')
-            .isRequired(),
-          new CommandOptions()
-            .setType(3)
-            .setName('reason')
-            .setDescription('Inform reason')
-            .isRequired(),
         )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args[0])
+    const member = await ctx.getMember(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
-    const reason = ctx.args.slice(2).join(' ') || ctx._locale('basic:noReason')
-    const days = Number(ctx.args[1]) || 7
+    const reason = ctx.message.command.interface.get('reason')?.value ?? ctx._locale('basic:noReason')
+    const days = Number(ctx.message.command.interface.get('purge-days')?.value) ?? 7
 
     ctx.client.banGuildMember(ctx.message.guildID, member.id, days, ctx._locale('basic:punishment.reason', {
       0: ctx.message.author.username,

@@ -25,7 +25,7 @@ module.exports = class SlowmodeCommand extends Command {
   }
 
   run(ctx) {
-    const time = Math.round(ctx.args[0])
+    const time = Math.round(ctx.message.command.interface.get('time').value)
     if (time > 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')
     if (time < 0) return ctx.replyT('error', 'commands:slowmode.minimalTimeLimited')
     if (time <= 0) {
