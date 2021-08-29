@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../utils')
 
 module.exports = class AnimuVolumeCommand extends Command {
     constructor() {
