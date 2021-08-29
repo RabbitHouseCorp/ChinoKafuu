@@ -4,7 +4,6 @@ module.exports = class AnimuStopCommand extends Command {
   constructor() {
     super({
       name: 'animu leave',
-      aliases: ['module', 'configurações', 'configurar'],
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -13,9 +12,9 @@ module.exports = class AnimuStopCommand extends Command {
   }
 
   async run(ctx) {
-    await ctx.client.lavalink.manager.leave(ctx.message.guildID)
-    ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
-    ctx.client.player.delete(ctx.message.guildID)
+    await ctx.client.lavalink.manager.leave(ctx.message.guild.id)
+    ctx.client.lavalink.manager.players.delete(ctx.message.guild.id)
+    ctx.client.player.delete(ctx.message.guild.id)
 
     ctx.replyT('success', 'commands:animu.leaving')
   }
