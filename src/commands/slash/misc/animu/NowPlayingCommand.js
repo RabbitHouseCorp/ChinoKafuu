@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../utils')
+const { Command, EmbedBuilder } = require('../../../../utils')
 const axios = require('axios')
 
 module.exports = class AnimuNowPlayingCommand extends Command {
