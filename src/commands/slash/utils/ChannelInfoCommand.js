@@ -26,7 +26,7 @@ module.exports = class ChannelInfoCommand extends Command {
   }
 
   async run(ctx) {
-    const args = ctx.message.command.interface.get('channel').value.id
+    const args = ctx.message.command.interface.get('channel').value
     let channel = ctx.client.getChannel(args)
     if (!channel) {
       channel = ctx.message.channel
@@ -43,7 +43,7 @@ module.exports = class ChannelInfoCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(_locale('commands:channelinfo.title', { 0: data.name }))
-    embed.setDescription((data.topic !== null) ? `\`\`\`${data.topic}\`\`\`` : `\`${_locale('commands:channelinfo.noTopic')}\``)
+    embed.setDescription((data.topic && channel.type !== 1) ? `\`\`\`${data.topic}\`\`\`` : `\`${_locale('commands:channelinfo.noTopic')}\``)
     embed.addField(_locale('commands:channelinfo.mention'), `\`${channel?.mention}\`` ?? channel.name, true)
     embed.addField(_locale('commands:channelinfo.channelID'), `\`${data.id}\``, true)
     embed.addField('NSFW', `\`${_locale(`basic:boolean.${data.nsfw}`)}\``, true)
