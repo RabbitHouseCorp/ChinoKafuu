@@ -1,4 +1,3 @@
-const Helper = require('../../../structures/util/Helper')
 const { Command, EmbedBuilder } = require('../../../utils')
 const axios = require('axios')
 const { CommandBase, CommandOptions } = require('eris')
@@ -15,14 +14,19 @@ module.exports = class SetBannerCommand extends Command {
       slash: new CommandBase()
         .setName('setbanner')
         .setDescription('Sets the banner of your server (not available for all servers).')
+        .addOptions(
+          new CommandOptions()
+            .setType(3)
+            .setName('url')
+            .setDescription('The URL of the new banner.')
+            .isRequired()
+        )
     })
   }
 
   async run(ctx) {
     if (!ctx.message.guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:setbanner.missingFeature')
-    if (!ctx.message.attachments[0] && !ctx.args[0]) return new Helper(ctx, this.name, this.aliases, ctx._locale(`commands:${this.name}.usage`, ctx._locale(`commands:${this.name}.description`))).help()
-
-    const url = ctx.args[0] ?? ctx.message.attachments[0].url
+    const url = ctx.message.command.interface.get('url').value
     const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
     const base64Banner = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 
