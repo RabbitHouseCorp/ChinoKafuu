@@ -243,6 +243,7 @@
   "animu": {
     "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
     "nowPlaying": "Now playing",
+    "newNowPlaying": "now playing `{{0}}` with DJ `{{1}}`",
     "totalListening": {
       "title": "Total listening",
       "total": "Listening now"
