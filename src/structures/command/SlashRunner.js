@@ -14,7 +14,7 @@ module.exports = class SlashRunner {
    */
   static async run(client, interaction) {
     const userData = await client.database.users.getOrCreate(interaction.member.id, { shipValue: Math.floor(Math.random() * 55) })
-    const guildData = await client.database.guilds.getOrCreate(interaction.guildID)
+    const guildData = await client.database.guilds.getOrCreate(interaction.guild.id)
     const blacklist = new BlacklistUtils(client)
     if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
     const _locale = client.i18nRegistry.getT(guildData.lang)

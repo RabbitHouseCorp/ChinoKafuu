@@ -43,9 +43,9 @@ module.exports = class RepCommand extends Command {
     const time = (parseInt(author.repTime) - Date.now() > 3600000) ? moment.utc(parseInt(author.time - Date.now())).format('hh:mm:ss') : moment.utc(parseInt(author.repTime - Date.now())).format('mm:ss')
     if (parseInt(author.repTime) < Date.now()) {
       author.repTime = 3600000 + Date.now()
-      user.rep += 1
+      receiver.rep += 1
       author.save()
-      user.save().then(() => {
+      receiver.save().then(() => {
         ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: user.rep })
       })
     } else {
