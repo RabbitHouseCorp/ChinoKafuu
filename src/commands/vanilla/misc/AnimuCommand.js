@@ -31,12 +31,12 @@ module.exports = class AnimuCommand extends Command {
     if (!['play', 'join', 'tocar', 'entrar', 'volume', 'vol', 'nowplaying', 'tocandoagora', 'np', 'tocando', 'stop', 'leave', 'parar', 'sair'].includes(ctx.args[0])) return ctx.send(argsNullEmbed.build())
 
     if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0].toLowerCase())) {
-      if (ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
+      if (ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
       const song = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)
       song.playAnimu()
-      ctx.client.player.set(ctx.message.guildID, song)
+      ctx.client.player.set(ctx.message.guild.id, song)
       song.on('playNow', (track) => {
-        const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
+        const volume = ctx.client.player.get(ctx.message.guild.id).player.state.volume
         const embed = new EmbedBuilder()
         embed.setColor('ANIMU')
         embed.setAuthor(track.info.title)
@@ -51,9 +51,9 @@ module.exports = class AnimuCommand extends Command {
       })
 
       song.on('playEnd', async () => {
-        await ctx.client.lavalink.manager.leave(ctx.message.guildID)
-        ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
-        ctx.client.player.delete(ctx.message.guildID)
+        await ctx.client.lavalink.manager.leave(ctx.message.guild.id)
+        ctx.client.lavalink.manager.players.delete(ctx.message.guild.id)
+        ctx.client.player.delete(ctx.message.guild.id)
       })
 
       return
@@ -61,12 +61,12 @@ module.exports = class AnimuCommand extends Command {
 
     if (['volume', 'vol'].includes(ctx.args[0].toLowerCase())) {
       if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
-      if (!ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerNotFound')
-      if (!ctx.args[1]) return ctx.replyT('warn', 'commands:animu.currentVolume', { volume: ctx.client.player.get(ctx.message.guildID).player.state.volume })
+      if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
+      if (!ctx.args[1]) return ctx.replyT('warn', 'commands:animu.currentVolume', { volume: ctx.client.player.get(ctx.message.guild.id).player.state.volume })
       if (parseInt(ctx.args[1]) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
       if (parseInt(ctx.args[1]) < 5) return ctx.replyT('error', 'basic:voice.minVolume')
 
-      ctx.client.player.get(ctx.message.guildID).setVolume(ctx.args[1])
+      ctx.client.player.get(ctx.message.guild.id).setVolume(ctx.args[1])
       ctx.replyT('success', 'commands:animu.volumeChanged')
 
       return
@@ -74,8 +74,8 @@ module.exports = class AnimuCommand extends Command {
 
     if (['nowplaying', 'tocandoagora', 'np', 'tocando'].includes(ctx.args[0].toLowerCase())) {
       if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
-      if (!ctx.client.player.has(ctx.message.guildID)) return ctx.replyT('error', 'basic:voice.playerNotFound')
-      const volume = ctx.client.player.get(ctx.message.guildID).player.state.volume
+      if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
+      const volume = ctx.client.player.get(ctx.message.guild.id).player.state.volume
       const embed = new EmbedBuilder()
       embed.setColor('ANIMU')
       embed.setAuthor('Rádio Animu')
@@ -92,9 +92,9 @@ module.exports = class AnimuCommand extends Command {
     }
 
     if (['stop', 'leave', 'parar', 'sair'].includes(ctx.args[0].toLowerCase())) {
-      await ctx.client.lavalink.manager.leave(ctx.message.guildID)
-      ctx.client.lavalink.manager.players.delete(ctx.message.guildID)
-      ctx.client.player.delete(ctx.message.guildID)
+      await ctx.client.lavalink.manager.leave(ctx.message.guild.id)
+      ctx.client.lavalink.manager.players.delete(ctx.message.guild.id)
+      ctx.client.player.delete(ctx.message.guild.id)
 
       ctx.replyT('success', 'commands:animu.leaving')
     }

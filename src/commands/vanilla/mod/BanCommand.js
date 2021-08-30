@@ -27,7 +27,7 @@ module.exports = class BanCommand extends Command {
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
 
     try {
-      ctx.client.banGuildMember(ctx.message.guildID, member.id, 7, reason).then(() => {
+      ctx.client.banGuildMember(ctx.message.guild.id, member.id, 7, reason).then(() => {
         const embed = new EmbedBuilder()
         embed.setColor('MODERATION')
         embed.setThumbnail(member.avatarURL)

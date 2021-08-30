@@ -11,9 +11,9 @@ module.exports = class CommandRunner {
     }
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-    const guildData = await client.database.guilds.getOrCreate(message.guildID)
+    const guildData = await client.database.guilds.getOrCreate(message.guild.id)
     const blacklist = new BlacklistUtils(client)
-    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guildID)
+    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guild.id)
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
     AwayFromKeyboardUtils(client, message, _locale)
@@ -61,7 +61,7 @@ module.exports = class CommandRunner {
     }, _locale)
 
     if (message.member.permissions.has('manageGuild')) {
-      ctx.sendT('basic:migrateToSlashCommand', { 0: client.user.id, 1: message.guildID })
+      ctx.sendT('basic:migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id })
     }
 
     const permissions = new CommandPermissions(client, message.member, message.guild)

@@ -32,7 +32,7 @@ module.exports = class CommandContext {
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
-        guildID: this.message.guildID
+        guildID: this.message.guild.id
       },
       components: this.commandInteractions.component,
       options: props[0]?.options
@@ -52,7 +52,7 @@ module.exports = class CommandContext {
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
-        guildID: this.message.guildID
+        guildID: this.message.guild.id
       },
       components: this.commandInteractions.component,
       options: props[0]?.options
@@ -72,7 +72,7 @@ module.exports = class CommandContext {
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
-        guildID: this.message.guildID
+        guildID: this.message.guild.id
       },
       components: this.commandInteractions.component,
       options: props[0]?.options,
@@ -95,7 +95,7 @@ module.exports = class CommandContext {
       messageReference: {
         messageID: this.message.id,
         channelID: this.message.channel.id,
-        guildID: this.message.guildID
+        guildID: this.message.guild.id
       },
       components: this.commandInteractions.component,
       options: props[0]?.options

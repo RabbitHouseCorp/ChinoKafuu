@@ -38,7 +38,7 @@ module.exports = class SoftBanCommand extends Command {
     const reason = ctx.message.command.interface.get('reason')?.value ?? ctx._locale('basic:noReason')
     const days = Number(ctx.message.command.interface.get('purge-days')?.value) ?? 7
 
-    ctx.client.banGuildMember(ctx.message.guildID, member.id, days, ctx._locale('basic:punishment.reason', {
+    ctx.client.banGuildMember(ctx.message.guild.id, member.id, days, ctx._locale('basic:punishment.reason', {
       0: ctx.message.author.username,
       1: reason
     }))
@@ -53,7 +53,7 @@ module.exports = class SoftBanCommand extends Command {
         embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
         ctx.send(embed.build())
-        ctx.client.unbanGuildMember(ctx.message.guildID, member.id)
+        ctx.client.unbanGuildMember(ctx.message.guild.id, member.id)
         if (ctx.db.guild.punishModule && ctx.db.guild.punishChannel) {
           const channel = ctx.db.guild.punishChannel
           const guildChannel = ctx.message.guild.channels.get(channel)
