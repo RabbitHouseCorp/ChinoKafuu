@@ -548,7 +548,7 @@
   },
   "language": {
     "description": "Change my language in the current guild.",
-    "message": "What's your language?.",
+    "message": "What's your language?",
     "helpUs": "Help us translating",
     "chooseYourLanguage": "Choose your language here.",
     "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
