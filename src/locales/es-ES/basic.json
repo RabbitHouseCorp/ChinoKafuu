@@ -63,7 +63,7 @@
   "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
   "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
   "migrate": {
-    "migrateTitle": "Slash commands is here!",
+    "migrateTitle": "Slash commands are here!",
     "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! <a:chino_petpet:760564885280784405>"
   }
 }
