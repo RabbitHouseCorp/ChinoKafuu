@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
       embed.setColor('DEFAULT')
       embed.setAuthor(message.author.username, message.author.avatarURL)
       embed.setThumbnail(invite.guild.iconURL)
-      embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=8560045566&guild_id=${invite.guild.id})`)
+      embed.setDescription(`Hey, here is my invite to add me on \`${invite.guild.name}\`:\n\n[Minimal permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=71158976&guild_id=${invite.guild.id})\n[Recommended permissions](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot%20applications.commands&permissions=8560045566&guild_id=${invite.guild.id})`)
       dmChannel.createMessage(embed.build())
     } catch (err) {
       return console.log(err)
