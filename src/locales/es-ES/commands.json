@@ -548,7 +548,7 @@
   },
   "language": {
     "description": "Cambia mi idioma en el servidor actual.",
-    "message": "Cual es tu idioma?",
+    "message": "What's your language?",
     "helpUs": "Ayúdanos a traducir",
     "chooseYourLanguage": "Elige tu idioma aquí.",
     "explaining": "Puedes ayudarnos a traducir Chino Kafuu a tu idioma accediendo a nuestro [Crowdin](https://crowdin.com/project/chinokafuu). ¡Por supuesto, tu contribución será recompensada! Ganarás un rol en mi servidor de soporte. Gracias, pequeño conejo, te amo (como un amigo, por supuesto)"
