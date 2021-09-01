@@ -62,9 +62,9 @@
   "favcolor": {
     "description": "Cambia el color de tu perfil a tu color favorito.",
     "usage": "<#color>",
-    "invalidColor": "the color you've chosen is invalid.",
+    "invalidColor": "el color que has escogido no es válida.",
     "poorUser": "necesitas más `{{0}}` yenes para cambiar tu color favorito.",
-    "successfullyChanged": "sure. I have successfully changed your favorite color."
+    "successfullyChanged": "ok. He cambiado con éxito tu color favorito."
   },
   "profile": {
     "description": "Muestra tu perfil social o el perfil social de alguien.",
@@ -243,7 +243,7 @@
   "animu": {
     "title": "Radio Animu - ¡La Radio más Moe de Brasil!",
     "nowPlaying": "Reproduciendo ahora",
-    "newNowPlaying": "now playing `{{0}}` with DJ `{{1}}`",
+    "newNowPlaying": "ahora reproduciendo `{{0}}` con el DJ `{{1}}`",
     "totalListening": {
       "title": "Total escuchando",
       "total": "Escuchando ahora"
@@ -314,7 +314,7 @@
       "PRIVATE_THREADS": "Hilos privados",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
       "THREADS_ENABLED": "Hilo habilitado",
-      "ROLE_ICONS": "Role Icons"
+      "ROLE_ICONS": "Ícono del Rol"
     },
     "booster": {
       "title": "Nitro Booster",
@@ -548,10 +548,10 @@
   },
   "language": {
     "description": "Cambia mi idioma en el servidor actual.",
-    "message": "What's your language?.",
+    "message": "Cual es tu idioma?",
     "helpUs": "Ayúdanos a traducir",
-    "chooseYourLanguage": "Choose your language here.",
-    "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+    "chooseYourLanguage": "Elige tu idioma aquí.",
+    "explaining": "Puedes ayudarnos a traducir Chino Kafuu a tu idioma accediendo a nuestro [Crowdin](https://crowdin.com/project/chinokafuu). ¡Por supuesto, tu contribución será recompensada! Ganarás un rol en mi servidor de soporte. Gracias, pequeño conejo, te amo (como un amigo, por supuesto)"
   },
   "prefix": {
     "success": "¡Entendido! El nuevo prefijo es ahora `{{prefix}}`",
