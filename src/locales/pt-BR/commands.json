@@ -551,7 +551,7 @@
     "message": "Qual é o seu idioma?.",
     "helpUs": "Ajude-nos a traduzir",
     "chooseYourLanguage": "Escolha seu idioma aqui.",
-    "explaining": "Você pode nos ajudar a traduzir Chino Kafuu para seu idioma acessando o nosso [Crowdin](https://https://crowdin.com/project/chinokafuu). Claro, sua contribuição será recompensada! Você ganhará um cargo no meu servidor de suporte. Obrigado, pequeno coelho, eu te amo (como um amigo, claro)"
+    "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
   },
   "prefix": {
     "success": "entendido! O novo prefixo agora é `{{prefix}}`",
