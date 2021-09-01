@@ -62,5 +62,8 @@
   "cooldownLowThanZero": "một số",
   "disabledCommand": "xin lỗi, lệnh này có vẻ gặp đôi chút vấn đề nên tạm thời đã bị vô hiệu hóa\n**Lý do:** `{{0}}`",
   "blockedChannel": "bạn không được phép dùng lệnh này ở đây, hãy đến {{0}} và thử lại.",
-  "migrateToSlashCommand": "Này! Sau tháng một 2022 thì mình chỉ phản hồi những câu lệnh slash `/` thôi. Vậy nên, nếu bạn muốn tiếp tục sử dụng mình thì phải add mình lại nha. Nhanh mà, bấm vô link này là đc: <https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}>, bạn cũng không cần phải kick mình ra đâu, chỉ cần bấm vô cái link đó là được. Cám ơn! <a:chino_petpet:760564885280784405>"
+  "migrate": {
+    "migrateTitle": "Slash commands is here!",
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! <a:chino_petpet:760564885280784405>"
+  }
 }
