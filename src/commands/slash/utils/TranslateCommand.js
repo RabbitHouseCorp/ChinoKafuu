@@ -40,7 +40,7 @@ module.exports = class TranslateCommand extends Command {
 
     let letters = []
     for (let translateOutput of res.data[0]) {
-      letters.push(translateOutput[0])
+      letters.push(translateOutput[0].trim())
     }
 
     ctx.reply('map', letters.join(' '))
