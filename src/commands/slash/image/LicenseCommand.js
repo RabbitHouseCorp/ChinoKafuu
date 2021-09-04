@@ -1,3 +1,4 @@
+// FIXME
 const { Command } = require('../../../utils')
 const axios = require('axios')
 const { CommandBase, CommandOptions } = require('eris')
@@ -30,7 +31,7 @@ module.exports = class LicenseCommand extends Command {
 
   async run(ctx) {
     const guild = ctx.message.guild
-    let member = await ctx.getUser(ctx.message.command.interface.get('user').value.id, true)
+    let member = await ctx.getUser(ctx.message.command.interface.get('user')?.value?.id ?? ctx.message.command.interface.get('user')?.value, true)
     let hoist
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles
@@ -47,13 +48,13 @@ module.exports = class LicenseCommand extends Command {
       method: 'post',
       data: {
         name: member.username,
-        text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.member.id) ? ctx.message.command.interface.get('text').value || ctx._locale('commands:license.beCute') : ctx.message.command.interface.get('text').value || ctx._locale('commands:license.beCute')}`,
+        text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.message.command.interface.get('text')?.value || ctx._locale('commands:license.beCute') : ctx.message.command.interface.get('text')?.value || ctx._locale('commands:license.beCute')}`,
         hexColor: highRole,
-        avatarUrl: ctx.message.guild.members.get(ctx.message.command.interface.get('user').value.id)?.guildAvatar ?? member.dynamicAvatarURL('png', 2048)
+        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
       },
       responseType: 'arraybuffer'
     })
 
-    ctx.send('', { file: { file: buffer.data, name: 'license.png' } })
+    ctx.message.hook.createMessage('owo', { file: buffer.data, name: 'license.png' })
   }
 }
