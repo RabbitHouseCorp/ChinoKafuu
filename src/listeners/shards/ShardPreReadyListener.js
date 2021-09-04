@@ -8,6 +8,7 @@ module.exports = class ShardPreReadyListener extends Listener {
   }
 
   async on(client, shardID) {
+    if (!process.env.SHARD_CHANNEL_LOG) return
     client.getRESTChannel(process.env.SHARD_CHANNEL_LOG).then(async (channel) => {
       if (!channel) return
       const webhooks = await channel.getWebhooks()

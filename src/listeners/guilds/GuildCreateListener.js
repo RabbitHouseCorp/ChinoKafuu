@@ -15,7 +15,7 @@ module.exports = class GuildCreateListener extends Listener {
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
     const blacklist = new BlacklistUtils(client)
-
+    if (!process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG) return
     client.getRESTChannel(process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG).then(async (channel) => {
       if (!channel) return
       const webhooks = await channel.getWebhooks()

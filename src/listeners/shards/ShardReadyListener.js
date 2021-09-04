@@ -8,6 +8,7 @@ module.exports = class ShardReadyListener extends Listener {
   }
 
   async on(client, shardID) {
+    if (!process.env.SHARD_CHANNEL_LOG) return
     client.shardUptime.set(shardID, {
       shardID,
       uptime: Date.now()

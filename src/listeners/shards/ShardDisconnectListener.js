@@ -12,7 +12,7 @@ module.exports = class ShardDisconnectListener extends Listener {
       shardID,
       uptime: NaN
     })
-
+    if (!process.env.SHARD_CHANNEL_LOG) return
     client.getRESTChannel(process.env.SHARD_CHANNEL_LOG).then(async (channel) => {
       if (!channel) return
       const webhooks = await channel.getWebhooks()
