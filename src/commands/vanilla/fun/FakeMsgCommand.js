@@ -20,8 +20,8 @@ module.exports = class FakeMsgCommand extends Command {
     const args = ctx.args.slice(1).join(' ')
     if (!args) return ctx.replyT('error', 'commands:fakemsg.argsNull')
     let webhook = await ctx.message.channel.getWebhooks()
-    webhook = webhook.filter(webhook => webhook.name === 'Fake Message')[0]
-    if (!webhook || webhook.user.id !== ctx.client.user.id) {
+    webhook = webhook.filter(webhook => webhook.name === 'Fake Message' && webhook.user.id === ctx.client.user.id)[0]
+    if (!webhook) {
       webhook = await ctx.message.channel.createWebhook({
         name: 'Fake Message',
         options: {
