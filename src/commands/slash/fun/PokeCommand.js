@@ -28,8 +28,7 @@ module.exports = class PokeCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.args.get('user').value
-    const member = await ctx.getUser(user?.id ?? user)
+    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const img = await usagi.get({ endpoint: 'poke' })
     const embed = new EmbedBuilder()

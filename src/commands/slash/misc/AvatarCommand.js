@@ -31,8 +31,7 @@ module.exports = class AvatarCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user?.id ?? user, true)
+    const member = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, true)
     let avatar = member.avatarURL
 
     if (ctx.args.get('argument')?.value) {

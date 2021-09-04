@@ -34,8 +34,7 @@ module.exports = class BanCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.args.get('user').value?.id ?? ctx.args.get('user').value
-    const member = await ctx.getUser(user)
+    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     const guildMember = ctx.message.guild.members.get(member.id)
     const reason = ctx._locale('basic:punishment.reason', {
       0: `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator}`, 1: ctx.args.get('reason') ?
