@@ -27,7 +27,7 @@ module.exports = class RemoveEmojiCommand extends Command {
 
   async run(ctx) {
     const guild = ctx.message.guild
-    const getEmoji = await ctx.getEmoji(ctx.message.command.interface.get('emoji').value)
+    const getEmoji = await ctx.getEmoji(ctx.args.get('emoji').value)
     const emoji = guild.emojis.find(emoji => emoji.id === getEmoji.id)
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
 

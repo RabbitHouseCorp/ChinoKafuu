@@ -31,12 +31,12 @@ module.exports = class PayCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.message.command.interface.get('user').value
+    const user = ctx.args.get('user').value
     const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
     const fromUser = ctx.db.user
-    const value = ctx.message.command.interface.get('amount').value
+    const value = ctx.args.get('amount').value
     const toUser = await ctx.db.db.getOrCreate(member.id)
 
     if (ctx.message.member.id === member.id) return ctx.replyT('error', 'commands:pay.userMismatch')
@@ -60,7 +60,7 @@ module.exports = class PayCommand extends Command {
       .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
       .then(message => {
         const ack = new ResponseAck(message)
-        ack.on('collect', ({packet}) => {
+        ack.on('collect', ({ packet }) => {
           const data = packet
           if ((data.d.member.user.id !== message.mentions[0].id && message.member.id === ctx.client.user.id)) return
           switch (data.d.data.custom_id) {

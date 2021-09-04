@@ -21,25 +21,12 @@ module.exports = class SlashRunner {
     const commandName = interaction.command.commandName
     const command = client.slashCommandRegistry.findByName(commandName)
     if (!command) return
-    const ctx = new SlashCommandContext(client, interaction, [], {
+    const ctx = new SlashCommandContext(client, interaction, interaction.command.interface, {
       user: userData,
       guild: guildData,
       db: client.database.users
     }, _locale)
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
-    // try {
-    //   const botPermissionsOnChannel = permissions.botHasOnChannel(interaction.channel, [{
-    //     entity: 'bot',
-    //     permissions: ['sendMessages', 'readMessageHistory']
-    //   }])
-
-    //   if (botPermissionsOnChannel.length > 0) {
-    //     const channel = await interaction.author.getDMChannel()
-    //     return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: interaction.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: interaction.channel.mention }))
-    //   }
-    // } catch {
-    //   return
-    // }
 
     if (userData?.blacklist) {
       const avatar = interaction.member.user.avatarURL
@@ -61,20 +48,15 @@ module.exports = class SlashRunner {
 
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
-    // const botPermissionsOnChannel = permissions.botHasOnChannel(interaction.channel, command.permissions)
-
-    // if (botPermissionsOnChannel.length > 0) {
-    //   return interaction.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: interaction.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: interaction.channel.mention }))
-    // }
-
     if (userPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
+
     if (botPermissions.length > 0) {
       return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
 
-    if ((command.arguments && ctx.message.command.interface.size < command.arguments)) {
+    if ((command.arguments && ctx.args.size < command.arguments)) {
       const aliases = command.aliases
       const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`), command.permissions)
       return helper.help()

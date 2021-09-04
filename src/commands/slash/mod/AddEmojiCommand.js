@@ -32,8 +32,8 @@ module.exports = class AddEmojiCommand extends Command {
   }
 
   async run(ctx) {
-    const name = ctx.message.command.interface.get('name').value
-    const url = ctx.message.command.interface.get('url').value
+    const name = ctx.args.get('name').value
+    const url = ctx.args.get('url').value
     if (!name || !url) {
       return ctx.replyT('error', 'basic:missingArgs', {
         prefix: ctx.db.guild.prefix,
@@ -48,7 +48,7 @@ module.exports = class AddEmojiCommand extends Command {
         name: name,
         image: base64Emoji
       })
-      const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a': ''}:${emoji.name}:${emoji.id}>`)
+      const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}>`)
       ctx.send(`${getEmoji.mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
     } catch {
       return ctx.replyT('error', 'commands:addemoji.error')

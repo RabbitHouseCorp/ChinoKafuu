@@ -32,11 +32,11 @@ module.exports = class SoftBanCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getMember(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
+    const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
-    const reason = ctx.message.command.interface.get('reason')?.value ?? ctx._locale('basic:noReason')
-    const days = Number(ctx.message.command.interface.get('purge-days')?.value) ?? 7
+    const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
+    const days = Number(ctx.args.get('purge-days')?.value) ?? 7
 
     ctx.client.banGuildMember(ctx.message.guild.id, member.id, days, ctx._locale('basic:punishment.reason', {
       0: ctx.message.author.username,

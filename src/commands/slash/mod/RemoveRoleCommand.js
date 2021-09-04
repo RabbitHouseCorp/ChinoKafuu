@@ -31,9 +31,9 @@ module.exports = class RemoveRoleCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getMember(ctx.message.command.interface.get('member').value?.id ?? ctx.message.command.interface.get('member').value)
+    const member = await ctx.getMember(ctx.args.get('member').value?.id ?? ctx.args.get('member').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const role = await ctx.getRole(ctx.message.command.interface.get('role').value)
+    const role = await ctx.getRole(ctx.args.get('role').value)
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
     if (!member.roles.includes(role.id)) return ctx.replyT('error', 'commands:removerole.alreadyRemoved')
     member.removeRole(role.id).then(() => {

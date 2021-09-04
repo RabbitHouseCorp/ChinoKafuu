@@ -28,7 +28,7 @@ module.exports = class MangaCommand extends Command {
   }
 
   async run(ctx) {
-    const search = ctx.message.command.interface.get('name').value
+    const search = ctx.args.get('name').value
     const t = ctx._locale
     if (!search) return ctx.replyT('error', 'commands:manga.invalidManga')
 

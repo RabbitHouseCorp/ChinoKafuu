@@ -25,15 +25,15 @@ module.exports = class RenameChannelCommand extends Command {
             .setName('name')
             .setDescription('The new name of the channel.')
             .setType(3)
-          .isRequired()
+            .isRequired()
         )
     })
   }
 
   run(ctx) {
     const guild = ctx.message.guild
-    const channel = guild.channels.get(ctx.message.command.interface.get('channel').value)
-    const name = ctx.message.command.interface.get('name').value.replace('&', '＆').replace('|', '│')
+    const channel = guild.channels.get(ctx.args.get('channel').value)
+    const name = ctx.args.get('name').value.replace('&', '＆').replace('|', '│')
     if (!channel) return ctx.replyT('error', 'commands:renamechannel.channelNotFound')
     if (!name) return ctx.replyT('error', 'commands:renamechannel.invalidName')
     channel.edit({

@@ -30,8 +30,8 @@ module.exports = class SetNickCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getMember(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
-    const newNick = ctx.message.command.interface.get('nickname').value
+    const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    const newNick = ctx.args.get('nickname').value
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     try {
       await member.edit({

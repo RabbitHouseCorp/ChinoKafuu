@@ -28,8 +28,8 @@ module.exports = class TranslateCommand extends Command {
   }
 
   async run(ctx) {
-    const language = ctx.message.command.interface.get('language').value
-    let content = ctx.message.command.interface.get('text').value
+    const language = ctx.args.get('language').value
+    let content = ctx.args.get('text').value
 
     if (!content) {
       content = 'I\'m a little girl'

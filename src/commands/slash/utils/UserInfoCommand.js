@@ -26,7 +26,7 @@ module.exports = class UserInfoCommand extends Command {
 
   async run(ctx) {
     moment.locale(ctx.db.guild.lang)
-    const user = ctx.message.command.interface.get('user')?.value
+    const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user, true)
     let hoist
     const guildMember = await ctx.getMember(member.id)

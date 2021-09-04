@@ -32,7 +32,7 @@ module.exports = class BanInfoCommand extends Command {
   async run(ctx) {
     const guild = ctx.message.guild
     const bans = await guild.getBans()
-    const user = ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value
+    const user = ctx.args.get('user').value?.id ?? ctx.args.get('user').value
     const member = bans.find(ban => ban.user.id === user)
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
     const embed = new EmbedBuilder()

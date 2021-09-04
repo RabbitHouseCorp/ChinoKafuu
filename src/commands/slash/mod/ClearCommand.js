@@ -30,10 +30,10 @@ module.exports = class ClearCommand extends Command {
   }
 
   async run(ctx) {
-    const quantity = ctx.message.command.interface.get('quantity').value
+    const quantity = ctx.args.get('quantity').value
     if (quantity > 100) return ctx.replyT('error', 'commands:clear.limit')
     if (isNaN(quantity)) return ctx.replyT('error', 'commands:clear.nan')
-    const user = await ctx.getUser(ctx.message.command.interface.get('user')?.value?.id ?? ctx.message.command.interface.get('user')?.value)
+    const user = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value)
     const filter = user ? ((msg) => msg.author.id === user?.id) : null
     ctx.message.channel.purge(Number(quantity), filter).then((msg) => {
       ctx.message.channel.createMessage(`${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:clear.success', { messages: msg })}`).then((msg) => setTimeout(() => msg.delete(), 5000))

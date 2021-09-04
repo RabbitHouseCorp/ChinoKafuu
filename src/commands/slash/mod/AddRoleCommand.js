@@ -31,10 +31,10 @@ module.exports = class AddRoleCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.message.command.interface.get('user').value
+    const user = ctx.args.get('user').value
     const member = await ctx.getMember(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const role = ctx.getRole(ctx.message.command.interface.get('role').value)
+    const role = ctx.getRole(ctx.args.get('role').value)
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
     try {
       member.addRole(role.id)

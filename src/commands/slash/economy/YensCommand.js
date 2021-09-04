@@ -18,7 +18,7 @@ module.exports = class YensCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.message.command.interface.get('user')?.value
+    const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user)
     if (!member) {
       const sugarcube = Number(ctx.db.user?.sugarcube ?? 0).toLocaleString()

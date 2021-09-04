@@ -26,7 +26,7 @@ module.exports = class SetBannerCommand extends Command {
 
   async run(ctx) {
     if (!ctx.message.guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:setbanner.missingFeature')
-    const url = ctx.message.command.interface.get('url').value
+    const url = ctx.args.get('url').value
     const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
     const base64Banner = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
 

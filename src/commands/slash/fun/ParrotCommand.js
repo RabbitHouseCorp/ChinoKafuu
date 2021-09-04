@@ -25,7 +25,7 @@ module.exports = class ParrotCommand extends Command {
   }
 
   async run(ctx) {
-    const quantity = ctx.message.command.interface.get('quantity').value
+    const quantity = ctx.args.get('quantity').value
     if (quantity > 20) return ctx.replyT('error', ctx._locale('commands:congaparrot.maxAllowed'))
     ctx.send('<a:parrot_dance:554489834417291285>'.repeat(quantity))
   }

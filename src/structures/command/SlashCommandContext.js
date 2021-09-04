@@ -6,7 +6,7 @@ module.exports = class SlashCommandContext extends CommandContext {
    *
    * @param bot {Eris.Client}
    * @param message {Eris.Interaction}
-   * @param args {Array<String>}
+   * @param args
    * @param db
    * @param t
    */

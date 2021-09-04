@@ -27,7 +27,7 @@ module.exports = class EmojiCommand extends Command {
   }
 
   async run(ctx) {
-    const emoji = await ctx.getEmoji(ctx.message.command.interface.get('emoji')?.value)
+    const emoji = await ctx.getEmoji(ctx.args.get('emoji')?.value)
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
 
     const buffer = await axios.get(emoji.url, { responseType: 'arraybuffer' }).then(d => d.data)

@@ -16,7 +16,7 @@ module.exports = class McBodyCommand extends Command {
   }
 
   async run(ctx) {
-    const body = `https://mc-heads.net/body/${ctx.message.command.interface.get('minecraft-nickname').value}`
+    const body = `https://mc-heads.net/body/${ctx.args.get('minecraft-nickname').value}`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')
     embed.setImage(body)

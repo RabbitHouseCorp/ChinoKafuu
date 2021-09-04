@@ -31,11 +31,11 @@ module.exports = class AvatarCommand extends Command {
   }
 
   async run(ctx) {
-    const user = ctx.message.command.interface.get('user')?.value
+    const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user, true)
     let avatar = member.avatarURL
 
-    if (ctx.message.command.interface.get('argument')?.value) {
+    if (ctx.args.get('argument')?.value) {
       const guildMember = await ctx.getMember(member.id)
       avatar = guildMember?.guildAvatar ?? member.avatarURL
     }

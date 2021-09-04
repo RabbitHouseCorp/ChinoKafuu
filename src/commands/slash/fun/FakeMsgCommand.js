@@ -31,9 +31,9 @@ module.exports = class FakeMsgCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.message.command.interface.get('user').value?.id ?? ctx.message.command.interface.get('user').value)
+    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const args = ctx.message.command.interface.get('text').value
+    const args = ctx.args.get('text').value
     if (!args) return ctx.replyT('error', 'commands:fakemsg.argsNull')
     let webhook = await ctx.message.channel.getWebhooks()
     webhook = webhook.filter(webhook => webhook.name === 'Fake Message' && webhook.user.id === ctx.client.user.id)[0]

@@ -33,7 +33,7 @@ module.exports = class RoleInfoCommand extends Command {
 
   run(ctx) {
     moment.locale(ctx.db.guild.lang)
-    const role = ctx.message.guild.roles.get(ctx.message.command.interface.get('role').value)
+    const role = ctx.message.guild.roles.get(ctx.args.get('role').value)
     if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')
 
     const embed = new EmbedBuilder()

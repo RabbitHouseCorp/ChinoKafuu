@@ -30,7 +30,7 @@ module.exports = class LaranjoCommand extends Command {
       url: 'http://127.0.0.1:1234/render/laranjo',
       method: 'post',
       data: {
-        text: ctx.message.command.interface.get('text').value
+        text: ctx.args.get('text').value
       },
       responseType: 'arraybuffer'
     })

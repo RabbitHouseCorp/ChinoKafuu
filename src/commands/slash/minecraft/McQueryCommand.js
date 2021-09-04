@@ -17,7 +17,7 @@ module.exports = class McQueryCommand extends Command {
   }
 
   async run(ctx) {
-    const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.message.command.interface.get('minecraft-server-ip').value}`)}`, { responseType: 'json' })
+    const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.args.get('minecraft-server-ip').value}`)}`, { responseType: 'json' })
     const mcserver = body.data
     if (mcserver.online) {
       const embed = new EmbedBuilder()

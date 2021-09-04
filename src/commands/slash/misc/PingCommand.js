@@ -34,7 +34,7 @@ module.exports = class PingCommand extends Command {
   }
 
   async run(ctx) {
-    switch (ctx.message.command.interface.get('options')?.value) {
+    switch (ctx.args.get('options')?.value) {
       case 'shards': {
         const embed = new EmbedBuilder()
         embed.setFooter(ctx._locale('commands:ping.totalShard', { totalShard: ctx.client.shards.size }))

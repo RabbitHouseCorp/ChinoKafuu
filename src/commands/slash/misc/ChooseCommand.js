@@ -22,7 +22,7 @@ module.exports = class ChooseCommand extends Command {
   }
 
   async run(ctx) {
-    const argArray = ctx.message.command.interface.get('choose').value.split(',')
+    const argArray = ctx.args.get('choose').value.split(',')
     const chosen = argArray[Math.floor(Math.random() * argArray.length)].trim()
 
     return ctx.replyT('cocoa_what', 'commands:choose.chosen', { chosen: chosen })
