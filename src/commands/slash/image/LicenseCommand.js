@@ -55,6 +55,6 @@ module.exports = class LicenseCommand extends Command {
       responseType: 'arraybuffer'
     })
 
-    ctx.message.hook.createMessage('owo', { file: buffer.data, name: 'license.png' })
+    ctx.message.hook.createMessage('', { file: buffer.data, name: 'license.png' })
   }
 }
