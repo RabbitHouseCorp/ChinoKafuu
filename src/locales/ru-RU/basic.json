@@ -31,39 +31,39 @@
   },
   "missingArgs": "Недопустимые аргументы! Используйте `{{prefix}}{{commandName}}`, чтобы увидеть правильное использование.",
   "howToUse": "Как этим пользоваться?",
-  "aliases": "Aliases",
+  "aliases": "Псевдонимы",
   "addedToGuild": {
-    "thanks": "Thanks for adding me",
+    "thanks": "Спасибо, что добавили меня",
     "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
     "guildSaved": "Successfully saved the server {{0}} in the database!"
   },
   "noAliases": "This command doesn't have any aliases.",
-  "onMentionAfk": "**{{user}}** is AFK.",
-  "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "onMentionAfk": "**{{user}}** Неактивен.",
+  "onMentionAfkReasoned": "**{{user}}** Неактивен по причине: `{{reason}}`.",
+  "afkRemoval": "{{user}}, так как вы вернулись, я удалю ваш статус неактивного участника.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-    "playerAlreadyPlaying": "The track is already playing.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-    "playerNotFound": "I'm not playing any song",
-    "maxVolume": "calm down! The max volume allowed is `100`.",
-    "minVolume": "calm down! The minimal volume allowed is `5`."
+    "authorAreNotInVoiceChannel": "вы не в голосовом канале.",
+    "playerAlreadyPlaying": "Трек уже проигрывается.",
+    "clientAreNotInVoiceChannel": "Я не в голосовом канале.",
+    "playerNotFound": "Я не играю ни одной песни",
+    "maxVolume": "расслабься! Максимальная допустимая громкость это `100`.",
+    "minVolume": "расслабься! Минимально допустимая громкость это `5`."
   },
   "boolean": {
-    "true": "Yes",
-    "false": "No"
+    "true": "Да",
+    "false": "Нет"
   },
   "guildban": {
     "title": "Guild Banned",
     "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-    "reason": "Reason"
+    "reason": "Причина"
   },
   "cooldown": "please, wait more {{0}} seconds to execute this command again!",
   "cooldownLowThanZero": "some",
   "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
   "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
   "migrate": {
-    "migrateTitle": "Slash commands are here!",
+    "migrateTitle": "Слэш команды уже здесь!",
     "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! <a:chino_petpet:760564885280784405>"
   }
 }
