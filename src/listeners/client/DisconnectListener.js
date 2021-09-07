@@ -8,6 +8,7 @@ module.exports = class DisconnectListener extends Listener {
   }
 
   async on (client) {
+    client.cacheManager.end()
     Logger.shardMessage('Mayday! All shard has died!')
   }
 }

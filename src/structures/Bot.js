@@ -6,11 +6,13 @@ const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
 const CommandCooldown = require('./command/CommandCooldown')
 const SlashCommandRegistry = require('./command/SlashCommandRegistry')
+const CacheManager = require('./util/cache/CacheManager');
 
 module.exports = class Bot extends Client {
           constructor(...data) {
                super(...data)
 
+               this.cacheManager = new CacheManager(this)
                /**
                     *
                     * @type {ListenerRegistry}

@@ -9,6 +9,7 @@ module.exports = class ReadyListener extends Listener {
   }
 
   async on(client) {
+    client.cacheManager.start()
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
     const lavalink = new LavalinkManager(client)
