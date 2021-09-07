@@ -34,6 +34,7 @@ module.exports = class PingCommand extends Command {
   }
 
   async run(ctx) {
+
     switch (ctx.args.get('options')?.value) {
       case 'shards': {
         const embed = new EmbedBuilder()
@@ -74,7 +75,8 @@ module.exports = class PingCommand extends Command {
       }
       default: {
         const msg = await ctx.send(Emoji.getEmoji('ping_pong').mention)
-        const ping = `${Emoji.getEmoji('ping_pong').mention}\nPing: \`${Date.now() - msg.timestamp}\`ms! | API Latency: \`${Math.round(ctx.message.guild.shard.latency)}\`ms! | Shard: [${ctx.message.guild.shard.id}/${ctx.client.shards.size}] | Cluster [${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}]`
+        const ping = `${Emoji.getEmoji('ping_pong').mention}\nPing: \`${Date.now() - msg.timestamp}\`ms! | API Latency: \`${Math.round(ctx.message.guild.shard.latency)}\`ms! | MongoDB: \`${(Date.now() - ctx.ms).toFixed(1)}\`ms | Shard: [${ctx.message.guild.shard.id}/${ctx.client.shards.size}] | Cluster [${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}]`
+
         await msg.edit(ping)
       }
     }

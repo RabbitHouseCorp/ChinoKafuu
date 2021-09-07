@@ -15,7 +15,11 @@ module.exports = class SlashCommandContext extends CommandContext {
     this.message = interaction
     this.args = args
     this.db = db
+    this.embeds = []
     this._locale = _locale
+    this.used = false
+    this.content = {}
+    this.deferMessage = null
   }
 
   /**
@@ -25,12 +29,33 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
   async send(content, ...props) {
-    return this.message.hook.createMessage({
+
+    if (content?.embeds !== undefined) {
+      for (let embed of content?.embeds) {
+        this.embeds.push(embed)
+      }
+    }
+
+    this.content = {
       content: (typeof content === 'string') ? content : content.content,
-      embeds: content?.embeds,
+      embeds: this.embeds,
       components: this.commandInteractions.component,
       options: props[0]?.options
-    }, props[0]?.file)
+    }
+    if (this.used) {
+      const messageFunction = this.deferMessage.deferEdit(this.content, props[0]?.file, 6)
+      this.deferMessage = messageFunction
+      return messageFunction
+    } else {
+
+      this.used = true
+      const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
+      this.deferMessage = messageFunction
+      return messageFunction
+    }
+    const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
+    this.deferMessage = messageFunction
+    return messageFunction
   }
 
   /**

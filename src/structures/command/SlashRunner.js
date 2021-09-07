@@ -13,6 +13,7 @@ module.exports = class SlashRunner {
    * @returns {Promise<Eris.Interaction>}
    */
   static async run(client, interaction) {
+    const ms = Date.now()
     const userData = await client.database.users.getOrCreate(interaction.member.id, { shipValue: Math.floor(Math.random() * 55) })
     const guildData = await client.database.guilds.getOrCreate(interaction.guild.id)
     const blacklist = new BlacklistUtils(client)
@@ -26,6 +27,7 @@ module.exports = class SlashRunner {
       guild: guildData,
       db: client.database.users
     }, _locale)
+    ctx.ms = ms
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
 
     if (userData?.blacklist) {
@@ -72,7 +74,12 @@ module.exports = class SlashRunner {
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
       embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
       embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
-      return ctx.send(embed.build())
+      if (ctx.used) {
+        ctx.embeds.push(embed.build().embeds[0])
+      } else {
+        await ctx.send(embed.build())
+      }
+      return
     }
   }
 }
