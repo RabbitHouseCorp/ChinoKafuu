@@ -75,9 +75,14 @@ module.exports = class PingCommand extends Command {
       }
       default: {
         const msg = await ctx.send(Emoji.getEmoji('ping_pong').mention)
-        const ping = `${Emoji.getEmoji('ping_pong').mention}\nPing: \`${Date.now() - msg.timestamp}\`ms! | API Latency: \`${Math.round(ctx.message.guild.shard.latency)}\`ms! | MongoDB: \`${(Date.now() - ctx.ms).toFixed(1)}\`ms | Shard: [${ctx.message.guild.shard.id}/${ctx.client.shards.size}] | Cluster [${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}]`
+        const embed = new EmbedBuilder()
+        embed.setColor('DEFAULT')
+        embed.addField('Response Latency', `${Date.now() - msg.timestamp}ms`)
+        embed.addField('API Latency', `${Math.round(ctx.message.guild.shard.latency)}ms`)
+        embed.addField('MongoDB Latency', `${(Date.now() - ctx.ms).toFixed(1)}ms`)
+        embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}`)
 
-        await msg.edit(ping)
+        msg.edit(embed.build())
       }
     }
   }
