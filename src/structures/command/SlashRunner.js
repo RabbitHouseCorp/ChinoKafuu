@@ -31,11 +31,10 @@ module.exports = class SlashRunner {
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
 
     if (userData?.blacklist) {
-      const avatar = interaction.member.user.avatarURL
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
-      embed.setAuthor('Você foi banido', avatar)
-      embed.setDescription(`Olá {mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
+      embed.setAuthor('Você foi banido', interaction.member.user.avatarURL)
+      embed.setDescription(`Olá ${interaction.member.user.mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
 
