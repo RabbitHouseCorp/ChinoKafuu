@@ -51,7 +51,7 @@ module.exports = class ReportModConfigSubCommand extends Command {
             switch (interactionType) {
               case 'set': {
                 ctx.message.guild.channels.forEach(value => {
-                  if (!(value.type === 2 || value.type == 13)) {
+                  if (!(value.type === 2 || value.type === 13)) {
                     if (!(value.type === 4)) {
                       if (!(components.length > 24)) {
                         components.push(
@@ -91,7 +91,7 @@ module.exports = class ReportModConfigSubCommand extends Command {
           } else {
             // Select Page
             const channel = ctx.message.guild.channels.get(interaction.values[0])
-            if ((channel == null)) {
+            if ((channel === null)) {
               channels.forEach((value) => {
                 channels.pop()
               })
