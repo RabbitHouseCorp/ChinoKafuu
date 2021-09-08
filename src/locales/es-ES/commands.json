@@ -599,7 +599,24 @@
     "usage": "<opiciones> <set/disable> [canal]",
     "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
     "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
+    "chooseYourAction": "Select the right module.",
+    "select": {
+      "enable": "Active",
+      "enableDescription": "Enable the selected module.",
+      "disable": "Desactive",
+      "disableDescription": "Disable the selected module.",
+      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
+      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___"
+    },
     "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
+    "channel": {
+      "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
+      "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions."
+    },
+    "selected": {
+      "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",
+      "voiceChannel": "Voice channel set to **`{{0}}` (<#{{1}}>)**"
+    },
     "modules": {
       "title": "Módulos",
       "enable": "Activado",
