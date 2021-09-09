@@ -599,12 +599,12 @@
     "usage": "<opções> <set/disable> [canal]",
     "description": "Ativa e desativa alguns módulos que eu tenho no seu servidor.",
     "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
-    "chooseYourAction": "Select the right module.",
+    "chooseYourAction": "Selecione o módulo certo.",
     "select": {
-      "enable": "Active",
-      "enableDescription": "Enable the selected module.",
-      "disable": "Desactive",
-      "disableDescription": "Disable the selected module.",
+      "enable": "Ativa",
+      "enableDescription": "Ativa o módulo selecionado.",
+      "disable": "Desativa",
+      "disableDescription": "Disativa o módulo selecionado.",
       "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
       "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___"
     },
