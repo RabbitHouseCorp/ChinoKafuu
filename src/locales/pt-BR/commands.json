@@ -605,17 +605,17 @@
       "enableDescription": "Ativa o módulo selecionado.",
       "disable": "Desativa",
       "disableDescription": "Disativa o módulo selecionado.",
-      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
-      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___"
+      "textChannel": "Selecione o canal de texto.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
+      "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__"
     },
     "optionsNotFound": "esta opção é inválida, por favor use as opções `set` ou `disable`.",
     "channel": {
-      "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
-      "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions."
+      "voiceNoLongerExist": "Ah não! Parece que este canal de voz não existe mais. Repita as mesmas ações.",
+      "textNoLongerExist": "Ah não! Parece que este canal de texto não existe mais. Repita as mesmas ações."
     },
     "selected": {
-      "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",
-      "voiceChannel": "Voice channel set to **`{{0}}` (<#{{1}}>)**"
+      "textChannel": "Canal de texto foi definido para **`{{0}}` (<#{{1}}>)**",
+      "voiceChannel": "Canal de voz foi definido para **`{{0}}` (<#{{1}}>)**"
     },
     "modules": {
       "title": "Módulos",
