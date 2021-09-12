@@ -601,8 +601,8 @@
     "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
     "chooseYourAction": "Select the right module.",
     "select": {
-      "enable": "Active",
-      "enableDescription": "Enable the selected module.",
+      "enable": "Habilitar",
+      "enableDescription": "Habilita el módulo seleccionado.",
       "disable": "Desactive",
       "disableDescription": "Disable the selected module.",
       "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
