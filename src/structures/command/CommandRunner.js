@@ -11,9 +11,9 @@ module.exports = class CommandRunner {
     }
 
     const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-    const guildData = await client.database.guilds.getOrCreate(message.guildID)
+    const guildData = await client.database.guilds.getOrCreate(message.guild.id)
     const blacklist = new BlacklistUtils(client)
-    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guildID)
+    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guild.id)
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
     AwayFromKeyboardUtils(client, message, _locale)
@@ -54,6 +54,20 @@ module.exports = class CommandRunner {
     const command = client.commandRegistry.findByName(commandName)
     if (!command) return
 
+    const ctx = new CommandContext(client, message, args, {
+      user: userData,
+      guild: guildData,
+      db: client.database.users
+    }, _locale)
+
+    if (message.member.permissions.has('manageGuild')) {
+      const embed = new EmbedBuilder()
+      embed.setColor('DEFAULT')
+      embed.setTitle(ctx._locale('basic:migrate.migrateTitle'))
+      embed.setDescription(ctx._locale('basic:migrate.migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id }))
+      ctx.send(embed.build())
+    }
+
     const permissions = new CommandPermissions(client, message.member, message.guild)
     try {
       const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
@@ -69,12 +83,6 @@ module.exports = class CommandRunner {
       return
     }
 
-
-    const ctx = new CommandContext(client, message, args, {
-      user: userData,
-      guild: guildData,
-      db: client.database.users
-    }, _locale)
     if (typeof client.commandCooldown.users.get(message.author.id) === 'undefined') {
       client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
     } else {
@@ -113,10 +121,9 @@ module.exports = class CommandRunner {
       return
     }
     if (userData?.blacklist) {
-      const avatar = message.author.avatarURL
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
-      embed.setAuthor('Você foi banido', avatar)
+      embed.setAuthor('Você foi banido', message.author.avatarURL)
       embed.setDescription(`Olá ${message.author.mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
@@ -171,6 +178,7 @@ module.exports = class CommandRunner {
       await command.run(ctx)
     } catch (e) {
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
+      client.emit('error', e, message.guild.shard)
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))

@@ -9,6 +9,7 @@ module.exports = class ReadyListener extends Listener {
   }
 
   async on(client) {
+    client.cacheManager.start()
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
     const lavalink = new LavalinkManager(client)
@@ -18,7 +19,7 @@ module.exports = class ReadyListener extends Listener {
     const game = [
       { name: 'Petit Rabbit\'s - Tokimeki Poporon', type: 2 },
       { name: 'Petit Rabbit\'s - Daydream café', type: 2 },
-      { name: 'Petit Rabbit\'s - Tenkuu Cafetaria' },
+      { name: 'Petit Rabbit\'s - Tenkuu Cafeteria' },
       { name: 'Petit Rabbit\'s - No Poi', type: 2 },
       { name: 'Gochuumon wa Usagi Desu Ka?', type: 3 },
       { name: 'Gochuumon wa Usagi Desu ka??: Sing for You', type: 3 },

@@ -33,7 +33,7 @@ module.exports = class GuildBanAddListener extends Listener {
         return
       }
 
-      channel.createMessage({ embed })
+      channel.createMessage(embed.build())
     } catch (err) {
       const server = await client.database.guilds.getOrCreate(guild.id)
       const _locale = client.i18nRegistry.getT(server.lang)
@@ -54,7 +54,7 @@ module.exports = class GuildBanAddListener extends Listener {
         return
       }
 
-      channel.createMessage({ embed })
+      channel.createMessage(embed.build())
     }
   }
 }

@@ -1,6 +1,6 @@
-const { Message } = require("eris")
-const EventEmitter = require("events")
-const InteractionPacket = require("./InteractionPacket")
+const { Message } = require('eris')
+const EventEmitter = require('events')
+const InteractionPacket = require('./InteractionPacket')
 
 module.exports = class ResponseAck extends EventEmitter {
   constructor(message) {
@@ -13,10 +13,16 @@ module.exports = class ResponseAck extends EventEmitter {
     this.user = message.member.user.toJSON()
     this.client.on('rawWS', (packet) => {
       if (packet.t === 'INTERACTION_CREATE') {
-        if (this.message.id === packet.d.message.id) {
-          this.token = packet.d.token
-          this.id = packet.d.id
-          this.emit('collect', (new Message(packet.d.message, this.client), new InteractionPacket(packet.d), packet))
+        if (packet.d.type === 3) {
+          if (this.message.id === packet.d.message.id) {
+            this.token = packet.d.token
+            this.id = packet.d.id
+            this.emit('collect', ({
+                messageCollect: new Message(packet.d.message, this.client),
+                interaction: new InteractionPacket(packet.d),
+                packet: packet
+            }))
+          }
         }
       }
     })
@@ -52,6 +58,7 @@ module.exports = class ResponseAck extends EventEmitter {
       default:
         type = 4
     }
+
     this.client.requestHandler.request("POST", `/interactions/${this.id}/${this.token}/callback`, true, {
       type: type,
       token: this.token,

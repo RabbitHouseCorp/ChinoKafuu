@@ -14,6 +14,11 @@ try {
 module.exports = class LavalinkManager {
   constructor (client) {
     this.client = client
+    /**
+     * @description
+     * @type {TrackData?}
+     */
+    this.track = null;
     this.manager = new Manager(this.client, connect, {
       user: this.client.user.id,
       shards: parseInt(process.env.SHARD_COUNT)
@@ -35,6 +40,6 @@ module.exports = class LavalinkManager {
 
   async join (channel) {
     const manager = await this.manager.join({ channel, guild: this.client.getChannel(channel).guild.id, node: this.getBestHost() }, { selfdeaf: true })
-    return new LavalinkPlayer(manager)
+    return new LavalinkPlayer(manager, this)
   }
 }

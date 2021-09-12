@@ -1,16 +1,15 @@
 const { EventEmitter } = require('events')
 const { Logger } = require('../utils')
 module.exports = class LavalinkPlayer extends EventEmitter {
-  constructor (player) {
+  constructor(player, clientManager) {
     super()
+    this.clientManager = clientManager
     this.player = player
     this.queue = []
     this.np = ''
-    this.repeatTrack = ''
-    this.repeat = false
   }
 
-  async getSongs (node, search) {
+  async getSongs(node, search) {
     const axios = require('axios')
     const { URLSearchParams } = require('url')
     const params = new URLSearchParams()
@@ -29,62 +28,38 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     }
   }
 
-  play (query) {
-    return this.getSongs(this.player.node, `ytsearch:${query}`).then(result => {
-      if (!result[0]) return
-      this._addToQueue(result[0])
-      return result[0].info
-    })
+
+  playAnimu() {
+    if (this.clientManager.track === null) {
+      return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(async result => {
+        if (!result[0]) return
+        this._addToQueue(result[0])
+        return result[0].info
+      })
+    } else {
+      this._addToQueue(this.clientManager.track)
+      return this.clientManager.track.info
+    }
   }
 
-  playAnimu () {
-    return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(result => {
-      if (!result[0]) return
-      this._addToQueue(result[0])
-      return result[0].info
-    })
-  }
-
-  skip () {
-    const queue = this.queue.shift()
-    if (!queue) return
-    this.player.play(queue.track)
-    this.np = queue.info
-    this.repeatTrack = queue.track
-  }
-
-  setVolume (value) {
+  setVolume(value) {
     if (value > 100) value = 100
     return this.player.volume(value)
   }
 
-  pause () {
-    return this.player.paused ? this.player.resume() : this.player.pause()
-  }
-
-  shuffle () {
-    return this.queue.sort(() => Math.random() > 0.5 ? -1 : 1)
-  }
-
-  _addToQueue (track) {
+  _addToQueue(track) {
+    this.queue.shift()
     if (!this.player.playing && !this.player.paused) return this._play(track)
     return this.queue.push(track)
   }
 
-  _play (song) {
+  _play(song) {
     this.player.on('end', (data) => {
       if (data.reason === 'REPLACED') return
-      if (this.repeat) {
-        return this.player.play(this.repeatTrack)
-      } else {
-        const queue = this.queue.shift()
-        if (!queue) return this.emit('playEnd')
-        this.player.play(queue.track)
-        this.repeatTrack = queue.track
-        this.np = queue.info
-      }
+      const queue = this.queue.shift()
+      if (!queue) return this.emit('playEnd')
     })
-
+    this.clientManager.track = song
     this.player.play(song.track)
     this.np = song.info
     this.repeatTrack = song.track

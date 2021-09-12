@@ -11,6 +11,7 @@ module.exports = class VoiceChannelJoinListener extends Listener {
     const voiceChannel = client.guilds.get(guild.id).channels.get(member.voiceState.channelID)
     const server = await client.database.guilds.getOrCreate(guild.id)
     if (!server.animu) return
+
     if (voiceChannel?.id !== server.animuChannel) return
     if (client.player.has(guild.id)) return
     const song = await client.lavalink.join(voiceChannel.id)

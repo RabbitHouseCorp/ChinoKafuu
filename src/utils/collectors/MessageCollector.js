@@ -1,7 +1,7 @@
 const Collector = require('./Collector')
 
 class MessageCollector extends Collector {
-  constructor (channel, filter, options = {}) {
+  constructor(channel, filter, options = {}) {
     super(filter, options)
 
     this.channel = channel
@@ -14,8 +14,8 @@ class MessageCollector extends Collector {
     })
   }
 
-  collect (message) {
-    if (this.ended == true) {
+  collect(message) {
+    if (this.ended === true) {
       /**
              * Someone forgot to implement this. To hold the event
              */

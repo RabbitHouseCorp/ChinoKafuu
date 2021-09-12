@@ -1,13 +1,13 @@
 const Listener = require('../../structures/events/Listener')
-const Logger = require('../../structures/util/Logger')
+const { EmbedBuilder, Logger } = require('../../utils')
 
 module.exports = class ConnectListener extends Listener {
-  constructor () {
+  constructor() {
     super()
     this.event = 'connect'
   }
 
-  async on (client, shardID) {
+  async on(client, shardID) {
     client.shardUptime.set(shardID, {
       shardID,
       uptime: Date.now()

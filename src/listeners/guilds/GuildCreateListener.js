@@ -5,58 +5,59 @@ module.exports = class GuildCreateListener extends Listener {
   constructor() {
     super()
     this.event = 'guildCreate'
-    this.region = {
-      brazil: 'pt-BR',
-      europe: 'en-US',
-      hongkong: 'zh-TW',
-      japan: 'ja-JP',
-      russia: 'ru-RU',
-      singapore: 'zh-TW',
-      southafrica: 'en-US',
-      sydney: 'en-US',
-      'us-central': 'en-US',
-      'us-east': 'en-US',
-      'us-south': 'en-US',
-      'us-west': 'en-US',
-      india: 'en-US'
-    }
   }
 
   async on(client, guild) {
-    const server = await client.database.guilds.getOrCreate(guild.id, {
-      lang: this.region[guild.region]
+    client.database.guilds.getOrCreate(guild.id, {
+      lang: guild.preferredLocale
     })
 
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
-    const _locale = client.i18nRegistry.getT(server.lang)
-    const me = guild.members.get(client.user.id).permission.has('viewAuditLogs')
     const blacklist = new BlacklistUtils(client)
-    if (!me) {
-      if (await blacklist.verifyGuild(guild)) return guild.leave()
-      return
-    }
+    if (!process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG) return
+    client.getRESTChannel(process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG).then(async (channel) => {
+      if (!channel) return
+      const webhooks = await channel.getWebhooks()
+      let webhook = webhooks.filter((w) => w.name === 'Megumi Natsu' && w.user.id === client.user.id)[0]
+      if (!webhook) {
+        webhook = await channel.createWebhook({
+          name: 'Megumi Natsu',
+          options: {
+            type: 1
+          }
+        })
+      }
 
-    const audit = await guild.getAuditLogs()
-    const guildAudit = audit.entries.filter(action => action.actionType === 28)
-    const user = await client.users.get(guildAudit[0].user.id)
-    if (await blacklist.verifyGuild(guild)) {
+      const owner = await client.getRESTUser(guild.ownerID)
+      if (await blacklist.verifyGuild(guild)) {
+        const embed = new EmbedBuilder()
+        embed.setColor('#730101')
+        embed.setTitle('Guild Blacklisted')
+        embed.setDescription(`Someone tried to add me on this guild, but the guild is on my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
+        embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+
+        client.executeWebhook(webhook.id, webhook.token, {
+          embeds: [embed],
+          avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
+          username: 'Megumi Natsu'
+        })
+
+        guild.leave()
+        return
+      }
+
       const embed = new EmbedBuilder()
-      embed.setColor('MODERATION')
-      embed.setThumbnail(guild.iconURL)
-      embed.addField(_locale('basic:guildban.title'), _locale('basic:guildban.explain', { 0: guild.name }))
-      embed.addField(_locale('basic:guildban.reason'), `\`${server.blacklistReason}\``)
-      guild.leave()
+      embed.setColor('#187000')
+      embed.setTitle('Guild Joined')
+      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
+      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
 
-      return user.getDMChannel().then(channel => channel.createMessage(embed.build())).catch(() => { })
-    }
-
-    const embed = new EmbedBuilder()
-    embed.setImage('https://cdn.discordapp.com/attachments/648188298149232644/770759671552016414/gc9DEF.png')
-    embed.setColor('DEFAULT')
-    embed.setFooter(_locale('basic:addedToGuild.guildSaved', { 0: guild.name }), guild.icon ? guild.iconURL : null)
-    embed.addField(_locale('basic:addedToGuild.thanks'), _locale('basic:addedToGuild.description', { 0: user.mention, 1: guild.name, 2: server.prefix }))
-
-    user.getDMChannel().then(channel => channel.createMessage(embed.build()))
+      client.executeWebhook(webhook.id, webhook.token, {
+        embeds: [embed],
+        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
+        username: 'Megumi Natsu'
+      })
+    })
   }
 }
