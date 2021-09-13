@@ -6,7 +6,7 @@ String.prototype.isUpperCase = function (index) {
 }
 
 String.prototype.getAt = function (splitter, index) {
-  return this.split(splitter)[index == -1 ? this.split(splitter).length - 1 : index]
+  return this.split(splitter)[index === -1 ? this.split(splitter).length - 1 : index]
 }
 
 const getAllFilesRecursive = (path) => {

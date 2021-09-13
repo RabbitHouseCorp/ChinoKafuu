@@ -1,7 +1,7 @@
 const ColorResolver = require('./ColorResolver')
 
 module.exports = class EmbedBuilder {
-  constructor () {
+  constructor() {
     this.fields = []
     this.author = null
     this.description = null
@@ -22,7 +22,7 @@ module.exports = class EmbedBuilder {
      * @param {string} url
      * @returns {EmbedBuilder}
      */
-  setAuthor (name, icon_url, url) {
+  setAuthor(name, icon_url, url) {
     this.author = { name, icon_url, url }
     return this
   }
@@ -32,7 +32,7 @@ module.exports = class EmbedBuilder {
      * @param title The title of this embed
      * @returns {EmbedBuilder}
      */
-  setTitle (title) {
+  setTitle(title) {
     this.title = title
     return this
   }
@@ -42,7 +42,7 @@ module.exports = class EmbedBuilder {
      * @param desc The description of this embed
      * @returns {EmbedBuilder}
      */
-  setDescription (desc) {
+  setDescription(desc) {
     this.description = desc.toString().substring(0, 2048)
     return this
   }
@@ -54,7 +54,7 @@ module.exports = class EmbedBuilder {
      * @param inline {boolean | null} Whether this field is inline or not
      * @returns {EmbedBuilder}
      */
-  addField (name, value, inline = false) {
+  addField(name, value, inline = false) {
     if (!name || this.fields.length >= 25) return this
     if (!value) return false
     this.fields.push({ name: name.toString().substring(0, 256), value: value.toString().substring(0, 1024), inline })
@@ -66,7 +66,7 @@ module.exports = class EmbedBuilder {
      * @param {boolean} inline
      * @returns {EmbedBuilder}
      */
-  addBlankField (inline = false) {
+  addBlankField(inline = false) {
     this.addField('\u200B', '\u200B', inline)
     return this
   }
@@ -76,7 +76,7 @@ module.exports = class EmbedBuilder {
      * @param color {string} The color to be set
      * @returns {EmbedBuilder}
      */
-  setColor (color) {
+  setColor(color) {
     this.color = ColorResolver.resolve(color)
     return this
   }
@@ -88,7 +88,7 @@ module.exports = class EmbedBuilder {
      * @param width {number | null} The width of the image
      * @return EmbedBuilder
      */
-  setImage (image, height = null, width = null) {
+  setImage(image, height = null, width = null) {
     this.image = {
       url: image
     }
@@ -102,7 +102,7 @@ module.exports = class EmbedBuilder {
      * @param {number} timestamp TheISO8601 timestamp
      * @returns {EmbedBuilder}
      */
-  setTimestamp (timestamp = new Date()) {
+  setTimestamp(timestamp = new Date()) {
     this.timestamp = timestamp
     return this
   }
@@ -112,12 +112,12 @@ module.exports = class EmbedBuilder {
      * @param {string} url
      * @return {EmbedBuilder}
      */
-  setUrl (url) {
+  setUrl(url) {
     this.url = url
     return this
   }
 
-  setFooter (text, iconUrl) {
+  setFooter(text, iconUrl) {
     this.footer = {
       text: text.toString().substring(0, 2048),
       icon_url: iconUrl
@@ -130,7 +130,7 @@ module.exports = class EmbedBuilder {
      * @param {string} url The source of the thumbnail
      * @return {EmbedBuilder}
      */
-  setThumbnail (url) {
+  setThumbnail(url) {
     this.thumbnail = { url }
     return this
   }
@@ -139,7 +139,8 @@ module.exports = class EmbedBuilder {
      *
      * @param {string} content
      */
-  build (content) {
+  build(content) {
+    if (!content) content = ''
     return { content, embeds: [this] }
   }
 }

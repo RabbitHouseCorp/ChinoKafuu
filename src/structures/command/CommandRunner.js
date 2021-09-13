@@ -121,10 +121,9 @@ module.exports = class CommandRunner {
       return
     }
     if (userData?.blacklist) {
-      const avatar = message.author.avatarURL
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
-      embed.setAuthor('Você foi banido', avatar)
+      embed.setAuthor('Você foi banido', message.author.avatarURL)
       embed.setDescription(`Olá ${message.author.mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')

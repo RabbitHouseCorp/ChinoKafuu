@@ -1,65 +1,69 @@
 {
-    "permissions": {
-        "permissionUserRequired": "Debes tener los siguientes permisos para usar este comando: {{0}}.",
-        "permissionBotRequired": "Debo tener los siguientes permisos para usar este comando: {{0}}.",
-        "title": "Permisos"
+  "permissions": {
+    "permissionUserRequired": "Debes tener los siguientes permisos para usar este comando: {{0}}.",
+    "permissionBotRequired": "Debo tener los siguientes permisos para usar este comando: {{0}}.",
+    "title": "Permisos"
+  },
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`. Si deseas saber lo que puedo hacer, utiliza `{{1}}help`.",
+  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`, pero no puedes ejecutar comandos aquí. Si quieres ver lo que puedo hacer, usa `{{1}}help` en {{2}}.",
+  "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
+  "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
+  "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
+  "invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
+  "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
+  "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
+  "noReason": "Sin razón",
+  "onBehalf": "En nombre de {{member}}: {{reason}}",
+  "clickHere": "Clic aquí",
+  "punishment": {
+    "banned": "{{0}} | Baneado",
+    "unbanned": "{{0}} | Desbaneado",
+    "kicked": "{{member}} | Expulsado",
+    "softBan": "{{member}} | Baneado suave",
+    "embed": {
+      "memberName": "Nombre de usuario",
+      "memberID": "ID de Usuario",
+      "staffName": "Quien ha castigado",
+      "reason": "Razón"
     },
-    "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`. Si deseas saber lo que puedo hacer, utiliza `{{1}}help`.",
-    "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo en este servidor es `{{1}}`, pero no puedes ejecutar comandos aquí. Si quieres ver lo que puedo hacer, usa `{{1}}help` en {{2}}.",
-    "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
-    "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
-    "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
-    "invalidUser": "Usuario no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
-    "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
-    "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
-    "noReason": "Sin razón",
-    "onBehalf": "En nombre de {{member}}: {{reason}}",
-    "clickHere": "Clic aquí",
-    "punishment": {
-        "banned": "{{0}} | Baneado",
-        "unbanned": "{{0}} | Desbaneado",
-        "kicked": "{{member}} | Expulsado",
-        "softBan": "{{member}} | Baneado suave",
-        "embed": {
-            "memberName": "Nombre de usuario",
-            "memberID": "ID de Usuario",
-            "staffName": "Quien ha castigado",
-            "reason": "Razón"
-        },
-        "reason": "Baneado por: {{0}} - Razón: {{1}}",
-        "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
-    },
-    "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
-    "howToUse": "¿Cómo se usa?",
-    "aliases": "Aliases",
-    "addedToGuild": {
-        "thanks": "Gracias por añadirme",
-        "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
-        "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
-    },
-    "noAliases": "Este comando no tiene ningún alias.",
-    "onMentionAfk": "**{{user}}** está AFK.",
-    "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-    "afkRemoval": "{{user}}, como estás de vuelta, he eliminado tu estado AFK.",
-    "voice": {
-        "authorAreNotInVoiceChannel": "no estás en ningún canal de voz.",
-        "playerAlreadyPlaying": "La pista ya se está reproduciendo.",
-        "clientAreNotInVoiceChannel": "no estoy en ningún canal de voz.",
-        "playerNotFound": "No estoy reproduciendo ninguna canción",
-        "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
-        "minVolume": "¡tranquilo! El volumen mínimo permitido es `5`."
-    },
-    "boolean": {
-        "true": "Sí",
-        "false": "No"
-    },
-    "guildban": {
-        "title": "Servidor Baneado",
-        "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
-        "reason": "Razón"
-    },
-    "cooldown": "por favor, ¡espera más `{{0}}` segundos para ejecutar este comando de nuevo!",
-    "cooldownLowThanZero": "algunos",
-    "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
-    "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo."
+    "reason": "Baneado por: {{0}} - Razón: {{1}}",
+    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
+  },
+  "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
+  "howToUse": "¿Cómo se usa?",
+  "aliases": "Aliases",
+  "addedToGuild": {
+    "thanks": "Gracias por añadirme",
+    "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
+    "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
+  },
+  "noAliases": "Este comando no tiene ningún alias.",
+  "onMentionAfk": "**{{user}}** está AFK.",
+  "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, como estás de vuelta, he eliminado tu estado AFK.",
+  "voice": {
+    "authorAreNotInVoiceChannel": "no estás en ningún canal de voz.",
+    "playerAlreadyPlaying": "La pista ya se está reproduciendo.",
+    "clientAreNotInVoiceChannel": "no estoy en ningún canal de voz.",
+    "playerNotFound": "No estoy reproduciendo ninguna canción",
+    "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
+    "minVolume": "¡tranquilo! El volumen mínimo permitido es `5`."
+  },
+  "boolean": {
+    "true": "Sí",
+    "false": "No"
+  },
+  "guildban": {
+    "title": "Servidor Baneado",
+    "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
+    "reason": "Razón"
+  },
+  "cooldown": "por favor, ¡espera más `{{0}}` segundos para ejecutar este comando de nuevo!",
+  "cooldownLowThanZero": "algunos",
+  "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
+  "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
+  "migrate": {
+    "migrateTitle": "¡Los comandos de barra están aquí!",
+    "migrateToSlashCommand": "¡Hola! Después de enero de 2022 sólo responderé con comandos de barra diagonal, por favor, si quieres continuar usándome, luego vuelva a agregarme haciendo clic [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), no necesitas expulsarme del servidor, simplemente haz clic en la url. Gracias! <a:chino_petpet:760564885280784405>"
+  }
 }
