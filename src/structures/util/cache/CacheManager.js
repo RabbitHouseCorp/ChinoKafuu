@@ -24,31 +24,34 @@ module.exports = class CacheManager {
     if (this.timeFunction === null) {
       this.timeFunction = setInterval(() => {
         this.client.users.map(user => {
-          if (user.cacheTime !== undefined) {
-            if (user.cacheTime - Date.now() < 0) {
-              this.client.users.remove(user)
-            }
-          } else {
-            if ((user.createdAt - Date.now() + this.config.accountTime < 0)) {
-              user.cacheTime = Date.now() + this.config.users.time
+          if (!user.bot) {
+            if (user.cacheTime !== undefined) {
+              if (user.cacheTime - Date.now() < 0) {
+                this.client.users.remove(user)
+              }
             } else {
-              user.cacheTime = Date.now() + this.config.users.newAccount
+              if ((user.createdAt - Date.now() + this.config.accountTime < 0)) {
+                user.cacheTime = Date.now() + this.config.users.time
+              } else {
+                user.cacheTime = Date.now() + this.config.users.newAccount
+              }
             }
-
           }
         })
         this.client.guilds.map(guild => {
           if (guild !== undefined) {
             guild.members.map(member => {
-              if (member.cacheTime !== undefined) {
-                if (member.cacheTime - Date.now() < 0) {
-                  guild.members.remove(member)
-                }
-              } else {
-                if (member.user.createdAt - Date.now() + this.config.accountTime < 0) {
-                  member.cacheTime = Date.now() + this.config.guilds.members.time
+              if (!member.user.bot) {
+                if (member.cacheTime !== undefined) {
+                  if (member.cacheTime - Date.now() < 0) {
+                    guild.members.remove(member)
+                  }
                 } else {
-                  member.cacheTime = Date.now() + this.config.guilds.members.newAccount
+                  if (member.user.createdAt - Date.now() + this.config.accountTime < 0) {
+                    member.cacheTime = Date.now() + this.config.guilds.members.time
+                  } else {
+                    member.cacheTime = Date.now() + this.config.guilds.members.newAccount
+                  }
                 }
               }
             })
