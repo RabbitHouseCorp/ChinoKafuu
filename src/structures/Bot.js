@@ -11,7 +11,8 @@ const CacheManager = require('./util/cache/CacheManager');
 module.exports = class Bot extends Client {
      constructor(...data) {
           super(...data)
-
+          this.startShard = 0;
+          
           this.cacheManager = new CacheManager(this)
           /**
                *
