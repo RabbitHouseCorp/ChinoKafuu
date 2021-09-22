@@ -36,21 +36,28 @@ module.exports = class PingCommand extends Command {
       }
 
       case 'clusters': {
-        const clusters = await ctx.client.clusters.getAveragePing()
+        if (ctx.client.clusters) {
+          const clusters = await ctx.client.clusters.getAveragePing()
 
-        const embed = new EmbedBuilder()
-        embed.setFooter(ctx._locale('commands:ping.totalClusters', { totalClusters: clusters.length }))
-        embed.setColor('DEFAULT')
-        embed.setFooter(`©️ ${ctx.client.user.username}`)
-        embed.setTimestamp()
-        clusters.forEach(cluster => {
-          const emoji = cluster.status === 'operational' ? '<:online:518876154720026633>'
-            : cluster.status === 'clusterdown' ? '<:offline:518876154782941187>'
-              : cluster.status === 'unoperational' ? '<:dnd:518876154933936146>'
-                : '<:idle:518876154912833549>'
-          embed.addField(`Cluster ${cluster.id} ${emoji}`, `*${ctx._locale('commands:ping.' + cluster.status)} (${ctx._locale('commands:ping.percentOn', { perc: cluster.percentOn.toFixed(1) })})*\n${ctx._locale('commands:ping.avgPing', { avg: cluster.avgPing.toFixed(1) })}`, true)
-        })
-        ctx.send(embed.build())
+          const embed = new EmbedBuilder()
+          embed.setFooter(ctx._locale('commands:ping.totalClusters', { totalClusters: clusters.length }))
+          embed.setColor('DEFAULT')
+          embed.setFooter(`©️ ${ctx.client.user.username}`)
+          embed.setTimestamp()
+          clusters.forEach(cluster => {
+            const emoji = cluster.status === 'operational' ? '<:online:518876154720026633>'
+              : cluster.status === 'clusterdown' ? '<:offline:518876154782941187>'
+                : cluster.status === 'unoperational' ? '<:dnd:518876154933936146>'
+                  : '<:idle:518876154912833549>'
+            embed.addField(`Cluster ${cluster.id} ${emoji}`, `*${ctx._locale('commands:ping.' + cluster.status)} (${ctx._locale('commands:ping.percentOn', { perc: cluster.percentOn.toFixed(1) })})*\n${ctx._locale('commands:ping.avgPing', { avg: cluster.avgPing.toFixed(1) })}`, true)
+          })
+          ctx.send(embed.build())
+        } else {
+          const embed = new EmbedBuilder()
+          embed.setColor('#ffdb57')
+          embed.setDescription('Cluster system is disabled.')
+          ctx.send(embed.build())
+        }
         break
       }
       default: {
@@ -59,7 +66,7 @@ module.exports = class PingCommand extends Command {
         embed.setColor('DEFAULT')
         embed.addField('Response Latency', `${Date.now() - msg.timestamp}ms`)
         embed.addField('API Latency', `${Math.round(ctx.message.guild.shard.latency)}ms`)
-        embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}`)
+        embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${process.env.CLUSTERS == true ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
 
         msg.edit(embed.build())
       }
