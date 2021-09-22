@@ -4,7 +4,7 @@ const { TopGGUtils, Logger } = require('../../utils')
 module.exports = class ReadyListener extends Listener {
   constructor() {
     super()
-
+    this.send = false;
     this.event = 'ready'
   }
 
@@ -30,11 +30,25 @@ module.exports = class ReadyListener extends Listener {
       { name: 'Drink a tea on Fleur de Lapin', type: 1, url: 'https://twitch.tv/danielagc' },
       { name: 'Lapin The Phantom Thief', type: 3 }
     ]
+    if (!this.send) {
+      /**
+       * @description This will serve to enable first hit features
+       */
+      this.send = true
+      const update = () => {
+        setTimeout(() => {
+          const status = Math.floor(Math.random() * game.length)
+          client.editStatus('dnd', game[status])
+        }, 7 * 1000)
+      }
+      update()
+    }
 
     setInterval(() => {
       const status = Math.floor(Math.random() * game.length)
       client.editStatus('dnd', game[status])
-    }, 5000)
-    Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
+    }, 20 * 1000) // Add 20 seconds to avoid over-updating.
+
+    //Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
   }
 }
