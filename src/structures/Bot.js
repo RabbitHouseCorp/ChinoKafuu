@@ -37,10 +37,10 @@ module.exports = class Bot extends Client {
                     *
                     * @type {ClusteringInterface}
                     */
-               if (process.env.CLUSTERS) {
+               if (!process.env.CLUSTERS) {
                     this.clusters = new ClusteringInterface(this)
                } else {
-                    this.clusters = undefined;
+                    this.clusters = null;
                }
                /**
                     *
