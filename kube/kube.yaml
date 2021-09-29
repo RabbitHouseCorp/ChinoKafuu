@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chinokafuu
+spec:
+  selector:
+    matchLabels:
+      app: chinokafuu
+  template:
+    metadata:
+      labels:
+        app: chinokafuu
+    spec:
+      containers:
+      - name: chinokafuu
+        image: chinokafuu-deployment
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 2001

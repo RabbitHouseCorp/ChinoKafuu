@@ -1,0 +1,6 @@
+node_modules/
+.idea/
+.github/
+kube/
+test/
+package-lock.json
