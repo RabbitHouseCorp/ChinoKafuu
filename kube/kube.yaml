@@ -13,7 +13,8 @@ spec:
     spec:
       containers:
       - name: chinokafuu
-        image: chinokafuu-deployment
+        imagePullPolicy: Never
+        image: localhost:29102/rabbithousecorp/chinokafuu
         resources:
           limits:
             memory: "128Mi"
