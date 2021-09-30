@@ -106,7 +106,7 @@ module.exports = class AnimuConfigSubCommand extends Command {
               ctx.db.guild.save()
 
               ack.sendAck('update', {
-                content: ctx._locale('commands:config.select.voiceChannel', { 0: channel.name, 1: channel.id }),
+                content: ctx._locale('commands:config.modules.animu.enable'),
                 components: []
               })
             }

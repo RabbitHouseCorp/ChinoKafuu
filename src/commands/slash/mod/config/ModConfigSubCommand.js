@@ -109,7 +109,7 @@ module.exports = class ModConfigSubCommand extends Command {
               ctx.db.guild.save()
 
               ack.sendAck('update', {
-                content: ctx._locale('commands:config.selected.textChannel', { 0: channel.name, 1: channel.id }),
+                content: ctx._locale('commands:config.modules.mod.enable'),
                 components: []
               })
             }
