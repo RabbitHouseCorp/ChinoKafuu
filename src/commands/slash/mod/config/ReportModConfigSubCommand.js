@@ -69,7 +69,7 @@ module.exports = class ReportModConfigSubCommand extends Command {
                   .maxValues(1)
                   .minValues(1)
                   .addItem(components)
-                  .addPlaceHolder(ctx._locale('commands:language.selectChannel'))
+                  .addPlaceHolder(ctx._locale('commands:config.select.options.textChannel'))
                   .setCustomID('channel-select')
                 ack.sendAck('update', {
                   content: ctx._locale('commands:config.select.textChannel'),
