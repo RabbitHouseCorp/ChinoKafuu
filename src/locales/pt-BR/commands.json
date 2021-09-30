@@ -606,7 +606,11 @@
       "disable": "Desativa",
       "disableDescription": "Disativa o módulo selecionado.",
       "textChannel": "Selecione o canal de texto.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
-      "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__"
+      "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
+      "options": {
+        "textChannel": "Select the text channel.",
+        "voiceChannel": "Select the voice channel."
+      }
     },
     "optionsNotFound": "esta opção é inválida, por favor use as opções `set` ou `disable`.",
     "channel": {
