@@ -27,14 +27,14 @@
     "mal-scraper": "^2.11.3",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^6.0.5",
+    "mongoose": "^6.0.8",
     "nekos.life": "^2.0.7",
     "os-utils": "^0.0.14",
     "usagiapi": "github:DanielaGC/UsagiAPI#master"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
-    "jest": "^27.1.1"
+    "jest": "^27.2.4"
   },
   "jest": {
     "collectCoverage": true,
