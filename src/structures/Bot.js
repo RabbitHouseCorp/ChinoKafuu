@@ -12,7 +12,7 @@ module.exports = class Bot extends Client {
      constructor(...data) {
           super(...data)
           this.startShard = 0;
-          
+
           this.cacheManager = new CacheManager(this)
           /**
                *
@@ -59,6 +59,8 @@ module.exports = class Bot extends Client {
                 * @description This class is for blocking access to commands globally and Soon will have future implementations
                 */
           this.commandCooldown = new CommandCooldown()
+
+          this.interactionPost = null
 
      }
 }
