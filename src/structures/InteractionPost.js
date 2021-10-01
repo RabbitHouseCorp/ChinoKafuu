@@ -120,7 +120,7 @@ module.exports = class InteractionPost {
                     const guild = this.client.guilds.get(json.guild_id)
 
                     json.isHttp = true
-                    
+
                     this.client.emit('rawWS', {
                       t: 'INTERACTION_CREATE',
                       d: json,
@@ -153,13 +153,15 @@ module.exports = class InteractionPost {
     this.connected = false
     this.attempt = 0
     this.connect()
+    return this
   }
 
   del() {
     this.ws = null
+    return this
   }
 
   send(data) {
-    this.ws.send(JSON.stringify(data))
+    return this.ws.send(JSON.stringify(data))
   }
 }
