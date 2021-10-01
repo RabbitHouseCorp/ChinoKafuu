@@ -18,6 +18,7 @@ module.exports = class InteractionPost {
   }
 
   connect() {
+    const t = Date.now()
     if (!(this.attempt > 10)) {
       if (this.connected == false) {
         this.ws = new WebSocket(process.env.URL_INTERACTION, {
@@ -31,7 +32,7 @@ module.exports = class InteractionPost {
       if (this.ws !== null) {
         this.ws.on('open', async () => {
           this.connected = true
-          Logger.warning('API is connected successfully! Interactions will be received via HTTP.')
+          Logger.warning(`API is connected successfully! Interactions will be received via HTTP. (${(Date.now() - t).toFixed(1)}ms)`)
           this.uptime = Date.now()
           this.client.interactionPost = this
           await this.ws.send(JSON.stringify({
@@ -61,7 +62,7 @@ module.exports = class InteractionPost {
           try {
             setTimeout(() => {
               this.connect()
-            }, 5 * 1000)
+            }, 14 * 1000)
           } catch (err) {
             Logger.error(err)
           }
@@ -75,9 +76,11 @@ module.exports = class InteractionPost {
                 case 1001: {
                   this.heartbeart = setTimeout(async () => {
                     this.a = Date.now()
-                    await this.ws.send(JSON.stringify({
-                      type: 90,
-                    }))
+                    if (this.connected) {
+                      await this.ws.send(JSON.stringify({
+                        type: 90,
+                      }))
+                    }
                   }, 25 * 1000)
                 }
                   break
@@ -85,9 +88,11 @@ module.exports = class InteractionPost {
                   this.b = this.a - Date.now();
                   this.lastPing = this.ping
                   this.ping = Date.now() - this.a
-                  await this.ws.send(JSON.stringify({
-                    type: 89,
-                  }))
+                  if (this.connected) {
+                    await this.ws.send(JSON.stringify({
+                      type: 89,
+                    }))
+                  }
                   this.uptime = Date.now()
                   Logger.debug(`Connection update is ${this.ping}ms and the last one was ${this.lastPing}ms`)
                 }
@@ -162,6 +167,10 @@ module.exports = class InteractionPost {
   }
 
   send(data) {
-    return this.ws.send(JSON.stringify(data))
+    if (this.connected) {
+      return this.ws.send(JSON.stringify(data))
+    } else {
+      return null
+    }
   }
 }

@@ -31,7 +31,7 @@ module.exports = class PayCommand extends Command {
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value) ?? ctx.args.get('user').member ?? null
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
 
     const fromUser = ctx.db.user
@@ -69,7 +69,7 @@ module.exports = class PayCommand extends Command {
               ctx.db.user.save()
               toUser.save().then(() => {
                 ack.sendAck('update', {
-                  content: `${Emoji.getEmoji('yen').mention} **|** ${message.author.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
+                  content: `${Emoji.getEmoji('yen').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
                   components: [
                     {
                       type: 1,
@@ -95,7 +95,7 @@ module.exports = class PayCommand extends Command {
               break
             case 'reject_button': {
               ack.sendAck('update', {
-                content: `${Emoji.getEmoji('error').mention} **|** ${message.author.mention}, ${ctx._locale('commands:pay.cancelled')}`,
+                content: `${Emoji.getEmoji('error').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.cancelled')}`,
                 components: [
                   {
                     type: 1,

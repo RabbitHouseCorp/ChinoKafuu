@@ -1,6 +1,7 @@
 const Listener = require('../../structures/events/Listener')
 const LavalinkManager = require('../../lavalink/LavalinkManager')
 const { TopGGUtils, Logger } = require('../../utils')
+const InteractionPost = require('../../structures/InteractionPost')
 module.exports = class ReadyConnectionListener extends Listener {
   constructor() {
     super()
@@ -9,6 +10,7 @@ module.exports = class ReadyConnectionListener extends Listener {
   }
 
   async on(client) {
+    client.interactionPost = new InteractionPost(client).connect()
     client.startShard = Date.now()
     client.cacheManager.start()
     const top_gg = new TopGGUtils()
