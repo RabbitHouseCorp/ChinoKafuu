@@ -22,12 +22,15 @@ module.exports = class InteractionPost {
     if (!(this.attempt > 10)) {
       if (this.connected === false) {
         try {
-          if (!process.env.URL_INTERACTION) return Logger.warning('Interaction URL not found, please, put it next time.')
-          this.ws = new WebSocket(process.env.URL_INTERACTION, {
-            headers: {
-              'Authorization': Buffer.from(process.env.SECRET_INTERACTION ?? '{secret}').toString('base64').replace('==', '')
-            }
-          })
+          if (!process.env.URL_INTERACTION) {
+            Logger.warning('Interaction URL not found, please, put it next time.')
+          } else {
+            this.ws = new WebSocket(process.env.URL_INTERACTION, {
+              headers: {
+                'Authorization': Buffer.from(process.env.SECRET_INTERACTION ?? '{secret}').toString('base64').replace('==', '')
+              }
+            })
+          }
         } catch (err) {
           Logger.error(`It's not possible connect to an interaction right now: ${err.name}`)
         }
