@@ -36,5 +36,7 @@
   "usePrivateThreads": "Usar hilos privados",
   "usePublicThreads": "Utilizar hilos públicos",
   "useExternalStickers": "Usar pegatinas externas",
-  "manageThreads": "Gestionar hilos"
+  "manageThreads": "Gestionar hilos",
+  "sendMessagesInThreads": "Send Messages In Threads",
+  "startEmbeddedActivities": "Start Embedded Activities"
 }
