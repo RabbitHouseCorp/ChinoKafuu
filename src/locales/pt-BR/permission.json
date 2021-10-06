@@ -36,5 +36,7 @@
   "usePrivateThreads": "Usar conversas privadas",
   "usePublicThreads": "Usar conversas públicas",
   "useExternalStickers": "Usar figurinhas externas",
-  "manageThreads": "Gerenciar conversas"
+  "manageThreads": "Gerenciar conversas",
+  "sendMessagesInThreads": "Send Messages In Threads",
+  "startEmbeddedActivities": "Start Embedded Activities"
 }
