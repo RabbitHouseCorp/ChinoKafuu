@@ -27,6 +27,12 @@ module.exports = class JanKenPonCommand extends Command {
                 .setName('scissors')
                 .setValue('scissors'),
             )
+            .isRequired(),
+          new CommandOptions()
+            .setType(10)
+            .setName('value')
+            .setDescription('Value that you wanna bet on the game.')
+            .isRequired()
         )
     })
   }
@@ -35,12 +41,12 @@ module.exports = class JanKenPonCommand extends Command {
     const user = await ctx.db.user
     const client = await ctx.client.database.users.getOrCreate(ctx.client.user.id)
     const options = ['pedra', 'papel', 'tesoura']
-    if (!['pedra', 'papel', 'tesoura', 'rock', 'paper', 'scissors'].includes(ctx.args[0])) return ctx.replyT('error', 'commands:jankenpon.optionNotFound')
+    if (!['pedra', 'papel', 'tesoura', 'rock', 'paper', 'scissors'].includes(ctx.args.get('choice').value.toLowerCase())) return ctx.replyT('error', 'commands:jankenpon.optionNotFound')
     const clientChoice = options[Math.floor(Math.random() * options.length)]
-    const me = ctx.args[0].toLowerCase()
+    const me = ctx.args.get('choice').value.toLowerCase()
     let result
     let emoji
-    const value = ctx.args[1]
+    const value = ctx.args.get('value').value
     if (!value) return ctx.replyT('warn', 'commands:jankenpon.valueNotInputed')
     const invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
     if (invalidValue) return ctx.replyT('error', 'commands:pay.invalidValue')
