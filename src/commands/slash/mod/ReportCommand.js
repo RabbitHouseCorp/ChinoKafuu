@@ -37,7 +37,7 @@ module.exports = class ReportCommand extends Command {
   async run(ctx) {
     const server = ctx.db.guild
     if (!server.reportModule) return ctx.replyT('error', 'commands:report.moduleDisable')
-    const member = await ctx.getUser(ctx.args.get('user').value.id)
+    const member = await ctx.getUser(ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     const reason = ctx.args.get('reason').value
     if (!reason[0]) return ctx.replyT('error', 'commands:report.noReason')
@@ -55,7 +55,7 @@ module.exports = class ReportCommand extends Command {
     embed.addField(ctx._locale('commands:report.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
     embed.addField(ctx._locale('commands:report.embed.authorName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
     embed.addField(ctx._locale('commands:report.embed.channel'), ctx.message.channel.mention)
-    embed.addField(ctx._locale('commands:report.embed.reason'), proof ? `[${reason[0]}](${proof})` : reason[0])
+    embed.addField(ctx._locale('commands:report.embed.reason'), proof ? `[${reason}](${proof})` : reason)
 
     channel.createMessage(embed.build())
     ctx.replyT('success', 'commands:report.successfullySent')
