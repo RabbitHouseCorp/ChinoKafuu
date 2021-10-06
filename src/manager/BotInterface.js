@@ -9,7 +9,7 @@ module.exports = class BotInterface {
             compress: true,
             defaultImageFormat: 'png',
             defaultImageSize: 2048,
-            restMode: false,
+            restMode: true,
             allowedMentions: {
                 everyone: false,
                 roles: false,
