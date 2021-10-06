@@ -13,7 +13,7 @@ module.exports = class Bot extends Client {
           super(...data)
           this.startShard = 0;
 
-          this.cacheManager = new CacheManager(this)
+          // this.cacheManager = new CacheManager(this)
           /**
                *
                * @type {ListenerRegistry}
@@ -47,7 +47,9 @@ module.exports = class Bot extends Client {
                *
                * @type {Database}
                */
-          this.database = new Database()
+          if (this.database !== undefined) {
+             this.database = new Database()
+          }
           /**
                *
                * @type {Map}

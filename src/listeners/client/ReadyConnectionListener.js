@@ -12,13 +12,16 @@ module.exports = class ReadyConnectionListener extends Listener {
   async on(client) {
     client.interactionPost = new InteractionPost(client).connect()
     client.startShard = Date.now()
-    client.cacheManager.start()
+    // client.cacheManager.start()
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
-    const lavalink = new LavalinkManager(client)
-    client.lavalink = lavalink
-    client.player = new Map()
-    lavalink.connect()
+    // const lavalink = new LavalinkManager(client)
+    
+    if (client.lavalink !== undefined) {
+      client.lavalink.emit('setManager', (client))
+    }
+
+
     const game = [
       { name: 'Petit Rabbit\'s - Tokimeki Poporon', type: 2 },
       { name: 'Petit Rabbit\'s - Daydream café', type: 2 },

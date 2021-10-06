@@ -3,7 +3,7 @@ const Logger = require("../structures/util/Logger");
 module.exports = class BotInterface {
 
 
-    async spawnShards() {
+    async spawnShards(pluginManager) {
         this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
             maxShards: parseInt(process.env.SHARD_AMOUNT),
             compress: true,
@@ -18,7 +18,10 @@ module.exports = class BotInterface {
             },
             intents: 14079
         })
-
+        this.shardManager.pluginManager = pluginManager.$pluginManager
+        this.shardManager.database = pluginManager.$pluginManager.pluginStore.get('mongodb')?.classState ?? undefined
+        this.shardManager.lavalink = pluginManager.$pluginManager.pluginStore.get('lavalink')?.classState ?? undefined
+        this.shardManager.player = new Map()
         try {
             await this.shardManager.connect().then(() => {
                 Logger.debug('Successfully connected to Discord\'s gateway.')

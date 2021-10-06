@@ -7,3 +7,5 @@ src/lavalink/LavalinkConfig.json
 .idea
 coverage/
 package-lock.json
+UPDATE.md
+.vscode
