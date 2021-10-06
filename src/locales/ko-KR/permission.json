@@ -36,5 +36,7 @@
   "usePrivateThreads": "Use Private Threads",
   "usePublicThreads": "Use Public Threads",
   "useExternalStickers": "Use External Stickers",
-  "manageThreads": "Manage Threads"
+  "manageThreads": "Manage Threads",
+  "sendMessagesInThreads": "Send Messages In Threads",
+  "startEmbeddedActivities": "Start Embedded Activities"
 }
