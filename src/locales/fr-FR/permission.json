@@ -36,5 +36,7 @@
   "usePrivateThreads": "Utiliser des fils privés",
   "usePublicThreads": "Utiliser des fils publics",
   "useExternalStickers": "Utiliser des autocollants externes",
-  "manageThreads": "Gérer les fils"
+  "manageThreads": "Gérer les fils",
+  "sendMessagesInThreads": "Send Messages In Threads",
+  "startEmbeddedActivities": "Start Embedded Activities"
 }
