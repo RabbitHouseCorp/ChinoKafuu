@@ -9,7 +9,7 @@ module.exports = class RenameEmojiCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'both',
-        permissions: ['manageEmojis']
+        permissions: ['manageEmojisAndStickers']
       }],
       arguments: 1,
       slash: new CommandBase()
@@ -25,7 +25,7 @@ module.exports = class RenameEmojiCommand extends Command {
             .setType(3)
             .setName('name')
             .setDescription('The new name of the emoji.')
-          .isRequired()
+            .isRequired()
         )
     })
   }
