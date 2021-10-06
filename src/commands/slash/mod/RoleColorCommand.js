@@ -17,7 +17,7 @@ module.exports = class RoleColorCommand extends Command {
         .setDescription('Changes the color of a role.')
         .addOptions(
           new CommandOptions()
-            .setType(7)
+            .setType(3)
             .setName('role')
             .setDescription('Mention role on server.')
             .isRequired(),
@@ -31,9 +31,9 @@ module.exports = class RoleColorCommand extends Command {
   }
 
   async run(ctx) {
-    const getRole = ctx.args[0]?.toLowerCase()
+    const getRole = ctx.args.get('role').value
     const role = ctx.message.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.guild.roles.get(getRole.replace(/[<@&>]/g, ''))
-    const color = ctx.args[1]
+    const color = ctx.args.get('color').value
     if (!role) return ctx.replyT('error', 'basic:invalidRole')
     if (!color?.startsWith('#')) return ctx.replyT('error', 'commands:rolecolor.invalidColor')
 

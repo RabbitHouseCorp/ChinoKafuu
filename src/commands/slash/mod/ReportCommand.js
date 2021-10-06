@@ -24,8 +24,12 @@ module.exports = class ReportCommand extends Command {
           new CommandOptions()
             .setType(3)
             .setName('reason')
-            .setDescription('Inform the reason why to report the user. (Arguments:  -p <proof|attachment>)')
+            .setDescription('Inform the reason why to report the user.')
             .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('proof')
+            .setDescription('The proof of the infraction. (Image\'s URL)')
         )
     })
   }
@@ -33,12 +37,12 @@ module.exports = class ReportCommand extends Command {
   async run(ctx) {
     const server = ctx.db.guild
     if (!server.reportModule) return ctx.replyT('error', 'commands:report.moduleDisable')
-    const member = await ctx.getUser(ctx.args[0])
+    const member = await ctx.getUser(ctx.args.get('user').value.id)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const reason = ctx.args.slice(1).join(' ').trim().split('-p')
+    const reason = ctx.args.get('reason').value
     if (!reason[0]) return ctx.replyT('error', 'commands:report.noReason')
     const channel = ctx.client.getChannel(server.channelReport)
-    const proof = reason[1] || ctx.message.attachments[0]?.url
+    const proof = ctx.args.get('proof')?.value
     if (!channel) {
       server.reportModule = false
       server.channelReport = ''
