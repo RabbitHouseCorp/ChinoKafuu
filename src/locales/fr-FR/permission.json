@@ -18,7 +18,7 @@
   "changeNickname": "Changer le pseudo",
   "manageNicknames": "Gérer les pseudos",
   "manageRoles": "Gérer les rôles",
-  "manageEmojisAndStickers": "Manage Emojis And Stickers",
+  "manageEmojisAndStickers": "Gérer les émojis et les autocollants",
   "useExternalEmojis": "Utiliser des émojis externes",
   "viewAuditLog": "Voir les logs du serveur",
   "voicePrioritySpeaker": "Voix prioritaire",
@@ -32,11 +32,11 @@
   "voiceDeafenMembers": "Mettre en sourdine des membres",
   "voiceMoveMembers": "Déplacer des membres",
   "manageWebhooks": "Gérer les webhooks",
-  "useApplicationCommands": "Use Application Commands",
+  "useApplicationCommands": "Utiliser les commandes de l'application",
   "usePrivateThreads": "Utiliser des fils privés",
   "usePublicThreads": "Utiliser des fils publics",
   "useExternalStickers": "Utiliser des autocollants externes",
   "manageThreads": "Gérer les fils",
-  "sendMessagesInThreads": "Send Messages In Threads",
+  "sendMessagesInThreads": "Envoyer des messages dans les fils",
   "startEmbeddedActivities": "Start Embedded Activities"
 }
