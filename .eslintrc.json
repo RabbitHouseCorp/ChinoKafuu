@@ -1,0 +1,41 @@
+{
+    "env": {
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2021
+    },
+    "globals": {
+        "bigint": true,
+        "window": true
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "sort-class-members"
+    ],
+    "rules": {
+      "indent": ["error", 2, {"SwitchCase": 1, "ignoreComments": true}],
+      "quotes": [2, "single"],
+      "array-bracket-spacing": ["error", "never"],
+      "keyword-spacing": [2, 
+        {
+            "after": true, 
+            "overrides": {
+                "if": {"after": true}, 
+                "switch":{"after": true}, 
+                "for": {"after": true}, 
+                "catch":{"after": true}
+            }
+        }],
+      "prefer-const": 2,
+      "no-prototype-builtins": 0,
+      "no-trailing-spaces": 2,
+      "no-var": 2,
+      "object-curly-spacing": ["warn", "always"]
+    }
+}
