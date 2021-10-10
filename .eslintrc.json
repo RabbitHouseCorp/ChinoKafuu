@@ -20,7 +20,7 @@
     ],
     "rules": {
       "indent": ["error", 2, {"SwitchCase": 1, "ignoreComments": true}],
-      "quotes": [2, "single"],
+      "quotes": [2, "single", {"allowTemplateLiterals": true}],
       "array-bracket-spacing": ["error", "never"],
       "keyword-spacing": [2, 
         {
@@ -32,10 +32,14 @@
                 "catch":{"after": true}
             }
         }],
+      "space-unary-ops"  : 2,
       "prefer-const": 2,
       "no-prototype-builtins": 0,
       "no-trailing-spaces": 2,
       "no-var": 2,
+      "no-unused-vars": "warn",
+      "lines-between-class-members": "error",
+      "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
       "object-curly-spacing": ["warn", "always"]
     }
 }

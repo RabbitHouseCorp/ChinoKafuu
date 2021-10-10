@@ -1,9 +1,6 @@
-const CommandRunner = require('./CommandRunner')
 const { BlacklistUtils, EmbedBuilder, Helper } = require('../../utils')
-const CommandContext = require('./CommandContext')
 const CommandPermissions = require('./CommandPermissions')
 const SlashCommandContext = require('./SlashCommandContext')
-
 
 module.exports = class SlashRunner {
   /**
@@ -14,8 +11,16 @@ module.exports = class SlashRunner {
    */
   static async run(client, interaction) {
     const ms = Date.now()
-    const userData = await client.database.users.getOrCreate(interaction.member.id, { shipValue: Math.floor(Math.random() * 55) })
-    const guildData = await client.database.guilds.getOrCreate(interaction.guild.id)
+    const getDataDB = await client.database.flux({
+      search: {
+        guilds: [{ fetch: { id: interaction.guild.id }, data: { prefix: process.env.PREFIX }, getOrAdd: true }],
+        users: [{ fetch: { id: interaction.member.id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
+      }
+    })
+
+    const mapData = getDataDB.data.toMap()
+    const userData = mapData.get(`users:${interaction.member.id}`)
+    const guildData = mapData.get(`guilds:${interaction.guild.id}`)
     const blacklist = new BlacklistUtils(client)
     if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
     const _locale = client.i18nRegistry.getT(guildData.lang)
@@ -50,11 +55,11 @@ module.exports = class SlashRunner {
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
     if (userPermissions.length > 0) {
-      return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.replyT('error', 'basic:missingUserPermission', { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
 
     if (botPermissions.length > 0) {
-      return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.replyT('error', 'basic:missingBotPermission', { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
     }
 
     if ((command.arguments && ctx.args.size < command.arguments)) {

@@ -26,6 +26,7 @@ module.exports = class Database extends EventEmitter {
     this.guilds = new Collection(guild)
     this.users = new Collection(user)
   }
+
   async flux(data) {
 
     const sc = []
@@ -82,7 +83,6 @@ module.exports = class Database extends EventEmitter {
       }
     }
     let c = 0
-
 
     if (!Array.isArray(data.search)) {
       for (const tag in data.search) {
@@ -152,7 +152,6 @@ module.exports = class Database extends EventEmitter {
                 }
               }
 
-
             } catch (err) {
               object_a.errors[c] = {
                 error: err,
@@ -186,8 +185,6 @@ module.exports = class Database extends EventEmitter {
     this.#logger_receive('get', object_a)
     return object_a
   }
-
-
 
   #logger_receive(action, data) {
     const loggers = []
@@ -241,9 +238,6 @@ module.exports = class Database extends EventEmitter {
     if (latency > -100) {
       return `${chalk.green(`${latency}ms`)} --- ${emoji == true ? '🎉' : ''}Woah! Good.${emoji == true ? '🎉' : ''}`
     }
-
-
-
 
   }
 }

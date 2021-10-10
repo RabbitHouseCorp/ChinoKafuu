@@ -1,5 +1,5 @@
 const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
-const { CommandBase, CommandOptions, Choice } = require('eris')
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class PayCommand extends Command {
   constructor() {
@@ -51,10 +51,10 @@ module.exports = class PayCommand extends Command {
         .setLabel(ctx._locale('basic:boolean.true'))
         .customID('confirm_button')
         .setStyle(3),
-        new Button()
-          .setLabel(ctx._locale('basic:boolean.false'))
-          .customID('reject_button')
-          .setStyle(4))
+      new Button()
+        .setLabel(ctx._locale('basic:boolean.false'))
+        .customID('reject_button')
+        .setStyle(4))
       .returnCtx()
       .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
       .then(message => {

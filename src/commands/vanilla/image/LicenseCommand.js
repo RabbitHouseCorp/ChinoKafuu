@@ -16,7 +16,7 @@ module.exports = class LicenseCommand extends Command {
 
   async run(ctx) {
     const guild = ctx.message.guild
-    let member = await ctx.getUser(ctx.args[0], true)
+    const member = await ctx.getUser(ctx.args[0], true)
     let hoist
     if (guild.members.get(member.id)) {
       const role = guild.members.get(member.id).roles

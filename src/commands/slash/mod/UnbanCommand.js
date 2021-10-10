@@ -37,7 +37,7 @@ module.exports = class UnbanCommand extends Command {
     const bans = await guild.getBans()
     const member = bans.find(ban => ban.user.id === ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
-    let reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
+    const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
 
     guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
       const embed = new EmbedBuilder()

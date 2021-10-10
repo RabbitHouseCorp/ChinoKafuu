@@ -1,5 +1,5 @@
 const { Command } = require('../../../../utils')
-const axios = require("axios");
+const axios = require('axios');
 
 module.exports = class AnimuPlayCommand extends Command {
   constructor() {

@@ -24,10 +24,10 @@ module.exports = class DivorceCommand extends Command {
         .setLabel(ctx._locale('basic:boolean.true'))
         .customID('confirm_button')
         .setStyle(3),
-        new Button()
-          .setLabel(ctx._locale('basic:boolean.false'))
-          .customID('reject_button')
-          .setStyle(4))
+      new Button()
+        .setLabel(ctx._locale('basic:boolean.false'))
+        .customID('reject_button')
+        .setStyle(4))
       .returnCtx()
       .replyT('warn', 'commands:divorce.requestConfirm')
       .then(message => {

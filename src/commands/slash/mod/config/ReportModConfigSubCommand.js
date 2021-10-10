@@ -1,7 +1,7 @@
 const { Command } = require('../../../../utils')
 const SelectionMenu = require('../../../../structures/interactions/SelectionMenu');
 const Options = require('../../../../structures/interactions/Options');
-const { ResponseAck } = require("../../../../utils");
+const { ResponseAck } = require('../../../../utils');
 
 module.exports = class ReportModConfigSubCommand extends Command {
   constructor() {
