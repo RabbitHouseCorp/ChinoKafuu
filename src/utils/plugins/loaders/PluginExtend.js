@@ -1,9 +1,8 @@
 const EventEmitter = require('events')
 const Logger = require('../../../structures/util/Logger')
 
-
 module.exports = class PluginExtend extends EventEmitter {
-  constructor({name, optionsExtend}) {
+  constructor({ name, optionsExtend }) {
     super()
     this.args = optionsExtend?.args ?? null
     this.timeout = optionsExtend?.timeout ?? null
@@ -17,11 +16,11 @@ module.exports = class PluginExtend extends EventEmitter {
     this.logger = Logger
 
     // If you want to return something, use the method of addClassState()
-    // 
+    //
     this.classState = null
 
     // Soon I will work with this part of turning everyone into worker thread to make more efficient use of plugin work.
-    // 
+    //
     this.worker = null
 
     // When there is no response from the plugin, it is automatically inactive.

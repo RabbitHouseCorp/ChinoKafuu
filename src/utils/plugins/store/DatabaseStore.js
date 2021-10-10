@@ -1,7 +1,6 @@
 const Database = require('../../../structures/database/Database');
 const PluginExtend = require('../loaders/PluginExtend');
 
-
 module.exports = class DatabaseStore extends PluginExtend {
   constructor() {
     super({
@@ -9,8 +8,9 @@ module.exports = class DatabaseStore extends PluginExtend {
       args: {},
       timeout: 23 * 1000
     })
-  
+
   }
+
   start() {
     try {
       const state = new Database()
@@ -19,7 +19,7 @@ module.exports = class DatabaseStore extends PluginExtend {
           this.$addClassState({ data: state })
           this.ready()
         } else {
-            this.failed(Error('Unable to connect to the database'))
+          this.failed(Error('Unable to connect to the database'))
         }
       })
 

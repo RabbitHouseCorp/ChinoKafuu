@@ -1,5 +1,4 @@
 
-
 module.exports = class UtilsGenerator {
   static newID() {
     return ((Date.now() << 63) >> 22) + 124567000000000008904 + Math.min(Math.floor(Math.random() * 10000000000000000000)) + Date.now() + (Date.now() << 22) + 0x2300
