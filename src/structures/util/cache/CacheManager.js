@@ -61,7 +61,7 @@ module.exports = class CacheManager {
                   channel.messages.map(message => {
                     if (message.cacheTime !== undefined) {
                       if (message.cacheTime - Date.now() < 0) {
-                        channel.messages.remove(user)
+                        channel.messages.remove(message)
                       }
                     } else {
                       message.cacheTime = Date.now() + this.config.messageTime
@@ -76,7 +76,6 @@ module.exports = class CacheManager {
       }, this.time)
     }
   }
-
 
   end() {
     if (this.timeFunction !== null) {

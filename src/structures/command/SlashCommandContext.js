@@ -31,7 +31,7 @@ module.exports = class SlashCommandContext extends CommandContext {
   async send(content, ...props) {
 
     if (content?.embeds !== undefined) {
-      for (let embed of content?.embeds) {
+      for (const embed of content?.embeds) {
         this.embeds.push(embed)
       }
     }
@@ -118,7 +118,7 @@ module.exports = class SlashCommandContext extends CommandContext {
       return undefined
     }
     try {
-      let member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
+      const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
       return member
     } catch {
@@ -198,7 +198,6 @@ module.exports = class SlashCommandContext extends CommandContext {
     }
     return emojis
   }
-
 
   getRole(role) {
     if (!role) return undefined

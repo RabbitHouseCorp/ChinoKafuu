@@ -38,7 +38,6 @@ module.exports = class InteractionPost {
         }
       }
 
-
       if (this.ws !== null) {
         this.ws.on('open', async () => {
           this.connected = true
@@ -107,8 +106,6 @@ module.exports = class InteractionPost {
                 this.client.on('guildCreate', (guild) => {
                   if (guild.id === json.guild_id) {
                     if (this.$guild.includes(json.guild_id)) {
-
-
 
                       this.client.createFollowUpMessage(json.application_id, json.token, {
                         type: 4,

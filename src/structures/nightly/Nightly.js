@@ -54,5 +54,4 @@ module.exports = class NightlyDeveloper extends EventEmitter {
     return false
   }
 
-
 }

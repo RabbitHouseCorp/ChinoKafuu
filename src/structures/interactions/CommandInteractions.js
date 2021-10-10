@@ -4,6 +4,7 @@ module.exports = class CommandInteractions {
     this.ctx = commandContext
     this.component = []
   }
+
   /**
    *
    *    | Type | Name      | Description                      |
@@ -14,7 +15,7 @@ module.exports = class CommandInteractions {
   components(...components) {
     const buttons = []
 
-    for (let data of components) {
+    for (const data of components) {
       buttons.push(data.data())
     }
 

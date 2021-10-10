@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 const { EmbedBuilder, Helper, AwayFromKeyboardUtils, InviteDMUtils, BlacklistUtils } = require('../../utils')
 const CommandContext = require('./CommandContext')
 const CommandPermissions = require('./CommandPermissions')

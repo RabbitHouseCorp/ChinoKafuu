@@ -22,17 +22,20 @@ module.exports = class SelectionMenu {
       this.disabled = data.disabled;
     }
   }
+
   setCustomID(id) {
     this.custom_id = id;
     return this;
   }
+
   addPlaceHolder(placeholder) {
     this.placeholder = placeholder;
     return this;
   }
+
   addItem(...items) {
     if (Array.isArray(items[0])) {
-      for (let itemKey of items[0]) {
+      for (const itemKey of items[0]) {
         this.options.push(itemKey.data);
       }
       return this;
@@ -42,26 +45,32 @@ module.exports = class SelectionMenu {
     }
     return this;
   }
+
   addEmoji(emoji) {
     this.emoji = emoji;
     return this;
   }
+
   minValues(value) {
     this.min_values = value;
     return this;
   }
+
   maxValues(value) {
     this.max_values = value;
     return this;
   }
+
   isDisable() {
     this.disabled = true;
     return this;
   }
+
   isEnable() {
     this.disabled = false;
     return this;
   }
+
   data() {
     const d = {
       type: 3

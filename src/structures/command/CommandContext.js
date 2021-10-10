@@ -79,8 +79,6 @@ module.exports = class CommandContext {
     }, props[0]?.file)
   }
 
-
-
   /**
      *
      * @param emoji

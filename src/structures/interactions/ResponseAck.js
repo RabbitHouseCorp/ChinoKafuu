@@ -33,7 +33,6 @@ module.exports = class ResponseAck extends EventEmitter {
     })
   }
 
-
   interactionType(type) {
     this.interactionType = type
     return this
@@ -76,7 +75,7 @@ module.exports = class ResponseAck extends EventEmitter {
         ping_pong: false
       })
     } else {
-      this.client.requestHandler.request("POST", `/interactions/${this.id}/${this.token}/callback`, true, {
+      this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
         type: type,
         token: this.token,
         data: data

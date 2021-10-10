@@ -36,11 +36,11 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     return this;
   }
 
-
   setUser(user) {
     this.user = user;
     return this;
   }
+
   async sendAck(typeAck, data) {
     let type = 4;
     switch (typeAck) {
@@ -59,7 +59,6 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
       default:
         type = 4;
     }
-
 
     if (this.client.interactionPost !== null) {
       this.client.interactionPost.send({
