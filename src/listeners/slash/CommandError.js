@@ -17,7 +17,7 @@ module.exports = class CommandError extends Listener {
           search: {
             guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],
           },
-        })
+        }).data.toMap().get(`guilds:${json.guild_id}`).data
         let locale = null
         if (guild_query.data.query.includes(json.guild_id)) {
           const guildData = guild_query.data.query
