@@ -6,63 +6,63 @@ const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
 const CommandCooldown = require('./command/CommandCooldown')
 const SlashCommandRegistry = require('./command/SlashCommandRegistry')
-const CacheManager = require('./util/cache/CacheManager');
+// const CacheManager = require('./util/cache/CacheManager');
 
 module.exports = class Bot extends Client {
-     constructor(...data) {
-          super(...data)
-          this.startShard = 0;
+  constructor(...data) {
+    super(...data)
+    this.startShard = 0;
 
           // this.cacheManager = new CacheManager(this)
           /**
                *
                * @type {ListenerRegistry}
                */
-          this.listenerRegistry = new ListenerRegistry(this)
+    this.listenerRegistry = new ListenerRegistry(this)
           /**
                *
                * @type {I18NRegistry}
                */
-          this.i18nRegistry = new I18NRegistry()
+    this.i18nRegistry = new I18NRegistry()
           /**
                *
                * @type {CommandRegistry}
                */
-          this.commandRegistry = new CommandRegistry()
+    this.commandRegistry = new CommandRegistry()
           /**
            *
            * @type {SlashCommandRegistry}
            */
-          this.slashCommandRegistry = new SlashCommandRegistry()
+    this.slashCommandRegistry = new SlashCommandRegistry()
           /**
                *
                * @type {ClusteringInterface}
                */
-          if (!process.env.CLUSTERS) {
-               this.clusters = new ClusteringInterface(this)
-          } else {
-               this.clusters = null;
-          }
+    if (!process.env.CLUSTERS) {
+      this.clusters = new ClusteringInterface(this)
+    } else {
+      this.clusters = null;
+    }
           /**
                *
                * @type {Database}
                */
-          if (this.database !== undefined) {
-             this.database = new Database()
-          }
+    if (this.database !== undefined) {
+      this.database = new Database()
+    }
           /**
                *
                * @type {Map}
                */
-          this.shardUptime = new Map()
+    this.shardUptime = new Map()
 
           /**
                 * @type {CommandCooldown}
                 * @description This class is for blocking access to commands globally and Soon will have future implementations
                 */
-          this.commandCooldown = new CommandCooldown()
+    this.commandCooldown = new CommandCooldown()
 
-          this.interactionPost = null
+    this.interactionPost = null
 
-     }
+  }
 }

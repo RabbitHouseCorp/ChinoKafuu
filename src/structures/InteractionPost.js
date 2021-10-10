@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const Interaction = require('eris/lib/structures/Interaction')
 const WebSocket = require('ws')
 const { Logger } = require('../utils')
@@ -15,6 +16,7 @@ module.exports = class InteractionPost {
     this.ping = 0
     this.connected = false
     this.attempt = 0
+    this.$guild = []
   }
 
   connect() {
@@ -78,7 +80,49 @@ module.exports = class InteractionPost {
         this.ws.on('message', async (message) => {
           try {
             const json = JSON.parse(Buffer.from(message, 'utf8').toString('utf-8').replace(/^129/g, ''))
+            if (json.guild_id !== undefined) {
+              if (this.client.guilds.get(json.guild_id) == undefined) {
+                const guild_query = await this.client.database.flux({
+                  search: {
+                    guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],
+                  },
+                })
+                let locale = null
+                if (guild_query.data.query.includes(json.guild_id)) {
+                  const guildData = guild_query.data.query
+                  locale = this.client.i18nRegistry.getT(guildData.lang)
+                } else {
+                  locale = this.client.i18nRegistry.getT(null)
+                }
+                if (!this.$guild.includes(json.guild_id)) {
+                  this.$guild.push(json.guild_id)
+                }
+                this.client.createFollowUpMessage(json.application_id, json.token, {
+                  type: 4,
+                  embeds: [{
+                    description: locale(`errors.commandFail`)
+                  }]
+                }, null)
 
+                this.client.on('guildCreate', (guild) => {
+                  if (guild.id === json.guild_id) {
+                    if (this.$guild.includes(json.guild_id)) {
+
+
+
+                      this.client.createFollowUpMessage(json.application_id, json.token, {
+                        type: 4,
+                        embeds: [{
+                          description: locale(`success.guildAdded`)
+                        }]
+                      }, null)
+                      this.$guild.splice(this.$guild.indexOf(json.guild_id), 1) // Delete
+                    }
+                  }
+                })
+                return
+              }
+            }
             if (json.type_ws !== undefined) {
               switch (json.type_ws) {
                 case 1001: {
