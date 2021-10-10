@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const Logger = require('../util/Logger')
 const command = require('./collections/Command')
 const guild = require('./collections/Guild')
@@ -5,6 +6,7 @@ const user = require('./collections/User')
 const Collection = require('./Collection')
 const mongoose = require('mongoose')
 const EventEmitter = require('events')
+const chalk = require('chalk')
 
 module.exports = class Database extends EventEmitter {
   constructor() {
@@ -95,12 +97,9 @@ module.exports = class Database extends EventEmitter {
             try {
               switch (object_a.mode) {
                 case 'array': {
-                  let b = null
-                  if (!(objData.noFetchData == true)) {
-                    b = await map.get(tag).model.findOne(objData.fetch)
-                  }
-                  if (b == null) {
-                    if (objData.data !== undefined) {
+                  if (objData.getOrAdd) {
+                    const b = await map.get(tag).model.findOne(objData.fetch)
+                    if (b == null) {
                       t_data = Date.now()
                       saveData++
                       const id_data = objData.fetch.id
@@ -109,105 +108,51 @@ module.exports = class Database extends EventEmitter {
                         d_data.id = id_data
                       }
                       const newData = await this[tag].model({ ...d_data }).save()
-                      object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: null, tag: tag, collection: this[tag] })
+                      object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
                     } else {
-                      if (!(objData.noFetchData == true)) {
-                        notFound++
-                      }
-                    }
-                  } else {
-                    found++
-                    let $a = null
-                    if (objData.data !== undefined) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      $a = await this[tag].model({ id_data, ...d_data }).save()
-                    }
-                    object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
-                  }
-                }
-                  break;
-                case '$': {
-                  let b = null
-                  if (!(objData.noFetchData == true)) {
-                    b = await map.get(tag).model.findOne(objData.fetch)
-                  }
-                  if (b == null) {
+                      found++
+                      const $a = null
 
-                    if (!(objData.data !== undefined)) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      const newData = await this[tag].model({ id_data, ...d_data }).save()
-                      if (newData.id !== undefined) {
-                        object_a.data.query[c] = { took_off: Date.now() - t_data, data: newData, saved: null, tag: tag, collection: this[tag] }
-                      }
-                    } else {
-                      if (!(objData.noFetchData == true)) {
-                        notFound++
-                      }
+                      object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
                     }
-
                   } else {
-                    found++
-                    let $a = null
-                    if (objData.data !== undefined) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      $a = await this[tag].model({ id_data, ...d_data }).save()
+                    let b = null
+                    if (!(objData.noFetchData == true)) {
+                      b = await map.get(tag).model.findOne(objData.fetch)
                     }
-                    if (b.id !== undefined) {
-                      object_a.data.query[c] = { took_off: Date.now() - t_data, data: null, saved: $a, tag: tag, collection: this[tag] }
+                    if (b == null) {
+                      if (objData.data !== undefined) {
+                        t_data = Date.now()
+                        saveData++
+                        const id_data = objData.fetch.id
+                        const d_data = objData.data ?? {}
+                        if (d_data.id == undefined) {
+                          d_data.id = id_data
+                        }
+                        const newData = await this[tag].model({ ...d_data }).save()
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                      } else {
+                        if (!(objData.noFetchData == true)) {
+                          notFound++
+                        }
+                      }
                     } else {
-                      object_a.data.query[c] = { took_off: Date.now() - t_data, data: null, saved: $a, tag: tag, collection: this[tag] }
+                      found++
+                      let $a = null
+                      if (objData.data !== undefined) {
+                        t_data = Date.now()
+                        saveData++
+                        const id_data = objData.fetch.id
+                        const d_data = objData.data ?? {}
+                        $a = await this[tag].model({ id_data, ...d_data }).save()
+                      }
+                      object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
                     }
                   }
                 }
-                  break;
-                case 'map': {
-                  let b = null
-                  if (!(objData.noFetchData == true)) {
-                    b = await map.get(tag).model.findOne(objData.fetch)
-                  }
-                  if (b == null) {
-                    if (!(objData.data !== undefined)) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      const newData = await this[tag].model({ id_data, ...d_data }).save()
-                      if (newData.id !== undefined) {
-                        object_a.data.query.set(b.id, { took_off: Date.now() - t_data, data: newData, saved: null, tag: tag, collection: this[tag] })
-                      }
-                    } else {
-                      if (!(objData.noFetchData == true)) {
-                        notFound++
-                      }
-                    }
-                  } else {
-                    found++
-                    let $a = null
-                    if (objData.data !== undefined) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      $a = await this[tag].model({ id_data, ...d_data }).save()
-                    }
-                    if (b.id !== undefined) {
-                      object_a.data.query.set(b.id, { took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
-                    } else {
-                      object_a.data.query.set(c, { took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
-                    }
-                  }
-                }
-                  break;
               }
+
+
             } catch (err) {
               object_a.errors[c] = {
                 error: err,
@@ -225,7 +170,80 @@ module.exports = class Database extends EventEmitter {
         }
       }
     }
+
+    object_a.data.toMap = () => {
+      const a = new Map()
+      for (const b of object_a.data.query) {
+        if (b.data.id !== undefined) {
+          a.set(`${b.tag}:${b.data.id}`, b)
+        } else {
+          a.set(`${b.data.id}`, b)
+        }
+      }
+      return a
+    }
     object_a.took_off = Date.now() - time
+    this.#logger_receive('get', object_a)
     return object_a
+  }
+
+
+
+  #logger_receive(action, data) {
+    const loggers = []
+    loggers.push(' ')
+    const list = process.env.FLUX_LOGGER.replace(" ", "").split(",")
+    if (list.includes('took')) {
+      loggers.push(`Took (${this.#lantecy(data.took_off)})`)
+    }
+    if (list.includes('get_data')) {
+      loggers.push(`GET Data ~> ${JSON.stringify(data.data.query)}`)
+    }
+    if (list.includes('post_data')) {
+      const map = []
+      const bar_2 = "____________________"
+      for (const b of data.data.query) {
+        if (!(b.saved == null)) {
+          map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.#lantecy(b.took_off)}\n${bar_2}`)
+        }
+      }
+      if (!(map.length == 0)) {
+        loggers.push(`Post data:\n${map.join('\n')}`)
+      }
+    }
+
+    if (list.includes('error')) {
+      const bar = chalk.bgRedBright(Array.from({ length: process.stdout.columns }, () => ` `).join(''))
+      const bar_2 = "____________________"
+          // eslint-disable-next-line keyword-spacing
+      const d = (errorInf) => {try { return JSON.stringify(errorInf.data)} catch(_er) { return  errorInf.data}}
+
+      if (Object.values(data.erros ?? []).length > 0) {
+        loggers.push(`Errors ${chalk.green('MongoDB')}:\n${bar}\n${Object.values(data.errors).map((errorInf) => { return `${bar_2}\n${chalk.yellow('Tag')}: ${errorInf.tag}\n${chalk.cyan('Data')}: ${d(errorInf)}\n${chalk.red('Error')}:${errorInf.error}\n${bar_2}`})}\n${bar}`)
+      }
+    }
+
+    if (list.length > 0) {
+      Logger.debug(`[FLUX DATA] [MONGODB] ${loggers.length == 1 ? 'no-logger' : loggers.join(`\n | - `)}`)
+    }
+  }
+
+  #lantecy(latency, emoji) {
+    if (latency > 267) {
+      return `${chalk.yellow(`${latency}ms`)} --- This is bad! Flow is too slow!`
+    }
+    if (latency > 100) {
+      return `${chalk.yellow(`${latency}ms`)} --- Lightly heavy flow...`
+    }
+    if (latency > 100) {
+      return `${chalk.yellow(`${latency}ms`)} --- Flow is medium${emoji == true ? '🤔' : ''}...`
+    }
+    if (latency > -100) {
+      return `${chalk.green(`${latency}ms`)} --- ${emoji == true ? '🎉' : ''}Woah! Good.${emoji == true ? '🎉' : ''}`
+    }
+
+
+
+
   }
 }
