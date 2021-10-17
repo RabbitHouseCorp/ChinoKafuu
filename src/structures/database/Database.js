@@ -189,7 +189,12 @@ module.exports = class Database extends EventEmitter {
   #logger_receive(action, data) {
     const loggers = []
     loggers.push(' ')
-    const list = process.env.FLUX_LOGGER.replace(" ", "").split(",")
+    let list = []
+    if (!process.env.FLUX_LOGGER) {
+      list = []
+    } else {
+      process.env.FLUX_LOGGER.replace(" ", "").split(",")
+    }
     if (list.includes('took')) {
       loggers.push(`Took (${this.#lantecy(data.took_off)})`)
     }

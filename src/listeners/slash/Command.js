@@ -10,6 +10,8 @@ module.exports = class Command extends Listener {
   }
 
   async on(client, interaction = new Interaction()) {
+    console.log('here')
+    await interaction.hook.callbackHook({ type: 5 })
     await SlashRunner.run(client, interaction)
   }
 }

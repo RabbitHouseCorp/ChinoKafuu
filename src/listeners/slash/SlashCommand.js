@@ -19,7 +19,6 @@ module.exports = class SlashCommand extends Listener {
 
       // commandRegistry:
 
-
       // This is for production testing.
       // client.slashCommand.addVolumeOfCommands(commandFolder)
       // Remembering that you have to remove the bot
