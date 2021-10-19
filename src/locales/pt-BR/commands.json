@@ -352,7 +352,7 @@
   },
   "botinfo": {
     "title": "Informação do bot",
-    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicanod aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
+    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
