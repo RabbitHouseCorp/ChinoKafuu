@@ -10,7 +10,7 @@ module.exports = class JanKenPonCommand extends Command {
       hasUsage: true,
       slash: new CommandBase()
         .setName('jankenpon')
-        .setDescription('Plays jankenpon and win or lose yens.')
+        .setDescription('Plays jankenpon and win or lose yens')
         .addOptions(
           new CommandOptions()
             .setType(3)
@@ -47,7 +47,7 @@ module.exports = class JanKenPonCommand extends Command {
     let result
     let emoji
     const value = ctx.args.get('value').value
-    if (!value) return ctx.replyT('warn', 'commands:jankenpon.valueNotInputed')
+    if (!value) return ctx.replyT('warn', 'commands:jankenpon.valueNotInputed') // Type-0
     const invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
     if (invalidValue) return ctx.replyT('error', 'commands:pay.invalidValue')
     if (user.yens < value) return ctx.replyT('error', 'commands:pay.poorUser')
