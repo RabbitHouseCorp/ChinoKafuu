@@ -63,7 +63,8 @@ module.exports = class ResponseAck extends EventEmitter {
         type = 4
     }
 
-    if (this.client.interactionPost !== null) {
+    if ((this.client.interactionPost == null)) {
+
       this.client.interactionPost.send({
         token: this.token,
         type: 95,
