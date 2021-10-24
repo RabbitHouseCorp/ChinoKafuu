@@ -24,7 +24,7 @@ module.exports = class InteractionPost {
     if (!(this.attempt > 10)) {
       if (this.connected === false) {
         try {
-          if (process.env.URL_INTERACTION.startsWith('ws://IP:PORT/ws') && process.env.URL_INTERACTION) {
+          if (process.env.URL_INTERACTION?.startsWith('ws://IP:PORT/ws')) {
             Logger.warning('Interaction URL not found, please, put it next time.')
           } else {
             this.ws = new WebSocket(process.env.URL_INTERACTION, {

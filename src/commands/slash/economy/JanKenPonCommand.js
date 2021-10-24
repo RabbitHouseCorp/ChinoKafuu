@@ -1,5 +1,6 @@
 const { Command } = require('../../../utils')
 const { CommandBase, CommandOptions, Choice } = require('eris')
+const Emoji = require('../../../utils/EmotesInstance')
 
 module.exports = class JanKenPonCommand extends Command {
   constructor() {
@@ -90,8 +91,7 @@ module.exports = class JanKenPonCommand extends Command {
 
     ctx.send('Jan ken pon').then(msg => {
       setTimeout(() => {
-        msg.delete()
-        ctx.reply(emoji, result)
+        msg.edit(`${Emoji.getEmoji(emoji).mention} **|** ${ctx.message.author.mention}, ${result}`)
       }, 2000)
     })
   }

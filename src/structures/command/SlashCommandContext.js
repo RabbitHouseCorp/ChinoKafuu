@@ -53,9 +53,9 @@ module.exports = class SlashCommandContext extends CommandContext {
       this.deferMessage = messageFunction
       return messageFunction
     }
-    const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
-    this.deferMessage = messageFunction
-    return messageFunction
+    // const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
+    // this.deferMessage = messageFunction
+    // return messageFunction
   }
 
   /**
