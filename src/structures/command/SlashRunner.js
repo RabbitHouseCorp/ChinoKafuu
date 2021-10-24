@@ -21,6 +21,7 @@ module.exports = class SlashRunner {
     const mapData = getDataDB.data.toMap()
     const userData = mapData.get(`users:${interaction.member.id}`)
     const guildData = mapData.get(`guilds:${interaction.guild.id}`)
+
     const blacklist = new BlacklistUtils(client)
     if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
     const _locale = client.i18nRegistry.getT(guildData.lang)
@@ -28,11 +29,12 @@ module.exports = class SlashRunner {
     const command = client.slashCommandRegistry.findByName(commandName)
     if (!command) return
     const ctx = new SlashCommandContext(client, interaction, interaction.command.interface, {
-      user: userData,
-      guild: guildData,
+      user: userData.data,
+      guild: guildData.data,
       db: client.database.users
     }, _locale)
     ctx.ms = ms
+
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
 
     if (userData?.blacklist) {
