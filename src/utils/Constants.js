@@ -1,4 +1,6 @@
 const package = require('../../package.json')
+const Logger = require('../structures/util/Logger')
+const chalk = require('chalk')
 module.exports.Flags_Guild = {
   GUILD_TESTER: 1 << 0,
   PREMIUM: 1 << 1,
@@ -32,5 +34,34 @@ module.exports.Flags_Command = {
 module.exports.BUILD_INFO = {
   version: package.version,
   build: Buffer.from(package.version).toString('base64'),
-  commit: 'cb634b281337a56d16c600354c132dba16be7e63'
+  commit_log: async () => {
+    const { exec } = require('child_process');
+    exec('git show', (error, stdout) => {
+      if (error) {
+        return;
+      }
+      const get_first_line = stdout.split('\n')[0]
+      const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
+      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${package.version}) / ${get_message}`)
+
+    });
+  },
+  getCommit: async () => {
+    const { exec } = require('child_process');
+    const data = {
+      commit: null,
+      message: null,
+      version: package.version
+    }
+    await exec('git show', (error, stdout) => {
+      if (error) {
+        return;
+      }
+      const get_first_line = stdout.split('\n')[0]
+      const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
+      data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
+      data.message = get_message
+    });
+    return data;
+  }
 }
