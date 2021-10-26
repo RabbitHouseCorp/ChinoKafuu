@@ -62,6 +62,6 @@ module.exports.BUILD_INFO = {
       data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
       data.message = get_message
     });
-    return data;
+    return data
   }
 }
