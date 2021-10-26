@@ -9,6 +9,7 @@ const Guilds = new mongoose.Schema({
   punishModule: { type: Boolean, default: false },
   partner: { type: Boolean, default: false },
   animu: { type: Boolean, default: false },
+  flags: { type: Number, default: 0 },
   animuChannel: { type: String, default: '' },
   blacklist: { type: Boolean, default: false },
   blacklistReason: { type: String, default: '' },

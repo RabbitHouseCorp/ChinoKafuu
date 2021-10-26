@@ -12,6 +12,7 @@ const Users = new mongoose.Schema({
   profileColor: { type: String, default: '#6b8dff' },
   isMarry: { type: Boolean, default: false },
   marryWith: { type: String, default: '' },
+  flags: { type: Number, default: 0 },
   rep: { type: Number, default: 0 },
   repTime: { type: Number, default: 0 },
   shipValue: { type: String, default: null },
