@@ -40,7 +40,7 @@ module.exports.BUILD_INFO = {
     if (process.env.BUILD_SHOW == undefined) {
       return
     }
-    if (!process.env.BUILD_SHOW) {
+    if (process.env.BUILD_SHOW == 'false') {
       return
     }
     const e = await exec('git show', async (error, stdout) => {
@@ -69,7 +69,7 @@ module.exports.BUILD_INFO = {
     if (process.env.BUILD_SHOW == undefined) {
       return data
     }
-    if (!process.env.BUILD_SHOW) {
+    if (process.env.BUILD_SHOW == 'false') {
       return data
     }
     const e = await exec('git show', async (error, stdout) => {
