@@ -1,3 +1,4 @@
+const package = require('../../package.json')
 module.exports.Flags_Guild = {
   GUILD_TESTER: 1 << 0,
   PREMIUM: 1 << 1,
@@ -28,5 +29,8 @@ module.exports.Flags_Command = {
   COMMAND_TESTER: 1 << 4
 }
 
-
-module.exports.
+module.exports.BUILD_INFO = {
+  version: package.version,
+  build: Buffer.from(package.version).toString('base64'),
+  commit: 'cb634b281337a56d16c600354c132dba16be7e63'
+}
