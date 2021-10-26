@@ -20,10 +20,14 @@ module.exports = class InteractionPost {
   }
 
   connect() {
+    if (process.env?.URL_INTERACTION == undefined) {
+      return this
+    }
     const t = Date.now()
     if (!(this.attempt > 10)) {
       if (this.connected === false) {
         try {
+
           if (process.env.URL_INTERACTION?.startsWith('ws://IP:PORT/ws')) {
             Logger.warning('Interaction URL not found, please, put it next time.')
           } else {
