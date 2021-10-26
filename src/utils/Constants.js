@@ -7,7 +7,10 @@ module.exports.Flags_Guild = {
   COMMAND_ACCESS_TESTER: 1 << 2,
   PARTNER: 1 << 3,
   BLACKLIST: 1 << 4,
-  VERIFIED: 1 << 5
+  VERIFIED: 1 << 5,
+
+  // Tool for dev
+  NO_COOLDOWN: 1 << 6,
 }
 
 module.exports.Flags_Users = {
@@ -17,10 +20,18 @@ module.exports.Flags_Users = {
   VOTE_ACTIVE: 1 << 4,
   TRANSLATOR: 1 << 5,
   VERIFIED: 1 << 6,
-  STORE_ACCESS: 1 << 3,
   ACCESS_TO_BUY_PROFILE: 1 << 7,
   ACCESS_TO_DECORATE_PROFILE: 1 << 8,
   BOOST_ACTIVE: 1 << 9,
+
+  // Tool for dev
+  NO_COOLDOWN: 1 << 10,
+
+  // STORE
+  BLACKLIST_STORE: 1 << 11,
+  STORE_ACCESS: 1 << 3,
+  ADMIN_STORE: 1 << 12,
+  PARTNER_STORE: 1 << 13
 }
 
 module.exports.Flags_Command = {
