@@ -36,6 +36,12 @@ module.exports.BUILD_INFO = {
   build: Buffer.from(package.version).toString('base64'),
   commit_log: async () => {
     const { exec } = require('child_process');
+    if (process.env.BUILD_SHOW == undefined) {
+      return
+    }
+    if (!process.env.BUILD_SHOW) {
+      return
+    }
     const e = await exec('git show', (error, stdout) => {
       if (error) {
         return;
@@ -53,6 +59,12 @@ module.exports.BUILD_INFO = {
       commit: null,
       message: null,
       version: package.version
+    }
+    if (process.env.BUILD_SHOW == undefined) {
+      return data
+    }
+    if (!process.env.BUILD_SHOW) {
+      return data
     }
     const e = await exec('git show', (error, stdout) => {
       if (error) {
