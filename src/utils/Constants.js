@@ -36,7 +36,7 @@ module.exports.BUILD_INFO = {
   build: Buffer.from(package.version).toString('base64'),
   commit_log: async () => {
     const { exec } = require('child_process');
-    exec('git show', (error, stdout) => {
+    const e = await exec('git show', (error, stdout) => {
       if (error) {
         return;
       }
@@ -45,6 +45,7 @@ module.exports.BUILD_INFO = {
       Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${package.version}) / ${get_message}`)
 
     });
+    await e.kill() // Kill process.
   },
   getCommit: async () => {
     const { exec } = require('child_process');
@@ -53,7 +54,7 @@ module.exports.BUILD_INFO = {
       message: null,
       version: package.version
     }
-    await exec('git show', (error, stdout) => {
+    const e = await exec('git show', (error, stdout) => {
       if (error) {
         return;
       }
@@ -62,6 +63,8 @@ module.exports.BUILD_INFO = {
       data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
       data.message = get_message
     });
-    return data
+
+    await e.kill();
+    return data;
   }
 }
