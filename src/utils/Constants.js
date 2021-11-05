@@ -23,7 +23,7 @@ module.exports.Flags_Users = {
   ACCESS_TO_BUY_PROFILE: 1 << 7,
   ACCESS_TO_DECORATE_PROFILE: 1 << 8,
   BOOST_ACTIVE: 1 << 9,
-
+  SUPPORT: 1 << 14,
   // Tool for dev
   NO_COOLDOWN: 1 << 10,
 

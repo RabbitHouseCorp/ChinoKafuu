@@ -9,10 +9,10 @@ coverage/
 package-lock.json
 UPDATE.md
 .vscode
-.vscode
 index.d.ts
 .dockerignore
 kube/
 Dockerfile
 test.js
 yarn.lock
+.altostra
