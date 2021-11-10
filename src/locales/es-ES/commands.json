@@ -599,7 +599,7 @@
     "usage": "<opiciones> <set/disable> [canal]",
     "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
     "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
-    "chooseYourAction": "Select the right module.",
+    "chooseYourAction": "Seleccione el módulo correcto.",
     "select": {
       "enable": "Habilitar",
       "enableDescription": "Habilita el módulo seleccionado.",
@@ -608,8 +608,8 @@
       "textChannel": "Seleccione el canal de texto.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
       "voiceChannel": "Seleccione el canal de voz.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
       "options": {
-        "textChannel": "Select the text channel.",
-        "voiceChannel": "Select the voice channel."
+        "textChannel": "Seleccione el canal de texto.",
+        "voiceChannel": "Seleccione el canal de voz."
       }
     },
     "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
