@@ -85,20 +85,13 @@ module.exports = class ProfileCommand extends Command {
     ]
 
     for (const flag of flags) {
-      switch ((flag.flag & member.publicFlags) === flag.flag) {
+      switch ((flag.flag & member?.user?.publicFlags ?? member.publicFlags) === flag.flag) {
         case true:
           arrayBadges.push(flag.name)
           break
-        case false:
-        /**
-               * @returns null
-               */
-        default:
-        /**
-       * @returns null
-       */
       }
     }
+    console.log(member.avatarURL.replace('.png?size=2048', '.webp?size=240'))
     const guildMember = await ctx.getMember(member.id) ?? undefined
     axios({
       url: 'http://127.0.0.1:1234/render/profile?w=600&h=600&type=thumb',
@@ -113,7 +106,7 @@ module.exports = class ProfileCommand extends Command {
         bgId: user.background,
         stickerId: user.sticker,
         favColor: user.profileColor,
-        avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
+        avatarUrl: guildMember?.guildAvatar?.replace('.png?size=2048', '.webp?size=240') ?? member.avatarURL.replace('.png?size=2048', '.webp?size=240'),
         badges: arrayBadges
       },
       responseType: 'arraybuffer'
