@@ -23,7 +23,7 @@ module.exports = class FavColorCommand extends Command {
 
   async run(ctx) {
     if (ctx.db.user.yens < 150) return ctx.replyT('error', 'commands:favcolor.poorUser', { 0: ctx.db.user.yens - 75 })
-    const color = ctx.args.arguments('color').value
+    const color = ctx.args.get('color').value
     if (!color.startsWith('#')) return ctx.replyT('error', 'commands:favcolor.invalidColor')
 
     ctx.db.user.profileColor = color
