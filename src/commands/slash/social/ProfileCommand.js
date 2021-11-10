@@ -101,7 +101,7 @@ module.exports = class ProfileCommand extends Command {
     }
     const guildMember = await ctx.getMember(member.id) ?? undefined
     axios({
-      url: 'http://127.0.0.1:1234/render/profile',
+      url: 'http://127.0.0.1:1234/render/profile?w=600&h=600&type=thumb',
       method: 'post',
       data: {
         type: user.profileType,
