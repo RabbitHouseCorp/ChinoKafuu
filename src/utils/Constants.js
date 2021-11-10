@@ -48,10 +48,10 @@ module.exports.BUILD_INFO = {
   commit_log: async () => {
     const { exec } = require('child_process');
     let kill_process = false
-    if (process.env.BUILD_SHOW == undefined) {
+    if (process.env.BUILD_SHOW === undefined) {
       return
     }
-    if (process.env.BUILD_SHOW == 'false') {
+    if (process.env.BUILD_SHOW === 'false') {
       return
     }
     const e = await exec('git show', async (error, stdout) => {
@@ -78,10 +78,10 @@ module.exports.BUILD_INFO = {
       message: null,
       version: package.version
     }
-    if (process.env.BUILD_SHOW == undefined) {
+    if (process.env.BUILD_SHOW === undefined) {
       return data
     }
-    if (process.env.BUILD_SHOW == 'false') {
+    if (process.env.BUILD_SHOW === 'false') {
       return data
     }
     const e = await exec('git show', async (error, stdout) => {

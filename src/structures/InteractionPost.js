@@ -20,7 +20,7 @@ module.exports = class InteractionPost {
   }
 
   connect() {
-    if (process.env?.URL_INTERACTION == undefined) {
+    if (process.env?.URL_INTERACTION === undefined) {
       return this
     }
     const t = Date.now()
@@ -85,7 +85,7 @@ module.exports = class InteractionPost {
           try {
             const json = JSON.parse(Buffer.from(message, 'utf8').toString('utf-8').replace(/^129/g, ''))
             if (json.guild_id !== undefined) {
-              if (this.client.guilds.get(json.guild_id) == undefined) {
+              if (this.client.guilds.get(json.guild_id) === undefined) {
                 const guild_query = await this.client.database.flux({
                   search: {
                     guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],

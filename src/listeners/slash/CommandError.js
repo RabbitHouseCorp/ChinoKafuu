@@ -12,7 +12,7 @@ module.exports = class CommandError extends Listener {
     if (packet.t !== 'INTERACTION_CREATE') return
     const json = packet.d
     if (json.guild_id !== undefined) {
-      if (client.guilds.get(json.guild_id) == undefined) {
+      if (client.guilds.get(json.guild_id) === undefined) {
         const guild_query = await client.database.flux({
           search: {
             guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],

@@ -91,7 +91,7 @@ module.exports = class Database extends EventEmitter {
         let notFound = 0
         let saveData = 0
         for (const objData of data.search[tag]) {
-          if (!(map.get(tag) == undefined)) {
+          if (!(map.get(tag) === undefined)) {
             c++
             let t_data = Date.now()
             try {
@@ -99,12 +99,12 @@ module.exports = class Database extends EventEmitter {
                 case 'array': {
                   if (objData.getOrAdd) {
                     const b = await map.get(tag).model.findOne(objData.fetch)
-                    if (b == null) {
+                    if (b === null) {
                       t_data = Date.now()
                       saveData++
                       const id_data = objData.fetch.id
                       const d_data = objData.data ?? {}
-                      if (d_data.id == undefined) {
+                      if (d_data.id === undefined) {
                         d_data.id = id_data
                       }
                       const newData = await this[tag].model({ ...d_data }).save()
@@ -117,22 +117,22 @@ module.exports = class Database extends EventEmitter {
                     }
                   } else {
                     let b = null
-                    if (!(objData.noFetchData == true)) {
+                    if (!(objData.noFetchData === true)) {
                       b = await map.get(tag).model.findOne(objData.fetch)
                     }
-                    if (b == null) {
+                    if (b === null) {
                       if (objData.data !== undefined) {
                         t_data = Date.now()
                         saveData++
                         const id_data = objData.fetch.id
                         const d_data = objData.data ?? {}
-                        if (d_data.id == undefined) {
+                        if (d_data.id === undefined) {
                           d_data.id = id_data
                         }
                         const newData = await this[tag].model({ ...d_data }).save()
                         object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
                       } else {
-                        if (!(objData.noFetchData == true)) {
+                        if (!(objData.noFetchData === true)) {
                           notFound++
                         }
                       }
@@ -205,11 +205,11 @@ module.exports = class Database extends EventEmitter {
       const map = []
       const bar_2 = "____________________"
       for (const b of data.data.query) {
-        if (!(b.saved == null)) {
+        if (!(b.saved === null)) {
           map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.#lantecy(b.took_off)}\n${bar_2}`)
         }
       }
-      if (!(map.length == 0)) {
+      if (!(map.length === 0)) {
         loggers.push(`Post data:\n${map.join('\n')}`)
       }
     }
@@ -217,16 +217,16 @@ module.exports = class Database extends EventEmitter {
     if (list.includes('error')) {
       const bar = chalk.bgRedBright(Array.from({ length: process.stdout.columns }, () => ` `).join(''))
       const bar_2 = "____________________"
-          // eslint-disable-next-line keyword-spacing
-      const d = (errorInf) => {try { return JSON.stringify(errorInf.data)} catch(_er) { return  errorInf.data}}
+      // eslint-disable-next-line keyword-spacing
+      const d = (errorInf) => { try { return JSON.stringify(errorInf.data) } catch (_er) { return errorInf.data } }
 
       if (Object.values(data.erros ?? []).length > 0) {
-        loggers.push(`Errors ${chalk.green('MongoDB')}:\n${bar}\n${Object.values(data.errors).map((errorInf) => { return `${bar_2}\n${chalk.yellow('Tag')}: ${errorInf.tag}\n${chalk.cyan('Data')}: ${d(errorInf)}\n${chalk.red('Error')}:${errorInf.error}\n${bar_2}`})}\n${bar}`)
+        loggers.push(`Errors ${chalk.green('MongoDB')}:\n${bar}\n${Object.values(data.errors).map((errorInf) => { return `${bar_2}\n${chalk.yellow('Tag')}: ${errorInf.tag}\n${chalk.cyan('Data')}: ${d(errorInf)}\n${chalk.red('Error')}:${errorInf.error}\n${bar_2}` })}\n${bar}`)
       }
     }
 
     if (list.length > 0) {
-      Logger.debug(`[FLUX DATA] [MONGODB] ${loggers.length == 1 ? 'no-logger' : loggers.join(`\n | - `)}`)
+      Logger.debug(`[FLUX DATA] [MONGODB] ${loggers.length === 1 ? 'no-logger' : loggers.join(`\n | - `)}`)
     }
   }
 
@@ -238,10 +238,10 @@ module.exports = class Database extends EventEmitter {
       return `${chalk.yellow(`${latency}ms`)} --- Lightly heavy flow...`
     }
     if (latency > 100) {
-      return `${chalk.yellow(`${latency}ms`)} --- Flow is medium${emoji == true ? '🤔' : ''}...`
+      return `${chalk.yellow(`${latency}ms`)} --- Flow is medium${emoji === true ? '🤔' : ''}...`
     }
     if (latency > -100) {
-      return `${chalk.green(`${latency}ms`)} --- ${emoji == true ? '🎉' : ''}Woah! Good.${emoji == true ? '🎉' : ''}`
+      return `${chalk.green(`${latency}ms`)} --- ${emoji === true ? '🎉' : ''}Woah! Good.${emoji === true ? '🎉' : ''}`
     }
 
   }

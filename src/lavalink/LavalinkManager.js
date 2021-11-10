@@ -25,8 +25,8 @@ module.exports = class LavalinkManager extends EventEmitter {
      */
     this.track = null;
     this.default = false;
-    
-    if (this.default == false) {
+
+    if (this.default === false) {
       this.on('setManager', (client) => {
 
         this.client = client
@@ -35,11 +35,9 @@ module.exports = class LavalinkManager extends EventEmitter {
           user: this.client.user.id,
           shards: parseInt(process.env.SHARD_COUNT)
         })
-        this.manager.connect()
+        this.manager.connect().catch(() => Logger.error('I\'m unable to connect to Lavalink, sorry...'))
       })
     }
-
-   
   }
 
   getBestHost () {

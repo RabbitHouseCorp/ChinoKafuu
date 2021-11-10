@@ -56,7 +56,7 @@ module.exports = class PingCommand extends Command {
       }
 
       case 'clusters': {
-        if (!(ctx.client.clusters == null)) {
+        if (!(ctx.client.clusters === null)) {
           const clusters = ctx.client.clusters.getAveragePing()
 
           const embed = new EmbedBuilder()
@@ -90,7 +90,7 @@ module.exports = class PingCommand extends Command {
           if (ctx.client.interactionPost != null) {
             embed.addField('Interaction Latency', `${ctx.client.interactionPost.ping}ms **(Last latency ${ctx.client.interactionPost.lastPing}ms)**`)
           }
-          embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters == null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
+          embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
           process.usage
           msg.edit(embed.build())
         })
