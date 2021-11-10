@@ -91,7 +91,7 @@ module.exports = class ProfileCommand extends Command {
           break
       }
     }
-    console.log(member.avatarURL.replace('.png?size=2048', '.webp?size=240'))
+
     const guildMember = await ctx.getMember(member.id) ?? undefined
     axios({
       url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
