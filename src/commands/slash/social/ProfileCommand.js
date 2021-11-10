@@ -90,9 +90,10 @@ module.exports = class ProfileCommand extends Command {
           arrayBadges.push(flag.name)
           break
         case false:
-        /**
-               * @returns null
-               */
+          /**
+                 * @returns null
+                 */
+          break;
         default:
         /**
        * @returns null
@@ -101,7 +102,7 @@ module.exports = class ProfileCommand extends Command {
     }
     const guildMember = await ctx.getMember(member.id) ?? undefined
     axios({
-      url: 'http://127.0.0.1:1234/render/profile?w=600&h=600&type=thumb',
+      url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
       method: 'post',
       data: {
         type: user.profileType,
