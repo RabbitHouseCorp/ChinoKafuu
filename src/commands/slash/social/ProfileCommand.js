@@ -106,7 +106,7 @@ module.exports = class ProfileCommand extends Command {
         bgId: user.background,
         stickerId: user.sticker,
         favColor: user.profileColor,
-        avatarUrl: guildMember?.guildAvatar?.replace('.png?size=2048', '.webp?size=240') ?? member.avatarURL.replace('.png?size=2048', '.webp?size=240'),
+        avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
         badges: arrayBadges
       },
       responseType: 'arraybuffer'
