@@ -20,6 +20,7 @@ module.exports = class SlashCommandContext extends CommandContext {
     this.used = false
     this.content = {}
     this.deferMessage = null
+    this.search = new Map()
   }
 
   /**
