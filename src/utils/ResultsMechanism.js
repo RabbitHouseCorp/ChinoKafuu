@@ -129,7 +129,7 @@ module.exports = class ResultsMechanism {
     }
   }
 
-  searchVoicehannel_Interaction(search, interaction) {
+  searchVoiceChannel_Interaction(search, interaction) {
     let channels = []
 
     for (const channelPosition of interaction.channel.guild.channels) {
