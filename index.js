@@ -17,3 +17,13 @@ pluginManager.addPlugins(
   new LavalinkStore(),
   new BotStore(),
 )
+
+process.on('warning', (warn) => {
+  return console.warn(warn)
+})
+process.on('uncaughtExceptionMonitor', (err) => {
+  return console.error(err)
+})
+process.on('uncaughtException', (err) => {
+  return console.error(err)
+})

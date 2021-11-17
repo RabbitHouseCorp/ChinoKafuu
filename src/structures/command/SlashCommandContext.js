@@ -20,7 +20,6 @@ module.exports = class SlashCommandContext extends CommandContext {
     this.used = false
     this.content = {}
     this.deferMessage = null
-    this.search = new Map()
   }
 
   /**
@@ -32,7 +31,7 @@ module.exports = class SlashCommandContext extends CommandContext {
   async send(content, ...props) {
 
     if (content?.embeds !== undefined) {
-      for (const embed of content?.embeds) {
+      for (const embed of content.embeds) {
         this.embeds.push(embed)
       }
     }

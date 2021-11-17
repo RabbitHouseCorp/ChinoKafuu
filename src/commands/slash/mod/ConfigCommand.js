@@ -21,15 +21,75 @@ module.exports = class ConfigCommand extends Command {
           new CommandOptions()
             .setType(1)
             .setName('animu')
-            .setDescription('Animu Radio'),
+            .setDescription('Animu Radio')
+            .addOptions(
+              new CommandOptions()
+                .setType(3)
+                .setName('status')
+                .setDescription('You need select o option set status of config.')
+                .addChoices(
+                  new Choice()
+                    .setName('Enabled')
+                    .setValue('enable'),
+                  new Choice()
+                    .setName('Disabled')
+                    .setValue('disable'),
+                ),
+              new CommandOptions()
+                .setType(3)
+                .setAutocomplete()
+                .setName('channel')
+                .setDescription('You need select o channel set config.'),
+
+            ),
           new CommandOptions()
             .setType(1)
             .setName('mod')
-            .setDescription('Mod Log'),
+            .setDescription('Mod Log')
+            .addOptions(
+              new CommandOptions()
+                .setType(3)
+                .setName('status')
+                .setDescription('You need select o option set status of config.')
+                .addChoices(
+                  new Choice()
+                    .setName('Enabled')
+                    .setValue('enable'),
+                  new Choice()
+                    .setName('Disabled')
+                    .setValue('disable'),
+                ),
+              new CommandOptions()
+                .setType(3)
+                .setAutocomplete()
+                .setName('channel')
+                .setDescription('You need select o channel set config.'),
+
+            ),
           new CommandOptions()
             .setType(1)
             .setName('report')
-            .setDescription('Report Module'),
+            .setDescription('Report Module')
+            .addOptions(
+              new CommandOptions()
+                .setType(3)
+                .setName('status')
+                .setDescription('You need select o option set status of config.')
+                .addChoices(
+                  new Choice()
+                    .setName('Enabled')
+                    .setValue('enable'),
+                  new Choice()
+                    .setName('Disabled')
+                    .setValue('disable'),
+                ),
+              new CommandOptions()
+                .setType(3)
+                .setAutocomplete()
+                .setName('channel')
+                .setDescription('You need select o channel set config.'),
+
+            ),
         )
     })
   }

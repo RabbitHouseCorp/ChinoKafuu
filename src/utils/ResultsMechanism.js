@@ -54,11 +54,10 @@ module.exports = class ResultsMechanism {
       }
     }
 
-    if (channels.size == 0) {
-      interaction.autoComplete.addOptions().callback().then((l) => console.log(l))
+    if (channels.size === 0) {
+      interaction.autoComplete.addOptions([]).callback()
     } else {
-      interaction.autoComplete.addOptions(channels).callback().then((l) => console.log(l))
-
+      interaction.autoComplete.addOptions(channels).callback()
     }
   }
 
@@ -121,11 +120,10 @@ module.exports = class ResultsMechanism {
       }
     }
 
-    if (channels.size == 0) {
-      interaction.autoComplete.addOptions().callback().then((l) => console.log(l))
+    if (channels.size === 0) {
+      interaction.autoComplete.addOptions([]).callback()
     } else {
-      interaction.autoComplete.addOptions(channels).callback().then((l) => console.log(l))
-
+      interaction.autoComplete.addOptions(channels).callback()
     }
   }
 
@@ -177,6 +175,7 @@ module.exports = class ResultsMechanism {
       }
       if (channel.id == search) {
         if (channel.type == Constants.ChannelTypes.GUILD_VOICE) {
+
           channels = []
           channels.push({
             type: 3,
@@ -188,8 +187,8 @@ module.exports = class ResultsMechanism {
       }
     }
 
-    if (channels.size == 0) {
-      interaction.autoComplete.addOptions().callback()
+    if (channels.size === 0) {
+      interaction.autoComplete.addOptions([]).callback()
     } else {
       interaction.autoComplete.addOptions(channels).callback()
     }
