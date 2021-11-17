@@ -55,7 +55,7 @@ module.exports = class ResultsMechanism {
     }
 
     if (channels.size === 0) {
-      interaction.autoComplete.addOptions([]).callback()
+      interaction.autoComplete.addOptions().callback()
     } else {
       interaction.autoComplete.addOptions(channels).callback()
     }
@@ -121,7 +121,7 @@ module.exports = class ResultsMechanism {
     }
 
     if (channels.size === 0) {
-      interaction.autoComplete.addOptions([]).callback()
+      interaction.autoComplete.addOptions().callback()
     } else {
       interaction.autoComplete.addOptions(channels).callback()
     }
@@ -188,7 +188,7 @@ module.exports = class ResultsMechanism {
     }
 
     if (channels.size === 0) {
-      interaction.autoComplete.addOptions([]).callback()
+      interaction.autoComplete.addOptions().callback()
     } else {
       interaction.autoComplete.addOptions(channels).callback()
     }
