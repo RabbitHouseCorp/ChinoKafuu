@@ -74,7 +74,7 @@ module.exports = class ProfileCommand extends Command {
     ]
 
     for (const flag of flags) {
-      switch ((flag.flag & member.user.publicFlags ?? member.publicFlags) === flag.flag) {
+      switch ((flag.flag & member.user?.publicFlags ?? member?.publicFlags) === flag.flag) {
         case true:
           arrayBadges.push(flag.name)
           break
