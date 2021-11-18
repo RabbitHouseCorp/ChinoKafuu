@@ -3,7 +3,7 @@ const PluginExtend = require('../loaders/PluginExtend');
 module.exports = class CacheProfile extends PluginExtend {
   constructor() {
     super({
-      name: 'bot',
+      name: 'cache_profile',
       args: {},
       timeout: 50 * 1000
     })
@@ -25,8 +25,19 @@ module.exports = class CacheProfile extends PluginExtend {
           return true
         },
         setCache: (USER_ID, state, json, buffer) => {
-          state.$cacheStoreData.add(USER_ID, JSON.stringify(json))
-          state.$cacheStore.add(USER_ID, buffer)
+          if (process.env.WITHOUT_STORING_CACHE_OF_PROFILES == undefined) return
+          if (process.env?.WITHOUT_STORING_CACHE_OF_PROFILES == 'true') {
+            state.$cacheStoreData.set(USER_ID, JSON.stringify(json))
+            state.$cacheStore.set(USER_ID, buffer)
+            setTimeout(() => {
+              if (state.$cacheStore.get(USER_ID) !== undefined) {
+                state.$cacheStore.delete(USER_ID)
+              }
+              if (state.$cacheStoreData.get(USER_ID) !== undefined) {
+                state.$cacheStoreData.delete(USER_ID)
+              }
+            }, 7 * 1000)
+          }
         }
       }
     })
