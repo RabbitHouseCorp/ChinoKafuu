@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command, Logger } = require('../../../utils')
 const axios = require('axios')
 const { CommandOptions, CommandBase } = require('eris')
 
@@ -93,6 +93,8 @@ module.exports = class ProfileCommand extends Command {
     }
 
     const guildMember = await ctx.getMember(member.id) ?? undefined
+    const a = Date.now();
+
     axios({
       url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
       method: 'post',
@@ -111,6 +113,7 @@ module.exports = class ProfileCommand extends Command {
       },
       responseType: 'arraybuffer'
     }).then(profile => {
+      Logger.debug(`profile (${member.id}) request took ${Date.now() - a}ms to receive.`)
       ctx.send('', {
         file: {
           file: profile.data,
