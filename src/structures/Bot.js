@@ -65,4 +65,19 @@ module.exports = class Bot extends Client {
     this.interactionPost = null
 
   }
+
+  get size() {
+    if (process.env.PRODUCTION == 'false') {
+      const parseJsonData = JSON.stringify(this);
+      const buf = Buffer.from(parseJsonData)
+      return {
+        lengthEris: buf.length,
+        lengthBuffer: buf.byteLength
+      }
+    }
+    return {
+      lengthEris: 0,
+      lengthBuffer: 0
+    }
+  }
 }
