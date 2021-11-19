@@ -35,7 +35,7 @@ module.exports = class UnbanCommand extends Command {
   async run(ctx) {
     const guild = ctx.message.guild
     const bans = await guild.getBans()
-    const member = bans.find(ban => ban.user.id === ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    const member = bans.find(ban => ban.user.id === typeof ctx.args.get('user').value !== 'object' ? ctx.args.get('user').value : ctx.args.get('user').value.id )
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
     const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
 
