@@ -601,9 +601,9 @@
     "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
     "chooseYourAction": "Selecione o módulo certo.",
     "select": {
-      "enable": "Enable",
+      "enable": "Habilitar",
       "enableDescription": "Ativa o módulo selecionado.",
-      "disable": "Disable",
+      "disable": "Desabilitar",
       "disableDescription": "Disativa o módulo selecionado.",
       "textChannel": "Selecione o canal de texto.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
       "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
