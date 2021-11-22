@@ -26,7 +26,7 @@
       "staffName": "Người thực thi hình phạt",
       "reason": "Lý do"
     },
-    "reason": "Bị ban bởi: {{0}} - Lý do: {{1}}",
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
     "bigReason": "viết lý do ngắn lại giúp mình, viết dài như thế thì quá sức mình mất."
   },
   "missingArgs": "Cú pháp không hợp lệ! Chat `{{prefix}}{{commandName}}` để xem cách dùng đúng của lệnh đó.",
