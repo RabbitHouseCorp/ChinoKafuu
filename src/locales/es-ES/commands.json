@@ -601,9 +601,9 @@
     "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
     "chooseYourAction": "Seleccione el módulo correcto.",
     "select": {
-      "enable": "Habilitar",
+      "enable": "Enable",
       "enableDescription": "Habilita el módulo seleccionado.",
-      "disable": "Desactivar",
+      "disable": "Disable",
       "disableDescription": "Desactiva el módulo seleccionado.",
       "textChannel": "Seleccione el canal de texto.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
       "voiceChannel": "Seleccione el canal de voz.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
@@ -615,7 +615,8 @@
     "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
     "channel": {
       "voiceNoLongerExist": "¡Oh no! Parece que este canal de voz ya no existe. Repita las mismas acciones.",
-      "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones."
+      "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones.",
+      "moduleIfFoundBug": "somenthing bad happened, and I don't know what happaned on {{0}}'s module. I'm so sorry for that."
     },
     "selected": {
       "textChannel": "Canal de texto establecido a **`{{0}}` (<#{{1}}>)**",
