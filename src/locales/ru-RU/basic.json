@@ -26,7 +26,7 @@
       "staffName": "Who punished",
       "reason": "Причина"
     },
-    "reason": "Забанен модератором {{0}} | Причина: {{1}}",
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
     "bigReason": "you must write an shorter reason, this reason is too big to me."
   },
   "missingArgs": "Недопустимые аргументы! Используйте `{{prefix}}{{commandName}}`, чтобы увидеть правильное использование.",
