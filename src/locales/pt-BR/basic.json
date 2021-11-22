@@ -26,7 +26,7 @@
       "staffName": "Quem puniu",
       "reason": "Motivo"
     },
-    "reason": "Banido por: {{0}} - Motivo: {{1}}",
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
     "bigReason": "você deve digitar um motivo menor, esse motivo é muito grande para mim."
   },
   "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
