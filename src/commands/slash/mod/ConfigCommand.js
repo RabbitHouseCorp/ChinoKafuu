@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command } = require('../../../utils')
 const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class ConfigCommand extends Command {
@@ -92,9 +92,5 @@ module.exports = class ConfigCommand extends Command {
             ),
         )
     })
-  }
-
-  run(ctx) {
-
   }
 }
