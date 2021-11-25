@@ -616,7 +616,7 @@
     "channel": {
       "voiceNoLongerExist": "Ah não! Parece que este canal de voz não existe mais. Repita as mesmas ações.",
       "textNoLongerExist": "Ah não! Parece que este canal de texto não existe mais. Repita as mesmas ações.",
-      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that."
+      "moduleIfFoundBug": "algo de ruim aconteceu, e eu não sei o que aconteceu no módulo do {{0}}. Me desculpe por isso."
     },
     "selected": {
       "textChannel": "Canal de texto foi definido para **`{{0}}` (<#{{1}}>)**",
