@@ -616,7 +616,7 @@
     "channel": {
       "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
       "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions.",
-      "moduleIfFoundBug": "somenthing bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that."
+      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that."
     },
     "selected": {
       "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",
