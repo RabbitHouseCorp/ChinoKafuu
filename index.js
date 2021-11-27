@@ -1,13 +1,14 @@
-require('dotenv').config()
-const Logger = require('./src/structures/util/Logger')
-const Constants = require('./src/utils/Constants')
+import dotenv from 'dotenv'
+dotenv.config()
+import Logger from './src/structures/util/Logger'
+import Constants from './src/utils/Constants'
 Constants.BUILD_INFO.commit_log()
-const PluginManager = require('./src/utils/plugins/PluginManager');
-const DatabaseStore = require('./src/utils/plugins/store/DatabaseStore');
-const BotStore = require('./src/utils/plugins/store/BotStore');
-const LavalinkStore = require('./src/utils/plugins/store/LavalinkStore');
-const CacheProfile = require('./src/utils/plugins/cache/CacheProfile');
-const BuildStore = require('./src/utils/plugins/store/BuildStore');
+import PluginManager from './src/utils/plugins/PluginManager'
+import DatabaseStore from './src/utils/plugins/store/DatabaseStore'
+import BotStore from './src/utils/plugins/store/BotStore'
+import LavalinkStore from './src/utils/plugins/store/LavalinkStore'
+import CacheProfile from './src/utils/plugins/cache/CacheProfile'
+import BuildStore from './src/utils/plugins/store/BuildStore'
 
 // BotStore
 const pluginManager = new PluginManager()
