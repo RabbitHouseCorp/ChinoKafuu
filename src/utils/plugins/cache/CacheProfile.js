@@ -25,8 +25,8 @@ module.exports = class CacheProfile extends PluginExtend {
           return true
         },
         setCache: (USER_ID, state, json, buffer) => {
-          if (process.env.WITHOUT_STORING_CACHE_OF_PROFILES == undefined) return
-          if (process.env?.WITHOUT_STORING_CACHE_OF_PROFILES == 'true') {
+          if (process.env.WITHOUT_STORING_CACHE_OF_PROFILES === undefined) return
+          if (process.env?.WITHOUT_STORING_CACHE_OF_PROFILES === 'true') {
             state.$cacheStoreData.set(USER_ID, JSON.stringify(json))
             state.$cacheStore.set(USER_ID, buffer)
             setTimeout(() => {

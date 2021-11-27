@@ -13,53 +13,53 @@ module.exports = class Bot extends Client {
     super(...data)
     this.startShard = 0;
 
-          // this.cacheManager = new CacheManager(this)
-          /**
-               *
-               * @type {ListenerRegistry}
-               */
+    // this.cacheManager = new CacheManager(this)
+    /**
+         *
+         * @type {ListenerRegistry}
+         */
     this.listenerRegistry = new ListenerRegistry(this)
-          /**
-               *
-               * @type {I18NRegistry}
-               */
+    /**
+         *
+         * @type {I18NRegistry}
+         */
     this.i18nRegistry = new I18NRegistry()
-          /**
-               *
-               * @type {CommandRegistry}
-               */
+    /**
+         *
+         * @type {CommandRegistry}
+         */
     this.commandRegistry = new CommandRegistry()
-          /**
-           *
-           * @type {SlashCommandRegistry}
-           */
+    /**
+     *
+     * @type {SlashCommandRegistry}
+     */
     this.slashCommandRegistry = new SlashCommandRegistry()
-          /**
-               *
-               * @type {ClusteringInterface}
-               */
+    /**
+         *
+         * @type {ClusteringInterface}
+         */
     if (!process.env.CLUSTERS) {
       this.clusters = new ClusteringInterface(this)
     } else {
       this.clusters = null;
     }
-          /**
-               *
-               * @type {Database}
-               */
+    /**
+         *
+         * @type {Database}
+         */
     if (this.database !== undefined) {
       this.database = new Database()
     }
-          /**
-               *
-               * @type {Map}
-               */
+    /**
+         *
+         * @type {Map}
+         */
     this.shardUptime = new Map()
 
-          /**
-                * @type {CommandCooldown}
-                * @description This class is for blocking access to commands globally and Soon will have future implementations
-                */
+    /**
+          * @type {CommandCooldown}
+          * @description This class is for blocking access to commands globally and Soon will have future implementations
+          */
     this.commandCooldown = new CommandCooldown()
 
     this.interactionPost = null
@@ -67,7 +67,7 @@ module.exports = class Bot extends Client {
   }
 
   get size() {
-    if (process.env.PRODUCTION == 'false') {
+    if (process.env.PRODUCTION === 'false') {
       const parseJsonData = JSON.stringify(this);
       const buf = Buffer.from(parseJsonData)
       return {

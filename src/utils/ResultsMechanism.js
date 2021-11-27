@@ -16,7 +16,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] == undefined) {
+          if (y[letter] === undefined) {
             wrong = true;
             wrong++;
           } else {
@@ -34,7 +34,7 @@ module.exports = class ResultsMechanism {
           })
         }
       }
-      if (channel.name.replace('-', '') == search) {
+      if (channel.name.replace('-', '') === search) {
         channels = []
         channels.push({
           type: 3,
@@ -43,7 +43,7 @@ module.exports = class ResultsMechanism {
         })
         break
       }
-      if (channel.id == search) {
+      if (channel.id === search) {
         channels = []
         channels.push({
           type: 3,
@@ -76,7 +76,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] == undefined) {
+          if (y[letter] === undefined) {
             wrong = true;
             wrong++;
           } else {
@@ -87,7 +87,7 @@ module.exports = class ResultsMechanism {
 
       if (!wrong) {
         if (confirm > 0) {
-          if (channel.type == Constants.ChannelTypes.GUILD_TEXT) {
+          if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
             channels.push({
               type: 3,
               name: `${channel.name} - ${channel.id}`,
@@ -96,8 +96,8 @@ module.exports = class ResultsMechanism {
           }
         }
       }
-      if (channel.name.replace('-', '') == search) {
-        if (channel.type == Constants.ChannelTypes.GUILD_TEXT) {
+      if (channel.name.replace('-', '') === search) {
+        if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
           channels = []
           channels.push({
             type: 3,
@@ -107,8 +107,8 @@ module.exports = class ResultsMechanism {
         }
         break
       }
-      if (channel.id == search) {
-        if (channel.type == Constants.ChannelTypes.GUILD_TEXT) {
+      if (channel.id === search) {
+        if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
           channels = []
           channels.push({
             type: 3,
@@ -142,7 +142,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] == undefined) {
+          if (y[letter] === undefined) {
             wrong = true;
             wrong++;
           } else {
@@ -153,7 +153,7 @@ module.exports = class ResultsMechanism {
 
       if (!wrong) {
         if (confirm > 0) {
-          if (channel.type == Constants.ChannelTypes.GUILD_VOICE) {
+          if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
             channels.push({
               type: 3,
               name: `${channel.name} - ${channel.id}`,
@@ -162,8 +162,8 @@ module.exports = class ResultsMechanism {
           }
         }
       }
-      if (channel.name.replace('-', '') == search) {
-        if (channel.type == Constants.ChannelTypes.GUILD_VOICE) {
+      if (channel.name.replace('-', '') === search) {
+        if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
           channels = []
           channels.push({
             type: 3,
@@ -173,8 +173,8 @@ module.exports = class ResultsMechanism {
         }
         break
       }
-      if (channel.id == search) {
-        if (channel.type == Constants.ChannelTypes.GUILD_VOICE) {
+      if (channel.id === search) {
+        if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
 
           channels = []
           channels.push({

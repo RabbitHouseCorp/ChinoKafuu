@@ -15,7 +15,7 @@ module.exports = class extends Listener {
     const command = client.slashCommandRegistry.findByName(interaction.command.commandName)
     if (!command) return
 
-    if (interaction.type == 8 || interaction.type == 4) {
+    if (interaction.type === 8 || interaction.type === 4) {
       switch (interaction.command.commandName) {
         case ConfigAnimuSearch.CONFIG_ANIMU_SEARCH: {
           ConfigAnimuSearch.searchClass.search(interaction);
