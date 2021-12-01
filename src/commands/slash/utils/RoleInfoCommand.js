@@ -9,15 +9,7 @@ module.exports = class RoleInfoCommand extends Command {
       aliases: ['cargoinfo'],
       arguments: 1,
       hasUsage: true,
-      permissions: [
-        {
-          entity: 'user',
-          permissions: ['manageRoles']
-        },
-        {
-          entity: 'bot',
-          permissions: ['embedLinks', 'manageRoles']
-        }],
+      permissions: [],
       slash: new CommandBase()
         .setName('roleinfo')
         .setDescription('Shows some informations about a role.')
