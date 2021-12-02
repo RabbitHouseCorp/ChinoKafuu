@@ -54,7 +54,7 @@ module.exports = class ReadyConnectionListener extends Listener {
       const status = Math.floor(Math.random() * game.length)
       client.editStatus('dnd', game[status])
     }, 20 * 1000) // Add 20 seconds to avoid over-updating.
-    if (process.env.CLUSTERS === true) {
+    if (process.env.CLUSTERS === 'true') {
       Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
     } else {
       Logger.info('All shards are connected!')

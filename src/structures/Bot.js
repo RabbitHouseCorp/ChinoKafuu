@@ -38,7 +38,7 @@ module.exports = class Bot extends Client {
          *
          * @type {ClusteringInterface}
          */
-    if (!process.env.CLUSTERS) {
+    if (process.env.CLUSTERS === 'true') {
       this.clusters = new ClusteringInterface(this)
     } else {
       this.clusters = null;
@@ -47,7 +47,7 @@ module.exports = class Bot extends Client {
          *
          * @type {Database}
          */
-    if (this.database !== undefined) {
+    if (this.database === undefined) {
       this.database = new Database()
     }
     /**

@@ -56,8 +56,8 @@ module.exports = class PingCommand extends Command {
       }
 
       case 'clusters': {
-        if (!(ctx.client.clusters === null)) {
-          const clusters = ctx.client.clusters.getAveragePing()
+        if (ctx.client.clusters) {
+          const clusters = await ctx.client.clusters.getAveragePing()
 
           const embed = new EmbedBuilder()
           embed.setFooter(ctx._locale('commands:ping.totalClusters', { totalClusters: clusters.length }))
