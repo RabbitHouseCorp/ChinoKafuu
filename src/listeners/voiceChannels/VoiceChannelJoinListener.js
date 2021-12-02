@@ -6,6 +6,7 @@ module.exports = class VoiceChannelJoinListener extends Listener {
     this.event = 'voiceChannelJoin'
   }
 
+  // eslint-disable-next-line no-unused-vars
   async on (client, member, newChannel) {
     const guild = member.guild
     const voiceChannel = client.guilds.get(guild.id).channels.get(member.voiceState.channelID)

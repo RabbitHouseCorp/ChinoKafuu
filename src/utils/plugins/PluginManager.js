@@ -34,7 +34,7 @@ module.exports = class PluginManager extends EventEmitter {
           if (!(this.plugins.length === 0)) {
             this.startPlugin()
           }
-        })
+        }) // eslint-disable-next-line no-unused-vars
           .once('failed', ({ started, loaded, classState, time, error }) => {
 
             if (!(this.plugins.length === 0)) {

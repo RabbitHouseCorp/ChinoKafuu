@@ -1,5 +1,5 @@
 const Logger = require('../../structures/util/Logger')
-const { Worker, parentPort } = require('worker_threads')
+const { Worker } = require('worker_threads')
 const path = require('path')
 const os = require('os-utils')
 

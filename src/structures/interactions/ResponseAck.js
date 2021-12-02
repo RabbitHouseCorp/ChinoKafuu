@@ -86,6 +86,7 @@ module.exports = class ResponseAck extends EventEmitter {
     return this;
   }
 
+  // eslint-disable-next-line no-unused-vars
   messageInteraction(data, returns) {
     this.client.shards.get(this.message.guild.shardID).sendWS(5, data, false)
     return this;

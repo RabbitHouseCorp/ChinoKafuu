@@ -1,5 +1,4 @@
 const Listener = require('../../structures/events/Listener')
-const LavalinkManager = require('../../lavalink/LavalinkManager')
 const { TopGGUtils, Logger } = require('../../utils')
 const InteractionPost = require('../../structures/InteractionPost')
 module.exports = class ReadyConnectionListener extends Listener {
@@ -16,11 +15,10 @@ module.exports = class ReadyConnectionListener extends Listener {
     const top_gg = new TopGGUtils()
     await top_gg.post(client)
     // const lavalink = new LavalinkManager(client)
-    
+
     if (client.lavalink !== undefined) {
       client.lavalink.emit('setManager', (client))
     }
-
 
     const game = [
       { name: 'Petit Rabbit\'s - Tokimeki Poporon', type: 2 },

@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const NekosLife = require('nekos.life')
-const { CommandBase, CommandOptions } = require('eris')
+const { CommandBase } = require('eris')
 const NekoClient = new NekosLife()
 
 module.exports = class DogCommand extends Command {

@@ -11,7 +11,7 @@ module.exports = class AfkCommand extends Command {
 
   async run(ctx) {
     const member = ctx.db.user
-    const reason = ctx.args.join(' ') ?? 'Unspecified'
+    let reason = ctx.args.join(' ') ?? 'Unspecified'
     const guildInviteRegex = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li)|(discordapp|discord)\.com\/invite)\/.+[a-z]/g
 
     const hasInvite = reason.match(guildInviteRegex)

@@ -7,6 +7,7 @@ module.exports = class ErrorListener extends Listener {
     this.event = 'error'
   }
 
+  // eslint-disable-next-line no-unused-vars
   async on(client, error, shard) {
     console.log(error)
     const _locale = client.i18nRegistry.getT('en-US')

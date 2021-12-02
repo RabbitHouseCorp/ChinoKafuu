@@ -12,5 +12,6 @@ module.exports = class Command extends Module {
     this.slash = options.slash || null
   }
 
+  // eslint-disable-next-line no-unused-vars
   run (ctx) {}
 }

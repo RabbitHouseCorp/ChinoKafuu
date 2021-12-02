@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, version } = require('../../../utils')
 const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')
-const { CommandBase, CommandOptions } = require('eris')
+const { CommandBase } = require('eris')
 
 module.exports = class BotInfoCommand extends Command {
   constructor() {

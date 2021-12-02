@@ -33,6 +33,8 @@ module.exports = class CommandInteractions {
    *    | 1    | ActionRow | A container for other components |
    *    | 2    | Button    | A clickable button               |
    */
+
+  // eslint-disable-next-line no-unused-vars
   actionRow(...action) { }
 
   returnCtx() {

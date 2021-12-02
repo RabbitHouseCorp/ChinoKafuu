@@ -37,7 +37,8 @@ module.exports = class Cluster {
       await this.shardManager.connect().then(() => {
         Logger.debug('Successfully connected to Discord\'s gateway.')
       })
-    } catch (e) { }
+    // eslint-disable-next-line no-empty
+    } catch (e) {}
   }
 
   get firstClusterShardID() {

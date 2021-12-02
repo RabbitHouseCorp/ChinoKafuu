@@ -32,6 +32,7 @@ module.exports = class PluginExtend extends EventEmitter {
   }
 
   // Start function
+  // eslint-disable-next-line no-unused-vars
   start({ options, env, pluginManager, $worker }) {}
 
   // this.$classState

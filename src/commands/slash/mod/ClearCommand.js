@@ -1,5 +1,5 @@
 const { Command, Emoji } = require('../../../utils')
-const { CommandBase, CommandOptions, Choice } = require('eris')
+const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ClearCommand extends Command {
   constructor() {

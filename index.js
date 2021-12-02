@@ -22,11 +22,11 @@ pluginManager.addPlugins(
 )
 
 process.on('warning', (warn) => {
-  return console.warn(warn)
+  return Logger.warning(warn)
 })
 process.on('uncaughtExceptionMonitor', (err) => {
-  return console.error(err)
+  return Logger.error(err)
 })
 process.on('uncaughtException', (err) => {
-  return console.error(err)
+  return Logger.error(err)
 })

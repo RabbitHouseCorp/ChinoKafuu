@@ -1,15 +1,6 @@
-const { Eris } = require('eris')
 const Emoji = require('../../utils/EmotesInstance')
 const CommandInteractions = require('../interactions/CommandInteractions')
 module.exports = class CommandContext {
-  /**
-     *
-     * @param bot {Eris.Client}
-     * @param message {Eris.Message}
-     * @param args {Array<String>}
-     * @param db
-     * @param t
-     */
   constructor(bot, message, args, db, _locale) {
     this.client = bot
     this.message = message
@@ -100,7 +91,7 @@ module.exports = class CommandContext {
     }, props[0]?.file)
   }
 
-  replyTData(emoji, content, data = {}, ...props) {
+  replyTData(emoji, content, data = {}) {
     return {
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
     }

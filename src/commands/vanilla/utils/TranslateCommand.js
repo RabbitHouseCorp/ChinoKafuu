@@ -19,6 +19,7 @@ module.exports = class TranslateCommand extends Command {
     args.shift() // For remove first object of translate
 
     if (!ctx.args[1]) {
+      // eslint-disable-next-line no-unused-vars
       content = 'I\'m a little girl'
     }
 
