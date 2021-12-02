@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder, Emoji } = require('../../../../utils')
 
-module.exports = class McAvatarCommand extends Command {
+module.exports = class MinecraftAvatarCommand extends Command {
   constructor() {
     super({
       name: 'minecraft avatar',
