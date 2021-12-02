@@ -4,7 +4,7 @@ const { CommandBase, CommandOptions } = require('eris')
 module.exports = class McBaseCommand extends Command {
   constructor() {
     super({
-      name: 'mc-base',
+      name: 'minecraft-base',
       aliases: [],
       arguments: 1,
       hasUsage: false,
@@ -13,7 +13,7 @@ module.exports = class McBaseCommand extends Command {
         permissions: ['embedLinks']
       }],
       slash: new CommandBase()
-        .setName('mc')
+        .setName('minecraft')
         .setDescription('Minecraft Command')
         .addOptions(
           new CommandOptions()
@@ -75,6 +75,7 @@ module.exports = class McBaseCommand extends Command {
     })
   }
 
+  // eslint-disable-next-line no-unused-vars
   on(ctx) {
 
   }

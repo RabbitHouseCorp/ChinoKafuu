@@ -1,10 +1,9 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../utils')
-const { CommandBase, CommandOptions } = require('eris')
+const { Command, EmbedBuilder, Emoji } = require('../../../../utils')
 
 module.exports = class McBodyCommand extends Command {
   constructor() {
     super({
-      name: 'mc body',
+      name: 'minecraft body',
       aliases: [],
       arguments: 1,
       hasUsage: true,

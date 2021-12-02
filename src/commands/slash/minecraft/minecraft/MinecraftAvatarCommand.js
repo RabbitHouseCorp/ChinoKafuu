@@ -1,13 +1,12 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../utils')
-const { CommandBase, CommandOptions } = require('eris')
+const { Command, EmbedBuilder, Emoji } = require('../../../../utils')
 
-module.exports = class McHeadCommand extends Command {
+module.exports = class McAvatarCommand extends Command {
   constructor() {
     super({
-      name: 'mc head',
+      name: 'minecraft avatar',
       aliases: [],
       arguments: 1,
-      hasUsage: true,
+      hasUsage: false,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -16,14 +15,13 @@ module.exports = class McHeadCommand extends Command {
   }
 
   async run(ctx) {
-    const body = `https://mc-heads.net/head/${ctx.args.get('minecraft-nickname').value}`
+    const body = `https://mc-heads.net/avatar/${ctx.args.get('minecraft-nickname').value}/256.png`
     const embed = new EmbedBuilder()
     embed.setColor('MINECRAFT')
-    embed.setImage(body.toString())
+    embed.setImage(body)
     embed.setDescription(`${Emoji.getEmoji('minecraft').mention} [[Download]](${body})`)
     embed.setFooter(`©️ ${ctx.client.user.username}`)
     embed.setTimestamp()
-
     ctx.send(embed.build())
   }
 }
