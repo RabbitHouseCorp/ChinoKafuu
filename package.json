@@ -26,7 +26,7 @@
     "eris": "github:RabbitHouseCorp/eris#dev",
     "hound": "^1.0.5",
     "ioredis": "^4.27.9",
-    "mal-scraper": "^1.5.0",
+    "mal-scraper": "^2.11.3",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "mongoose": "^6.0.8",
