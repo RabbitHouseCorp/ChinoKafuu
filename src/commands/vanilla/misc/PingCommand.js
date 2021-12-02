@@ -66,7 +66,7 @@ module.exports = class PingCommand extends Command {
         embed.setColor('DEFAULT')
         embed.addField('Response Latency', `${Date.now() - msg.timestamp}ms`)
         embed.addField('API Latency', `${Math.round(ctx.message.guild.shard.latency)}ms`)
-        embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${process.env.CLUSTERS === "true" ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
+        embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${process.env.CLUSTERS === 'true' ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
 
         msg.edit(embed.build())
       }
