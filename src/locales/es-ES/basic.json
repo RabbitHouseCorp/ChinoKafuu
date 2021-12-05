@@ -68,8 +68,8 @@
     "disabledTitle": "Los comandos normales están obsoletos",
     "disabledToSlashCommands": "Es hora de decir adiós a los comandos normales, ahora sólo está disponible el comando de barra diagonal. Ahora mismo, este comando está obsoleto, pero puedes usarme normalmente usando los comandos de barra diagonal, escribe `/help` para ver mi lista de comandos.",
     "howToUseTitle": "¿Cómo se usa?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
-    "needSupportTitle": "Still confused how to use the bot?",
+    "howToUseSlash": "1.) Para los antiguos usuarios que no me hayan reinvitado a este servidor, podéis reinvitarme clickando [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), es importante que os aseguréis de que ya me habéis reinvitado.\n2.) El usuario necesita tener el permiso de `Use Application Commands` para usar mis comandos.\n3.) Si no puedes ver los comandos de barra, asegúrate de haber activado `Configuración del usuario -> Texto e imágenes -> Usa comandos de barra diagonal y previsualiza emojis, menciones y sintaxis Markdown a medida que escribes.`",
+    "needSupportTitle": "¿Todavía no sabes cómo usar el bot?",
     "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
   }
 }
