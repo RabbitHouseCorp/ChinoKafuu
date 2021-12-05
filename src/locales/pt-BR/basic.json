@@ -66,7 +66,7 @@
     "migrateTitle": "Os comandos em / estão aqui!",
     "migrateToSlashCommand": "Ei! Após Janeiro de 2022, eu apenas irei responder via comandos em /, por favor, se você deseja continuar me usando, então você precisa me re-adicionar, você pode fazer isso clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), você não precisa me expulsar do servidor. Obrigada! <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Comandos normais foram descontinuados",
-    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
+    "disabledToSlashCommands": "É hora de dizer adeus aos comandos normais, agora apenas comandos em / estão disponívels. Por agora, este comando está precário, mas você pode me usar normalmente usando comandos em /, digite `/help` para ver minha lista de comandos.",
     "howToUseTitle": "Como usar?",
     "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
     "needSupportTitle": "Ainda confuso em como usar o bot?",
