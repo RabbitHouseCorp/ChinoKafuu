@@ -24,7 +24,7 @@ module.exports = class SlashRunner {
 
     const blacklist = new BlacklistUtils(client)
     if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
-    const _locale = client.i18nRegistry.getT(guildData.lang)
+    const _locale = client.i18nRegistry.getT(guildData.data.lang)
     const commandName = interaction.command.commandName
     const command = client.slashCommandRegistry.findByName(commandName)
     if (!command) return
