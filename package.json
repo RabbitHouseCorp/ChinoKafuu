@@ -1,6 +1,6 @@
 {
   "name": "chino-kafuu",
-  "version": "2021.09.12-rc354",
+  "version": "2021.12.05-rc273",
   "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
   "main": "index.js",
   "scripts": {
@@ -17,23 +17,23 @@
   "dependencies": {
     "@clusterws/cws": "^3.0.0",
     "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
-    "@top-gg/sdk": "^3.1.2",
-    "anilist-node": "^1.9.1",
+    "@top-gg/sdk": "^3.1.3",
+    "anilist-node": "^1.11.0",
     "axios": "^0.24.0",
     "chalk": "^4.1.2",
     "colors": "^1.4.0",
     "cron": "^1.8.2",
     "eris": "github:RabbitHouseCorp/eris#dev",
     "hound": "^1.0.5",
-    "ioredis": "^4.27.9",
+    "ioredis": "^4.28.2",
     "mal-scraper": "^2.11.3",
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
-    "mongoose": "^6.0.8",
+    "mongoose": "^6.0.14",
     "nekos.life": "^2.0.7",
     "os-utils": "^0.0.14",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
-    "ws": "^8.2.3"
+    "ws": "^8.3.0"
   },
   "devDependencies": {
     "@types/node": "^16.10.3",
