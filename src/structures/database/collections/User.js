@@ -20,7 +20,8 @@ const Users = new mongoose.Schema({
   sticker: { type: String, default: 'bjork_post' },
   profileType: { type: String, default: 'default' },
   backgroundList: { type: Array, default: ['gochiusa_3'] },
-  profileList: { type: Array, default: ['default'] }
+  profileList: { type: Array, default: ['default'] },
+  stopNotify: { type: Boolean, default: false }
 })
 
 module.exports = mongoose.model('Users', Users)

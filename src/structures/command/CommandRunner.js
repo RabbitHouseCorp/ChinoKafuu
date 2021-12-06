@@ -66,18 +66,16 @@ module.exports = class CommandRunner {
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
       embed.setTitle(ctx._locale('basic:migrate.migrateTitle'))
-      embed.setDescription(ctx._locale('basic:migrate.migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id }))
-      ctx.send(embed.build())
+      embed.setDescription(ctx._locale('basic:migrate.migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id, 2: ctx.db.guild.prefix }))
+
+      if (!ctx.db.user.stopNotify) ctx.send(embed.build())
     } else if (timeoutVanilla.getFullYear() > 2022) {
       const embed = new EmbedBuilder()
       embed.setColor('ACTION')
       embed.setTitle(ctx._locale('basic:migrate.disabledTitle'))
       embed.setDescription(ctx._locale('basic:migrate.disabledToSlashCommands'))
       embed.setImage('https://cdn.discordapp.com/attachments/653782147777298481/915690323420790854/ezgif.com-gif-maker.gif')
-      embed.addField(ctx._locale('basic:migrate.howToUseTitle'), ctx._locale('basic:migrate.howToUseSlash', {
-        0: client.user.id,
-        1: message.guild.id
-      }))
+      embed.addField(ctx._locale('basic:migrate.howToUseTitle'), ctx._locale('basic:migrate.howToUseSlash', { 0: client.user.id, 1: message.guild.id }))
       embed.addField(ctx._locale('basic:migrate.needSupportTitle'), ctx._locale('basic:migrate.needSupportSlash'))
 
       return ctx.send(embed.build())
