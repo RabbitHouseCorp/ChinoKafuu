@@ -13,7 +13,8 @@ const collectors = {
   InviteDMUtils: require('./InviteDMUtil'),
   BlacklistUtils: require('./BlacklistUtils'),
   Button: require('../structures/interactions/Button'),
-  ResponseAck: require('../structures/interactions/ResponseAck')
+  ResponseAck: require('../structures/interactions/ResponseAck'),
+  UtilsGenerator: require('./UtilsGenerator')
 }
 
 module.exports = collectors

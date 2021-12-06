@@ -73,6 +73,7 @@ module.exports = class Registry extends EventEmitter {
   startWatcher () {
     const watcher = hound.watch(this.path)
 
+    // eslint-disable-next-line no-unused-vars
     watcher.on('create', (file) => setTimeout(() => this.loadAll(this.path), 2000))
     watcher.on('change', (file) => setTimeout(() => this.reloadModule(this.findByFileName(file)), 2000))
     watcher.on('delete', (file) => setTimeout(() => this.deleteModule(this.findByFileName(file)), 2000))

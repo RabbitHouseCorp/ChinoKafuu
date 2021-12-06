@@ -26,7 +26,7 @@
       "staffName": "Quien ha castigado",
       "reason": "Razón"
     },
-    "reason": "Baneado por: {{0}} - Razón: {{1}}",
+    "reason": "Castigado por: {{0}} - Razón: {{1}}",
     "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
@@ -64,6 +64,12 @@
   "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
   "migrate": {
     "migrateTitle": "¡Los comandos de barra están aquí!",
-    "migrateToSlashCommand": "¡Hola! Después de enero de 2022 sólo responderé con comandos de barra diagonal, por favor, si quieres continuar usándome, luego vuelva a agregarme haciendo clic [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), no necesitas expulsarme del servidor, simplemente haz clic en la url. Gracias! <a:chino_petpet:760564885280784405>"
+    "migrateToSlashCommand": "¡Hola! Después de enero de 2022 sólo responderé con comandos de barra diagonal, por favor, si quieres continuar usándome, luego vuelva a agregarme haciendo clic [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), no necesitas expulsarme del servidor, simplemente haz clic en la url. Gracias! Se deseas dejar de recebir este mensaje, escribe `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Los comandos normales están obsoletos",
+    "disabledToSlashCommands": "Es hora de decir adiós a los comandos normales, ahora sólo está disponible el comando de barra diagonal. Ahora mismo, este comando está obsoleto, pero puedes usarme normalmente usando los comandos de barra diagonal, escribe `/help` para ver mi lista de comandos.",
+    "howToUseTitle": "¿Cómo se usa?",
+    "howToUseSlash": "1.) Para los antiguos usuarios que no me hayan reinvitado a este servidor, podéis reinvitarme clickando [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), es importante que os aseguréis de que ya me habéis reinvitado.\n2.) El usuario necesita tener el permiso de `Use Application Commands` para usar mis comandos.\n3.) Si no puedes ver los comandos de barra, asegúrate de haber activado `Configuración del usuario -> Texto e imágenes -> Usa comandos de barra diagonal y previsualiza emojis, menciones y sintaxis Markdown a medida que escribes.`",
+    "needSupportTitle": "¿Todavía no sabes cómo usar el bot?",
+    "needSupportSlash": "Si todavía no sabes cómo utilizarme correctamente, no dudes en unirte a nuestro [servidor de soporte](https://discord.gg/Jr57UrsXeC) para obtener ayuda de nuestro equipo de soporte."
   }
 }

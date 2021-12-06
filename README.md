@@ -19,9 +19,9 @@ For that reason, we are **NOT** providing any kind of support for unoriginal sel
 ### How to self hosting
 > Install nodejs 14 or higher. You can download and install here: https://nodejs.org
 
-> Create a file named `.env` and input this informations
+> Create a file named `.env` and input this informations (the token can't be prefix-less, you need put Bot on the start.)
 ```
-DISCORD_TOKEN=
+DISCORD_TOKEN=Bot <Token>
 BOT_PREFIX=
 MONGO_URI=
 SHARD_AMOUNT=1

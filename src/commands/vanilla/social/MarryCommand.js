@@ -31,10 +31,10 @@ module.exports = class MarryCommand extends Command {
         .setLabel(ctx._locale('basic:boolean.true'))
         .customID('confirm_button')
         .setStyle(3),
-        new Button()
-          .setLabel(ctx._locale('basic:boolean.false'))
-          .customID('reject_button')
-          .setStyle(4))
+      new Button()
+        .setLabel(ctx._locale('basic:boolean.false'))
+        .customID('reject_button')
+        .setStyle(4))
       .returnCtx()
       .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
       .then(message => {

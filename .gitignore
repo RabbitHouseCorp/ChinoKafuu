@@ -7,3 +7,13 @@ src/lavalink/LavalinkConfig.json
 .idea
 coverage/
 package-lock.json
+UPDATE.md
+.vscode
+index.d.ts
+.dockerignore
+kube/
+Dockerfile
+test.js
+yarn.lock
+.altostra
+.node_modules/

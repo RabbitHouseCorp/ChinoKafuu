@@ -1,5 +1,5 @@
 const { Command, EmbedBuilder } = require('../../../utils')
-const { CommandBase, CommandOptions, Choice } = require('eris')
+const { CommandBase } = require('eris')
 
 module.exports = class VoteCommand extends Command {
   constructor() {

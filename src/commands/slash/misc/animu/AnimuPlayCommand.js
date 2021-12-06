@@ -1,5 +1,5 @@
 const { Command } = require('../../../../utils')
-const axios = require("axios");
+const axios = require('axios');
 
 module.exports = class AnimuPlayCommand extends Command {
   constructor() {
@@ -7,12 +7,14 @@ module.exports = class AnimuPlayCommand extends Command {
       name: 'animu play',
       permissions: [{
         entity: 'bot',
-        permissions: ['embedLinks']
+        permissions: ['viewChannel', 'voiceConnect', 'voiceSpeak', 'voiceRequestToSpeak', 'voiceUseVAD']
       }]
     })
   }
 
   async run(ctx) {
+
+    if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
     const res = await axios.get('https://cast.animu.com.br:9000/api/v2/history/?format=json&limit=1&offset=0&server=1')
     if (ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
     const song = await ctx.client.lavalink.join(ctx.message.member.voiceState.channelID)

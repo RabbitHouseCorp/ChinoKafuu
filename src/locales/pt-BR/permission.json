@@ -18,7 +18,7 @@
   "changeNickname": "Alterar apelido",
   "manageNicknames": "Gerenciar apelidos",
   "manageRoles": "Gerenciar cargos",
-  "manageEmojis": "Gerenciar emojis e figurinhas",
+  "manageEmojisAndStickers": "Gerenciar emojis e figurinhas",
   "useExternalEmojis": "Usar emojis externos",
   "viewAuditLog": "Ver registro de auditoria",
   "voicePrioritySpeaker": "Voz prioritária",
@@ -32,9 +32,11 @@
   "voiceDeafenMembers": "Ensurdecer membros",
   "voiceMoveMembers": "Mover membros",
   "manageWebhooks": "Gerenciar webhooks",
-  "useSlashCommands": "Usar comandos em /",
-  "usePrivateThreads": "Usar conversas privadas",
-  "usePublicThreads": "Usar conversas públicas",
+  "useApplicationCommands": "Usar comandos de aplicativo",
+  "createPrivateThreads": "Criar tópicos privados",
+  "createPublicThreads": "Criar tópicos públicos",
   "useExternalStickers": "Usar figurinhas externas",
-  "manageThreads": "Gerenciar conversas"
+  "manageThreads": "Gerenciar conversas",
+  "sendMessagesInThreads": "Enviar mensagens em tópicos",
+  "startEmbeddedActivities": "Começar atividades"
 }

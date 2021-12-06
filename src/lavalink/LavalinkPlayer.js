@@ -28,7 +28,6 @@ module.exports = class LavalinkPlayer extends EventEmitter {
     }
   }
 
-
   playAnimu() {
     if (this.clientManager.track === null) {
       return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(async result => {

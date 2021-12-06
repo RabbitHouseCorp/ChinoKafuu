@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder, TopGGUtils } = require('../../../utils')
 const moment = require('moment')
-const { CommandBase, CommandOptions, Choice } = require('eris')
+const { CommandBase } = require('eris')
 
 module.exports = class DailyCommand extends Command {
   constructor() {

@@ -314,7 +314,11 @@
       "PRIVATE_THREADS": "Private Threads",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
       "THREADS_ENABLED": "Thread Enabled",
-      "ROLE_ICONS": "Role Icons"
+      "ROLE_ICONS": "Role Icons",
+      "CHANNEL_BANNER": "Channel Banner",
+      "ANIMATED_BANNER": "Animated Banner",
+      "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
+      "MEMBER_PROFILES": "Member Profiles"
     },
     "booster": {
       "title": "Nitro Booster",
@@ -601,17 +605,22 @@
     "channelNull": "I can't find this channel, make sure if it exist.",
     "chooseYourAction": "Select the right module.",
     "select": {
-      "enable": "Active",
+      "enable": "Enable",
       "enableDescription": "Enable the selected module.",
-      "disable": "Desactive",
+      "disable": "Disable",
       "disableDescription": "Disable the selected module.",
       "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
-      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___"
+      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that Chino Kafuu does not have permission to view this channel! Check permissions!___",
+      "options": {
+        "textChannel": "Select the text channel.",
+        "voiceChannel": "Select the voice channel."
+      }
     },
     "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
     "channel": {
       "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
-      "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions."
+      "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions.",
+      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that."
     },
     "selected": {
       "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",

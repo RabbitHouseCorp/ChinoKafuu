@@ -7,6 +7,7 @@ module.exports = class ResponseAck extends EventEmitter {
     super()
     this.id = '';
     this.token = '';
+    this.data = null
     this.message = message
     this.client = message.channel.client
     this.typeInteraction = 1;
@@ -15,19 +16,22 @@ module.exports = class ResponseAck extends EventEmitter {
       if (packet.t === 'INTERACTION_CREATE') {
         if (packet.d.type === 3) {
           if (this.message.id === packet.d.message.id) {
+            if (packet.d.isHttp !== undefined) {
+              this.data = packet.d
+            }
             this.token = packet.d.token
             this.id = packet.d.id
             this.emit('collect', ({
-                messageCollect: new Message(packet.d.message, this.client),
-                interaction: new InteractionPacket(packet.d),
-                packet: packet
+              messageCollect: new Message(packet.d.message, this.client),
+              interaction: new InteractionPacket(packet.d),
+              packet: packet
             }))
+
           }
         }
       }
     })
   }
-
 
   interactionType(type) {
     this.interactionType = type
@@ -39,7 +43,7 @@ module.exports = class ResponseAck extends EventEmitter {
     return this;
   }
 
-  sendAck(typeAck, data) {
+  async sendAck(typeAck, data) {
     let type = 4
 
     switch (typeAck) {
@@ -59,14 +63,30 @@ module.exports = class ResponseAck extends EventEmitter {
         type = 4
     }
 
-    this.client.requestHandler.request("POST", `/interactions/${this.id}/${this.token}/callback`, true, {
-      type: type,
-      token: this.token,
-      data: data
-    }, null)
+    if ((this.client.interactionPost === null)) {
+
+      this.client.interactionPost.send({
+        token: this.token,
+        type: 95,
+        message: {
+          type: type,
+          token: this.token,
+          data: data
+        },
+        ping_pong: false
+      })
+    } else {
+      this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
+        type: type,
+        token: this.token,
+        data: data
+      }, null)
+    }
+
     return this;
   }
 
+  // eslint-disable-next-line no-unused-vars
   messageInteraction(data, returns) {
     this.client.shards.get(this.message.guild.shardID).sendWS(5, data, false)
     return this;

@@ -1,7 +1,7 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
 const { Logger } = require('../utils')
-
+const EventEmitter = require('events')
 // fallback for test env
 let connect
 try {
@@ -11,18 +11,33 @@ try {
   connect = []
 }
 
-module.exports = class LavalinkManager {
-  constructor (client) {
+module.exports = class LavalinkManager extends EventEmitter {
+  constructor(client) {
+    super()
     this.client = client
+
+    if (!(connect !== undefined)) {
+      this.emit('state', (false))
+    }
     /**
      * @description
      * @type {TrackData?}
      */
     this.track = null;
-    this.manager = new Manager(this.client, connect, {
-      user: this.client.user.id,
-      shards: parseInt(process.env.SHARD_COUNT)
-    })
+    this.default = false;
+
+    if (this.default === false) {
+      this.on('setManager', (client) => {
+
+        this.client = client
+        this.default = true
+        this.manager = new Manager(this.client, connect, {
+          user: this.client.user.id,
+          shards: parseInt(process.env.SHARD_COUNT)
+        })
+        this.manager.connect().catch(() => Logger.error('I\'m unable to connect to Lavalink, sorry...'))
+      })
+    }
   }
 
   getBestHost () {

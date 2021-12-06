@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command, Logger } = require('../../../utils')
 const axios = require('axios')
 const { CommandOptions, CommandBase } = require('eris')
 
@@ -85,45 +85,52 @@ module.exports = class ProfileCommand extends Command {
     ]
 
     for (const flag of flags) {
-      switch ((flag.flag & member.publicFlags) === flag.flag) {
+      switch ((flag.flag & member?.user?.publicFlags ?? member.publicFlags) === flag.flag) {
         case true:
           arrayBadges.push(flag.name)
           break
-        case false:
-        /**
-               * @returns null
-               */
-        default:
-        /**
-       * @returns null
-       */
       }
     }
+
     const guildMember = await ctx.getMember(member.id) ?? undefined
-    axios({
-      url: 'http://127.0.0.1:1234/render/profile',
-      method: 'post',
-      data: {
-        type: user.profileType,
-        name: member.username,
-        money: Number(user.yens).toLocaleString(),
-        aboutMe: user.aboutme !== 'default' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
-        married: user.isMarry,
-        partnerName: `${couple?.username}#${couple.discriminator}`,
-        bgId: user.background,
-        stickerId: user.sticker,
-        favColor: user.profileColor,
-        avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
-        badges: arrayBadges
-      },
-      responseType: 'arraybuffer'
-    }).then(profile => {
+    const a = Date.now();
+    const cache = ctx.client.pluginManager.pluginStore.get('cache_profile').classState
+    const data = {
+      type: user.profileType,
+      name: member.username,
+      money: Number(user.yens).toLocaleString(),
+      aboutMe: user.aboutme !== 'default' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
+      married: user.isMarry,
+      partnerName: `${couple?.username}#${couple.discriminator}`,
+      bgId: user.background,
+      stickerId: user.sticker,
+      favColor: user.profileColor,
+      avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
+      badges: arrayBadges
+    }
+    if (cache.check(member.id, cache, data)) {
+      axios({
+        url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
+        method: 'post',
+        data: data,
+        responseType: 'arraybuffer'
+      }).then(profile => {
+        Logger.debug(`profile (${member.id}) request took ${Date.now() - a}ms to receive.`)
+        cache.setCache(member.id, cache, data, profile.data)
+        ctx.send('', {
+          file: {
+            file: profile.data,
+            name: 'profile.png'
+          }
+        })
+      })
+    } else {
       ctx.send('', {
         file: {
-          file: profile.data,
+          file: cache.$cacheStore.get(member.id),
           name: 'profile.png'
         }
       })
-    })
+    }
   }
 }

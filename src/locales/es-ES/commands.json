@@ -305,16 +305,20 @@
       "DISCOVERABLE": "Descubrible",
       "FEATURABLE": "Funcionable",
       "ANIMATED_ICON": "Icono animado",
-      "BANNER": "Banner",
+      "BANNER": "Cartel",
       "WELCOME_SCREEN_ENABLED": "Pantalla de bienvenida activada",
       "PREVIEW_ENABLED": "Previsualización",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Puerta de verificación de miembros",
       "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before",
-      "SEVEN_DAY_THREAD_ARCHIVE": "Seven Days Thread Archive",
+      "SEVEN_DAY_THREAD_ARCHIVE": "7 días para archivar hilo",
       "PRIVATE_THREADS": "Hilos privados",
-      "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
+      "THREE_DAY_THREAD_ARCHIVE": "3 días para archivar hilo",
       "THREADS_ENABLED": "Hilo habilitado",
-      "ROLE_ICONS": "Ícono del Rol"
+      "ROLE_ICONS": "Ícono del rol",
+      "CHANNEL_BANNER": "Cartel del canal",
+      "ANIMATED_BANNER": "Cartel animado",
+      "NEW_THREAD_PERMISSIONS": "Nuevas permisos del hilos",
+      "MEMBER_PROFILES": "Perfil de miembro"
     },
     "booster": {
       "title": "Nitro Booster",
@@ -599,19 +603,24 @@
     "usage": "<opiciones> <set/disable> [canal]",
     "description": "Activa y deshabilita algunos módulos que tengo en tu servidor.",
     "channelNull": "no puedo encontrar este canal, asegúrese de que existe.",
-    "chooseYourAction": "Select the right module.",
+    "chooseYourAction": "Seleccione el módulo correcto.",
     "select": {
-      "enable": "Habilitar",
+      "enable": "Activado",
       "enableDescription": "Habilita el módulo seleccionado.",
-      "disable": "Desactivar",
+      "disable": "Desactivado",
       "disableDescription": "Desactiva el módulo seleccionado.",
       "textChannel": "Seleccione el canal de texto.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
-      "voiceChannel": "Seleccione el canal de voz.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___"
+      "voiceChannel": "Seleccione el canal de voz.\n__Recordar si el canal deseado no aparece, significa que Chino Kafuu no tiene permiso para ver este canal. ¡Compruebe los permisos!___",
+      "options": {
+        "textChannel": "Seleccione el canal de texto.",
+        "voiceChannel": "Seleccione el canal de voz."
+      }
     },
     "optionsNotFound": "esta opción no es válida, por favor, usa las opciones `set` o `disable`.",
     "channel": {
       "voiceNoLongerExist": "¡Oh no! Parece que este canal de voz ya no existe. Repita las mismas acciones.",
-      "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones."
+      "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones.",
+      "moduleIfFoundBug": "algo malo ha pasado, y no sé lo que pasó en el módulo de {{0}}. Lo siento."
     },
     "selected": {
       "textChannel": "Canal de texto establecido a **`{{0}}` (<#{{1}}>)**",

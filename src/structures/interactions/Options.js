@@ -13,22 +13,27 @@ module.exports = class Options {
       this.emoji = data.emoji
     }
   }
+
   setLabel(label) {
     this.label = label;
     return this;
   }
+
   setValue(value) {
     this.value = value;
     return this;
   }
+
   addDescription(description) {
     this.description = description;
     return this;
   }
+
   addEmoji(emoji) {
     this.emoji = emoji;
     return this;
   }
+
   get data() {
     const d = {}
     if (this?.label !== undefined) {

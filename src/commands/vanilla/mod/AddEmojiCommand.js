@@ -10,7 +10,7 @@ module.exports = class AddEmojiCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'both',
-        permissions: ['manageEmojis']
+        permissions: ['manageEmojisAndStickers']
       }]
     })
   }

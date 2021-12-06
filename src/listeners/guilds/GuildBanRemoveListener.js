@@ -11,6 +11,7 @@ module.exports = class GuildBanRemoveListener extends Listener {
     try {
       const server = await client.database.guilds.getOrCreate(guild.id)
       const _locale = client.i18nRegistry.getT(server.lang)
+      if (!guild.members.get(client.user.id).permissions.has('viewAuditLog')) return
       const audit = await guild.getAuditLogs()
       const guildBanAdd = audit.entries.filter(action => action.actionType === 23)
       if (guildBanAdd[0].user.id === client.user.id) return

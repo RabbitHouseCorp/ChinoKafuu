@@ -7,8 +7,8 @@ module.exports = class DisconnectListener extends Listener {
     this.event = 'disconnect'
   }
 
+  // eslint-disable-next-line no-unused-vars
   async on (client) {
-    client.cacheManager.end()
     Logger.shardMessage('Mayday! All shard has died!')
   }
 }

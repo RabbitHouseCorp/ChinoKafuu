@@ -8,7 +8,7 @@ module.exports = class RemoveEmojiCommand extends Command {
       hasUsage: true,
       permissions: [{
         entity: 'both',
-        permissions: ['manageEmojis']
+        permissions: ['manageEmojisAndStickers']
       }],
       arguments: 1
     })

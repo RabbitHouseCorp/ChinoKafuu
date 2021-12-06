@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const moment = require('moment')
-const { CommandBase, CommandOptions } = require('eris')
+const { CommandBase } = require('eris')
 
 module.exports = class ServerInfoCommand extends Command {
   constructor() {

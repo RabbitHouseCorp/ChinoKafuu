@@ -1,3 +1,5 @@
+/* eslint-disable no-empty */
+/* eslint-disable no-case-declarations */
 const { parentPort } = require('worker_threads')
 
 module.exports = class ClusteringInterface {

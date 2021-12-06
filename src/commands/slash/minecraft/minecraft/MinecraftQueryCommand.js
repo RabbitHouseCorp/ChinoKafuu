@@ -1,11 +1,10 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../utils')
+const { Command, EmbedBuilder, Emoji } = require('../../../../utils')
 const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
 
-module.exports = class McQueryCommand extends Command {
+module.exports = class MinecraftQueryCommand extends Command {
   constructor() {
     super({
-      name: 'mc query',
+      name: 'minecraft query',
       aliases: ['mcpesquisa', 'mcstatus'],
       arguments: 1,
       hasUsage: true,

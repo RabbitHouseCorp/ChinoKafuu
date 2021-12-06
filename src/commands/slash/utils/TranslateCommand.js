@@ -38,8 +38,8 @@ module.exports = class TranslateCommand extends Command {
     const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
 
-    let letters = []
-    for (let translateOutput of res.data[0]) {
+    const letters = []
+    for (const translateOutput of res.data[0]) {
       letters.push(translateOutput[0].trim())
     }
 

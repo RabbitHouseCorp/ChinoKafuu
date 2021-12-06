@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, version } = require('../../../utils')
 const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')
-const { CommandBase, CommandOptions } = require('eris')
+const { CommandBase } = require('eris')
 
 module.exports = class BotInfoCommand extends Command {
   constructor() {
@@ -21,6 +21,7 @@ module.exports = class BotInfoCommand extends Command {
   }
 
   async run(ctx) {
+    const getCommit = ctx.client.pluginManager.pluginStore.get('buildStore').classState
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:botinfo.title'))
@@ -32,8 +33,8 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField(ctx._locale('commands:botinfo.usersAmount'), this.markDown('js', Number(ctx.client.users.size).toLocaleString()), true)
     embed.addBlankField()
     embed.addField(ctx._locale('commands:botinfo.shardLatency'), this.markDown('glsl', `#[Shard: ${ctx.message.guild.shard.id}] ${ctx.message.guild.shard.latency}ms`), true)
-    embed.addField(ctx._locale('commands:botinfo.memoryUsage'), this.markDown('glsl', `#${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`), true)
-    embed.addField(ctx._locale('commands:botinfo.clientVersion'), this.markDown('glsl', `#${version}`), true)
+    embed.addField(ctx._locale('commands:botinfo.memoryUsage'), this.markDown('glsl', `#${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB (${(process.resourceUsage().maxRSS / 1024 / 1024).toFixed(2)}MB)`), true)
+    embed.addField(ctx._locale('commands:botinfo.clientVersion'), this.markDown('glsl', `#${version} ${getCommit.commit === null ? '' : `(${getCommit.commit.substring(0, 7)})`}`), true)
     embed.addField(ctx._locale('commands:botinfo.shardUptime'), this.markDown('js', `${moment.duration(Date.now() - ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`), true)
     embed.addField(ctx._locale('commands:botinfo.cpuModel'), this.markDown('diff', `- ${os.cpus().map(i => i.model)[0]}`), true)
     embed.addBlankField()
