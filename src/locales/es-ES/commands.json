@@ -314,7 +314,11 @@
       "PRIVATE_THREADS": "Hilos privados",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
       "THREADS_ENABLED": "Hilo habilitado",
-      "ROLE_ICONS": "Ícono del Rol"
+      "ROLE_ICONS": "Ícono del Rol",
+      "CHANNEL_BANNER": "Channel Banner",
+      "ANIMATED_BANNER": "Animated Banner",
+      "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
+      "MEMBER_PROFILES": "Member Profiles"
     },
     "booster": {
       "title": "Nitro Booster",
