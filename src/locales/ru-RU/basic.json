@@ -26,7 +26,7 @@
       "staffName": "Who punished",
       "reason": "Причина"
     },
-    "reason": "Забанен модератором {{0}} | Причина: {{1}}",
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
     "bigReason": "you must write an shorter reason, this reason is too big to me."
   },
   "missingArgs": "Недопустимые аргументы! Используйте `{{prefix}}{{commandName}}`, чтобы увидеть правильное использование.",
@@ -64,6 +64,12 @@
   "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
   "migrate": {
     "migrateTitle": "Слэш команды уже здесь!",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! <a:chino_petpet:760564885280784405>"
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Vanilla commands are deprecated",
+    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
+    "howToUseTitle": "How to use?",
+    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "needSupportTitle": "Still confused how to use the bot?",
+    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
   }
 }
