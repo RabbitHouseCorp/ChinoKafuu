@@ -314,7 +314,11 @@
       "PRIVATE_THREADS": "Private Threads",
       "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
       "THREADS_ENABLED": "Thread Enabled",
-      "ROLE_ICONS": "Role Icons"
+      "ROLE_ICONS": "Role Icons",
+      "CHANNEL_BANNER": "Channel Banner",
+      "ANIMATED_BANNER": "Animated Banner",
+      "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
+      "MEMBER_PROFILES": "Member Profiles"
     },
     "booster": {
       "title": "Nitro Booster",
