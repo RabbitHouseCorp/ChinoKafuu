@@ -315,10 +315,10 @@
       "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Threads",
       "THREADS_ENABLED": "Threads Ativadas",
       "ROLE_ICONS": "Ícones de Cargo",
-      "CHANNEL_BANNER": "Channel Banner",
-      "ANIMATED_BANNER": "Animated Banner",
-      "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
-      "MEMBER_PROFILES": "Member Profiles"
+      "CHANNEL_BANNER": "Faixa do Canal",
+      "ANIMATED_BANNER": "Faixa Animada",
+      "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
+      "MEMBER_PROFILES": "Perfil de Membros"
     },
     "booster": {
       "title": "Impulsionador de Nitro",
@@ -332,10 +332,10 @@
     "description": "Mostra o ícone do servidor."
   },
   "serverbanner": {
-    "missingFeature": "este servidor não possui o recurso de `banner`.",
-    "missingBanner": "este servidor não possui um banner.",
-    "download": "Baixe o banner clicando [aqui]({{0}})",
-    "description": "Mostra o banner do servidor (se disponível)."
+    "missingFeature": "este servidor não possui o recurso de `faixa`.",
+    "missingBanner": "este servidor não possui uma faixa.",
+    "download": "Baixe a faixa clicando [aqui]({{0}})",
+    "description": "Mostra a faixa do servidor (se disponível)."
   },
   "money": {
     "invalidValue": "por favor, me diga um valor válido.",
@@ -564,10 +564,10 @@
     "length": "o tamanho do prefixo está limitado a 3 caracteres"
   },
   "setbanner": {
-    "description": "Define o banner do seu servidor. Comando disponível apenas para o servidor com o recurso \"Banner\" ativado",
+    "description": "Define a faixa do seu servidor. Comando disponível apenas para o servidor com o recurso \"Faixa\" ativado",
     "usage": "<anexo|URL>",
-    "success": "Opa! Seu servidor agora tem um novo banner",
-    "missingFeature": "seu servidor não possui o recurso `Banner`, você não pode executar este comando"
+    "success": "Opa! Seu servidor agora tem uma nova faixa",
+    "missingFeature": "seu servidor não possui o recurso `Faixa`, você não pode executar este comando"
   },
   "aboutme": {
     "description": "Altera a descrição do seu perfil",
