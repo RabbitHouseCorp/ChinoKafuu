@@ -3,5 +3,9 @@
     "embedTitle": "An error has occurred! Sorry...",
     "fieldTitle": "Avertissez-nous",
     "fieldValue": "Comme nous ne savons probablement pas de cette erreur, vous pouvez soit [ouvrir une issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) sur GitHub, soit nous contacter dans notre [serveur de support](https://discord.gg/Jr57UrsXeC). N'oubliez pas d'attacher ce _petit message_ en signalant l'erreur.\nMerci et désolé!"
+  },
+  "stopnotify": {
+    "alreadyStopped": "sorry but, you already told me to stop notify you about the migration.",
+    "stopNotifyRightNow": "right! Sorry for disturb you with that, but it's important that you re-invite me to this server."
   }
 }
