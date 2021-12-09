@@ -43,13 +43,12 @@ module.exports = class ServerInfoCommand extends Command {
     embed.setImage(guild.splash ? guild.splashURL : null)
     embed.addField(_locale('commands:serverinfo.guildID'), guild.id, true)
     embed.addField(_locale('commands:serverinfo.guildOwner'), `${owner.username}#${owner.discriminator}`, true)
-    embed.addField(_locale('commands:serverinfo.guildRegion'), _locale(`commands:serverinfo.region.${guild.region}`), true)
     embed.addField(_locale('commands:serverinfo.guildAFKChannel.title'), guild.channels.get(guild.afkChannelID)?.name ?? _locale('commands:serverinfo.guildAFKChannel.noAfkChannel'), true)
     embed.addField(_locale('commands:serverinfo.booster.title'), `**${_locale('commands:serverinfo.booster.levelCount')}:** ${guild.premiumTier}\n**${_locale('commands:serverinfo.booster.boosterCount')}:** ${guild.premiumSubscriptionCount}`, true)
     embed.addField(_locale('commands:serverinfo.guildMember.title', { 0: guild.memberCount }), `**${_locale('commands:serverinfo.guildMember.userCount')}:** ${memberCount.userCount}\n**${_locale('commands:serverinfo.guildMember.botCount')}:** ${memberCount.botCount}`, true)
     embed.addField(_locale('commands:serverinfo.guildCreateAt'), moment(guild.createdAt).format('LLLL'), true)
     embed.addField(_locale('commands:serverinfo.guildChannel.title', { 0: guild.channels.size }), `**${_locale('commands:serverinfo.guildChannel.text')}:** ${channelType.text}\n**${_locale('commands:serverinfo.guildChannel.voice')}:** ${channelType.voice}`, true)
-    embed.addField(_locale('commands:serverinfo.features.title'), (guildFeatures !== []) ? guildFeatures.join(', ') : _locale('commands:serverinfo.features.dontHave'))
+    embed.addField(_locale('commands:serverinfo.features.title'), (guildFeatures !== []) ? guildFeatures.join(', ') : _locale('commands:serverinfo.features.dontHave'), true)
 
     ctx.send(embed.build())
   }
