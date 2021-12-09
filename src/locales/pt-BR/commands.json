@@ -276,21 +276,6 @@
       "userCount": "Usuários",
       "botCount": "Robôs"
     },
-    "region": {
-      "brazil": "Brasil",
-      "europe": "Europa",
-      "hongkong": "Hong Kong",
-      "japan": "Japão",
-      "russia": "Rússia",
-      "singapore": "Singapura",
-      "southafrica": "África do Sul",
-      "sydney": "Sidney",
-      "us-central": "Centro dos EUA",
-      "us-east": "Leste dos EUA",
-      "us-south": "Sul dos EUA",
-      "us-west": "Oeste dos EUA",
-      "india": "Índia"
-    },
     "features": {
       "title": "Recursos",
       "dontHave": "Este servidor não possui nenhum recurso.",
