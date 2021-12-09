@@ -276,21 +276,6 @@
       "userCount": "Usuarios",
       "botCount": "Bots"
     },
-    "region": {
-      "brazil": "Brasil",
-      "europe": "Europa",
-      "hongkong": "Hong Kong",
-      "japan": "Japón",
-      "russia": "Rusia",
-      "singapore": "Singapur",
-      "southafrica": "Sudáfrica",
-      "sydney": "Sídney",
-      "us-central": "EE.UU Central",
-      "us-east": "EEUU Este",
-      "us-south": "EEUU Sur",
-      "us-west": "Oeste de EE.UU.",
-      "india": "India"
-    },
     "features": {
       "title": "Funcionalidades",
       "dontHave": "Este servidor no tiene ninguna funcionalidad.",
