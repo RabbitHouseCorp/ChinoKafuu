@@ -276,21 +276,6 @@
       "userCount": "ユーザー",
       "botCount": "ボツト"
     },
-    "region": {
-      "brazil": "ブラジル",
-      "europe": "Europe",
-      "hongkong": "Hong Kong",
-      "japan": "日本",
-      "russia": "Russia",
-      "singapore": "Singapore",
-      "southafrica": "South Africa",
-      "sydney": "Sydney",
-      "us-central": "US Central",
-      "us-east": "US East",
-      "us-south": "US South",
-      "us-west": "US west",
-      "india": "India"
-    },
     "features": {
       "title": "Features",
       "dontHave": "This guild doesn't have any feature.",
