@@ -66,8 +66,8 @@
     "migrateTitle": "Les commandes slash sont là !",
     "migrateToSlashCommand": "Hey ! Après janvier 2022 je vais seulement répondre aux commandes slash, s'il te plaît, si tu veux continuer à m'utiliser, alors tu dois me ré-ajouter, tu peux le faire en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), tu n'as pas besoin de m'expulser du serveur. Merci ! Si tu veux arrêter de recevoir ce message, écris `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Les commandes vanilla sont obsolètes",
-    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
-    "howToUseTitle": "How to use?",
+    "disabledToSlashCommands": "Il est temps de dire adieu aux commandes normales, maintenant, ce sont seulement les commandes slash qui entrent en scène. Pour l'instant, cette commande est obsolète, mais tu peux m'utiliser normalement à l'aide des slash, tape `/help` pour voir ma liste de commandes.",
+    "howToUseTitle": "Comment les utiliser ?",
     "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
     "needSupportTitle": "Still confused how to use the bot?",
     "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
