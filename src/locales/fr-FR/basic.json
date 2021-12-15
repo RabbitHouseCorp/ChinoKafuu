@@ -70,6 +70,6 @@
     "howToUseTitle": "Comment les utiliser ?",
     "howToUseSlash": "1.) Pour les anciens utilisateurs qui ne m'ont pas réinvitée sur ce serveur, tu peux me réinviter en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), il est important que tu m'aies déjà réinvitée.\n2.) L'utilisateur doit avoir la permission `Utiliser des commandes d'application` pour pouvoir utiliser mes commandes.\n3.) Si tu ne peux pas voir les commandes slash, assure-toi d'avoir activé `Texte & Images -> Utilise les commandes slash et affiche un aperçu des émojis, des mentions et de la syntaxe markdown pendant que tu écris` dans tes paramètres",
     "needSupportTitle": "Toujours confus·e de comment utiliser le bot ?",
-    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
+    "needSupportSlash": "Si tu as toujours des problèmes quant à mon utilisation, n'hésite pas à rejoindre notre [serveur de support](https://discord.gg/Jr57UrsXeC) pour obtenir de l'aide de notre équipe de support."
   }
 }
