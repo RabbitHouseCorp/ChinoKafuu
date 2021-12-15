@@ -1,20 +1,20 @@
 {
   "report": {
-    "usage": "<user> <reason> -p <proof|attachment>",
-    "description": "Reports a user on this server if the module is enable.",
-    "moduleDisable": "this module is disabled on this server.",
-    "noReason": "no reason specified",
-    "successfullySent": "report successfully sent.",
+    "usage": "<utilisateur> <raison> -p <preuve|pièce jointe>",
+    "description": "Signale un utilisateur sur ce serveur si le module est activé.",
+    "moduleDisable": "ce module est désactivé sur ce serveur.",
+    "noReason": "aucune raison spécifiée",
+    "successfullySent": "signalement envoyé avec succès.",
     "embed": {
-      "memberName": "Username",
-      "authorName": "Who reported",
-      "channel": "Channel",
-      "reason": "Reason"
+      "memberName": "Nom d'utilisateur·rice",
+      "authorName": "Qui a signalé",
+      "channel": "Salon",
+      "reason": "Raison"
     }
   },
   "jankenpon": {
-    "usage": "<choice> <value>",
-    "description": "Plays jankenpon and win or lose yens.",
+    "usage": "<choix> <valeur>",
+    "description": "Joue au jakenpon et gagne ou perds des yens.",
     "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
     "valueNotInputed": "you didn't provide any value to bet.",
     "tie": "draw! Nobody won or lost.",
