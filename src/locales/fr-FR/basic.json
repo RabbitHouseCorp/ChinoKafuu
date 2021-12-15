@@ -68,8 +68,8 @@
     "disabledTitle": "Les commandes vanilla sont obsolètes",
     "disabledToSlashCommands": "Il est temps de dire adieu aux commandes normales, maintenant, ce sont seulement les commandes slash qui entrent en scène. Pour l'instant, cette commande est obsolète, mais tu peux m'utiliser normalement à l'aide des slash, tape `/help` pour voir ma liste de commandes.",
     "howToUseTitle": "Comment les utiliser ?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
-    "needSupportTitle": "Still confused how to use the bot?",
+    "howToUseSlash": "1.) Pour les anciens utilisateurs qui ne m'ont pas réinvitée sur ce serveur, tu peux me réinviter en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), il est important que tu m'aies déjà réinvitée.\n2.) L'utilisateur doit avoir la permission `Utiliser des commandes d'application` pour pouvoir utiliser mes commandes.\n3.) Si tu ne peux pas voir les commandes slash, assure-toi d'avoir activé `Texte & Images -> Utilise les commandes slash et affiche un aperçu des émojis, des mentions et de la syntaxe markdown pendant que tu écris` dans tes paramètres",
+    "needSupportTitle": "Toujours confus·e de comment utiliser le bot ?",
     "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
   }
 }
