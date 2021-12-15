@@ -15,10 +15,10 @@
   "jankenpon": {
     "usage": "<choix> <valeur>",
     "description": "Joue au jakenpon et gagne ou perds des yens.",
-    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
-    "valueNotInputed": "you didn't provide any value to bet.",
-    "tie": "draw! Nobody won or lost.",
-    "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
+    "optionNotFound": "tu peux seulement choisir entre `rock`, `paper` ou `scissors`.",
+    "valueNotInputed": "tu n'as pas fourni de valeur à parier.",
+    "tie": "égalité ! Personne n'a gagné, ni perdu.",
+    "youWin": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`. Félicitations, tu as gagné. Voilà tes `{{2}}` yens.",
     "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
     "choice": {
       "rock": "rock",
