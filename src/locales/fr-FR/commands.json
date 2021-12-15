@@ -19,19 +19,19 @@
     "valueNotInputed": "tu n'as pas fourni de valeur à parier.",
     "tie": "égalité ! Personne n'a gagné, ni perdu.",
     "youWin": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`. Félicitations, tu as gagné. Voilà tes `{{2}}` yens.",
-    "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+    "youLose": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`, j'ai gagné ! Je te pique `{{2}}` yens chéri·e",
     "choice": {
-      "rock": "rock",
-      "paper": "paper",
-      "scissors": "scissors"
+      "rock": "pierre",
+      "paper": "papier",
+      "scissors": "ciseaux"
     }
   },
   "daily": {
-    "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
-    "yensDaily": "Daily yens",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
-    "description": "You can get your daily yens by using this command",
-    "almostThere": "We're almost there!",
+    "congrats": "Félicitations ! Tu as reçu `{{0}}` yens et `{{1}}` sugarcubes aujourd'hui. Tu pourras obtenir plus de yens demain. À plus tard, et passe une bonne journée !",
+    "yensDaily": "Yens journaliers",
+    "hasBeenPicked": "tu as déjà récupéré tes yens quotidiens aujourd'hui. Attends `{{0}}` avant de pouvoir les récupérer à nouveau.",
+    "description": "Vous pouvez obtenir vos yens quotidiens en utilisant cette commande",
+    "almostThere": "On y est presque !",
     "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
     "proceed": "Do you want to proceed?",
     "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
