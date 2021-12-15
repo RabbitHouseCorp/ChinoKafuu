@@ -30,42 +30,42 @@
     "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi."
   },
   "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
-  "howToUse": "How to use?",
-  "aliases": "Aliases",
+  "howToUse": "Comment l'utiliser ?",
+  "aliases": "Alias",
   "addedToGuild": {
-    "thanks": "Thanks for adding me",
-    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-    "guildSaved": "Successfully saved the server {{0}} in the database!"
+    "thanks": "Merci de m'avoir ajoutée",
+    "description": "Whoa {{0}} ! Merci de m'avoir ajoutée dans `{{1}}`, permet moi de me présenter.\n\nJe suis un petit bot avec de nombreuses fonctions qui peuvent être utiles, comme **modération**, **fun** et **utilités**. Par défaut, mon préfixe est `{{2}}`\n\nSi t'as besoin d'aide, n'hésite pas à rejoindre mon serveur de support en utilisant `{{2}}help` ou `{{2}}invite`. Amuse toi, et à plus tard.",
+    "guildSaved": "Le serveur {{0}} a été sauvegardé avec succès dans la base de données !"
   },
-  "noAliases": "This command doesn't have any aliases.",
-  "onMentionAfk": "**{{user}}** is AFK.",
-  "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "noAliases": "Cette commande n'a aucun alias.",
+  "onMentionAfk": "**{{user}}** est AFK.",
+  "onMentionAfkReasoned": "**{{user}}** est AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, étant donné que tu es de retour, je t'ai enlevé ton statut AFK.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-    "playerAlreadyPlaying": "The track is already playing.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-    "playerNotFound": "I'm not playing any song",
-    "maxVolume": "calm down! The max volume allowed is `100`.",
-    "minVolume": "calm down! The minimal volume allowed is `5`."
+    "authorAreNotInVoiceChannel": "tu n'es pas dans un salon vocal.",
+    "playerAlreadyPlaying": "Cette chanson est déjà en cours de lecture.",
+    "clientAreNotInVoiceChannel": "Je ne suis pas dans un salon vocal.",
+    "playerNotFound": "Je ne joue aucune chanson",
+    "maxVolume": "calme-toi ! Le volume maximal autorisé est `100`.",
+    "minVolume": "calme-toi ! Le volume minimal autorisé est `5`."
   },
   "boolean": {
-    "true": "Yes",
-    "false": "No"
+    "true": "Oui",
+    "false": "Non"
   },
   "guildban": {
-    "title": "Guild Banned",
-    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-    "reason": "Reason"
+    "title": "Serveur banni",
+    "explain": "`{{0}}` est banni selon la raison ci-dessous. Tu penses que le bannissement est injustifié ? Rejoins mon [serveur de support](https://discord.gg/Jr57UrsXeC) et peut-être qu'il sera dé-banni.",
+    "reason": "Raison"
   },
-  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-  "cooldownLowThanZero": "some",
-  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
-  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
+  "cooldown": "s'il te plaît, attends encore {{0}} secondes pour pouvoir exécuter à nouveau cette commande !",
+  "cooldownLowThanZero": "un peu",
+  "disabledCommand": "désolée, mais, cette commande a quelques problèmes et elle est désactivée pendant un certain temps\n**Raison:** `{{0}}`",
+  "blockedChannel": "tu ne peux pas utiliser de commandes ici, va dans {{0}} et essaie encore.",
   "migrate": {
-    "migrateTitle": "Slash commands are here!",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
-    "disabledTitle": "Vanilla commands are deprecated",
+    "migrateTitle": "Les commandes slash sont là !",
+    "migrateToSlashCommand": "Hey ! Après janvier 2022 je vais seulement répondre aux commandes slash, s'il te plaît, si tu veux continuer à m'utiliser, alors tu dois me ré-ajouter, tu peux le faire en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), tu n'as pas besoin de m'expulser du serveur. Merci ! Si tu veux arrêter de recevoir ce message, écris `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Les commandes vanilla sont obsolètes",
     "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
     "howToUseTitle": "How to use?",
     "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
