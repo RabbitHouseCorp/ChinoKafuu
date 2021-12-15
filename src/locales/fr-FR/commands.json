@@ -32,12 +32,12 @@
     "hasBeenPicked": "tu as déjà récupéré tes yens quotidiens aujourd'hui. Attends `{{0}}` avant de pouvoir les récupérer à nouveau.",
     "description": "Vous pouvez obtenir vos yens quotidiens en utilisant cette commande",
     "almostThere": "On y est presque !",
-    "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
-    "proceed": "Do you want to proceed?",
-    "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
+    "explaining": "Pour obtenir tes yens, tu devras voter pour moi. Chaque 12 heures, tu pourras à nouveau obtenir tes yens. Patiente quelques secondes après avoir voté.",
+    "proceed": "Veux-tu continuer ?",
+    "confirm": "Si oui, clique [ici](https://top.gg/bot/481282441294905344/vote) pour voter pour moi. Une fois que tu as voté, exécute à nouveau cette commande."
   },
   "laranjo": {
-    "usage": "<text>",
+    "usage": "<texte>",
     "description": "Laranjo will say something silly."
   },
   "rize": {
