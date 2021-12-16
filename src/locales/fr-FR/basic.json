@@ -30,7 +30,7 @@
     "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi."
   },
   "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
-  "howToUse": "Comment l'utiliser ?",
+  "howToUse": "Comment l'utiliser?",
   "aliases": "Alias",
   "addedToGuild": {
     "thanks": "Merci de m'avoir ajoutée",
