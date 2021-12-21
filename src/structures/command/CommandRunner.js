@@ -69,7 +69,7 @@ module.exports = class CommandRunner {
       embed.setDescription(ctx._locale('basic:migrate.migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id, 2: ctx.db.guild.prefix }))
 
       if (!ctx.db.user.stopNotify) ctx.send(embed.build())
-    } else if (timeoutVanilla.getFullYear() > 2022) {
+    } else if (timeoutVanilla.getFullYear() >= 2022) {
       const embed = new EmbedBuilder()
       embed.setColor('ACTION')
       embed.setTitle(ctx._locale('basic:migrate.disabledTitle'))
