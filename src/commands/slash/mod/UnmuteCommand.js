@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const { CommandBase, CommandOptions } = require('eris')
-module.exports = class MuteCommand extends Command {
+module.exports = class UnmuteCommand extends Command {
   constructor() {
     super({
       name: 'unmute',
