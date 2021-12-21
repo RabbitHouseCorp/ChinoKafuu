@@ -17,7 +17,7 @@ module.exports = class KickCommand extends Command {
       }],
       slash: new CommandBase()
         .setName('kick')
-        .setDescription('Kicks an user from the server')
+        .setDescription('Kicks an user in the guild')
         .addOptions(
           new CommandOptions()
             .setType(6)

@@ -1,34 +1,35 @@
 const { Command, EmbedBuilder } = require('../../../utils')
 const { CommandBase, CommandOptions } = require('eris')
-
-module.exports = class BanCommand extends Command {
+const ms = require('ms')
+module.exports = class MuteCommand extends Command {
   constructor() {
     super({
-      name: 'ban',
-      aliases: ['banir'],
+      name: 'mute',
+      aliases: [],
       arguments: 1,
       hasUsage: true,
       permissions: [{
         entity: 'both',
-        permissions: ['banMembers', 'embedLinks']
+        permissions: ['moderateMembers']
       }],
       slash: new CommandBase()
-        .setName('ban')
-        .setDescription('Bans a user in the guild')
+        .setName('mute')
+        .setDescription('Mutes a user in the guild')
         .addOptions(
           new CommandOptions()
             .setType(6)
             .setName('user')
-            .setDescription('To ban user.')
+            .setDescription('To mute the user.')
+            .isRequired(),
+          new CommandOptions()
+            .setType(3)
+            .setName('time')
+            .setDescription('The time to mute the user (e.g: 60s, 10m, 1h, 1d, 7d).')
             .isRequired(),
           new CommandOptions()
             .setType(3)
             .setName('reason')
-            .setDescription('Enter reason to ban user.'),
-          new CommandOptions()
-            .setType(4)
-            .setName('message_days')
-            .setDescription('Bans user with an optional timeframe.')
+            .setDescription('Enter reason to mute the user.')
         )
     })
   }
@@ -40,20 +41,26 @@ module.exports = class BanCommand extends Command {
       0: `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator}`, 1: ctx.args.get('reason') ?
         ctx.args.get('reason').value : ctx._locale('basic:noReason')
     })
-    let quantity = ctx.args.get('message_days')?.value
+    const time = ctx.args.get('time')?.value
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (guildMember) {
-      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'commands:ban.selfBan')
-      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
+      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'commands:mute.selfMute')
+      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:mute.ownerMute')
     }
+    function timestampConverter(date) {
+      let s = new Date(Date.now() + ms(date)).toUTCString()
+      s = new Date(s).toISOString()
+      return s
+    }
+
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
-    if (!quantity || quantity < 0 || quantity === Infinity || isNaN(quantity)) quantity = 0
+
     try {
-      ctx.client.banGuildMember(ctx.message.guild.id, member.id, quantity, reason).then(() => {
+      ctx.client.setGuildMemberTimeout(ctx.message.guild.id, member.id, timestampConverter(time), reason).then(() => {
         const embed = new EmbedBuilder()
         embed.setColor('MODERATION')
         embed.setThumbnail(member.avatarURL)
-        embed.setTitle(ctx._locale('basic:punishment.banned', { 0: `${member.username}#${member.discriminator}` }))
+        embed.setTitle(ctx._locale('basic:punishment.muted', { 0: `${member.username}#${member.discriminator}` }))
         embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
         embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.member.username}#${ctx.message.member.discriminator} (\`${ctx.message.member.id}\`)`)
         embed.addField(ctx._locale('basic:punishment.embed.reason'), ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason'))
