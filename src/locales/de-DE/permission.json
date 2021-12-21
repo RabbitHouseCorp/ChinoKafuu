@@ -38,5 +38,6 @@
   "useExternalStickers": "Externe Sticker verwenden",
   "manageThreads": "Threads verwalten",
   "sendMessagesInThreads": "Nachrichten in Threads senden",
-  "startEmbeddedActivities": "Start Activities"
+  "startEmbeddedActivities": "Start Activities",
+  "moderateMembers": "Timeout Members"
 }
