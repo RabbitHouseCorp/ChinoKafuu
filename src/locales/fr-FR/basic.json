@@ -13,13 +13,14 @@
   "invalidRole": "role introuvable. Assure-toi de l'avoir @mentionné, ou vérifie son ID.",
   "invalidEmoji": "émoji introuvable. Tu es sûr·e que cet émoji provient de ce serveur ?",
   "noReason": "Aucune raison",
-  "onBehalf": "Au nom de {{member}}: {{reason}}",
   "clickHere": "Clique ici",
   "punishment": {
     "banned": "{{0}} | Banni",
     "unbanned": "{{0}} | Dé-banni",
-    "kicked": "{{member}} | Expulsé",
-    "softBan": "{{member}} | Soft banni",
+    "kicked": "{{0}} | Kicked",
+    "softBan": "{{0}} | Soft banned",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
     "embed": {
       "memberName": "Nom d'utilisateur·rice",
       "memberID": "Identifiant de l’utilisateur",
@@ -27,7 +28,10 @@
       "reason": "Raison"
     },
     "reason": "Sanctionné par: {{0}} - Raison: {{1}}",
-    "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi."
+    "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
   "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
   "howToUse": "Comment l'utiliser?",
