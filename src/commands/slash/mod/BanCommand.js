@@ -43,8 +43,8 @@ module.exports = class BanCommand extends Command {
     let quantity = ctx.args.get('message_days')?.value
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (guildMember) {
-      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'commands:ban.selfBan')
-      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:ban.ownerBan')
+      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
+      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
     }
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
     if (!quantity || quantity < 0 || quantity === Infinity || isNaN(quantity)) quantity = 0
@@ -74,7 +74,7 @@ module.exports = class BanCommand extends Command {
         }
       })
     } catch {
-      await ctx.replyT('error', 'commands:ban.error')
+      await ctx.replyT('error', 'basic:punishment.error')
     }
   }
 }

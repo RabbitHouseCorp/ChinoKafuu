@@ -14,22 +14,22 @@ module.exports = class MuteCommand extends Command {
       }],
       slash: new CommandBase()
         .setName('mute')
-        .setDescription('Mutes a user in the guild')
+        .setDescription('Mutes a member in the guild')
         .addOptions(
           new CommandOptions()
             .setType(6)
             .setName('user')
-            .setDescription('To mute the user.')
+            .setDescription('To mute the member.')
             .isRequired(),
           new CommandOptions()
             .setType(3)
             .setName('time')
-            .setDescription('The time to mute the user (e.g: 60s, 10m, 1h, 1d, 7d).')
+            .setDescription('The time to mute the member (e.g: 60s, 10m, 1h, 1d, 7d).')
             .isRequired(),
           new CommandOptions()
             .setType(3)
             .setName('reason')
-            .setDescription('Enter reason to mute the user.')
+            .setDescription('Enter reason to mute the member.')
         )
     })
   }
@@ -44,8 +44,8 @@ module.exports = class MuteCommand extends Command {
     const time = ctx.args.get('time')?.value
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (guildMember) {
-      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'commands:mute.selfMute')
-      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:mute.ownerMute')
+      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
+      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
     }
     function timestampConverter(date) {
       let s = new Date(Date.now() + ms(date)).toUTCString()
@@ -81,7 +81,7 @@ module.exports = class MuteCommand extends Command {
         }
       })
     } catch {
-      await ctx.replyT('error', 'commands:ban.error')
+      await ctx.replyT('error', 'basic:punishment.error')
     }
   }
 }

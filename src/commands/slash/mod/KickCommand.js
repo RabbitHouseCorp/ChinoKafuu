@@ -38,14 +38,14 @@ module.exports = class KickCommand extends Command {
 
     const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
-    if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:kick.selfKick')
-    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:kick.ownerKick')
+    if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
+    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
 
     const guildMember = await ctx.getMember(member.id)
     if (!guildMember) return ctx.replyT('error', 'basic:invalidUser')
     try {
       const embed = new EmbedBuilder()
-      embed.setTitle(ctx._locale('basic:punishment.kicked', { member: `${member.username}#${member.discriminator}` }))
+      embed.setTitle(ctx._locale('basic:punishment.kicked', { 0: `${member.username}#${member.discriminator}` }))
       embed.setColor('MODERATION')
       embed.setThumbnail(member.avatarURL)
       embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
@@ -59,7 +59,7 @@ module.exports = class KickCommand extends Command {
         })
       }
     } catch {
-      return ctx.replyT('error', 'commands:kick.error')
+      return ctx.replyT('error', 'basic:punishment.error')
     }
   }
 }
