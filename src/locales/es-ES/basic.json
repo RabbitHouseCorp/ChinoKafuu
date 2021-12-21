@@ -13,13 +13,14 @@
   "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
   "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
   "noReason": "Sin razón",
-  "onBehalf": "En nombre de {{member}}: {{reason}}",
   "clickHere": "Clic aquí",
   "punishment": {
     "banned": "{{0}} | Baneado",
     "unbanned": "{{0}} | Desbaneado",
-    "kicked": "{{member}} | Expulsado",
-    "softBan": "{{member}} | Baneado suave",
+    "kicked": "{{0}} | Kicked",
+    "softBan": "{{0}} | Soft banned",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
     "embed": {
       "memberName": "Nombre de usuario",
       "memberID": "ID de Usuario",
@@ -27,7 +28,10 @@
       "reason": "Razón"
     },
     "reason": "Castigado por: {{0}} - Razón: {{1}}",
-    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
+    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
   "howToUse": "¿Cómo se usa?",
