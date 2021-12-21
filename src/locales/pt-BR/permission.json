@@ -38,5 +38,6 @@
   "useExternalStickers": "Usar figurinhas externas",
   "manageThreads": "Gerenciar conversas",
   "sendMessagesInThreads": "Enviar mensagens em tópicos",
-  "startEmbeddedActivities": "Começar atividades"
+  "startEmbeddedActivities": "Começar atividades",
+  "moderateMembers": "Timeout Members"
 }
