@@ -523,17 +523,11 @@
   },
   "kick": {
     "usage": "<user> [reason]",
-    "description": "Kicks an user from the server",
-    "selfKick": "you can't kick yourself! You might want to lave the guild?",
-    "ownerKick": "uh... you can't really kick the owner of the guild...",
-    "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    "description": "Kicks an user from the server"
   },
   "ban": {
     "usage": "<user> [reason]",
-    "description": "Bans a user from the server",
-    "selfBan": "自分をBANできません!",
-    "ownerBan": "uh... you can't really ban the owner of the guild",
-    "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    "description": "Bans a user from the server"
   },
   "language": {
     "description": "Change my language in the current guild.",
@@ -562,9 +556,7 @@
   },
   "softban": {
     "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
-    "usage": "<user> [purge-days] [reason]",
-    "owner": "you can't soft ban the server owner!",
-    "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nMore information: `{{error}}`"
+    "usage": "<user> [purge-days] [reason]"
   },
   "afk": {
     "description": "Make you AFK.",
@@ -648,5 +640,13 @@
         "module": "Allowed Command Channels"
       }
     }
+  },
+  "mute": {
+    "description": "Mutes a member in the guild.",
+    "usage": "<member> <time> [reason]"
+  },
+  "unmute": {
+    "description": "Unmute a member in the guild.",
+    "usage": "<member> [reason]"
   }
 }
