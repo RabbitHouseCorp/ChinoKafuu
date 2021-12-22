@@ -642,11 +642,11 @@
     }
   },
   "mute": {
-    "description": "Mutes a member in the guild.",
+    "description": "Silencia um membro do servidor.",
     "usage": "<member> <time> [reason]"
   },
   "unmute": {
-    "description": "Unmute a member in the guild.",
+    "description": "Retira o silenciamento do membro do servidor.",
     "usage": "<member> [reason]"
   }
 }
