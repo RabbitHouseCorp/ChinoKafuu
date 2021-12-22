@@ -17,8 +17,8 @@
   "punishment": {
     "banned": "{{0}} | Banni",
     "unbanned": "{{0}} | Dé-banni",
-    "kicked": "{{0}} | Kicked",
-    "softBan": "{{0}} | Soft banned",
+    "kicked": "{{0}} | Expulsé",
+    "softBan": "{{0}} | Soft banni",
     "muted": "{{0}} | Muted",
     "unmuted": "{{0}} | Unmuted",
     "embed": {
