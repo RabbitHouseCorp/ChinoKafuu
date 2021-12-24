@@ -17,10 +17,10 @@
   "punishment": {
     "banned": "{{0}} | Baneado",
     "unbanned": "{{0}} | Desbaneado",
-    "kicked": "{{0}} | Kicked",
-    "softBan": "{{0}} | Soft banned",
-    "muted": "{{0}} | Muted",
-    "unmuted": "{{0}} | Unmuted",
+    "kicked": "{{0}} | Expulsado",
+    "softBan": "{{0}} | Baneado levemente",
+    "muted": "{{0}} | Silenciado",
+    "unmuted": "{{0}} | Des-silenciado",
     "embed": {
       "memberName": "Nombre de usuario",
       "memberID": "ID de Usuario",
@@ -29,9 +29,9 @@
     },
     "reason": "Castigado por: {{0}} - Razón: {{1}}",
     "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
-    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
-    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
-    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
+    "selfPunishment": "lo siento, pero como no puedes castigarte a ti mismo en Discord normal, no te puedes castigar a través de mí.",
+    "ownerPunish": "¿Te has vuelto loco? No puedes castigar a esa persona, es el creador de este servidor.",
+    "error": "No he podido castigar a esa persona. Quizá sus roles son más altos que los míos. Compruébalo y prueba de nuevo."
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
   "howToUse": "¿Cómo se usa?",
