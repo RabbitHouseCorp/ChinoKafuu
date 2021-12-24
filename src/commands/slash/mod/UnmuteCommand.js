@@ -18,12 +18,12 @@ module.exports = class UnmuteCommand extends Command {
           new CommandOptions()
             .setType(6)
             .setName('user')
-            .setDescription('To mute the member.')
+            .setDescription('To unmute the member.')
             .isRequired(),
           new CommandOptions()
             .setType(3)
             .setName('reason')
-            .setDescription('Enter reason to mute the member.')
+            .setDescription('Enter reason to unmute the member.')
         )
     })
   }
@@ -37,8 +37,8 @@ module.exports = class UnmuteCommand extends Command {
     })
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
     if (guildMember) {
-      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'commands:unmute.selfMute')
-      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:unmute.ownerMute')
+      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
+      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
     }
 
     if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
@@ -69,7 +69,7 @@ module.exports = class UnmuteCommand extends Command {
         }
       })
     } catch {
-      await ctx.replyT('error', 'commands:ban.error')
+      await ctx.replyT('error', 'basic:punishment.error')
     }
   }
 }

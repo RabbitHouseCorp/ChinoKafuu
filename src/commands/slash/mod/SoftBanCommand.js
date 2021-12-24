@@ -34,7 +34,8 @@ module.exports = class SoftBanCommand extends Command {
   async run(ctx) {
     const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'commands:softban.owner')
+    if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
+    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
     const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
     const days = Number(ctx.args.get('purge-days')?.value) ?? 7
 
@@ -44,7 +45,7 @@ module.exports = class SoftBanCommand extends Command {
     }))
       .then(() => {
         const embed = new EmbedBuilder()
-        embed.setTitle(ctx._locale('basic:punishment.softBan', { member: `${member.username}#${member.discriminator}` }))
+        embed.setTitle(ctx._locale('basic:punishment.softBan', { 0: `${member.username}#${member.discriminator}` }))
         embed.setColor('MODERATION')
         embed.setThumbnail(member.avatarURL)
         embed.addField(ctx._locale('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
@@ -60,8 +61,8 @@ module.exports = class SoftBanCommand extends Command {
           return guildChannel.createMessage(embed.build())
         }
       })
-      .catch(err => {
-        return ctx.replyT('error', 'commands:softban.error', { error: err.message })
+      .catch(() => {
+        return ctx.replyT('error', 'basic:punishment.error')
       })
   }
 }
