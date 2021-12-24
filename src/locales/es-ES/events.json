@@ -5,7 +5,7 @@
     "fieldValue": "Como probablemente no sepamos sobre este error, puedes [abrir una issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) en GitHub o contactarnos en nuestro [servidor de soporte](https://discord.gg/Jr57UrsXeC). No olvides adjuntar este _pequeño mensaje_ cuando reportes el error.\n¡Muchas gracias y lo sentimos!"
   },
   "stopnotify": {
-    "alreadyStopped": "sorry but, you already told me to stop notify you about the migration.",
+    "alreadyStopped": "lo siento, pero ya me habías dicho que no te notificase más sobre la migración.",
     "stopNotifyRightNow": "right! Sorry for disturb you with that, but it's important that you re-invite me to this server."
   }
 }
