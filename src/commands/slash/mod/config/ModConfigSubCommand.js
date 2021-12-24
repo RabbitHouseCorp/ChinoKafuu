@@ -21,6 +21,8 @@ module.exports = class ModConfigSubCommand extends Command {
   }
 
   run(ctx) {
+    if (ctx.args.get('status') == undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
+    if (ctx.args.get('channel') == undefined) return ctx.replyT('error', 'commands:config.channel.needChannel')
     switch (ctx.args.get('status').value) {
       case status.TYPE_1: {
         // Tag: NEED_CHANNEL
