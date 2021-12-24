@@ -6,6 +6,6 @@
   },
   "stopnotify": {
     "alreadyStopped": "lo siento, pero ya me habías dicho que no te notificase más sobre la migración.",
-    "stopNotifyRightNow": "right! Sorry for disturb you with that, but it's important that you re-invite me to this server."
+    "stopNotifyRightNow": "¡Cierto! Perdona que te moleste con eso, pero es importante que me invites de nuevo a ese servidor."
   }
 }
