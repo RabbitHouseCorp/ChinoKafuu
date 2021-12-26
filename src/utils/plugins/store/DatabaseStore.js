@@ -19,7 +19,8 @@ module.exports = class DatabaseStore extends PluginExtend {
           this.$addClassState({ data: state })
           this.ready()
         } else {
-          this.failed(Error('Unable to connect to the database'))
+
+          this.fail(Error('Unable to connect to the database'))
         }
       })
 
