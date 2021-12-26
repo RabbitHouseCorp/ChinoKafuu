@@ -2,6 +2,8 @@ const package = require('../../package.json')
 
 Error.prototype.debug = function (details, log) {
   const a = this.stack.split('\n')
+  a.push('')
+  a.push('')
   if (process.env.PRODUCTION !== undefined) {
     if (process.env.PRODUCTION !== undefined) {
       let type = 'unknown'

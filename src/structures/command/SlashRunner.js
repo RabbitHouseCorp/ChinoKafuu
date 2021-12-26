@@ -1,4 +1,5 @@
 const { BlacklistUtils, EmbedBuilder, Helper } = require('../../utils')
+const Logger = require('../util/Logger')
 const CommandPermissions = require('./CommandPermissions')
 const SlashCommandContext = require('./SlashCommandContext')
 
@@ -73,6 +74,7 @@ module.exports = class SlashRunner {
     try {
       await command.run(ctx)
     } catch (e) {
+      Logger.error(e.debug({ guild_id: interaction.guild.id, shard_id: interaction.guild.shard, user_id: interaction.member?.user?.id ?? interaction?.user?.id, isSlash: true }, true))
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
       client.emit('error', e, interaction.guild.shard)
       const embed = new EmbedBuilder()

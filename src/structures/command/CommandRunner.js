@@ -1,5 +1,6 @@
 /* eslint-disable no-useless-escape */
 const { EmbedBuilder, Helper, AwayFromKeyboardUtils, InviteDMUtils, BlacklistUtils } = require('../../utils')
+const Logger = require('../util/Logger')
 const CommandContext = require('./CommandContext')
 const CommandPermissions = require('./CommandPermissions')
 
@@ -190,6 +191,7 @@ module.exports = class CommandRunner {
     try {
       await command.run(ctx)
     } catch (e) {
+      Logger.error(e.debug({ guild_id: message.guild.id, shard_id: message.guild.shard, user_id: message.member?.user?.id ?? message?.user?.id, isSlash: false }, true))
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
       client.emit('error', e, message.guild.shard)
       const embed = new EmbedBuilder()
