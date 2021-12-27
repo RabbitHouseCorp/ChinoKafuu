@@ -21,10 +21,18 @@ module.exports = class LanguageCommand extends Command {
   }
 
   async run(ctx) {
+    const languages = [
+      `${Emoji.getEmoji('brazil').mention} **Português, Brasil**`,
+      `${Emoji.getEmoji('vn').mention} **Tiếng Việt, Việt Nam**`,
+      `${Emoji.getEmoji('usa').mention} **English, US**`,
+      `${Emoji.getEmoji('es').mention} **Espanõl**`,
+      `${Emoji.getEmoji('ja').mention} **日本語**`,
+      `${Emoji.getEmoji('fr').mention} **Français**`
+    ]
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)
-    embed.setDescription(`${Emoji.getEmoji('brazil').mention} **Português, Brasil**\n${Emoji.getEmoji('vn').mention} **Tiếng Việt, Việt Nam**\n${Emoji.getEmoji('usa').mention} **English, US**\n${Emoji.getEmoji('es').mention} **Espanõl**\n${Emoji.getEmoji('ja').mention} **日本語**`)
+    embed.setDescription(languages.join('\n'))
     embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
     const selectionMenu = new SelectionMenu()
       .addItem(
@@ -58,6 +66,12 @@ module.exports = class LanguageCommand extends Command {
           })
           .setLabel('日本語')
           .setValue('jp'),
+        new Options()
+          .addEmoji({
+            name: Emoji.getEmoji('fr').mention
+          })
+          .setLabel('Français')
+          .setValue('fr')
 
       )
       .addPlaceHolder(ctx._locale('commands:language.chooseYourLanguage'))
@@ -128,11 +142,20 @@ module.exports = class LanguageCommand extends Command {
                 })
               }
                 break
+              case 'fr': {
+                ctx.db.guild.lang = 'fr-FR'
+                ctx.db.guild.save().then(() => {
+                  ack.sendAck('update', {
+                    content: ctx.replyTData('success', 'maintenant je vais parler en `Français`.').content,
+                    embeds: [],
+                    components: []
+                  })
+                })
+              }
+                break
             }
-
           }
         })
-
       })
   }
 }
