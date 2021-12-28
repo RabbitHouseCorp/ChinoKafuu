@@ -403,6 +403,7 @@
     "totalClusters": "Total clusters: {{totalClusters}}",
     "percentOn": "{{perc}}% functional",
     "avgPing": "{{avg}}ms average ping",
+    "clustersDisabled": "The cluster system is disabled.",
     "description": "Just a test command. Use it to check my ping."
   },
   "slap": {
