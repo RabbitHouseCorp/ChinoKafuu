@@ -33,7 +33,6 @@ module.exports = class Database extends EventEmitter {
     if (Array.isArray(data.search)) {
       for (const k of data.search) {
         sc.push(k)
-
       }
     }
     const map = new Map()
@@ -90,7 +89,7 @@ module.exports = class Database extends EventEmitter {
         let found = 0
         let notFound = 0
         let saveData = 0
-        for (const objData of data.search[tag]) {
+        for (const objData in data.search[tag]) {
           if (!(map.get(tag) === undefined)) {
             c++
             let t_data = Date.now()
