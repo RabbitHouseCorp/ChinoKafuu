@@ -1,43 +1,43 @@
 {
   "report": {
-    "usage": "<user> <reason> -p <proof|attachment>",
-    "description": "Reports a user on this server if the module is enable.",
-    "moduleDisable": "this module is disabled on this server.",
-    "noReason": "no reason specified",
-    "successfullySent": "report successfully sent.",
+    "usage": "<utilisateur> <raison> -p <preuve|pièce jointe>",
+    "description": "Signale un utilisateur sur ce serveur si le module est activé.",
+    "moduleDisable": "ce module est désactivé sur ce serveur.",
+    "noReason": "aucune raison spécifiée",
+    "successfullySent": "signalement envoyé avec succès.",
     "embed": {
-      "memberName": "Username",
-      "authorName": "Who reported",
-      "channel": "Channel",
-      "reason": "Reason"
+      "memberName": "Nom d'utilisateur·rice",
+      "authorName": "Qui a signalé",
+      "channel": "Salon",
+      "reason": "Raison"
     }
   },
   "jankenpon": {
-    "usage": "<choice> <value>",
-    "description": "Plays jankenpon and win or lose yens.",
-    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
-    "valueNotInputed": "you didn't provide any value to bet.",
-    "tie": "draw! Nobody won or lost.",
-    "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
-    "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
+    "usage": "<choix> <valeur>",
+    "description": "Joue au jakenpon et gagne ou perds des yens.",
+    "optionNotFound": "tu peux seulement choisir entre `rock`, `paper` ou `scissors`.",
+    "valueNotInputed": "tu n'as pas fourni de valeur à parier.",
+    "tie": "égalité ! Personne n'a gagné, ni perdu.",
+    "youWin": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`. Félicitations, tu as gagné. Voilà tes `{{2}}` yens.",
+    "youLose": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`, j'ai gagné ! Je te pique `{{2}}` yens chéri·e",
     "choice": {
-      "rock": "rock",
-      "paper": "paper",
-      "scissors": "scissors"
+      "rock": "pierre",
+      "paper": "papier",
+      "scissors": "ciseaux"
     }
   },
   "daily": {
-    "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
-    "yensDaily": "Daily yens",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
-    "description": "You can get your daily yens by using this command",
-    "almostThere": "We're almost there!",
-    "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
-    "proceed": "Do you want to proceed?",
-    "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
+    "congrats": "Félicitations ! Tu as reçu `{{0}}` yens et `{{1}}` sugarcubes aujourd'hui. Tu pourras obtenir plus de yens demain. À plus tard, et passe une bonne journée !",
+    "yensDaily": "Yens journaliers",
+    "hasBeenPicked": "tu as déjà récupéré tes yens quotidiens aujourd'hui. Attends `{{0}}` avant de pouvoir les récupérer à nouveau.",
+    "description": "Vous pouvez obtenir vos yens quotidiens en utilisant cette commande",
+    "almostThere": "On y est presque !",
+    "explaining": "Pour obtenir tes yens, tu devras voter pour moi. Chaque 12 heures, tu pourras à nouveau obtenir tes yens. Patiente quelques secondes après avoir voté.",
+    "proceed": "Veux-tu continuer ?",
+    "confirm": "Si oui, clique [ici](https://top.gg/bot/481282441294905344/vote) pour voter pour moi. Une fois que tu as voté, exécute à nouveau cette commande."
   },
   "laranjo": {
-    "usage": "<text>",
+    "usage": "<texte>",
     "description": "Laranjo will say something silly."
   },
   "rize": {
@@ -276,21 +276,6 @@
       "userCount": "Users",
       "botCount": "Bots"
     },
-    "region": {
-      "brazil": "Brazil",
-      "europe": "Europe",
-      "hongkong": "Hong Kong",
-      "japan": "Japan",
-      "russia": "Russia",
-      "singapore": "Singapore",
-      "southafrica": "South Africa",
-      "sydney": "Sydney",
-      "us-central": "US Central",
-      "us-east": "US East",
-      "us-south": "US South",
-      "us-west": "US west",
-      "india": "India"
-    },
     "features": {
       "title": "Features",
       "dontHave": "This guild doesn't have any feature.",
@@ -418,6 +403,7 @@
     "totalClusters": "Total clusters: {{totalClusters}}",
     "percentOn": "{{perc}}% functional",
     "avgPing": "{{avg}}ms average ping",
+    "clustersDisabled": "The cluster system is disabled.",
     "description": "Just a test command. Use it to check my ping."
   },
   "slap": {
@@ -538,17 +524,11 @@
   },
   "kick": {
     "usage": "<user> [reason]",
-    "description": "Kicks an user from the server",
-    "selfKick": "you can't kick yourself! You might want to lave the guild?",
-    "ownerKick": "uh... you can't really kick the owner of the guild...",
-    "error": "I couldn't kick this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    "description": "Kicks an user from the server"
   },
   "ban": {
     "usage": "<user> [reason]",
-    "description": "Bans a user from the server",
-    "selfBan": "you can't self ban!",
-    "ownerBan": "uh... you can't really ban the owner of the guild",
-    "error": "I couldn't ban this user. Perhaps their roles are higher than mine. Check the roles and try again"
+    "description": "Bans a user from the server"
   },
   "language": {
     "description": "Change my language in the current guild.",
@@ -577,9 +557,7 @@
   },
   "softban": {
     "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.",
-    "usage": "<user> [purge-days] [reason]",
-    "owner": "you can't soft ban the server owner!",
-    "error": "I couldn't soft ban this user. Perhaps their roles are higher than my highest one or they are unbannable\nMore information: `{{error}}`"
+    "usage": "<user> [purge-days] [reason]"
   },
   "afk": {
     "description": "Make you AFK.",
@@ -663,5 +641,13 @@
         "module": "Allowed Command Channels"
       }
     }
+  },
+  "mute": {
+    "description": "Mutes a member in the guild.",
+    "usage": "<member> <time> [reason]"
+  },
+  "unmute": {
+    "description": "Unmute a member in the guild.",
+    "usage": "<member> [reason]"
   }
 }

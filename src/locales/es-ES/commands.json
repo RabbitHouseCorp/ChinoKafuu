@@ -276,21 +276,6 @@
       "userCount": "Usuarios",
       "botCount": "Bots"
     },
-    "region": {
-      "brazil": "Brasil",
-      "europe": "Europa",
-      "hongkong": "Hong Kong",
-      "japan": "Japón",
-      "russia": "Rusia",
-      "singapore": "Singapur",
-      "southafrica": "Sudáfrica",
-      "sydney": "Sídney",
-      "us-central": "EE.UU Central",
-      "us-east": "EEUU Este",
-      "us-south": "EEUU Sur",
-      "us-west": "Oeste de EE.UU.",
-      "india": "India"
-    },
     "features": {
       "title": "Funcionalidades",
       "dontHave": "Este servidor no tiene ninguna funcionalidad.",
@@ -418,6 +403,7 @@
     "totalClusters": "Total de clusters: {{totalClusters}}",
     "percentOn": "{{perc}}% funcional",
     "avgPing": "{{avg}}ms ping medio",
+    "clustersDisabled": "El sistema de clústers está desactivado.",
     "description": "Sólo un comando de prueba. Úsalo para comprobar mi ping."
   },
   "slap": {
@@ -538,17 +524,11 @@
   },
   "kick": {
     "usage": "<usuario> [razón]",
-    "description": "Expulsa a un miembro del servidor",
-    "selfKick": "¡No puedes expulsarte a ti mismo/a! ¿Tal vez deseas abandonar el servidor?",
-    "ownerKick": "Uh... No puedes expulsar al dueño del servidor...",
-    "error": "No he podido expulsar a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
+    "description": "Expulsa a un miembro del servidor"
   },
   "ban": {
     "usage": "<usuario> [razón]",
-    "description": "Banea a un usuario del servidor",
-    "selfBan": "¡No puedes banearte a ti mismo/a!",
-    "ownerBan": "Uh... No puedes banear al dueño del servidor",
-    "error": "No he podido banear a este usuario. Quizás sus roles son más altos que los míos. Verifica los roles y vuélvalo a intentar"
+    "description": "Banea a un usuario del servidor"
   },
   "language": {
     "description": "Cambia mi idioma en el servidor actual.",
@@ -577,9 +557,7 @@
   },
   "softban": {
     "description": "Banea suavemente por un momento a un usuario. Si `Días-Purga` no se especifica, se utilizará el valor por defecto (7).",
-    "usage": "<usuario> [tiempo] [razón]",
-    "owner": "¡No puedes hacer banear suave al dueño del servidor!",
-    "error": "No he podido hacer Soft-Ban a este usuario. Quizás sus roles son más altos que los míos o no puede ser baneado\nMás información: `{{error}}`"
+    "usage": "<usuario> [tiempo] [razón]"
   },
   "afk": {
     "description": "Haz que te quedes AFK.",
@@ -663,5 +641,13 @@
         "module": "Canales de Comando Permitidos"
       }
     }
+  },
+  "mute": {
+    "description": "Silencia a un miembro del servidor.",
+    "usage": "<miembro> <duración> [motivo]"
+  },
+  "unmute": {
+    "description": "Des-silencia a un miembro del servidor.",
+    "usage": "<miembro> [motivo]"
   }
 }
