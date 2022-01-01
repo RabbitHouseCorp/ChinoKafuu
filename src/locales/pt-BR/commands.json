@@ -276,21 +276,6 @@
       "userCount": "Usuários",
       "botCount": "Robôs"
     },
-    "region": {
-      "brazil": "Brasil",
-      "europe": "Europa",
-      "hongkong": "Hong Kong",
-      "japan": "Japão",
-      "russia": "Rússia",
-      "singapore": "Singapura",
-      "southafrica": "África do Sul",
-      "sydney": "Sidney",
-      "us-central": "Centro dos EUA",
-      "us-east": "Leste dos EUA",
-      "us-south": "Sul dos EUA",
-      "us-west": "Oeste dos EUA",
-      "india": "Índia"
-    },
     "features": {
       "title": "Recursos",
       "dontHave": "Este servidor não possui nenhum recurso.",
@@ -418,6 +403,7 @@
     "totalClusters": "Total de clusters: {{totalClusters}}",
     "percentOn": "{{perc}}% funcional",
     "avgPing": "{{avg}}ms ping médio",
+    "clustersDisabled": "O sistema de cluster está desativado.",
     "description": "Apenas um teste de comando, você pode ver se eu estou funcionando."
   },
   "slap": {
@@ -538,17 +524,11 @@
   },
   "kick": {
     "usage": "<usuário> [motivo]",
-    "description": "Expulsa um usuário do servidor",
-    "selfKick": "você não pode se expulsar! Talvez você queira sair do servidor?",
-    "ownerKick": "uh... você não pode expulsar o dono do servidor...",
-    "error": "eu não consegui expulsar este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
+    "description": "Expulsa um usuário do servidor"
   },
   "ban": {
     "usage": "<usuário> [motivo]",
-    "description": "Bane um usuário do servidor",
-    "selfBan": "você não pode se banir!",
-    "ownerBan": "uh... você não pode banir o dono do servidor",
-    "error": "eu não consegui banir este usuário. Talvez os cargos dele sejam maiores do que os meus. Verifique os cargos e tente novamente"
+    "description": "Bane um usuário do servidor"
   },
   "language": {
     "description": "Altera o meu idioma no servidor atual.",
@@ -577,9 +557,7 @@
   },
   "softban": {
     "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado.",
-    "usage": "<usuário> [dias] [motivo]",
-    "owner": "você não pode soft banir o dono do servidor!",
-    "error": "não consegui soft banir esse usuário. Talvez ele tenha um cargo mais alto que o meu ou é impossível bani-lo\nPara mais informação: `{{error}}`"
+    "usage": "<usuário> [dias] [motivo]"
   },
   "afk": {
     "description": "Te coloca no modo ausente.",
@@ -663,5 +641,13 @@
         "module": "Canais de Comandos Permitidos"
       }
     }
+  },
+  "mute": {
+    "description": "Silencia um membro do servidor.",
+    "usage": "<member> <time> [reason]"
+  },
+  "unmute": {
+    "description": "Retira o silenciamento do membro do servidor.",
+    "usage": "<member> [reason]"
   }
 }

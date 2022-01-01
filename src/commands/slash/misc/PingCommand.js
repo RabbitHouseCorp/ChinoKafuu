@@ -90,7 +90,7 @@ module.exports = class PingCommand extends Command {
           if (ctx.client.interactionPost != null) {
             embed.addField('Interaction Latency', `${ctx.client.interactionPost.ping}ms **(Last latency ${ctx.client.interactionPost.lastPing}ms)**`)
           }
-          embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : 'Cluster system is disabled.'}`)
+          embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : ctx._locale('commands:ping.clustersDisabled')}`)
           process.usage
           msg.edit(embed.build())
         })

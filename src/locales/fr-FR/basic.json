@@ -1,75 +1,79 @@
 {
   "permissions": {
-    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
-    "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
+    "permissionUserRequired": "Tu dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
+    "permissionBotRequired": "Je dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
     "title": "Permissions"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix in this guild is `{{1}}`, but you're not allowed execute commands here. If you want to see what I can do, use `{{1}}help` on {{2}}.",
-  "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
-  "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
-  "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
-  "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
-  "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
-  "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
-  "noReason": "No reason",
-  "onBehalf": "On {{member}}'s behalf: {{reason}}",
-  "clickHere": "Click here",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Salut, {{0}}. Mon préfixe dans ce serveur est `{{1}}`. Si tu veux voir ce que je peux faire, utilise `{{1}}help`.",
+  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Salut, {{0}}. Mon préfixe dans ce serveur est `{{1}}`, mais tu n'es pas autorisé·e à exécuter des commandes ici. Si tu veux voir ce que je peux faire, utilise `{{1}}help` dans {{2}}.",
+  "missingBotPermission": "Je n'ai pas la permission {{perm}}. Vérifie mes permissions/rôles et réessaye.",
+  "missingUserPermission": "tu n'as pas la permission {{perm}}. Tu ne peux pas exécuter cette commande.",
+  "missingBotPermissionOnChannel": "Hey {{0}} je n'ai pas la permission {{1}} dans {{2}}. S'il te plaît, vérifie mes permissions et réessaie.",
+  "invalidUser": "utilisateur introuvable. Assure-toi de l'avoir @mentionné·e, ou vérifie son ID.",
+  "invalidRole": "role introuvable. Assure-toi de l'avoir @mentionné, ou vérifie son ID.",
+  "invalidEmoji": "émoji introuvable. Tu es sûr·e que cet émoji provient de ce serveur ?",
+  "noReason": "Aucune raison",
+  "clickHere": "Clique ici",
   "punishment": {
-    "banned": "{{0}} | Banned",
-    "unbanned": "{{0}} | Unbanned",
-    "kicked": "{{member}} | Kicked",
-    "softBan": "{{member}} | Soft banned",
+    "banned": "{{0}} | Banni",
+    "unbanned": "{{0}} | Dé-banni",
+    "kicked": "{{0}} | Expulsé",
+    "softBan": "{{0}} | Soft banni",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
     "embed": {
-      "memberName": "Username",
-      "memberID": "User ID",
-      "staffName": "Who punished",
-      "reason": "Reason"
+      "memberName": "Nom d'utilisateur·rice",
+      "memberID": "Identifiant de l’utilisateur",
+      "staffName": "Qui a puni",
+      "reason": "Raison"
     },
-    "reason": "Punished by: {{0}} - Reason: {{1}}",
-    "bigReason": "you must write an shorter reason, this reason is too big to me."
+    "reason": "Sanctionné par: {{0}} - Raison: {{1}}",
+    "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
-  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
-  "howToUse": "How to use?",
-  "aliases": "Aliases",
+  "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
+  "howToUse": "Comment l'utiliser?",
+  "aliases": "Alias",
   "addedToGuild": {
-    "thanks": "Thanks for adding me",
-    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
-    "guildSaved": "Successfully saved the server {{0}} in the database!"
+    "thanks": "Merci de m'avoir ajoutée",
+    "description": "Whoa {{0}} ! Merci de m'avoir ajoutée dans `{{1}}`, permet moi de me présenter.\n\nJe suis un petit bot avec de nombreuses fonctions qui peuvent être utiles, comme **modération**, **fun** et **utilités**. Par défaut, mon préfixe est `{{2}}`\n\nSi t'as besoin d'aide, n'hésite pas à rejoindre mon serveur de support en utilisant `{{2}}help` ou `{{2}}invite`. Amuse toi, et à plus tard.",
+    "guildSaved": "Le serveur {{0}} a été sauvegardé avec succès dans la base de données !"
   },
-  "noAliases": "This command doesn't have any aliases.",
-  "onMentionAfk": "**{{user}}** is AFK.",
-  "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
-  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "noAliases": "Cette commande n'a aucun alias.",
+  "onMentionAfk": "**{{user}}** est AFK.",
+  "onMentionAfkReasoned": "**{{user}}** est AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, étant donné que tu es de retour, je t'ai enlevé ton statut AFK.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
-    "playerAlreadyPlaying": "The track is already playing.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
-    "playerNotFound": "I'm not playing any song",
-    "maxVolume": "calm down! The max volume allowed is `100`.",
-    "minVolume": "calm down! The minimal volume allowed is `5`."
+    "authorAreNotInVoiceChannel": "tu n'es pas dans un salon vocal.",
+    "playerAlreadyPlaying": "Cette chanson est déjà en cours de lecture.",
+    "clientAreNotInVoiceChannel": "Je ne suis pas dans un salon vocal.",
+    "playerNotFound": "Je ne joue aucune chanson",
+    "maxVolume": "calme-toi ! Le volume maximal autorisé est `100`.",
+    "minVolume": "calme-toi ! Le volume minimal autorisé est `5`."
   },
   "boolean": {
-    "true": "Yes",
-    "false": "No"
+    "true": "Oui",
+    "false": "Non"
   },
   "guildban": {
-    "title": "Guild Banned",
-    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-    "reason": "Reason"
+    "title": "Serveur banni",
+    "explain": "`{{0}}` est banni selon la raison ci-dessous. Tu penses que le bannissement est injustifié ? Rejoins mon [serveur de support](https://discord.gg/Jr57UrsXeC) et peut-être qu'il sera dé-banni.",
+    "reason": "Raison"
   },
-  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-  "cooldownLowThanZero": "some",
-  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
-  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
+  "cooldown": "s'il te plaît, attends encore {{0}} secondes pour pouvoir exécuter à nouveau cette commande !",
+  "cooldownLowThanZero": "un peu",
+  "disabledCommand": "désolée, mais, cette commande a quelques problèmes et elle est désactivée pendant un certain temps\n**Raison:** `{{0}}`",
+  "blockedChannel": "tu ne peux pas utiliser de commandes ici, va dans {{0}} et essaie encore.",
   "migrate": {
-    "migrateTitle": "Slash commands are here!",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
-    "disabledTitle": "Vanilla commands are deprecated",
-    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
-    "howToUseTitle": "How to use?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
-    "needSupportTitle": "Still confused how to use the bot?",
-    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
+    "migrateTitle": "Les commandes slash sont là !",
+    "migrateToSlashCommand": "Hey ! Après janvier 2022 je vais seulement répondre aux commandes slash, s'il te plaît, si tu veux continuer à m'utiliser, alors tu dois me ré-ajouter, tu peux le faire en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), tu n'as pas besoin de m'expulser du serveur. Merci ! Si tu veux arrêter de recevoir ce message, écris `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Les commandes vanilla sont obsolètes",
+    "disabledToSlashCommands": "Il est temps de dire adieu aux commandes normales, maintenant, ce sont seulement les commandes slash qui entrent en scène. Pour l'instant, cette commande est obsolète, mais tu peux m'utiliser normalement à l'aide des slash, tape `/help` pour voir ma liste de commandes.",
+    "howToUseTitle": "Comment les utiliser ?",
+    "howToUseSlash": "1.) Pour les anciens utilisateurs qui ne m'ont pas réinvitée sur ce serveur, tu peux me réinviter en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), il est important que tu m'aies déjà réinvitée.\n2.) L'utilisateur doit avoir la permission `Utiliser des commandes d'application` pour pouvoir utiliser mes commandes.\n3.) Si tu ne peux pas voir les commandes slash, assure-toi d'avoir activé `Texte & Images -> Utilise les commandes slash et affiche un aperçu des émojis, des mentions et de la syntaxe markdown pendant que tu écris` dans tes paramètres",
+    "needSupportTitle": "Toujours confus·e de comment utiliser le bot ?",
+    "needSupportSlash": "Si tu as toujours des problèmes quant à mon utilisation, n'hésite pas à rejoindre notre [serveur de support](https://discord.gg/Jr57UrsXeC) pour obtenir de l'aide de notre équipe de support."
   }
 }

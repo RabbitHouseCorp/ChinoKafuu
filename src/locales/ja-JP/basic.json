@@ -13,13 +13,14 @@
   "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
   "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
   "noReason": "No reason",
-  "onBehalf": "On {{member}}'s behalf: {{reason}}",
   "clickHere": "パチリここ",
   "punishment": {
     "banned": "{{0}} | アク禁",
     "unbanned": "{{0}} | Unbanned",
-    "kicked": "{{member}} | Kicked",
-    "softBan": "{{member}} | Soft banned",
+    "kicked": "{{0}} | Kicked",
+    "softBan": "{{0}} | Soft banned",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
     "embed": {
       "memberName": "ユーザー名",
       "memberID": "ユーザーID",
@@ -27,7 +28,10 @@
       "reason": "Reason"
     },
     "reason": "Punished by: {{0}} - Reason: {{1}}",
-    "bigReason": "you must write an shorter reason, this reason is too big to me."
+    "bigReason": "you must write an shorter reason, this reason is too big to me.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
   "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
   "howToUse": "How to use?",

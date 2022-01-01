@@ -13,13 +13,14 @@
   "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
   "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
   "noReason": "Nenhum motivo",
-  "onBehalf": "Em nome de {{member}}: {{reason}}",
   "clickHere": "Clique aqui",
   "punishment": {
     "banned": "{{0}} | Banido",
     "unbanned": "{{0}} | Desbanido",
-    "kicked": "{{member}} | Expulso",
-    "softBan": "{{member}} | Banido suavemente",
+    "kicked": "{{0}} | Expulso",
+    "softBan": "{{0}} | Soft Banido",
+    "muted": "{{0}} | Silenciado",
+    "unmuted": "{{0}} | Silenciamento removido",
     "embed": {
       "memberName": "Nome de usuário",
       "memberID": "ID do usuário",
@@ -27,7 +28,10 @@
       "reason": "Motivo"
     },
     "reason": "Punido por: {{0}} - Motivo: {{1}}",
-    "bigReason": "você deve digitar um motivo menor, esse motivo é muito grande para mim."
+    "bigReason": "você deve digitar um motivo menor, esse motivo é muito grande para mim.",
+    "selfPunishment": "desculpe, mas como você não pode se punir no Discord normal, você não pode se punir por mim.",
+    "ownerPunish": "você ficou louco? Você não pode punir essa pessoa, ela é a dona deste servidor.",
+    "error": "eu não pude punir este membro. Provavelmente os cargos dele são maiores do que os meus. Verifique os cargos e tente novamente."
   },
   "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
   "howToUse": "Como usar?",

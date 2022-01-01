@@ -1,6 +1,46 @@
 const package = require('../../package.json')
 const Logger = require('../structures/util/Logger')
 const chalk = require('chalk')
+
+module.exports.applicationCommandOptionType = {
+  subCommand: 1,
+  subCommandGroup: 2,
+  string: 3,
+  integer: 4,
+  boolean: 5,
+  user: 6,
+  channel: 7,
+  role: 8,
+  mentionable: 9,
+  number: 10
+}
+
+module.exports.applicationCommandPermissionType = {
+  role: 1,
+  user: 2
+}
+
+module.exports.typeCommand = {
+  slashCommand: 1,
+  userCommand: 2,
+  messageCommands: 3,
+  autoCompete: 4
+}
+
+module.exports.componentTypes = {
+  actionRow: 1,
+  button: 2,
+  selectMenu: 3
+}
+
+module.exports.buttonStyle = {
+  primary: 1,
+  secondary: 2,
+  success: 3,
+  danger: 4,
+  link: 5
+}
+
 module.exports.Flags_Guild = {
   GUILD_TESTER: 1 << 0,
   PREMIUM: 1 << 1,

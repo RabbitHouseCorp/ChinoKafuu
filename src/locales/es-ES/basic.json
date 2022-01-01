@@ -13,13 +13,14 @@
   "invalidRole": "Rol no encontrado. Asegúrate que lo hayas @mencionado, o comprueba su ID.",
   "invalidEmoji": "emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
   "noReason": "Sin razón",
-  "onBehalf": "En nombre de {{member}}: {{reason}}",
   "clickHere": "Clic aquí",
   "punishment": {
     "banned": "{{0}} | Baneado",
     "unbanned": "{{0}} | Desbaneado",
-    "kicked": "{{member}} | Expulsado",
-    "softBan": "{{member}} | Baneado suave",
+    "kicked": "{{0}} | Expulsado",
+    "softBan": "{{0}} | Baneado levemente",
+    "muted": "{{0}} | Silenciado",
+    "unmuted": "{{0}} | Des-silenciado",
     "embed": {
       "memberName": "Nombre de usuario",
       "memberID": "ID de Usuario",
@@ -27,7 +28,10 @@
       "reason": "Razón"
     },
     "reason": "Castigado por: {{0}} - Razón: {{1}}",
-    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí."
+    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
+    "selfPunishment": "lo siento, pero como no puedes castigarte a ti mismo en Discord normal, no te puedes castigar a través de mí.",
+    "ownerPunish": "¿Te has vuelto loco? No puedes castigar a esa persona, es el creador de este servidor.",
+    "error": "No he podido castigar a esa persona. Quizá sus roles son más altos que los míos. Compruébalo y prueba de nuevo."
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
   "howToUse": "¿Cómo se usa?",

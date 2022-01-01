@@ -1,7 +1,7 @@
 const { Command } = require('../../../../utils')
-const status = {
-  TYPE_1: 'enable',
-  TYPE_2: 'disable'
+const Status = {
+  typeOne: 'enable',
+  typeTwo: 'disable'
 }
 
 module.exports = class ReportModConfigSubCommand extends Command {
@@ -21,8 +21,9 @@ module.exports = class ReportModConfigSubCommand extends Command {
   }
 
   run(ctx) {
+    if (ctx.args.get('status') == undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
     switch (ctx.args.get('status').value) {
-      case status.TYPE_1: {
+      case Status.typeOne: {
         // Tag: NEED_CHANNEL
         // Message: You need to search the channel in the command to select it and set the correct channel.
         if (ctx.args.get('channel')?.value === undefined) return ctx.replyT('error', 'commands:config.channel.needChannel')
@@ -42,7 +43,7 @@ module.exports = class ReportModConfigSubCommand extends Command {
         ctx.replyT('success', 'commands:config.modules.report.enable')
         return
       }
-      case status.TYPE_2: {
+      case Status.typeTwo: {
         // Tag:  CHANNEL_SELECTED_WITH_SUCCESS
         // Message: The module is already disabled!
         if (!ctx.db.guild.reportModule) return ctx.replyT('error', 'commands:config.channel.moduleHasDisabled')

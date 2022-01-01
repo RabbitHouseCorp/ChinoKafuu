@@ -11,7 +11,19 @@ module.exports = class Command extends Listener {
 
   async on(client, interaction = new Interaction()) {
     if (interaction.type === 2) {
-      await interaction.hook.callbackHook({ type: 5 })
+      const getCommand = client.slashCommandRegistry.findByName(interaction.command.commandName)
+      let callback = false
+      if (getCommand !== undefined) {
+        if (getCommand.removeDefaultCallback) {
+          if (getCommand.callback_metadata !== undefined) {
+            callback = true
+            await interaction.hook.callbackHook(getCommand.callback())
+          }
+        }
+      }
+      if (!callback) {
+        await interaction.hook.callbackHook({ type: 5 })
+      }
       await SlashRunner.run(client, interaction)
     }
   }

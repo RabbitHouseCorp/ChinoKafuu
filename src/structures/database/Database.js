@@ -33,7 +33,6 @@ module.exports = class Database extends EventEmitter {
     if (Array.isArray(data.search)) {
       for (const k of data.search) {
         sc.push(k)
-
       }
     }
     const map = new Map()
@@ -90,38 +89,17 @@ module.exports = class Database extends EventEmitter {
         let found = 0
         let notFound = 0
         let saveData = 0
-        for (const objData of data.search[tag]) {
-          if (!(map.get(tag) === undefined)) {
-            c++
-            let t_data = Date.now()
-            try {
-              switch (object_a.mode) {
-                case 'array': {
-                  if (objData.getOrAdd) {
-                    const b = await map.get(tag).model.findOne(objData.fetch)
-                    if (b === null) {
-                      t_data = Date.now()
-                      saveData++
-                      const id_data = objData.fetch.id
-                      const d_data = objData.data ?? {}
-                      if (d_data.id === undefined) {
-                        d_data.id = id_data
-                      }
-                      const newData = await this[tag].model({ ...d_data }).save()
-                      object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
-                    } else {
-                      found++
-                      const $a = null
-
-                      object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
-                    }
-                  } else {
-                    let b = null
-                    if (!(objData.noFetchData === true)) {
-                      b = await map.get(tag).model.findOne(objData.fetch)
-                    }
-                    if (b === null) {
-                      if (objData.data !== undefined) {
+        if (Array.isArray(data.search[tag])) {
+          for (const objData of data.search[tag]) {
+            if (!(map.get(tag) === undefined)) {
+              c++
+              let t_data = Date.now()
+              try {
+                switch (object_a.mode) {
+                  case 'array': {
+                    if (objData.getOrAdd) {
+                      const b = await map.get(tag).model.findOne(objData.fetch)
+                      if (b === null) {
                         t_data = Date.now()
                         saveData++
                         const id_data = objData.fetch.id
@@ -132,35 +110,131 @@ module.exports = class Database extends EventEmitter {
                         const newData = await this[tag].model({ ...d_data }).save()
                         object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
                       } else {
-                        if (!(objData.noFetchData === true)) {
-                          notFound++
-                        }
+                        found++
+                        const $a = null
+
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
                       }
                     } else {
-                      found++
-                      let $a = null
-                      if (objData.data !== undefined) {
+                      let b = null
+                      if (!(objData.noFetchData === true)) {
+                        b = await map.get(tag).model.findOne(objData.fetch)
+                      }
+                      if (b === null) {
+                        if (objData.data !== undefined) {
+                          t_data = Date.now()
+                          saveData++
+                          const id_data = objData.fetch.id
+                          const d_data = objData.data ?? {}
+                          if (d_data.id === undefined) {
+                            d_data.id = id_data
+                          }
+                          const newData = await this[tag].model({ ...d_data }).save()
+                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                        } else {
+                          if (!(objData.noFetchData === true)) {
+                            notFound++
+                          }
+                        }
+                      } else {
+                        found++
+                        let $a = null
+                        if (objData.data !== undefined) {
+                          t_data = Date.now()
+                          saveData++
+                          const id_data = objData.fetch.id
+                          const d_data = objData.data ?? {}
+                          $a = await this[tag].model({ id_data, ...d_data }).save()
+                        }
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                      }
+                    }
+                  }
+                }
+
+              } catch (err) {
+                object_a.errors[c] = {
+                  error: err,
+                  data: objData,
+                  tag: tag
+                }
+              }
+            }
+          }
+        } else {
+          for (const objData in data.search[tag]) {
+            if (!(map.get(tag) === undefined)) {
+              c++
+              let t_data = Date.now()
+              try {
+                switch (object_a.mode) {
+                  case 'array': {
+                    if (objData.getOrAdd) {
+                      const b = await map.get(tag).model.findOne(objData.fetch)
+                      if (b === null) {
                         t_data = Date.now()
                         saveData++
                         const id_data = objData.fetch.id
                         const d_data = objData.data ?? {}
-                        $a = await this[tag].model({ id_data, ...d_data }).save()
+                        if (d_data.id === undefined) {
+                          d_data.id = id_data
+                        }
+                        const newData = await this[tag].model({ ...d_data }).save()
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                      } else {
+                        found++
+                        const $a = null
+
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
                       }
-                      object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                    } else {
+                      let b = null
+                      if (!(objData.noFetchData === true)) {
+                        b = await map.get(tag).model.findOne(objData.fetch)
+                      }
+                      if (b === null) {
+                        if (objData.data !== undefined) {
+                          t_data = Date.now()
+                          saveData++
+                          const id_data = objData.fetch.id
+                          const d_data = objData.data ?? {}
+                          if (d_data.id === undefined) {
+                            d_data.id = id_data
+                          }
+                          const newData = await this[tag].model({ ...d_data }).save()
+                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                        } else {
+                          if (!(objData.noFetchData === true)) {
+                            notFound++
+                          }
+                        }
+                      } else {
+                        found++
+                        let $a = null
+                        if (objData.data !== undefined) {
+                          t_data = Date.now()
+                          saveData++
+                          const id_data = objData.fetch.id
+                          const d_data = objData.data ?? {}
+                          $a = await this[tag].model({ id_data, ...d_data }).save()
+                        }
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                      }
                     }
                   }
                 }
-              }
 
-            } catch (err) {
-              object_a.errors[c] = {
-                error: err,
-                data: objData,
-                tag: tag
+              } catch (err) {
+                object_a.errors[c] = {
+                  error: err,
+                  data: objData,
+                  tag: tag
+                }
               }
             }
           }
         }
+
         object_a.queries[tag] = {
           took_off: Date.now() - t,
           success: found,

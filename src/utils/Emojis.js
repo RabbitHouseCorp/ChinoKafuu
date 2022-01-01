@@ -16,6 +16,7 @@ module.exports = {
   usa: '🇺🇸',
   es: '🇪🇸',
   ja: '🇯🇵',
+  fr: '🇫🇷',
   heart: '❤️',
   ring_couple: '<:ring_couple:791360830221844512>',
   broken_heart: '💔',
