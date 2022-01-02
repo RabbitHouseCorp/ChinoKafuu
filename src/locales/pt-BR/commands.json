@@ -105,7 +105,7 @@
   },
   "help": {
     "commandList": "Lista de comandos",
-    "explain": "Se você quer saber mais sobre um comando, use `{{0}}ajuda [comando]` e eu explicarei como usar o comando.",
+    "explain": "Se você quer saber mais sobre um comando, use `{{0}}help [comando]` e eu explicarei como usar o comando.",
     "economy": "Economia ({{0}})",
     "fun": "Diversão ({{0}})",
     "image": "Manipulação de Imagem ({{0}})",
