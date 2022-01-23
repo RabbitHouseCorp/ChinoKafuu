@@ -46,7 +46,7 @@ module.exports = class LicenseCommand extends Command {
     await axios({
       url: 'http://127.0.0.1:1234/render/license',
       method: 'post',
-      timeout: 2 * 1000, // max 2 seconds for timeout on request.
+      timeout: 10 * 1000, // max 10 seconds for timeout on request.
       data: {
         name: member.username,
         text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.args.get('text')?.value || ctx._locale('commands:license.beCute') : ctx.args.get('text')?.value || ctx._locale('commands:license.beCute')}`,
