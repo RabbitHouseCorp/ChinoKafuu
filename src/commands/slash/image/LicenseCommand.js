@@ -43,9 +43,10 @@ module.exports = class LicenseCommand extends Command {
 
     let highRole = guild.roles.get(hoist?.id)?.color.toString(16)
     if (!highRole || highRole <= 0) highRole = '#000000'
-    const buffer = await axios({
+    await axios({
       url: 'http://127.0.0.1:1234/render/license',
       method: 'post',
+      timeout: 2 * 1000, // max 2 seconds for timeout on request.
       data: {
         name: member.username,
         text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.args.get('text')?.value || ctx._locale('commands:license.beCute') : ctx.args.get('text')?.value || ctx._locale('commands:license.beCute')}`,
@@ -53,8 +54,11 @@ module.exports = class LicenseCommand extends Command {
         avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
       },
       responseType: 'arraybuffer'
+    }).then(res => {
+      ctx.message.hook.createMessage('', { file: res.data, name: 'license.png' })
     })
-
-    ctx.message.hook.createMessage('', { file: buffer.data, name: 'license.png' })
+      .catch((err) => {
+        throw err
+      })
   }
 }
