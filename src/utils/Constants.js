@@ -2,6 +2,22 @@ const package = require('../../package.json')
 const Logger = require('../structures/util/Logger')
 const chalk = require('chalk')
 
+module.exports.backgroundConstants = {
+  gochiusa_1: 1 << 1,
+  gochiusa_2: 1 << 2,
+  gochiusa_3: 1 << 3,
+  gochiusa_4: 1 << 4,
+  gochiusa_5: 1 << 5,
+  mtchaRed: 1 << 6,
+  noGameNoLife_1: 1 << 7,
+  noGameNoLife_2: 1 << 8,
+  nycSkyline: 1 << 9,
+  showByRock_1: 1 << 10,
+  showByRock_2: 1 << 11,
+  showByRock_3: 1 << 12,
+  showByRock_4: 1 << 13
+}
+
 module.exports.applicationCommandOptionType = {
   subCommand: 1,
   subCommandGroup: 2,
