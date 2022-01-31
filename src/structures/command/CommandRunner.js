@@ -199,7 +199,7 @@ module.exports = class CommandRunner {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
+      embed.setDescription(`\`\`\`js\n${errorMessage.removePath()}\`\`\``)
       embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
       return ctx.send(embed.build())
     }

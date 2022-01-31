@@ -26,7 +26,7 @@ module.exports = class Logger {
   }
 
   static error(message) {
-    this.generateLog(chalk.red('[ERROR]'), message)
+    this.generateLog(chalk.red('[ERROR]'), message.removePath())
   }
 
   static shardMessage(message) {

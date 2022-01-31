@@ -80,7 +80,7 @@ module.exports = class SlashRunner {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
+      embed.setDescription(`\`\`\`js\n${errorMessage.removePath()}\`\`\``)
       embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
       if (ctx.used) {
         ctx.embeds.push(embed.build().embeds[0])

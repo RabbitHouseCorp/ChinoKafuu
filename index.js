@@ -26,11 +26,11 @@ pluginManager.addPlugins(
 )
 
 process.on('warning', (warn) => {
-  return Logger.warning(warn.debug())
+  return Logger.warning(warn.debug().removePath())
 })
 process.on('uncaughtExceptionMonitor', (err) => {
-  return Logger.error(err.debug())
+  return Logger.error(err.debug().removePath())
 })
 process.on('uncaughtException', (err) => {
-  return Logger.error(err.debug())
+  return Logger.error(err.debug().removePath())
 })
