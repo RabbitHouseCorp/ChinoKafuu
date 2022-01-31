@@ -13,7 +13,7 @@ const Users = new mongoose.Schema({
   isMarry: { type: Boolean, default: false },
   marryWith: { type: String, default: '' },
   backgrounds: { type: Number, default: 0 }, // Flags
-  profileList: { type: Number, default: 0 }, // Flags
+  profiles: { type: Number, default: 0 }, // Flags
   flags: { type: Number, default: 0 },
   rep: { type: Number, default: 0 },
   repTime: { type: Number, default: 0 },
