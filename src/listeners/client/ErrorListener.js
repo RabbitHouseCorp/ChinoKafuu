@@ -28,7 +28,7 @@ module.exports = class ErrorListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(_locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${error.stack.slice(0, 1800)}\`\`\``)
+      embed.setDescription(`\`\`\`js\n${error.stack.removePath().slice(0, 1800)}\`\`\``)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],
