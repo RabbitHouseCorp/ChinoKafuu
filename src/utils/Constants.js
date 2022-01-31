@@ -24,6 +24,28 @@ module.exports.backgroundConstants = {
   showByRock_4: 1 << 13
 }
 
+module.exports.backgroundPriceTableConstants = {
+  'gochiusa_1': 10000,
+  'gochiusa_2': 10350,
+  'gochiusa_3': 10300,
+  'gochiusa_4': 12000,
+  'gochiusa_5': 19000,
+  'mtchaRed': 100000,
+  'noGameNoLife_1': 1000000,
+  'noGameNoLife_2': 1000000,
+  'nycSkyline': 720,
+  'showByRock_1': 1040000,
+  'showByRock_2': 1900000,
+  'showByRock_3': 1200000,
+  'showByRock_4': 1920000
+}
+
+module.exports.profilePriceTableConstants = {
+  'default': 0,
+  'modern': 10000000,
+  'profile_2': 28000000,
+}
+
 module.exports.applicationCommandOptionType = {
   subCommand: 1,
   subCommandGroup: 2,
