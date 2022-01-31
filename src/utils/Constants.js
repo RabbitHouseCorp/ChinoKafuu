@@ -2,6 +2,12 @@ const package = require('../../package.json')
 const Logger = require('../structures/util/Logger')
 const chalk = require('chalk')
 
+module.exports.profileConstants = {
+  default: 1 << 1,
+  modern: 1 << 2,
+  profile_2: 1 << 3,
+}
+
 module.exports.backgroundConstants = {
   gochiusa_1: 1 << 1,
   gochiusa_2: 1 << 2,
