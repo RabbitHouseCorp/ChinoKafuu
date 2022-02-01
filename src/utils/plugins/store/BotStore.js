@@ -1,4 +1,4 @@
-const PluginExtend = require('../loaders/PluginExtend');
+const PluginExtend = require('../loaders/PluginExtend')
 
 module.exports = class BotStore extends PluginExtend {
   constructor() {
@@ -6,7 +6,7 @@ module.exports = class BotStore extends PluginExtend {
       name: 'bot',
       args: {},
       timeout: 50 * 1000,
-    });
+    })
   }
 
   start() {

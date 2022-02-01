@@ -5,12 +5,12 @@ const InteractionPacket = require('./InteractionPacket')
 module.exports = class ResponseAck extends EventEmitter {
   constructor(message) {
     super()
-    this.id = '';
-    this.token = '';
+    this.id = ''
+    this.token = ''
     this.data = null
     this.message = message
     this.client = message.channel.client
-    this.typeInteraction = 1;
+    this.typeInteraction = 1
     this.user = message.member.user.toJSON()
     this.client.on('rawWS', (packet) => {
       if (packet.t === 'INTERACTION_CREATE') {
@@ -39,8 +39,8 @@ module.exports = class ResponseAck extends EventEmitter {
   }
 
   setUser(user) {
-    this.user = user;
-    return this;
+    this.user = user
+    return this
   }
 
   async sendAck(typeAck, data) {
@@ -83,12 +83,12 @@ module.exports = class ResponseAck extends EventEmitter {
       }, null)
     }
 
-    return this;
+    return this
   }
 
   // eslint-disable-next-line no-unused-vars
   messageInteraction(data, returns) {
     this.client.shards.get(this.message.guild.shardID).sendWS(5, data, false)
-    return this;
+    return this
   }
 }

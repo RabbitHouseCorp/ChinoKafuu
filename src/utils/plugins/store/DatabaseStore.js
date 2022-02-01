@@ -1,5 +1,5 @@
-const Database = require('../../../structures/database/Database');
-const PluginExtend = require('../loaders/PluginExtend');
+const Database = require('../../../structures/database/Database')
+const PluginExtend = require('../loaders/PluginExtend')
 
 module.exports = class DatabaseStore extends PluginExtend {
   constructor() {

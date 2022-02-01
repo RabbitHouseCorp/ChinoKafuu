@@ -1,5 +1,5 @@
-const Bot = require('../structures/Bot');
-const Logger = require('../structures/util/Logger');
+const Bot = require('../structures/Bot')
+const Logger = require('../structures/util/Logger')
 module.exports = class BotInterface {
 
   async spawnShards(pluginManager) {

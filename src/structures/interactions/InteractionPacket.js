@@ -11,7 +11,7 @@ module.exports = class InteractionPacket {
     this.applicationID = data.application_id
     this.buttonEvent = new ButtonEvent(data)
     if (data?.data?.values !== undefined) {
-      this.values = data?.data?.values;
+      this.values = data?.data?.values
     }
     if (data?.data?.custom_id !== undefined) {
       this.customID !== data?.data?.custom_id

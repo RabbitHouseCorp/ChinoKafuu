@@ -6,12 +6,12 @@ const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
 const CommandCooldown = require('./command/CommandCooldown')
 const SlashCommandRegistry = require('./command/SlashCommandRegistry')
-// const CacheManager = require('./util/cache/CacheManager');
+// const CacheManager = require('./util/cache/CacheManager')
 
 module.exports = class Bot extends Client {
   constructor(...data) {
     super(...data)
-    this.startShard = 0;
+    this.startShard = 0
 
     // this.cacheManager = new CacheManager(this)
     /**
@@ -41,7 +41,7 @@ module.exports = class Bot extends Client {
     if (process.env.CLUSTERS === 'true') {
       this.clusters = new ClusteringInterface(this)
     } else {
-      this.clusters = null;
+      this.clusters = null
     }
     /**
          *
@@ -68,7 +68,7 @@ module.exports = class Bot extends Client {
 
   get size() {
     if (process.env.PRODUCTION === 'false') {
-      const parseJsonData = JSON.stringify(this);
+      const parseJsonData = JSON.stringify(this)
       const buf = Buffer.from(parseJsonData)
       return {
         lengthEris: buf.length,

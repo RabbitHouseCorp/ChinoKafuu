@@ -61,14 +61,14 @@ module.exports = class InteractionPost {
 
         })
         this.ws.on('error', (err) => {
-          this.attempt++;
+          this.attempt++
           Logger.error(err)
           this.client.interactionPost = null
           this.connected = false
           this.del()
         })
         this.ws.on('close', (code, reason) => {
-          this.attempt++;
+          this.attempt++
           this.connected = false
           this.client.interactionPost = null
           this.del()
@@ -139,7 +139,7 @@ module.exports = class InteractionPost {
                 }
                   break
                 case 1002: {
-                  this.b = this.a - Date.now();
+                  this.b = this.a - Date.now()
                   this.lastPing = this.ping
                   this.ping = Date.now() - this.a
                   if (this.connected) {

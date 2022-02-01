@@ -1,6 +1,6 @@
 const { Command, EmbedBuilder, Emoji, ResponseAck } = require('../../../utils')
 const { CommandBase } = require('eris')
-const SelectionMenu = require('../../../structures/interactions/SelectionMenu');
+const SelectionMenu = require('../../../structures/interactions/SelectionMenu')
 const Options = require('../../../structures/interactions/Options')
 module.exports = class LanguageCommand extends Command {
   constructor() {

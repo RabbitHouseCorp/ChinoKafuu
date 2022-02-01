@@ -193,7 +193,7 @@ module.exports = class CommandContext {
   }
 
   interaction() {
-    return this.commandInteractions;
+    return this.commandInteractions
   }
 
   getRole(role) {

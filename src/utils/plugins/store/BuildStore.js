@@ -1,4 +1,4 @@
-const PluginExtend = require('../loaders/PluginExtend');
+const PluginExtend = require('../loaders/PluginExtend')
 const Constants = require('../../Constants')
 module.exports = class BuildStore extends PluginExtend {
   constructor() {

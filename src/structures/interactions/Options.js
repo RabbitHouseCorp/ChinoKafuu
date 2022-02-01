@@ -15,45 +15,45 @@ module.exports = class Options {
   }
 
   setLabel(label) {
-    this.label = label;
-    return this;
+    this.label = label
+    return this
   }
 
   setValue(value) {
-    this.value = value;
-    return this;
+    this.value = value
+    return this
   }
 
   addDescription(description) {
-    this.description = description;
-    return this;
+    this.description = description
+    return this
   }
 
   addEmoji(emoji) {
-    this.emoji = emoji;
-    return this;
+    this.emoji = emoji
+    return this
   }
 
   get data() {
     const d = {}
     if (this?.label !== undefined) {
-      d.label = this?.label;
+      d.label = this?.label
     }
     if (this?.value !== undefined) {
-      d.value = this?.value;
+      d.value = this?.value
     }
     if (this?.description !== undefined) {
-      d.description = this?.description;
+      d.description = this?.description
     }
     if (this?.emoji !== undefined) {
-      d.emoji = this?.emoji;
+      d.emoji = this?.emoji
       if (this?.emoji?.id !== undefined) {
-        d.emoji.id = this.emoji.id;
+        d.emoji.id = this.emoji.id
       }
       if (this?.emoji?.name !== undefined) {
-        d.emoji.name = this.emoji.name;
+        d.emoji.name = this.emoji.name
       }
     }
-    return d;
+    return d
   }
 }

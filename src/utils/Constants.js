@@ -130,7 +130,7 @@ module.exports.BUILD_INFO = {
   version: package.version,
   build: Buffer.from(package.version).toString('base64'),
   commit_log: async () => {
-    const { exec } = require('child_process');
+    const { exec } = require('child_process')
     let kill_process = false
     if (process.env.BUILD_SHOW === undefined) {
       return
@@ -142,7 +142,7 @@ module.exports.BUILD_INFO = {
       if (error) {
         kill_process = true
         await e.kill() // Kill process.
-        return;
+        return
       }
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
@@ -156,7 +156,7 @@ module.exports.BUILD_INFO = {
     }
   },
   getCommit: async () => {
-    const { exec } = require('child_process');
+    const { exec } = require('child_process')
     const data = {
       commit: null,
       message: null,
@@ -170,16 +170,16 @@ module.exports.BUILD_INFO = {
     }
     const e = await exec('git show', async (error, stdout) => {
       if (error) {
-        await e.kill();
-        return;
+        await e.kill()
+        return
       }
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
       data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
       data.message = get_message
-      await e.kill();
-    });
+      await e.kill()
+    })
 
-    return data;
+    return data
   }
 }

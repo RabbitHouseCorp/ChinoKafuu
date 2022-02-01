@@ -4,7 +4,7 @@ const InteractionPost = require('../../structures/InteractionPost')
 module.exports = class ReadyConnectionListener extends Listener {
   constructor() {
     super()
-    this.send = false;
+    this.send = false
     this.event = 'readyConnection'
   }
 

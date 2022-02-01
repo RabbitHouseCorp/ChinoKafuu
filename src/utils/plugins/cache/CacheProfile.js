@@ -1,4 +1,4 @@
-const PluginExtend = require('../loaders/PluginExtend');
+const PluginExtend = require('../loaders/PluginExtend')
 
 module.exports = class CacheProfile extends PluginExtend {
   constructor() {
@@ -19,7 +19,7 @@ module.exports = class CacheProfile extends PluginExtend {
           if (state.$cacheStoreData.get(USER_ID) === undefined) return true
           if (state.$cacheStore.get(USER_ID) === undefined) return true
 
-          const a = JSON.stringify(json);
+          const a = JSON.stringify(json)
           if (state.$cacheStoreData.get(USER_ID) === a) return false
 
           return true
