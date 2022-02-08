@@ -600,7 +600,9 @@
       "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions.",
       "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that.",
       "channelWasNotFound": "sorry, but, it's looks like I can't find this channel. Are you sure that this channel exist?",
-      "sameChannel": "eh... It's looks like this channel is the same that is already setted."
+      "sameChannel": "eh... It's looks like this channel is the same that is already setted.",
+      "needStatus": "you need to choose between `Enable` or `Disable`.",
+      "moduleHasDisabled": "this module is already disabled."
     },
     "selected": {
       "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",
