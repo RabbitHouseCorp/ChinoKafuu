@@ -76,7 +76,7 @@ module.exports = class SlashRunner {
     } catch (e) {
       Logger.error(e.debug({ guild_id: interaction.guild.id, shard_id: interaction.guild.shard, user_id: interaction.member?.user?.id ?? interaction?.user?.id, isSlash: true }, true))
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
-      client.emit('error', e, interaction.guild.shard)
+      client.emit('error', (client, e, interaction.guild.shard))
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
