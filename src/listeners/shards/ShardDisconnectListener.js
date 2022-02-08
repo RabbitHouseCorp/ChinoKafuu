@@ -29,7 +29,7 @@ module.exports = class ShardDisconnectListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle('Shard Disconnected')
-      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID} = Shard: ${shardID} => \`Disconnected\``)
+      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Disconnected\``)
       embed.addField('Maybe the error?', error.message)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
 
