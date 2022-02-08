@@ -32,6 +32,7 @@ module.exports = class ShardDisconnectListener extends Listener {
       embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Disconnected\``)
       embed.addField('Maybe the error?', error.message)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

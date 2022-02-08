@@ -32,6 +32,7 @@ module.exports = class GuildDeleteListener extends Listener {
         embed.setTitle('Guild Blacklisted')
         embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
         embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+        embed.setTimestamp()
 
         client.executeWebhook(webhook.id, webhook.token, {
           embeds: [embed],
@@ -46,6 +47,7 @@ module.exports = class GuildDeleteListener extends Listener {
       embed.setTitle('Guild Deleted')
       embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

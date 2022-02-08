@@ -27,6 +27,7 @@ module.exports = class ShardPreReadyListener extends Listener {
       embed.setTitle('Shard Reconnecting')
       embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Reconnecting\``)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

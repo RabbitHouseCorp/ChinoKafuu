@@ -35,6 +35,7 @@ module.exports = class ErrorListener extends Listener {
       embed.setTitle(_locale('events:executionFailure.embedTitle'))
       embed.setDescription(`\`\`\`js\n${error.stack.removePath().slice(0, 1800)}\`\`\``)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],
         avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874309295049699378/xXDyDuW1M9anceZCtbbUr8sdFP_GE-1kfQVyWWr5zwnpcttU6iW2TSa8LbPJS-97J88XBDu-ulkDiQWPBymMWSswK3bu29vwjoUI.png',
