@@ -28,6 +28,7 @@ module.exports = class BotInterface {
     this.shardManager.player = new Map()
     try {
       await this.shardManager.connect().then(() => {
+        this.shardManager.editStatus('idle', { name: '⏳ Starting the bot', type: 2 })
         Logger.debug('Successfully connected to Discord\'s gateway.')
       })
     } catch (e) {

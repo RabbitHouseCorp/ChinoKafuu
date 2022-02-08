@@ -34,7 +34,8 @@ module.exports = class ConfigCommand extends Command {
                   new Choice()
                     .setName('Disabled')
                     .setValue('disable'),
-                ),
+                )
+                .isRequired(),
               new CommandOptions()
                 .setType(3)
                 .setAutocomplete()
