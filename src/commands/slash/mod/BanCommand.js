@@ -73,7 +73,8 @@ module.exports = class BanCommand extends Command {
           channel.createMessage(embed.build())
         }
       })
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       await ctx.replyT('error', 'basic:punishment.error')
     }
   }

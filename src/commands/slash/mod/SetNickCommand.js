@@ -38,7 +38,8 @@ module.exports = class SetNickCommand extends Command {
         nick: newNick
       })
       return ctx.replyT('success', 'commands:setnick.success', { member: member.username, nickname: newNick })
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       return ctx.replyT('error', 'commands:setnick.error') // FIXME error being triggered with no reason
     }
   }

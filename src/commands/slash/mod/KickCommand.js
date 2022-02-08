@@ -65,7 +65,8 @@ module.exports = class KickCommand extends Command {
 
         channel.createMessage(embed.build())
       }
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       return ctx.replyT('error', 'basic:punishment.error')
     }
   }

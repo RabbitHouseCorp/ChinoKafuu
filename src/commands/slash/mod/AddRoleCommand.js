@@ -39,7 +39,8 @@ module.exports = class AddRoleCommand extends Command {
     try {
       member.addRole(role.id)
       ctx.replyT('success', 'commands:addrole.success')
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       ctx.replyT('error', 'commands:addrole.higher')
     }
   }

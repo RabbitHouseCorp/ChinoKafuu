@@ -50,7 +50,8 @@ module.exports = class AddEmojiCommand extends Command {
       })
       const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}>`)
       ctx.send(`${getEmoji.mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       return ctx.replyT('error', 'commands:addemoji.error')
     }
   }
