@@ -13,6 +13,11 @@ module.exports = class ErrorListener extends Listener {
     const _locale = client.i18nRegistry.getT('en-US')
     if (!process.env.ERROR_CHANNEL_LOG) return
     client.getRESTChannel(process.env.ERROR_CHANNEL_LOG).then(async (channel) => {
+      const uselessErros = [
+        'WebSocket was closed before the connection was established',
+        'Connection reset by peer'
+      ]
+      if (uselessErros.includes(error.message)) return
       if (!channel) return
       const webhooks = await channel.getWebhooks()
       let webhook = webhooks.filter((w) => w.name === 'Chiya Ujimatsu' && w.user.id === client.user.id)[0]
