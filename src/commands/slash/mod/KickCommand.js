@@ -53,10 +53,17 @@ module.exports = class KickCommand extends Command {
       embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
       guildMember.kick(reason).then(() => ctx.send(embed.build()))
 
-      if (ctx.db.guild.punishModule) {
-        await ctx.message.guild.channels.get(ctx.db.guild.punishChannel).createMessage({
-          embed: embed
-        })
+      const server = ctx.db.guild
+      if (server.punishModule) {
+        const channel = ctx.message.guild.channels.get(server.punishChannel)
+        if (!channel) {
+          server.punishModule = false
+          server.punishChannel = ''
+          server.save()
+          return ctx.replyT('error', 'events:channel-not-found')
+        }
+
+        channel.createMessage(embed.build())
       }
     } catch {
       return ctx.replyT('error', 'basic:punishment.error')
