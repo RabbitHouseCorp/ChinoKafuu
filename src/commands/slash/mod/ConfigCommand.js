@@ -41,7 +41,6 @@ module.exports = class ConfigCommand extends Command {
                 .setAutocomplete()
                 .setName('channel')
                 .setDescription('You need select o channel set config.'),
-
             ),
           new CommandOptions()
             .setType(1)
@@ -59,13 +58,13 @@ module.exports = class ConfigCommand extends Command {
                   new Choice()
                     .setName('Disabled')
                     .setValue('disable'),
-                ),
+                )
+                .isRequired(),
               new CommandOptions()
                 .setType(3)
                 .setAutocomplete()
                 .setName('channel')
                 .setDescription('You need select o channel set config.'),
-
             ),
           new CommandOptions()
             .setType(1)
@@ -83,13 +82,13 @@ module.exports = class ConfigCommand extends Command {
                   new Choice()
                     .setName('Disabled')
                     .setValue('disable'),
-                ),
+                )
+                .isRequired(),
               new CommandOptions()
                 .setType(3)
                 .setAutocomplete()
                 .setName('channel')
                 .setDescription('You need select o channel set config.'),
-
             ),
         )
     })
