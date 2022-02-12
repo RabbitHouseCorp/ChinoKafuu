@@ -1,4 +1,4 @@
-const package = require('../../package.json')
+const { version } = require('../../package.json')
 const Logger = require('../structures/util/Logger')
 const chalk = require('chalk')
 
@@ -164,8 +164,8 @@ module.exports.Flags_Command = {
 }
 
 module.exports.BUILD_INFO = {
-  version: package.version,
-  build: Buffer.from(package.version).toString('base64'),
+  version: version,
+  build: Buffer.from(version).toString('base64'),
   commit_log: async () => {
     const { exec } = require('child_process')
     let kill_process = false
@@ -183,7 +183,7 @@ module.exports.BUILD_INFO = {
       }
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
-      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${package.version}) / ${get_message}`)
+      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${version}) / ${get_message}`)
       Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
       await e.kill()
       kill_process = true
@@ -197,7 +197,7 @@ module.exports.BUILD_INFO = {
     const data = {
       commit: null,
       message: null,
-      version: package.version
+      version: version
     }
     if (process.env.BUILD_SHOW === undefined) {
       return data
