@@ -17,3 +17,4 @@ test.js
 yarn.lock
 .altostra
 .node_modules/
+.dccache
