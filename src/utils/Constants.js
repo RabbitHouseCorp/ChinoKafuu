@@ -44,7 +44,44 @@ module.exports.profilePriceTableConstants = {
   'default': 0,
   'modern': 10000000,
   'profile_2': 28000000,
+  'cute_profile': 0,
 }
+
+module.exports.profileInfo = [
+  {
+    name: 'Modern',
+    _id: 'modern',
+    flag: 1 << 2,
+    readyForSale: true,
+    description: null,
+    shotDescription: null,
+    price: module.exports.profilePriceTableConstants['modern'],
+    buttonId: 'modern',
+    disabled: false
+  },
+  {
+    name: 'Profile Nitro',
+    _id: 'profile_2',
+    flag: 1 << 3,
+    readyForSale: true,
+    description: null,
+    shotDescription: null,
+    price: module.exports.profilePriceTableConstants['profile_2'],
+    buttonId: 'profile_2',
+    disabled: false
+  },
+  {
+    name: 'Cute Profile',
+    _id: 'cute_profile',
+    flag: 1 << 4,
+    readyForSale: false,
+    description: null,
+    shotDescription: null,
+    price: module.exports.profilePriceTableConstants['cute_profile'],
+    buttonId: 'cute_profile',
+    disabled: false
+  }
+]
 
 module.exports.applicationCommandOptionType = {
   subCommand: 1,

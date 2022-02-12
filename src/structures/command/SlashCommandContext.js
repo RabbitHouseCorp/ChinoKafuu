@@ -39,7 +39,7 @@ module.exports = class SlashCommandContext extends CommandContext {
     this.content = {
       content: (typeof content === 'string') ? content : content.content,
       embeds: this.embeds,
-      components: this.commandInteractions.component,
+      components: content.components ?? this.commandInteractions.component,
       options: props[0]?.options
     }
     if (this.used) {

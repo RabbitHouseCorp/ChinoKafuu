@@ -1,6 +1,6 @@
 const NightlyDeveloper = require('./Nightly')
 const { Message } = require('eris')
-const InteractionPacket = require('./interaction/InteractionPacket')
+const InteractionPacket = require('../interactions/InteractionPacket')
 module.exports = class NightlyInteraction extends NightlyDeveloper {
   constructor(message) {
     super()
@@ -60,7 +60,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
         type = 4
     }
 
-    if (this.client.interactionPost !== null) {
+    if (this.client.interactionPost == null) {
       this.client.interactionPost.send({
         token: this.token,
         type: 95,
