@@ -2,7 +2,7 @@ const { Command, EmbedBuilder, TopGGUtils } = require('../../../utils')
 const moment = require('moment')
 const { CommandBase, CommandOptions } = require('eris')
 
-module.exports = class DailyCommand extends Command {
+module.exports = class ShopBaseCommand extends Command {
   constructor() {
     super({
       name: 'shop background',
