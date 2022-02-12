@@ -602,7 +602,7 @@
       "channelWasNotFound": "me desculpe, mas parece que eu não consigo encontrar este canal. Tem certeza que este canal existe?",
       "sameChannel": "eh... Parece que este canal é o mesmo que já está definido.",
       "needStatus": "você precisa escolher entre `Enable` ou `Disable`.",
-      "moduleHasDisabled": "this module is already disabled."
+      "moduleHasDisabled": "este módulo já está desativado."
     },
     "selected": {
       "textChannel": "Canal de texto foi definido para **`{{0}}` (<#{{1}}>)**",
