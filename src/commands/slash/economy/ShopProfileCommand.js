@@ -216,6 +216,15 @@ module.exports = class ShopProfileCommand extends Command {
   }
 
   async buy(interaction, nightly, ctx, msgInteraction, messageData, readyForBuy) {
+    if (interaction.data.custom_id.startsWith('no')) {
+      await nightly.sendAck('update', {
+        content: 'The purchase was successfully canceled!',
+        embeds: [],
+        components: [],
+        attachments: [],
+        flags: 0
+      })
+    }
     if (readyForBuy) {
       const user = ctx.db.user
       for (const a of profileInfo) {
