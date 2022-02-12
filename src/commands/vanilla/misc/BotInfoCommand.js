@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, version } = require('../../../utils')
+const { Command, EmbedBuilder, version } = require('../../../structures/util')
 const moment = require('moment')
 const os = require('os')
 require('moment-duration-format')

@@ -1,4 +1,4 @@
-const { Command, TranslatorUtils } = require('../../../utils')
+const { Command, TranslatorUtils } = require('../../../structures/util')
 const axios = require('axios')
 const { CommandBase, CommandOptions } = require('eris')
 

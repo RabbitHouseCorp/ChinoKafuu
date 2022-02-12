@@ -1,5 +1,5 @@
-const { version } = require('../../package.json')
-const Logger = require('../structures/util/Logger')
+const { version } = require('../../../package.json')
+const Logger = require('../../structures/util/Logger')
 const chalk = require('chalk')
 
 module.exports.profileConstants = {

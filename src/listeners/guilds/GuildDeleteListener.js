@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, TopGGUtils, BlacklistUtils } = require('../../utils')
+const { EmbedBuilder, TopGGUtils, BlacklistUtils } = require('../../structures/util')
 
 module.exports = class GuildDeleteListener extends Listener {
   constructor() {

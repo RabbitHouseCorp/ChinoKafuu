@@ -1,4 +1,4 @@
-const EmbedBuilder = require('../structures/util/EmbedBuilder')
+const EmbedBuilder = require('./EmbedBuilder')
 module.exports = async (client, message) => {
   const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
   if (isInvite) {

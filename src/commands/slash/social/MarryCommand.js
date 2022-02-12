@@ -1,4 +1,4 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
+const { Command, Button, ResponseAck, Emoji } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class MarryCommand extends Command {

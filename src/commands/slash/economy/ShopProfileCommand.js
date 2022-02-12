@@ -1,6 +1,6 @@
 const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command } = require('../../../utils')
-const { profileInfo } = require('../../../utils/Constants')
+const { Command } = require('../../../structures/util')
+const { profileInfo } = require('../../../structures/util/Constants')
 const axios = require('axios')
 const flags = [
   {

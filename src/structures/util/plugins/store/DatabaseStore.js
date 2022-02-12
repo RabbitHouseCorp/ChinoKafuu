@@ -1,4 +1,4 @@
-const Database = require('../../../structures/database/Database')
+const Database = require('../../../../structures/database/Database')
 const PluginExtend = require('../loaders/PluginExtend')
 
 module.exports = class DatabaseStore extends PluginExtend {

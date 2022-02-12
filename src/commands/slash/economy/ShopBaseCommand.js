@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, TopGGUtils } = require('../../../utils')
+const { Command, EmbedBuilder, TopGGUtils } = require('../../../structures/util')
 const moment = require('moment')
 const { CommandBase, CommandOptions } = require('eris')
 

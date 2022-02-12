@@ -12,11 +12,11 @@ module.exports = class BotStore extends PluginExtend {
   start() {
     try {
       if (process.env.CLUSTERS === 'true') {
-        const Manager = require('./../../../sharder/manager/Manager')
+        const Manager = require('../../../../sharder/manager/Manager')
         const manager = new Manager()
         manager.start()
       } else {
-        const BotInterface = require('./../../../manager/BotInterface')
+        const BotInterface = require('../../../../manager/BotInterface')
 
         this.$addClassState({ data: new BotInterface().spawnShards(this) })
       }

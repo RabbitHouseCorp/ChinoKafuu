@@ -1,5 +1,5 @@
 const Helper = require('../../../structures/util/Helper')
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const axios = require('axios')
 
 module.exports = class SetIconCommand extends Command {

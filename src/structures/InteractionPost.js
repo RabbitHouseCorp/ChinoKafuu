@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 const Interaction = require('eris/lib/structures/Interaction')
 const WebSocket = require('ws')
-const { Logger } = require('../utils')
+const { Logger } = require('../structures/util')
 
 module.exports = class InteractionPost {
   constructor(client) {

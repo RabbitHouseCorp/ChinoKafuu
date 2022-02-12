@@ -1,6 +1,6 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions, Choice } = require('eris')
-const Emoji = require('../../../utils/EmotesInstance')
+const Emoji = require('../../../structures/util/EmotesInstance')
 
 module.exports = class JanKenPonCommand extends Command {
   constructor() {

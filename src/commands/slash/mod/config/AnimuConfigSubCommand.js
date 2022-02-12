@@ -1,4 +1,4 @@
-const { Command } = require('../../../../utils')
+const { Command } = require('../../../../structures/util')
 const Status = {
   typeOne: 'enable',
   typeTwo: 'disable'

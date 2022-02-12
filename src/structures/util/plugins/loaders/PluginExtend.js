@@ -1,5 +1,5 @@
 const EventEmitter = require('events')
-const Logger = require('../../../structures/util/Logger')
+const Logger = require('../../../../structures/util/Logger')
 
 module.exports = class PluginExtend extends EventEmitter {
   constructor({ name, optionsExtend }) {

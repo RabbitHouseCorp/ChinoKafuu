@@ -1,4 +1,4 @@
-const { Command, Logger } = require('../../../utils')
+const { Command, Logger } = require('../../../structures/util')
 const axios = require('axios')
 const { CommandOptions, CommandBase } = require('eris')
 

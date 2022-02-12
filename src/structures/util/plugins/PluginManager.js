@@ -1,4 +1,4 @@
-const Logger = require('../../structures/util/Logger')
+const Logger = require('../../../structures/util/Logger')
 const PluginExtend = require('./loaders/PluginExtend')
 const EventEmitter = require('events')
 

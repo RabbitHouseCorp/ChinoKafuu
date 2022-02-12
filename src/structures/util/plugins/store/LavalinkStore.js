@@ -1,4 +1,4 @@
-const LavalinkManager = require('../../../lavalink/LavalinkManager')
+const LavalinkManager = require('../../../../lavalink/LavalinkManager')
 const PluginExtend = require('../loaders/PluginExtend')
 
 module.exports = class LavalinkStore extends PluginExtend {

@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { Logger } = require('../../utils')
+const { Logger } = require('../../structures/util')
 
 module.exports = class ConnectListener extends Listener {
   constructor() {

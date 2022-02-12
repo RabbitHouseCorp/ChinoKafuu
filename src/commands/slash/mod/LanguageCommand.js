@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, Emoji, ResponseAck } = require('../../../utils')
+const { Command, EmbedBuilder, Emoji, ResponseAck } = require('../../../structures/util')
 const { CommandBase } = require('eris')
 const SelectionMenu = require('../../../structures/interactions/SelectionMenu')
 const Options = require('../../../structures/interactions/Options')

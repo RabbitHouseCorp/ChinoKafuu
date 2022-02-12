@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const moment = require('moment')
 require('moment-duration-format')
 

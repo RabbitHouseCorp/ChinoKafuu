@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const util = require('util')
 
 module.exports = class EvalCommand extends Command {

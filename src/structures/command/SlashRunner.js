@@ -1,4 +1,4 @@
-const { BlacklistUtils, EmbedBuilder, Helper } = require('../../utils')
+const { BlacklistUtils, EmbedBuilder, Helper } = require('../util')
 const Logger = require('../util/Logger')
 const CommandPermissions = require('./CommandPermissions')
 const SlashCommandContext = require('./SlashCommandContext')

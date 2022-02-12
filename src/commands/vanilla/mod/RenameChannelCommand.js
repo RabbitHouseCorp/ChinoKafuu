@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 
 module.exports = class RenameChannelCommand extends Command {
   constructor() {

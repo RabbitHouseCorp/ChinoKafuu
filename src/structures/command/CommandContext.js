@@ -1,4 +1,4 @@
-const Emoji = require('../../utils/EmotesInstance')
+const Emoji = require('../util/EmotesInstance')
 const CommandInteractions = require('../interactions/CommandInteractions')
 module.exports = class CommandContext {
   constructor(bot, message, args, db, _locale) {

@@ -1,5 +1,5 @@
 const { EventEmitter } = require('events')
-const { Logger } = require('../utils')
+const { Logger } = require('../structures/util')
 module.exports = class LavalinkPlayer extends EventEmitter {
   constructor(player, clientManager) {
     super()

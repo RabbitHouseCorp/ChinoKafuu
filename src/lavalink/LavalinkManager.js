@@ -1,6 +1,6 @@
 const { Manager } = require('@lavacord/eris')
 const LavalinkPlayer = require('./LavalinkPlayer')
-const { Logger } = require('../utils')
+const { Logger } = require('../structures/util')
 const EventEmitter = require('events')
 // fallback for test env
 let connect

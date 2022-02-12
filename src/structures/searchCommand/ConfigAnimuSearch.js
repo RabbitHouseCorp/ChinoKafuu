@@ -1,5 +1,5 @@
 const { Interaction } = require('eris')
-const ResultsMechanism = require('../../utils/ResultsMechanism')
+const ResultsMechanism = require('../util/ResultsMechanism')
 
 module.exports = {
   CONFIG_ANIMU_SEARCH: 'config animu',

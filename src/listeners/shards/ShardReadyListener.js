@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, Logger } = require('../../utils')
+const { EmbedBuilder, Logger } = require('../../structures/util')
 
 module.exports = class ShardReadyListener extends Listener {
   constructor() {

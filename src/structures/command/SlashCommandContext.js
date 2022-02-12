@@ -1,5 +1,5 @@
 const CommandContext = require('./CommandContext')
-const Emoji = require('../../utils/EmotesInstance')
+const Emoji = require('../util/EmotesInstance')
 
 module.exports = class SlashCommandContext extends CommandContext {
   /**

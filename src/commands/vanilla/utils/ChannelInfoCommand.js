@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const moment = require('moment')
 const axios = require('axios')
 

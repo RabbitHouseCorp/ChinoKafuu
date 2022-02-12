@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RoleColorCommand extends Command {

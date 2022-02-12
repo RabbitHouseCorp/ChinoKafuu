@@ -1,4 +1,4 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
+const { Command, Button, ResponseAck, Emoji } = require('../../../structures/util')
 
 module.exports = class DivorceCommand extends Command {
   constructor() {
