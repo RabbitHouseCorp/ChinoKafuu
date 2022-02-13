@@ -55,7 +55,7 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants['modern'],
+    price: module.exports.profilePriceTableConstants[1],
     buttonId: 'modern',
     disabled: false
   },
@@ -66,7 +66,7 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants['profile_2'],
+    price: module.exports.profilePriceTableConstants[2],
     buttonId: 'profile_2',
     disabled: false
   },
@@ -77,7 +77,7 @@ module.exports.profileInfo = [
     readyForSale: false,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants['cute_profile'],
+    price: module.exports.profilePriceTableConstants[3],
     buttonId: 'cute_profile',
     disabled: false
   }
