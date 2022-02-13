@@ -3,7 +3,7 @@ const { Command } = require('../../../structures/util')
 const { profileInfo } = require('../../../structures/util/Constants')
 const axios = require('axios')
 
-module.exports = class ShopProfileCommand extends Command {
+module.exports = class InventoryProfileCommand extends Command {
   constructor() {
     super({
       name: 'inventory profile',
