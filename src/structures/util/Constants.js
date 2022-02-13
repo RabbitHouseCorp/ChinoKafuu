@@ -45,9 +45,22 @@ module.exports.profilePriceTableConstants = {
   'modern': 10000000,
   'profile_2': 28000000,
   'cute_profile': 0,
+  data: [0, 10000000, 28000000, 0]
 }
 
 module.exports.profileInfo = [
+  {
+    name: 'Default',
+    _id: 'default',
+    flag: 1 << 1,
+    readyForSale: true,
+    description: null,
+    shotDescription: null,
+    price: 0,
+    buttonId: 'default',
+    disabled: true,
+    isDefault: true,
+  },
   {
     name: 'Modern',
     _id: 'modern',
@@ -55,9 +68,10 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants[1],
+    price: module.exports.profilePriceTableConstants.data[1],
     buttonId: 'modern',
-    disabled: false
+    disabled: false,
+    isDefault: false
   },
   {
     name: 'Profile Nitro',
@@ -66,9 +80,10 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants[2],
+    price: module.exports.profilePriceTableConstants.data[2],
     buttonId: 'profile_2',
-    disabled: false
+    disabled: false,
+    isDefault: false
   },
   {
     name: 'Cute Profile',
@@ -77,9 +92,10 @@ module.exports.profileInfo = [
     readyForSale: false,
     description: null,
     shotDescription: null,
-    price: module.exports.profilePriceTableConstants[3],
+    price: module.exports.profilePriceTableConstants.data[3],
     buttonId: 'cute_profile',
-    disabled: false
+    disabled: false,
+    isDefault: true
   }
 ]
 

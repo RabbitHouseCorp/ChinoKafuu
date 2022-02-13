@@ -2,58 +2,11 @@ const NightlyInteraction = require('../../../structures/nightly/NightlyInteracti
 const { Command } = require('../../../structures/util')
 const { profileInfo } = require('../../../structures/util/Constants')
 const axios = require('axios')
-const flags = [
-  {
-    flag: 1 << 0,
-    name: 'discord_employee'
-  },
-  {
-    flag: 1 << 1,
-    name: 'discord_partner'
-  },
-  {
-    flag: 1 << 2,
-    name: 'hypesquad_events'
-  },
-  {
-    flag: 1 << 3,
-    name: 'bug_hunter'
-  },
-  {
-    flag: 1 << 6,
-    name: 'hypesquad_bravery'
-  },
-  {
-    flag: 1 << 7,
-    name: 'hypesquad_brilliance'
-  },
-  {
-    flag: 1 << 8,
-    name: 'hypesquad_balance'
-  },
-  {
-    flag: 1 << 9,
-    name: 'early_supporter'
-  },
-  {
-    flag: 1 << 12,
-    name: 'null'
-  },
-  {
-    flag: 1 << 14,
-    name: 'bug_hunter'
-  },
-  {
-    flag: 1 << 17,
-    name: 'bot_developer'
-  }
-
-]
 
 module.exports = class ShopProfileCommand extends Command {
   constructor() {
     super({
-      name: 'shop profile',
+      name: 'inventory profile',
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -62,29 +15,15 @@ module.exports = class ShopProfileCommand extends Command {
   }
 
   async run(ctx) {
-    let readyForBuy = false
+    let iAmReady = false
     const _id = Math.floor(Math.random() * 1000000000000000)
     const profileLoaded = new Map()
     const loadList = []
-    const arrayBadges = [
-      /**
-             * This is a badge list.
-             */
-    ]
-
-    for (const flag of flags) {
-      switch ((flag.flag & ctx.message.member?.user?.publicFlags ?? ctx.message.member.publicFlags) === flag.flag) {
-        case true:
-          arrayBadges.push(flag.name)
-          break
-      }
-    }
+    const user = await ctx.client.database.users.getOrCreate(ctx.message.member.id)
     for (const profile of profileInfo) {
-      let disabled = false
-      if (profile.readyForSale == false && profile.disabled) {
-        disabled = true
-      }
-      if (!profile.disabled) {
+      const disabled = false
+
+      if ((profile.flag & user.profiles) == profile.flag || profile._id === 'default') {
         loadList.push({
           'label':  profile.name,
           'value': profile._id,
@@ -93,6 +32,7 @@ module.exports = class ShopProfileCommand extends Command {
           'default': disabled
         })
       }
+
     }
     const component = {
       type: 1,
@@ -109,7 +49,7 @@ module.exports = class ShopProfileCommand extends Command {
     }
     let messageData = {}
     ctx.send({
-      content: 'Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!',
+      content: 'Hi! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.',
       components: [component]
     }).then((msgInteraction) => {
       const nightly = new NightlyInteraction(msgInteraction)
@@ -132,30 +72,15 @@ module.exports = class ShopProfileCommand extends Command {
           }
 
           component.components[0].disabled = true
-          const user = await ctx.client.database.users.getOrCreate(ctx.message.member.id)
           await nightly.sendAck('update', {
             content: 'Loading profile preview please wait a while.',
             components: [component]
           }).then(async () => {
             let disabled = false
-            let disabledReason = ''
-            let positionProfile = -1
-            for (const a of profileInfo) {
-              positionProfile++;
-              if (profileSelected == a._id) {
-                if ((a.flag & (user.profiles ?? 0)) == a.flag) {
-                  disabledReason = '**You already have this profile**!'
-                  disabled = true
-                  break
-                }
-                break
-              }
-            }
-
-            if (!(user.yens > profileInfo[positionProfile].price - 1) || user.yens <= 0) {
-              disabledReason = 'The button is disabled for this reason -> Your account\'s yen value is negative or there is not enough price to buy this profile.'
+            if (data.type == user.profileType) {
               disabled = true
             }
+            component.components[0].disabled = false
             const resultFinal = [
               component,
               {
@@ -163,26 +88,33 @@ module.exports = class ShopProfileCommand extends Command {
                 components: [{
                   type: 2,
                   style: 3,
-                  label: 'Buy',
+                  label: 'I want to select this profile!',
                   custom_id: profileInfo[position].buttonId,
                   disabled: disabled
                 }]
               }
             ]
-            component.components[0].disabled = false
+
             if (profileLoaded.get(profileSelected) !== undefined) {
               const dataProfile = profileLoaded.get(profileSelected)
-              messageData = { content: 'Preview ready!' + `${disabledReason == '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+
+              messageData = { content:  'Preview ready!', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
               await msgInteraction.edit(messageData, dataProfile.image)
               return;
             }
+
             const dataProfile = await this.generateProfile(data.type, data)
-            messageData = { content: 'Preview ready!' + `${disabledReason == '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+
+            messageData = { content: 'Preview ready!', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
             profileLoaded.set(profileSelected, dataProfile)
             await msgInteraction.edit(messageData, dataProfile.image)
           })
         }
         switch (interaction.data.values[0]) {
+          case 'default': {
+            messagePrepared(0, interaction.data.values[0])
+          }
+            break;
           case 'modern': {
             messagePrepared(1, interaction.data.values[0])
           }
@@ -206,9 +138,9 @@ module.exports = class ShopProfileCommand extends Command {
         switch (interaction.data.component_type) {
           case 2: {
             if (interaction.data.custom_id.startsWith('yes')) {
-              readyForBuy = true
+              iAmReady = true
             }
-            this.buy(interaction, nightly, ctx, msgInteraction, messageData, readyForBuy)
+            this.confirm(interaction, nightly, ctx, msgInteraction, messageData, iAmReady)
           }
             break;
           case 3: {
@@ -221,21 +153,21 @@ module.exports = class ShopProfileCommand extends Command {
     })
   }
 
-  async buy(interaction, nightly, ctx, msgInteraction, messageData, readyForBuy) {
+  async confirm(interaction, nightly, ctx, msgInteraction, messageData, iAmReady) {
     if (interaction.data.custom_id.startsWith('no')) {
       await nightly.sendAck('update', {
-        content: 'The purchase was successfully canceled!',
+        content: 'The selection was successfully canceled!',
         embeds: [],
         components: [],
         attachments: [],
         flags: 0
       })
     }
-    if (readyForBuy) {
+    if (iAmReady) {
       const user = ctx.db.user
       for (const a of profileInfo) {
         if (interaction.data.custom_id.replace('yes-', '') == a._id) {
-          if ((a.flag & (user.profiles ?? 0)) == a.flag) {
+          if (user.profileType == a._id) {
             await nightly.sendAck('update', {
               content: 'You already own this profile!',
               embeds: [],
@@ -253,12 +185,10 @@ module.exports = class ShopProfileCommand extends Command {
           profileSelected = i
           break
         }
-      user.profiles = (user.profiles ?? 0) + profileSelected.flag
-      user.yens -= profileSelected.price
-      if (user.yens < 0) user.yens = 0
+      user.profileType = profileSelected._id
       user.save()
       await nightly.sendAck('update', {
-        content: 'Thank you for buying! The profile is available in your inventory.',
+        content: `You just activated ${profileSelected._id} in your inventory! Now try using /profile`,
         embeds: [],
         components: [],
         attachments: [],
@@ -268,7 +198,7 @@ module.exports = class ShopProfileCommand extends Command {
     }
 
     await msgInteraction.edit({
-      content: 'Are you sure you want to buy this profile? If "Yes, I want to buy" click confirm, if not click "No"',
+      content: 'Are you sure you want to select this profile? If "Yes, I want" click confirm, if not click "No"',
       embeds: [],
       attachments: [],
       components: [
@@ -278,7 +208,7 @@ module.exports = class ShopProfileCommand extends Command {
             {
               type: 2,
               style: 3,
-              label: 'Yes, I want to buy',
+              label: 'Yes, I want',
               custom_id: `yes-${interaction.data.custom_id}`,
               disabled: false
             },
@@ -299,11 +229,13 @@ module.exports = class ShopProfileCommand extends Command {
 
   async generateProfile(profile, data) {
     let getProfile = {}
+
     for (const i of profileInfo)
       if (i._id == profile) {
         getProfile = i
         break
       }
+
     return axios({
       url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
       method: 'post',
