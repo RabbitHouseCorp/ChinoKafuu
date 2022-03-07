@@ -10,6 +10,7 @@ module.exports = class ShopBaseCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBeta: true,
       slash: new CommandBase()
         .setName('shop')
         .setDescription('You can get your daily yens by using this command')
