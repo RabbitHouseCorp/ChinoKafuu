@@ -2,7 +2,7 @@
 const Interaction = require('eris/lib/structures/Interaction')
 const WebSocket = require('ws')
 const { Logger } = require('../structures/util')
-
+const zlib = require('zlib')
 module.exports = class InteractionPost {
   constructor(client) {
     this.client = client
@@ -24,7 +24,7 @@ module.exports = class InteractionPost {
       return this
     }
     const t = Date.now()
-    if (!(this.attempt > 10)) {
+    if (!(this.attempt > 99999)) {
       if (this.connected === false) {
         try {
 
@@ -33,7 +33,11 @@ module.exports = class InteractionPost {
           } else {
             this.ws = new WebSocket(process.env.URL_INTERACTION, {
               headers: {
-                'Authorization': Buffer.from(process.env.SECRET_INTERACTION ?? '{secret}').toString('base64').replace('==', '')
+                'Identification-Id': this.client.user.id,
+                'Secret': process.env.SECRET_INTERACTION,
+                'Public-Key': process.env.PUBLIC_KEY,
+                'Shard-In': 0,
+                'Shard-Total': 1,
               }
             })
           }
@@ -49,16 +53,8 @@ module.exports = class InteractionPost {
           Logger.warning(`API is connected successfully! Interactions will be received via HTTP. (${(Date.now() - t).toFixed(1)}ms)`)
           this.uptime = Date.now()
           this.client.interactionPost = this
-          await this.ws.send(JSON.stringify({
-            public_key: process.env.PUBLIC_KEY,
-            bot_id: this.client.user.id,
-            bot_name: this.client.user.username,
-            date: Date.now()
-          }))
-          this.ws.send(JSON.stringify({
-            type: 89,
-          }))
-
+          this.update = Date.now()
+          this.send({ type: 89, message: '' })
         })
         this.ws.on('error', (err) => {
           this.attempt++
@@ -76,124 +72,64 @@ module.exports = class InteractionPost {
           try {
             setTimeout(() => {
               this.connect()
-            }, 14 * 1000)
+            }, 5 * 1000)
           } catch (err) {
             Logger.error(err)
           }
         })
         this.ws.on('message', async (message) => {
           try {
-            const json = JSON.parse(Buffer.from(message, 'utf8').toString('utf-8').replace(/^129/g, ''))
-            if (json.guild_id !== undefined) {
-              if (this.client.guilds.get(json.guild_id) === undefined) {
-                const guild_query = await this.client.database.flux({
-                  search: {
-                    guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],
-                  },
-                }).data.toMap().get(`guilds:${json.guild_id}`).data
-                let locale = null
-                if (guild_query.data.query.includes(json.guild_id)) {
-                  const guildData = guild_query.data.query
-                  locale = this.client.i18nRegistry.getT(guildData.lang)
-                } else {
-                  locale = this.client.i18nRegistry.getT(null)
-                }
-                if (!this.$guild.includes(json.guild_id)) {
-                  this.$guild.push(json.guild_id)
-                }
-                this.client.createFollowUpMessage(json.application_id, json.token, {
-                  type: 4,
-                  embeds: [{
-                    description: locale(`errors.commandFail`)
-                  }]
-                }, null)
-
-                this.client.on('guildCreate', (guild) => {
-                  if (guild.id === json.guild_id) {
-                    if (this.$guild.includes(json.guild_id)) {
-
-                      this.client.createFollowUpMessage(json.application_id, json.token, {
-                        type: 4,
-                        embeds: [{
-                          description: locale(`success.guildAdded`)
-                        }]
-                      }, null)
-                      this.$guild.splice(this.$guild.indexOf(json.guild_id), 1) // Delete
-                    }
-                  }
-                })
-                return
-              }
+            const unzipData = zlib.unzipSync(message)
+            const json = JSON.parse(unzipData)
+            if (json.type == 200) {
+              this.lastPing = this.ping
+              this.ping = Date.now() - this.update
+              setTimeout(() => {
+                this.update = Date.now()
+                this.send({ type: 89 })
+              }, 5 * 1000)
+              return
             }
-            if (json.type_ws !== undefined) {
-              switch (json.type_ws) {
-                case 1001: {
-                  this.heartbeart = setTimeout(async () => {
-                    this.a = Date.now()
-                    if (this.connected) {
-                      await this.ws.send(JSON.stringify({
-                        type: 90,
-                      }))
-                    }
-                  }, 25 * 1000)
-                }
-                  break
-                case 1002: {
-                  this.b = this.a - Date.now()
-                  this.lastPing = this.ping
-                  this.ping = Date.now() - this.a
-                  if (this.connected) {
-                    await this.ws.send(JSON.stringify({
-                      type: 89,
-                    }))
-                  }
-                  this.uptime = Date.now()
-                  Logger.debug(`Connection update is ${this.ping}ms and the last one was ${this.lastPing}ms`)
-                }
+            json.interactionPost = this;
+            if (json.type == 1) return this; // Ignore
+            if (json.type == 2) {
+              this.client.emit('slashCommand', new Interaction(json,
+                this.client,
+                this.client.guilds.get(json.guild_id),
+                undefined,
+                undefined,
+                false
+              ), true)
+            } else {
+              const interaction = new Interaction(json,
+                this.client,
+                this.client.guilds.get(json.guild_id),
+                undefined,
+                undefined,
+                false
+              )
+
+              if (json.channel_id !== undefined) {
+                interaction.channel_id = json.channel_id;
               }
-            }
-            if (this.client !== undefined) {
-
-              if (json.type !== undefined) {
-
-                switch (json.type) {
-                  case 2: {
-                    const guild = this.client.guilds.get(json.guild_id)
-                    json.isHttp = true
-
-                    this.send({
-                      type: 95,
-                      token: json.token,
-                      message: {},
-                      ping_pong: true
-                    })
-
-                    this.client.emit('slashCommand', new Interaction(json, this.client, guild, undefined, undefined, true))
-                    this.client.emit('rawWS', {
-                      t: 'INTERACTION_CREATE',
-                      d: json,
-                    })
-                  }
-                    break;
-                  case 3: {
-                    const guild = this.client.guilds.get(json.guild_id)
-
-                    json.isHttp = true
-
-                    this.client.emit('rawWS', {
-                      t: 'INTERACTION_CREATE',
-                      d: json,
-                    })
-
-                    this.client.emit('interactionCreate', new Interaction(json, this.client, guild, undefined, undefined, true))
-                  }
-
-                    break;
-                }
+              if (json.guild_id !== undefined) {
+                interaction.guild_id = json.guild_id;
               }
+              if (json.message !== undefined) {
+                interaction.message_data = json.message;
+              }
+              if (json.data !== undefined) {
+                interaction.data = json.data;
+              }
+              if (json.member !== undefined) {
+                interaction.member = json.member;
+              }
+              interaction.is_http = true;
+              this.client.emit('interactionCreate', interaction, true, this)
             }
+
           } catch (err) {
-            Logger.error(err)
+            console.log(err)
           }
         })
       }
@@ -222,7 +158,11 @@ module.exports = class InteractionPost {
 
   send(data) {
     if (this.connected) {
-      return this.ws.send(JSON.stringify(data))
+      return this.ws.send(zlib.gzipSync(Buffer.from(JSON.stringify(data), 'utf-8')), function (err) {
+        if (err !== undefined) {
+          console.log(err)
+        }
+      })
     } else {
       return null
     }

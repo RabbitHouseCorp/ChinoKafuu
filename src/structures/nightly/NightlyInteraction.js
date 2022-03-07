@@ -7,28 +7,63 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     this.id = ''
     this.token = ''
     this.data = null
+    this.isHttp = false
+    this.interactionPost = null;
     this.message = message
     this.client = message.channel.client
     this.typeInteraction = 1
     this.user = message.member.user
-    this.client.on('rawWS', (packet) => {
-      if (packet.t === 'INTERACTION_CREATE') {
-        if (packet.d.type === 3) {
-          if (this.message.id === packet.d.message.id) {
-            if (packet.d.isHttp !== undefined) {
-              this.data = packet.d
-            }
-            this.token = packet.d.token
-            this.id = packet.d.id
-            this.emit('collect', ({
-              messageCollect: new Message(packet.d.message, this.client),
-              interaction: new InteractionPacket(packet.d),
-              packet: packet,
-            }))
+    if (this.client.interactionPost.connected) {
+      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.#interactionHttp(a, isHttp, interactionPost))
+    } else {
+      this.client.on('rawWS', (packet) => this.#interactionNormal(packet))
+    }
+  }
+
+  #interactionNormal(packet) {
+    if (packet.t === 'INTERACTION_CREATE') {
+      if (packet.d.type === 3) {
+        if (this.message.id === packet.d.message.id) {
+          if (packet.d.isHttp !== undefined) {
+            this.data = packet.d
           }
+          this.token = packet.d.token
+          this.id = packet.d.id
+          this.emit('collect', ({
+            messageCollect: new Message(packet.d.message, this.client),
+            interaction: new InteractionPacket(packet.d),
+            packet: packet,
+          }))
         }
       }
-    })
+    }
+  }
+
+  #interactionHttp(a, isHttp, interactionPost) {
+    if (isHttp !== undefined) {
+      this.isHttp = true
+      this.interactionPost = interactionPost
+    }
+    const packet = {
+      t: 'INTERACTION_CREATE',
+      d: a
+    }
+    if (packet.t === 'INTERACTION_CREATE') {
+      if (packet.d.type === 3) {
+        if (this.message.id === packet.d.message.id) {
+          if (packet.d.isHttp !== undefined) {
+            this.data = packet.d
+          }
+          this.token = packet.d.token
+          this.id = packet.d.id
+          this.emit('collect', ({
+            messageCollect: new Message(packet.d.message_data, this.client),
+            interaction: new InteractionPacket(packet.d),
+            packet: packet,
+          }))
+        }
+      }
+    }
   }
 
   interactionType(type) {
@@ -60,16 +95,14 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
         type = 4
     }
 
-    if (this.client.interactionPost == null) {
-      this.client.interactionPost.send({
-        token: this.token,
-        type: 95,
-        message: {
+    if (this.isHttp) {
+      this.interactionPost.send({
+        type: 10002,
+        id: this.id,
+        data: {
           type: type,
-          token: this.token,
           data: data,
-        },
-        ping_pong: false,
+        }
       })
     } else {
       this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {

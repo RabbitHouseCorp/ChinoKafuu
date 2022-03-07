@@ -53,7 +53,6 @@ module.exports = class ResultsMechanism {
         break
       }
     }
-
     if (channels.size === 0) {
       interaction.autoComplete.addOptions().callback()
     } else {

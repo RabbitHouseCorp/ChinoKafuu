@@ -13,7 +13,6 @@ const collectors = {
   InviteDMUtils: require('./InviteDMUtil'),
   BlacklistUtils: require('./BlacklistUtils'),
   Button: require('./../interactions/Button'),
-  ResponseAck: require('./../interactions/ResponseAck'),
   UtilsGenerator: require('./UtilsGenerator')
 }
 
