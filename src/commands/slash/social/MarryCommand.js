@@ -1,5 +1,6 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../structures/util')
+const { Command, Button, Emoji } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
+const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
 
 module.exports = class MarryCommand extends Command {
   constructor() {
@@ -50,10 +51,15 @@ module.exports = class MarryCommand extends Command {
       .returnCtx()
       .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
       .then(message => {
-        const ack = new ResponseAck(message)
-        ack.on('collect', (data) => {
-          if ((data.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) return
-          switch (data.d.data.custom_id) {
+        const ack = new NightlyInteraction(message)
+        ack.on('collect', ({ packet }) => {
+          if ((packet.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) {
+            return ack.sendAck('respond', {
+              content: `You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.`,
+              flags: 1 << 6
+            })
+          }
+          switch (packet.d.data.custom_id) {
             case 'confirm_button': {
               author.yens -= Number(7500)
               author.isMarry = true
