@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "no te puedes dar reputación a ti mismo.",
     "forTheClient": "¡gracias por darme un punto de representación! Ahora tengo `{{0}}` reputaciones",
     "successffully": "has dado una reputación a {{0}}, ahora {{0}} tienen `{{1}}`reputaciones.",
-    "cooldown": "¡calma! No puedes dar reputación ahora. Debes esperar por `{{0}}` antes de volver a dar puntos de reputación.",
+    "cooldown": "calm down! You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "usage": "<usuario>",
     "description": "Da una reputación a alguien."
   },
