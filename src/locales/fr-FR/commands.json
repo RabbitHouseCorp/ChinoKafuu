@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "you can't give reputation to yourself.",
     "forTheClient": "thank you for giving me a rep point! Now I have `{{0}}` reputations",
     "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
-    "cooldown": "calm down! You can't give a reputation now. You must wait for `{{0}}` before giving reputation points again.",
+    "cooldown": "calm down! You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "usage": "<user>",
     "description": "Gives a reputation to someone."
   },
