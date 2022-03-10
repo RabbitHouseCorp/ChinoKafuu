@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "Parabéns! Você recebeu `{{0}}` ienes e `{{1}}` sugarcubes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tenha um bom dia!",
     "yensDaily": "Ienes diários",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
+    "hasBeenPicked": "você já pegou seus ienes diários hoje. Espere por {{0}} antes de pegá-los novamente.",
     "description": "Você pode obter seus ienes diários usando este comando",
     "almostThere": "Estamos quase lá!",
     "explaining": "Para conseguir seus ienes, você terá que votar em mim. A cada 12 horas, você poderá reivindicar novamente seus ienes. Por favor, aguarde alguns segundos após ter votado.",
@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "você não pode dar reputação a si mesmo.",
     "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
     "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
-    "cooldown": "calm down! You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
+    "cooldown": "calma lá! Você não pode dar reputação agora. Você deve esperar por {{0}} antes de dar pontos de reputação novamente.",
     "usage": "<usuário>",
     "description": "Dá uma reputação a alguém."
   },
