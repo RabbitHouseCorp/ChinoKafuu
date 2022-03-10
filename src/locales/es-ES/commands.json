@@ -599,10 +599,10 @@
       "voiceNoLongerExist": "¡Oh no! Parece que este canal de voz ya no existe. Repita las mismas acciones.",
       "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones.",
       "moduleIfFoundBug": "algo malo ha pasado, y no sé lo que pasó en el módulo de {{0}}. Lo siento.",
-      "channelWasNotFound": "sorry, but, it's looks like I can't find this channel. Are you sure that this channel exist?",
-      "sameChannel": "eh... It's looks like this channel is the same that is already setted.",
-      "needStatus": "you need to choose between `Enable` or `Disable`.",
-      "moduleHasDisabled": "this module is already disabled."
+      "channelWasNotFound": "lo siento, pero parece que no puedo encontrar este canal. ¿Estás seguro de que este canal existe?",
+      "sameChannel": "eh... Parece que este canal es el mismo que ya está configurado.",
+      "needStatus": "tienes que elegir entre `Enable` o `Disable`.",
+      "moduleHasDisabled": "este módulo ya está desactivado."
     },
     "selected": {
       "textChannel": "Canal de texto establecido a **`{{0}}` (<#{{1}}>)**",
