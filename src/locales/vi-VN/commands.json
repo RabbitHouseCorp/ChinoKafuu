@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "bạn không thể tự thêm rep cho bản thân.",
     "forTheClient": "cảm ơn đã cho mình một rep! Giờ mình đã có `{{0}}` rep",
     "successffully": "bạn đã tặng cho {{0}} một rep, và giờ, {{0}} đã có `{{1}}` rep.",
-    "cooldown": "bình tĩnh nào! Bạn giờ vẫn chưa tăng rep được đâu. Phải đợi thêm `{{0}}` nữa rồi mới cho tiếp được.",
+    "cooldown": "calm down! You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "usage": "<người dùng>",
     "description": "Tặng điểm rep (uy tín) cho người khác."
   },
