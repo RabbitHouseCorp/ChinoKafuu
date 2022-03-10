@@ -20,7 +20,7 @@
     "@top-gg/sdk": "^3.1.3",
     "anilist-node": "^1.11.0",
     "axios": "^0.26.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.0.1",
     "eris": "github:RabbitHouseCorp/eris#dev",
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.3",
