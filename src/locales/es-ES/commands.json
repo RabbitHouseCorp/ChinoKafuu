@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "¡Felicidades! Has recibido `{{0}}` yenes y `{{1}}` sugarcubes hoy. Puedes obtener más yenes mañana. ¡Nos vemos más tarde y tenemos un buen día!",
     "yensDaily": "Yenes diarios",
-    "hasBeenPicked": "ya has recogido tus yenes diarios hoy. Espera `{{0}}` antes de reclamarlos de nuevo.",
+    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
     "description": "Puedes obtener tus yenes diarios usando este comando",
     "almostThere": "¡Casi estamos ahí!",
     "explaining": "Para conseguir sus yenes, tendrá que votar sobre mí. Cada 12 horas podrás reclamar de nuevo tus yenes. Por favor, espera unos segundos después de votar.",
