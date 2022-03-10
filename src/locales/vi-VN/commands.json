@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "Xin chúc mừng! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
     "yensDaily": "Điểm danh",
-    "hasBeenPicked": "hôm nay bạn đã điểm danh rồi. Hãy đợi thêm `{{0}}` nữa để có thể điểm danh tiếp.",
+    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
     "description": "Bằng cách điểm danh, bạn có thể nhận được yên mỗi ngày",
     "almostThere": "Sắp đến rồi!",
     "explaining": "Để nhận thêm yên, bạn có thể vote cho mình. Cứ mỗi 12 giờ thì bạn có thể vote và nhận yên một lần. Nhưng vote xong thì phải chờ xíu mới có yên nhé.",
