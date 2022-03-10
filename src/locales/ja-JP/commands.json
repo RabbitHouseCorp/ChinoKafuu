@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
     "yensDaily": "Daily yens",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for `{{0}}` before claiming them again.",
+    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
     "description": "You can get your daily yens by using this command",
     "almostThere": "We're almost there!",
     "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
