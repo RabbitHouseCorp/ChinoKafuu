@@ -1,5 +1,4 @@
 const { Command, EmbedBuilder } = require('../../../structures/util')
-const moment = require('moment')
 
 module.exports = class ServerInfoCommand extends Command {
   constructor() {
@@ -14,7 +13,6 @@ module.exports = class ServerInfoCommand extends Command {
   }
 
   async run(ctx) {
-    moment.locale(ctx.db.guild.lang)
     const guild = ctx.message.guild
     const owner = await ctx.getUser(guild.ownerID)
     const _locale = ctx._locale
@@ -42,7 +40,7 @@ module.exports = class ServerInfoCommand extends Command {
     embed.addField(_locale('commands:serverinfo.guildAFKChannel.title'), guild.channels.get(guild.afkChannelID)?.name ?? _locale('commands:serverinfo.guildAFKChannel.noAfkChannel'), true)
     embed.addField(_locale('commands:serverinfo.booster.title'), `**${_locale('commands:serverinfo.booster.levelCount')}:** ${guild.premiumTier}\n**${_locale('commands:serverinfo.booster.boosterCount')}:** ${guild.premiumSubscriptionCount}`, true)
     embed.addField(_locale('commands:serverinfo.guildMember.title', { 0: guild.memberCount }), `**${_locale('commands:serverinfo.guildMember.userCount')}:** ${memberCount.userCount}\n**${_locale('commands:serverinfo.guildMember.botCount')}:** ${memberCount.botCount}`, true)
-    embed.addField(_locale('commands:serverinfo.guildCreateAt'), moment(guild.createdAt).format('LLLL'), true)
+    embed.addField(_locale('commands:serverinfo.guildCreateAt'), `<t:${parseInt(guild.createdAt / 1000).toFixed(0)}:F>`, true)
     embed.addField(_locale('commands:serverinfo.guildChannel.title', { 0: guild.channels.size }), `**${_locale('commands:serverinfo.guildChannel.text')}:** ${channelType.text}\n**${_locale('commands:serverinfo.guildChannel.voice')}:** ${channelType.voice}`, true)
     embed.addField(_locale('commands:serverinfo.features.title'), (guildFeatures !== []) ? guildFeatures.join(', ') : _locale('commands:serverinfo.features.dontHave'), true)
 

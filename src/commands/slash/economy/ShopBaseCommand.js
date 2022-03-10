@@ -1,5 +1,4 @@
 const { Command, EmbedBuilder, TopGGUtils } = require('../../../structures/util')
-const moment = require('moment')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ShopBaseCommand extends Command {
@@ -28,7 +27,7 @@ module.exports = class ShopBaseCommand extends Command {
   }
 
   async run(ctx) {
-    const profileLoaded = []
+    // const profileLoaded = []
 
   }
 }

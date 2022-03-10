@@ -1,7 +1,5 @@
 const { Command, EmbedBuilder, version } = require('../../../structures/util')
-const moment = require('moment')
 const os = require('os')
-require('moment-duration-format')
 const { CommandBase } = require('eris')
 
 module.exports = class BotInfoCommand extends Command {
@@ -35,7 +33,7 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField(ctx._locale('commands:botinfo.shardLatency'), this.markDown('glsl', `#[Shard: ${ctx.message.guild.shard.id}] ${ctx.message.guild.shard.latency}ms`), true)
     embed.addField(ctx._locale('commands:botinfo.memoryUsage'), this.markDown('glsl', `#${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB (${(process.resourceUsage().maxRSS / 1024 / 1024).toFixed(2)}MB)`), true)
     embed.addField(ctx._locale('commands:botinfo.clientVersion'), this.markDown('glsl', `#${version} ${getCommit.commit === null ? '' : `(${getCommit.commit.substring(0, 7)})`}`), true)
-    embed.addField(ctx._locale('commands:botinfo.shardUptime'), this.markDown('js', `${moment.duration(Date.now() - ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`), true)
+    embed.addField(ctx._locale('commands:botinfo.shardUptime'), `<t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).toFixed(0)}:R>`, true)
     embed.addField(ctx._locale('commands:botinfo.cpuModel'), this.markDown('diff', `- ${os.cpus().map(i => i.model)[0]}`), true)
     embed.addBlankField()
     embed.addField(ctx._locale('commands:botinfo.supportServer'), `[${ctx._locale('basic:clickHere')}](https://discord.gg/Jr57UrsXeC)`, true)

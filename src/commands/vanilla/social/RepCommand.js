@@ -1,6 +1,4 @@
 const { Command } = require('../../../structures/util')
-const moment = require('moment')
-require('moment-duration-format')
 
 module.exports = class RepCommand extends Command {
   constructor() {
@@ -28,7 +26,6 @@ module.exports = class RepCommand extends Command {
 
       return
     }
-    const time = (parseInt(author.repTime) - Date.now() > 3600000) ? moment.utc(parseInt(author.time - Date.now())).format('hh:mm:ss') : moment.utc(parseInt(author.repTime - Date.now())).format('mm:ss')
     if (parseInt(author.repTime) < Date.now()) {
       author.repTime = 3600000 + Date.now()
       user.rep += 1
@@ -37,7 +34,7 @@ module.exports = class RepCommand extends Command {
         ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: user.rep })
       })
     } else {
-      ctx.replyT('warn', 'commands:rep.cooldown', { 0: time })
+      ctx.replyT('warn', 'commands:rep.cooldown', { 0: `<t:${parseInt(author.repTime / 1000).toFixed(0)}:R>` })
     }
   }
 }

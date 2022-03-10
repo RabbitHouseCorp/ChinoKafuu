@@ -1,5 +1,4 @@
 const { Command, EmbedBuilder } = require('../../../structures/util')
-const moment = require('moment')
 
 module.exports = class RoleInfoCommand extends Command {
   constructor() {
@@ -21,7 +20,6 @@ module.exports = class RoleInfoCommand extends Command {
   }
 
   run(ctx) {
-    moment.locale(ctx.db.guild.lang)
     const guild = ctx.message.guild
     const role = guild.roles.get(ctx.args[0]?.replace(/[<@&>]/g, '')) || guild.roles.find(role => role.name.toLowerCase().includes(ctx.args.join(' ').toLowerCase()))
     if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')
@@ -36,7 +34,7 @@ module.exports = class RoleInfoCommand extends Command {
     embed.addField(ctx._locale('commands:roleinfo.roleHoist'), role.hoist.toString(), true)
     embed.addField(ctx._locale('commands:roleinfo.roleMentionable'), role.mentionable.toString(), true)
     embed.addField(ctx._locale('commands:roleinfo.roleManaged'), role.managed.toString(), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), moment(role.createdAt).format('LLLL'), true)
+    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), `<t:${parseInt(role.createdAt / 1000).toFixed(0)}:F>`, true)
 
     ctx.send(embed.build())
   }
