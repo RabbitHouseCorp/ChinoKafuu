@@ -81,12 +81,12 @@ module.exports = class ShopProfileCommand extends Command {
     }
     for (const profile of profileInfo) {
       let disabled = false
-      if (profile.readyForSale == false && profile.disabled) {
+      if (profile.readyForSale === false && profile.disabled) {
         disabled = true
       }
       if (!profile.disabled) {
         loadList.push({
-          'label':  profile.name,
+          'label': profile.name,
           'value': profile._id,
           'description': profile.shotDescription ?? 'No description',
           'disabled': true,
@@ -117,22 +117,24 @@ module.exports = class ShopProfileCommand extends Command {
       const functionNightly = async (interaction) => {
         const messagePrepared = async (position, selected) => {
           profileSelected = selected
+          const user = await ctx.client.database.users.getOrCreate(ctx.message.author.id)
+          const guildMember = await ctx.getMember(user.id) ?? undefined
+          const couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
           const data = {
             type: selected,
-            name: ctx.message.member.username,
-            money: '0',
-            aboutMe: ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
-            married: true,
-            partnerName: `Somebody#0000`,
-            bgId: 'gochiusa_1',
-            stickerId: 'bjork_post',
-            favColor: '#5865F2',
-            avatarUrl: ctx.message.member.avatarURL,
-            badges: []
+            name: ctx.message.author.username,
+            money: Number(user.yens).toLocaleString(),
+            aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
+            married: user.isMarry,
+            partnerName: `${couple?.username}#${couple.discriminator}`,
+            bgId: user.background,
+            stickerId: user.sticker,
+            favColor: user.profileColor,
+            avatarUrl: guildMember?.guildAvatar ?? ctx.message.author.avatarURL,
+            badges: arrayBadges
           }
 
           component.components[0].disabled = true
-          const user = await ctx.client.database.users.getOrCreate(ctx.message.member.id)
           await nightly.sendAck('update', {
             content: 'Loading profile preview please wait a while.',
             components: [component]
@@ -142,8 +144,8 @@ module.exports = class ShopProfileCommand extends Command {
             let positionProfile = -1
             for (const a of profileInfo) {
               positionProfile++;
-              if (profileSelected == a._id) {
-                if ((a.flag & (user.profiles ?? 0)) == a.flag) {
+              if (profileSelected === a._id) {
+                if ((a.flag & (user.profiles ?? 0)) === a.flag) {
                   disabledReason = '**You already have this profile**!'
                   disabled = true
                   break
@@ -172,12 +174,12 @@ module.exports = class ShopProfileCommand extends Command {
             component.components[0].disabled = false
             if (profileLoaded.get(profileSelected) !== undefined) {
               const dataProfile = profileLoaded.get(profileSelected)
-              messageData = { content: 'Preview ready!' + `${disabledReason == '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+              messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
               await msgInteraction.edit(messageData, dataProfile.image)
               return;
             }
             const dataProfile = await this.generateProfile(data.type, data)
-            messageData = { content: 'Preview ready!' + `${disabledReason == '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+            messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
             profileLoaded.set(profileSelected, dataProfile)
             await msgInteraction.edit(messageData, dataProfile.image)
           })
@@ -234,8 +236,8 @@ module.exports = class ShopProfileCommand extends Command {
     if (readyForBuy) {
       const user = ctx.db.user
       for (const a of profileInfo) {
-        if (interaction.data.custom_id.replace('yes-', '') == a._id) {
-          if ((a.flag & (user.profiles ?? 0)) == a.flag) {
+        if (interaction.data.custom_id.replace('yes-', '') === a._id) {
+          if ((a.flag & (user.profiles ?? 0)) === a.flag) {
             await nightly.sendAck('update', {
               content: 'You already own this profile!',
               embeds: [],
@@ -249,7 +251,7 @@ module.exports = class ShopProfileCommand extends Command {
       }
       let profileSelected = {}
       for (const i of profileInfo)
-        if (i._id == interaction.data.custom_id.replace('yes-', '')) {
+        if (i._id === interaction.data.custom_id.replace('yes-', '')) {
           profileSelected = i
           break
         }
@@ -300,7 +302,7 @@ module.exports = class ShopProfileCommand extends Command {
   async generateProfile(profile, data) {
     let getProfile = {}
     for (const i of profileInfo)
-      if (i._id == profile) {
+      if (i._id === profile) {
         getProfile = i
         break
       }
@@ -314,7 +316,7 @@ module.exports = class ShopProfileCommand extends Command {
       return {
         embeds: [{
           title: getProfile.name,
-          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${getProfile.price}\``,
+          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${Number(getProfile.price).toLocaleString()}\``,
           color: 0x5865F2,
           image: {
             url: `attachment://profile-${id}.png`
