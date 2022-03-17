@@ -8,7 +8,7 @@ const Users = new mongoose.Schema({
   afkReason: { type: String, default: null },
   blacklist: { type: Boolean, default: false, index: true },
   blacklistReason: { type: String, default: null },
-  aboutme: { type: String, default: 'default' },
+  aboutme: { type: String, default: '' },
   profileColor: { type: String, default: '#6b8dff' },
   isMarry: { type: Boolean, default: false },
   marryWith: { type: String, default: '' },
