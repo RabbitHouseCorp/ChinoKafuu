@@ -99,7 +99,7 @@ module.exports = class ProfileCommand extends Command {
       type: user.profileType,
       name: member.username,
       money: Number(user.yens).toLocaleString(),
-      aboutMe: user.aboutme !== 'default' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
+      aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
       married: user.isMarry,
       partnerName: `${couple?.username}#${couple.discriminator}`,
       bgId: user.background,
