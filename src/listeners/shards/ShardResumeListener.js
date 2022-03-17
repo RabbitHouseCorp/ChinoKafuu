@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, Logger } = require('../../utils')
+const { EmbedBuilder, Logger } = require('../../structures/util')
 
 module.exports = class ShardResumeListener extends Listener {
   constructor() {
@@ -25,8 +25,9 @@ module.exports = class ShardResumeListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle('Shard Resumed')
-      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID} = Shard: ${shardID} => \`Resumed\``)
+      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Resumed\``)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

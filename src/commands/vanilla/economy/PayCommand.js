@@ -1,4 +1,5 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
+const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
+const { Command, Button, Emoji } = require('../../../structures/util')
 
 module.exports = class PayCommand extends Command {
   constructor() {
@@ -42,10 +43,16 @@ module.exports = class PayCommand extends Command {
       .returnCtx()
       .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
       .then(message => {
-        const ack = new ResponseAck(message)
-        ack.on('collect', (data) => {
-          if ((data.d.member.user.id !== message.mentions[0].id && message.author.id === ctx.client.user.id)) return
-          switch (data.d.data.custom_id) {
+        const ack = new NightlyInteraction(message)
+        ack.on('collect', ({ packet }) => {
+          if ((packet.d.member.user.id !== ctx.message.author.id && message.member.id === ctx.client.user.id))  {
+            ack.sendAck('respond', {
+              content: `You need to wait for the person paying you to accept the transaction request.`,
+              flags: 1 << 6
+            })
+            return;
+          }
+          switch (packet.d.data.custom_id) {
             case 'confirm_button': {
               fromUser.yens -= totalYens
               toUser.yens += totalYens

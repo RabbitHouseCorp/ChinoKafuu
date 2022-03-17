@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class SetNickCommand extends Command {
@@ -38,7 +38,8 @@ module.exports = class SetNickCommand extends Command {
         nick: newNick
       })
       return ctx.replyT('success', 'commands:setnick.success', { member: member.username, nickname: newNick })
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       return ctx.replyT('error', 'commands:setnick.error') // FIXME error being triggered with no reason
     }
   }

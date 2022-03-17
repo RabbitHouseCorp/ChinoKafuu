@@ -1,4 +1,4 @@
-const { Command, TranslatorUtils } = require('../../../utils')
+const { Command, TranslatorUtils } = require('../../../structures/util')
 const axios = require('axios')
 const { CommandBase, CommandOptions } = require('eris')
 
@@ -35,7 +35,7 @@ module.exports = class TranslateCommand extends Command {
       content = 'I\'m a little girl'
     }
 
-    const url = `http://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
 
     const letters = []

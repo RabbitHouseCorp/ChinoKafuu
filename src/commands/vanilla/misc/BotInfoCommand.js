@@ -1,7 +1,5 @@
-const { Command, EmbedBuilder, version } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder, version } = require('../../../structures/util')
 const os = require('os')
-require('moment-duration-format')
 
 module.exports = class BotInfoCommand extends Command {
   constructor() {
@@ -31,7 +29,7 @@ module.exports = class BotInfoCommand extends Command {
     embed.addField(ctx._locale('commands:botinfo.shardLatency'), this.markDown('glsl', `#[Shard: ${shard.shardID}] ${ctx.message.guild.shard.latency}ms`), true)
     embed.addField(ctx._locale('commands:botinfo.memoryUsage'), this.markDown('glsl', `#${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB`), true)
     embed.addField(ctx._locale('commands:botinfo.clientVersion'), this.markDown('glsl', `#${version}`), true)
-    embed.addField(ctx._locale('commands:botinfo.shardUptime'), this.markDown('js', `${moment.duration(Date.now() - shard.uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`), true)
+    embed.addField(ctx._locale('commands:botinfo.shardUptime'), `${parseInt(shard.uptime / 1000).toFixed(0)}`, true)
     embed.addField(ctx._locale('commands:botinfo.cpuModel'), this.markDown('diff', `- ${os.cpus().map(i => i.model)[0]}`), true)
     embed.addBlankField()
     embed.addField(ctx._locale('commands:botinfo.supportServer'), `[${ctx._locale('basic:clickHere')}](https://discord.gg/Jr57UrsXeC)`, true)

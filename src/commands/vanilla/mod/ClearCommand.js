@@ -1,4 +1,4 @@
-const { Command, Emoji } = require('../../../utils')
+const { Command, Emoji } = require('../../../structures/util')
 
 module.exports = class ClearCommand extends Command {
   constructor() {

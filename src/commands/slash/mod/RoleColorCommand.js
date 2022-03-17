@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RoleColorCommand extends Command {
@@ -42,7 +42,8 @@ module.exports = class RoleColorCommand extends Command {
         color: parseInt(`0x${color.replace('#', '').toString(16)}`)
       })
       ctx.replyT('success', 'commands:rolecolor.colorChanged')
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       ctx.replyT('error', 'commands:rolecolor.higher')
     }
   }

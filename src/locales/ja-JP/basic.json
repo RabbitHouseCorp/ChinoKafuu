@@ -1,6 +1,6 @@
 {
   "permissions": {
-    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+    "permissionUserRequired": "このコマンドを使用するには、次の権限が必要です: {{0}}.",
     "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
     "title": "許可"
   },

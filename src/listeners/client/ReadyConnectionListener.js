@@ -1,10 +1,10 @@
 const Listener = require('../../structures/events/Listener')
-const { TopGGUtils, Logger } = require('../../utils')
+const { TopGGUtils, Logger } = require('../../structures/util')
 const InteractionPost = require('../../structures/InteractionPost')
 module.exports = class ReadyConnectionListener extends Listener {
   constructor() {
     super()
-    this.send = false;
+    this.send = false
     this.event = 'readyConnection'
   }
 

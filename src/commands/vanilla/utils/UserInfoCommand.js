@@ -1,5 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 
 module.exports = class UserInfoCommand extends Command {
   constructor() {
@@ -16,7 +15,6 @@ module.exports = class UserInfoCommand extends Command {
   }
 
   async run(ctx) {
-    moment.locale(ctx.db.guild.lang)
     const member = await ctx.getUser(ctx.args[0], true)
     let hoist
     const avatar = ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
@@ -36,10 +34,10 @@ module.exports = class UserInfoCommand extends Command {
     embed.setThumbnail(avatar)
     embed.addField(ctx._locale('commands:userinfo.username'), `${member.username}#${member.discriminator}`, true)
     embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
-    embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)
-    guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), moment(guild.members.get(member.id).joinedAt).format('LLLL'), true) : null
+    embed.addField(ctx._locale('commands:userinfo.createdAt'), `<t:${parseInt(member.createdAt / 1000).toFixed(0)}:F>`, true)
+    guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), `<t:${parseInt(guild.members.get(member.id).joinedAt / 1000).toFixed(0)}:F>`, true) : null
     guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
-    guild.members.get(member.id)?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), moment(guild.members.get(member.id).premiumSince).format('LLLL'), true) : null
+    guild.members.get(member.id)?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(guild.members.get(member.id).premiumSince / 1000).toFixed(0)}:F>`, true) : null
     guild.members.get(member.id) ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), this.checkPermission(ctx._locale, guild, member).join(', ')) : null
 
     ctx.send(embed.build())

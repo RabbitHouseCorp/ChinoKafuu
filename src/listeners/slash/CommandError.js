@@ -28,7 +28,7 @@ module.exports = class CommandError extends Listener {
         if (!this.$guild.includes(json.guild_id)) {
           this.$guild.push(json.guild_id)
         }
-        await client.sendPingInteraction(json.id, json.token, false);
+        await client.sendPingInteraction(json.id, json.token, false)
         client.createFollowUpMessage(json.application_id, json.token, {
           type: 4,
           embeds: [{

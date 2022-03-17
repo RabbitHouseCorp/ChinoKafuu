@@ -1,5 +1,5 @@
 const { EventEmitter } = require('events')
-const { Logger } = require('../utils')
+const { Logger } = require('../structures/util')
 module.exports = class LavalinkPlayer extends EventEmitter {
   constructor(player, clientManager) {
     super()
@@ -30,7 +30,7 @@ module.exports = class LavalinkPlayer extends EventEmitter {
 
   playAnimu() {
     if (this.clientManager.track === null) {
-      return this.getSongs(this.player.node, 'https://cast.animu.com.br:9006/stream').then(async result => {
+      return this.getSongs(this.player.node, process.env.ANIMU_STREAM_URI).then(async result => {
         if (!result[0]) return
         this._addToQueue(result[0])
         return result[0].info

@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
+const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class BanInfoCommand extends Command {

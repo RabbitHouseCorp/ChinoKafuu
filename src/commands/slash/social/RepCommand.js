@@ -1,6 +1,4 @@
-const { Command } = require('../../../utils')
-const moment = require('moment')
-require('moment-duration-format')
+const { Command } = require('../../../structures/util')
 const { CommandOptions, CommandBase } = require('eris')
 
 module.exports = class RepCommand extends Command {
@@ -40,7 +38,6 @@ module.exports = class RepCommand extends Command {
 
       return
     }
-    const time = (parseInt(author.repTime) - Date.now() > 3600000) ? moment.utc(parseInt(author.time - Date.now())).format('hh:mm:ss') : moment.utc(parseInt(author.repTime - Date.now())).format('mm:ss')
     if (parseInt(author.repTime) < Date.now()) {
       author.repTime = 3600000 + Date.now()
       receiver.rep += 1
@@ -49,7 +46,7 @@ module.exports = class RepCommand extends Command {
         ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: user.rep })
       })
     } else {
-      ctx.replyT('warn', 'commands:rep.cooldown', { 0: time })
+      ctx.replyT('warn', 'commands:rep.cooldown', { 0: `<:t${parseInt(author.repTime).toFixed(0)}:R>` })
     }
   }
 }

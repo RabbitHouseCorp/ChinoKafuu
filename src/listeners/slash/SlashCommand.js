@@ -12,9 +12,18 @@ module.exports = class SlashCommand extends Listener {
       this.loadStarted = true
       const commandFolder = []
       for (const command of client.slashCommandRegistry.modules) {
-        if (!(command.slash === null)) {
-          commandFolder.push(command.slash)
+        if (process.env.PRODUCTION === 'false') {
+          if (!command.isBeta) {
+            if (!(command.slash === null)) {
+              commandFolder.push(command.slash)
+            }
+          }
+        } else {
+          if (!(command.slash === null)) {
+            commandFolder.push(command.slash)
+          }
         }
+
       }
 
       // commandRegistry:

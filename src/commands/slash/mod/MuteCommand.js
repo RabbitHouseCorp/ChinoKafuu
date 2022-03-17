@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 const ms = require('ms')
 module.exports = class MuteCommand extends Command {
@@ -80,7 +80,8 @@ module.exports = class MuteCommand extends Command {
           channel.createMessage(embed.build())
         }
       })
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       await ctx.replyT('error', 'basic:punishment.error')
     }
   }

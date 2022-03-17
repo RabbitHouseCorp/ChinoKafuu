@@ -1,7 +1,4 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../utils')
-
-const moment = require('moment')
-require('moment-duration-format')
+const { Command, EmbedBuilder, Emoji } = require('../../../structures/util')
 const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class PingCommand extends Command {
@@ -29,7 +26,6 @@ module.exports = class PingCommand extends Command {
                 .setValue('clusters')
             )
         )
-
     })
   }
 
@@ -48,7 +44,7 @@ module.exports = class PingCommand extends Command {
             : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
               : shard.status === 'connecting' ? ['CONNECTING', '<:dnd:518876154933936146>']
                 : ['HANDSHAKING', '<:idle:518876154912833549>']
-          embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: ${moment.duration(Date.now() - ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime).format('dd:hh:mm:ss', { stopTrim: 'd' })}`, true)
+          embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).toFixed(0)}:R>`, true)
         })
 
         ctx.send(embed.build())

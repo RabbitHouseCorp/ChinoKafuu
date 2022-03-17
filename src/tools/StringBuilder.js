@@ -17,6 +17,28 @@ String.prototype.byteLength = function (out) {
   return Buffer.from(this).byteLength
 }
 
+String.prototype.removePath = function () {
+  const getPath = require.main.path.replace('//', '')
+    .replace('\\\\', '')
+    .replace('./', '/')
+    .replace('.\\', '\\')
+  const str = this
+    .replace('\\\\', '\\')
+    .replace('./', '/')
+    .replace('.\\', '\\')
+    .split('\n')
+  const a = []
+  for (const b of str) {
+    a.push(
+      b
+        .replace(getPath, '')
+        .replace(/\\/g, '/')
+    )
+  }
+  return a.join('\n')
+
+}
+
 Object.prototype.toJSONString = function () {
   return JSON.stringify(this)
 }

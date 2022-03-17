@@ -1,5 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const axios = require('axios')
 
 module.exports = class ChannelInfoCommand extends Command {
@@ -23,7 +22,7 @@ module.exports = class ChannelInfoCommand extends Command {
     const _locale = ctx._locale
     const request = await axios.get(`https://discord.com/api/v8/channels/${channel.id}`, {
       headers: {
-        Authorization: `Bot ${process.env.DISCORD_TOKEN}`
+        Authorization: process.env.DISCORD_TOKEN
       }
     })
 
@@ -38,7 +37,7 @@ module.exports = class ChannelInfoCommand extends Command {
     embed.addField('NSFW', `\`${_locale(`basic:boolean.${data.nsfw}`)}\``, true)
     embed.addField(_locale('commands:channelinfo.guild'), `\`${channel.guild.name}\``, true)
     embed.addField(_locale('commands:channelinfo.category'), `\`${channel.guild.channels.get(channel.parentID)?.name}\``, true)
-    embed.addField(_locale('commands:channelinfo.createdAt'), `\`${moment(channel.createdAt).format('LLLL')}\``, true)
+    embed.addField(_locale('commands:channelinfo.createdAt'), `<t:${parseInt(channel.createdAt / 1000).toFixed(0)}:F>`, true)
 
     ctx.send(embed.build())
   }

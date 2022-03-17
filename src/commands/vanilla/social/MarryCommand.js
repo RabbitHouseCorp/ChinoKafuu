@@ -1,4 +1,4 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
+const { Command, Button, ResponseAck, Emoji } = require('../../../structures/util')
 
 module.exports = class MarryCommand extends Command {
   constructor() {
@@ -37,10 +37,15 @@ module.exports = class MarryCommand extends Command {
         .setStyle(4))
       .returnCtx()
       .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
-      .then(message => {
-        const ack = new ResponseAck(message)
+      .then(msg => {
+        const ack = new ResponseAck(msg)
         ack.on('collect', (data) => {
-          if ((data.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) return
+          if ((data.d.member.user.id == member.id && msg.author.id === ctx.client.user.id)) {
+            return ack.sendAck('respond', {
+              content: `You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.`,
+              flags: 1 << 6
+            })
+          }
           switch (data.d.data.custom_id) {
             case 'confirm_button': {
               author.yens -= Number(7500)
@@ -52,7 +57,7 @@ module.exports = class MarryCommand extends Command {
               author.save()
               couple.save().then(() => {
                 ack.sendAck('update', {
-                  content: `${Emoji.getEmoji('ring_couple').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
+                  content: `${Emoji.getEmoji('ring_couple').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
                   components: [
                     {
                       type: 1,
@@ -78,7 +83,7 @@ module.exports = class MarryCommand extends Command {
               break
             case 'reject_button': {
               ack.sendAck('update', {
-                content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
+                content: `${Emoji.getEmoji('heart').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
                 components: [
                   {
                     type: 1,

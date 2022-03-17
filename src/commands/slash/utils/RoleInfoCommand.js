@@ -1,5 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class RoleInfoCommand extends Command {
@@ -24,7 +23,6 @@ module.exports = class RoleInfoCommand extends Command {
   }
 
   run(ctx) {
-    moment.locale(ctx.db.guild.lang)
     const role = ctx.message.guild.roles.get(ctx.args.get('role').value)
     if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')
 
@@ -38,7 +36,7 @@ module.exports = class RoleInfoCommand extends Command {
     embed.addField(ctx._locale('commands:roleinfo.roleHoist'), ctx._locale(`basic:boolean.${role.hoist}`), true)
     embed.addField(ctx._locale('commands:roleinfo.roleMentionable'), ctx._locale(`basic:boolean.${role.mentionable}`), true)
     embed.addField(ctx._locale('commands:roleinfo.roleManaged'), ctx._locale(`basic:boolean.${role.managed}`), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), moment(role.createdAt).format('LLLL'), true)
+    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), parseInt(role.createdAt / 1000).toFixed(0), true)
 
     ctx.send(embed.build())
   }

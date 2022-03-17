@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const { CommandBase, CommandOptions, Choice } = require('eris')
 
 module.exports = class AvatarCommand extends Command {

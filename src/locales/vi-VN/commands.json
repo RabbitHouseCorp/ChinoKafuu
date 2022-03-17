@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "Xin chúc mừng! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
     "yensDaily": "Điểm danh",
-    "hasBeenPicked": "hôm nay bạn đã điểm danh rồi. Hãy đợi thêm `{{0}}` nữa để có thể điểm danh tiếp.",
+    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
     "description": "Bằng cách điểm danh, bạn có thể nhận được yên mỗi ngày",
     "almostThere": "Sắp đến rồi!",
     "explaining": "Để nhận thêm yên, bạn có thể vote cho mình. Cứ mỗi 12 giờ thì bạn có thể vote và nhận yên một lần. Nhưng vote xong thì phải chờ xíu mới có yên nhé.",
@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "bạn không thể tự thêm rep cho bản thân.",
     "forTheClient": "cảm ơn đã cho mình một rep! Giờ mình đã có `{{0}}` rep",
     "successffully": "bạn đã tặng cho {{0}} một rep, và giờ, {{0}} đã có `{{1}}` rep.",
-    "cooldown": "bình tĩnh nào! Bạn giờ vẫn chưa tăng rep được đâu. Phải đợi thêm `{{0}}` nữa rồi mới cho tiếp được.",
+    "cooldown": "calm down! You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "usage": "<người dùng>",
     "description": "Tặng điểm rep (uy tín) cho người khác."
   },
@@ -598,7 +598,11 @@
     "channel": {
       "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
       "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions.",
-      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that."
+      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that.",
+      "channelWasNotFound": "sorry, but, it's looks like I can't find this channel. Are you sure that this channel exist?",
+      "sameChannel": "eh... It's looks like this channel is the same that is already setted.",
+      "needStatus": "you need to choose between `Enable` or `Disable`.",
+      "moduleHasDisabled": "this module is already disabled."
     },
     "selected": {
       "textChannel": "Text channel set to **`{{0}}` (<#{{1}}>)**",

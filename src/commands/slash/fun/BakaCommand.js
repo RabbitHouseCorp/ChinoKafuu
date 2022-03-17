@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const NekosLife = require('nekos.life')
 const { CommandBase, CommandOptions } = require('eris')
 const NekoClient = new NekosLife()

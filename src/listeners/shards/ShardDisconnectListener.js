@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, Logger } = require('../../utils')
+const { EmbedBuilder, Logger } = require('../../structures/util')
 
 module.exports = class ShardDisconnectListener extends Listener {
   constructor() {
@@ -29,9 +29,10 @@ module.exports = class ShardDisconnectListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle('Shard Disconnected')
-      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID} = Shard: ${shardID} => \`Disconnected\``)
+      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Disconnected\``)
       embed.addField('Maybe the error?', error.message)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

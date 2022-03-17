@@ -1,4 +1,5 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../utils')
+const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
+const { Command, Button, Emoji } = require('../../../structures/util')
 
 module.exports = class DivorceCommand extends Command {
   constructor() {
@@ -30,11 +31,17 @@ module.exports = class DivorceCommand extends Command {
         .setStyle(4))
       .returnCtx()
       .replyT('warn', 'commands:divorce.requestConfirm')
-      .then(message => {
-        const ack = new ResponseAck(message)
-        ack.on('collect', (data) => {
-          if ((data.d.member.user.id !== message.mentions[0].id && message.author.id === ctx.client.user.id)) return
-          switch (data.d.data.custom_id) {
+      .then(msg => {
+        const ack = new NightlyInteraction(msg)
+        ack.on('collect', ({ packet }) => {
+          if ((packet.d.member.user.id == msg.mentions[0].id && msg.author.id === ctx.client.user.id)) {
+            ack.sendAck('respond', {
+              content: `You need to wait for the person to sign the paperwork to run this command.`,
+              flags: 1 << 6
+            })
+            return
+          }
+          switch (packet.d.data.custom_id) {
             case 'confirm_button': {
               author.yens -= Number(300)
               author.isMarry = false
@@ -45,7 +52,7 @@ module.exports = class DivorceCommand extends Command {
               author.save()
               couple.save().then(() => {
                 ack.sendAck('update', {
-                  content: `${Emoji.getEmoji('broken_heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:divorce.successfullyDivorced')}`,
+                  content: `${Emoji.getEmoji('broken_heart').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:divorce.successfullyDivorced')}`,
                   components: [
                     {
                       type: 1,
@@ -71,7 +78,7 @@ module.exports = class DivorceCommand extends Command {
               break
             case 'reject_button': {
               ack.sendAck('update', {
-                content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:divorce.rejectedRequest')}`,
+                content: `${Emoji.getEmoji('heart').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:divorce.rejectedRequest')}`,
                 components: [
                   {
                     type: 1,

@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const malScraper = require('mal-scraper')
 const { CommandBase, CommandOptions } = require('eris')
 

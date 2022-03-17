@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class AddRoleCommand extends Command {
@@ -39,7 +39,8 @@ module.exports = class AddRoleCommand extends Command {
     try {
       member.addRole(role.id)
       ctx.replyT('success', 'commands:addrole.success')
-    } catch {
+    } catch (err) {
+      ctx.client.emit('error', (ctx.client, err))
       ctx.replyT('error', 'commands:addrole.higher')
     }
   }

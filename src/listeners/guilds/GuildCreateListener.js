@@ -1,5 +1,5 @@
 const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, TopGGUtils, BlacklistUtils } = require('../../utils')
+const { EmbedBuilder, TopGGUtils, BlacklistUtils } = require('../../structures/util')
 
 module.exports = class GuildCreateListener extends Listener {
   constructor() {
@@ -36,6 +36,7 @@ module.exports = class GuildCreateListener extends Listener {
         embed.setTitle('Guild Blacklisted')
         embed.setDescription(`Someone tried to add me on this guild, but the guild is on my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
         embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+        embed.setTimestamp()
 
         client.executeWebhook(webhook.id, webhook.token, {
           embeds: [embed],
@@ -50,8 +51,9 @@ module.exports = class GuildCreateListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('#187000')
       embed.setTitle('Guild Joined')
-      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
+      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}\n**Members:** ${guild.memberCount}`)
       embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

@@ -29,6 +29,23 @@ CLUSTER_AMOUNT=1
 ENABLE_REGISTRY_RELOAD=true
 PRODUCTION=false
 BOT_DEVELOPERS=id1,id2
+ACCESS_BETA=id1,id2
+ERROR_CHANNEL_LOG=
+JOIN_AND_LEAVE_GUILD_CHANNEL_LOG=
+WITHOUT_STORING_CACHE_OF_PROFILES=false
+SHARD_CHANNEL_LOG=
+CLUSTERS=false
+BUILD_SHOW=false
+
+# Interaction HTTP
+
+# WSS = HTTPS
+# WS  = HTTP
+# API:
+# https://github.com/RabbitHouseCorp/http-interaction
+URL_INTERACTION=ws://IP:PORT/ws_interaction
+SECRET_INTERACTION=SECRET
+PUBLIC_KEY=Public Key > Bot
 ```
 
 > Use that commands in your terminal

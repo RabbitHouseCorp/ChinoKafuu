@@ -1,4 +1,4 @@
-const { Command, Logger } = require('../../../utils')
+const { Command, Logger } = require('../../../structures/util')
 const axios = require('axios')
 const { CommandOptions, CommandBase } = require('eris')
 
@@ -93,7 +93,7 @@ module.exports = class ProfileCommand extends Command {
     }
 
     const guildMember = await ctx.getMember(member.id) ?? undefined
-    const a = Date.now();
+    const a = Date.now()
     const cache = ctx.client.pluginManager.pluginStore.get('cache_profile').classState
     const data = {
       type: user.profileType,

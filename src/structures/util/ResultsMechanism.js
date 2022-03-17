@@ -10,17 +10,17 @@ module.exports = class ResultsMechanism {
       const y = channel.name.replace('-', '').split('')
 
       let confirm = 0
-      let wrong = false;
+      let wrong = false
 
       for (const k of p) {
         const letter = y.indexOf(k)
 
         if (!wrong) {
           if (y[letter] === undefined) {
-            wrong = true;
-            wrong++;
+            wrong = true
+            wrong++
           } else {
-            confirm++;
+            confirm++
           }
         }
       }
@@ -53,7 +53,6 @@ module.exports = class ResultsMechanism {
         break
       }
     }
-
     if (channels.size === 0) {
       interaction.autoComplete.addOptions().callback()
     } else {
@@ -70,17 +69,17 @@ module.exports = class ResultsMechanism {
       const y = channel.name.replace('-', '').split('')
 
       let confirm = 0
-      let wrong = false;
+      let wrong = false
 
       for (const k of p) {
         const letter = y.indexOf(k)
 
         if (!wrong) {
           if (y[letter] === undefined) {
-            wrong = true;
-            wrong++;
+            wrong = true
+            wrong++
           } else {
-            confirm++;
+            confirm++
           }
         }
       }
@@ -136,17 +135,17 @@ module.exports = class ResultsMechanism {
       const y = channel.name.replace('-', '').split('')
 
       let confirm = 0
-      let wrong = false;
+      let wrong = false
 
       for (const k of p) {
         const letter = y.indexOf(k)
 
         if (!wrong) {
           if (y[letter] === undefined) {
-            wrong = true;
-            wrong++;
+            wrong = true
+            wrong++
           } else {
-            confirm++;
+            confirm++
           }
         }
       }

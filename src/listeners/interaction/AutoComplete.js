@@ -18,15 +18,15 @@ module.exports = class extends Listener {
     if (interaction.type === 8 || interaction.type === 4) {
       switch (interaction.command.commandName) {
         case ConfigAnimuSearch.CONFIG_ANIMU_SEARCH: {
-          ConfigAnimuSearch.searchClass.search(interaction);
+          ConfigAnimuSearch.searchClass.search(interaction)
         }
           break;
         case ConfigModSearch.CONFIG_MOD_SEARCH: {
-          ConfigModSearch.searchClass.search(interaction);
+          ConfigModSearch.searchClass.search(interaction)
         }
           break;
         case ConfigReportSearch.CONFIG_REPORT_SEARCH: {
-          ConfigReportSearch.searchClass.search(interaction);
+          ConfigReportSearch.searchClass.search(interaction)
         }
           break;
       }

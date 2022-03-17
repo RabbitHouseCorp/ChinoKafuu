@@ -1,7 +1,10 @@
 const package = require('../../package.json')
+const zlib = require('node:zlib')
 
 Error.prototype.debug = function (details, log) {
-  const a = this.stack.split('\n')
+  const a = this.stack
+    .removePath()
+    .split('\n')
   a.push('')
   a.push('')
   if (process.env.PRODUCTION !== undefined) {
@@ -70,6 +73,5 @@ Error.prototype.debug = function (details, log) {
   } else {
     a.push(`Production: envUnknown`)
   }
-
   return a.join('\n')
 }

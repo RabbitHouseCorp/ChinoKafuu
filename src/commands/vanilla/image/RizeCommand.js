@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const axios = require('axios')
 
 module.exports = class RizeCommand extends Command {

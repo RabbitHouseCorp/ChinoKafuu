@@ -1,5 +1,4 @@
-const { Command, EmbedBuilder } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class UserInfoCommand extends Command {
@@ -25,7 +24,6 @@ module.exports = class UserInfoCommand extends Command {
   }
 
   async run(ctx) {
-    moment.locale(ctx.db.guild.lang)
     const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user, true)
     let hoist
@@ -45,10 +43,10 @@ module.exports = class UserInfoCommand extends Command {
     embed.setThumbnail(avatar)
     embed.addField(ctx._locale('commands:userinfo.username'), `${member.username}#${member.discriminator}`, true)
     embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
-    embed.addField(ctx._locale('commands:userinfo.createdAt'), moment(member.createdAt).format('LLLL'), true)
-    guildMember ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), moment(guildMember.joinedAt).format('LLLL'), true) : null
+    embed.addField(ctx._locale('commands:userinfo.createdAt'), `<t:${parseInt(member.createdAt / 1000).toFixed(0)}:F>`, true)
+    guildMember ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), `<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:F>`, true) : null
     guildMember ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
-    guildMember?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), moment(guildMember.premiumSince).format('LLLL'), true) : null
+    guildMember?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(guildMember.premiumSince / 1000).toFixed(0)}:F>`, true) : null
     guildMember ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), guildMember?.permissions?.array?.map(perm => `\`${ctx._locale(`permission:${perm}`)}\``)?.join(', ')) : null
 
     ctx.send(embed.build())

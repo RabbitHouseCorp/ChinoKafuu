@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../../utils')
+const { Command, EmbedBuilder, Emoji } = require('../../../../structures/util')
 const axios = require('axios')
 
 module.exports = class MinecraftQueryCommand extends Command {

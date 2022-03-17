@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../utils')
+const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../structures/util')
 
 module.exports = class AnnounceCommand extends Command {
   constructor() {

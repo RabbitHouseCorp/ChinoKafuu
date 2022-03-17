@@ -1,5 +1,4 @@
-const { Command, EmbedBuilder, TopGGUtils } = require('../../../utils')
-const moment = require('moment')
+const { Command, EmbedBuilder, TopGGUtils } = require('../../../structures/util')
 
 module.exports = class DailyCommand extends Command {
   constructor() {
@@ -17,7 +16,7 @@ module.exports = class DailyCommand extends Command {
     const user = ctx.db.user
     if (parseInt(user.timeDaily) > Date.now()) {
       return ctx.replyT('error', 'commands:daily.hasBeenPicked', {
-        0: parseInt(user.timeDaily - Date.now()) > 3600000 ? moment.utc(user.timeDaily - Date.now()).format('hh:mm:ss') : moment.utc(user.timeDaily - Date.now()).format('mm:ss')
+        0: `<t:${parseInt(user.timeDaily / 1000)}:R>`
       })
     }
 

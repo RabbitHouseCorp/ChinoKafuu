@@ -1,4 +1,4 @@
-const { Command } = require('../../../utils')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class ClapCommand extends Command {
@@ -25,7 +25,7 @@ module.exports = class ClapCommand extends Command {
   }
 
   async run(ctx) {
-    const clap = ctx.args.get('text').value.split('').join(' ').split(' ').join('<a:clap:554482751542132736>')
+    const clap = ctx.args.get('text').value.split(' ').join('<a:clap:554482751542132736>')
     if (!clap) return ctx.replyT('error', 'commands:clap.noArgs')
     const option = ctx.message.member.permission.has('mentionEveryone')
 

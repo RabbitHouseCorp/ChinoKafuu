@@ -1,4 +1,4 @@
-const Logger = require('../../structures/util/Logger')
+const Logger = require('../../../structures/util/Logger')
 const PluginExtend = require('./loaders/PluginExtend')
 const EventEmitter = require('events')
 
@@ -22,7 +22,7 @@ module.exports = class PluginManager extends EventEmitter {
 
   startPlugin() {
 
-    if ((this.plugins.length === 0)) return;
+    if ((this.plugins.length === 0)) return
 
     const plugin = this.plugins[0]
     if (plugin instanceof PluginExtend) {
