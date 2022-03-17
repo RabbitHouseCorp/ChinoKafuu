@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "Parabéns! Você recebeu `{{0}}` ienes e `{{1}}` sugarcubes hoje. Você pode obter mais ienes amanhã. Até mais tarde e tenha um bom dia!",
     "yensDaily": "Ienes diários",
-    "hasBeenPicked": "você já pegou seus ienes diários hoje. Espere por `{{0}}` antes de pegá-los novamente.",
+    "hasBeenPicked": "você já pegou seus ienes diários hoje. Espere por {{0}} antes de pegá-los novamente.",
     "description": "Você pode obter seus ienes diários usando este comando",
     "almostThere": "Estamos quase lá!",
     "explaining": "Para conseguir seus ienes, você terá que votar em mim. A cada 12 horas, você poderá reivindicar novamente seus ienes. Por favor, aguarde alguns segundos após ter votado.",
@@ -105,7 +105,7 @@
   },
   "help": {
     "commandList": "Lista de comandos",
-    "explain": "Se você quer saber mais sobre um comando, use `{{0}}ajuda [comando]` e eu explicarei como usar o comando.",
+    "explain": "Se você quer saber mais sobre um comando, use `{{0}}help [comando]` e eu explicarei como usar o comando.",
     "economy": "Economia ({{0}})",
     "fun": "Diversão ({{0}})",
     "image": "Manipulação de Imagem ({{0}})",
@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "você não pode dar reputação a si mesmo.",
     "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
     "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
-    "cooldown": "calma lá! Você não pode dar reputação agora. Você deve esperar por `{{0}}` antes de dar pontos de reputação novamente.",
+    "cooldown": "calma lá! Você não pode dar reputação agora. Você deve esperar por {{0}} antes de dar pontos de reputação novamente.",
     "usage": "<usuário>",
     "description": "Dá uma reputação a alguém."
   },
@@ -598,7 +598,11 @@
     "channel": {
       "voiceNoLongerExist": "Ah não! Parece que este canal de voz não existe mais. Repita as mesmas ações.",
       "textNoLongerExist": "Ah não! Parece que este canal de texto não existe mais. Repita as mesmas ações.",
-      "moduleIfFoundBug": "algo de ruim aconteceu, e eu não sei o que aconteceu no módulo do {{0}}. Me desculpe por isso."
+      "moduleIfFoundBug": "algo de ruim aconteceu, e eu não sei o que aconteceu no módulo do {{0}}. Me desculpe por isso.",
+      "channelWasNotFound": "me desculpe, mas parece que eu não consigo encontrar este canal. Tem certeza que este canal existe?",
+      "sameChannel": "eh... Parece que este canal é o mesmo que já está definido.",
+      "needStatus": "você precisa escolher entre `Enable` ou `Disable`.",
+      "moduleHasDisabled": "este módulo já está desativado."
     },
     "selected": {
       "textChannel": "Canal de texto foi definido para **`{{0}}` (<#{{1}}>)**",
