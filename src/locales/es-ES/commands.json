@@ -29,7 +29,7 @@
   "daily": {
     "congrats": "¡Felicidades! Has recibido `{{0}}` yenes y `{{1}}` sugarcubes hoy. Puedes obtener más yenes mañana. ¡Nos vemos más tarde y tenemos un buen día!",
     "yensDaily": "Yenes diarios",
-    "hasBeenPicked": "ya has recogido tus yenes diarios hoy. Espera `{{0}}` antes de reclamarlos de nuevo.",
+    "hasBeenPicked": "ya has recogido tus yenes diarios hoy. Espera {{0}} antes de reclamarlos de nuevo.",
     "description": "Puedes obtener tus yenes diarios usando este comando",
     "almostThere": "¡Casi estamos ahí!",
     "explaining": "Para conseguir sus yenes, tendrá que votar sobre mí. Cada 12 horas podrás reclamar de nuevo tus yenes. Por favor, espera unos segundos después de votar.",
@@ -126,7 +126,7 @@
     "cannotGiveRepForYourself": "no te puedes dar reputación a ti mismo.",
     "forTheClient": "¡gracias por darme un punto de representación! Ahora tengo `{{0}}` reputaciones",
     "successffully": "has dado una reputación a {{0}}, ahora {{0}} tienen `{{1}}`reputaciones.",
-    "cooldown": "¡calma! No puedes dar reputación ahora. Debes esperar por `{{0}}` antes de volver a dar puntos de reputación.",
+    "cooldown": "¡calma! No puedes dar reputación ahora. Debes esperar por {{0}} antes de volver a dar puntos de reputación.",
     "usage": "<usuario>",
     "description": "Da una reputación a alguien."
   },
@@ -598,7 +598,11 @@
     "channel": {
       "voiceNoLongerExist": "¡Oh no! Parece que este canal de voz ya no existe. Repita las mismas acciones.",
       "textNoLongerExist": "¡Oh no! Parece que este canal de texto ya no existe. Repita las mismas acciones.",
-      "moduleIfFoundBug": "algo malo ha pasado, y no sé lo que pasó en el módulo de {{0}}. Lo siento."
+      "moduleIfFoundBug": "algo malo ha pasado, y no sé lo que pasó en el módulo de {{0}}. Lo siento.",
+      "channelWasNotFound": "lo siento, pero parece que no puedo encontrar este canal. ¿Estás seguro de que este canal existe?",
+      "sameChannel": "eh... Parece que este canal es el mismo que ya está configurado.",
+      "needStatus": "tienes que elegir entre `Enable` o `Disable`.",
+      "moduleHasDisabled": "este módulo ya está desactivado."
     },
     "selected": {
       "textChannel": "Canal de texto establecido a **`{{0}}` (<#{{1}}>)**",
