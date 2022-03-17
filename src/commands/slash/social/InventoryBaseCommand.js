@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, TopGGUtils } = require('../../../structures/util')
+const { Command } = require('../../../structures/util')
 const { CommandBase, CommandOptions } = require('eris')
 
 module.exports = class InventoryBaseCommand extends Command {

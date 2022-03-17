@@ -22,8 +22,7 @@ module.exports = class InventoryProfileCommand extends Command {
     const user = await ctx.client.database.users.getOrCreate(ctx.message.member.id)
     for (const profile of profileInfo) {
       const disabled = false
-
-      if ((profile.flag & user.profiles) == profile.flag || profile._id === 'default') {
+      if (user.profileList.includes(profile._id)) {
         loadList.push({
           'label':  profile.name,
           'value': profile._id,
@@ -57,17 +56,20 @@ module.exports = class InventoryProfileCommand extends Command {
       const functionNightly = async (interaction) => {
         const messagePrepared = async (position, selected) => {
           profileSelected = selected
+          const user = await ctx.client.database.users.getOrCreate(ctx.message.author.id)
+          const guildMember = await ctx.getMember(user.id) ?? undefined
+          const couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
           const data = {
             type: selected,
-            name: ctx.message.member.username,
-            money: '0',
-            aboutMe: ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
-            married: true,
-            partnerName: `Somebody#0000`,
-            bgId: 'gochiusa_1',
-            stickerId: 'bjork_post',
-            favColor: '#5865F2',
-            avatarUrl: ctx.message.member.avatarURL,
+            name: ctx.message.author.username,
+            money: Number(user.yens).toLocaleString(),
+            aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
+            married: user.isMarry,
+            partnerName: `${couple?.username}#${couple.discriminator}`,
+            bgId: user.background,
+            stickerId: user.sticker,
+            favColor: user.profileColor,
+            avatarUrl: guildMember?.guildAvatar ?? ctx.message.author.avatarURL,
             badges: []
           }
 
@@ -77,7 +79,7 @@ module.exports = class InventoryProfileCommand extends Command {
             components: [component]
           }).then(async () => {
             let disabled = false
-            if (data.type == user.profileType) {
+            if (data.type === user.profileType) {
               disabled = true
             }
             component.components[0].disabled = false
@@ -166,8 +168,8 @@ module.exports = class InventoryProfileCommand extends Command {
     if (iAmReady) {
       const user = ctx.db.user
       for (const a of profileInfo) {
-        if (interaction.data.custom_id.replace('yes-', '') == a._id) {
-          if (user.profileType == a._id) {
+        if (interaction.data.custom_id.replace('yes-', '') === a._id) {
+          if (user.profileType === a._id) {
             await nightly.sendAck('update', {
               content: 'You already own this profile!',
               embeds: [],
@@ -181,14 +183,14 @@ module.exports = class InventoryProfileCommand extends Command {
       }
       let profileSelected = {}
       for (const i of profileInfo)
-        if (i._id == interaction.data.custom_id.replace('yes-', '')) {
+        if (i._id === interaction.data.custom_id.replace('yes-', '')) {
           profileSelected = i
           break
         }
       user.profileType = profileSelected._id
       user.save()
       await nightly.sendAck('update', {
-        content: `You just activated ${profileSelected._id} in your inventory! Now try using /profile`,
+        content: `You just activated ${profileSelected.name} in your inventory! Now try using /profile`,
         embeds: [],
         components: [],
         attachments: [],
@@ -231,7 +233,7 @@ module.exports = class InventoryProfileCommand extends Command {
     let getProfile = {}
 
     for (const i of profileInfo)
-      if (i._id == profile) {
+      if (i._id === profile) {
         getProfile = i
         break
       }
@@ -246,7 +248,7 @@ module.exports = class InventoryProfileCommand extends Command {
       return {
         embeds: [{
           title: getProfile.name,
-          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${getProfile.price}\``,
+          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${Number(getProfile.price).toLocaleString()}\``,
           color: 0x5865F2,
           image: {
             url: `attachment://profile-${id}.png`
