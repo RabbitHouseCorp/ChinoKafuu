@@ -30,22 +30,22 @@ module.exports.backgroundPriceTableConstants = {
   'gochiusa_3': 10300,
   'gochiusa_4': 12000,
   'gochiusa_5': 19000,
-  'mtchaRed': 100000,
-  'noGameNoLife_1': 1000000,
-  'noGameNoLife_2': 1000000,
-  'nycSkyline': 720,
-  'showByRock_1': 1040000,
-  'showByRock_2': 1900000,
-  'showByRock_3': 1200000,
-  'showByRock_4': 1920000
+  'mtchaRed': 85000,
+  'noGameNoLife_1': 102000,
+  'noGameNoLife_2': 102500,
+  'nycSkyline': 5590,
+  'showByRock_1': 110000,
+  'showByRock_2': 212000,
+  'showByRock_3': 230000,
+  'showByRock_4': 257000
 }
 
 module.exports.profilePriceTableConstants = {
   'default': 0,
-  'modern': 10000000,
-  'profile_2': 28000000,
+  'modern': 115000,
+  'profile_2': 280000,
   'cute_profile': 0,
-  data: [0, 10000000, 28000000, 0]
+  data: [0, 115000, 280000, 0]
 }
 
 module.exports.profileInfo = [
@@ -55,31 +55,31 @@ module.exports.profileInfo = [
     flag: 1 << 1,
     readyForSale: true,
     description: null,
-    shotDescription: null,
+    shotDescription: 'It\'s only the default profile.',
     price: 0,
     buttonId: 'default',
     disabled: true,
     isDefault: true,
   },
   {
-    name: 'Modern',
+    name: 'Notebook',
     _id: 'modern',
     flag: 1 << 2,
     readyForSale: true,
     description: null,
-    shotDescription: null,
+    shotDescription: 'I guess I will put a note on my notebook.',
     price: module.exports.profilePriceTableConstants.data[1],
     buttonId: 'modern',
     disabled: false,
     isDefault: false
   },
   {
-    name: 'Profile Nitro',
+    name: 'Modern',
     _id: 'profile_2',
     flag: 1 << 3,
     readyForSale: true,
     description: null,
-    shotDescription: null,
+    shotDescription: 'The default profile, but more modern.',
     price: module.exports.profilePriceTableConstants.data[2],
     buttonId: 'profile_2',
     disabled: false,
@@ -91,7 +91,7 @@ module.exports.profileInfo = [
     flag: 1 << 4,
     readyForSale: false,
     description: null,
-    shotDescription: null,
+    shotDescription: 'This profile is not available yet, wait until the next update.',
     price: module.exports.profilePriceTableConstants.data[3],
     buttonId: 'cute_profile',
     disabled: false,
