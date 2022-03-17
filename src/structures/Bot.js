@@ -6,6 +6,7 @@ const ClusteringInterface = require('./util/ClusteringInterface')
 const Database = require('./database/Database')
 const CommandCooldown = require('./command/CommandCooldown')
 const SlashCommandRegistry = require('./command/SlashCommandRegistry')
+const InteractionManager = require('./InteractionManager')
 // const CacheManager = require('./util/cache/CacheManager')
 
 module.exports = class Bot extends Client {
@@ -62,7 +63,7 @@ module.exports = class Bot extends Client {
           */
     this.commandCooldown = new CommandCooldown()
 
-    this.interactionPost = null
+    this.interactionPost = new InteractionManager(this)
 
   }
 

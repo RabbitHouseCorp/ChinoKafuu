@@ -1,6 +1,5 @@
 const Listener = require('../../structures/events/Listener')
 const { TopGGUtils, Logger } = require('../../structures/util')
-const InteractionPost = require('../../structures/InteractionPost')
 module.exports = class ReadyConnectionListener extends Listener {
   constructor() {
     super()
@@ -9,7 +8,11 @@ module.exports = class ReadyConnectionListener extends Listener {
   }
 
   async on(client) {
-    client.interactionPost = new InteractionPost(client).connect()
+    if (process.env.INTERACTION_URL.startsWith('ws://') || process.env.INTERACTION_URL.startsWith('wss://')) {
+      client.interactionPost.client = client
+      client.interactionPost.connect()
+    }
+
     client.startShard = Date.now()
     // client.cacheManager.start()
     const top_gg = new TopGGUtils()

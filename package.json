@@ -28,6 +28,7 @@
     "ms": "^2.1.3",
     "nekos.life": "^2.0.7",
     "os-utils": "^0.0.14",
+    "usagi-http-interaction": "github:RabbitHouseCorp/usagi-http-interaction#main",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
     "ws": "^8.3.0"
   },

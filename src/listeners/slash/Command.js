@@ -1,6 +1,7 @@
 const Listener = require('../../structures/events/Listener')
 const { Interaction } = require('eris')
 const SlashRunner = require('../../structures/command/SlashRunner')
+const { Logger } = require('../../structures/util')
 
 module.exports = class Command extends Listener {
   constructor() {
@@ -11,7 +12,7 @@ module.exports = class Command extends Listener {
 
   async on(client, interaction = new Interaction()) {
     if (interaction.type === 2) {
-      if (client.interactionPost !== undefined && client.interactionPost !== null) {
+      try {
         if (!client.interactionPost.connected) {
           const getCommand = client.slashCommandRegistry.findByName(interaction.command.commandName)
           let callback = false
@@ -27,6 +28,8 @@ module.exports = class Command extends Listener {
             await interaction.hook.callbackHook({ type: 5 })
           }
         }
+      } catch (err) {
+        Logger.error(err)
       }
       await SlashRunner.run(client, interaction)
     }

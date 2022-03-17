@@ -74,7 +74,6 @@ module.exports = class SlashRunner {
     try {
       await command.run(ctx)
     } catch (e) {
-      Logger.error(e.debug({ guild_id: interaction.guild.id, shard_id: interaction.guild.shard, user_id: interaction.member?.user?.id ?? interaction?.user?.id, isSlash: true }, true))
       const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
       client.emit('error', (client, e, interaction.guild.shard))
       const embed = new EmbedBuilder()
@@ -87,6 +86,7 @@ module.exports = class SlashRunner {
       } else {
         await ctx.send(embed.build())
       }
+      Logger.error(e.debug({ guild_id: interaction?.guild?.id ?? null, shard_id: interaction?.guild?.shard ?? null, user_id: interaction.member?.user?.id ?? interaction?.user?.id, isSlash: true }, true))
       return
     }
   }
