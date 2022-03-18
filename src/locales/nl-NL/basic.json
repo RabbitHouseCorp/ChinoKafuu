@@ -1,0 +1,79 @@
+{
+  "permissions": {
+    "permissionUserRequired": "Je moet de volgende rechten hebben om deze opdracht te gebruiken: {{0}}.",
+    "permissionBotRequired": "Ik moet de volgende rechten hebben om deze opdracht te gebruiken: {{0}}.",
+    "title": "Permissies"
+  },
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hallo, {{0}}. Mijn prefix in deze server is `{{1}}`.Voor een overzicht van alle commands, type `{{1}}help`.",
+  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Hallo, {{0}}. Mijn prefix in deze server is `{{1}}`, Je hebt geen toestemming om deze command te gebruiken. Voor een overzicht van alle command, type `{{1}}help` on {{2}}.",
+  "missingBotPermission": "De volgende permissie ontbreekt: {{perm}}. Controleer mijn rechten/rollen en probeer het opnieuw.",
+  "missingUserPermission": "je hebt de volgende permissie nodig: {{perm}}. Je kunt deze command hier niet uitvoeren.",
+  "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
+  "invalidUser": "user not found. Make sure you have @mentioned them, or check the ID.",
+  "invalidRole": "role not found. Make sure you have @mentioned it, or check the ID.",
+  "invalidEmoji": "emoji not found. Are you sure this emoji is from this guild?",
+  "noReason": "No reason",
+  "clickHere": "Click here",
+  "punishment": {
+    "banned": "{{0}} | Banned",
+    "unbanned": "{{0}} | Unbanned",
+    "kicked": "{{0}} | Kicked",
+    "softBan": "{{0}} | Soft banned",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
+    "embed": {
+      "memberName": "Username",
+      "memberID": "User ID",
+      "staffName": "Who punished",
+      "reason": "Reason"
+    },
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
+    "bigReason": "you must write an shorter reason, this reason is too big to me.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
+  },
+  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+  "howToUse": "How to use?",
+  "aliases": "Aliases",
+  "addedToGuild": {
+    "thanks": "Thanks for adding me",
+    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+    "guildSaved": "Successfully saved the server {{0}} in the database!"
+  },
+  "noAliases": "This command doesn't have any aliases.",
+  "onMentionAfk": "**{{user}}** is AFK.",
+  "onMentionAfkReasoned": "**{{user}}** is AFK: `{{reason}}`.",
+  "afkRemoval": "{{user}}, as you're back, I removed your AFK status.",
+  "voice": {
+    "authorAreNotInVoiceChannel": "you're not in a voice channel.",
+    "playerAlreadyPlaying": "The track is already playing.",
+    "clientAreNotInVoiceChannel": "I'm not in a voice channel.",
+    "playerNotFound": "I'm not playing any song",
+    "maxVolume": "calm down! The max volume allowed is `100`.",
+    "minVolume": "calm down! The minimal volume allowed is `5`."
+  },
+  "boolean": {
+    "true": "Yes",
+    "false": "No"
+  },
+  "guildban": {
+    "title": "Guild Banned",
+    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
+    "reason": "Reason"
+  },
+  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
+  "cooldownLowThanZero": "some",
+  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
+  "migrate": {
+    "migrateTitle": "Slash commands are here!",
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Vanilla commands are deprecated",
+    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
+    "howToUseTitle": "How to use?",
+    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "needSupportTitle": "Still confused how to use the bot?",
+    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
+  }
+}
