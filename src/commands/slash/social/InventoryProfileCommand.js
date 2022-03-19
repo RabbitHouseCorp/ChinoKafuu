@@ -239,7 +239,7 @@ module.exports = class InventoryProfileCommand extends Command {
       }
 
     return axios({
-      url: 'http://127.0.0.1:1234/render/profile?w=600&h=400&type=thumb',
+      url: `${process.env.TOKAMAK_URL}/render/profile?w=600&h=400&type=thumb`,
       method: 'post',
       data: data,
       responseType: 'arraybuffer'
