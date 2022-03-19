@@ -144,13 +144,9 @@ module.exports = class ShopProfileCommand extends Command {
             let positionProfile = -1
             for (const a of profileInfo) {
               positionProfile++;
-              [].includes()
-              if (profileSelected === a._id) {
-                if (user.profileList.includes(a._id)) {
-                  disabledReason = '**You already have this profile**!'
-                  disabled = true
-                  break
-                }
+              if (user.profileList.includes(a._id)) {
+                disabledReason = '**You already have this profile**!'
+                disabled = true
                 break
               }
             }
