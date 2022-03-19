@@ -2,8 +2,14 @@ const NightlyDeveloper = require('./Nightly')
 const { Message } = require('eris')
 const InteractionPacket = require('../interactions/InteractionPacket')
 module.exports = class NightlyInteraction extends NightlyDeveloper {
-  constructor(message) {
+  constructor(message, options) {
     super()
+    this.options = options == undefined ? options : {};
+    this.timeoutRun = null
+    if (this.options.time !== undefined) {
+      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
+    }
+    this.timeout = false
     this.id = ''
     this.token = ''
     this.data = null
@@ -18,6 +24,24 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     } else {
       this.client.on('rawWS', (packet) => this.#interactionNormal(packet))
     }
+    this.on('click', () => {
+      this.#resetTimeout()
+    })
+  }
+
+  #resetTimeout() {
+    clearTimeout(this.timeoutRun)
+    this.timeoutRun = null
+    if (this.options.time !== undefined) {
+      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
+    }
+  }
+
+  timeoutInteraction() {
+    this.emit('timeout', this, true, this.timeoutRun)
+    this.timeout = true
+    clearTimeout(this.timeoutRun)
+    this.timeoutRun = null
   }
 
   #interactionNormal(packet) {
@@ -77,6 +101,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
   }
 
   async sendAck(typeAck, data) {
+    this.emit('click', true, { typeAck, data })
     let type = 4
     switch (typeAck) {
       case 'update':
@@ -95,6 +120,12 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
         type = 4
     }
 
+    if (this.timeout === true) {
+      data = {
+        content: 'The time for this interaction has ended. Run the command again to resume action again.',
+        flags: 1 << 6
+      }
+    }
     if (this.isHttp) {
       this.interactionPost.send({
         type: 10002,
