@@ -1,5 +1,5 @@
 const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command } = require('../../../structures/util')
+const { Command, Logger } = require('../../../structures/util')
 const { profileInfo } = require('../../../structures/util/Constants')
 const axios = require('axios')
 const flags = [
@@ -112,7 +112,7 @@ module.exports = class ShopProfileCommand extends Command {
       content: 'Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!',
       components: [component]
     }).then((msgInteraction) => {
-      const nightly = new NightlyInteraction(msgInteraction)
+      const nightly = new NightlyInteraction(msgInteraction, { time: 1 * 60000 })
       let profileSelected = ''
       const functionNightly = async (interaction) => {
         const messagePrepared = async (position, selected) => {
@@ -139,47 +139,58 @@ module.exports = class ShopProfileCommand extends Command {
             content: 'Loading profile preview please wait a while.',
             components: [component]
           }).then(async () => {
-            let disabled = false
-            let disabledReason = ''
-            let positionProfile = -1
-            for (const a of profileInfo) {
-              positionProfile++;
-              if (user.profileList.includes(a._id)) {
-                disabledReason = '**You already have this profile**!'
-                disabled = true
-                break
+            try {
+              let disabled = false
+              let disabledReason = ''
+              let positionProfile = -1
+              for (const a of profileInfo) {
+                positionProfile++;
+                if (user.profileList.includes(a._id)) {
+                  disabledReason = '**You already have this profile**!'
+                  disabled = true
+                  break
+                }
               }
-            }
 
-            if (!(user.yens > profileInfo[positionProfile].price - 1) || user.yens <= 0) {
-              disabledReason = 'The button is disabled for this reason -> Your account\'s yen value is negative or there is not enough price to buy this profile.'
-              disabled = true
-            }
-            const resultFinal = [
-              component,
-              {
-                type: 1,
-                components: [{
-                  type: 2,
-                  style: 3,
-                  label: 'Buy',
-                  custom_id: profileInfo[position].buttonId,
-                  disabled: disabled
-                }]
+              if (!(user.yens > profileInfo[positionProfile].price - 1) || user.yens <= 0) {
+                disabledReason = 'The button is disabled for this reason -> Your account\'s yen value is negative or there is not enough price to buy this profile.'
+                disabled = true
               }
-            ]
-            component.components[0].disabled = false
-            if (profileLoaded.get(profileSelected) !== undefined) {
-              const dataProfile = profileLoaded.get(profileSelected)
-              messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+              const resultFinal = [
+                component,
+                {
+                  type: 1,
+                  components: [{
+                    type: 2,
+                    style: 3,
+                    label: 'Buy',
+                    custom_id: profileInfo[position].buttonId,
+                    disabled: disabled
+                  }]
+                }
+              ]
+              component.components[0].disabled = false
+              if (profileLoaded.get(profileSelected) !== undefined) {
+                const dataProfile = profileLoaded.get(profileSelected)
+                messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+                await msgInteraction.edit(messageData, dataProfile.image)
+                return;
+              }
+              const dataProfile = await this.generateProfile(data.type, data)
+              if (dataProfile == undefined) throw Error('ProfileTokamak: undefined')
+              messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+              profileLoaded.set(profileSelected, dataProfile)
               await msgInteraction.edit(messageData, dataProfile.image)
-              return;
+            } catch (err) {
+              Logger.error(err)
+              component.components[0].disabled = false
+              await msgInteraction.edit({
+                content: 'I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.',
+                components: [component]
+              })
             }
-            const dataProfile = await this.generateProfile(data.type, data)
-            messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
-            profileLoaded.set(profileSelected, dataProfile)
-            await msgInteraction.edit(messageData, dataProfile.image)
           })
+
         }
         switch (interaction.data.values[0]) {
           case 'modern': {
@@ -327,7 +338,7 @@ module.exports = class ShopProfileCommand extends Command {
     })
       .catch((err) => {
         console.log(err)
-        return { description: `There was a problem communicating with the API` }
+        throw Error('There was a problem communicating with the API')
       })
 
   }
