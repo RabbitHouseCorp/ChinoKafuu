@@ -13,7 +13,7 @@ module.exports = class AnimuNowPlayingCommand extends Command {
   }
 
   async run(ctx) {
-    const res = await axios.get('https://cast.animu.com.br:9000/api/v2/history/?format=json&limit=1&offset=0&server=1')
+    const res = await axios.get(process.env.ANIMU_API_URI)
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
     if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
     const volume = ctx.client.player.get(ctx.message.guild.id).player.state.volume
