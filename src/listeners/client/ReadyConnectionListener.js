@@ -31,11 +31,13 @@ module.exports = class ReadyConnectionListener extends Listener {
       { name: 'Gochuumon wa Usagi Desu Ka?', type: 3 },
       { name: 'Gochuumon wa Usagi Desu ka??: Sing for You', type: 3 },
       { name: 'Gochuumon wa Usagi Desu Ka? BLOOM', type: 3 },
-      { name: 'Okaeri to Rabbit House Coffee.', type: 0 },
-      { name: '🐦 Follow me in twitter: @ChinoKafuuBot', type: 0 },
+      { name: 'Okaeri to Rabbit House Coffee.', type: 1, url: 'https://twitch.tv/danielagc' },
+      { name: '🐦 Follow me in twitter: @ChinoKafuuBot', type: 1, url: 'https://twitch.tv/danielagc' },
       { name: 'If you need support, use /help', type: 1, url: 'https://twitch.tv/danielagc' },
       { name: 'Drink a tea on Fleur de Lapin', type: 1, url: 'https://twitch.tv/danielagc' },
-      { name: 'Lapin The Phantom Thief', type: 3 }
+      { name: 'Lapin The Phantom Thief', type: 3 },
+      { name: 'Miracle Girls Festival', type: 0 },
+      { name: 'Chimame Chronicle', type: 0 }
     ]
     if (!this.send) {
       /**
@@ -44,16 +46,24 @@ module.exports = class ReadyConnectionListener extends Listener {
       this.send = true
       const update = () => {
         setTimeout(() => {
-          const status = Math.floor(Math.random() * game.length)
-          client.editStatus('dnd', game[status])
+          const status = game[Math.round(Math.random() * game.length)]
+          if (status?.type === 0) {
+            client.editStatus('idle', status)
+          } else {
+            client.editStatus('online', status)
+          }
         }, 7 * 1000)
       }
       update()
     }
 
     setInterval(() => {
-      const status = Math.floor(Math.random() * game.length)
-      client.editStatus('dnd', game[status])
+      const status = game[Math.round(Math.random() * game.length)]
+      if (status?.type === 0) {
+        client.editStatus('idle', status)
+      } else {
+        client.editStatus('online', status)
+      }
     }, 20 * 1000) // Add 20 seconds to avoid over-updating.
     if (process.env.CLUSTERS === 'true') {
       Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
