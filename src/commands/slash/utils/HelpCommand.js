@@ -46,7 +46,7 @@ module.exports = class HelpCommand extends Command {
 
     if (!ctx.args.get('command')?.value) return ctx.send(embed.build())
     if (!command.findByName(ctx.args.get('command').value?.toLowerCase())) return ctx.send(embed.build())
-    const helper = new Helper(ctx, command.findByName(ctx.args.get('command').value.toLowerCase()).name, command.findByName(ctx.args.get('command').value?.toLowerCase()).aliases, ctx._locale(`commands:${command.findByName(ctx.args.get('command').value?.toLowerCase()).name}.usage`), ctx._locale(`commands:${command.findByName(ctx.args.get('command').value?.toLowerCase()).name}.description`), command.findByName(ctx.args.get('command').value?.toLowerCase()).permissions)
+    const helper = new Helper(ctx, command.findByName(ctx.args.get('command').value.toLowerCase()).name, command.findByName(ctx.args.get('command').value?.toLowerCase()).aliases, ctx._locale(`commands:${command.findByName(ctx.args.get('command').value?.toLowerCase()).name}.usage`), ctx._locale(`commands:${command.findByName(ctx.args.get('command').value?.toLowerCase()).name}.description`), command.findByName(ctx.args.get('command').value?.toLowerCase()).permissions, true)
     return helper.help()
   }
 }
