@@ -33,7 +33,7 @@ module.exports = class ReadyConnectionListener extends Listener {
       { name: 'Gochuumon wa Usagi Desu Ka? BLOOM', type: 3 },
       { name: 'Okaeri to Rabbit House Coffee.', type: 0 },
       { name: '🐦 Follow me in twitter: @ChinoKafuuBot', type: 0 },
-      { name: `If you need support, use ${process.env.BOT_PREFIX}help`, type: 1, url: 'https://twitch.tv/danielagc' },
+      { name: 'If you need support, use /help', type: 1, url: 'https://twitch.tv/danielagc' },
       { name: 'Drink a tea on Fleur de Lapin', type: 1, url: 'https://twitch.tv/danielagc' },
       { name: 'Lapin The Phantom Thief', type: 3 }
     ]
