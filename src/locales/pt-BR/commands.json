@@ -119,7 +119,7 @@
     "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
     "additionalLinks": {
       "embedTitle": "Links Adicionais",
-      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
@@ -336,12 +336,12 @@
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
-    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
+    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
     "title": "Informação do bot",
-    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
+    "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands). Have fun, and see you later.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
