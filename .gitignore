@@ -1,3 +1,5 @@
+revolt/build/
+build/
 node_modules/
 config.json
 src/lavalink/LavalinkConfig.json
