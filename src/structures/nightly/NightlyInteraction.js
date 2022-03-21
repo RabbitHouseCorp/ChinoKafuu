@@ -4,7 +4,7 @@ const InteractionPacket = require('../interactions/InteractionPacket')
 module.exports = class NightlyInteraction extends NightlyDeveloper {
   constructor(message, options) {
     super()
-    this.options = options == undefined ? options : {};
+    this.options = options === undefined ? options : {};
     this.timeoutRun = null
     if (this.options.time !== undefined) {
       this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)

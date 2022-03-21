@@ -25,7 +25,7 @@ Error.prototype.debug = function (details, log) {
       a.push(`Production: ${type}`)
     }
 
-    if (process.env.PRODUCTION == 'true') {
+    if (process.env.PRODUCTION === 'true') {
       if (process.platform !== undefined) {
         a.push(`Platform: ${process.platform}`)
       } else {

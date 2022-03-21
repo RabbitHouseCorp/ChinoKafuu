@@ -11,7 +11,7 @@ module.exports = class InteractionManager extends UsagiClient {
       ip: process.env.INTERACTION_URL.replace('wss://', '').replace('ws://', ''),
       secret: process.env.SECRET_INTERACTION,
       publicKey: process.env.PUBLIC_KEY,
-      port: process.env.INTERACTION_PORT.length == 0 ? null :  Number.parseInt(process.env.INTERACTION_PORT) ,
+      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null :  parseInt(process.env.INTERACTION_PORT) ,
       client: client,
       eventName: 'interactionCreate',
       lengthLatency: 3,
@@ -35,7 +35,7 @@ module.exports = class InteractionManager extends UsagiClient {
       if (Date.now() - time > 7) {
         return Logger.warning(`Decompressing (${chalk.yellowBright(Date.now() - time)}ms):  Heavy compression maybe...`)
       }
-      if (process.env.TRACER == 'true') {
+      if (process.env.TRACER === 'true') {
         Logger.debug(`Decompressing (${Date.now() - time}ms): ${data.toString('utf-8').replace(/\n/g, '')} - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
         return
       }
@@ -45,7 +45,7 @@ module.exports = class InteractionManager extends UsagiClient {
       if (Date.now() - time > 7) {
         return Logger.warning(`Decompressing (${chalk.yellowBright(Date.now() - time)}ms):  Heavy compression maybe...`)
       }
-      if (process.env.TRACER == 'true') {
+      if (process.env.TRACER === 'true') {
         Logger.debug(`Compressing (${Date.now() - time}ms): ${data.toString('utf-8').replace(/\n/g, '')} - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
         return
       }
@@ -55,10 +55,10 @@ module.exports = class InteractionManager extends UsagiClient {
       if (process.env.TRACING === 'true') {
         Logger.debug(`Interaction: ${JSON.stringify(interaction, ('', ' '))}`)
       }
-      if (interaction.type == 1) return this // Ignore
-      if (interaction.type == 200) return this; // Ping
+      if (interaction.type === 1) return this // Ignore
+      if (interaction.type === 200) return this; // Ping
 
-      if (interaction.type == 2) {
+      if (interaction.type === 2) {
         this.client.emit('slashCommand', new Interaction(interaction,
           this.client,
           this.client.guilds.get(interaction.guild_id),

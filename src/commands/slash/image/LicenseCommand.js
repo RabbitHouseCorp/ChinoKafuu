@@ -45,13 +45,13 @@ module.exports = class LicenseCommand extends Command {
     let highRole = guild.roles.get(hoist?.id)?.color.toString(16)
     if (!highRole || highRole < 0) highRole = '#000000'
 
-    if (highRole == '#000000') {
+    if (highRole === '#000000') {
       if (guild.members.get(member.id) && guild.members.get(member.id)?.roles) {
         await guild.members.get(member.id)?.roles
           .map((a) => {
             const color = ctx.message.guild.roles.get(a)?.color
             if (color > 1) {
-              if (highRole == 0) {
+              if (highRole === 0) {
                 highRole = `#${color.toString(16)}`
                 return
               }

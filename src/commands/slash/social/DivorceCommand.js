@@ -38,7 +38,7 @@ module.exports = class DivorceCommand extends Command {
       .then(message => {
         const ack = new NightlyInteraction(message)
         ack.on('collect', ({ packet }) => {
-          if ((packet.d.member.user.id == author.id && message.author.id === ctx.client.user.id)) {
+          if ((packet.d.member.user.id === author.id && message.author.id === ctx.client.user.id)) {
             return ack.sendAck('respond', {
               content: `You need to wait for the person to sign the paperwork to run this command.`,
               flags: 1 << 6

@@ -8,12 +8,12 @@ String.prototype.searchJSON = function () {
 }
 
 String.prototype.buffer = function (out) {
-  if (out == undefined) return Buffer.from(this, out)
+  if (out === undefined) return Buffer.from(this, out)
   return Buffer.from(this)
 }
 
 String.prototype.byteLength = function (out) {
-  if (out == undefined) return Buffer.from(this, out).byteLength
+  if (out === undefined) return Buffer.from(this, out).byteLength
   return Buffer.from(this).byteLength
 }
 

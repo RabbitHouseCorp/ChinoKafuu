@@ -177,7 +177,7 @@ module.exports = class ShopProfileCommand extends Command {
                 return;
               }
               const dataProfile = await this.generateProfile(data.type, data)
-              if (dataProfile == undefined) throw Error('ProfileTokamak: undefined')
+              if (dataProfile === undefined) throw Error('ProfileTokamak: undefined')
               messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
               profileLoaded.set(profileSelected, dataProfile)
               await msgInteraction.edit(messageData, dataProfile.image)

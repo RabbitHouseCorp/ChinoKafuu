@@ -21,7 +21,7 @@ module.exports = class ReportModConfigSubCommand extends Command {
   }
 
   run(ctx) {
-    if (ctx.args.get('status') == undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
+    if (ctx.args.get('status') === undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
     switch (ctx.args.get('status').value) {
       case Status.typeOne: {
         // Tag: NEED_CHANNEL
