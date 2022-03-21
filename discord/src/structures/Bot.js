@@ -13,6 +13,7 @@ module.exports = class Bot extends Client {
   constructor(...data) {
     super(...data)
     this.startShard = 0
+    this.options.ws
 
     // this.cacheManager = new CacheManager(this)
     /**

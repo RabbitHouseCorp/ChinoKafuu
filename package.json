@@ -12,8 +12,6 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "author": "DanielaGC_",
-  "license": "AGPL-3.0",
   "dependencies": {
     "@clusterws/cws": "^3.0.0",
     "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
@@ -54,5 +52,9 @@
       "node",
       "json.example"
     ]
-  }
+  },
+  "author": "DanielaGC_",
+  "license": "AGPL-3.0",
+  "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git",
+  "private": false
 }
