@@ -109,7 +109,7 @@ module.exports = class ShopProfileCommand extends Command {
     }
     let messageData = {}
     ctx.send({
-      content: 'Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!',
+      content: ctx._locale('commands:shop.profile.welcomeToTheShop'),
       components: [component]
     }).then((msgInteraction) => {
       const nightly = new NightlyInteraction(msgInteraction, { time: 1 * 60000 })
@@ -136,7 +136,7 @@ module.exports = class ShopProfileCommand extends Command {
 
           component.components[0].disabled = true
           await nightly.sendAck('update', {
-            content: 'Loading profile preview please wait a while.',
+            content: ctx._locale('commands:shop.profile.loadingPreview'),
             components: [component]
           }).then(async () => {
             try {
@@ -146,14 +146,14 @@ module.exports = class ShopProfileCommand extends Command {
               for (const a of profileInfo) {
                 positionProfile++;
                 if (user.profileList.includes(a._id)) {
-                  disabledReason = '**You already have this profile**!'
+                  disabledReason = ctx._locale('commands:shop.profile.alreadyHaveThisProfile')
                   disabled = true
                   break
                 }
               }
 
               if (!(user.yens > profileInfo[positionProfile].price - 1) || user.yens <= 0) {
-                disabledReason = 'The button is disabled for this reason -> Your account\'s yen value is negative or there is not enough price to buy this profile.'
+                disabledReason = ctx._locale('commands:shop.profile.enoughYens')
                 disabled = true
               }
               const resultFinal = [
@@ -171,21 +171,31 @@ module.exports = class ShopProfileCommand extends Command {
               ]
               component.components[0].disabled = false
               if (profileLoaded.get(profileSelected) !== undefined) {
-                const dataProfile = profileLoaded.get(profileSelected)
-                messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\n**Yens**: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
-                await msgInteraction.edit(messageData, dataProfile.image)
+                const profileData = profileLoaded.get(profileSelected)
+                messageData = {
+                  content: `${disabledReason === '' ? '' : `${ctx._locale('commands:shop.buttonDisabled')} **${disabledReason}**\n**Yens**: \`${user.yens.toLocaleString()}\``}`,
+                  embeds: profileData.embeds,
+                  attachments: [],
+                  components: resultFinal
+                }
+                await msgInteraction.edit(messageData, profileData.image)
                 return;
               }
               const dataProfile = await this.generateProfile(data.type, data)
               if (dataProfile === undefined) throw Error('ProfileTokamak: undefined')
-              messageData = { content: 'Preview ready!' + `${disabledReason === '' ? '' : `\n**Warning**: ${disabledReason}\nYens: \`${user.yens.toLocaleString()}\``}`, embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+              messageData = {
+                content: `${disabledReason === '' ? '' : `${ctx._locale('commands:shop.buttonDisabled')} **${disabledReason}**\n**Yens**: \`${user.yens.toLocaleString()}\``}`,
+                embeds: dataProfile.embeds,
+                attachments: [],
+                components: resultFinal
+              }
               profileLoaded.set(profileSelected, dataProfile)
               await msgInteraction.edit(messageData, dataProfile.image)
             } catch (err) {
               Logger.error(err)
               component.components[0].disabled = false
               await msgInteraction.edit({
-                content: 'I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.',
+                content: ctx._locale('commands:shop.profile.problemFound'),
                 components: [component]
               })
             }
@@ -203,7 +213,7 @@ module.exports = class ShopProfileCommand extends Command {
             break;
           default:
             nightly.sendAck('update', {
-              content: 'This profile you selected is not available. Will be added soon. Join the RabbitHouse server to stay up to date with new profiles.',
+              content: ctx._locale('commands:shop.profile.profileUnavailable'),
               components: [component],
               embeds: [],
               attachments: []
@@ -234,7 +244,7 @@ module.exports = class ShopProfileCommand extends Command {
   async buy(interaction, nightly, ctx, msgInteraction, messageData, readyForBuy) {
     if (interaction.data.custom_id.startsWith('no')) {
       await nightly.sendAck('update', {
-        content: 'The purchase was successfully canceled!',
+        content: ctx._locale('commands:shop.profile.purchaseCancelled'),
         embeds: [],
         components: [],
         attachments: [],
@@ -245,9 +255,9 @@ module.exports = class ShopProfileCommand extends Command {
       const user = ctx.db.user
       for (const a of profileInfo) {
         if (interaction.data.custom_id.replace('yes-', '') === a._id) {
-          if ((a.flag & (user.profiles ?? 0)) === a.flag) {
+          if ((a.flag & (user.profiles ?? 0)) === a.flag || user.profileList(a._id)) {
             await nightly.sendAck('update', {
-              content: 'You already own this profile!',
+              content: ctx._locale('commands:shop.profile.alreadyHaveThisProfile'),
               embeds: [],
               components: [],
               attachments: [],
@@ -264,11 +274,12 @@ module.exports = class ShopProfileCommand extends Command {
           break
         }
       user.profiles = (user.profiles ?? 0) + profileSelected.flag
+      user.profileList.push(profileSelected._id)
       user.yens -= profileSelected.price
       if (user.yens < 0) user.yens = 0
       user.save()
       await nightly.sendAck('update', {
-        content: 'Thank you for buying! The profile is available in your inventory.',
+        content: ctx._locale('commands:shop.profile.successfullyPurchased'),
         embeds: [],
         components: [],
         attachments: [],
@@ -278,7 +289,7 @@ module.exports = class ShopProfileCommand extends Command {
     }
 
     await msgInteraction.edit({
-      content: 'Are you sure you want to buy this profile? If "Yes, I want to buy" click confirm, if not click "No"',
+      content: ctx._locale('commands:shop.profile.wantThisProfile', { 0: ctx._locale('commands:shop.yesIWant'), 1: ctx._locale('commands:shop.noIDont') }),
       embeds: [],
       attachments: [],
       components: [
@@ -288,14 +299,14 @@ module.exports = class ShopProfileCommand extends Command {
             {
               type: 2,
               style: 3,
-              label: 'Yes, I want to buy',
+              label: ctx._locale('commands:shop.yesIWant'),
               custom_id: `yes-${interaction.data.custom_id}`,
               disabled: false
             },
             {
               type: 2,
               style: 4,
-              label: 'No',
+              label: ctx._locale('commands:shop.noIDont'),
               custom_id: `no-${interaction.data.custom_id}`,
               disabled: false
             },
