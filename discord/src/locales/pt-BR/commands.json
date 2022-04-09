@@ -136,7 +136,7 @@
     "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
     "additionalLinks": {
       "embedTitle": "Links Adicionais",
-      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
