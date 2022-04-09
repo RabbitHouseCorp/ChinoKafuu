@@ -1,4 +1,21 @@
 {
+  "shop": {
+    "background": {},
+    "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
+    "noIDont": "Não, eu não quero este perfil",
+    "profile": {
+      "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
+      "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
+      "loadingPreview": "Carregando a pré-visualização, por favor, aguarde um momento.",
+      "problemFound": "Eu detectei um problema ao executar a visualização de perfil. Você quer tentar novamente?\nSe o problema persistir, você pode reportar este bug para o meu suporte.",
+      "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
+      "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
+      "successfullyPurchased": "Obrigada por comprar! O perfil está disponível no seu inventário.",
+      "youWantThisProfile": "Tem certeza de que deseja comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não clicar em `{{1}}`",
+      "welcomeToTheShop": "Oi! Bem-vindo à loja de perfil decorativo. Você pode selecionar um desses perfis para ver o perfil. Lembre que se alguns não aparecer o botão verde para comprá-lo significa que você já comprou o perfil na sua conta!"
+    },
+    "yesIWant": "Sim, eu quero este perfil"
+  },
   "report": {
     "usage": "<usuário> <motivo> -p <prova|anexo>",
     "description": "Denuncia um usuário neste servidor se o módulo estiver ativado.",
@@ -119,7 +136,7 @@
     "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
     "additionalLinks": {
       "embedTitle": "Links Adicionais",
-      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[Meu convite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [Meu servidor](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
@@ -290,18 +307,18 @@
       "DISCOVERABLE": "Descobrível",
       "FEATURABLE": "Recursos",
       "ANIMATED_ICON": "Ícone Animado",
-      "BANNER": "Faixa",
+      "BANNER": "Plano de fundo",
       "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas ativada",
       "PREVIEW_ENABLED": "Pré-visualização",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
       "ENABLED_DISCOVERABLE_BEFORE": "Descobrimento Anteriormente Ativado",
       "SEVEN_DAY_THREAD_ARCHIVE": "Sete Dias Para Arquivar Threads",
-      "PRIVATE_THREADS": "Threads Privadas",
-      "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Threads",
-      "THREADS_ENABLED": "Threads Ativadas",
+      "PRIVATE_THREADS": "Tópicos Privados",
+      "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Tópicos",
+      "THREADS_ENABLED": "Tópicos Ativos",
       "ROLE_ICONS": "Ícones de Cargo",
-      "CHANNEL_BANNER": "Faixa do Canal",
-      "ANIMATED_BANNER": "Faixa Animada",
+      "CHANNEL_BANNER": "Banner do Canal",
+      "ANIMATED_BANNER": "Banner Animado",
       "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
       "MEMBER_PROFILES": "Perfil de Membros"
     },
@@ -312,14 +329,14 @@
     }
   },
   "servericon": {
-    "missingIcon": "este servidor não possui um ícone!",
+    "missingIcon": "este servidor não possui um ícone",
     "download": "Baixe o ícone clicando [aqui]({{0}})",
     "description": "Mostra o ícone do servidor."
   },
   "serverbanner": {
-    "missingFeature": "este servidor não possui o recurso de `faixa`.",
-    "missingBanner": "este servidor não possui uma faixa.",
-    "download": "Baixe a faixa clicando [aqui]({{0}})",
+    "missingFeature": "este servidor não possui o recurso de `plano de fundo`.",
+    "missingBanner": "este servidor não possui um banner.",
+    "download": "Baixe o banner clicando [aqui]({{0}})",
     "description": "Mostra a faixa do servidor (se disponível)."
   },
   "money": {
@@ -336,12 +353,12 @@
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
-    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
+    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
     "title": "Informação do bot",
-    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
+    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",

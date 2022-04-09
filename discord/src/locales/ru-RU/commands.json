@@ -1,4 +1,21 @@
 {
+  "shop": {
+    "background": {},
+    "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
+    "noIDont": "No, I don't want this profile",
+    "profile": {
+      "alreadyHaveThisProfile": "It seens you already have this profile.",
+      "enoughYens": "It seens you don't have enough yens to buy this profile.",
+      "loadingPreview": "Loading the preview, please wait for a moment.",
+      "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
+      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
+      "purchaseCancelled": "Right! Purchase successfully cancelled!",
+      "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
+      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
+      "welcomeToTheShop": "Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
+    },
+    "yesIWant": "Yes, I want this profile"
+  },
   "report": {
     "usage": "<user> <reason> -p <proof|attachment>",
     "description": "Reports a user on this server if the module is enable.",
