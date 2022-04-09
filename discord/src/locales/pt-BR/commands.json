@@ -307,18 +307,18 @@
       "DISCOVERABLE": "Descobrível",
       "FEATURABLE": "Recursos",
       "ANIMATED_ICON": "Ícone Animado",
-      "BANNER": "Faixa",
+      "BANNER": "Plano de fundo",
       "WELCOME_SCREEN_ENABLED": "Tela de Boas-Vindas ativada",
       "PREVIEW_ENABLED": "Pré-visualização",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Portão de Verificação",
       "ENABLED_DISCOVERABLE_BEFORE": "Descobrimento Anteriormente Ativado",
       "SEVEN_DAY_THREAD_ARCHIVE": "Sete Dias Para Arquivar Threads",
-      "PRIVATE_THREADS": "Threads Privadas",
-      "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Threads",
-      "THREADS_ENABLED": "Threads Ativadas",
+      "PRIVATE_THREADS": "Tópicos Privados",
+      "THREE_DAY_THREAD_ARCHIVE": "Três Dias Para Arquivar Tópicos",
+      "THREADS_ENABLED": "Tópicos Ativos",
       "ROLE_ICONS": "Ícones de Cargo",
-      "CHANNEL_BANNER": "Faixa do Canal",
-      "ANIMATED_BANNER": "Faixa Animada",
+      "CHANNEL_BANNER": "Banner do Canal",
+      "ANIMATED_BANNER": "Banner Animado",
       "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
       "MEMBER_PROFILES": "Perfil de Membros"
     },
@@ -329,14 +329,14 @@
     }
   },
   "servericon": {
-    "missingIcon": "este servidor não possui um ícone!",
+    "missingIcon": "este servidor não possui um ícone",
     "download": "Baixe o ícone clicando [aqui]({{0}})",
     "description": "Mostra o ícone do servidor."
   },
   "serverbanner": {
-    "missingFeature": "este servidor não possui o recurso de `faixa`.",
-    "missingBanner": "este servidor não possui uma faixa.",
-    "download": "Baixe a faixa clicando [aqui]({{0}})",
+    "missingFeature": "este servidor não possui o recurso de `plano de fundo`.",
+    "missingBanner": "este servidor não possui um banner.",
+    "download": "Baixe o banner clicando [aqui]({{0}})",
     "description": "Mostra a faixa do servidor (se disponível)."
   },
   "money": {
@@ -353,12 +353,12 @@
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
-    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
+    "canAddMe": "Você pode me convidar para o seu servidor do Discord clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nNão esqueça de votar em mim clicando [aqui](https://top.gg/bot/481282441294905344/vote)\n\nPrecisa de ajuda? Entre no meu servidor de suporte clicando [aqui](https://discord.gg/Jr57UrsXeC). Obrigada, e te vejo depois.",
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
     "title": "Informação do bot",
-    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Divirta-se e te vejo mais tarde.",
+    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
