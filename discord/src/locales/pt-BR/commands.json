@@ -6,10 +6,10 @@
     "profile": {
       "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
       "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
-      "loadingPreview": "Loading the preview, please wait for a moment.",
-      "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
-      "purchaseCancelled": "Right! Purchase successfully cancelled!",
+      "loadingPreview": "Carregando a pré-visualização, por favor, aguarde um momento.",
+      "problemFound": "Eu detectei um problema ao executar a visualização de perfil. Você quer tentar novamente?\nSe o problema persistir, você pode reportar este bug para o meu suporte.",
+      "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
+      "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
       "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
       "youWantThisProfile": "Are you sure you want to buy this profile? If {{0}} click confirm, if not click {{1}}",
       "welcomeToTheShop": "Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
