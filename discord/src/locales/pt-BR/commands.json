@@ -1,11 +1,11 @@
 {
   "shop": {
     "background": {},
-    "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
-    "noIDont": "No, I don't want this profile",
+    "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
+    "noIDont": "Não, eu não quero este perfil",
     "profile": {
-      "alreadyHaveThisProfile": "It seens you already have this profile.",
-      "enoughYens": "It seens you don't have enough yens to buy this profile.",
+      "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
+      "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
       "loadingPreview": "Loading the preview, please wait for a moment.",
       "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
       "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
