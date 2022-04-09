@@ -11,10 +11,10 @@
       "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
       "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
       "successfullyPurchased": "Obrigada por comprar! O perfil está disponível no seu inventário.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
-      "welcomeToTheShop": "Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
+      "youWantThisProfile": "Tem certeza de que deseja comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não clicar em `{{1}}`",
+      "welcomeToTheShop": "Oi! Bem-vindo à loja de perfil decorativo. Você pode selecionar um desses perfis para ver o perfil. Lembre que se alguns não aparecer o botão verde para comprá-lo significa que você já comprou o perfil na sua conta!"
     },
-    "yesIWant": "Yes, I want this profile"
+    "yesIWant": "Sim, eu quero este perfil"
   },
   "report": {
     "usage": "<usuário> <motivo> -p <prova|anexo>",
