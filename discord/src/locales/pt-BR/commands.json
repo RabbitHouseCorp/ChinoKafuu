@@ -309,12 +309,6 @@
     "download": "Baixe o banner clicando [aqui]({{0}})",
     "description": "Mostra a faixa do servidor (se disponível)."
   },
-  "money": {
-    "invalidValue": "por favor, me diga um valor válido.",
-    "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
-    "invalidArgs": "a moeda `{{arg}}` é inválida.\n**Moedas Suportadas:** `{{supported}}`",
-    "description": "Converte o valor de uma moeda para outra moeda."
-  },
   "vote": {
     "title": "Vote on me",
     "embedVoted": "Thank you so much. You can vote on me using the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
@@ -431,7 +425,7 @@
     "description": "Mostra algumas informações sobre um mangá."
   },
   "pay": {
-    "description": "Sends money to an user",
+    "description": "Allows you to send yens to another user.",
     "userMismatch": "você não pode fazer uma transferência para você mesmo!",
     "valueMismatch": "você inseriu um valor inválido",
     "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
