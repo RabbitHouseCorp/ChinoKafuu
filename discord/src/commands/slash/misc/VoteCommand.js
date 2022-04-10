@@ -6,7 +6,6 @@ module.exports = class VoteCommand extends Command {
     super({
       name: 'vote',
       aliases: ['votar'],
-      arguments: 0,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

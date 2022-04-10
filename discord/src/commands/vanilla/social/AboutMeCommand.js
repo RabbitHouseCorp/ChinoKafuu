@@ -4,9 +4,7 @@ module.exports = class AboutMeCommand extends Command {
   constructor() {
     super({
       name: 'aboutme',
-      aliases: ['bio', 'sobremim'],
-      arguments: 1,
-      hasUsage: true,
+      aliases: ['bio', 'sobremim']
     })
   }
 

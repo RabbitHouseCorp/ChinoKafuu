@@ -6,8 +6,6 @@ module.exports = class PayCommand extends Command {
     super({
       name: 'pay',
       aliases: ['pagar', 'doar'],
-      arguments: 2,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']

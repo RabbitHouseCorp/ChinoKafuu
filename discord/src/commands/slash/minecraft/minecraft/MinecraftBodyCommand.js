@@ -5,8 +5,6 @@ module.exports = class MinecraftBodyCommand extends Command {
     super({
       name: 'minecraft body',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

@@ -5,8 +5,6 @@ module.exports = class McSkinCommand extends Command {
     super({
       name: 'mcskin',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

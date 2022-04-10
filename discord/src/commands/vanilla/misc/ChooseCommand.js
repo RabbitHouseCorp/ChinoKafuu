@@ -4,9 +4,7 @@ module.exports = class ChooseCommand extends Command {
   constructor() {
     super({
       name: 'choose',
-      aliases: ['escolher'],
-      arguments: 1,
-      hasUsage: true
+      aliases: ['escolher']
     })
   }
 

@@ -4,9 +4,7 @@ module.exports = class RemoveRoleCommand extends Command {
   constructor() {
     super({
       name: 'removerole',
-      arguments: 2,
       aliases: ['removercargo'],
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageRoles']

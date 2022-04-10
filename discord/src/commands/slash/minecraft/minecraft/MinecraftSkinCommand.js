@@ -5,8 +5,6 @@ module.exports = class MinecraftSkinCommand extends Command {
     super({
       name: 'minecraft skin',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

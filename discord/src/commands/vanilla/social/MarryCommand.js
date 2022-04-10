@@ -5,8 +5,6 @@ module.exports = class MarryCommand extends Command {
     super({
       name: 'marry',
       aliases: ['casar'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']

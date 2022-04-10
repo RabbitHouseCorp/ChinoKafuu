@@ -6,8 +6,6 @@ module.exports = class RoleInfoCommand extends Command {
     super({
       name: 'roleinfo',
       aliases: ['cargoinfo'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [],
       slash: new CommandBase()
         .setName('roleinfo')

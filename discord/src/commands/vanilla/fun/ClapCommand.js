@@ -5,7 +5,6 @@ module.exports = class ClapCommand extends Command {
     super({
       name: 'clap',
       aliases: ['palmas'],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['useExternalEmojis']

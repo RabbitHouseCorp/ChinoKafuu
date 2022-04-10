@@ -6,8 +6,6 @@ module.exports = class ChooseCommand extends Command {
     super({
       name: 'choose',
       aliases: ['escolher'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('choose')
         .setDescription('Makes the bot choose something')

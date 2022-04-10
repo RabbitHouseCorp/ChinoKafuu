@@ -6,8 +6,6 @@ module.exports = class EmojiCommand extends Command {
     super({
       name: 'emoji',
       aliases: [],
-      hasUsage: true,
-      arguments: 1,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']

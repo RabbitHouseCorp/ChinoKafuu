@@ -5,12 +5,10 @@ module.exports = class RenameChannelCommand extends Command {
     super({
       name: 'renamechannel',
       aliases: ['renomearcanal'],
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageChannels']
-      }],
-      arguments: 1
+      }]
     })
   }
 

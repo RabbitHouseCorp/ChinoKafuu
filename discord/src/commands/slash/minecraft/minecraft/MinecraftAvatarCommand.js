@@ -5,8 +5,6 @@ module.exports = class MinecraftAvatarCommand extends Command {
     super({
       name: 'minecraft avatar',
       aliases: [],
-      arguments: 1,
-      hasUsage: false,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

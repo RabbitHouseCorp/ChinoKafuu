@@ -14,7 +14,6 @@ module.exports = class UnbanCommand extends Command {
         entity: 'user',
         permissions: ['banMembers']
       }],
-      arguments: 1,
       slash: new CommandBase()
         .setName('unban')
         .setDescription('Unbans a user if they\'re banned.')

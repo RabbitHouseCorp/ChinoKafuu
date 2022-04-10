@@ -9,7 +9,6 @@ module.exports = class MangaCommand extends Command {
     super({
       name: 'manga',
       aliases: [],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

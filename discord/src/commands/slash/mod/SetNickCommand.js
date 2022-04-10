@@ -6,7 +6,6 @@ module.exports = class SetNickCommand extends Command {
     super({
       name: 'setnick',
       aliases: ['changenick', 'updatenick', 'alterarnickname', 'setnickname'],
-      arguments: 1,
       permissions: [{
         entity: 'both',
         permissions: ['manageNicknames']

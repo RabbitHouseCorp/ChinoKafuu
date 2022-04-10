@@ -8,7 +8,6 @@ module.exports = class DanceCommand extends Command {
     super({
       name: 'dance',
       aliases: ['dançar', 'danca'],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

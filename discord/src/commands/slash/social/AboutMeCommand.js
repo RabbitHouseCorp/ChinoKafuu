@@ -6,8 +6,6 @@ module.exports = class AboutMeCommand extends Command {
     super({
       name: 'aboutme',
       aliases: ['bio', 'sobremim'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('aboutme')
         .setDescription('Change about me in profile by using /profile.')

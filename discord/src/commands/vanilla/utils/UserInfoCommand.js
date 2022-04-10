@@ -5,12 +5,10 @@ module.exports = class UserInfoCommand extends Command {
     super({
       name: 'userinfo',
       aliases: [],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
-      }],
-
+      }]
     })
   }
 

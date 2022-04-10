@@ -5,9 +5,7 @@ module.exports = class AddRoleCommand extends Command {
   constructor() {
     super({
       name: 'addrole',
-      arguments: 2,
       aliases: ['adicionarcargo'],
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageRoles']

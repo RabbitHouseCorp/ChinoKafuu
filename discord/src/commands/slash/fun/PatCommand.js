@@ -8,8 +8,6 @@ module.exports = class PatCommand extends Command {
     super({
       name: 'pat',
       aliases: ['cafune', 'cafuné'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

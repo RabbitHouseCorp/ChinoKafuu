@@ -4,9 +4,7 @@ module.exports = class RepCommand extends Command {
   constructor() {
     super({
       name: 'rep',
-      aliases: ['reputation', 'reputação', 'reputacao'],
-      arguments: 1,
-      hasUsage: true
+      aliases: ['reputation', 'reputação', 'reputacao']
     })
   }
 

@@ -7,7 +7,6 @@ module.exports = class AnimuCommand extends Command {
     super({
       name: 'animu',
       aliases: ['moeanimu'],
-      arguments: 0,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

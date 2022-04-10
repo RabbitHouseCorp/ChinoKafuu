@@ -6,8 +6,6 @@ module.exports = class ClearCommand extends Command {
     super({
       name: 'clear',
       aliases: ['limpar'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageMessages', 'readMessageHistory', 'viewChannel']

@@ -186,7 +186,7 @@ module.exports = class CommandRunner {
 
     if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
       const aliases = command.aliases
-      const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.usage`), ctx._locale(`commands:${command.name}.description`), command.permissions)
+      const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.description`), command.permissions)
       return helper.help()
     }
 

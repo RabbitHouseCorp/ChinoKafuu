@@ -6,8 +6,6 @@ module.exports = class LaranjoCommand extends Command {
   constructor() {
     super({
       name: 'laranjo',
-      hasUsage: true,
-      arguments: 1,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']

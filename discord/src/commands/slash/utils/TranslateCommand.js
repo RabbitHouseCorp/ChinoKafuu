@@ -7,8 +7,6 @@ module.exports = class TranslateCommand extends Command {
     super({
       name: 'translate',
       aliases: ['traduzir'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('translate')
         .setDescription('Translate a text without having to use online translator services.')

@@ -6,7 +6,6 @@ module.exports = class HelpCommand extends Command {
     super({
       name: 'help',
       aliases: ['ajuda', 'comandos', 'commands'],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
@@ -36,7 +35,7 @@ module.exports = class HelpCommand extends Command {
 
     if (!ctx.args[0]) return ctx.send(embed.build())
     if (!command.findByName(ctx.args[0]?.toLowerCase())) return ctx.send(embed.build())
-    const helper = new Helper(ctx, command.findByName(ctx.args[0]?.toLowerCase()).name, command.findByName(ctx.args[0]?.toLowerCase()).aliases, ctx._locale(`commands:${command.findByName(ctx.args[0]?.toLowerCase()).name}.usage`), ctx._locale(`commands:${command.findByName(ctx.args[0]?.toLowerCase()).name}.description`), command.findByName(ctx.args[0]?.toLowerCase()).permissions)
+    const helper = new Helper(ctx, command.findByName(ctx.args[0]?.toLowerCase()).name, command.findByName(ctx.args[0]?.toLowerCase()).aliases, ctx._locale(`commands:${command.findByName(ctx.args[0]?.toLowerCase()).name}.description`), command.findByName(ctx.args[0]?.toLowerCase()).permissions)
     return helper.help()
   }
 }

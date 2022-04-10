@@ -6,8 +6,6 @@ module.exports = class ReportCommand extends Command {
     super({
       name: 'report',
       aliases: ['reportar'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

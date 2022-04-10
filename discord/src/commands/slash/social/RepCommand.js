@@ -6,8 +6,6 @@ module.exports = class RepCommand extends Command {
     super({
       name: 'rep',
       aliases: ['reputation', 'reputação', 'reputacao'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('rep')
         .setDescription('Gives a reputation to someone.')

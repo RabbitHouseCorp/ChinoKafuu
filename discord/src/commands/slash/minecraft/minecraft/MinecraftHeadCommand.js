@@ -5,8 +5,6 @@ module.exports = class MinecraftHeadCommand extends Command {
     super({
       name: 'minecraft head',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

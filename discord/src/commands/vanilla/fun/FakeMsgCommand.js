@@ -5,8 +5,6 @@ module.exports = class FakeMsgCommand extends Command {
     super({
       name: 'fakemsg',
       aliases: [],
-      arguments: 2,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['manageChannels','manageWebhooks']

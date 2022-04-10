@@ -5,8 +5,6 @@ module.exports = class UnmuteCommand extends Command {
     super({
       name: 'unmute',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['moderateMembers']

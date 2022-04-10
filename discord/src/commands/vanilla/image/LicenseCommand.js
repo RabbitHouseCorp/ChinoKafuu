@@ -6,7 +6,6 @@ module.exports = class LicenseCommand extends Command {
     super({
       name: 'license',
       aliases: ['licence', 'licenca', 'licença'],
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']

@@ -6,8 +6,6 @@ module.exports = class MinecraftQueryCommand extends Command {
     super({
       name: 'minecraft query',
       aliases: ['mcpesquisa', 'mcstatus'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

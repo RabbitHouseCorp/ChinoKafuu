@@ -1,11 +1,10 @@
 const EmbedBuilder = require('../../structures/util/EmbedBuilder')
 
 module.exports = class Helper {
-  constructor (context, commandName, commandAliases, commandUsage, commandDescription, perms, slash = false) {
+  constructor (context, commandName, commandAliases, commandDescription, perms, slash = false) {
     this.context = context
     this.name = commandName
     this.aliases = commandAliases
-    this.usage = commandUsage
     this.description = commandDescription
     this.perms = perms
     this.slash = slash
@@ -13,9 +12,8 @@ module.exports = class Helper {
 
   help () {
     const command = this.context.client.commandRegistry.findByName(this.name) ?? this.context.client.slashCommandRegistry.findByName(this.name)
-    const usage = this.usage.split(' ')
     const commandName = `${this.slash ? '/' : this.context.db.guild.prefix}${this.name}`
-    const commandWithUsage = `\`${commandName}\` ${command.hasUsage ? usage.map(element => `\`${element}\``).join(' ') : ''}`
+    const commandWithUsage = `\`${commandName}\``
     const embedDescription = `\n\n**${this.context._locale('basic:howToUse')}** ${commandWithUsage}`
     const aliases = this.aliases.map(alias => `\`${this.slash ? '/' : this.context.db.guild.prefix}${alias}\``).join(', ') || this.context._locale('basic:noAliases')
     const fixedPermissionList = this.perms.flatMap(object => object.entity === 'both' ? [{

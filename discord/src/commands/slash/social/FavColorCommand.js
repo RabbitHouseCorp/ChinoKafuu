@@ -6,8 +6,6 @@ module.exports = class FavColorCommand extends Command {
     super({
       name: 'favcolor',
       aliases: ['favoritecolor', 'corfavorita'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('favcolor')
         .setDescription('Changes your profile color to your favorite color.')

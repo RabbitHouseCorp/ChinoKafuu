@@ -6,7 +6,6 @@ module.exports = class MinecraftCommand extends Command {
     super({
       name: 'minecraft-base',
       aliases: [],
-      arguments: 1,
       hasUsage: false,
       permissions: [{
         entity: 'bot',

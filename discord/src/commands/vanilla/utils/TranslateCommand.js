@@ -5,9 +5,7 @@ module.exports = class TranslateCommand extends Command {
   constructor() {
     super({
       name: 'translate',
-      aliases: ['traduzir'],
-      arguments: 1,
-      hasUsage: true
+      aliases: ['traduzir']
     })
   }
 

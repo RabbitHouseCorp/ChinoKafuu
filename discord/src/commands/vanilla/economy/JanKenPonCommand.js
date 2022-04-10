@@ -5,8 +5,6 @@ module.exports = class JanKenPonCommand extends Command {
     super({
       name: 'jankenpon',
       aliases: ['ppt', 'pedrapapeltesoura', 'rps', 'janken'],
-      arguments: 1,
-      hasUsage: true
     })
   }
 

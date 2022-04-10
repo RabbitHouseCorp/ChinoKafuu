@@ -7,8 +7,6 @@ module.exports = class SlapCommand extends Command {
     super({
       name: 'slap',
       aliases: ['tapa'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

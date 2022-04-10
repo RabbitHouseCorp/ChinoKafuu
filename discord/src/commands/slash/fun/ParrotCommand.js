@@ -5,8 +5,6 @@ module.exports = class ParrotCommand extends Command {
   constructor() {
     super({
       name: 'congaparrot',
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['useExternalEmojis']

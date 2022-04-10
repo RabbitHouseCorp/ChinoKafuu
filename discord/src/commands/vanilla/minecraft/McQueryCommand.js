@@ -6,8 +6,6 @@ module.exports = class McQueryCommand extends Command {
     super({
       name: 'mcquery',
       aliases: ['mcpesquisa', 'mcstatus'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

@@ -7,8 +7,6 @@ module.exports = class JanKenPonCommand extends Command {
     super({
       name: 'jankenpon',
       aliases: ['ppt', 'pedrapapeltesoura', 'rps', 'janken'],
-      arguments: 1,
-      hasUsage: true,
       slash: new CommandBase()
         .setName('jankenpon')
         .setDescription('Plays jankenpon and win or lose yens')

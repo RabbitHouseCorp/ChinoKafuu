@@ -4,8 +4,7 @@ module.exports = class AfkCommand extends Command {
   constructor() {
     super({
       name: 'afk',
-      aliases: ['awayfromthekeyboard'],
-      hasUsage: true
+      aliases: ['awayfromthekeyboard']
     })
   }
 

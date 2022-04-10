@@ -5,9 +5,7 @@ module.exports = class KickCommand extends Command {
   constructor() {
     super({
       name: 'kick',
-      arguments: 1,
       aliases: ['expulsar'],
-      hasUsage: true,
       permissions: [{
         entity: 'user',
         permissions: ['kickMembers']

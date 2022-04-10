@@ -7,7 +7,6 @@ module.exports = class ChannelInfoCommand extends Command {
     super({
       name: 'channelinfo',
       aliases: ['chatinfo'],
-      hasUsage: true,
       permissions: [{
         permissions: ['embedLinks']
       }],

@@ -7,8 +7,6 @@ module.exports = class RizeCommand extends Command {
     super({
       name: 'rize',
       aliases: ['rizesign'],
-      hasUsage: true,
-      arguments: 1,
       permissions: [{
         entity: 'bot',
         permissions: ['attachFiles']

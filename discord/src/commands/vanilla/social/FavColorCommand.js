@@ -4,9 +4,7 @@ module.exports = class FavColorCommand extends Command {
   constructor() {
     super({
       name: 'favcolor',
-      aliases: ['favoritecolor', 'corfavorita'],
-      arguments: 1,
-      hasUsage: true
+      aliases: ['favoritecolor', 'corfavorita']
     })
   }
 

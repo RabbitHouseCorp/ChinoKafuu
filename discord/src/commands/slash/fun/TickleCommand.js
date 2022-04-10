@@ -8,8 +8,6 @@ module.exports = class TickleCommand extends Command {
     super({
       name: 'tickle',
       aliases: ['cocegas'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

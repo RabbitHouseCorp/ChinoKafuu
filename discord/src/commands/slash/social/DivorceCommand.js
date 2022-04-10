@@ -7,7 +7,6 @@ module.exports = class DivorceCommand extends Command {
     super({
       name: 'divorce',
       aliases: ['divorciar'],
-      arguments: 0,
       permissions: [{
         entity: 'bot',
         permissions: ['addReactions']

@@ -7,8 +7,6 @@ module.exports = class HugCommand extends Command {
     super({
       name: 'hug',
       aliases: ['abraçar', 'abracar'],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']

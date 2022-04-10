@@ -4,7 +4,6 @@ module.exports = class SoftBanCommand extends Command {
   constructor() {
     super({
       name: 'softban',
-      arguments: 1,
       permissions: [{
         entity: 'both',
         permissions: ['banMembers']

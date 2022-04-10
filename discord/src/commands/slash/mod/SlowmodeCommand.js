@@ -6,7 +6,6 @@ module.exports = class SlowmodeCommand extends Command {
     super({
       name: 'slowmode',
       aliases: ['modolento'],
-      arguments: 1,
       permissions: [{
         entity: 'both',
         permissions: ['manageChannels']

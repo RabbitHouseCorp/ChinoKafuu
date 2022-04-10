@@ -4,9 +4,7 @@ module.exports = class Command extends Module {
   constructor (options) {
     super()
     this.name = options.name
-    this.arguments = options.arguments || 0
     this.aliases = options.aliases || []
-    this.hasUsage = options.hasUsage || false
     this.permissions = options.permissions || []
     this.isBeta = options.isBeta || false
     this.cooldown = options.cooldown || 5

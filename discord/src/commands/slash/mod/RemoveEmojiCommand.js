@@ -6,12 +6,10 @@ module.exports = class RemoveEmojiCommand extends Command {
     super({
       name: 'removeemoji',
       aliases: ['removeremoji'],
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['manageEmojisAndStickers']
       }],
-      arguments: 1,
       slash: new CommandBase()
         .setName('removeemoji')
         .setDescription('Removes an emoji in the current guild.')

@@ -6,8 +6,6 @@ module.exports = class MuteCommand extends Command {
     super({
       name: 'mute',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'both',
         permissions: ['moderateMembers']

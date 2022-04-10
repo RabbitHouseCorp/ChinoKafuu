@@ -5,8 +5,6 @@ module.exports = class McAvatarCommand extends Command {
     super({
       name: 'mcavatar',
       aliases: [],
-      arguments: 1,
-      hasUsage: true,
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
