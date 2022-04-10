@@ -4,8 +4,8 @@
     "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
     "noIDont": "Não, eu não quero este perfil",
     "profile": {
-      "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
-      "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
+      "alreadyHaveThisProfile": "It seems you already have this profile.",
+      "enoughYens": "It seems you don't have enough yens to buy this profile.",
       "loadingPreview": "Carregando a pré-visualização, por favor, aguarde um momento.",
       "problemFound": "Eu detectei um problema ao executar a visualização de perfil. Você quer tentar novamente?\nSe o problema persistir, você pode reportar este bug para o meu suporte.",
       "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
@@ -17,8 +17,7 @@
     "yesIWant": "Sim, eu quero este perfil"
   },
   "report": {
-    "usage": "<usuário> <motivo> -p <prova|anexo>",
-    "description": "Denuncia um usuário neste servidor se o módulo estiver ativado.",
+    "description": "Reports an user on this server if the module is enable.",
     "moduleDisable": "este módulo está desativado neste servidor.",
     "noReason": "nenhum motivo especificado",
     "successfullySent": "denúncia enviada com sucesso.",
@@ -30,11 +29,10 @@
     }
   },
   "jankenpon": {
-    "usage": "<escolha> <valor>",
     "description": "Jogue pedra papel ou tesoura e ganhe ou perda ienes.",
     "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
     "valueNotInputed": "você não forneceu nenhum valor para apostar.",
-    "tie": "empate! Ninguém ganhou ou perdeu.",
+    "tie": "It's a draw! Nobody won and nobody lost.",
     "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` ienes.",
     "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` ienes de você, queridinho(a)",
     "choice": {
@@ -54,17 +52,14 @@
     "confirm": "Se sim, clique [aqui](https://top.gg/bot/481282441294905344/vote) para votar em mim. Quando tiver votado, execute este comando novamente."
   },
   "laranjo": {
-    "usage": "<texto>",
-    "description": "Laranjo irá dizer algo bobo."
+    "description": "Make Laranjo say something silly."
   },
   "rize": {
-    "usage": "<texto>",
     "decription": "Rize vai escrever alguma coisa no papel."
   },
   "license": {
     "licensedFor": "Licenciado para",
     "beCute": "Ser fofo(a)",
-    "usage": "[usuario] [texto]",
     "description": "Está licenciado? Não? Então crie um para você mesmo! Ou para outra pessoa."
   },
   "channelinfo": {
@@ -78,18 +73,15 @@
   },
   "favcolor": {
     "description": "Altera a cor do seu perfil para a sua cor favorita.",
-    "usage": "<#cor>",
     "invalidColor": "a cor que você escolheu é invalida.",
     "poorUser": "você precisa de mais `{{0}}` ienes para alterar a sua cor favorita.",
     "successfullyChanged": "certo. Eu mudei com sucesso a sua cor favorita."
   },
   "profile": {
     "description": "Mostra o seu perfil social ou o perfil social de alguém.",
-    "usage": "[usuário]",
-    "defaultAboutMe": "\"Chino é minha amiga!\" Você pode mudar isso usando {{0}}aboutme"
+    "defaultAboutMe": "I'm on Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
   },
   "emojiinfo": {
-    "usage": "<emoji>",
     "description": "Obtem algumas informações sobre um emoji.",
     "embed": {
       "title": "Informações do emoji",
@@ -100,19 +92,14 @@
     }
   },
   "emoji": {
-    "usage": "<emoji>",
     "description": "Pega o anexo de emojis."
   },
-  "tippy": {
-    "description": "Faça o Tippy te contar uma piada"
-  },
   "fakemsg": {
-    "argsNull": "faltam argumentos.",
-    "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook.",
-    "usage": "<usuário> <texto>"
+    "argsNull": "Welp, it seems you didn't put nothing to say.",
+    "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook."
   },
   "divorce": {
-    "description": "Te divorcia do seu parceiro atual (eu cobrarei 300 ienes para se divorciar).",
+    "description": "Divorces you to your current partner (I will charge 300 yens to divorce both of you).",
     "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <usuário>` e seja feliz.",
     "youNeedToDivorce": "você precisa ter mais `{{0}}` ienes para se divorciar.",
     "theyNeedToDivorce": "seu parceiro precisa ter mais `{{0}}` ienes para se divorciar.",
@@ -131,7 +118,6 @@
     "mod": "Moderação ({{0}})",
     "social": "Social ({{0}})",
     "utils": "Utilidades ({{0}})",
-    "usage": "[comando]",
     "description": "Mostra minha lista de comandos para você.",
     "commandsLoaded": "Eu tenho {{0}} comandos públicos carregados.",
     "additionalLinks": {
@@ -140,11 +126,10 @@
     }
   },
   "rep": {
-    "cannotGiveRepForYourself": "você não pode dar reputação a si mesmo.",
-    "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
+    "cannotGiveRepForYourself": "you can't give a reputation to yourself.",
+    "forTheClient": "thank you for giving me a reputation point! Now I have `{{0}}` reputations",
     "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
-    "cooldown": "calma lá! Você não pode dar reputação agora. Você deve esperar por {{0}} antes de dar pontos de reputação novamente.",
-    "usage": "<usuário>",
+    "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "description": "Dá uma reputação a alguém."
   },
   "marry": {
@@ -153,57 +138,49 @@
     "youAlreadyMarried": "que vergonha! Você não pode se casar com outra pessoa porque já está casado.",
     "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
     "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
-    "successfullyMarried": "viva! Parabéns, agora vocês dois estão casados.",
-    "rejectedRequest": "que pena. Parece que {{0}} não deseja compartilhar sua vida com você, talvez {{0}} não seja o amor da sua vida. O oráculo do amor falha mais uma vez...",
+    "successfullyMarried": "Congratulations, now you both are married.",
+    "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
     "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
-    "cannotMarryWithMe": "me desculpe pequeno usagi. Você não pode se casar comigo. Sinto muito, mas não te amo da mesma que você me ama, eu te amo, mas como amigo.",
+    "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
     "cannotMarryWithBot": "você não pode se casar com um bot porque ele nunca o aceitará.",
-    "description": "Se case com o seu verdadeiro amor.",
-    "usage": "<usuário>"
+    "description": "Se case com o seu verdadeiro amor."
   },
   "baninfo": {
     "title": "Informação do banimento",
     "memberName": "Usuário banido",
     "reason": "Motivo",
     "unban": "Reaja com {{0}} para desbanir o usuário.",
-    "usage": "<usuário>",
-    "description": "Verifique as informações de banimento de um usuário"
+    "description": "Check the ban information about an user"
   },
   "seticon": {
     "success": "ícone alterado com sucesso.",
-    "usage": "<arquivo-ou-url>",
     "description": "Coloca um ícone no servidor atual."
   },
   "rolecolor": {
     "invalidColor": "você especificou uma cor inválida.",
     "colorChanged": "a cor do cargo foi alterada com sucesso.",
     "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu cargo mais alto. Verifique os cargos e tente novamente.",
-    "description": "Altera a cor de um cargo.",
-    "usage": "<cargo> <#cor>"
+    "description": "Altera a cor de um cargo."
   },
   "renamechannel": {
     "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que existe.",
     "invalidName": "eu não posso renomear este canal porque o nome é inválido.",
     "successfullyRenamed": "o canal `{{0}} foi renomeado com sucesso.",
-    "usage": "<canal> <nome-novo>",
     "description": "Renomeia um canal do servidor atual."
   },
   "renameemoji": {
     "successfullyRenamed": "emoji renomeado com sucesso.",
-    "usage": "<emoji> <novo-nome>",
     "description": "Renomeia um emoji no servidor atual."
   },
   "removerole": {
     "success": "cargo removido com sucesso.",
     "alreadyRemoved": "o membro não tem este cargo.",
     "higher": "eu não pude remover este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente.",
-    "usage": "<usuário> <cargo>",
     "description": "Remove um cargo de um membro do servidor."
   },
   "removeemoji": {
     "successfullyRemoved": "emoji removido com sucesso.",
     "emojiNotFound": "este emoji não é deste servidor.",
-    "usage": "<emoji>",
     "description": "Remove um emoji do servidor atual."
   },
   "announce": {
@@ -212,21 +189,18 @@
     "embedSendBy": "Anúncio enviado por: {{0}}",
     "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
     "announceSent": "anúncio enviado com sucesso.",
-    "usage": "<canal> <mensagem>",
-    "description": "Envia um anúncio no servidor atual para todos os membros (ou não)."
+    "description": "Send an announce to current server for all members (or not)."
   },
   "slowmode": {
     "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
     "rateLimitEnable": "o canal {{0}} agora está no modo lento ({{1}} segundos)",
     "rateLimited": "calma! O limite é `600` segundos",
     "minimalTimeLimited": "você não pode definir um tempo menor que 0.",
-    "usage": "<tempo>",
     "description": "Define o modo lento no canal atual."
   },
   "unban": {
     "notBanned": "este usuário não está banido, confira se você mencionou o usuário correto.",
-    "usage": "<usuário> <motivo>",
-    "description": "Desbane um usuário se estiver banido."
+    "description": "Unbans an user if they're banned."
   },
   "roleinfo": {
     "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe...",
@@ -239,12 +213,10 @@
     "roleMentionable": "Mencionável",
     "roleManaged": "Integração",
     "roleCreatedAt": "Cargo criado em",
-    "usage": "<cargo>",
     "description": "Mostra algumas informações sobre o cargo."
   },
   "userinfo": {
-    "usage": "[usuário]",
-    "description": "Mostra algumas informações sobre um usuário.",
+    "description": "Shows some information about an user.",
     "username": "Tag do Usuário",
     "userid": "ID do usuário",
     "createdAt": "Conta Criada Em",
@@ -254,8 +226,7 @@
     "hasPermissions": "Permissões"
   },
   "translate": {
-    "description": "Traduza um texto sem ter que acessar o Google Tradutor.",
-    "usage": "<código-do-idioma> <texto>"
+    "description": "Traduza um texto sem ter que acessar o Google Tradutor."
   },
   "animu": {
     "title": "Rádio Animu - A Rádio Mais Moe do Brasil!",
@@ -277,7 +248,6 @@
     "description": "Mostra informações sobre este servidor.",
     "guildID": "ID do servidor",
     "guildOwner": "Dono do servidor",
-    "guildRegion": "Região do servidor",
     "guildCreateAt": "Servidor criado",
     "guildAFKChannel": {
       "title": "Canal de ausência",
@@ -343,13 +313,12 @@
     "invalidValue": "por favor, me diga um valor válido.",
     "resultAmount": "**{{amount}} {{from}}** para **{{to}}**: **{{total}}** {{to}}",
     "invalidArgs": "a moeda `{{arg}}` é inválida.\n**Moedas Suportadas:** `{{supported}}`",
-    "usage": "<de> <para> <quantia>",
     "description": "Converte o valor de uma moeda para outra moeda."
   },
   "vote": {
-    "title": "Vote em mim",
-    "embedVoted": "Muito obrigada. Você pode votar no link para baixo abaixo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
-    "description": "Mostra como você pode votar em mim."
+    "title": "Vote on me",
+    "embedVoted": "Thank you so much. You can vote on me using the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
+    "description": "Shows how you can vote on me."
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
@@ -357,7 +326,7 @@
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
-    "title": "Informação do bot",
+    "title": "My informations",
     "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
@@ -370,45 +339,36 @@
     "description": "Mostra mais informações sobre mim."
   },
   "mcavatar": {
-    "description": "Mostra o avatar de um jogador de Minecraft.",
-    "usage": "<minecraft-nickname>"
+    "description": "Mostra o avatar de um jogador de Minecraft."
   },
   "mcbody": {
-    "description": "Mostra o corpo de um jogador de Minecraft.",
-    "usage": "<minecraft-nickname>"
+    "description": "Mostra o corpo de um jogador de Minecraft."
   },
   "mchead": {
-    "description": "Mostra a cabeça de um jogador do Minecraft.",
-    "usage": "<minecraft-nickname>"
+    "description": "Mostra a cabeça de um jogador do Minecraft."
   },
   "mcskin": {
-    "description": "Mostra a skin de um jogador de Minecraft.",
-    "usage": "<minecraft-nickname>"
+    "description": "Mostra a skin de um jogador de Minecraft."
   },
   "mcquery": {
     "description": "Mostra a informação de um servidor de Minecraft",
-    "usage": "<minecraft-server-ip>",
     "version": "Versão",
     "serverOffline": "O servidor `{{0}}` está offline nesse momento ou não existe."
   },
   "dance": {
     "danced": "{{0}} dançou com {{1}}",
-    "usage": "<usuário>",
     "description": "Dance com seu amigo."
   },
   "hug": {
     "huged": "{{0}} deu um belo abraço em {{1}}",
-    "usage": "<usuário>",
     "description": "Abrace um amigo e o faça feliz."
   },
   "pat": {
     "pated": "{{0}} fez cafuné em {{1}}",
-    "usage": "<usuário>",
     "description": "Cafuné, cafuné, me faça um cafuné, por favor. Faça um cafuné no seu amigo."
   },
   "poke": {
     "poked": "{{0}} cutucou {{1}}",
-    "usage": "<usuário>",
     "description": "Cutuque alguém no seu servidor."
   },
   "ping": {
@@ -425,25 +385,21 @@
   },
   "slap": {
     "slaped": "{{0}} deu um tapa em {{1}}",
-    "usage": "<usuário>",
     "description": "Dê um tapa em alguém do seu servidor."
   },
   "tickle": {
     "tickle": "{{0}} fez cócegas em {{1}}",
-    "usage": "<usuário>",
     "description": "Ha ha ha, isso faz cócegas. Faça cócegas em alguém no seu servidor."
   },
   "kiss": {
     "kissed": "{{author}} beijou {{member}}",
     "unable": "uh... você não pode beijar você mesmo.",
-    "usage": "<usuário>",
     "description": "Beije seu amor verdadeiro (ou não)."
   },
   "yens": {
     "yens": "você tem {{yens}} iene(s) e {{sugarcube}} sugarcube(s).",
     "onMention": "{{user}} tem {{yens}} iene(s) e {{sugarcube}} sugarcube(s).",
-    "description": "Mostra o seu saldo atual ou o saldo atual de alguém.",
-    "usage": "[usuário]"
+    "description": "Mostra o seu saldo atual ou o saldo atual de alguém."
   },
   "anime": {
     "synopsis": "Sinopse",
@@ -460,8 +416,7 @@
     "genres": "Gêneros",
     "invalidAnime": "diga o nome do anime que você deseja",
     "animeNotFound": "Eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
-    "description": "Mostra algumas informações sobre um anime.",
-    "usage": "<nome>"
+    "description": "Shows some information about an anime."
   },
   "manga": {
     "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
@@ -473,12 +428,10 @@
     "aired": "Publicado",
     "genres": "Gêneros",
     "characters": "Personagens",
-    "description": "Mostra algumas informações sobre um mangá.",
-    "usage": "<nome>"
+    "description": "Mostra algumas informações sobre um mangá."
   },
   "pay": {
-    "usage": "<usuário> <quantia>",
-    "description": "Envia dinheiro para um usuário",
+    "description": "Sends money to an user",
     "userMismatch": "você não pode fazer uma transferência para você mesmo!",
     "valueMismatch": "você inseriu um valor inválido",
     "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
@@ -488,64 +441,53 @@
   },
   "baka": {
     "baka": "{{author}} chamou {{member}} de baka",
-    "usage": "<usuário>",
-    "description": "Chama um usuário de baka"
+    "description": "Calls an user baka"
   },
   "clap": {
     "noArgs": "argumento inválido",
-    "usage": "<quantidade>",
     "description": "Vamos todos bater palmas com os seus amigos."
   },
   "congaparrot": {
-    "usage": "<quantia-repetição>",
     "description": "Envia papagaios engraçados",
     "maxAllowed": "por motivos do lado do cliente, é permitido enviar até 20 papagaios"
   },
   "feed": {
     "feed": "{{author}} alimentou {{user}}",
-    "usage": "<usuário>",
-    "description": "Alimenta um usuário"
+    "description": "Feeds one of your friends."
   },
   "addemoji": {
     "description": "Adiciona um emoji ao seu servidor",
-    "usage": "<link> <nome>",
     "added": "emoji adicionado com sucesso.",
     "error": "algo terrível aconteceu enquanto eu tentei adicionar seu emoji. Verifique a URL e também verifique se o seu formato de arquivo é png, jpg, jpeg, ou gif."
   },
   "addrole": {
     "description": "Adiciona um cargo a um membro do servidor",
-    "usage": "<usuário> <cargo>",
     "roleNotFound": "não consegui encontrar nenhum cargo que correspondesse a {{name}}",
     "success": "cargo adicionado com sucesso",
     "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
   },
   "setnick": {
-    "description": "Define o apelido de um membro",
-    "usage": "<usuário> <apelido>",
-    "success": "o apelido de **{{member}}** agora é `{{nickname}}`",
+    "description": "Sets the nickname on a member",
+    "success": "okay, the new nickname of **{{member}}** is now `{{nickname}}`.",
     "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
     "missingNickname": "você não especificou o apelido."
   },
   "chat": {
     "description": "Bloqueia o chat, atualizando as permissões `Enviar Mensagens` para o cargo `@everyone`",
-    "usage": "<on|off>",
     "locked": "canal bloqueado",
     "unlocked": "canal desbloqueado"
   },
   "clear": {
-    "usage": "<quantidade> [usuário]",
-    "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
+    "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
     "limit": "eu não consigo apagar mais de cem mensagens",
-    "success": "{{messages}} apagadas com sucesso",
-    "nan": "valor inválido. O seu argumento é um número?"
+    "success": "right, I'm deleting {{messages}} messages on this chat.",
+    "nan": "you've must insert a number, in this command, I only accept numbers."
   },
   "kick": {
-    "usage": "<usuário> [motivo]",
     "description": "Expulsa um usuário do servidor"
   },
   "ban": {
-    "usage": "<usuário> [motivo]",
-    "description": "Bane um usuário do servidor"
+    "description": "Bans an user from the server"
   },
   "language": {
     "description": "Altera o meu idioma no servidor atual.",
@@ -556,46 +498,34 @@
   },
   "prefix": {
     "success": "entendido! O novo prefixo agora é `{{prefix}}`",
-    "usage": "<prefixo>",
     "description": "Altera o prefixo do bot",
     "length": "o tamanho do prefixo está limitado a 3 caracteres"
   },
   "setbanner": {
     "description": "Define a faixa do seu servidor. Comando disponível apenas para o servidor com o recurso \"Faixa\" ativado",
-    "usage": "<anexo|URL>",
     "success": "Opa! Seu servidor agora tem uma nova faixa",
     "missingFeature": "seu servidor não possui o recurso `Faixa`, você não pode executar este comando"
   },
   "aboutme": {
     "description": "Altera a descrição do seu perfil",
-    "usage": "<biografia>",
     "success": "incrível! Sua nova biografia foi definida como: `{{bio}}`",
     "bioLimit": "sua bio pode ter até 128 caracteres"
   },
   "softban": {
-    "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado.",
-    "usage": "<usuário> [dias] [motivo]"
-  },
-  "afk": {
-    "description": "Te coloca no modo ausente.",
-    "usage": "[motivo]",
-    "success": "Agora você está AFK"
+    "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
   },
   "choose": {
-    "usage": "<args>",
-    "description": "Faça o bot escolher algo (use `,` para separar)",
+    "description": "Makes the me choose something for you (Use `,` to separate)",
     "chosen": "eu escolho `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
     "descripton": "Mostra seu avatar ou avatar de alguém.",
-    "usage": "[usuário]",
     "userAvatar": "Avatar de {{user}}",
     "download": "Clique [aqui]({{link}}) para baixar"
   },
   "config": {
     "title": "Configuração de Módulos do Servidor",
     "howUse": "Como usar",
-    "usage": "<opções> <set/disable> [canal]",
     "description": "Ativa e desativa alguns módulos que eu tenho no seu servidor.",
     "channelNull": "não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
     "chooseYourAction": "Selecione o módulo certo.",
@@ -604,8 +534,8 @@
       "enableDescription": "Ativa o módulo selecionado.",
       "disable": "Desabilitar",
       "disableDescription": "Disativa o módulo selecionado.",
-      "textChannel": "Selecione o canal de texto.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
-      "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que a Chino Kafuu não tem permissão para ver o canal! Verifique as permissões!__",
+      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
+      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
       "options": {
         "textChannel": "Selecione o canal de voz.",
         "voiceChannel": "Selecione o canal de voz."
@@ -664,11 +594,9 @@
     }
   },
   "mute": {
-    "description": "Silencia um membro do servidor.",
-    "usage": "<member> <time> [reason]"
+    "description": "Silencia um membro do servidor."
   },
   "unmute": {
-    "description": "Retira o silenciamento do membro do servidor.",
-    "usage": "<member> [reason]"
+    "description": "Retira o silenciamento do membro do servidor."
   }
 }
