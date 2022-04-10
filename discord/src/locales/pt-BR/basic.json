@@ -9,9 +9,9 @@
   "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
   "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
   "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
-  "invalidUser": "usuário não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-  "invalidRole": "cargo não encontrado. Certifique-se que você o @mencionou ou verifique o ID.",
-  "invalidEmoji": "emoji não encontrado. Tem certeza que este emoji está neste servidor?",
+  "invalidUser": "I can't find this person. Are you sure this user exist?",
+  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
+  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
   "noReason": "Nenhum motivo",
   "clickHere": "Clique aqui",
   "punishment": {
@@ -42,16 +42,13 @@
     "guildSaved": "O servidor {{0}} salvo com sucesso no banco de dados!"
   },
   "noAliases": "Esse comando não possui alternativas.",
-  "onMentionAfk": "**{{user}}** está AFK.",
-  "onMentionAfkReasoned": "**{{user}}** está AFK: `{{reason}}`.",
-  "afkRemoval": "{{user}}, como você está de volta, eu removi o seu status AFK.",
   "voice": {
-    "authorAreNotInVoiceChannel": "você não se encontra em um canal de voz.",
-    "playerAlreadyPlaying": "eu já estou tocando alguma coisa.",
-    "clientAreNotInVoiceChannel": "eu não estou em nenhum canal de voz.",
-    "playerNotFound": "eu não estou tocando nenhuma música",
-    "maxVolume": "calma! O volume máximo permitido é `100`.",
-    "minVolume": "calma! O volume mínimo permitido é `5`."
+    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
+    "playerAlreadyPlaying": "the radio is already playing on me.",
+    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
+    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
+    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
+    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
   },
   "boolean": {
     "true": "Sim",
@@ -68,11 +65,11 @@
   "blockedChannel": "você não pode usar comandos aqui, vá para {{0}} e tente novamente.",
   "migrate": {
     "migrateTitle": "Os comandos em / estão aqui!",
-    "migrateToSlashCommand": "Ei! Após Janeiro de 2022, eu apenas irei responder via comandos em /, por favor, se você deseja continuar me usando, então você precisa me re-adicionar, você pode fazer isso clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), você não precisa me expulsar do servidor. Obrigada! Se você quer parar de receber esta mensagem, digite `{{2}}stopnotify`<a:chino_petpet:760564885280784405>",
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Comandos normais foram descontinuados",
     "disabledToSlashCommands": "É hora de dizer adeus aos comandos normais, agora apenas comandos em / estão disponíveis. Por agora, este comando foi descontinuado, mas você pode me usar normalmente usando comandos em /, digite `/help` para ver minha lista de comandos.",
     "howToUseTitle": "Como usar?",
-    "howToUseSlash": "1.) Para usuários antigos que não me re-convidaram para este servidor, você pode me re-convidar  clicando [aqui](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), é importante que você tenha certeza de que já me re-convidou.\n2.) O usuário precisa ter a permissão de `Usar comandos de aplicativos` para usar meus comandos.\n3.) Se você não consegue ver os comandos em /, tenha certeza que você ativou `Configurações de usuário ->Texto e imagens -> Use comandos de barra e preveja emojis, menções e sintaxe de markdown enquanto digita`",
+    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
     "needSupportTitle": "Ainda confuso em como usar o bot?",
     "needSupportSlash": "Se você ainda está confuso em como me usar corretamente, sinta-se livre para entrar em nosso [servidor de suporte](https://discord.gg/Jr57UrsXeC) para conseguir ajuda de nossa equipe de suporte."
   }
