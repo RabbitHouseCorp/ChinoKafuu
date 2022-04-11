@@ -105,6 +105,7 @@
     "theyNeedToDivorce": "seu parceiro precisa ter mais `{{0}}` ienes para se divorciar.",
     "requestConfirm": "tem certeza que quer divorciar-se? Esta ação é irreversível.",
     "successfullyDivorced": "Certo, eu chamarei os advogados. Ambos pagarão `300` ienes por isso.",
+    "needToWait": "You need to wait for the person to sign the paperwork to run this command.",
     "rejectedRequest": "Acho que o oráculo do amor não deixou você se separar. Estou feliz por vocês terem se entendido."
   },
   "help": {
@@ -143,13 +144,15 @@
     "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
     "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
     "cannotMarryWithBot": "você não pode se casar com um bot porque ele nunca o aceitará.",
+    "needToWait": "You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.",
     "description": "Se case com o seu verdadeiro amor."
   },
   "baninfo": {
     "title": "Informação do banimento",
     "memberName": "Usuário banido",
     "reason": "Motivo",
-    "unban": "Reaja com {{0}} para desbanir o usuário.",
+    "unban": "Click here to unban this user.",
+    "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
     "description": "Check the ban information about an user"
   },
   "seticon": {
@@ -187,8 +190,13 @@
     "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
     "argsNotFound": "você não disse nada, eu não posso enviar uma mensagem vazia.",
     "embedSendBy": "Anúncio enviado por: {{0}}",
-    "requestConfirm": "aviso, você está prestes a enviar um anúncio em {{0}}, por favor, confirme com o emoji abaixo\n\nPara mencionar `@everyone`, reaja com {{1}}\nPara mencionar `@here`, reaja com {{2}}\nPara mencionar `ninguém`, reaja com {{3}}",
+    "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the buttons below.",
     "announceSent": "anúncio enviado com sucesso.",
+    "cancelled": "okay...? I cancelled the announcement.",
+    "mentionEveryone": "Yes, and mention @everyone.",
+    "mentionHere": "Yes, and mention @here.",
+    "mentionAnyone": "Yes, and mention anyone.",
+    "notAllowed": "You're not allowed to do these actions.",
     "description": "Send an announce to current server for all members (or not)."
   },
   "slowmode": {
@@ -431,6 +439,7 @@
     "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
     "poorUser": "você não possui ienes para completar essa transferência",
     "cancelled": "certo, transferência cancelada",
+    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
     "confirm": "{{user}} irá receber __`{{yens}}`__ ienes. Deseja continuar?"
   },
   "baka": {
@@ -488,12 +497,8 @@
     "message": "Qual é o seu idioma?",
     "helpUs": "Ajude-nos a traduzir",
     "chooseYourLanguage": "Escolha seu idioma aqui.",
+    "onlyWhoExecuted": "Only who executed this command can make the choice, not you.",
     "explaining": "Você pode nos ajudar a traduzir Chino Kafuu para seu idioma acessando o nosso [Crowdin](https://crowdin.com/project/chinokafuu). Claro, sua contribuição será recompensada! Você ganhará um cargo no meu servidor de suporte. Obrigado, pequeno coelho, eu te amo (como um amigo, claro)"
-  },
-  "prefix": {
-    "success": "entendido! O novo prefixo agora é `{{prefix}}`",
-    "description": "Altera o prefixo do bot",
-    "length": "o tamanho do prefixo está limitado a 3 caracteres"
   },
   "setbanner": {
     "description": "Define a faixa do seu servidor. Comando disponível apenas para o servidor com o recurso \"Faixa\" ativado",
