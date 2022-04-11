@@ -4,8 +4,7 @@
     "permissionBotRequired": "Je dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
     "title": "Permissions"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Salut, {{0}}. Mon préfixe dans ce serveur est `{{1}}`. Si tu veux voir ce que je peux faire, utilise `{{1}}help`.",
-  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Salut, {{0}}. Mon préfixe dans ce serveur est `{{1}}`, mais tu n'es pas autorisé·e à exécuter des commandes ici. Si tu veux voir ce que je peux faire, utilise `{{1}}help` dans {{2}}.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
   "missingBotPermission": "Je n'ai pas la permission {{perm}}. Vérifie mes permissions/rôles et réessaye.",
   "missingUserPermission": "tu n'as pas la permission {{perm}}. Tu ne peux pas exécuter cette commande.",
   "missingBotPermissionOnChannel": "Hey {{0}} je n'ai pas la permission {{1}} dans {{2}}. S'il te plaît, vérifie mes permissions et réessaie.",
