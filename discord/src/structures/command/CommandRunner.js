@@ -19,32 +19,10 @@ module.exports = class CommandRunner {
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
     AwayFromKeyboardUtils(client, message, _locale)
-    if (message.content.replace('!', '') === client.user.mention) {
-      if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-      const roles = []
-      guildData.allowedChannel.roles.forEach((role) => {
-        if (message.member.roles.includes(role)) roles.push(role)
-      })
-      if (roles.length > 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
-        return message.channel.createMessage(_locale('basic:onMention', {
-          0: message.author.mention,
-          1: guildData.prefix
-        }))
-      } else if (roles.length === 0 && !guildData.allowedChannel.channels.includes(message.channel.id)) {
-        return message.channel.createMessage(_locale('basic:onMentionWithRole', {
-          0: message.author.mention,
-          1: guildData.prefix,
-          2: guildData.allowedChannel.channels.map(channel => `<#${channel}>`).join(' ')
-        }))
-      } else {
-        return message.channel.createMessage(_locale('basic:onMention', {
-          0: message.author.mention,
-          1: guildData.prefix
-        }))
-      }
-    }
-
-    if (message.content === guildData.prefix) return
+    if (message.content.replace('!', '') === client.user.mention)  return message.channel.createMessage(_locale('basic:onMention', {
+      0: message.author.mention,
+      1: '/'
+    }))
 
     const regexp = new RegExp(`^(${guildData.prefix.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}|${process.env.GLOBAL_BOT_PREFIX}|<@!?${client.user.id}>)( )*`, 'gi')
 
@@ -160,21 +138,6 @@ module.exports = class CommandRunner {
 
     if (botPermissionsOnChannel.length > 0) {
       return message.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
-    }
-    if (guildData.allowedChannel.channels.length > 0) {
-      const roles = ctx.db.guild.allowedChannel.roles.length > 0 ? ctx.db.guild.allowedChannel.roles : []
-      const role = []
-      for (const r of roles) {
-        if (roles.length > 0) {
-          if (message.member.roles.includes(r)) role.push(r)
-        } else {
-          role.push(true)
-        }
-      }
-
-      if (!guildData.allowedChannel.channels.includes(message.channel.id) && role.length < 1) {
-        return ctx.replyT('error', 'basic:blockedChannel', { 0: guildData.allowedChannel.channels.map(id => message.guild.channels.get(id)?.mention).join(' ') })
-      }
     }
 
     if (userPermissions.length > 0) {
