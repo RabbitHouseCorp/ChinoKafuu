@@ -4,8 +4,7 @@
     "permissionBotRequired": "Bạn phải có những quyền sau đây mới có thể dùng lệnh này: {{0}}.",
     "title": "Quyền hạn"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Xin chào, {{0}}. Prefix của mình ở server này là `{{1}}` nha. Muốn thấy toàn bộ khả năng của mình ư? Chat `{{1}}help` đi rồi sẽ biết ngay thôi.",
-  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Xin chào, {{0}}. Prefix của mình ở server này là `{{1}}` nha. Nhưng mà, bạn chưa có đủ quyền hạn để thực thi lệnh này. Muốn biết toàn bộ khả năng của mình ư, chat ngay `{{1}}help` tại {{2}}.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
   "missingBotPermission": "Mình vẫn chưa có quyền {{perm}}. Kiểm tra giúp mình cái role cũng như quyền hạn rồi mới thử lại sau.",
   "missingUserPermission": "bạn không có quyền {{perm}}. Đồng nghĩa bạn cũng không có quyền thực thi lệnh này.",
   "missingBotPermissionOnChannel": "Này {{0}}! Hình như mình bị thiếu quyền {{1}} ở kênh {{2}}. Kiểm tra quyền giúp mình rồi sau đó thử lại nhé.",
