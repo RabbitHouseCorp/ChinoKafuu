@@ -83,11 +83,11 @@ module.exports = class PingCommand extends Command {
           embed.addField('Response Latency', `${Date.now() - msg.timestamp}ms`)
           embed.addField('API Latency', `${Math.round(ctx.message.guild.shard.latency)}ms`)
           embed.addField('MongoDB Latency', `${(time).toFixed(1)}ms`)
-          if (ctx.client.interactionPost != null) {
-            embed.addField('Interaction Latency', `${ctx.client.interactionPost.ping}ms **(Last latency ${ctx.client.interactionPost.lastPing}ms)**`)
-          }
+          // if (ctx.client.interactionPost != null) {
+          //  embed.addField('Interaction Latency', `${ctx.client.interactionPost.ping}ms **(Last latency ${ctx.client.interactionPost.lastPing}ms)**`)
+          // }
           embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : ctx._locale('commands:ping.clustersDisabled')}`)
-          process.usage
+          // process.usage
           msg.edit(embed.build())
         })
 
