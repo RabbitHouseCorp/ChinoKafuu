@@ -1,4 +1,4 @@
-const { Command, EmbedBuilder, Emoji, ResponseAck } = require('../../../structures/util')
+const { Command, EmbedBuilder, Emoji, NightlyInteraction } = require('../../../structures/util')
 const { CommandBase } = require('eris')
 const SelectionMenu = require('../../../structures/interactions/SelectionMenu')
 const Options = require('../../../structures/interactions/Options')
@@ -76,86 +76,81 @@ module.exports = class LanguageCommand extends Command {
       )
       .addPlaceHolder(ctx._locale('commands:language.chooseYourLanguage'))
       .setCustomID('language-select')
-    ctx
-      .interaction()
-      .components(selectionMenu)
-      .returnCtx()
-      .send(embed.build()).then(async message => {
-        const ack = new ResponseAck(message)
+    ctx.interaction().components(selectionMenu).returnCtx().send(embed.build()).then(async message => {
+      const ack = new NightlyInteraction(message)
 
-        ack.on('collect', ({ messageCollect, interaction }) => {
-          if (message.id === messageCollect.id && interaction.buttonEvent.member.id === ctx.message.author.id) {
-            selectionMenu.isDisable()
-            switch (interaction.values[0]) {
-              case 'br': {
-                ctx.db.guild.lang = 'pt-BR'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', 'agora eu irei falar em `Português, Brasil`.').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-              case 'vn': {
-                ctx.db.guild.lang = 'vi-VN'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-              case 'us': {
-                ctx.db.guild.lang = 'en-US'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', 'now I\'ll speak `English, US`.').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-              case 'es': {
-                ctx.db.guild.lang = 'es-ES'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', 'ahora hablaré en `Espanõl`.').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-              case 'jp': {
-                ctx.db.guild.lang = 'ja-JP'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', '今、私は`日本語`で話します').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-              case 'fr': {
-                ctx.db.guild.lang = 'fr-FR'
-                ctx.db.guild.save().then(() => {
-                  ack.sendAck('update', {
-                    content: ctx.replyTData('success', 'maintenant je vais parler en `Français`.').content,
-                    embeds: [],
-                    components: []
-                  })
-                })
-              }
-                break
-            }
+      ack.on('collect', ({ packet }) => {
+        if (message.id !== packet.d.message.id && packet.d.member.id !== ctx.message.author.id) return
+        selectionMenu.isDisable()
+        switch (packet.d.data.values[0]) {
+          case 'br': {
+            ctx.db.guild.lang = 'pt-BR'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', 'agora eu irei falar em `Português, Brasil`.').content,
+                embeds: [],
+                components: []
+              })
+            })
           }
-        })
+            break
+          case 'vn': {
+            ctx.db.guild.lang = 'vi-VN'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.').content,
+                embeds: [],
+                components: []
+              })
+            })
+          }
+            break
+          case 'us': {
+            ctx.db.guild.lang = 'en-US'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', 'now I\'ll speak `English, US`.').content,
+                embeds: [],
+                components: []
+              })
+            })
+          }
+            break
+          case 'es': {
+            ctx.db.guild.lang = 'es-ES'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', 'ahora hablaré en `Espanõl`.').content,
+                embeds: [],
+                components: []
+              })
+            })
+          }
+            break
+          case 'jp': {
+            ctx.db.guild.lang = 'ja-JP'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', '今、私は`日本語`で話します').content,
+                embeds: [],
+                components: []
+              })
+            })
+          }
+            break
+          case 'fr': {
+            ctx.db.guild.lang = 'fr-FR'
+            ctx.db.guild.save().then(() => {
+              ack.sendAck('update', {
+                content: ctx.replyTData('success', 'maintenant je vais parler en `Français`.').content,
+                embeds: [],
+                components: []
+              })
+            })
+          }
+            break
+        }
       })
+    })
   }
 }

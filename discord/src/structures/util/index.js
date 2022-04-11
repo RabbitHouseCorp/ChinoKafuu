@@ -13,7 +13,8 @@ const collectors = {
   InviteDMUtils: require('./InviteDMUtil'),
   BlacklistUtils: require('./BlacklistUtils'),
   Button: require('./../interactions/Button'),
-  UtilsGenerator: require('./UtilsGenerator')
+  UtilsGenerator: require('./UtilsGenerator'),
+  NightlyInteraction: require('../nightly/NightlyInteraction')
 }
 
 module.exports = collectors

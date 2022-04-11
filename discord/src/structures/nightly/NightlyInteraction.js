@@ -6,7 +6,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     super()
     this.options = options === undefined ? options : {};
     this.timeoutRun = null
-    if (this.options.time !== undefined) {
+    if (this.options?.time !== undefined) {
       this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
     }
     this.timeout = false
@@ -32,7 +32,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
   #resetTimeout() {
     clearTimeout(this.timeoutRun)
     this.timeoutRun = null
-    if (this.options.time !== undefined) {
+    if (this.options?.time !== undefined) {
       this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
     }
   }
