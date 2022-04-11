@@ -99,7 +99,7 @@ module.exports = class SlashCommandContext extends CommandContext {
   async replyT(emoji, content, data = {}, ...props) {
     return this.message.hook.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.member.user.id}>, ${this._locale(content, data)}`,
-      components: this.commandInteractions.component,
+      components: props[0]?.components ?? this.commandInteractions.component,
       options: props[0]?.options
     }, props[0]?.file)
   }

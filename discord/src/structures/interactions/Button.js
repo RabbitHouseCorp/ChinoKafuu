@@ -1,12 +1,26 @@
 module.exports = class Button {
   constructor() {
+    this.type = 2
     this.emoji = null
     this.label = null
     this.style = 0
     this.disabled = false
     this.url = ''
-    this.id = null
+    this.custom_id = null
   }
+  /**
+   *
+   * @param {*} emoji
+   * @returns
+   *
+   * ## Examples
+
+  * { name: 'shyyRave', id: '942370920956321812', animated: true | false  }
+      * *  Credits: **https://discord.com/developers/docs/interactions/message-components#buttons-button-styles**
+      *
+    *
+    *
+    */
 
   setEmoji(emoji) {
     this.emoji = emoji ?? null
@@ -19,7 +33,7 @@ module.exports = class Button {
   }
 
   customID(id) {
-    this.id = id
+    this.custom_id = id
     return this
   }
 

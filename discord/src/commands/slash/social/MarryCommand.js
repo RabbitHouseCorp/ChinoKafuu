@@ -37,88 +37,53 @@ module.exports = class MarryCommand extends Command {
     if (couple.yens < Number(7500)) return ctx.replyT('error', 'commands:marry.theyNeedToMarry', { 0: member.mention, 1: Number(7500 - couple.yens).toLocaleString() })
     if (author.isMarry) return ctx.replyT('error', 'commands:marry.youAlreadyMarried')
     if (couple.isMarry) return ctx.replyT('error', 'commands:marry.theyAlreadyMarried', { 0: member.mention })
-    ctx.interaction()
-      .components(new Button()
-        .setLabel(ctx._locale('basic:boolean.true'))
-        .customID('confirm_button')
-        .setStyle(3),
-      new Button()
-        .setLabel(ctx._locale('basic:boolean.false'))
-        .customID('reject_button')
-        .setStyle(4))
-      .returnCtx()
-      .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
-      .then(message => {
-        const ack = new NightlyInteraction(message)
-        ack.on('collect', ({ packet }) => {
-          if ((packet.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) {
-            return ack.sendAck('respond', {
-              content: `You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.`,
-              flags: 1 << 6
+    const accept = new Button()
+      .setLabel(ctx._locale('basic:boolean.true'))
+      .customID('confirm_button')
+      .setStyle(3)
+      .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
+    const reject = new Button()
+      .setLabel(ctx._locale('basic:boolean.false'))
+      .customID('reject_button')
+      .setStyle(4)
+      .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
+    ctx.replyT('warn', 'commands:marry.requestConfirm', {}, {
+      components: [accept.build(), reject.build()]
+    }).then(message => {
+      const ack = new NightlyInteraction(message)
+      ack.on('collect', ({ packet }) => {
+        if ((packet.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) {
+          return ack.sendAck('respond', {
+            content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:marry.needToWait')}`,
+            flags: 1 << 6
+          })
+        }
+        switch (packet.d.data.custom_id) {
+          case 'confirm_button': {
+            author.yens -= Number(7500)
+            author.isMarry = true
+            author.marryWith = member.id
+            couple.yens -= Number(7500)
+            couple.isMarry = true
+            couple.marryWith = ctx.message.author.id
+            author.save()
+            couple.save().then(() => {
+              ack.sendAck('update', {
+                content: `${Emoji.getEmoji('ring_couple').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
+                components: []
+              })
             })
           }
-          switch (packet.d.data.custom_id) {
-            case 'confirm_button': {
-              author.yens -= Number(7500)
-              author.isMarry = true
-              author.marryWith = member.id
-              couple.yens -= Number(7500)
-              couple.isMarry = true
-              couple.marryWith = ctx.message.author.id
-              author.save()
-              couple.save().then(() => {
-                ack.sendAck('update', {
-                  content: `${Emoji.getEmoji('ring_couple').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
-                  components: [
-                    {
-                      type: 1,
-                      components: [
-                        new Button()
-                          .setLabel(ctx._locale('basic:boolean.true'))
-                          .customID('confirm_button')
-                          .setStyle(3)
-                          .setStatus(true)
-                          .data(),
-                        new Button()
-                          .setLabel(ctx._locale('basic:boolean.false'))
-                          .customID('reject_button')
-                          .setStyle(4)
-                          .setStatus(true)
-                          .data()
-                      ]
-                    }
-                  ]
-                })
-              })
-            }
-              break
-            case 'reject_button': {
-              ack.sendAck('update', {
-                content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
-                components: [
-                  {
-                    type: 1,
-                    components: [
-                      new Button()
-                        .setLabel(ctx._locale('basic:boolean.true'))
-                        .customID('confirm_button')
-                        .setStyle(3)
-                        .setStatus(true)
-                        .data(),
-                      new Button()
-                        .setLabel(ctx._locale('basic:boolean.false'))
-                        .customID('reject_button')
-                        .setStyle(4)
-                        .setStatus(true)
-                        .data()
-                    ]
-                  }
-                ]
-              })
-            }
-              break
+            break
+          case 'reject_button': {
+            ack.sendAck('update', {
+              content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
+              components: []
+            })
           }
-        })
+            break
+        }
       })
+    })
   }
 }

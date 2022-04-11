@@ -44,87 +44,53 @@ module.exports = class PayCommand extends Command {
     if (value <= 0) return ctx.replyT('error', 'commands:pay.valueMismatch')
     if (value > fromUser.yens) return ctx.replyT('error', 'commands:pay.poorUser')
     const totalYens = Math.round(value)
-
-    ctx.interaction()
-      .components(new Button()
-        .setLabel(ctx._locale('basic:boolean.true'))
-        .customID('confirm_button')
-        .setStyle(3),
-      new Button()
-        .setLabel(ctx._locale('basic:boolean.false'))
-        .customID('reject_button')
-        .setStyle(4))
-      .returnCtx()
-      .replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value })
-      .then(message => {
-
-        const ack = new NightlyInteraction(message)
-        ack.on('collect', ({ packet }) => {
-          if ((packet.d.member.user.id !== ctx.message.member.user.id && message.author.id === ctx.client.user.id)) {
-            ack.sendAck('respond', {
-              content: `You need to wait for the person paying you to accept the transaction request.`,
-              flags: 1 << 6
-            })
-            return;
-          }
-          switch (packet.d.data.custom_id) {
-            case 'confirm_button': {
-              fromUser.yens -= totalYens
-              toUser.yens += totalYens
-              ctx.db.user.save()
-              toUser.save().then(() => {
-                ack.sendAck('update', {
-                  content: `${Emoji.getEmoji('yen').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
-                  components: [
-                    {
-                      type: 1,
-                      components: [
-                        new Button()
-                          .setLabel(ctx._locale('basic:boolean.true'))
-                          .customID('confirm_button')
-                          .setStyle(3)
-                          .setStatus(true)
-                          .data(),
-                        new Button()
-                          .setLabel(ctx._locale('basic:boolean.false'))
-                          .customID('reject_button')
-                          .setStyle(4)
-                          .setStatus(true)
-                          .data()
-                      ]
-                    }
-                  ]
-                })
-              })
-            }
-              break
-            case 'reject_button': {
+    const confirm = new Button()
+      .setLabel(ctx._locale('basic:boolean.true'))
+      .customID('confirm_button')
+      .setStyle(3)
+      .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
+    const reject = new Button()
+      .setLabel(ctx._locale('basic:boolean.false'))
+      .customID('reject_button')
+      .setStyle(4)
+      .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
+    ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value }, {
+      components: [{
+        type: 1,
+        components: [confirm.build(), reject.build()]
+      }]
+    }).then(message => {
+      const ack = new NightlyInteraction(message)
+      ack.on('collect', ({ packet }) => {
+        if ((packet.d.member.user.id !== ctx.message.member.user.id && message.author.id === ctx.client.user.id)) {
+          ack.sendAck('respond', {
+            content: ctx._locale('commands:pay.needToWait'),
+            flags: 1 << 6
+          })
+          return;
+        }
+        switch (packet.d.data.custom_id) {
+          case 'confirm_button': {
+            fromUser.yens -= totalYens
+            toUser.yens += totalYens
+            ctx.db.user.save()
+            toUser.save().then(() => {
               ack.sendAck('update', {
-                content: `${Emoji.getEmoji('error').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.cancelled')}`,
-                components: [
-                  {
-                    type: 1,
-                    components: [
-                      new Button()
-                        .setLabel(ctx._locale('basic:boolean.true'))
-                        .customID('confirm_button')
-                        .setStyle(3)
-                        .setStatus(true)
-                        .data(),
-                      new Button()
-                        .setLabel(ctx._locale('basic:boolean.false'))
-                        .customID('reject_button')
-                        .setStyle(4)
-                        .setStatus(true)
-                        .data()
-                    ]
-                  }
-                ]
+                content: `${Emoji.getEmoji('yen').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
+                components: []
               })
-            }
-              break
+            })
           }
-        })
+            break
+          case 'reject_button': {
+            ack.sendAck('update', {
+              content: `${Emoji.getEmoji('error').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.cancelled')}`,
+              components: []
+            })
+          }
+            break
+        }
       })
+    })
   }
 }

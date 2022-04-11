@@ -37,39 +37,27 @@ module.exports = class LanguageCommand extends Command {
     const selectionMenu = new SelectionMenu()
       .addItem(
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('brazil').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('brazil').mention })
           .setLabel('Português, Brasil')
           .setValue('br'),
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('vn').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('vn').mention })
           .setLabel('Tiếng Việt, Việt Nam')
           .setValue('vn'),
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('usa').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('usa').mention })
           .setLabel('English, US')
           .setValue('us'),
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('es').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('es').mention })
           .setLabel('Espanõl')
           .setValue('es'),
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('ja').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('ja').mention })
           .setLabel('日本語')
           .setValue('jp'),
         new Options()
-          .addEmoji({
-            name: Emoji.getEmoji('fr').mention
-          })
+          .addEmoji({ name: Emoji.getEmoji('fr').mention })
           .setLabel('Français')
           .setValue('fr')
 
@@ -80,7 +68,13 @@ module.exports = class LanguageCommand extends Command {
       const ack = new NightlyInteraction(message)
 
       ack.on('collect', ({ packet }) => {
-        if (message.id !== packet.d.message.id && packet.d.member.id !== ctx.message.author.id) return
+        if (packet.d.member.id !== ctx.message.author.id) {
+          ack.sendAck('respond', {
+            content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:language.onlyWhoExecuted')}`,
+            flags: 1 << 6
+          })
+          return
+        }
         selectionMenu.isDisable()
         switch (packet.d.data.values[0]) {
           case 'br': {
