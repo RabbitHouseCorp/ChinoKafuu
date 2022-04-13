@@ -254,23 +254,23 @@
   },
   "serverinfo": {
     "description": "Shows information about this server.",
-    "guildID": "サーバーID",
+    "general": "General",
+    "banner": "Guild banner",
+    "splash": "Guild invite background",
+    "guildName": "Guild Name",
     "guildOwner": "Guild's Owner",
     "guildCreateAt": "Guild Created At",
     "guildAFKChannel": {
       "title": "AFK Channel",
-      "noAfkChannel": "No AFK Channel"
+      "noAfkChannel": "Not setted"
     },
     "guildChannel": {
       "title": "Channels ({{0}})",
       "text": "Text",
-      "voice": "Voice"
+      "voice": "Voice",
+      "voiceMembers": "Members in voice channels"
     },
-    "guildMember": {
-      "title": "メンバー({{0}})",
-      "userCount": "ユーザー",
-      "botCount": "ボツト"
-    },
+    "guildMember": "Members",
     "features": {
       "title": "Features",
       "dontHave": "This guild doesn't have any feature.",
@@ -298,23 +298,24 @@
       "CHANNEL_BANNER": "Channel Banner",
       "ANIMATED_BANNER": "Animated Banner",
       "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
-      "MEMBER_PROFILES": "Member Profiles"
+      "MEMBER_PROFILES": "Member Profiles",
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
     },
     "booster": {
-      "title": "Nitro Booster",
       "levelCount": "Level Booster",
       "boosterCount": "Total Boosters"
-    }
+    },
+    "joinedAt": "I've joined here"
   },
   "servericon": {
     "missingIcon": "this guild doesn't have an icon",
-    "download": "Download the icon clicking [here]({{0}})",
+    "download": "Open the icon in your browser",
     "description": "Shows the server icon."
   },
   "serverbanner": {
     "missingFeature": "this guild doesn't have the `banner` feature.",
     "missingBanner": "this guild doesn't have a banner.",
-    "download": "Download the banner clicking [here]({{0}})",
+    "download": "Open the server banner in your browser",
     "description": "Shows the server banner (if available)."
   },
   "vote": {
@@ -329,7 +330,6 @@
   },
   "botinfo": {
     "title": "My informations",
-    "inviteMe": "You can add me in your Discord server by [clicking here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566). Have fun, and see you later.",
     "guildsAmount": "Total guilds",
     "usersAmount": "Total users",
     "shardLatency": "Shard latency",
@@ -338,6 +338,9 @@
     "shardUptime": "Current shard uptime",
     "cpuModel": "CPU model",
     "supportServer": "Support server",
+    "recommendedPermission": "Add me with all permissions",
+    "minimalPermission": "Add me with the mininal permissions",
+    "voteOnMe": "Vote on me",
     "description": "Shows more information about me."
   },
   "mcavatar": {
@@ -519,8 +522,8 @@
   },
   "avatar": {
     "descripton": "Shows your avatar or someone else's.",
-    "userAvatar": "{{user}}のアバター",
-    "download": "ダウンロードするには[こちら]({{link}})をクリック"
+    "userAvatar": "Avatar of {{user}}",
+    "download": "Open the avatar in your browser."
   },
   "config": {
     "title": "Guild Modules Config",
