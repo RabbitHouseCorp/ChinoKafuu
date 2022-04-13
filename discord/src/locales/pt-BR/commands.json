@@ -254,23 +254,23 @@
   },
   "serverinfo": {
     "description": "Mostra informações sobre este servidor.",
-    "guildID": "ID do servidor",
+    "general": "General",
+    "banner": "Guild banner",
+    "splash": "Guild invite background",
+    "guildName": "Guild Name",
     "guildOwner": "Dono do servidor",
     "guildCreateAt": "Servidor criado",
     "guildAFKChannel": {
       "title": "Canal de ausência",
-      "noAfkChannel": "Sem canal de ausência"
+      "noAfkChannel": "Not setted"
     },
     "guildChannel": {
       "title": "Canais ({{0}})",
       "text": "Texto",
-      "voice": "Voz"
+      "voice": "Voz",
+      "voiceMembers": "Members in voice channels"
     },
-    "guildMember": {
-      "title": "Membros ({{0}})",
-      "userCount": "Usuários",
-      "botCount": "Robôs"
-    },
+    "guildMember": "Members",
     "features": {
       "title": "Recursos",
       "dontHave": "Este servidor não possui nenhum recurso.",
@@ -298,23 +298,24 @@
       "CHANNEL_BANNER": "Banner do Canal",
       "ANIMATED_BANNER": "Banner Animado",
       "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
-      "MEMBER_PROFILES": "Perfil de Membros"
+      "MEMBER_PROFILES": "Perfil de Membros",
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
     },
     "booster": {
-      "title": "Impulsionador de Nitro",
       "levelCount": "Nível de Impulsionamento",
       "boosterCount": "Total de Impulsos"
-    }
+    },
+    "joinedAt": "I've joined here"
   },
   "servericon": {
     "missingIcon": "este servidor não possui um ícone",
-    "download": "Baixe o ícone clicando [aqui]({{0}})",
+    "download": "Open the icon in your browser",
     "description": "Mostra o ícone do servidor."
   },
   "serverbanner": {
     "missingFeature": "este servidor não possui o recurso de `plano de fundo`.",
     "missingBanner": "este servidor não possui um banner.",
-    "download": "Baixe o banner clicando [aqui]({{0}})",
+    "download": "Open the server banner in your browser",
     "description": "Mostra a faixa do servidor (se disponível)."
   },
   "vote": {
@@ -329,7 +330,6 @@
   },
   "botinfo": {
     "title": "My informations",
-    "inviteMe": "Você pode me adicionar no seu servidor do Discord [clicando aqui](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands). Divirta-se e te vejo mais tarde.",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
@@ -338,6 +338,9 @@
     "shardUptime": "Tempo online atual da shard",
     "cpuModel": "Modelo do CPU",
     "supportServer": "Servidor de Suporte",
+    "recommendedPermission": "Add me with all permissions",
+    "minimalPermission": "Add me with the mininal permissions",
+    "voteOnMe": "Vote on me",
     "description": "Mostra mais informações sobre mim."
   },
   "mcavatar": {
@@ -519,8 +522,8 @@
   },
   "avatar": {
     "descripton": "Mostra seu avatar ou avatar de alguém.",
-    "userAvatar": "Avatar de {{user}}",
-    "download": "Clique [aqui]({{link}}) para baixar"
+    "userAvatar": "Avatar of {{user}}",
+    "download": "Open the avatar in your browser."
   },
   "config": {
     "title": "Configuração de Módulos do Servidor",
