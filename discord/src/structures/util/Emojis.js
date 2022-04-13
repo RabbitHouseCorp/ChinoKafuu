@@ -28,5 +28,13 @@ module.exports = {
   tada: '🎉',
   cocoa_what: '<:cocoa_what:633409488820371515>',
   chino_whoa: '<:chino_woah:685591415497293923>',
-  tools: '🛠️'
+  tools: '🛠️',
+  botTag: '<:botTag:579456048142876672>',
+  discord_logo: '<:discord_logo:961106728928313374>',
+  discord_verified_bot: '<:discord_verified_bot:961117195256094770>',
+  twitter: '<:twitter:963465266619113502> ',
+  github: '<:github:963465452602949672>',
+  crowdin: '<:crowdin:963467722472177684> ',
+  wumpus: '<:Wumpus:579455982053097485>',
+  photo_frame: '🖼️'
 }

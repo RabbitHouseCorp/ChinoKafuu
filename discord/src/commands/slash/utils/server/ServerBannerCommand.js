@@ -1,18 +1,14 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase } = require('eris')
+const { Command, EmbedBuilder, Button, Emoji } = require('../../../../structures/util')
 
 module.exports = class ServerBannerCommand extends Command {
   constructor() {
     super({
-      name: 'serverbanner',
+      name: 'server banner',
       aliases: ['guildbanner'],
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
-      }],
-      slash: new CommandBase()
-        .setName('serverbanner')
-        .setDescription('Shows the server banner (if available).')
+      }]
     })
   }
 
@@ -24,10 +20,13 @@ module.exports = class ServerBannerCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setImage(guild.bannerURL)
     embed.setColor('DEFAULT')
-    embed.setDescription(ctx._locale('commands:serverbanner.download', { 0: guild.bannerURL }))
     embed.setFooter(`©️ ${ctx.client.user.username}`)
     embed.setTimestamp()
-
-    ctx.send(embed.build())
+    const button = new Button()
+      .setEmoji({ name: Emoji.getEmoji('photo_frame').name })
+      .setLabel(ctx._locale('commands:serverbanner.download'))
+      .setStyle(5)
+      .setURL(guild.bannerURL)
+    ctx.send({ embeds: [embed], components: [{ type: 1, components: [button] }] })
   }
 }
