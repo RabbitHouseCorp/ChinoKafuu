@@ -9,8 +9,8 @@
   "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
   "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
   "invalidUser": "Não consigo encontrar essa pessoa. Tem certeza que esse usuário existe?",
-  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
-  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
+  "invalidRole": "Não consigo encontrar este cargo. Tem certeza de que esse cargo existe neste servidor?",
+  "invalidEmoji": "Eu não consigo encontrar este emoji. Você tem certeza que este emoji é desse servidor?",
   "noReason": "Nenhum motivo",
   "clickHere": "Clique aqui",
   "punishment": {
