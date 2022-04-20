@@ -79,7 +79,7 @@
   },
   "profile": {
     "description": "Mostra o seu perfil social ou o perfil social de alguém.",
-    "defaultAboutMe": "I'm on Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
+    "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
   },
   "emojiinfo": {
     "description": "Obtem algumas informações sobre um emoji.",
