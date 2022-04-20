@@ -4,8 +4,8 @@
     "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
     "noIDont": "Não, eu não quero este perfil",
     "profile": {
-      "alreadyHaveThisProfile": "It seems you already have this profile.",
-      "enoughYens": "It seems you don't have enough yens to buy this profile.",
+      "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
+      "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
       "loadingPreview": "Carregando a pré-visualização, por favor, aguarde um momento.",
       "problemFound": "Eu detectei um problema ao executar a visualização de perfil. Você quer tentar novamente?\nSe o problema persistir, você pode reportar este bug para o meu suporte.",
       "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
