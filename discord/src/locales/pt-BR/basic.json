@@ -4,11 +4,11 @@
     "permissionBotRequired": "Eu preciso ter as seguintes permissões para usar esse comando: {{0}}.",
     "title": "Permissões"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Olá, {{0}}. Meu prefixo é `{{1}}`. Se você quer saber o que eu posso fazer, use `{{1}}help`.",
   "missingBotPermission": "eu não tenho permissão para {{perm}}. Verifique as minhas permissões e tente novamente.",
   "missingUserPermission": "você não tem permissão para {{perm}}. Você não pode executar este comando.",
   "missingBotPermissionOnChannel": "Hey {{0}} eu não tenho permissão para {{1}} no {{2}}. Por favor, verifique as minhas permissões e tente novamente.",
-  "invalidUser": "I can't find this person. Are you sure this user exist?",
+  "invalidUser": "Não consigo encontrar essa pessoa. Tem certeza que esse usuário existe?",
   "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
   "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
   "noReason": "Nenhum motivo",
