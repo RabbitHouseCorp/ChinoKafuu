@@ -95,7 +95,7 @@
     "description": "Get the emoji attachment."
   },
   "fakemsg": {
-    "argsNull": "Welp, it seems you didn't put nothing to say.",
+    "argsNull": "Welp, it seems you didn't have nothing to say.",
     "description": "Prank on someone with a fake message through webhook."
   },
   "divorce": {
