@@ -79,7 +79,7 @@
   },
   "profile": {
     "description": "Hiển thị hồ sơ công khai của bạn hoặc của người một người dùng khác.",
-    "defaultAboutMe": "I'm on Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
+    "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
   },
   "emojiinfo": {
     "description": "Xem chút thông tin về một emoji.",
