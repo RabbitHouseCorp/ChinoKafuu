@@ -79,7 +79,7 @@
   },
   "profile": {
     "description": "Mostra o seu perfil social ou o perfil social de alguém.",
-    "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
+    "defaultAboutMe": "Eu estou no Rabbit House Coffee bebendo um cappuccino (você pode alterar isto usando /aboutme)."
   },
   "emojiinfo": {
     "description": "Obtem algumas informações sobre um emoji.",
@@ -95,7 +95,7 @@
     "description": "Pega o anexo de emojis."
   },
   "fakemsg": {
-    "argsNull": "Welp, it seems you didn't put nothing to say.",
+    "argsNull": "Welp, it seems you don't have nothing to say.",
     "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook."
   },
   "divorce": {
