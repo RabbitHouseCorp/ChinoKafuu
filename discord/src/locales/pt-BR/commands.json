@@ -99,7 +99,7 @@
     "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook."
   },
   "divorce": {
-    "description": "Divorces you to your current partner (I will charge 300 yens to divorce both of you).",
+    "description": "Te divorcia do seu atual parceiro (Eu irei cobrar 300 ienes pra divorciar vocês dois).",
     "youAreNotMarried": "você não está casado, se quiser se casar, use `{{0}}casar <usuário>` e seja feliz.",
     "youNeedToDivorce": "você precisa ter mais `{{0}}` ienes para se divorciar.",
     "theyNeedToDivorce": "seu parceiro precisa ter mais `{{0}}` ienes para se divorciar.",
