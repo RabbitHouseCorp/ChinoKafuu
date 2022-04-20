@@ -127,8 +127,8 @@
     }
   },
   "rep": {
-    "cannotGiveRepForYourself": "you can't give a reputation to yourself.",
-    "forTheClient": "thank you for giving me a reputation point! Now I have `{{0}}` reputations",
+    "cannotGiveRepForYourself": "você não pode dar uma reputação para você mesmo.",
+    "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
     "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
     "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
     "description": "Dá uma reputação a alguém."
