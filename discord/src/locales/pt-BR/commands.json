@@ -17,7 +17,7 @@
     "yesIWant": "Sim, eu quero este perfil"
   },
   "report": {
-    "description": "Reports an user on this server if the module is enable.",
+    "description": "Denuncia um usuário neste servidor se o módulo estiver ativado.",
     "moduleDisable": "este módulo está desativado neste servidor.",
     "noReason": "nenhum motivo especificado",
     "successfullySent": "denúncia enviada com sucesso.",
@@ -32,7 +32,7 @@
     "description": "Jogue pedra papel ou tesoura e ganhe ou perda ienes.",
     "optionNotFound": "você só pode escolher entre `pedra`, `papel` ou `tesoura`.",
     "valueNotInputed": "você não forneceu nenhum valor para apostar.",
-    "tie": "It's a draw! Nobody won and nobody lost.",
+    "tie": "É um empate! Ninguém venceu e ninguém perdeu.",
     "youWin": "você escolheu `{{0}}` e eu escolhi `{{1}}`. Parabéns, você ganhou. Aqui estão seus `{{2}}` ienes.",
     "youLose": "você escolheu `{{0}}` e eu escolhi `{{1}}`, eu ganhei! Estou pegando `{{2}}` ienes de você, queridinho(a)",
     "choice": {
@@ -52,7 +52,7 @@
     "confirm": "Se sim, clique [aqui](https://top.gg/bot/481282441294905344/vote) para votar em mim. Quando tiver votado, execute este comando novamente."
   },
   "laranjo": {
-    "description": "Make Laranjo say something silly."
+    "description": "Faça Laranjo dizer algo bobo."
   },
   "rize": {
     "decription": "Rize vai escrever alguma coisa no papel."
