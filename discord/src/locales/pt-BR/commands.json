@@ -95,7 +95,7 @@
     "description": "Pega o anexo de emojis."
   },
   "fakemsg": {
-    "argsNull": "Welp, it seems you don't have nothing to say.",
+    "argsNull": "Bom, parece que você não tem nada para falar.",
     "description": "Faça uma brincadeira com alguém fazendo uma mensagem falsa usando webhook."
   },
   "divorce": {
