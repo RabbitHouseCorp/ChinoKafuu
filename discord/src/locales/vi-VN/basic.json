@@ -4,14 +4,13 @@
     "permissionBotRequired": "Bạn phải có những quyền sau đây mới có thể dùng lệnh này: {{0}}.",
     "title": "Quyền hạn"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Xin chào, {{0}}. Prefix của mình ở server này là `{{1}}` nha. Muốn thấy toàn bộ khả năng của mình ư? Chat `{{1}}help` đi rồi sẽ biết ngay thôi.",
-  "onMentionWithRole": "<:chino_rawr:751215250245943318> **|** Xin chào, {{0}}. Prefix của mình ở server này là `{{1}}` nha. Nhưng mà, bạn chưa có đủ quyền hạn để thực thi lệnh này. Muốn biết toàn bộ khả năng của mình ư, chat ngay `{{1}}help` tại {{2}}.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
   "missingBotPermission": "Mình vẫn chưa có quyền {{perm}}. Kiểm tra giúp mình cái role cũng như quyền hạn rồi mới thử lại sau.",
   "missingUserPermission": "bạn không có quyền {{perm}}. Đồng nghĩa bạn cũng không có quyền thực thi lệnh này.",
   "missingBotPermissionOnChannel": "Này {{0}}! Hình như mình bị thiếu quyền {{1}} ở kênh {{2}}. Kiểm tra quyền giúp mình rồi sau đó thử lại nhé.",
-  "invalidUser": "không nhận diện được. Đảm bảo rằng bạn đã ping @NgườiĐó, hoặc nhập ID chính xác nhé.",
-  "invalidRole": "không tìm thấy role. Hãy chắc chắn bạn đã ping @role, hoặc là nhập chính xác ID.",
-  "invalidEmoji": "không tìm thấy emoji. Bạn có chắc emoji này là từ server này không?",
+  "invalidUser": "I can't find this person. Are you sure this user exist?",
+  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
+  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
   "noReason": "Không có lý do",
   "clickHere": "Click vào đây",
   "punishment": {
@@ -42,16 +41,13 @@
     "guildSaved": "Lưu thành công dữ liệu của {{0}} vào database!"
   },
   "noAliases": "Lệnh này không có bí danh nào cả.",
-  "onMentionAfk": "**{{user}}** hiện đang AFK.",
-  "onMentionAfkReasoned": "**{{user}}** hiện đang AFK: `{{reason}}`.",
-  "afkRemoval": "Xin chào {{user}}, đã quay lại. Mình gỡ trạng thái AFK rồi nhé.",
   "voice": {
-    "authorAreNotInVoiceChannel": "bạn chưa tham gia kênh thoại nào cả.",
-    "playerAlreadyPlaying": "Hiện đã phát track này rồi.",
-    "clientAreNotInVoiceChannel": "Mình chưa tham gia kênh thoại.",
-    "playerNotFound": "Mình hiện đang không phát bài nào cả",
-    "maxVolume": "bình tĩnh nào! Âm lượng tối đa được cho phép là `100` thôi.",
-    "minVolume": "bình tĩnh đê! Âm lượng tối thiểu được cho phép là `5`."
+    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
+    "playerAlreadyPlaying": "the radio is already playing on me.",
+    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
+    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
+    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
+    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
   },
   "boolean": {
     "true": "Có",
@@ -68,11 +64,11 @@
   "blockedChannel": "bạn không được phép dùng lệnh này ở đây, hãy đến {{0}} và thử lại.",
   "migrate": {
     "migrateTitle": "Slash commands are here!",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Vanilla commands are deprecated",
     "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
     "howToUseTitle": "How to use?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
     "needSupportTitle": "Still confused how to use the bot?",
     "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
   }
