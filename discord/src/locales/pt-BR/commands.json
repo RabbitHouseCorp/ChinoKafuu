@@ -309,19 +309,19 @@
   },
   "servericon": {
     "missingIcon": "este servidor não possui um ícone",
-    "download": "Open the icon in your browser",
+    "download": "Abrir o icone no seu navegador",
     "description": "Mostra o ícone do servidor."
   },
   "serverbanner": {
     "missingFeature": "este servidor não possui o recurso de `plano de fundo`.",
     "missingBanner": "este servidor não possui um banner.",
-    "download": "Open the server banner in your browser",
+    "download": "Abrir o banner do servidor no seu navegador",
     "description": "Mostra a faixa do servidor (se disponível)."
   },
   "vote": {
-    "title": "Vote on me",
-    "embedVoted": "Thank you so much. You can vote on me using the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
-    "description": "Shows how you can vote on me."
+    "title": "Vote em mim",
+    "embedVoted": "Muito obrigada. Você pode votar em mim usando o link logo abaixo.\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
+    "description": "Mostra como você pode votar em mim."
   },
   "invite": {
     "addMeInYourGuild": "Me adicione no seu servidor",
@@ -329,7 +329,7 @@
     "description": "Mostra como você pode me adicionar no seu servidor."
   },
   "botinfo": {
-    "title": "My informations",
+    "title": "Minhas informações",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
     "shardLatency": "Latência da shard",
@@ -338,9 +338,9 @@
     "shardUptime": "Tempo online atual da shard",
     "cpuModel": "Modelo do CPU",
     "supportServer": "Servidor de Suporte",
-    "recommendedPermission": "Add me with all permissions",
-    "minimalPermission": "Add me with the mininal permissions",
-    "voteOnMe": "Vote on me",
+    "recommendedPermission": "Me adicione com todas as permissões",
+    "minimalPermission": "Me adicione com as permissões minimais",
+    "voteOnMe": "Vote em mim",
     "description": "Mostra mais informações sobre mim."
   },
   "mcavatar": {
@@ -421,7 +421,7 @@
     "genres": "Gêneros",
     "invalidAnime": "diga o nome do anime que você deseja",
     "animeNotFound": "Eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
-    "description": "Shows some information about an anime."
+    "description": "Mostra algumas informações sobre um anime."
   },
   "manga": {
     "mangaNotFound": "eu não consegui encontrar nenhum anime com o nome parecido com: `{{0}}`.",
@@ -436,13 +436,13 @@
     "description": "Mostra algumas informações sobre um mangá."
   },
   "pay": {
-    "description": "Allows you to send yens to another user.",
+    "description": "Permite você enviar ienes para outro usuário.",
     "userMismatch": "você não pode fazer uma transferência para você mesmo!",
     "valueMismatch": "você inseriu um valor inválido",
     "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
     "poorUser": "você não possui ienes para completar essa transferência",
     "cancelled": "certo, transferência cancelada",
-    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
+    "needToWait": "Você precisa esperar a pessoa que estiver te pagando aceite a solicitação de transação.",
     "confirm": "{{user}} irá receber __`{{yens}}`__ ienes. Deseja continuar?"
   },
   "baka": {
