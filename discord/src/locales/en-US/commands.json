@@ -195,7 +195,7 @@
     "cancelled": "okay...? I cancelled the announcement.",
     "mentionEveryone": "Yes, and mention @everyone.",
     "mentionHere": "Yes, and mention @here.",
-    "mentionAnyone": "Yes, and mention anyone.",
+    "mentionAnyone": "Yes, and mention nobody.",
     "notAllowed": "You're not allowed to do these actions.",
     "description": "Send an announce to current server for all members (or not)."
   },
