@@ -130,7 +130,7 @@
     "cannotGiveRepForYourself": "você não pode dar uma reputação para você mesmo.",
     "forTheClient": "obrigado por me dar um ponto de reputação! Agora eu tenho `{{0}}` reputações",
     "successffully": "você deu uma reputação para {{0}}, agora {{0}} tem `{{1}}` reputações.",
-    "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
+    "cooldown": "Você não pode dar uma reputação agora. Você precisa esperar {{0}} antes de dar pontos de reputação novamente.",
     "description": "Dá uma reputação a alguém."
   },
   "marry": {
@@ -139,7 +139,7 @@
     "youAlreadyMarried": "que vergonha! Você não pode se casar com outra pessoa porque já está casado.",
     "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
     "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
-    "successfullyMarried": "Congratulations, now you both are married.",
+    "successfullyMarried": "Parabéns, agora vocês estão casados.",
     "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
     "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
     "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
