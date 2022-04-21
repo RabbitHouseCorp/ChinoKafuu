@@ -142,18 +142,18 @@
     "successfullyMarried": "Parabéns, agora vocês estão casados.",
     "rejectedRequest": "Parece que {{0}} não deseja compartilhar a vida dele com você, talvez {{0}} não seja o amor da sua via. O oráculo do amor falhou mais uma vez...",
     "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
-    "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
+    "cannotMarryWithMe": "Me desculpe, mas você não pode se casar comigo. Sinto muito, mas eu não te amo da mesma forma que você me ama, eu te amo, mas como amigo.",
     "cannotMarryWithBot": "você não pode se casar com um bot porque ele nunca o aceitará.",
-    "needToWait": "You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.",
+    "needToWait": "Você não pode aceitar a sua própria proposta de casamento... Você precisa esperar que seu parceiro aceite a sua proposta de casamento.",
     "description": "Se case com o seu verdadeiro amor."
   },
   "baninfo": {
     "title": "Informação do banimento",
     "memberName": "Usuário banido",
     "reason": "Motivo",
-    "unban": "Click here to unban this user.",
-    "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
-    "description": "Check the ban information about an user"
+    "unban": "Clique aqui para desbanir este usuário.",
+    "onlyWhoExecuted": "Você não pode fazer essa ação, somente quem executou o comando pode desbanir o usuário.",
+    "description": "Verifique as informações de banimento sobre um usuário"
   },
   "seticon": {
     "success": "ícone alterado com sucesso.",
@@ -190,12 +190,12 @@
     "channelNotFound": "Não consigo encontrar este canal. Certifique-se de que o mesmo existe.",
     "argsNotFound": "você não disse nada, eu não posso enviar uma mensagem vazia.",
     "embedSendBy": "Anúncio enviado por: {{0}}",
-    "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the buttons below.",
+    "requestConfirm": "aviso, você está prestes a enviar um anúncio sobre {{0}}, por favor, confirme com os botões abaixo.",
     "announceSent": "anúncio enviado com sucesso.",
-    "cancelled": "okay...? I cancelled the announcement.",
-    "mentionEveryone": "Yes, and mention @everyone.",
-    "mentionHere": "Yes, and mention @here.",
-    "mentionAnyone": "Yes, and mention anyone.",
+    "cancelled": "okay...? Eu cancelei o anúncio.",
+    "mentionEveryone": "Sim, e mencione @everyone.",
+    "mentionHere": "Sim, e mencione @here.",
+    "mentionAnyone": "Yes, and mention nobody.",
     "notAllowed": "You're not allowed to do these actions.",
     "description": "Send an announce to current server for all members (or not)."
   },
