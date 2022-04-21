@@ -195,9 +195,9 @@
     "cancelled": "okay...? Eu cancelei o anúncio.",
     "mentionEveryone": "Sim, e mencione @everyone.",
     "mentionHere": "Sim, e mencione @here.",
-    "mentionAnyone": "Yes, and mention nobody.",
-    "notAllowed": "You're not allowed to do these actions.",
-    "description": "Send an announce to current server for all members (or not)."
+    "mentionAnyone": "Sim, e não mencionar ninguém.",
+    "notAllowed": "Você não tem permissão para fazer essas ações.",
+    "description": "Enviar um anúncio para o servidor atual para todos os membros (ou não)."
   },
   "slowmode": {
     "rateLimitDisable": "o canal {{0}} não está mais no modo lento.",
@@ -208,7 +208,7 @@
   },
   "unban": {
     "notBanned": "este usuário não está banido, confira se você mencionou o usuário correto.",
-    "description": "Unbans an user if they're banned."
+    "description": "Desbane um usuário se estiver banido."
   },
   "roleinfo": {
     "roleNotExist": "eu não consigo encontrar este cargo ou este cargo não existe...",
@@ -224,7 +224,7 @@
     "description": "Mostra algumas informações sobre o cargo."
   },
   "userinfo": {
-    "description": "Shows some information about an user.",
+    "description": "Mostra algumas informações de um usuário.",
     "username": "Tag do Usuário",
     "userid": "ID do usuário",
     "createdAt": "Conta Criada Em",
@@ -254,23 +254,23 @@
   },
   "serverinfo": {
     "description": "Mostra informações sobre este servidor.",
-    "general": "General",
-    "banner": "Guild banner",
-    "splash": "Guild invite background",
-    "guildName": "Guild Name",
+    "general": "Geral",
+    "banner": "Banner do servidor",
+    "splash": "Fundo de convite do servidor",
+    "guildName": "Nome do servidor",
     "guildOwner": "Dono do servidor",
     "guildCreateAt": "Servidor criado",
     "guildAFKChannel": {
       "title": "Canal de ausência",
-      "noAfkChannel": "Not setted"
+      "noAfkChannel": "Não configurado"
     },
     "guildChannel": {
       "title": "Canais ({{0}})",
       "text": "Texto",
       "voice": "Voz",
-      "voiceMembers": "Members in voice channels"
+      "voiceMembers": "Membros no canal de voz"
     },
-    "guildMember": "Members",
+    "guildMember": "Membros",
     "features": {
       "title": "Recursos",
       "dontHave": "Este servidor não possui nenhum recurso.",
@@ -305,7 +305,7 @@
       "levelCount": "Nível de Impulsionamento",
       "boosterCount": "Total de Impulsos"
     },
-    "joinedAt": "I've joined here"
+    "joinedAt": "Eu entrei aqui"
   },
   "servericon": {
     "missingIcon": "este servidor não possui um ícone",
