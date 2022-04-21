@@ -140,7 +140,7 @@
     "theyAlreadyMarried": "você não pode se casar com {{0}}, porque {{0}} já está casado.",
     "requestConfirm": "{{0}}, você aceita em se casar com {{1}}, na doença e na saúde, na riqueza e na pobreza até a morte os separe?",
     "successfullyMarried": "Parabéns, agora vocês estão casados.",
-    "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
+    "rejectedRequest": "Parece que {{0}} não deseja compartilhar a vida dele com você, talvez {{0}} não seja o amor da sua via. O oráculo do amor falhou mais uma vez...",
     "cannotMarryWithYourself": "imagine tentando se casar consigo mesmo. Eu não posso fazer isso acontecer, desculpe.",
     "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
     "cannotMarryWithBot": "você não pode se casar com um bot porque ele nunca o aceitará.",
