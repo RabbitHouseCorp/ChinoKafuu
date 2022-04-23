@@ -447,7 +447,7 @@
   },
   "baka": {
     "baka": "{{author}} chamou {{member}} de baka",
-    "description": "Calls an user baka"
+    "description": "Chama um usuário de baka"
   },
   "clap": {
     "noArgs": "argumento inválido",
@@ -459,7 +459,7 @@
   },
   "feed": {
     "feed": "{{author}} alimentou {{user}}",
-    "description": "Feeds one of your friends."
+    "description": "Dê comida para um de seus amigos."
   },
   "addemoji": {
     "description": "Adiciona um emoji ao seu servidor",
@@ -473,8 +473,8 @@
     "higher": "eu não pude adicionar este cargo porque ele está provavelmente acima do meu mais alto. Verifique os cargos e tente novamente."
   },
   "setnick": {
-    "description": "Sets the nickname on a member",
-    "success": "okay, the new nickname of **{{member}}** is now `{{nickname}}`.",
+    "description": "Define o apelido em um membro",
+    "success": "okay, o novo apelido de **{{member}}** ** agora é `{{nickname}}`.",
     "error": "não foi possível definir o apelido desse membro. Certifique-se de que ele não é o dono do servidor e tente novamente",
     "missingNickname": "você não especificou o apelido."
   },
@@ -484,23 +484,23 @@
     "unlocked": "canal desbloqueado"
   },
   "clear": {
-    "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
+    "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
     "limit": "eu não consigo apagar mais de cem mensagens",
-    "success": "right, I'm deleting {{messages}} messages on this chat.",
-    "nan": "you've must insert a number, in this command, I only accept numbers."
+    "success": "certo, estou excluindo {{messages}} mensagens neste chat.",
+    "nan": "você deve inserir um número, neste comando, eu aceito apenas números."
   },
   "kick": {
     "description": "Expulsa um usuário do servidor"
   },
   "ban": {
-    "description": "Bans an user from the server"
+    "description": "Bane um usuário do servidor"
   },
   "language": {
     "description": "Altera o meu idioma no servidor atual.",
     "message": "Qual é o seu idioma?",
     "helpUs": "Ajude-nos a traduzir",
     "chooseYourLanguage": "Escolha seu idioma aqui.",
-    "onlyWhoExecuted": "Only who executed this command can make the choice, not you.",
+    "onlyWhoExecuted": "Somente quem executou esse comando pode fazer a escolha, não você.",
     "explaining": "Você pode nos ajudar a traduzir Chino Kafuu para seu idioma acessando o nosso [Crowdin](https://crowdin.com/project/chinokafuu). Claro, sua contribuição será recompensada! Você ganhará um cargo no meu servidor de suporte. Obrigado, pequeno coelho, eu te amo (como um amigo, claro)"
   },
   "setbanner": {
@@ -514,16 +514,16 @@
     "bioLimit": "sua bio pode ter até 128 caracteres"
   },
   "softban": {
-    "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
+    "description": "Bane e desbane um usuário. Se o dia não for especificado, o valor padrão (7) será usado."
   },
   "choose": {
-    "description": "Makes the me choose something for you (Use `,` to separate)",
+    "description": "Faz com que eu escolha algo para você (use `,` para separar)",
     "chosen": "eu escolho `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
     "descripton": "Mostra seu avatar ou avatar de alguém.",
-    "userAvatar": "Avatar of {{user}}",
-    "download": "Open the avatar in your browser."
+    "userAvatar": "Avatar de {{user}}",
+    "download": "Abrir o avatar no seu navegador."
   },
   "config": {
     "title": "Configuração de Módulos do Servidor",
@@ -536,8 +536,8 @@
       "enableDescription": "Ativa o módulo selecionado.",
       "disable": "Desabilitar",
       "disableDescription": "Disativa o módulo selecionado.",
-      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
-      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
+      "textChannel": "Selecione o canal de texto.\n__Lembrando, se o canal designado não aparecer, quer dizer que eu não tenho permissão para ver o canal! Verifique as permissões!__",
+      "voiceChannel": "Selecione o canal de voz.\n__Lembrando, se o canal designado não aparecer, quer dizer que eu não tenho permissão para ver o canal! Verifique as permissões!__",
       "options": {
         "textChannel": "Selecione o canal de voz.",
         "voiceChannel": "Selecione o canal de voz."
