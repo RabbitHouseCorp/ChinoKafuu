@@ -143,12 +143,12 @@ module.exports = class ShopProfileCommand extends Command {
               let disabled = false
               let disabledReason = ''
               let positionProfile = -1
+              // eslint-disable-next-line no-unused-vars
               for (const a of profileInfo) {
                 positionProfile++;
-                if (user.profileList.includes(a._id)) {
+                if (user.profileList.includes(selected)) {
                   disabledReason = ctx._locale('commands:shop.profile.alreadyHaveThisProfile')
                   disabled = true
-                  break
                 }
               }
 
@@ -255,7 +255,7 @@ module.exports = class ShopProfileCommand extends Command {
       const user = ctx.db.user
       for (const a of profileInfo) {
         if (interaction.data.custom_id.replace('yes-', '') === a._id) {
-          if ((a.flag & (user.profiles ?? 0)) === a.flag || user.profileList(a._id)) {
+          if (user.profileList.includes(a._id)) {
             await nightly.sendAck('update', {
               content: ctx._locale('commands:shop.profile.alreadyHaveThisProfile'),
               embeds: [],
@@ -289,7 +289,7 @@ module.exports = class ShopProfileCommand extends Command {
     }
 
     await msgInteraction.edit({
-      content: ctx._locale('commands:shop.profile.wantThisProfile', { 0: ctx._locale('commands:shop.yesIWant'), 1: ctx._locale('commands:shop.noIDont') }),
+      content: ctx._locale('commands:shop.profile.youWantThisProfile', { 0: ctx._locale('commands:shop.yesIWant'), 1: ctx._locale('commands:shop.noIDont') }),
       embeds: [],
       attachments: [],
       components: [
