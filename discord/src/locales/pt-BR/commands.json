@@ -486,7 +486,7 @@
   "clear": {
     "description": "Limpa mensagens neste canal. Se especificado um usuário, limpa as mensagens desse usuário",
     "limit": "eu não consigo apagar mais de cem mensagens",
-    "success": "direito, estou excluindo {{messages}} mensagens neste chat.",
+    "success": "certo, estou excluindo {{messages}} mensagens neste chat.",
     "nan": "você deve inserir um número, neste comando, eu aceito apenas números."
   },
   "kick": {
