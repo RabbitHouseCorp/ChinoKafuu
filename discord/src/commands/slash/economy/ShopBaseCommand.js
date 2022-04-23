@@ -17,10 +17,10 @@ module.exports = class ShopBaseCommand extends Command {
             .setType(1)
             .setName('profile')
             .setDescription('You can buy a new profile that is in my stock.'),
-          new CommandOptions()
-            .setType(1)
-            .setName('background')
-            .setDescription('You can buy a new background that is in my stock.'),
+          // new CommandOptions()
+          //   .setType(1)
+          //   .setName('background')
+          //   .setDescription('You can buy a new background that is in my stock.'),
         )
     })
   }
