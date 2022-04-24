@@ -330,6 +330,8 @@
   },
   "botinfo": {
     "title": "My informations",
+    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by [{{1}} Node.JS](https://nodejs.org) and a fork of the [{{2}} Eris](https://abal.moe/Eris) wrapper.",
+    "specs": "Specifications",
     "guildsAmount": "Total guilds",
     "usersAmount": "Total users",
     "shardLatency": "Shard latency",
