@@ -30,9 +30,10 @@ module.exports = class BotInfoCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:botinfo.title'))
-    embed.setDescription(description.join('\n'))
+    embed.setDescription(`${ctx._locale('commands:botinfo.extraDescription', { 0: ctx.message.author.mention, 1: Emoji.getEmoji('nodejs').mention, 2: Emoji.getEmoji('eris').mention,  })}\n\u200B`)
     embed.setFooter(`${ctx._locale('commands:botinfo.cpuModel')}: ${os.cpus().map(i => i.model)[0]}`)
     embed.setThumbnail(ctx.client.user.avatarURL)
+    embed.addField(ctx._locale('commands:botinfo.specs'), description.join('\n'))
     const support_server = new Button()
       .setLabel(ctx._locale('commands:botinfo.supportServer'))
       .setURL('https://discord.gg/Jr57UrsXeC')
@@ -83,9 +84,5 @@ module.exports = class BotInfoCommand extends Command {
           }
         ]
     })
-  }
-
-  markDown(code, text) {
-    return `\`\`\`${code}\n${text}\`\`\``
   }
 }

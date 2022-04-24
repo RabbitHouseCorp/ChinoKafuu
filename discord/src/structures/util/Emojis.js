@@ -36,5 +36,7 @@ module.exports = {
   github: '<:github:963465452602949672>',
   crowdin: '<:crowdin:963467722472177684> ',
   wumpus: '<:Wumpus:579455982053097485>',
-  photo_frame: '🖼️'
+  photo_frame: '🖼️',
+  eris: '<:eris:967618691804057670>',
+  nodejs: '<:nodejs:967619029390991410>'
 }
