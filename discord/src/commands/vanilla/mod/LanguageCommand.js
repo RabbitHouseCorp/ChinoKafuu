@@ -61,7 +61,7 @@ module.exports = class LanguageCommand extends Command {
             ctx.db.guild.lang = 'es-ES'
             ctx.db.guild.save().then(() => {
               message.delete()
-              ctx.reply('success', 'ahora hablaré en `Espanõl`.')
+              ctx.reply('success', 'ahora, hablaré en `Español`.')
             })
           }
             break
@@ -69,7 +69,7 @@ module.exports = class LanguageCommand extends Command {
             ctx.db.guild.lang = 'ja-JP'
             ctx.db.guild.save().then(() => {
               message.delete()
-              ctx.reply('success', '今、私は`日本語`で話します')
+              ctx.reply('success', 'では、`日本語`で話します。')
             })
           }
             break
