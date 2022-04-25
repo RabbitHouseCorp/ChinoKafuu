@@ -1,6 +1,8 @@
+revolt/build/
+build/
 node_modules/
 config.json
-src/lavalink/LavalinkConfig.json
+/discord/src/lavalink/LavalinkConfig.json
 *.env
 *config.json
 .env

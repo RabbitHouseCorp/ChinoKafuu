@@ -1,12 +1,12 @@
 const util = require('./test-utils.js')
 
 test('all commands can be properly required and initializated', () => {
-  expect(() => util.loadClassesRecursive(`${__dirname}/../src/commands`))
+  expect(() => util.loadClassesRecursive(`${__dirname}/../discord/src/commands`))
     .not.toThrow()
 })
 test('all commands follow proper naming rules (CommandName and suffix -Command.js)', () => {
   expect(() => {
-    util.getAllFilesRecursive(`${__dirname}/../src/commands`).forEach(c => {
+    util.getAllFilesRecursive(`${__dirname}/../discord/src/commands`).forEach(c => {
       let hm = c.getAt('/', -1)
       if (!hm.endsWith('Command.js') || !hm.isUpperCase(0)) throw new Error(`${c} doesn't following naming rule! Use CommandName (uppercased) *and* the suffix Command.js`)
       const Command = new (require(c))()
