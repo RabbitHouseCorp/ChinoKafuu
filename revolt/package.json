@@ -1,5 +1,20 @@
 {
-  "name": "@chino-kafuu/revolt",
+  "name": "@chinokafuu/revolt",
   "version": "1.0.0",
-  "private": true
+  "main": "./src/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RabbitHouseCorp/ChinoKafuu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RabbitHouseCorp/ChinoKafuu/issues"
+  },
+  "homepage": "https://github.com/RabbitHouseCorp/ChinoKafuu#readme",
+  "description": ""
 }

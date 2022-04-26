@@ -1,4 +1,5 @@
 const chalk = require('chalk')
+chalk.level = 8
 
 module.exports = class Logger {
   static get processType() {
@@ -13,24 +14,26 @@ module.exports = class Logger {
 
   static debug(message) {
     if (process.env.PRODUCTION === 'true') return
-    this.generateLog(chalk.rgb(80, 250, 159)('[DEBUG]'), message)
+    // chalk.rgb(80, 250, 159)('[DEBUG]')
+    this.generateLog(chalk.blueBright('[DEBUG]'), message)
   }
 
   static info(message) {
-    this.generateLog(chalk.blue('[INFO]'), message)
+    this.generateLog(chalk.blue('[INFO]').toString('utf-8'), message)
   }
 
   static warning(message) {
-    this.generateLog(chalk.yellow('[WARNING]'), message)
+    this.generateLog(chalk.yellow('[WARNING]').toString('utf-8'), message)
   }
 
   static error(message) {
-    this.generateLog(chalk.red('[ERROR]'), message)
+    this.generateLog(chalk.red('[ERROR]').toString('utf-8'), message)
   }
 
   static shardMessage(message) {
     if (process.env.PRODUCTION === 'true') return
-    this.generateLog(chalk.rgb(49, 204, 201)('[SHARD MANAGER]'), message)
+    // chalk.rgb(49, 204, 201)
+    this.generateLog(chalk.bgMagentaBright('[SHARD MANAGER]'), message)
   }
 
   static fatalError(message) {

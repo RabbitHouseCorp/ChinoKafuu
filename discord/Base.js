@@ -29,9 +29,8 @@ module.exports = class Base {
       new BuildStore(),
       new DatabaseStore(),
       new LavalinkStore(),
-      new BotStore(),
+      new BotStore()
     )
-
     process.on('warning', (warn) => {
       return Logger.warning(warn.debug().removePath())
     })

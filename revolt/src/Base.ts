@@ -1,4 +1,2 @@
 
-export class BaseRevolt {
-  public start() { return this }
-}
+export class BaseRevolt {}

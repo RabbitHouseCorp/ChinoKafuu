@@ -1,3 +1,6 @@
-const StartRepository = require('./repository/manager/StartRepository');
+// const StartRepository = require('./repository/manager/StartRepository');
+// new StartRepository()
 
-new StartRepository()
+const { Framework } = require('./kit/framework/Framework');
+
+Framework()

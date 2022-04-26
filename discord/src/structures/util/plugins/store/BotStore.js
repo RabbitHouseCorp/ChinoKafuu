@@ -17,7 +17,6 @@ module.exports = class BotStore extends PluginExtend {
         manager.start()
       } else {
         const BotInterface = require('../../../../manager/BotInterface')
-
         this.$addClassState({ data: new BotInterface().spawnShards(this) })
       }
 

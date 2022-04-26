@@ -20,3 +20,7 @@ yarn.lock
 .altostra
 .node_modules/
 .dccache
+dist/
+dist
+*.d.ts
+revolt/src/*.js

@@ -1,11 +1,13 @@
 {
   "name": "chino-kafuu",
   "version": "0.0.1",
+  "private": true,
   "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "start": "node index.js --experimental--worker",
+    ":discord": "node ./discord/Base.js",
     "lint": "eslint -c .eslintrc.json src *.js",
     "lint:fix": "eslint -c .eslintrc.json src *.js --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
   },
@@ -30,6 +32,15 @@
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
     "ws": "^8.3.0"
   },
+  "workspaces": [
+    "kit/*",
+    "revolt/*",
+    "repository/*",
+    "discord/*",
+    "kit",
+    "discord",
+    "revolt"
+  ],
   "devDependencies": {
     "@types/node": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
@@ -55,6 +66,5 @@
   },
   "author": "DanielaGC_",
   "license": "AGPL-3.0",
-  "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git",
-  "private": false
+  "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git"
 }
