@@ -114,7 +114,7 @@ module.exports = class LanguageCommand extends Command {
             ctx.db.guild.lang = 'es-ES'
             ctx.db.guild.save().then(() => {
               ack.sendAck('update', {
-                content: ctx.replyTData('success', 'ahora hablaré en `Espanõl`.').content,
+                content: ctx.replyTData('success', 'ahora, hablaré en `Español`.').content,
                 embeds: [],
                 components: []
               })
