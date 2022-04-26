@@ -17,7 +17,7 @@
     "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
     "@top-gg/sdk": "^3.1.3",
     "anilist-node": "^1.11.0",
-    "axios": "^0.26.0",
+    "axios": "^0.27.1",
     "chalk": "^4.1.2",
     "eris": "github:RabbitHouseCorp/eris#dev",
     "hound": "^1.0.5",
