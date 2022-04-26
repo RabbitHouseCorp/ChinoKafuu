@@ -50,7 +50,7 @@ module.exports = class LanguageCommand extends Command {
           .setValue('us'),
         new Options()
           .addEmoji({ name: Emoji.getEmoji('es').mention })
-          .setLabel('Espanõl')
+          .setLabel('Español')
           .setValue('es'),
         new Options()
           .addEmoji({ name: Emoji.getEmoji('ja').mention })
@@ -125,7 +125,7 @@ module.exports = class LanguageCommand extends Command {
             ctx.db.guild.lang = 'ja-JP'
             ctx.db.guild.save().then(() => {
               ack.sendAck('update', {
-                content: ctx.replyTData('success', '今、私は`日本語`で話します').content,
+                content: ctx.replyTData('success', 'では、`日本語`で話します。').content,
                 embeds: [],
                 components: []
               })
