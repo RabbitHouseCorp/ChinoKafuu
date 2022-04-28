@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "tsc && node index.js --experimental--worker",
+    "start": "tsc && node --experimental-specifier-resolution=node .",
     ":discord": "node ./discord/index.js",
     "lint": "eslint -c .eslintrc.json src *.js",
     "lint:fix": "eslint -c .eslintrc.json src *.js --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
