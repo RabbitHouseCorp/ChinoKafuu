@@ -19,7 +19,7 @@ module.exports = class CommandRunner {
 
     const _locale = client.i18nRegistry.getT(guildData.lang)
     AwayFromKeyboardUtils(client, message, _locale)
-    if (message.content.replace('!', '') === client.user.mention)  return message.channel.createMessage(_locale('basic:onMention', {
+    if (message.content.replace('!', '') === client.user.mention) return message.channel.createMessage(_locale('basic:onMention', {
       0: message.author.mention,
       1: '/'
     }))
@@ -42,7 +42,7 @@ module.exports = class CommandRunner {
 
     const timeoutVanilla = new Date()
 
-    if (!process.env.ACCESS_BETA.includes(message.author.id)) {
+    if (!process.env.DISCORD_ACCESS_BETA.includes(message.author.id)) {
       if (message.member.permissions.has('manageGuild') && timeoutVanilla.getFullYear() < 2022) {
         const embed = new EmbedBuilder()
         embed.setColor('DEFAULT')

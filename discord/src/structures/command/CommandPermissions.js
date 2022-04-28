@@ -11,7 +11,7 @@ module.exports = class CommandPermissions {
       if (perm.permissions[0]) {
         perm.permissions.forEach(p => {
           if (p === 'botDeveloper') {
-            if (!process.env.BOT_DEVELOPERS.includes(this.member.user.id)) perms.push(p)
+            if (!process.env.DISCORD_BOT_DEVELOPERS.includes(this.member.user.id)) perms.push(p)
           } else {
             if (!this.member.permissions.has(p)) perms.push(p)
           }

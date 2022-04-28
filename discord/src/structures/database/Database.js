@@ -11,8 +11,8 @@ const chalk = require('chalk')
 module.exports = class Database extends EventEmitter {
   constructor() {
     super()
-    if (process.env.MONGO_URI) {
-      mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    if (process.env.DISCORD_MONGO_URI) {
+      mongoose.connect(process.env.DISCORD_MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (err) {
           this.emit('state', (false))
           return Logger.error(`Unable to connect to the database ${err}`)
