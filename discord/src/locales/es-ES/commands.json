@@ -8,9 +8,9 @@
       "enoughYens": "It seems you don't have enough yens to buy this profile.",
       "loadingPreview": "Loading the preview, please wait for a moment.",
       "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
-      "purchaseCancelled": "Right! Purchase successfully cancelled!",
-      "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
+      "profileUnavailable": "Este perfil no está disponible todavía, tal vez en una actualización futura se añadirá. Únete a mi servidor de soporte para mantenerse actualizado.",
+      "purchaseCancelled": "¡Derecho! ¡Compra cancelada con éxito!",
+      "successfullyPurchased": "¡Gracias por comprar! El perfil está disponible en tu inventario.",
       "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
       "welcomeToTheShop": "Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
     },
@@ -256,21 +256,21 @@
     "description": "Muestra información sobre este servidor.",
     "general": "General",
     "banner": "Guild banner",
-    "splash": "Guild invite background",
-    "guildName": "Guild Name",
+    "splash": "Fondo de invitación del gremio",
+    "guildName": "Nombre del servidor",
     "guildOwner": "Propietario del Servidor",
     "guildCreateAt": "Servidor creado en",
     "guildAFKChannel": {
       "title": "Canal de AFK",
-      "noAfkChannel": "Not setted"
+      "noAfkChannel": "No establecido"
     },
     "guildChannel": {
       "title": "Canales ({{0}})",
       "text": "Texto",
       "voice": "Voz",
-      "voiceMembers": "Members in voice channels"
+      "voiceMembers": "Miembros en canales de voz"
     },
-    "guildMember": "Members",
+    "guildMember": "Miembros",
     "features": {
       "title": "Funcionalidades",
       "dontHave": "Este servidor no tiene ninguna funcionalidad.",
@@ -331,7 +331,7 @@
   "botinfo": {
     "title": "My informations",
     "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by [{{1}} Node.JS](https://nodejs.org) and a fork of the [{{2}} Eris](https://abal.moe/Eris) wrapper.",
-    "specs": "Specifications",
+    "specs": "Especificaciones",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuarios",
     "shardLatency": "Latencia de la shard",
@@ -340,9 +340,9 @@
     "shardUptime": "Tiempo de actividad actual de la shard",
     "cpuModel": "Modelo de CPU",
     "supportServer": "Servidor de soporte",
-    "recommendedPermission": "Add me with all permissions",
-    "minimalPermission": "Add me with the mininal permissions",
-    "voteOnMe": "Vote on me",
+    "recommendedPermission": "Añádame con todos los permisos",
+    "minimalPermission": "Añádame con los permisos mininales",
+    "voteOnMe": "Votame",
     "description": "Muestra más información sobre mí."
   },
   "mcavatar": {
@@ -375,7 +375,7 @@
     "description": "¡Afecto, Afecto, Afecto, por favor! Dame afecto a tu amigo."
   },
   "poke": {
-    "poked": "{{0}} poked {{1}}",
+    "poked": "{{0}} hizo un lío en {{1}}",
     "description": "Poke a alguien en tu servidor."
   },
   "ping": {
@@ -423,7 +423,7 @@
     "genres": "Géneros",
     "invalidAnime": "Ingresa el nombre del anime que deseas",
     "animeNotFound": "No encontré ningún anime con el nombre como `{{0}}`.",
-    "description": "Shows some information about an anime."
+    "description": "Muestra alguna información sobre un anime."
   },
   "manga": {
     "mangaNotFound": "No he encontrado ningún manga que contenga un nombre parecido a: `{{0}}`.",
