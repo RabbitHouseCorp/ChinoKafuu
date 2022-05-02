@@ -4,13 +4,13 @@
     "permissionBotRequired": "Debo tener los siguientes permisos para usar este comando: {{0}}.",
     "title": "Permisos"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo es `{{1}}`. Si quieres ver lo que puedo hacer, usa `{{1}}help`.",
   "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
   "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
   "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
-  "invalidUser": "I can't find this person. Are you sure this user exist?",
-  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
-  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
+  "invalidUser": "No puedo encontrar a esta persona. ¿Estás seguro de que este usuario existe?",
+  "invalidRole": "No puedo encontrar este rol. ¿Estás seguro de que este rol existe en este gremio?",
+  "invalidEmoji": "Emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
   "noReason": "Sin razón",
   "clickHere": "Clic aquí",
   "punishment": {
@@ -42,12 +42,12 @@
   },
   "noAliases": "Este comando no tiene ningún alias.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
-    "playerAlreadyPlaying": "the radio is already playing on me.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
-    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
-    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
-    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
+    "authorAreNotInVoiceChannel": "debe estar en un canal de voz, pero no lo está.",
+    "playerAlreadyPlaying": "la radio ya está tocando en mí.",
+    "clientAreNotInVoiceChannel": "No estoy en un canal de voz en este momento, usa `/animu play`.",
+    "playerNotFound": "No estoy en un canal de voz en este momento, usa `/animu play`.",
+    "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
+    "minVolume": "¡tranquilo! El volumen máximo permitido es `5`."
   },
   "boolean": {
     "true": "Sí",
