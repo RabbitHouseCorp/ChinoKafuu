@@ -11,7 +11,7 @@ module.exports = class Helper {
   }
 
   help () {
-    const command = this.context.client.commandRegistry.findByName(this.name) ?? this.context.client.slashCommandRegistry.findByName(this.name)
+    // const command = this.context.client.commandRegistry.findByName(this.name) ?? this.context.client.slashCommandRegistry.findByName(this.name)
     const commandName = `${this.slash ? '/' : this.context.db.guild.prefix}${this.name}`
     const commandWithUsage = `\`${commandName}\``
     const embedDescription = `\n\n**${this.context._locale('basic:howToUse')}** ${commandWithUsage}`

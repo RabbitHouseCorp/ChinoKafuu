@@ -1,5 +1,5 @@
 const package = require('../../package.json')
-const zlib = require('node:zlib')
+require('node:zlib')
 
 Error.prototype.debug = function (details, log) {
   const a = this.stack

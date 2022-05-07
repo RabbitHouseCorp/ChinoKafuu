@@ -267,7 +267,7 @@ module.exports = class Database extends EventEmitter {
     if (!process.env.FLUX_LOGGER) {
       list = []
     } else {
-      process.env.FLUX_LOGGER.replace(" ", "").split(",")
+      process.env.FLUX_LOGGER.replace(' ', '').split(',')
     }
     if (list.includes('took')) {
       loggers.push(`Took (${this.#lantecy(data.took_off)})`)
@@ -277,7 +277,7 @@ module.exports = class Database extends EventEmitter {
     }
     if (list.includes('post_data')) {
       const map = []
-      const bar_2 = "____________________"
+      const bar_2 = '____________________'
       for (const b of data.data.query) {
         if (!(b.saved === null)) {
           map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.#lantecy(b.took_off)}\n${bar_2}`)
@@ -290,7 +290,7 @@ module.exports = class Database extends EventEmitter {
 
     if (list.includes('error')) {
       const bar = chalk.bgRedBright(Array.from({ length: process.stdout.columns }, () => ` `).join(''))
-      const bar_2 = "____________________"
+      const bar_2 = '____________________'
       // eslint-disable-next-line keyword-spacing
       const d = (errorInf) => { try { return JSON.stringify(errorInf.data) } catch (_er) { return errorInf.data } }
 
