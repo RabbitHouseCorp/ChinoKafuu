@@ -19,7 +19,7 @@ module.exports = class DogCommand extends Command {
   }
 
   async run(ctx) {
-    const image = await NekoClient.sfw.woof()
+    const image = await NekoClient.woof()
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setImage(image.url)

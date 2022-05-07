@@ -19,7 +19,7 @@ module.exports = class CatCommand extends Command {
   }
 
   async run(ctx) {
-    const image = await NekoClient.sfw.meow()
+    const image = await NekoClient.meow()
     const embed = new EmbedBuilder()
     embed.setColor('ACTION')
     embed.setImage(image.url)
