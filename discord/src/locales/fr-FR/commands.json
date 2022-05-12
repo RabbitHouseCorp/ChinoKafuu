@@ -17,7 +17,7 @@
     "yesIWant": "Oui, je veux ce profil"
   },
   "report": {
-    "description": "Reports an user on this server if the module is enable.",
+    "description": "Signale un utilisateur sur ce serveur si le module est activé.",
     "moduleDisable": "ce module est désactivé sur ce serveur.",
     "noReason": "aucune raison spécifiée",
     "successfullySent": "signalement envoyé avec succès.",
@@ -32,7 +32,7 @@
     "description": "Joue au jakenpon et gagne ou perds des yens.",
     "optionNotFound": "tu peux seulement choisir entre `rock`, `paper` ou `scissors`.",
     "valueNotInputed": "tu n'as pas fourni de valeur à parier.",
-    "tie": "It's a draw! Nobody won and nobody lost.",
+    "tie": "C'est un match nul! Personne n'a gagné et personne n'a perdu.",
     "youWin": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`. Félicitations, tu as gagné. Voilà tes `{{2}}` yens.",
     "youLose": "tu as choisi `{{0}}` et j'ai choisi `{{1}}`, j'ai gagné ! Je te pique `{{2}}` yens chéri·e",
     "choice": {
@@ -44,7 +44,7 @@
   "daily": {
     "congrats": "Félicitations ! Tu as reçu `{{0}}` yens et `{{1}}` sugarcubes aujourd'hui. Tu pourras obtenir plus de yens demain. À plus tard, et passe une bonne journée !",
     "yensDaily": "Yens journaliers",
-    "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
+    "hasBeenPicked": "vous avez déjà réclamé vos yens quotidiens aujourd'hui. Veuillez attendre {{0}} avant de les récupérer à nouveau.",
     "description": "Vous pouvez obtenir vos yens quotidiens en utilisant cette commande",
     "almostThere": "On y est presque !",
     "explaining": "Pour obtenir tes yens, tu devras voter pour moi. Chaque 12 heures, tu pourras à nouveau obtenir tes yens. Patiente quelques secondes après avoir voté.",
@@ -52,27 +52,27 @@
     "confirm": "Si oui, clique [ici](https://top.gg/bot/481282441294905344/vote) pour voter pour moi. Une fois que tu as voté, exécute à nouveau cette commande."
   },
   "laranjo": {
-    "description": "Make Laranjo say something silly."
+    "description": "Fais dire à Laranjo quelque chose d'idiot."
   },
   "rize": {
-    "decription": "Rize will write something in the paper."
+    "decription": "Rize va écrire quelque chose dans le papier."
   },
   "license": {
-    "licensedFor": "Licensed for",
-    "beCute": "Be cute",
-    "description": "Are you licensed? No? Then create one for yourself! Or for someone else."
+    "licensedFor": "Licencié pour",
+    "beCute": "Sois mignon",
+    "description": "Vous avez une licence? Non? Alors créez-en une pour vous! Ou pour quelqu'un d'autre."
   },
   "channelinfo": {
-    "title": "`Information about #{{0}}`",
-    "noTopic": "This channel doesn't have a topic.",
-    "mention": "Channel Mention",
-    "channelID": "Channel ID",
-    "guild": "Guild",
-    "category": "Category",
-    "createdAt": "Created At"
+    "title": "`Les informations sur #{{0}}`",
+    "noTopic": "Ce salon n'a pas de sujet.",
+    "mention": "Mention du salon",
+    "channelID": "ID du salon",
+    "guild": "Serveur",
+    "category": "Catégorie",
+    "createdAt": "Créé à"
   },
   "favcolor": {
-    "description": "Changes your profile color to your favorite color.",
+    "description": "Change la couleur de votre profil à votre couleur préférée.",
     "invalidColor": "the color you've chosen is invalid.",
     "poorUser": "you need more `{{0}}` yens to change your favorite color.",
     "successfullyChanged": "sure. I have successfully changed your favorite color."
