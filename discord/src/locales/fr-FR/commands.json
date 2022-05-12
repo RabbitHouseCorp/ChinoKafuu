@@ -1,14 +1,14 @@
 {
   "shop": {
     "background": {},
-    "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
-    "noIDont": "No, I don't want this profile",
+    "buttonDisabled": "**Attention** : Le bouton est désactivé pour cette raison ->",
+    "noIDont": "Non, je ne veux pas de ce profil",
     "profile": {
-      "alreadyHaveThisProfile": "It seems you already have this profile.",
-      "enoughYens": "It seems you don't have enough yens to buy this profile.",
-      "loadingPreview": "Loading the preview, please wait for a moment.",
-      "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
+      "alreadyHaveThisProfile": "Il semble que vous ayez déjà ce profil.",
+      "enoughYens": "Il semble que vous n'ayez pas assez de yens pour acheter ce profil.",
+      "loadingPreview": "Chargement de l'aperçu, veuillez patienter un moment.",
+      "problemFound": "J'ai détecté un problème lors de l'exécution de l'aperçu du profil, voulez-vous réessayer?\nSi le problème persiste, vous pouvez signaler ce bug à mon support.",
+      "profileUnavailable": "Ce profil n'est pas encore disponible, peut-être sera-t-il ajouté dans une prochaine mise à jour. Rejoignez mon serveur de support pour rester à jour.",
       "purchaseCancelled": "Right! Purchase successfully cancelled!",
       "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
       "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
