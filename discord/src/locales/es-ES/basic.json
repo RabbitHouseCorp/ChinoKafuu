@@ -29,7 +29,7 @@
     "reason": "Castigado por: {{0}} - Razón: {{1}}",
     "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
     "selfPunishment": "lo siento, pero como no puedes castigarte a ti mismo en Discord normal, no te puedes castigar a través de mí.",
-    "ownerPunish": "¿Te has vuelto loco? No puedes castigar a esa persona, es el creador de este servidor.",
+    "ownerPunish": "have you lost your mind? You can't punish this person, they're the owner of this guild.",
     "error": "No he podido castigar a esa persona. Quizá sus roles son más altos que los míos. Compruébalo y prueba de nuevo."
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
