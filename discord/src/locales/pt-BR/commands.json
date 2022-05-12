@@ -330,7 +330,7 @@
   },
   "botinfo": {
     "title": "Minhas informações",
-    "extraDescription": "Olá {{0}}, que bom te ver. Estou rodando por [{{1}} Node.JS](https://nodejs.org) e um fork do [{{2}} Eris](https://abal.moe/Eris).",
+    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by {{1}} [Node.JS](https://nodejs.org) and a fork of the {{2}} [Eris](https://abal.moe/Eris) wrapper.",
     "specs": "Especificações",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
