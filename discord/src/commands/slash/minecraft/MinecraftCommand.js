@@ -73,9 +73,4 @@ module.exports = class MinecraftCommand extends Command {
         )
     })
   }
-
-  // eslint-disable-next-line no-unused-vars
-  on(ctx) {
-
-  }
 }

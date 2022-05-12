@@ -24,10 +24,4 @@ module.exports = class ShopBaseCommand extends Command {
         )
     })
   }
-
-  // eslint-disable-next-line no-unused-vars
-  async run(ctx) {
-    // const profileLoaded = []
-
-  }
 }

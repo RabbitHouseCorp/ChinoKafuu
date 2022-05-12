@@ -24,7 +24,4 @@ module.exports = class InventoryBaseCommand extends Command {
         )
     })
   }
-
-  // eslint-disable-next-line no-unused-vars
-  run(_ctx) {}
 }

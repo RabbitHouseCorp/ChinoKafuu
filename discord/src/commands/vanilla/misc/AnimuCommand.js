@@ -26,7 +26,7 @@ module.exports = class AnimuCommand extends Command {
 
     if (!ctx.args[0]) return ctx.send(argsNullEmbed.build())
 
-    const res = await axios.get('https://cast.animu.com.br:9000/api/v2/history/?format=json&limit=1&offset=0&server=1')
+    const res = await axios.get(process.env.ANIMU_API_URI)
     if (!['play', 'join', 'tocar', 'entrar', 'volume', 'vol', 'nowplaying', 'tocandoagora', 'np', 'tocando', 'stop', 'leave', 'parar', 'sair'].includes(ctx.args[0])) return ctx.send(argsNullEmbed.build())
 
     if (['play', 'join', 'tocar', 'entrar'].includes(ctx.args[0].toLowerCase())) {
