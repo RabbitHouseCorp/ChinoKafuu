@@ -1,18 +1,37 @@
 {
+  "inventory": {
+    "background": {},
+    "confirmationButton": "Yes, I want",
+    "denyButton": "No, I don't want",
+    "loadingPreview": "Loading profile preview please wait a while.",
+    "noDescription": "No description",
+    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "profile": {
+      "areYouSure": "Are you sure you want to select this profile? If `Yes, I want` click confirm, if not click `No, I don't want`",
+      "cancelled": "Okay. The selection was successfully canceled!",
+      "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
+      "wantUseThisProfile": "I want use this profile!",
+      "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
+      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date."
+    }
+  },
   "shop": {
     "background": {},
     "buttonDisabled": "**Attention** : Le bouton est désactivé pour cette raison ->",
     "noIDont": "Non, je ne veux pas de ce profil",
+    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "noDescription": "No description",
+    "price": "Price",
     "profile": {
       "alreadyHaveThisProfile": "Il semble que vous ayez déjà ce profil.",
       "enoughYens": "Il semble que vous n'ayez pas assez de yens pour acheter ce profil.",
       "loadingPreview": "Chargement de l'aperçu, veuillez patienter un moment.",
       "problemFound": "J'ai détecté un problème lors de l'exécution de l'aperçu du profil, voulez-vous réessayer?\nSi le problème persiste, vous pouvez signaler ce bug à mon support.",
-      "profileUnavailable": "Ce profil n'est pas encore disponible, peut-être sera-t-il ajouté dans une prochaine mise à jour. Rejoignez mon serveur de support pour rester à jour.",
+      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
       "purchaseCancelled": "Bien! L'achat a été annulé avec succès!",
       "successfullyPurchased": "Merci d'avoir acheté! Le profil est disponible dans votre inventaire.",
       "youWantThisProfile": "Êtes-vous sûr de vouloir acheter ce profil? Si oui, cliquez sur `{{0}}` pour confirmer, sinon cliquez sur `{{1}}`",
-      "welcomeToTheShop": "Bonjour! Bienvenue dans la boutique des profils décoratifs. Vous pouvez sélectionner l'un de ces profils pour en visualiser le profil. Rappelez-vous que si certains n'apparaissent pas bouton vert pour acheter, cela signifie que vous avez déjà le profil acheté dans votre compte!"
+      "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
     },
     "yesIWant": "Oui, je veux ce profil"
   },
