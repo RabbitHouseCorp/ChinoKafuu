@@ -26,7 +26,7 @@ module.exports = class InventoryProfileCommand extends Command {
         loadList.push({
           'label':  profile.name,
           'value': profile._id,
-          'description': profile.shotDescription ?? 'No description',
+          'description': profile.shotDescription ?? ctx._locale('commands:shop.noDescription'),
           'disabled': true,
           'default': disabled
         })
@@ -48,7 +48,7 @@ module.exports = class InventoryProfileCommand extends Command {
     }
     let messageData = {}
     ctx.send({
-      content: 'Hi! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.',
+      content: ctx._locale('commands:inventory.profile.welcome'),
       components: [component]
     }).then((msgInteraction) => {
       const nightly = new NightlyInteraction(msgInteraction)
@@ -75,7 +75,7 @@ module.exports = class InventoryProfileCommand extends Command {
 
           component.components[0].disabled = true
           await nightly.sendAck('update', {
-            content: 'Loading profile preview please wait a while.',
+            content: ctx._locale('commands:inventory.loadingPreview'),
             components: [component]
           }).then(async () => {
             let disabled = false
@@ -90,7 +90,7 @@ module.exports = class InventoryProfileCommand extends Command {
                 components: [{
                   type: 2,
                   style: 3,
-                  label: 'I want to select this profile!',
+                  label: ctx._locale('commands:inventory.profile.wantUseThisProfile'),
                   custom_id: profileInfo[position].buttonId,
                   disabled: disabled
                 }]
@@ -100,14 +100,14 @@ module.exports = class InventoryProfileCommand extends Command {
             if (profileLoaded.get(profileSelected) !== undefined) {
               const dataProfile = profileLoaded.get(profileSelected)
 
-              messageData = { content:  'Preview ready!', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+              messageData = { content: '', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
               await msgInteraction.edit(messageData, dataProfile.image)
               return;
             }
 
-            const dataProfile = await this.generateProfile(data.type, data)
+            const dataProfile = await this.generateProfile(data.type, data, ctx._locale)
 
-            messageData = { content: 'Preview ready!', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
+            messageData = { content: '', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
             profileLoaded.set(profileSelected, dataProfile)
             await msgInteraction.edit(messageData, dataProfile.image)
           })
@@ -127,7 +127,7 @@ module.exports = class InventoryProfileCommand extends Command {
             break;
           default:
             nightly.sendAck('update', {
-              content: 'This profile you selected is not available. Will be added soon. Join the RabbitHouse server to stay up to date with new profiles.',
+              content: ctx._locale('commands:inventory.profile.profileUnavailable'),
               components: [component],
               embeds: [],
               attachments: []
@@ -135,7 +135,7 @@ module.exports = class InventoryProfileCommand extends Command {
         }
       }
       nightly.on('collect', async ({ interaction }) => {
-        if (interaction.buttonEvent.member.id != ctx.message.member.id) return nightly.sendAck('respond', { content: 'Sorry you don\'t have this control for this interaction.', flags: 1 << 6 })
+        if (interaction.buttonEvent.member.id != ctx.message.member.id) return nightly.sendAck('respond', { content: ctx._locale('commands:inventory.notAllowed'), flags: 1 << 6 })
 
         switch (interaction.data.component_type) {
           case 2: {
@@ -190,7 +190,7 @@ module.exports = class InventoryProfileCommand extends Command {
       user.profileType = profileSelected._id
       user.save()
       await nightly.sendAck('update', {
-        content: `You just activated ${profileSelected.name} in your inventory! Now try using /profile`,
+        content: ctx._locale('commands:inventory.profile.selected', { 0: profileSelected.name }),
         embeds: [],
         components: [],
         attachments: [],
@@ -200,7 +200,7 @@ module.exports = class InventoryProfileCommand extends Command {
     }
 
     await msgInteraction.edit({
-      content: 'Are you sure you want to select this profile? If "Yes, I want" click confirm, if not click "No"',
+      content: ctx._locale('commands:inventory.profile.areYouSure'),
       embeds: [],
       attachments: [],
       components: [
@@ -210,14 +210,14 @@ module.exports = class InventoryProfileCommand extends Command {
             {
               type: 2,
               style: 3,
-              label: 'Yes, I want',
+              label: ctx._locale('commands:inventory.confirmationButton'),
               custom_id: `yes-${interaction.data.custom_id}`,
               disabled: false
             },
             {
               type: 2,
               style: 4,
-              label: 'No',
+              label: ctx._locale('commands:inventory.denyButton'),
               custom_id: `no-${interaction.data.custom_id}`,
               disabled: false
             },
@@ -229,7 +229,7 @@ module.exports = class InventoryProfileCommand extends Command {
     })
   }
 
-  async generateProfile(profile, data) {
+  async generateProfile(profile, data, locale) {
     let getProfile = {}
 
     for (const i of profileInfo)
@@ -248,7 +248,7 @@ module.exports = class InventoryProfileCommand extends Command {
       return {
         embeds: [{
           title: getProfile.name,
-          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${Number(getProfile.price).toLocaleString()}\``,
+          description: `${getProfile.shotDescription ?? locale('commands:inventory.noDescription')}`,
           color: 0x5865F2,
           image: {
             url: `attachment://profile-${id}.png`

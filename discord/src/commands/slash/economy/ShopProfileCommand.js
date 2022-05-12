@@ -181,7 +181,7 @@ module.exports = class ShopProfileCommand extends Command {
                 await msgInteraction.edit(messageData, profileData.image)
                 return;
               }
-              const dataProfile = await this.generateProfile(data.type, data)
+              const dataProfile = await this.generateProfile(data.type, data, ctx._locale)
               if (dataProfile === undefined) throw Error('ProfileTokamak: undefined')
               messageData = {
                 content: `${disabledReason === '' ? '' : `${ctx._locale('commands:shop.buttonDisabled')} **${disabledReason}**\n**Yens**: \`${user.yens.toLocaleString()}\``}`,
@@ -221,7 +221,7 @@ module.exports = class ShopProfileCommand extends Command {
         }
       }
       nightly.on('collect', async ({ interaction }) => {
-        if (interaction.buttonEvent.member.id != ctx.message.member.id) return nightly.sendAck('respond', { content: 'Sorry you don\'t have this control for this interaction.', flags: 1 << 6 })
+        if (interaction.buttonEvent.member.id !== ctx.message.member.id) return nightly.sendAck('respond', { content: ctx._locale('commands:shop.notAllowed'), flags: 1 << 6 })
 
         switch (interaction.data.component_type) {
           case 2: {
@@ -318,7 +318,7 @@ module.exports = class ShopProfileCommand extends Command {
     })
   }
 
-  async generateProfile(profile, data) {
+  async generateProfile(profile, data, locale) {
     let getProfile = {}
     for (const i of profileInfo)
       if (i._id === profile) {
@@ -335,7 +335,7 @@ module.exports = class ShopProfileCommand extends Command {
       return {
         embeds: [{
           title: getProfile.name,
-          description: `${getProfile.shotDescription ?? 'No description'}\n\n**Price**: \`${Number(getProfile.price).toLocaleString()}\``,
+          description: `${getProfile.shotDescription ?? locale('commands:shop.noDescription')}\n\n**${locale('commands:shop.price')}**: \`${Number(getProfile.price).toLocaleString()}\``,
           color: 0x5865F2,
           image: {
             url: `attachment://profile-${id}.png`
