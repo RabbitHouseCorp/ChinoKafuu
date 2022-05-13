@@ -8,9 +8,9 @@
   "missingBotPermission": "Je n'ai pas la permission {{perm}}. Vérifie mes permissions/rôles et réessaye.",
   "missingUserPermission": "tu n'as pas la permission {{perm}}. Tu ne peux pas exécuter cette commande.",
   "missingBotPermissionOnChannel": "Hey {{0}} je n'ai pas la permission {{1}} dans {{2}}. S'il te plaît, vérifie mes permissions et réessaie.",
-  "invalidUser": "I can't find this person. Are you sure this user exist?",
-  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
-  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
+  "invalidUser": "Je ne trouve pas cette personne. Êtes-vous sûr que cet utilisateur existe ?",
+  "invalidRole": "Je ne trouve pas ce rôle. Êtes-vous sûr que ce rôle existe dans ce serveur ?",
+  "invalidEmoji": "Je ne trouve pas cet émoji. Êtes-vous sûr que cet émoji provient de ce serveur ?",
   "noReason": "Aucune raison",
   "clickHere": "Clique ici",
   "punishment": {
