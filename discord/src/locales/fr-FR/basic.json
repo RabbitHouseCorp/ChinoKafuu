@@ -29,8 +29,8 @@
     "reason": "Sanctionné par: {{0}} - Raison: {{1}}",
     "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi.",
     "selfPunishment": "désolé, mais, comme vous ne pouvez pas vous punir sur le Discord normal, vous ne pouvez pas vous punir par moi.",
-    "ownerPunish": "have you lost your mind? You can't punish this person, they're the owner of this guild.",
-    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
+    "ownerPunish": "tu as perdu la tête ? Tu ne peux pas punir cette personne, c'est le propriétaire de ce serveur.",
+    "error": "Je ne pouvais pas punir ce membre. Peut-être que ses rôles sont plus élevés que les miens. Vérifiez les rôles et réessayez."
   },
   "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
   "howToUse": "Comment l'utiliser?",
@@ -42,10 +42,10 @@
   },
   "noAliases": "Cette commande n'a aucun alias.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
-    "playerAlreadyPlaying": "the radio is already playing on me.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
-    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
+    "authorAreNotInVoiceChannel": "vous devez être sur un salon vocal, mais vous ne l'êtes pas.",
+    "playerAlreadyPlaying": "la radio joue déjà sur moi.",
+    "clientAreNotInVoiceChannel": "Je ne suis pas dans un canal vocal en ce moment, utilisez `/animu play`.",
+    "playerNotFound": "Je ne suis pas en train de jouer quoi que ce soit pour le moment, utilisez `/animu play`.",
     "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
     "minVolume": "hey, calm down! The minimal volume allowed is `5`."
   },
