@@ -93,17 +93,17 @@
   "favcolor": {
     "description": "Change la couleur de votre profil à votre couleur préférée.",
     "invalidColor": "la couleur que vous avez choisie n'est pas valide.",
-    "poorUser": "you need more `{{0}}` yens to change your favorite color.",
-    "successfullyChanged": "sure. I have successfully changed your favorite color."
+    "poorUser": "il vous faut plus de `{{0}}` yens pour changer votre couleur préférée.",
+    "successfullyChanged": "sûr. J'ai réussi à changer ta couleur préférée."
   },
   "profile": {
-    "description": "Shows your social profile or the social profile of someone.",
-    "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
+    "description": "Affiche votre profil social ou le profil social de quelqu'un.",
+    "defaultAboutMe": "Je suis au Rabbit House Coffee en train de boire un cappuccino (vous pouvez changer cela en utilisant /aboutme)."
   },
   "emojiinfo": {
-    "description": "Get some info about an emoji.",
+    "description": "Obtenez des informations sur un émoji.",
     "embed": {
-      "title": "Emoji information",
+      "title": "Informations sur l'émoji",
       "name": "Emoji name",
       "id": "Emoji ID",
       "mention": "Emoji mention",
