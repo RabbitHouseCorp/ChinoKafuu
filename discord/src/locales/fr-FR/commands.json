@@ -137,8 +137,8 @@
     "misc": "Divers ({{0}})",
     "mod": "Modération ({{0}})",
     "social": "Social ({{0}})",
-    "utils": "Utils ({{0}})",
-    "description": "Show my command list to you.",
+    "utils": "Utilités ({{0}})",
+    "description": "Montrez ma liste de commandes à vous.",
     "commandsLoaded": "I have {{0}} public commands loaded.",
     "additionalLinks": {
       "embedTitle": "Additional Links",
