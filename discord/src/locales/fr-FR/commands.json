@@ -123,14 +123,14 @@
     "youNeedToDivorce": "vous devez avoir plus de `{{0}}` yens pour divorcer.",
     "theyNeedToDivorce": "votre partenaire doit avoir `{{0}}` plus de yens pour divorcer.",
     "requestConfirm": "tu es sûr de vouloir divorcer ? Cette action est irréversible.",
-    "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
-    "needToWait": "You need to wait for the person to sign the paperwork to run this command.",
-    "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
+    "successfullyDivorced": "Bien sûr, je vais appeler les avocats. Vous paierez tous les deux `300` yens pour ça.",
+    "needToWait": "Vous devez attendre que la personne signe les papiers pour exécuter cette commande.",
+    "rejectedRequest": "Je suppose que l'oracle de l'amour ne vous a pas laissé vous séparer. Je suis content que vous vous soyez entendus."
   },
   "help": {
-    "commandList": "Command list",
-    "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
-    "economy": "Economy ({{0}})",
+    "commandList": "Liste des commandes",
+    "explain": "Si vous voulez en savoir plus sur une commande, utilisez simplement `{{0}}help [command]` et je vous expliquerai comment utiliser cette commande.",
+    "economy": "Économie ({{0}})",
     "fun": "Fun ({{0}})",
     "image": "Image Manipulation ({{0}})",
     "minecraft": "Minecraft ({{0}})",
