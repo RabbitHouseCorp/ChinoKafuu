@@ -160,11 +160,11 @@
     "requestConfirm": "{{0}}, acceptez-vous de vous marier avec {{1}}, dans la maladie et la santé, dans la richesse et la pauvreté jusqu'à ce que la mort vous sépare ?",
     "successfullyMarried": "Félicitations, maintenant vous êtes tous les deux mariés.",
     "rejectedRequest": "Il semble que {{0}} ne veuille pas partager sa vie avec toi, {{0}} n'est peut-être pas l'amour de ta vie. L'oracle de l'amour échoue une fois de plus...",
-    "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
-    "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
-    "cannotMarryWithBot": "you can't marry with a bot because they will never accept it.",
-    "needToWait": "You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.",
-    "description": "Marry with your true love."
+    "cannotMarryWithYourself": "imaginez que vous essayez de vous marier. Je ne peux pas faire en sorte que ça arrive, désolé.",
+    "cannotMarryWithMe": "Je suis vraiment désolé, mais tu ne peux pas te marier avec moi, je ne t'aime pas comme tu m'aimes, je t'aime, mais comme un ami.",
+    "cannotMarryWithBot": "tu ne peux pas te marier avec un bot parce qu'ils ne l'accepteront jamais.",
+    "needToWait": "Vous ne pouvez pas accepter votre propre demande en mariage... Vous devez attendre que votre partenaire accepte votre demande en mariage.",
+    "description": "Marie-toi avec ton grand amour."
   },
   "baninfo": {
     "title": "Ban information",
