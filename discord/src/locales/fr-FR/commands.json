@@ -104,10 +104,10 @@
     "description": "Obtenez des informations sur un émoji.",
     "embed": {
       "title": "Informations sur l'émoji",
-      "name": "Emoji name",
-      "id": "Emoji ID",
-      "mention": "Emoji mention",
-      "url": "Download"
+      "name": "Nom de l'émoji",
+      "id": "ID de l'émoji",
+      "mention": "Mention de l'émoji",
+      "url": "Télécharger"
     }
   },
   "emoji": {
