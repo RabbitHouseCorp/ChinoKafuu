@@ -111,18 +111,18 @@
     }
   },
   "emoji": {
-    "description": "Get the emoji attachment."
+    "description": "Obtient le fichier joint de l'émoji."
   },
   "fakemsg": {
-    "argsNull": "Welp, it seems you don't have nothing to say.",
-    "description": "Prank on someone with a fake message through webhook."
+    "argsNull": "Eh bien, il semble que vous n'ayez rien à dire.",
+    "description": "Faites une farce à quelqu'un en lui envoyant un faux message via un webhook."
   },
   "divorce": {
-    "description": "Divorces you to your current partner (I will charge 300 yens to divorce both of you).",
-    "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
-    "youNeedToDivorce": "you must have more `{{0}}` yens to divorce.",
-    "theyNeedToDivorce": "your partner must have `{{0}}` more yens to divorce.",
-    "requestConfirm": "are you sure you want divorce? This action is irreversible.",
+    "description": "Divorce de votre partenaire actuel (je demanderai 300 yens pour divorcer de vous deux).",
+    "youAreNotMarried": "vous n'êtes pas marié, si vous voulez vous marier, utilisez `{{0}}marry <user>` et soyez heureux.",
+    "youNeedToDivorce": "vous devez avoir plus de `{{0}}` yens pour divorcer.",
+    "theyNeedToDivorce": "votre partenaire doit avoir `{{0}}` plus de yens pour divorcer.",
+    "requestConfirm": "tu es sûr de vouloir divorcer ? Cette action est irréversible.",
     "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
     "needToWait": "You need to wait for the person to sign the paperwork to run this command.",
     "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
