@@ -1,14 +1,14 @@
 {
   "inventory": {
     "background": {},
-    "confirmationButton": "Yes, I want",
-    "denyButton": "No, I don't want",
-    "loadingPreview": "Loading profile preview please wait a while.",
-    "noDescription": "No description",
-    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "confirmationButton": "Sim, eu quero",
+    "denyButton": "No, eu não quero",
+    "loadingPreview": "Carregando preview de perfil espere um pouco.",
+    "noDescription": "Sem descrição",
+    "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If `Yes, I want` click confirm, if not click `No, I don't want`",
-      "cancelled": "Okay. The selection was successfully canceled!",
+      "areYouSure": "Você tem certeza que quer selecionar este perfil? Se `Sim, eu quero` clique confirmar, se não, clique `Não, eu não quero`",
+      "cancelled": "Okay. A seleção foi cancelada com sucesso!",
       "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
       "wantUseThisProfile": "I want use this profile!",
       "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
