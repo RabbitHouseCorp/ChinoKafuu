@@ -46,8 +46,8 @@
     "playerAlreadyPlaying": "la radio joue déjà sur moi.",
     "clientAreNotInVoiceChannel": "Je ne suis pas dans un canal vocal en ce moment, utilisez `/animu play`.",
     "playerNotFound": "Je ne suis pas en train de jouer quoi que ce soit pour le moment, utilisez `/animu play`.",
-    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
-    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
+    "maxVolume": "hé, calmez-vous ! Le volume maximum autorisé est de `100`.",
+    "minVolume": "hé, calmez-vous ! Le volume minimal autorisé est de `5`."
   },
   "boolean": {
     "true": "Oui",
@@ -64,11 +64,11 @@
   "blockedChannel": "tu ne peux pas utiliser de commandes ici, va dans {{0}} et essaie encore.",
   "migrate": {
     "migrateTitle": "Les commandes slash sont là !",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "migrateToSlashCommand": "Hey ! Après Janvier 2022 je ne répondrai qu'aux commandes slash, s'il vous plaît, si vous voulez continuer à m'utiliser, alors vous devez me réinscrire, vous pouvez le faire en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), vous n'avez pas besoin de me virer du serveur. Merci ! Si vous voulez arrêter de recevoir ce message, écrire `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Les commandes vanilla sont obsolètes",
     "disabledToSlashCommands": "Il est temps de dire adieu aux commandes normales, maintenant, ce sont seulement les commandes slash qui entrent en scène. Pour l'instant, cette commande est obsolète, mais tu peux m'utiliser normalement à l'aide des slash, tape `/help` pour voir ma liste de commandes.",
     "howToUseTitle": "Comment les utiliser ?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "howToUseSlash": "1.) Pour les anciens utilisateurs qui ne m'ont pas réinvité sur ce serveur, vous pouvez me réinviter en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), il est important de vous assurer que vous m'avez déjà réinvité.\n2.) L'utilisateur doit avoir la permission de `Utiliser les commandes de l'application` pour utiliser mes commandes.\n3.) Si vous ne pouvez pas voir les commandes slash, vérifiez que vous avez activé `Paramètres utilisateur -> Texte & Images -> Utilise les commandes slash et affiche un aperçu des émojis, des mentions et de la syntaxe Markdown pendant que tu écris`",
     "needSupportTitle": "Toujours confus·e de comment utiliser le bot ?",
     "needSupportSlash": "Si tu as toujours des problèmes quant à mon utilisation, n'hésite pas à rejoindre notre [serveur de support](https://discord.gg/Jr57UrsXeC) pour obtenir de l'aide de notre équipe de support."
   }
