@@ -139,21 +139,21 @@
     "social": "Social ({{0}})",
     "utils": "Utilités ({{0}})",
     "description": "Montrez ma liste de commandes à vous.",
-    "commandsLoaded": "I have {{0}} public commands loaded.",
+    "commandsLoaded": "J'ai {{0}} commandes publiques chargées.",
     "additionalLinks": {
-      "embedTitle": "Additional Links",
+      "embedTitle": "Liens supplémentaires",
       "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
-    "cannotGiveRepForYourself": "you can't give a reputation to yourself.",
-    "forTheClient": "thank you for giving me a reputation point! Now I have `{{0}}` reputations",
-    "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
-    "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
-    "description": "Gives a reputation to someone."
+    "cannotGiveRepForYourself": "vous ne pouvez pas vous donner une réputation.",
+    "forTheClient": "merci de m'avoir donné un point de réputation ! Maintenant j'ai `{{0}}` des réputations",
+    "successffully": "vous avez donné une réputation à {{0}}, maintenant {{0}} ont `{{1}}` des réputations.",
+    "cooldown": "Vous ne pouvez pas donner de réputation maintenant. Vous devez attendre {{0}} avant de donner à nouveau des points de réputation.",
+    "description": "Donne une réputation à quelqu'un."
   },
   "marry": {
-    "youNeedToMarry": "you need `{{0}}` more yens to marry.",
+    "youNeedToMarry": "vous avez besoin de `{{0}}` plus de yens pour vous marier.",
     "theyNeedToMarry": "sorry, but {{0}} need more `{{1}}` yens to marry.",
     "youAlreadyMarried": "what a shame! You can't marry someone else because you already are.",
     "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
