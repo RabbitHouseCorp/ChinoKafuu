@@ -29,7 +29,7 @@
     "reason": "Punido por: {{0}} - Motivo: {{1}}",
     "bigReason": "você deve digitar um motivo menor, esse motivo é muito grande para mim.",
     "selfPunishment": "desculpe, mas como você não pode se punir no Discord normal, você não pode se punir por mim.",
-    "ownerPunish": "have you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "ownerPunish": "você perdeu sua cabeça? Você não pode punir está pessoa, ele(a) é o dono desse servidor.",
     "error": "eu não pude punir este membro. Provavelmente os cargos dele são maiores do que os meus. Verifique os cargos e tente novamente."
   },
   "missingArgs": "Argumentos inválidos! Use `{{prefix}}{{commandName}}` para ver o uso correto.",
