@@ -181,12 +181,12 @@
   "rolecolor": {
     "invalidColor": "vous avez spécifié une couleur non valide.",
     "colorChanged": "la couleur du rôle a été modifiée avec succès.",
-    "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
-    "description": "Changes the color of a role."
+    "higher": "Je n'ai pas pu changer la couleur de ce rôle car il est probablement au-dessus de mon rôle le plus élevé. Vérifiez les rôles et réessayez.",
+    "description": "Change la couleur d'un rôle."
   },
   "renamechannel": {
-    "channelNotFound": "I can't find this channel, make sure it exists.",
-    "invalidName": "I can't rename this channel because the name is invalid.",
+    "channelNotFound": "Je ne trouve pas ce canal, assurez-vous qu'il existe.",
+    "invalidName": "Je ne peux pas renommer ce salon car le nom n'est pas valide.",
     "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
     "description": "Renames a channel in the current guild."
   },
