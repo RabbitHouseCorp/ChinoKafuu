@@ -2,8 +2,8 @@
   "inventory": {
     "background": {},
     "confirmationButton": "Sim, eu quero",
-    "denyButton": "No, eu não quero",
-    "loadingPreview": "Carregando preview de perfil espere um pouco.",
+    "denyButton": "Não, eu não quero",
+    "loadingPreview": "Carregando a preview do perfil espere um pouco.",
     "noDescription": "Sem descrição",
     "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
     "profile": {
