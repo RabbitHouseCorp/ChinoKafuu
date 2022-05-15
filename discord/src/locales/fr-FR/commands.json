@@ -569,9 +569,9 @@
       "voiceNoLongerExist": "Oh non ! Il semble que ce salon vocal n'existe plus. Répétez les mêmes actions.",
       "textNoLongerExist": "Oh non ! Il semble que ce salon de texte n'existe plus. Répétez les mêmes actions.",
       "moduleIfFoundBug": "quelque chose de grave est arrivé, et je ne sais pas ce qui s'est passé sur le module de {{0}}. Je suis vraiment désolé pour ça.",
-      "channelWasNotFound": "sorry, but, it's looks like I can't find this channel. Are you sure that this channel exist?",
-      "sameChannel": "eh... It's looks like this channel is the same that is already setted.",
-      "needStatus": "you need to choose between `Enable` or `Disable`.",
+      "channelWasNotFound": "désolé, mais, il semble que je ne puisse pas trouver ce salon. Êtes-vous sûr que ce salon existe ?",
+      "sameChannel": "eh... On dirait que ce salon est le même que celui qui est déjà installé.",
+      "needStatus": "vous devez choisir entre \"Activer\" et \"Désactiver\".",
       "moduleHasDisabled": "this module is already disabled."
     },
     "selected": {
