@@ -7,7 +7,7 @@
     "noDescription": "No description",
     "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If `Yes, I want` click confirm, if not click `No, I don't want`",
+      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
       "cancelled": "Okay. The selection was successfully canceled!",
       "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
       "wantUseThisProfile": "I want use this profile!",
@@ -30,7 +30,7 @@
       "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
       "purchaseCancelled": "Right! Purchase successfully cancelled!",
       "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
+      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
       "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
     },
     "yesIWant": "Yes, I want this profile"
