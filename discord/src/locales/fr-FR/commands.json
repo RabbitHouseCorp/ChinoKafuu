@@ -555,8 +555,8 @@
     "select": {
       "enable": "Enable",
       "enableDescription": "Activez le module sélectionné.",
-      "disable": "Disable",
-      "disableDescription": "Disable the selected module.",
+      "disable": "Désactiver",
+      "disableDescription": "Désactiver le module sélectionné.",
       "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
       "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
       "options": {
