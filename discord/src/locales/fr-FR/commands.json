@@ -557,8 +557,8 @@
       "enableDescription": "Activez le module sélectionné.",
       "disable": "Désactiver",
       "disableDescription": "Désactiver le module sélectionné.",
-      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
-      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
+      "textChannel": "Sélectionnez le salon de texte.\n__Si le salon souhaité n'apparaît pas, cela signifie que je n'ai pas la permission de voir ce salon ! Vérifiez les permissions !___",
+      "voiceChannel": "Sélectionnez le salon vocal.\n__Si le salon souhaité n'apparaît pas, cela signifie que je n'ai pas la permission de voir ce salon ! Vérifiez les permissions !___",
       "options": {
         "textChannel": "Select the text channel.",
         "voiceChannel": "Select the voice channel."
