@@ -365,16 +365,16 @@
     "description": "Shows more information about me."
   },
   "mcavatar": {
-    "description": "Shows a player's minecraft avatar."
+    "description": "Shows a Minecraft player's avatar."
   },
   "mcbody": {
-    "description": "Shows a player's Minecraft body."
+    "description": "Shows a Minecraft player's body."
   },
   "mchead": {
-    "description": "Shows a player's Minecraft head."
+    "description": "Shows a Minecraft player's head."
   },
   "mcskin": {
-    "description": "Shows a player's Minecraft skin."
+    "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
     "description": "Show a Minecraft server info",
