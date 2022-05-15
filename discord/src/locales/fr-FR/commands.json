@@ -500,9 +500,9 @@
     "missingNickname": "vous n'avez pas précisé le surnom."
   },
   "chat": {
-    "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
-    "locked": "got it, channel locked",
-    "unlocked": "got it, channel unlocked"
+    "description": "Verrouille le chat, en mettant à jour les permissions `Envoyer des messages` pour le rôle `@everyone`",
+    "locked": "je l'ai, j'ai verrouillé ce salon",
+    "unlocked": "je l'ai, j'ai débloqué ce canal"
   },
   "clear": {
     "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
