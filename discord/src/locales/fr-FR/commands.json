@@ -188,11 +188,11 @@
     "channelNotFound": "Je ne trouve pas ce canal, assurez-vous qu'il existe.",
     "invalidName": "Je ne peux pas renommer ce salon car le nom n'est pas valide.",
     "successfullyRenamed": "j'ai réussi à renommer le canal `{{0}}`.",
-    "description": "Renames a channel in the current guild."
+    "description": "Renomme un canal du serveur actuel."
   },
   "renameemoji": {
-    "successfullyRenamed": "emoji successfully renamed.",
-    "description": "Renames an emoji in the current guild."
+    "successfullyRenamed": "émoji renommé avec succès.",
+    "description": "Renomme un émoji du serveur actuel."
   },
   "removerole": {
     "success": "role successfully removed.",
