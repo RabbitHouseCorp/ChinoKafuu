@@ -505,16 +505,16 @@
     "unlocked": "je l'ai, j'ai débloqué ce canal"
   },
   "clear": {
-    "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
-    "limit": "I can't delete more than a hundred messages",
-    "success": "right, I'm deleting {{messages}} messages on this chat.",
-    "nan": "you've must insert a number, in this command, I only accept numbers."
+    "description": "Supprime les messages de ce salon. Si un utilisateur est spécifié, elle supprime les messages de cet utilisateur",
+    "limit": "Je ne peux pas supprimer plus de cent messages",
+    "success": "bon, je supprime {{messages}} messages sur ce chat.",
+    "nan": "vous devez insérer un numéro, dans cette commande, je n'accepte que les numéros."
   },
   "kick": {
-    "description": "Kicks an user from the server"
+    "description": "Expulse un membre du serveur"
   },
   "ban": {
-    "description": "Bans an user from the server"
+    "description": "Bannir un membre du serveur"
   },
   "language": {
     "description": "Change my language in the current guild.",
