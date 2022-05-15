@@ -176,11 +176,11 @@
   },
   "seticon": {
     "success": "l'icône a été changée avec succès.",
-    "description": "Set an icon in the current guild."
+    "description": "Définit une icône dans le serveur actuel."
   },
   "rolecolor": {
-    "invalidColor": "you've specified an invalid color.",
-    "colorChanged": "the role color has been successfully changed.",
+    "invalidColor": "vous avez spécifié une couleur non valide.",
+    "colorChanged": "la couleur du rôle a été modifiée avec succès.",
     "higher": "I couldn't change the color of this role because it is, probably, above my highest one. Check the roles and try again.",
     "description": "Changes the color of a role."
   },
