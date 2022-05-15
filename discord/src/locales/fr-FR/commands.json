@@ -256,23 +256,23 @@
     "description": "Traduisez un texte sans devoir recourir à un service de traduction en ligne."
   },
   "animu": {
-    "title": "Animu Radio Station - The Most Moe Radio of Brazil!",
-    "nowPlaying": "Now playing",
-    "newNowPlaying": "now playing `{{0}}` with DJ `{{1}}`",
+    "title": "Animu Radio Station - La radio la plus moe du Brésil !",
+    "nowPlaying": "En cours de lecture",
+    "newNowPlaying": "jouer maintenant `{{0}}` avec le DJ `{{1}}`",
     "totalListening": {
-      "title": "Total listening",
-      "total": "Listening now"
+      "title": "Écoute totale",
+      "total": "Écouter maintenant"
     },
-    "artist": "Song author",
+    "artist": "Auteur de la chanson",
     "album": "Album",
     "volume": "Volume",
-    "volumeChanged": "volume successfully changed.",
-    "currentVolume": "the current volume is `{{volume}}/100`.",
-    "leaving": "I'm leaving the voice channel.",
-    "description": "Starts the [Animu Radio](https://animu.com.br)."
+    "volumeChanged": "le volume a été modifié avec succès.",
+    "currentVolume": "le volume actuel est `{{volume}}/100`.",
+    "leaving": "Je quitte le salon vocal.",
+    "description": "Démarre la [Radio Animu] (https://animu.com.br)."
   },
   "serverinfo": {
-    "description": "Shows information about this server.",
+    "description": "Affiche des informations sur ce serveur.",
     "general": "General",
     "banner": "Guild banner",
     "splash": "Guild invite background",
