@@ -238,18 +238,18 @@
     "roleGuild": "Serveur",
     "roleHoist": "Catégorie distincte",
     "roleMentionable": "Mentionnable",
-    "roleManaged": "Integration",
-    "roleCreatedAt": "Role Created At",
-    "description": "Shows some informations about a role."
+    "roleManaged": "Intégration",
+    "roleCreatedAt": "Rôle créé à",
+    "description": "Affiche quelques informations sur un rôle."
   },
   "userinfo": {
-    "description": "Shows some information about an user.",
-    "username": "User Tag",
-    "userid": "User ID",
-    "createdAt": "Account Created",
-    "joinedAt": "User Joined At",
-    "highRole": "Highest role",
-    "boostSince": "Boosting Since",
+    "description": "Affiche quelques informations sur un utilisateur.",
+    "username": "Tag de l'utilisateur",
+    "userid": "Identifiant de l'utilisateur",
+    "createdAt": "Compte créé à",
+    "joinedAt": "Utilisateur rejoint à",
+    "highRole": "Rôle le plus élevé",
+    "boostSince": "Boosting Depuis",
     "hasPermissions": "Permissions"
   },
   "translate": {
