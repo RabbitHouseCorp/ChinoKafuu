@@ -273,12 +273,12 @@
   },
   "serverinfo": {
     "description": "Affiche des informations sur ce serveur.",
-    "general": "General",
-    "banner": "Guild banner",
-    "splash": "Guild invite background",
-    "guildName": "Guild Name",
-    "guildOwner": "Guild's Owner",
-    "guildCreateAt": "Guild Created At",
+    "general": "Général",
+    "banner": "Bannière du serveur",
+    "splash": "Arrière-plan d'invitation de serveur",
+    "guildName": "Nom du serveur",
+    "guildOwner": "Propriétaire du serveur",
+    "guildCreateAt": "Serveur créé à",
     "guildAFKChannel": {
       "title": "AFK Channel",
       "noAfkChannel": "Not setted"
