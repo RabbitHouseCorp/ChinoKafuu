@@ -365,16 +365,16 @@
     "description": "Muestra más información sobre mí."
   },
   "mcavatar": {
-    "description": "Muestra el avatar de un jugador de Minecraft."
+    "description": "Shows a Minecraft player's avatar."
   },
   "mcbody": {
-    "description": "Muestra el cuerpo de un jugador de Minecraft."
+    "description": "Shows a Minecraft player's body."
   },
   "mchead": {
-    "description": "Muestra la cabeza de un jugador de Minecraft."
+    "description": "Shows a Minecraft player's head."
   },
   "mcskin": {
-    "description": "Muestra la skin de un jugador de Minecraft."
+    "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
     "description": "Mostrar información del servidor de Minecraft",
@@ -471,7 +471,7 @@
     "description": "Calls an user baka"
   },
   "clap": {
-    "noArgs": "Argumento inválido",
+    "noArgs": "you have to type something to me, then i will modify your message.",
     "description": "Aplaude con tus amigos."
   },
   "congaparrot": {
@@ -538,7 +538,7 @@
     "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
   },
   "choose": {
-    "description": "Makes the me choose something for you (Use `,` to separate)",
+    "description": "Makes me choose something for you (Use `,` to separate)",
     "chosen": "Yo escojo `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
