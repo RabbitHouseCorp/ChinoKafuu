@@ -517,16 +517,16 @@
     "description": "Bannir un membre du serveur"
   },
   "language": {
-    "description": "Change my language in the current guild.",
-    "message": "What's your language?",
-    "helpUs": "Help us translating",
-    "chooseYourLanguage": "Choose your language here.",
-    "onlyWhoExecuted": "Only who executed this command can make the choice, not you.",
-    "explaining": "You can help us translating Chino Kafuu to your language by accessing our [Crowdin](https://crowdin.com/project/chinokafuu). Of course, your contribution will be rewarded! You will win a role in my support server. Thank you, little rabbit, I love you (like a friend, of course)"
+    "description": "Changer ma langue dans le serveur actuel.",
+    "message": "Quelle est votre langue ?",
+    "helpUs": "Aidez-nous à traduire",
+    "chooseYourLanguage": "Choisissez votre langue ici.",
+    "onlyWhoExecuted": "Seul celui qui a exécuté cette commande peut faire le choix, pas vous.",
+    "explaining": "Vous pouvez nous aider à traduire le Chino Kafuu dans votre langue en accédant à notre [Crowdin](https://crowdin.com/project/chinokafuu). Bien sûr, votre contribution sera récompensée ! Vous gagnerez un rôle dans mon serveur de soutien. Merci, petit ami, je t'aime (comme un ami, bien sûr)"
   },
   "setbanner": {
-    "description": "Sets the banner of your server (not available for all servers).",
-    "success": "Whoa! Your server has now a new banner",
+    "description": "Définit la bannière de votre serveur (non disponible pour tous les serveurs).",
+    "success": "Ouah ! Votre serveur a maintenant une nouvelle bannière",
     "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
   },
   "aboutme": {
