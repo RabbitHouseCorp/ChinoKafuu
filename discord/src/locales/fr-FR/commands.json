@@ -187,7 +187,7 @@
   "renamechannel": {
     "channelNotFound": "Je ne trouve pas ce canal, assurez-vous qu'il existe.",
     "invalidName": "Je ne peux pas renommer ce salon car le nom n'est pas valide.",
-    "successfullyRenamed": "successfuly renamed the channel `{{0}}`.",
+    "successfullyRenamed": "j'ai réussi à renommer le canal `{{0}}`.",
     "description": "Renames a channel in the current guild."
   },
   "renameemoji": {
