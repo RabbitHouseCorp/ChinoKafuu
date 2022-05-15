@@ -527,27 +527,27 @@
   "setbanner": {
     "description": "Définit la bannière de votre serveur (non disponible pour tous les serveurs).",
     "success": "Ouah ! Votre serveur a maintenant une nouvelle bannière",
-    "missingFeature": "your server does not have the `Banner` feature, you can't execute this command"
+    "missingFeature": "votre serveur ne possède pas la fonctionnalité `Bannière`, vous ne pouvez pas exécuter cette commande"
   },
   "aboutme": {
-    "description": "Changes your profile description",
-    "success": "awesome! Your new bio is set as: `{{bio}}`",
-    "bioLimit": "your bio description can have up to 128 characters"
+    "description": "Modifier la description de votre profil",
+    "success": "génial ! Votre nouvelle bio est défini comme : `{{bio}}`",
+    "bioLimit": "votre bio description peut comporter jusqu'à 128 caractères"
   },
   "softban": {
-    "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
+    "description": "Bannit progressivement un utilisateur. Si la fin de `purge-days` n'est pas spécifiée, la valeur par défaut (7) sera utilisée."
   },
   "choose": {
-    "description": "Makes the me choose something for you (Use `,` to separate)",
-    "chosen": "I choose `{{chosen}}` 💁‍♀️"
+    "description": "Me fait choisir quelque chose pour vous (Utilisez `,` pour séparer)",
+    "chosen": "Je choisis `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
-    "descripton": "Shows your avatar or someone else's.",
-    "userAvatar": "Avatar of {{user}}",
-    "download": "Open the avatar in your browser."
+    "descripton": "Montre votre avatar ou celui de quelqu'un d'autre.",
+    "userAvatar": "Avatar de {{user}}",
+    "download": "Ouvrez l'avatar dans votre navigateur."
   },
   "config": {
-    "title": "Guild Modules Config",
+    "title": "Configuration des modules du serveur",
     "howUse": "How to use",
     "description": "Enable and disable some modules who I have in your guild.",
     "channelNull": "I can't find this channel, make sure if it exist.",
