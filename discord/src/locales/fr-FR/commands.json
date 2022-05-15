@@ -365,16 +365,16 @@
     "description": "Montre plus d'informations sur moi."
   },
   "mcavatar": {
-    "description": "Affiche l'avatar d'un joueur Minecraft.."
+    "description": "Shows a Minecraft player's avatar."
   },
   "mcbody": {
-    "description": "Montre le corps d'un joueur de Minecraft."
+    "description": "Shows a Minecraft player's body."
   },
   "mchead": {
-    "description": "Montre la tête d'un joueur de Minecraft."
+    "description": "Shows a Minecraft player's head."
   },
   "mcskin": {
-    "description": "Montre la peau d'un joueur Minecraft."
+    "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
     "description": "Afficher les informations d'un serveur Minecraft",
@@ -471,7 +471,7 @@
     "description": "Calls an user baka"
   },
   "clap": {
-    "noArgs": "invalid input",
+    "noArgs": "you have to type something to me, then i will modify your message.",
     "description": "Let's clap, clap, clap, clap, clap with your friends."
   },
   "congaparrot": {
@@ -538,7 +538,7 @@
     "description": "Bannit progressivement un utilisateur. Si la fin de `purge-days` n'est pas spécifiée, la valeur par défaut (7) sera utilisée."
   },
   "choose": {
-    "description": "Me fait choisir quelque chose pour vous (Utilisez `,` pour séparer)",
+    "description": "Makes me choose something for you (Use `,` to separate)",
     "chosen": "Je choisis `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
@@ -612,14 +612,14 @@
           "added": "salons ajoutés avec succès sur la liste blanche.",
           "removed": "tous les salons sont retirés avec succès de la liste blanche."
         },
-        "module": "Allowed Command Channels"
+        "module": "Salons de commande autorisés"
       }
     }
   },
   "mute": {
-    "description": "Mutes a member in the guild."
+    "description": "Rend muet un membre du serveur."
   },
   "unmute": {
-    "description": "Unmute a member in the guild."
+    "description": "Supprimer le mute d'un membre du serveur."
   }
 }
