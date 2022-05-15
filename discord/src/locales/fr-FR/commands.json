@@ -548,13 +548,13 @@
   },
   "config": {
     "title": "Configuration des modules du serveur",
-    "howUse": "How to use",
-    "description": "Enable and disable some modules who I have in your guild.",
-    "channelNull": "I can't find this channel, make sure if it exist.",
-    "chooseYourAction": "Select the right module.",
+    "howUse": "Mode d'emploi",
+    "description": "Activez et désactivez certains modules que j'ai dans votre serveur.",
+    "channelNull": "Je ne trouve pas cette chaîne, assurez-vous qu'elle existe.",
+    "chooseYourAction": "Sélectionnez le bon module.",
     "select": {
       "enable": "Enable",
-      "enableDescription": "Enable the selected module.",
+      "enableDescription": "Activez le module sélectionné.",
       "disable": "Disable",
       "disableDescription": "Disable the selected module.",
       "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
