@@ -365,16 +365,16 @@
     "description": "Montre plus d'informations sur moi."
   },
   "mcavatar": {
-    "description": "Shows a Minecraft player's avatar."
+    "description": "Affiche l'avatar d'un joueur Minecraft."
   },
   "mcbody": {
-    "description": "Shows a Minecraft player's body."
+    "description": "Affiche le corps d'un joueur Minecraft."
   },
   "mchead": {
-    "description": "Shows a Minecraft player's head."
+    "description": "Affiche la tête d'un joueur Minecraft."
   },
   "mcskin": {
-    "description": "Shows a Minecraft player's skin."
+    "description": "Affiche le skin d'un joueur Minecraft."
   },
   "mcquery": {
     "description": "Afficher les informations d'un serveur Minecraft",
@@ -538,7 +538,7 @@
     "description": "Bannit progressivement un utilisateur. Si la fin de `purge-days` n'est pas spécifiée, la valeur par défaut (7) sera utilisée."
   },
   "choose": {
-    "description": "Makes me choose something for you (Use `,` to separate)",
+    "description": "Me fait choisir quelque chose pour vous (Utilisez `,` pour séparer)",
     "chosen": "Je choisis `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
