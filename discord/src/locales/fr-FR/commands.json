@@ -280,22 +280,22 @@
     "guildOwner": "Propriétaire du serveur",
     "guildCreateAt": "Serveur créé à",
     "guildAFKChannel": {
-      "title": "AFK Channel",
-      "noAfkChannel": "Not setted"
+      "title": "Salon inactif",
+      "noAfkChannel": "Non configuré"
     },
     "guildChannel": {
-      "title": "Channels ({{0}})",
-      "text": "Text",
-      "voice": "Voice",
-      "voiceMembers": "Members in voice channels"
+      "title": "Salons ({{0}})",
+      "text": "Texte",
+      "voice": "Vocal",
+      "voiceMembers": "Membres dans les salons vocaux"
     },
-    "guildMember": "Members",
+    "guildMember": "Membres",
     "features": {
-      "title": "Features",
-      "dontHave": "This guild doesn't have any feature.",
-      "INVITE_SPLASH": "Invite Splash",
+      "title": "Caractéristiques",
+      "dontHave": "Ce serveur n'a pas de fonctionnalité.",
+      "INVITE_SPLASH": "Arrière-plan d'invitation de serveur",
       "VIP_REGIONS": "Vip Regions",
-      "VANITY_URL": "Vanity URL",
+      "VANITY_URL": "Lien d'invitation personnalisé",
       "VERIFIED": "Verfied",
       "PARTNERED": "Partnered",
       "COMMUNITY": "Community",
