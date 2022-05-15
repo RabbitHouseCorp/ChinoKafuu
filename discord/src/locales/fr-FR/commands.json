@@ -212,11 +212,11 @@
     "requestConfirm": "attention, vous êtes sur le point d'envoyer une annonce sur {{0}}, veuillez confirmer avec les boutons ci-dessous.",
     "announceSent": "annonce envoyée avec succès.",
     "cancelled": "ok... ? J'ai annulé l'annonce.",
-    "mentionEveryone": "Yes, and mention @everyone.",
-    "mentionHere": "Yes, and mention @here.",
-    "mentionAnyone": "Yes, and mention nobody.",
-    "notAllowed": "You're not allowed to do these actions.",
-    "description": "Send an announce to current server for all members (or not)."
+    "mentionEveryone": "Oui, et mentionnez @everyone.",
+    "mentionHere": "Oui, et mentionnez @here.",
+    "mentionAnyone": "Oui, et ne mentionner personne.",
+    "notAllowed": "Vous n'êtes pas autorisé à faire ces actions.",
+    "description": "Envoie une annonce au serveur actuel pour tous les membres (ou non)."
   },
   "slowmode": {
     "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
