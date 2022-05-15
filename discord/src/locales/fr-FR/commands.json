@@ -196,19 +196,19 @@
   },
   "removerole": {
     "success": "rôle supprimé avec succès.",
-    "alreadyRemoved": "the member doesn't have this role.",
-    "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
-    "description": "Removes a role from a guild member."
+    "alreadyRemoved": "le membre n'a pas ce rôle.",
+    "higher": "Je n'ai pas pu supprimer ce rôle car il est probablement au-dessus de mon rôle le plus élevé. Vérifiez les rôles et réessayez.",
+    "description": "Supprime le rôle d'un membre du serveur."
   },
   "removeemoji": {
-    "successfullyRemoved": "emoji successfully removed.",
-    "emojiNotFound": "this emoji isn't from this guild.",
-    "description": "Removes an emoji in the current guild."
+    "successfullyRemoved": "émoji supprimé avec succès.",
+    "emojiNotFound": "cet émoji ne vient pas de ce serveur.",
+    "description": "Supprime un émoji dans le serveur actuel."
   },
   "announce": {
-    "channelNotFound": "I can't find this channel, make sure it exists.",
-    "argsNotFound": "your didn't write anything, I can't send an empty message.",
-    "embedSendBy": "Announcement sent by: {{0}}",
+    "channelNotFound": "Je ne trouve pas cette chaîne, assurez-vous qu'elle existe.",
+    "argsNotFound": "tu n'as rien écrit, je ne peux pas envoyer un message vide.",
+    "embedSendBy": "Annonce envoyée par : {{0}}",
     "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the buttons below.",
     "announceSent": "announcement successfully sent.",
     "cancelled": "okay...? I cancelled the announcement.",
