@@ -365,16 +365,16 @@
     "description": "Shows more information about me."
   },
   "mcavatar": {
-    "description": "プレイヤーのMinecraftアバターを表示します。"
+    "description": "Shows a Minecraft player's avatar."
   },
   "mcbody": {
-    "description": "プレイヤーのMinecraftのボディーを表示します。"
+    "description": "Shows a Minecraft player's body."
   },
   "mchead": {
-    "description": "プレイヤーのMinecraftヘッドを表示します。"
+    "description": "Shows a Minecraft player's head."
   },
   "mcskin": {
-    "description": "プレイヤーの Minecraft のスキンを表示します。"
+    "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
     "description": "Minecraftサーバーのインフォを表示します。",
@@ -471,7 +471,7 @@
     "description": "Calls an user baka"
   },
   "clap": {
-    "noArgs": "invalid input",
+    "noArgs": "you have to type something to me, then i will modify your message.",
     "description": "Let's clap, clap, clap, clap, clap with your friends."
   },
   "congaparrot": {
@@ -538,7 +538,7 @@
     "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
   },
   "choose": {
-    "description": "Makes the me choose something for you (Use `,` to separate)",
+    "description": "Makes me choose something for you (Use `,` to separate)",
     "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
   },
   "avatar": {
