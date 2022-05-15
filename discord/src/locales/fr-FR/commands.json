@@ -219,21 +219,21 @@
     "description": "Envoie une annonce au serveur actuel pour tous les membres (ou non)."
   },
   "slowmode": {
-    "rateLimitDisable": "the chat {{0}} is not longer in slowmode.",
-    "rateLimitEnable": "the chat {{0}} is now in slowmode ({{1}} seconds)",
-    "rateLimited": "calm down! The limit is `600` seconds",
-    "minimalTimeLimited": "you can't set a time less than 0.",
-    "description": "Set slowmode in the current channel."
+    "rateLimitDisable": "le salon {{0}} n'est plus en mode lent.",
+    "rateLimitEnable": "le salon {{0}} est maintenant en mode lent ({{1}} secondes)",
+    "rateLimited": "calmez-vous ! La limite est de `600` secondes",
+    "minimalTimeLimited": "vous ne pouvez pas régler l'heure en dessous de 0.",
+    "description": "Définit un mode lent dans le salon actuel."
   },
   "unban": {
-    "notBanned": "this user is not banned, check if you mentioned the correct user and try again.",
-    "description": "Unbans an user if they're banned."
+    "notBanned": "cet utilisateur n'est pas banni, vérifiez si vous avez mentionné le bon utilisateur et réessayez.",
+    "description": "Débannit un utilisateur s'il a été banni."
   },
   "roleinfo": {
-    "roleNotExist": "I can't find this role! Perhaps it doesn't exist...",
-    "roleName": "Role information: {{0}}",
-    "roleMention": "Role Mention",
-    "roleID": "Role ID",
+    "roleNotExist": "Je ne trouve pas ce rôle ! Peut-être n'existe-t-il pas...",
+    "roleName": "Informations sur le rôle : {{0}}",
+    "roleMention": "Mention du rôle",
+    "roleID": "L'identifiant du rôle",
     "roleColor": "Role Color",
     "roleGuild": "Guild",
     "roleHoist": "Separate Category",
