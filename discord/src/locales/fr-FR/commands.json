@@ -560,15 +560,15 @@
       "textChannel": "Sélectionnez le salon de texte.\n__Si le salon souhaité n'apparaît pas, cela signifie que je n'ai pas la permission de voir ce salon ! Vérifiez les permissions !___",
       "voiceChannel": "Sélectionnez le salon vocal.\n__Si le salon souhaité n'apparaît pas, cela signifie que je n'ai pas la permission de voir ce salon ! Vérifiez les permissions !___",
       "options": {
-        "textChannel": "Select the text channel.",
-        "voiceChannel": "Select the voice channel."
+        "textChannel": "Sélectionnez le salon de texte.",
+        "voiceChannel": "Sélectionnez le salon vocal."
       }
     },
-    "optionsNotFound": "this option is invalid, please use `set` or `disable` options.",
+    "optionsNotFound": "cette option n'est pas valide, veuillez utiliser les options `set` ou `disable`.",
     "channel": {
-      "voiceNoLongerExist": "Oh no! It seems that this voice channel no longer exists. Repeat the same actions.",
-      "textNoLongerExist": "Oh no! It seems that this text channel no longer exists. Repeat the same actions.",
-      "moduleIfFoundBug": "something bad happened, and I don't know what happened on {{0}}'s module. I'm so sorry for that.",
+      "voiceNoLongerExist": "Oh non ! Il semble que ce salon vocal n'existe plus. Répétez les mêmes actions.",
+      "textNoLongerExist": "Oh non ! Il semble que ce salon de texte n'existe plus. Répétez les mêmes actions.",
+      "moduleIfFoundBug": "quelque chose de grave est arrivé, et je ne sais pas ce qui s'est passé sur le module de {{0}}. Je suis vraiment désolé pour ça.",
       "channelWasNotFound": "sorry, but, it's looks like I can't find this channel. Are you sure that this channel exist?",
       "sameChannel": "eh... It's looks like this channel is the same that is already setted.",
       "needStatus": "you need to choose between `Enable` or `Disable`.",
