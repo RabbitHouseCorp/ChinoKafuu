@@ -142,7 +142,7 @@
     "commandsLoaded": "J'ai {{0}} commandes publiques chargées.",
     "additionalLinks": {
       "embedTitle": "Liens supplémentaires",
-      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[Mon invitation](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [Mon serveur](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
