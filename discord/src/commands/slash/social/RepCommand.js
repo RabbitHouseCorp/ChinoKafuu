@@ -30,10 +30,9 @@ module.exports = class RepCommand extends Command {
       author.repTime = 3600000 + Date.now()
       receiver.rep += 1
       receiver.save().then(() => {
-        ctx.replyT('chino_maid', 'commands:rep.forTheClient', { 0: user.rep })
+        ctx.replyT('chino_maid', 'commands:rep.forTheClient', { 0: receiver.rep })
       })
       author.save()
-
       return
     }
     if (parseInt(author.repTime) < Date.now()) {
@@ -41,7 +40,7 @@ module.exports = class RepCommand extends Command {
       receiver.rep += 1
       author.save()
       receiver.save().then(() => {
-        ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: user.rep })
+        ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: receiver.rep })
       })
     } else {
       ctx.replyT('warn', 'commands:rep.cooldown', { 0: `<:t${parseInt(author.repTime).toFixed(0)}:R>` })
