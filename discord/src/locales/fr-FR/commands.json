@@ -300,90 +300,90 @@
       "PARTNERED": "Partenariat",
       "COMMUNITY": "Communauté",
       "COMMERCE": "Commerce",
-      "NEWS": "News Channel",
-      "DISCOVERABLE": "Discoverable",
+      "NEWS": "Salon d'information",
+      "DISCOVERABLE": "Découvrable",
       "FEATURABLE": "Featurable",
-      "ANIMATED_ICON": "Animated Icon",
-      "BANNER": "Banner",
-      "WELCOME_SCREEN_ENABLED": "Welcome Screen Enabled",
-      "PREVIEW_ENABLED": "Preview",
-      "MEMBER_VERIFICATION_GATE_ENABLED": "Member Verification Gate",
-      "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before",
-      "SEVEN_DAY_THREAD_ARCHIVE": "Seven Days Thread Archive",
-      "PRIVATE_THREADS": "Private Threads",
-      "THREE_DAY_THREAD_ARCHIVE": "Three Day Thread Archive",
-      "THREADS_ENABLED": "Thread Enabled",
-      "ROLE_ICONS": "Role Icons",
-      "CHANNEL_BANNER": "Channel Banner",
-      "ANIMATED_BANNER": "Animated Banner",
-      "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
-      "MEMBER_PROFILES": "Member Profiles",
+      "ANIMATED_ICON": "Icône animée",
+      "BANNER": "Bannière",
+      "WELCOME_SCREEN_ENABLED": "Écran de bienvenue activé",
+      "PREVIEW_ENABLED": "Prévisualisation",
+      "MEMBER_VERIFICATION_GATE_ENABLED": "Portail de vérification des membres",
+      "ENABLED_DISCOVERABLE_BEFORE": "Activé Découvrable avant",
+      "SEVEN_DAY_THREAD_ARCHIVE": "Archive du fil de discussion des sept jours",
+      "PRIVATE_THREADS": "Private Fils",
+      "THREE_DAY_THREAD_ARCHIVE": "Archive du fil de trois jours",
+      "THREADS_ENABLED": "Fil activé",
+      "ROLE_ICONS": "Icônes de rôle",
+      "CHANNEL_BANNER": "Bannière de la salon",
+      "ANIMATED_BANNER": "Bannière animée",
+      "NEW_THREAD_PERMISSIONS": "Permissions pour les nouveaux fils de discussion",
+      "MEMBER_PROFILES": "Profils des membres",
       "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
     },
     "booster": {
-      "levelCount": "Level Booster",
+      "levelCount": "Booster de niveau",
       "boosterCount": "Total Boosters"
     },
-    "joinedAt": "I've joined here"
+    "joinedAt": "Je me suis inscrit ici"
   },
   "servericon": {
-    "missingIcon": "this guild doesn't have an icon",
-    "download": "Open the icon in your browser",
-    "description": "Shows the server icon."
+    "missingIcon": "ce serveur n'a pas d'icône",
+    "download": "Ouvrez l'icône dans votre navigateur",
+    "description": "Affiche l'icône du serveur."
   },
   "serverbanner": {
-    "missingFeature": "this guild doesn't have the `banner` feature.",
-    "missingBanner": "this guild doesn't have a banner.",
-    "download": "Open the server banner in your browser",
-    "description": "Shows the server banner (if available)."
+    "missingFeature": "ce serveur n'a pas la fonction `bannière`.",
+    "missingBanner": "ce serveur n'a pas de bannière.",
+    "download": "Ouvrez la bannière du serveur dans votre navigateur",
+    "description": "Affiche la bannière du serveur (si disponible)."
   },
   "vote": {
-    "title": "Vote on me",
-    "embedVoted": "Thank you so much. You can vote on me using the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
-    "description": "Shows how you can vote on me."
+    "title": "Votez pour moi",
+    "embedVoted": "Merci beaucoup. Vous pouvez voter pour moi en utilisant le lien ci-dessous\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
+    "description": "Montre comment tu peux voter contre moi."
   },
   "invite": {
-    "addMeInYourGuild": "Add me in your guild",
-    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
-    "description": "Shows how you can add me in your server."
+    "addMeInYourGuild": "Ajoutez-moi dans votre serveur",
+    "canAddMe": "Vous pouvez m'inviter sur votre serveur Discord en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nN'oubliez pas de voter pour moi en cliquant [ici](https://top.gg/bot/481282441294905344/vote)\n\nVous avez besoin d'aide ? Rejoignez mon serveur de soutien en cliquant [ici](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+    "description": "Montre comment tu peux m'ajouter dans ton serveur.."
   },
   "botinfo": {
-    "title": "My informations",
-    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by {{1}} [Node.JS](https://nodejs.org) and a fork of the {{2}} [Eris](https://abal.moe/Eris) wrapper.",
-    "specs": "Specifications",
-    "guildsAmount": "Total guilds",
-    "usersAmount": "Total users",
-    "shardLatency": "Shard latency",
-    "memoryUsage": "RAM usage",
-    "clientVersion": "Current version",
-    "shardUptime": "Current shard uptime",
-    "cpuModel": "CPU model",
-    "supportServer": "Support server",
-    "recommendedPermission": "Add me with all permissions",
-    "minimalPermission": "Add me with the mininal permissions",
-    "voteOnMe": "Vote on me",
-    "description": "Shows more information about me."
+    "title": "Mes informations",
+    "extraDescription": "Bonjour, {{0}}, ravi de te voir. Je suis propulsé par {{1}} [Node.JS](https://nodejs.org) et d'un fork de l'enveloppe {{2}}} [Eris](https://abal.moe/Eris).",
+    "specs": "Spécifications",
+    "guildsAmount": "Total des serveurs",
+    "usersAmount": "Total des utilisateurs",
+    "shardLatency": "Latence du shard",
+    "memoryUsage": "Utilisation de la RAM",
+    "clientVersion": "Version actuelle",
+    "shardUptime": "Temps de fonctionnement actuel du shard",
+    "cpuModel": "Modèle de CPU",
+    "supportServer": "Serveur de support",
+    "recommendedPermission": "Ajoutez-moi avec toutes les permissions",
+    "minimalPermission": "Ajoutez-moi avec les permissions minimales",
+    "voteOnMe": "Votez pour moi",
+    "description": "Montre plus d'informations sur moi."
   },
   "mcavatar": {
-    "description": "Shows a player's minecraft avatar."
+    "description": "Affiche l'avatar d'un joueur Minecraft.."
   },
   "mcbody": {
-    "description": "Shows a player's Minecraft body."
+    "description": "Montre le corps d'un joueur de Minecraft."
   },
   "mchead": {
-    "description": "Shows a player's Minecraft head."
+    "description": "Montre la tête d'un joueur de Minecraft."
   },
   "mcskin": {
-    "description": "Shows a player's Minecraft skin."
+    "description": "Montre la peau d'un joueur Minecraft."
   },
   "mcquery": {
-    "description": "Show a Minecraft server info",
+    "description": "Afficher les informations d'un serveur Minecraft",
     "version": "Version",
-    "serverOffline": "the server `{{0}}` is offline or doesn't exist."
+    "serverOffline": "le serveur `{{0}}` est hors ligne ou n'existe pas."
   },
   "dance": {
-    "danced": "{{0}} danced with {{1}}",
-    "description": "Dance with your friend."
+    "danced": "{{0}} a dansé avec {{1}}.",
+    "description": "Danse avec ton ami."
   },
   "hug": {
     "huged": "{{0}} gave a very warm hug in {{1}}",
@@ -398,16 +398,16 @@
     "description": "Poke someone on your server."
   },
   "ping": {
-    "totalShard": "Total shards: {{totalShard}}",
-    "operational": "Operational",
-    "unstable": "Unstable",
-    "unoperational": "Extremely unstable",
-    "clusterdown": "Offline - Restart Scheduled",
-    "totalClusters": "Total clusters: {{totalClusters}}",
-    "percentOn": "{{perc}}% functional",
-    "avgPing": "{{avg}}ms average ping",
-    "clustersDisabled": "The cluster system is disabled.",
-    "description": "Just a test command. Use it to check my ping."
+    "totalShard": "Total des shards: {{totalShard}}",
+    "operational": "Opérationnel",
+    "unstable": "Instable",
+    "unoperational": "Extrêmement instable",
+    "clusterdown": "Hors ligne - Redémarrage programmé",
+    "totalClusters": "Total des clusters: {{totalClusters}}",
+    "percentOn": "{{perc}}% fonctionnel",
+    "avgPing": "{{avg}}ms ping moyen",
+    "clustersDisabled": "Le système de cluster est désactivé.",
+    "description": "Juste une commande de test. Je l'utilise pour vérifier mon ping."
   },
   "slap": {
     "slaped": "{{0}} slapped on {{1}}",
