@@ -195,7 +195,7 @@
     "description": "Renomme un émoji du serveur actuel."
   },
   "removerole": {
-    "success": "role successfully removed.",
+    "success": "rôle supprimé avec succès.",
     "alreadyRemoved": "the member doesn't have this role.",
     "higher": "I couldn't remove this role because it is, probably, above my highest one. Check the roles and try again.",
     "description": "Removes a role from a guild member."
