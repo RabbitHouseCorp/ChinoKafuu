@@ -451,20 +451,20 @@
     "vols": "Volumes",
     "chapters": "Chapitres",
     "score": "Score",
-    "aired": "Aired",
+    "aired": "Diffusé sur",
     "genres": "Genres",
-    "characters": "Characters",
-    "description": "Shows some information about an manga."
+    "characters": "Personnages",
+    "description": "Affiche des informations sur un manga."
   },
   "pay": {
-    "description": "Allows you to send yens to another user.",
-    "userMismatch": "you can't pay to yourself!",
-    "valueMismatch": "you must enter a valid value",
-    "success": "successfully donated {{yens}} yens to {{user}}",
-    "poorUser": "you don't have enough yens to complete this payment",
-    "cancelled": "alright, payment cancelled",
-    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
-    "confirm": "{{user}} is going to receive __`{{yens}}`__ yens. Do you want to proceed?"
+    "description": "Permet d'envoyer des yens à un autre utilisateur.",
+    "userMismatch": "vous ne pouvez pas payer pour vous-même !",
+    "valueMismatch": "vous devez entrer une valeur valide",
+    "success": "a fait don avec succès de {{yens}} yens à {{user}}",
+    "poorUser": "vous n'avez pas assez de yens pour effectuer ce paiement",
+    "cancelled": "d'accord, paiement annulé",
+    "needToWait": "Vous devez attendre que la personne qui vous paie accepte la demande de transaction.",
+    "confirm": "{{user}} va recevoir __`{{yens}}`__ yens. Voulez-vous continuer ?"
   },
   "baka": {
     "baka": "{{author}} called {{member}} baka",
@@ -475,29 +475,29 @@
     "description": "Let's clap, clap, clap, clap, clap with your friends."
   },
   "congaparrot": {
-    "description": "Sends funny parrots",
-    "maxAllowed": "for client-side reasons, you're allowed to send up to 20 parrots"
+    "description": "Envoie des perroquets amusants",
+    "maxAllowed": "pour des raisons liées au client, vous êtes autorisé à envoyer jusqu'à 20 perroquets"
   },
   "feed": {
     "feed": "{{author}} has fed {{user}}",
     "description": "Feeds one of your friends."
   },
   "addemoji": {
-    "description": "Adds an emoji to your server",
-    "added": "emoji successfully added.",
-    "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
+    "description": "Ajoute un émoji à votre serveur",
+    "added": "émoji ajouté avec succès.",
+    "error": "quelque chose de terrible s'est produit lorsque j'ai essayé d'ajouter votre émoji. Vérifiez l'URL et vérifiez également si son format de fichier est soit png, jpg, jpeg ou gif."
   },
   "addrole": {
-    "description": "Adds a role to a guild member",
-    "roleNotFound": "I couldn't find any role matching {{name}}",
-    "success": "successfully added the role",
-    "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
+    "description": "Ajoute un rôle à un membre du serveur",
+    "roleNotFound": "Je n'ai pas trouvé de rôle correspondant à {{name}}",
+    "success": "a ajouté avec succès le rôle",
+    "higher": "Je n'ai pas pu ajouter ce rôle parce qu'il est, probablement, au-dessus de mon rôle le plus élevé. Vérifiez les rôles et réessayez."
   },
   "setnick": {
-    "description": "Sets the nickname on a member",
-    "success": "okay, the new nickname of **{{member}}** is now `{{nickname}}`.",
-    "error": "I couldn't set the nickname of this member. Make sure they aren't the guild owner and try again",
-    "missingNickname": "you didn't specify the nickname."
+    "description": "Définit le surnom d'un membre",
+    "success": "ok, le nouveau surnom de **{{member}}** est maintenant `{{nickname}}`.",
+    "error": "Je n'ai pas pu définir le surnom de ce membre. Assurez-vous qu'il n'est pas le propriétaire du serveur et réessayez",
+    "missingNickname": "vous n'avez pas précisé le surnom."
   },
   "chat": {
     "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
