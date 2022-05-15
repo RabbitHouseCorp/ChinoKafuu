@@ -7,12 +7,12 @@
     "noDescription": "Sem descrição",
     "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
     "profile": {
-      "areYouSure": "Você tem certeza que quer selecionar este perfil? Se `Sim, eu quero` clique confirmar, se não, clique `Não, eu não quero`",
+      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
       "cancelled": "Okay. A seleção foi cancelada com sucesso!",
-      "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
-      "wantUseThisProfile": "I want use this profile!",
-      "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date."
+      "selected": "Ótimo! Eu defini o perfil `{{0}}` do seu inventário como seu novo perfil! Agora tente usar /profile",
+      "wantUseThisProfile": "Eu quero usar este perfil!",
+      "welcome": "Olá! Bem-vindo ao seu inventário de perfil. Para selecionar o seu novo perfil, basta clicar no menu e selecionar qualquer um.",
+      "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado."
     }
   },
   "shop": {
@@ -30,7 +30,7 @@
       "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
       "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
       "successfullyPurchased": "Obrigada por comprar! O perfil está disponível no seu inventário.",
-      "youWantThisProfile": "Tem certeza de que deseja comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não clicar em `{{1}}`",
+      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
       "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
     },
     "yesIWant": "Sim, eu quero este perfil"
