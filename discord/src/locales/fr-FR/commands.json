@@ -236,8 +236,8 @@
     "roleID": "L'identifiant du rôle",
     "roleColor": "Couleur du rôle",
     "roleGuild": "Serveur",
-    "roleHoist": "Separate Category",
-    "roleMentionable": "Mentionable",
+    "roleHoist": "Catégorie distincte",
+    "roleMentionable": "Mentionnable",
     "roleManaged": "Integration",
     "roleCreatedAt": "Role Created At",
     "description": "Shows some informations about a role."
