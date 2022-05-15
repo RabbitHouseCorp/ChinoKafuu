@@ -168,14 +168,14 @@
   },
   "baninfo": {
     "title": "Informations sur le ban",
-    "memberName": "User banned",
-    "reason": "Reason",
-    "unban": "Click here to unban this user.",
-    "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
-    "description": "Check the ban information about an user"
+    "memberName": "Utilisateur banni",
+    "reason": "Raison",
+    "unban": "Cliquez ici pour débanaliser cet utilisateur.",
+    "onlyWhoExecuted": "Vous ne pouvez pas faire cette action, seul celui qui a exécuté la commande peut débanaliser l'utilisateur.",
+    "description": "Vérifie les informations de bannissement d'un utilisateur"
   },
   "seticon": {
-    "success": "icon sucessfully changed.",
+    "success": "l'icône a été changée avec succès.",
     "description": "Set an icon in the current guild."
   },
   "rolecolor": {
