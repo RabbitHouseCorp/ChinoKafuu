@@ -371,10 +371,10 @@
     "description": "Muestra el cuerpo del jugador de Minecraft."
   },
   "mchead": {
-    "description": "Shows a Minecraft player's head."
+    "description": "Muestra la cabeza de un jugador de Minecraft."
   },
   "mcskin": {
-    "description": "Shows a Minecraft player's skin."
+    "description": "Muestra la piel de un jugador de Minecraft."
   },
   "mcquery": {
     "description": "Mostrar información del servidor de Minecraft",
