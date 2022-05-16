@@ -557,8 +557,8 @@
       "enableDescription": "Habilita el módulo seleccionado.",
       "disable": "Desactivado",
       "disableDescription": "Desactiva el módulo seleccionado.",
-      "textChannel": "Seleccione el canal de texto.\n__¡Recuerda que si el canal deseado no aparece, significa que no tengo permiso para ver este canal! ¡Comprueba los permisos! ___",
-      "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
+      "textChannel": "Seleccione el canal de texto.\n__¡Recuerda que si el canal deseado no aparece, significa que no tengo permiso para ver este canal! ¡Comprueba los permisos!___",
+      "voiceChannel": "Seleccione el canal de voz.\n__¡Recuerda que si el canal deseado no aparece, significa que no tengo permiso para ver este canal! ¡Comprueba los permisos!___",
       "options": {
         "textChannel": "Seleccione el canal de texto.",
         "voiceChannel": "Seleccione el canal de voz."
