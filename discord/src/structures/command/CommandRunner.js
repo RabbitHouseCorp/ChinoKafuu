@@ -7,7 +7,7 @@ const CommandPermissions = require('./CommandPermissions')
 module.exports = class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
-    if (message.channel.type === 1) {
+    if (!message.channel.guild) {
       InviteDMUtils(client, message)
       return
     }
