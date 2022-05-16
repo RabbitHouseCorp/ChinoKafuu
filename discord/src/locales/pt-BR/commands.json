@@ -7,7 +7,7 @@
     "noDescription": "Sem descrição",
     "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
+      "areYouSure": "Você tem certeza que você quer selecionar este perfil? Se sim, então clique em `Sim, eu quero` para confirmar, se não, então clique em `Não, eu não quero`",
       "cancelled": "Okay. A seleção foi cancelada com sucesso!",
       "selected": "Ótimo! Eu defini o perfil `{{0}}` do seu inventário como seu novo perfil! Agora tente usar /profile",
       "wantUseThisProfile": "Eu quero usar este perfil!",
@@ -19,19 +19,19 @@
     "background": {},
     "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
     "noIDont": "Não, eu não quero este perfil",
-    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
-    "noDescription": "No description",
-    "price": "Price",
+    "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
+    "noDescription": "Sem descrição",
+    "price": "Preço",
     "profile": {
       "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
       "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
       "loadingPreview": "Carregando a pré-visualização, por favor, aguarde um momento.",
       "problemFound": "Eu detectei um problema ao executar a visualização de perfil. Você quer tentar novamente?\nSe o problema persistir, você pode reportar este bug para o meu suporte.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
+      "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
       "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
       "successfullyPurchased": "Obrigada por comprar! O perfil está disponível no seu inventário.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
-      "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
+      "youWantThisProfile": "Você tem certeza que você quer comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não, então clique em `{{1}}`",
+      "welcomeToTheShop": "Olá! Bem-vindo à loja de perfil decorativo. Você pode selecionar um desses perfis para ver o perfil. Lembre que se alguns não aparecer o botão verde para comprá-lo significa que você já comprou o perfil na sua conta!"
     },
     "yesIWant": "Sim, eu quero este perfil"
   },
@@ -296,7 +296,7 @@
       "INVITE_SPLASH": "Fundo de Convite",
       "VIP_REGIONS": "Regiões VIP",
       "VANITY_URL": "Convite personalizado",
-      "VERIFIED": "Verified",
+      "VERIFIED": "Verificado",
       "PARTNERED": "Parceiro",
       "COMMUNITY": "Comunidade",
       "COMMERCE": "Comercial",
@@ -349,7 +349,7 @@
   },
   "botinfo": {
     "title": "Minhas informações",
-    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by {{1}} [Node.JS](https://nodejs.org) and a fork of the {{2}} [Eris](https://abal.moe/Eris) wrapper.",
+    "extraDescription": "Olá {{0}}, que bom te ver. Estou rodando por {{1}} [Node.JS](https://nodejs.org) e um fork do {{2}} [Eris](https://abal.moe/Eris).",
     "specs": "Especificações",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
@@ -365,10 +365,10 @@
     "description": "Mostra mais informações sobre mim."
   },
   "mcavatar": {
-    "description": "Shows a Minecraft player's avatar."
+    "description": "Mostra o avatar de um jogador de Minecraft."
   },
   "mcbody": {
-    "description": "Shows a Minecraft player's body."
+    "description": "Mostra o avatar de um jogador de Minecraft."
   },
   "mchead": {
     "description": "Shows a Minecraft player's head."
