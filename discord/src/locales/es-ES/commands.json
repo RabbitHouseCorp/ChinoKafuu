@@ -27,16 +27,16 @@
       "enoughYens": "Parece que no tienes suficientes yenes para comprar este perfil.",
       "loadingPreview": "Cargando la vista previa, por favor espere un momento.",
       "problemFound": "He detectado un problema al ejecutar la vista previa del perfil, ¿quieres volver a intentarlo?\nSi el problema persiste puedes reportar este error a mi soporte.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
+      "profileUnavailable": "Este perfil no está disponible todavía, tal vez en una actualización futura se añadirá. Únete a mi servidor de soporte para mantenerse actualizado.",
       "purchaseCancelled": "¡Derecho! ¡Compra cancelada con éxito!",
       "successfullyPurchased": "¡Gracias por comprar! El perfil está disponible en tu inventario.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
-      "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
+      "youWantThisProfile": "¿Está seguro de que quiere comprar este perfil? Si es así, haga clic en `{{0}}` para confirmar, si no, haga clic en `{{1}}`",
+      "welcomeToTheShop": "¡Hola! Bienvenido a la tienda de perfil decorativo. Puedes seleccionar uno de estos perfiles para ver el perfil. ¡Recuerda que si algunos no aparecen en el botón verde para comprarlo, significa que ya tienes el perfil comprado en tu cuenta!"
     },
-    "yesIWant": "Yes, I want this profile"
+    "yesIWant": "Sí, yo quiero este perfil"
   },
   "report": {
-    "description": "Reports an user on this server if the module is enable.",
+    "description": "Reporta un usuario en este servidor si el módulo está activado.",
     "moduleDisable": "este módulo está desactivado en este servidor.",
     "noReason": "ninguna razón especificada",
     "successfullySent": "reporte enviado con éxito.",
@@ -51,7 +51,7 @@
     "description": "Juega a jankenpon y gana o pierde yenes.",
     "optionNotFound": "sólo puedes escoger entre `rock`, `paper` o `scissors`.",
     "valueNotInputed": "usted no proporcionó ningún valor para apostar.",
-    "tie": "It's a draw! Nobody won and nobody lost.",
+    "tie": "¡Es un empate! Nadie ganó y nadie perdió.",
     "youWin": "elegiste `{{0}}` y elegí `{{1}}`. Felicidades, has ganado. Aquí están sus `{{2}}` yenes.",
     "youLose": "usted eligió \"{{0}}\" y yo elegí \"{{1}}\", ¡gané! Estoy tomando \"{{2}}\" yenes de ti, cariño",
     "choice": {
@@ -71,7 +71,7 @@
     "confirm": "Si es así, haz clic en [aquí](https://top.gg/bot/481282441294905344/vote) para votar sobre mí. Una vez que hayas votado, ejecuta este comando de nuevo."
   },
   "laranjo": {
-    "description": "Make Laranjo say something silly."
+    "description": "Hace que Laranjo diga una tontería."
   },
   "rize": {
     "decription": "Rize escribirá algo en el papel."
@@ -98,7 +98,7 @@
   },
   "profile": {
     "description": "Muestra tu perfil social o el perfil social de alguien.",
-    "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
+    "defaultAboutMe": "Estoy en Rabbit House Coffee bebiendo un capuccino (puedes cambiar esto usando /aboutme)."
   },
   "emojiinfo": {
     "description": "Obtén información sobre un emoji.",
@@ -114,17 +114,17 @@
     "description": "Consigue el archivo adjunto de emoji."
   },
   "fakemsg": {
-    "argsNull": "Welp, it seems you don't have nothing to say.",
+    "argsNull": "Bueno, parece que no tienes nada que decir.",
     "description": "Bromea con alguien con un mensaje falso usando un webhook."
   },
   "divorce": {
-    "description": "Divorces you to your current partner (I will charge 300 yens to divorce both of you).",
+    "description": "Te divorcia de tu actual pareja (cobraré 300 yenes por divorciaros a los dos).",
     "youAreNotMarried": "no estás casado, si quieres casarte, usa `{{0}}marry <user>` y sé feliz.",
     "youNeedToDivorce": "debes tener más `{{0}}` yenes para divorciar.",
     "theyNeedToDivorce": "tu pareja debe tener más `{{0}}` yenes para divorciar.",
     "requestConfirm": "¿Estás seguro de que quieres divorciar? Esta acción es irreversible.",
     "successfullyDivorced": "Claro, llamaré a los abogados. Ambos pagarán `300` yenes por divorciarse.",
-    "needToWait": "You need to wait for the person to sign the paperwork to run this command.",
+    "needToWait": "Necesitas esperar a que la persona firme el papeleo para ejecutar este comando.",
     "rejectedRequest": "Creo que el oráculo del amor no les permitió separarse, y me alegro de que se llevaran bien."
   },
   "help": {
@@ -146,10 +146,10 @@
     }
   },
   "rep": {
-    "cannotGiveRepForYourself": "you can't give a reputation to yourself.",
-    "forTheClient": "thank you for giving me a reputation point! Now I have `{{0}}` reputations",
+    "cannotGiveRepForYourself": "no puedes darte una reputación a ti mismo.",
+    "forTheClient": "¡gracias por darme un punto de reputación! Ahora tengo `{{0}}` reputaciones",
     "successffully": "has dado una reputación a {{0}}, ahora {{0}} tienen `{{1}}`reputaciones.",
-    "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
+    "cooldown": "No puedes dar reputación ahora. Debes esperar {{0}} antes de volver a dar puntos de reputación.",
     "description": "Da una reputación a alguien."
   },
   "marry": {
@@ -158,7 +158,7 @@
     "youAlreadyMarried": "¡Qué vergüenza! No puedes casarte con alguien más porque ya lo eres.",
     "theyAlreadyMarried": "no puedes casarte con {{0}}, porque {{0}} ya está casado.",
     "requestConfirm": "{{0}}, ¿estás de acuerdo en casarte con {{1}} en la enfermedad y en la salud, en la riqueza y en la pobreza hasta la muerte los dos partes?",
-    "successfullyMarried": "Congratulations, now you both are married.",
+    "successfullyMarried": "Felicidades, ahora ambos están casados.",
     "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
     "cannotMarryWithYourself": "imagina intentar casarte tú mismo. No puedo hacer que suceda, lo siento.",
     "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
