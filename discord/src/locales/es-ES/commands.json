@@ -457,21 +457,21 @@
     "description": "Muestra alguna información sobre un manga."
   },
   "pay": {
-    "description": "Allows you to send yens to another user.",
+    "description": "Te permite enviar yens a otro usuario.",
     "userMismatch": "¡No puedes pagarte a ti mismo/a!",
     "valueMismatch": "Debes ingresar un valor válido",
     "success": "{{yens}} yenes donados con éxito a {{user}}",
     "poorUser": "no tienes yenes suficientes para completar este pago",
     "cancelled": "Bien, pago cancelado",
-    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
+    "needToWait": "Tienes que esperar a que la persona que te paga acepte la solicitud de transacción.",
     "confirm": "{{user}} va a recibir __`{{yens}}`__ yenes. ¿Quieres continuar?"
   },
   "baka": {
     "baka": "{{author}} acaba de llamarle idiota a {{member}}",
-    "description": "Calls an user baka"
+    "description": "Llama a un usuario baka"
   },
   "clap": {
-    "noArgs": "you have to type something to me, then i will modify your message.",
+    "noArgs": "tienes que escribir algo, entonces voy a modificar tu mensaje.",
     "description": "Aplaude con tus amigos."
   },
   "congaparrot": {
@@ -480,7 +480,7 @@
   },
   "feed": {
     "feed": "{{author}} ha alimentado {{user}}",
-    "description": "Feeds one of your friends."
+    "description": "Alimenta a uno de tus amigos."
   },
   "addemoji": {
     "description": "Agrega un emoji a tu servidor",
@@ -494,8 +494,8 @@
     "higher": "No he podido añadir este rol porque probablemente esté por encima de la mía. Por favor verifique los roles e inténtelo de nuevo."
   },
   "setnick": {
-    "description": "Sets the nickname on a member",
-    "success": "okay, the new nickname of **{{member}}** is now `{{nickname}}`.",
+    "description": "Establece un apodo en un miembro",
+    "success": "okay, el nuevo apodo de **{{member}}** ahora es `{{nickname}}`.",
     "error": "No pude establecer el apodo de este miembro. Asegúrate que no es el dueño del servidor e inténtelo de nuevo",
     "missingNickname": "no especificaste el apodo."
   },
@@ -505,23 +505,23 @@
     "unlocked": "Entendido, canal desbloqueado"
   },
   "clear": {
-    "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
+    "description": "Limpia los mensajes de este canal. Si se especifica a un usuario, eliminará los mensajes de ese usuario",
     "limit": "No puedo eliminar más de cien mensajes",
-    "success": "right, I'm deleting {{messages}} messages on this chat.",
-    "nan": "you've must insert a number, in this command, I only accept numbers."
+    "success": "cierto, estoy eliminando {{messages}} mensajes en este chat.",
+    "nan": "debes insertar un número, en este comando, sólo acepto números."
   },
   "kick": {
     "description": "Expulsa a un miembro del servidor"
   },
   "ban": {
-    "description": "Bans an user from the server"
+    "description": "Banea a un usuario del servidor"
   },
   "language": {
     "description": "Cambia mi idioma en el servidor actual.",
     "message": "¿Cuál es tu idioma?",
     "helpUs": "Ayúdanos a traducir",
     "chooseYourLanguage": "Elige tu idioma aquí.",
-    "onlyWhoExecuted": "Only who executed this command can make the choice, not you.",
+    "onlyWhoExecuted": "Sólo quien ejecutó este comando puede hacer la elección, no tú.",
     "explaining": "Puedes ayudarnos a traducir Chino Kafuu a tu idioma accediendo a nuestro [Crowdin](https://crowdin.com/project/chinokafuu). ¡Por supuesto, tu contribución será recompensada! Ganarás un rol en mi servidor de soporte. Gracias, pequeño conejo, te amo (como un amigo, por supuesto)"
   },
   "setbanner": {
@@ -535,16 +535,16 @@
     "bioLimit": "Tu biografía puede contener hasta 128 caracteres"
   },
   "softban": {
-    "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
+    "description": "Soft banea un usuario. Si `purge-days` no se especifica, se utilizará el valor por defecto (7)."
   },
   "choose": {
-    "description": "Makes me choose something for you (Use `,` to separate)",
+    "description": "Me hace elegir algo para ti (Use `,` para separar)",
     "chosen": "Yo escojo `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
     "descripton": "Muestra tu avatar o de otra persona.",
-    "userAvatar": "Avatar of {{user}}",
-    "download": "Open the avatar in your browser."
+    "userAvatar": "Avatar de {{user}}",
+    "download": "Abrir el avatar en tu navegador."
   },
   "config": {
     "title": "Configuración de Módulos del Servidor",
@@ -557,7 +557,7 @@
       "enableDescription": "Habilita el módulo seleccionado.",
       "disable": "Desactivado",
       "disableDescription": "Desactiva el módulo seleccionado.",
-      "textChannel": "Select the text channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
+      "textChannel": "Seleccione el canal de texto.\n__¡Recuerda que si el canal deseado no aparece, significa que no tengo permiso para ver este canal! ¡Comprueba los permisos! ___",
       "voiceChannel": "Select the voice channel.\n__Remembering if the desired channel does not appear, it means that I don't have permission to view this channel! Check permissions!___",
       "options": {
         "textChannel": "Seleccione el canal de texto.",
