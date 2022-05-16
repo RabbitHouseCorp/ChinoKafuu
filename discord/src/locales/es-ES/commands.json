@@ -274,7 +274,7 @@
   "serverinfo": {
     "description": "Muestra información sobre este servidor.",
     "general": "General",
-    "banner": "Guild banner",
+    "banner": "Banner del servidor",
     "splash": "Fondo de invitación del gremio",
     "guildName": "Nombre del servidor",
     "guildOwner": "Propietario del Servidor",
@@ -296,7 +296,7 @@
       "INVITE_SPLASH": "Fondo de invitación",
       "VIP_REGIONS": "Regiones Vip",
       "VANITY_URL": "URL personalizada",
-      "VERIFIED": "Verified",
+      "VERIFIED": "Verificado",
       "PARTNERED": "Asociado",
       "COMMUNITY": "Comunidad",
       "COMMERCE": "Comercial",
@@ -308,7 +308,7 @@
       "WELCOME_SCREEN_ENABLED": "Pantalla de bienvenida activada",
       "PREVIEW_ENABLED": "Previsualización",
       "MEMBER_VERIFICATION_GATE_ENABLED": "Puerta de verificación de miembros",
-      "ENABLED_DISCOVERABLE_BEFORE": "Enabled Discoverable Before",
+      "ENABLED_DISCOVERABLE_BEFORE": "Habilitado antes detectable",
       "SEVEN_DAY_THREAD_ARCHIVE": "7 días para archivar hilo",
       "PRIVATE_THREADS": "Hilos privados",
       "THREE_DAY_THREAD_ARCHIVE": "3 días para archivar hilo",
@@ -324,23 +324,23 @@
       "levelCount": "Nivel de Impulso",
       "boosterCount": "Total de impulsores"
     },
-    "joinedAt": "I've joined here"
+    "joinedAt": "Me uní aquí"
   },
   "servericon": {
     "missingIcon": "este servidor no tiene un icono",
-    "download": "Open the icon in your browser",
+    "download": "Abrir el icono en tu navegador",
     "description": "Muestra el icono del servidor."
   },
   "serverbanner": {
     "missingFeature": "este servidor no tiene la función `banner`.",
     "missingBanner": "este servidor no tiene un banner.",
-    "download": "Open the server banner in your browser",
+    "download": "Abrir el banner del servidor en tu navegador",
     "description": "Muestra el banner del servidor (si está disponible)."
   },
   "vote": {
-    "title": "Vote on me",
-    "embedVoted": "Thank you so much. You can vote on me using the link down below\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
-    "description": "Shows how you can vote on me."
+    "title": "Vota en mí",
+    "embedVoted": "Muchas gracias. Puedes votar en mí usando el enlace abajo\n\n[top.gg](https://top.gg/bot/481282441294905344/vote)",
+    "description": "Muestra cómo puedes votar en mí."
   },
   "invite": {
     "addMeInYourGuild": "Añádame a tu servidor",
@@ -348,7 +348,7 @@
     "description": "Muestra cómo puedes añadirme a tu servidor."
   },
   "botinfo": {
-    "title": "My informations",
+    "title": "Mis informaciones",
     "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by {{1}} [Node.JS](https://nodejs.org) and a fork of the {{2}} [Eris](https://abal.moe/Eris) wrapper.",
     "specs": "Especificaciones",
     "guildsAmount": "Total de servidores",
