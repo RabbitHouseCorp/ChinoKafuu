@@ -7,7 +7,7 @@
     "noDescription": "Pas de description",
     "notAllowed": "il semble que vous n'êtes pas la personne qui a exécuté cette commande, vous ne pouvez pas le faire.",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
+      "areYouSure": "Êtes-vous sûr de vouloir sélectionner ce profil ? Si oui, cliquez sur `Oui, je veux` pour confirmer, sinon, cliquez sur `Non, je ne veux pas`",
       "cancelled": "Ok. La sélection a été annulée avec succès !",
       "selected": "Super ! J'ai mis le profil `{{0}}` de votre inventaire comme votre nouveau profil ! Maintenant essayez d'utiliser /profile",
       "wantUseThisProfile": "Je veux utiliser ce profil !",
@@ -30,7 +30,7 @@
       "profileUnavailable": "Ce profil n'est pas encore disponible, peut-être sera-t-il ajouté dans une prochaine mise à jour. Rejoignez mon serveur de support pour rester à jour.",
       "purchaseCancelled": "Bien! L'achat a été annulé avec succès!",
       "successfullyPurchased": "Merci d'avoir acheté! Le profil est disponible dans votre inventaire.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
+      "youWantThisProfile": "Êtes-vous sûr de vouloir acheter ce profil ? Si oui, cliquez sur `{{0}}` pour confirmer, si non, cliquez sur `{{1}}`",
       "welcomeToTheShop": "Bonjour ! Bienvenue dans la boutique des profils décoratifs. Vous pouvez sélectionner l'un de ces profils pour en visualiser le profil. Rappelez-vous que si certains n'apparaissent pas bouton vert pour acheter, cela signifie que vous avez déjà le profil acheté dans votre compte  !"
     },
     "yesIWant": "Oui, je veux ce profil"
