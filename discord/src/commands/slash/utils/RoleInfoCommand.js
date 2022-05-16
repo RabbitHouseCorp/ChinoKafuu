@@ -34,7 +34,7 @@ module.exports = class RoleInfoCommand extends Command {
     embed.addField(ctx._locale('commands:roleinfo.roleHoist'), ctx._locale(`basic:boolean.${role.hoist}`), true)
     embed.addField(ctx._locale('commands:roleinfo.roleMentionable'), ctx._locale(`basic:boolean.${role.mentionable}`), true)
     embed.addField(ctx._locale('commands:roleinfo.roleManaged'), ctx._locale(`basic:boolean.${role.managed}`), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), parseInt(role.createdAt / 1000).toFixed(0), true)
+    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), `<t:${parseInt(role.createdAt / 1000).toFixed(0)}:F> (<t:${parseInt(role.createdAt / 1000).toFixed(0)}:R>)`, true)
 
     ctx.send(embed.build())
   }
