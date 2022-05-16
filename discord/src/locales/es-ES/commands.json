@@ -215,8 +215,8 @@
     "mentionEveryone": "Sí, y mencionar a @everyone.",
     "mentionHere": "Sí, y mencionar a @here.",
     "mentionAnyone": "Sí, y no mencionar a nadie.",
-    "notAllowed": "You're not allowed to do these actions.",
-    "description": "Send an announce to current server for all members (or not)."
+    "notAllowed": "No tienes permiso para hacer estas acciones.",
+    "description": "Envía un anuncio al servidor actual para todos los miembros (o no)."
   },
   "slowmode": {
     "rateLimitDisable": "el chat {{0}} no está más en modo lento.",
@@ -227,7 +227,7 @@
   },
   "unban": {
     "notBanned": "este usuario no está baneado, compruebe si ha mencionado al usuario correcto e inténtelo de nuevo.",
-    "description": "Unbans an user if they're banned."
+    "description": "Desbanea a un usuario si está baneado."
   },
   "roleinfo": {
     "roleNotExist": "¡No puedo encontrar este rol! Tal vez no exista...",
@@ -243,7 +243,7 @@
     "description": "Muestra algunas informaciones sobre un rol."
   },
   "userinfo": {
-    "description": "Shows some information about an user.",
+    "description": "Muestra alguna información sobre un usuario.",
     "username": "Usuario",
     "userid": "ID de Usuario",
     "createdAt": "Cuenta Creada",
