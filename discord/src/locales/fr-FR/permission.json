@@ -38,6 +38,7 @@
   "useExternalStickers": "Utiliser des autocollants externes",
   "manageThreads": "Gérer les fils",
   "sendMessagesInThreads": "Envoyer des messages dans les fils",
-  "startEmbeddedActivities": "Commencer les activités",
-  "moderateMembers": "Exclure Temporairement des membres"
+  "useEmbeddedActivities": "Start Activities",
+  "moderateMembers": "Exclure Temporairement des membres",
+  "manageEvents": "Manage Events"
 }
