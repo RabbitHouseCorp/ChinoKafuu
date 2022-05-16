@@ -27,6 +27,7 @@ module.exports = class RoleInfoCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor(`#${role.color.toString(16)}`)
     embed.setTitle(ctx._locale('commands:roleinfo.roleName', { 0: role.name }))
+    embed.setThumbnail(role.icon ? role.getIconURL : null)
     embed.addField(ctx._locale('commands:roleinfo.roleMention'), role.mention, true)
     embed.addField(ctx._locale('commands:roleinfo.roleID'), role.id, true)
     embed.addField(ctx._locale('commands:roleinfo.roleColor'), `#${role.color.toString(16).toUpperCase()}`, true)
