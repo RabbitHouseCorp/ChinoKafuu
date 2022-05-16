@@ -159,20 +159,20 @@
     "theyAlreadyMarried": "no puedes casarte con {{0}}, porque {{0}} ya está casado.",
     "requestConfirm": "{{0}}, ¿estás de acuerdo en casarte con {{1}} en la enfermedad y en la salud, en la riqueza y en la pobreza hasta la muerte los dos partes?",
     "successfullyMarried": "Felicidades, ahora ambos están casados.",
-    "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
+    "rejectedRequest": "Parece que {{0}} no quiere compartir su vida contigo, tal vez {{0}} no sea el amor de tu vida. El oráculo del amor falla una vez más...",
     "cannotMarryWithYourself": "imagina intentar casarte tú mismo. No puedo hacer que suceda, lo siento.",
-    "cannotMarryWithMe": "I'm really sorry, but you can't marry with me, I don't love you the same as you love me, I love you, but as a friend.",
+    "cannotMarryWithMe": "Lo siento. No puedes casarte conmigo. No te amo como me amas, te amo, pero como amigo.",
     "cannotMarryWithBot": "no puedes casarte con un bot porque nunca lo aceptarán.",
-    "needToWait": "You can't accept your own marriage proposal... You need to wait for your partner to accept your marriage proposal.",
+    "needToWait": "No puedes aceptar tu propia propuesta de matrimonio... Necesitas esperar a que tu pareja acepte tu propuesta de matrimonio.",
     "description": "Cásate con su verdadero amor."
   },
   "baninfo": {
     "title": "Información del ban",
     "memberName": "Usuario Baneado",
     "reason": "Motivo",
-    "unban": "Click here to unban this user.",
-    "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
-    "description": "Check the ban information about an user"
+    "unban": "Haga clic aquí para desbanear a este usuario.",
+    "onlyWhoExecuted": "No puedes hacer esta acción, solo quien ejecutó el comando puede desbanear al usuario.",
+    "description": "Comprueba la información del ban de un usuario"
   },
   "seticon": {
     "success": "Icono cambiado con éxito.",
@@ -209,7 +209,7 @@
     "channelNotFound": "No puedo encontrar este canal, asegúrate de que existe.",
     "argsNotFound": "usted en la oficina nada, no puedo enviar un mensaje de vacia.",
     "embedSendBy": "Anuncio enviado por: {{0}}",
-    "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the buttons below.",
+    "requestConfirm": "aviso, estás a punto de enviar un anuncio en {{0}}, por favor, confirma con los botones abajo.",
     "announceSent": "anuncio enviado con éxito.",
     "cancelled": "okay...? I cancelled the announcement.",
     "mentionEveryone": "Yes, and mention @everyone.",
