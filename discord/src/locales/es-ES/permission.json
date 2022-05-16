@@ -20,9 +20,9 @@
   "manageRoles": "Gestionar roles",
   "manageEmojisAndStickers": "Gestionar emojis y pegatinas",
   "useExternalEmojis": "Usar emojis externos",
-  "viewAuditLog": "View Audit Log",
+  "viewAuditLog": "Ver el registro de auditoría",
   "voicePrioritySpeaker": "Prioridad de palabra",
-  "voiceStream": "Stream",
+  "voiceStream": "Vídeo",
   "viewChannel": "Ver canales",
   "viewGuildInsights": "Ver información del servidor",
   "voiceConnect": "Conectar",
@@ -39,5 +39,5 @@
   "manageThreads": "Gestionar hilos",
   "sendMessagesInThreads": "Enviar mensajes en los hilos",
   "startEmbeddedActivities": "Empezar actividades",
-  "moderateMembers": "Moderate Members"
+  "moderateMembers": "Aislar temporalmente a miembros"
 }
