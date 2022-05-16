@@ -38,6 +38,7 @@
   "useExternalStickers": "Usar pegatinas externas",
   "manageThreads": "Gestionar hilos",
   "sendMessagesInThreads": "Enviar mensajes en los hilos",
-  "startEmbeddedActivities": "Empezar actividades",
-  "moderateMembers": "Aislar temporalmente a miembros"
+  "useEmbeddedActivities": "Start Activities",
+  "moderateMembers": "Aislar temporalmente a miembros",
+  "manageEvents": "Manage Events"
 }
