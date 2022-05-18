@@ -1,4 +1,8 @@
 {
+  "userbanner": {
+    "download": "Open the banner in your browser.",
+    "userBanner": "Banner of {{user}}"
+  },
   "inventory": {
     "background": {},
     "confirmationButton": "Yes, I want",
