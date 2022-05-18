@@ -1,7 +1,8 @@
 {
   "userbanner": {
+    "description": "Gets the banner of an user.",
     "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{user}}"
+    "userBanner": "Banner of {{0}}"
   },
   "inventory": {
     "background": {},
