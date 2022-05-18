@@ -1,27 +1,13 @@
-const { Command, EmbedBuilder, Button, Emoji } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+const { Command, EmbedBuilder, Button, Emoji } = require('../../../../structures/util')
 
-module.exports = class AvatarCommand extends Command {
+module.exports = class UserAvatarCommand extends Command {
   constructor() {
     super({
-      name: 'avatar',
+      name: 'user avatar',
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
-      }],
-      slash: new CommandBase()
-        .setName('avatar')
-        .setDescription('Shows your avatar or someone else\'s.')
-        .addOptions(
-          new CommandOptions()
-            .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server.'),
-          new CommandOptions()
-            .setType(5)
-            .setName('guild-avatar')
-            .setDescription('Shows the guild avatar of the member.')
-        )
+      }]
     })
   }
 

@@ -1,24 +1,14 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+const { Command, EmbedBuilder } = require('../../../../structures/util')
 
 module.exports = class UserInfoCommand extends Command {
   constructor() {
     super({
-      name: 'userinfo',
+      name: 'user info',
       aliases: [],
       permissions: [{
         entity: 'bot',
         permissions: ['embedLinks']
-      }],
-      slash: new CommandBase()
-        .setName('userinfo')
-        .setDescription('Shows some information about a user.')
-        .addOptions(
-          new CommandOptions()
-            .setType(6)
-            .setName('user')
-            .setDescription('Mention a user.')
-        )
+      }]
     })
   }
 
