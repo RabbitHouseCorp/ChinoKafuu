@@ -103,14 +103,15 @@ module.exports = class CommandContext {
      * @param {boolean} hasAuthor
      */
   async getUser(args, hasAuthor = false) {
-    if (!args) {
-      if (hasAuthor) {
-        return this.message.author
+    try {
+      if (!args) {
+        if (hasAuthor) {
+          return await this.client.getRESTUser(this.message.author.id)
+        }
+
+        return undefined
       }
 
-      return false
-    }
-    try {
       const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
       return member
@@ -118,13 +119,13 @@ module.exports = class CommandContext {
       const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
-          return this.message.author
+          return await this.client.getRESTUser(this.message.author.id)
         }
 
-        return false
+        return undefined
       }
 
-      return member.user
+      return await this.client.getRESTUser(member.user.id)
     }
   }
 

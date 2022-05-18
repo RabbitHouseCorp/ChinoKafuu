@@ -110,14 +110,15 @@ module.exports = class SlashCommandContext extends CommandContext {
    * @param {boolean} hasAuthor
    */
   async getUser(args, hasAuthor = false) {
-    if (!args) {
-      if (hasAuthor) {
-        return this.message.member
+    try {
+      if (!args) {
+        if (hasAuthor) {
+          return await this.client.getRESTUser(this.message.author.id)
+        }
+
+        return undefined
       }
 
-      return undefined
-    }
-    try {
       const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
       return member
@@ -125,13 +126,13 @@ module.exports = class SlashCommandContext extends CommandContext {
       const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
-          return this.message.member
+          return await this.client.getRESTUser(this.message.author.id)
         }
 
         return undefined
       }
 
-      return member.user
+      return await this.client.getRESTUser(member.user.id)
     }
   }
 
