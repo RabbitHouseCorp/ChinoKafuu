@@ -20,7 +20,7 @@ module.exports = class UserAvatarCommand extends Command {
     download.setLabel(ctx._locale('commands:avatar.download'))
     download.setEmoji({ name: Emoji.getEmoji('photo_frame').name })
 
-    if (ctx.args.get('argument')?.value) {
+    if (ctx.args.get('guild-avatar')?.value) {
       const guildMember = await ctx.getMember(member.id)
       avatar = guildMember?.guildAvatar ?? member.avatarURL
     }
