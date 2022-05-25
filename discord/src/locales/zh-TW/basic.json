@@ -46,30 +46,30 @@
     "playerAlreadyPlaying": "我的收音機已經在播放了。",
     "clientAreNotInVoiceChannel": "我現在不在語音頻道中，請使用`/animu play`。",
     "playerNotFound": "我現在沒有玩任何東西，使用`/animu play`。",
-    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
-    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
+    "maxVolume": "嘿，冷靜下來！ 允許的最大音量為“100”。",
+    "minVolume": "嘿，冷靜下來！ 允許的最小音量為“5”。"
   },
   "boolean": {
-    "true": "Yes",
-    "false": "No"
+    "true": "是",
+    "false": "否"
   },
   "guildban": {
-    "title": "Guild Banned",
-    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
-    "reason": "Reason"
+    "title": "伺服器禁止",
+    "explain": "`{{0}}` 被禁止，原因如下。 你認為禁令不公平嗎？ 加入我的 [幫助伺服器](https://discord.gg/Jr57UrsXeC)，或許可以解除他們的禁令。",
+    "reason": "原因"
   },
-  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
-  "cooldownLowThanZero": "some",
-  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
-  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
+  "cooldown": "請再等 {{0}} 秒以再次執行此指令！",
+  "cooldownLowThanZero": "一些",
+  "disabledCommand": "對不起，但是，這個指令有一些問題，它被禁用了一段時間\n**原因：** `{{0}}`",
+  "blockedChannel": "您無法在此處使用指令，請轉到 {{0}} 並重試。",
   "migrate": {
-    "migrateTitle": "Slash commands are here!",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
-    "disabledTitle": "Vanilla commands are deprecated",
-    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
-    "howToUseTitle": "How to use?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
-    "needSupportTitle": "Still confused how to use the bot?",
-    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
+    "migrateTitle": "斜線指令在這裡！",
+    "migrateToSlashCommand": "嘿！ 2022 年 1 月之後，我將只回復斜線指令，如果您想繼續使用我，那麼您必須重新邀請我，您可以點擊 [here](https://discord.com/oauth2/ authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}})，你不需要把我踢出服務器。 謝謝！ 如果您想停止接收此消息，請輸入“{{2}}stopnotify”。 <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "不推薦使用原版命令",
+    "disabledToSlashCommands": "是時候告別普通指令了，現在只有斜線指命令可用。 目前，該指令已棄用，但您可以正常使用我，使用斜線指令，輸入 `/help` 以查看我的指令列表。",
+    "howToUseTitle": "如何使用?",
+    "howToUseSlash": "1.) 對於沒有重新邀請我到此伺服器，您可以點擊[here]重新邀請我(https://discord.com/oauth2/authorize?client_id={{0}}&permissions =1378654604670&scope=bot%20applications.commands&guild_id={{1}})，請務必確保您已經重新邀請我。\n2.) 用戶需要有`Use Application Commands`的權限才能使用我的命令。\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "needSupportTitle": "還在困惑如何使用機器人？",
+    "needSupportSlash": "如果您仍然對如何正確使用我感到困惑，請隨時加入我們的 [幫助伺服器](https://discord.gg/Jr57UrsXeC) 以獲得我們團隊的幫助。"
   }
 }
