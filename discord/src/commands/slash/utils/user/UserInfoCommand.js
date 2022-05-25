@@ -26,6 +26,7 @@ module.exports = class UserInfoCommand extends Command {
         .sort((a, b) => b.position - a.position)
       hoist = role[0]
     }
+    console.log(guildMember.premiumSince)
     const highRole = guild.roles.get(hoist?.id)
     const embed = new EmbedBuilder()
     embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
@@ -35,7 +36,7 @@ module.exports = class UserInfoCommand extends Command {
     embed.addField(ctx._locale('commands:userinfo.createdAt'), `<t:${parseInt(member.createdAt / 1000).toFixed(0)}:F>`, true)
     guildMember ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), `<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:F> (<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:R>)`, true) : null
     guildMember ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
-    guildMember?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(guildMember.premiumSince / 1000).toFixed(0)}:F> (<t:${parseInt(guildMember.premiumSince / 1000).toFixed(0)}:R>)`, true) : null
+    guildMember?.premiumSince ? embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(new Date(guildMember.premiumSince).getTime() / 1000).toFixed(0)}:F> (<t:${parseInt(new Date(guildMember.premiumSince).getTime() / 1000).toFixed(0)}:R>)`, true) : null
     guildMember ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), guildMember?.permissions?.array?.map(perm => `\`${ctx._locale(`permission:${perm}`)}\``)?.join(', ')) : null
 
     ctx.send(embed.build())
