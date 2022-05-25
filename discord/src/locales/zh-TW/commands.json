@@ -9,21 +9,21 @@
     "confirmationButton": "我想",
     "denyButton": "我不想",
     "loadingPreview": "正在加載配置文件預覽，請稍候。",
-    "noDescription": "No description",
-    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "noDescription": "沒有說明",
+    "notAllowed": "看起來你不是執行這個指令的人，你不能這樣做。",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
-      "cancelled": "Okay. The selection was successfully canceled!",
-      "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
-      "wantUseThisProfile": "I want use this profile!",
-      "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date."
+      "areYouSure": "您確定要選擇此配置文件嗎？如果是，則點擊“是”確認，如果不是，則點擊“否”",
+      "cancelled": "好的。選擇已成功取消！",
+      "selected": "好的！我將您庫存的配置文件“{{0}}”設置為您的新配置文件！現在嘗試使用 /profile",
+      "wantUseThisProfile": "我想使用這個配置文件！",
+      "welcome": "你好！歡迎使用您的個人資料庫存。要選擇配置文件更改，只需點擊選單並僅選擇一項。",
+      "profileUnavailable": "此配置文件尚不可用，也許在將來的更新中會添加它。加入我的幫助伺服器以保持最新狀態。"
     }
   },
   "shop": {
     "background": {},
-    "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
-    "noIDont": "No, I don't want this profile",
+    "buttonDisabled": "**警告**：由於這個原因，該按鈕被禁用 ->",
+    "noIDont": "不，我不想要此個人資料",
     "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
     "noDescription": "No description",
     "price": "Price",
