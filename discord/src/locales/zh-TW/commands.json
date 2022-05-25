@@ -1,14 +1,14 @@
 {
   "userbanner": {
-    "description": "Gets the banner of an user.",
-    "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{0}}"
+    "description": "獲取使用者的橫幅。",
+    "download": "在瀏覽器中打開橫幅。",
+    "userBanner": "{{0}} 的橫幅"
   },
   "inventory": {
     "background": {},
-    "confirmationButton": "Yes, I want",
-    "denyButton": "No, I don't want",
-    "loadingPreview": "Loading profile preview please wait a while.",
+    "confirmationButton": "我想",
+    "denyButton": "我不想",
+    "loadingPreview": "正在加載配置文件預覽，請稍候。",
     "noDescription": "No description",
     "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
     "profile": {
@@ -48,13 +48,13 @@
     "embed": {
       "memberName": "Username",
       "authorName": "Who reported",
-      "channel": "Channel",
-      "reason": "Reason"
+      "channel": "頻道",
+      "reason": "原因"
     }
   },
   "jankenpon": {
-    "description": "Plays jankenpon and win or lose yens.",
-    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
+    "description": "玩猜拳贏或輸yens。",
+    "optionNotFound": "您只能在“剪刀”、“布”或“剪刀”之間進行選擇。",
     "valueNotInputed": "you didn't provide any value to bet.",
     "tie": "It's a draw! Nobody won and nobody lost.",
     "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
