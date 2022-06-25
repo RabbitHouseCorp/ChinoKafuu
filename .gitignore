@@ -4,7 +4,6 @@ node_modules/
 config.json
 /discord/src/lavalink/LavalinkConfig.json
 *.env
-*config.json
 .env
 .idea
 coverage/
