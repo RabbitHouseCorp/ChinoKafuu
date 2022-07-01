@@ -1,4 +1,4 @@
 export default {
   // Imports Repository
-  TEST: '0.0.1'
+  TEST: '0.0.4'
 }

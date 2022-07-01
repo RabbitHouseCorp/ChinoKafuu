@@ -1,7 +1,7 @@
 {
   "name": "@chinokafuu/revolt",
   "version": "1.0.0",
-  "main": "./src/index.js",
+  "main": "./build/index.js",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

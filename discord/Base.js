@@ -14,31 +14,23 @@ const LavalinkStore = require('./src/structures/util/plugins/store/LavalinkStore
 const CacheProfile = require('./src/structures/util/plugins/cache/CacheProfile')
 const BuildStore = require('./src/structures/util/plugins/store/BuildStore')
 
-module.exports = class Base {
-  constructor(repositoryManager) {
-    this.repositoryManager = repositoryManager
-    this.start()
-  }
+const pluginManager = new PluginManager()
 
-  async start() {
-    // BotStore
-    const pluginManager = new PluginManager()
+pluginManager.addPlugins(
+  new CacheProfile(),
+  new BuildStore(),
+  new DatabaseStore(),
+  new LavalinkStore(),
+  new BotStore()
+)
 
-    pluginManager.addPlugins(
-      new CacheProfile(),
-      new BuildStore(),
-      new DatabaseStore(),
-      new LavalinkStore(),
-      new BotStore()
-    )
-    process.on('warning', (warn) => {
-      return Logger.warning(warn.debug().removePath())
-    })
-    process.on('uncaughtExceptionMonitor', (err) => {
-      return Logger.error(err.debug().removePath())
-    })
-    process.on('uncaughtException', (err) => {
-      return Logger.error(err.debug().removePath())
-    })
-  }
-}
+
+process.on('warning', (warn) => {
+  return Logger.warning(warn.debug().removePath())
+})
+process.on('uncaughtExceptionMonitor', (err) => {
+  return Logger.error(err.debug().removePath())
+})
+process.on('uncaughtException', (err) => {
+  return Logger.error(err.debug().removePath())
+})
