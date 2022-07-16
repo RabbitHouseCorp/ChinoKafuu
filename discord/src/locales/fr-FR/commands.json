@@ -323,7 +323,8 @@
       "ANIMATED_BANNER": "Bannière animée",
       "NEW_THREAD_PERMISSIONS": "Permissions pour les nouveaux fils de discussion",
       "MEMBER_PROFILES": "Profils des membres",
-      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment",
+      "AUTO_MODERATION": "Auto Moderation"
     },
     "booster": {
       "levelCount": "Booster de niveau",
