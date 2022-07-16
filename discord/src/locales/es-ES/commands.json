@@ -323,7 +323,8 @@
       "ANIMATED_BANNER": "Cartel animado",
       "NEW_THREAD_PERMISSIONS": "Nuevas permisos del hilos",
       "MEMBER_PROFILES": "Perfil de miembro",
-      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment",
+      "AUTO_MODERATION": "Auto Moderation"
     },
     "booster": {
       "levelCount": "Nivel de Impulso",
