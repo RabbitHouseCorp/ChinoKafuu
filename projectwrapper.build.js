@@ -9,7 +9,7 @@ const TypesLogging = {
 }
 const targets = [{
   'name': 'revolt',
-  'projectDir': './revolt',
+  'projectDir': './apps/revolt',
   'watchMode': process.env.PRODUCTION === 'true' ? false : true,
   'args': []
 }]
@@ -77,7 +77,7 @@ build
           LoggerWrapper.log({
             typeLog: 'ERROR',
             project: `Typescript::${interpreter.projectName}`,
-            message: parse.metadata.messageOriginal + ` ${t.toFixed(2)}s+`
+            message: parse.metadata.messageOriginal + ` ${t.toFixed(1)}s+`
           })
         }
           break
@@ -87,7 +87,7 @@ build
           LoggerWrapper.log({
             typeLog: 'WARNING',
             project: `Typescript::${interpreter.projectName}`,
-            message: 'Ok!' + ` ${t.toFixed(2)}s+`
+            message: 'Ok!' + ` ${t.toFixed(1)}s+`
           })
         }
       }

@@ -36,12 +36,10 @@
     "ws": "^8.6.0"
   },
   "workspaces": [
-    "revolt/*",
-    "utils/*",
-    "utils",
-    "discord/*",
-    "discord",
-    "revolt",
+    "apps/revolt/*",
+    "apps/discord/*",
+    "apps/discord",
+    "apps/revolt",
     "launcher",
     "launcher/*"
   ],
