@@ -19,4 +19,14 @@ export class RevoltClient extends ClientBase {
     super(secret, options)
 
   }
+
+  clearCache() { }
+
+  // Disconnect all websocket client.
+  shutdown() { }
+
+  build() {
+    console.log('Starting revolt..')
+    return this
+  }
 }

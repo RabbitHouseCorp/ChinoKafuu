@@ -1,5 +1,6 @@
 const { PlatformPackage } = require('./Platform')
 const Discord = require('./platforms/Discord')
+const Revolt = require('./platforms/Revolt')
 class Runner {
   constructor() {
     this.platformManager = new PlatformPackage.PlatformManager()
@@ -7,7 +8,8 @@ class Runner {
 
   register() {
     this.platformManager.addPlatform([
-      new Discord(this)
+      new Discord(this),
+      new Revolt(this)
     ])
 
     for (const p of this.platformManager.platforms) {
@@ -18,6 +20,9 @@ class Runner {
 
 module.exports.Run = () => {
   // Adding delay for execute others functions.
-  setTimeout(() => new Runner().register(), 1 * 1000)
-  require(('../../projectwrapper.build'))
+  const RunnerManager = new Runner()
+  setTimeout(() => RunnerManager.register(), 1 * 1000)
+  const Wrapper = new (require('../../projectwrapper.build'))(RunnerManager.platformManager)
+
+  Wrapper.runner()
 }

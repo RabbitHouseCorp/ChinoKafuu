@@ -40,6 +40,8 @@
     "apps/discord/*",
     "apps/discord",
     "apps/revolt",
+    "revolt",
+    "discord",
     "launcher",
     "launcher/*"
   ],
