@@ -13,6 +13,9 @@ const BotStore = require('./src/structures/util/plugins/store/BotStore')
 const LavalinkStore = require('./src/structures/util/plugins/store/LavalinkStore')
 const CacheProfile = require('./src/structures/util/plugins/cache/CacheProfile')
 const BuildStore = require('./src/structures/util/plugins/store/BuildStore')
+process.on('SIGKILL', () => process.exit(0));
+process.on('SIGTERM', () => process.exit(0));
+process.on('SIGINT', () => process.exit(0));
 
 const pluginManager = new PluginManager()
 
@@ -23,7 +26,6 @@ pluginManager.addPlugins(
   new LavalinkStore(),
   new BotStore()
 )
-
 
 process.on('warning', (warn) => {
   return Logger.warning(warn.debug().removePath())

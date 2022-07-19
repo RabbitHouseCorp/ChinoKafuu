@@ -1,6 +1,3 @@
-// const StartRepository = require('./repository/manager/StartRepository');
-// new StartRepository()
+const { Run } = require('@chinokafuu/launcher')
 
-const { Framework } = require('./kit/framework/Framework');
-
-Framework()
+Run()

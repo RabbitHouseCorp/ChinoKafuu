@@ -3,10 +3,12 @@
   "version": "0.0.1",
   "private": true,
   "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
-  "main": "projectwrapper.build.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "tsc && node --experimental-specifier-resolution=node .",
+    "start": "node --experimental-specifier-resolution=node .",
+    ":build": "tsc -p ./revolt",
+    ":watchmode": "tsc -p ./revolt -w",
     ":discord": "node ./discord/index.js",
     "lint": "eslint -c .eslintrc.json discord kit repository revolt *.js",
     "lint:fix": "eslint -c .eslintrc.json discord kit repository revolt *.js --fix && echo \"\u001b[1m\u001b[32mOK\u001b[39m\u001b[22m\" || echo \"\u001b[1m\u001b[31mNot OK\u001b[39m\u001b[22m\""
@@ -35,13 +37,16 @@
   },
   "workspaces": [
     "revolt/*",
-    "repository/*",
+    "utils/*",
+    "utils",
     "discord/*",
     "discord",
-    "revolt"
+    "revolt",
+    "launcher",
+    "launcher/*"
   ],
   "devDependencies": {
-    "@types/node": "^17.0.31",
+    "@types/node": "^18.0.1",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
     "dotenv": "^16.0.0",
