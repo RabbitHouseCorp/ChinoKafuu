@@ -7,7 +7,7 @@ class Runner {
 
   register() {
     this.platformManager.addPlatform([
-      // new Discord(this)
+      new Discord(this)
     ])
 
     for (const p of this.platformManager.platforms) {
@@ -17,7 +17,6 @@ class Runner {
 }
 
 module.exports.Run = () => {
-
   // Adding delay for execute others functions.
   setTimeout(() => new Runner().register(), 2 * 1000)
   require(('../../projectwrapper.build'))
