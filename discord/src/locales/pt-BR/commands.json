@@ -1,8 +1,8 @@
 {
   "userbanner": {
-    "description": "Gets the banner of an user.",
-    "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{0}}"
+    "description": "Pega o banner de um usuário.",
+    "download": "Abrir o banner no seu navegador.",
+    "userBanner": "Banner de {{0}}"
   },
   "inventory": {
     "background": {},
@@ -324,7 +324,7 @@
       "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
       "MEMBER_PROFILES": "Perfil de Membros",
       "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment",
-      "AUTO_MODERATION": "Auto Moderation"
+      "AUTO_MODERATION": "Auto moderação"
     },
     "booster": {
       "levelCount": "Nível de Impulsionamento",
