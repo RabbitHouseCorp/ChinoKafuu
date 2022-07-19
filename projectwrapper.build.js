@@ -1,6 +1,6 @@
 const ProjectWrapper = require('tsc-compile-projects')
 const { LoggerWrapper } = require('./utils/src/index').UtilsWrapper
-
+const times = new Map()
 require('dotenv').config()
 
 const TypesLogging = {
@@ -58,6 +58,12 @@ build
     wrapper.interpreter.on('debugData', ({ eventName, interpreter, parse }) => {
       switch (eventName) {
         case 'startingCompilation': {
+          if (times.get(interpreter.projectName) !== null) {
+            times.delete(interpreter.projectName)
+          }
+
+          times.set(interpreter.projectName, Date.now())
+
           LoggerWrapper.log({
             typeLog: 'LOG',
             project: `Typescript::${interpreter.projectName}`,
@@ -65,21 +71,26 @@ build
           })
         }
           break
-        // case 'errorTs': {
-        // }
-        //   break
+        case 'errorTs': {
+          const t = Date.now() - times.get(interpreter.projectName)
+
+          LoggerWrapper.log({
+            typeLog: 'ERROR',
+            project: `Typescript::${interpreter.projectName}`,
+            message: parse.metadata.messageOriginal + ` ${t.toFixed(2)}s+`
+          })
+        }
+          break
+        case 'eventFindCountOfError': {
+          const t = Date.now() - times.get(interpreter.projectName)
+
+          LoggerWrapper.log({
+            typeLog: 'WARNING',
+            project: `Typescript::${interpreter.projectName}`,
+            message: 'Ok!' + ` ${t.toFixed(2)}s+`
+          })
+        }
       }
     })
-    // wrapper.on('logging', (log) => {
-    //   switch (log[0].logging) {
-    //     case TypesLogging.TYPESCRIPT: {
-    //       LoggerWrapper.log({
-    //         typeLog: 'LOG',
-    //         project: `Typescript::${log[0].data.projectName}`,
-    //         message: log[0].data.message.replace(/[A-Za-z0-9.,]\n\n/g, '').replace(/\n\n[A-Za-z0-9_:-]|\n[A-Za-z0-9_:-]/g, '')
-    //       })
-    //     }
-    //   }
-    // })
   })
   .catch((err) => console.log(err))

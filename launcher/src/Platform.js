@@ -6,29 +6,33 @@ class PlatformInterfaceEvents extends EventEmitter {
     this.started = Date.now()
   }
 
-  end() {
-    this.emit('end', Date.now())
+  end(t = 0) {
+    this.emit('end', t - Date.now())
   }
 }
 /**
  * @description An interface that can handle platform events.
  */
-class PlatformInterface extends PlatformInterface {
+class PlatformInterface extends PlatformInterfaceEvents {
   constructor(name = '', options = {
     'isTypescript': false,
   }) {
     super()
-    this.name = typeof name === 'string' ? 'unknown' : name
+    this.name = typeof name === 'string' ? name : 'unknown'
     this.isTypescript = typeof options.isTypescript === 'boolean' ? false : options.isTypescript
   }
+
+  runner() {}
 }
 
 /**
  * @description External platform.
  */
 class Platform extends PlatformInterface {
-  constructor() {
-    super()
+  constructor(name = '', options = {
+    'isTypescript': false,
+  }) {
+    super(name, options)
   }
 }
 
@@ -49,7 +53,7 @@ class PlatformManager {
   }
 }
 
-module.exports = {
+module.exports.PlatformPackage = {
   Platform,
   PlatformInterface,
   PlatformManager,
