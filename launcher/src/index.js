@@ -17,6 +17,8 @@ class Runner {
 }
 
 module.exports.Run = () => {
-  new Runner().register()
+
+  // Adding delay for execute others functions.
+  setTimeout(() => new Runner().register(), 2 * 1000)
   require(('../../projectwrapper.build'))
 }
