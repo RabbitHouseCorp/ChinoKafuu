@@ -90,6 +90,13 @@ build
             message: 'Ok!' + ` ${t.toFixed(1)}s+`
           })
         }
+          break
+        default:
+          LoggerWrapper.log({
+            typeLog: 'LOG',
+            project: `Typescript::${interpreter.projectName}`,
+            message: parse.metadata.message
+          })
       }
     })
   })
