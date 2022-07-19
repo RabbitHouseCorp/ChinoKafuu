@@ -46,8 +46,8 @@
     "noReason": "no reason specified",
     "successfullySent": "report successfully sent.",
     "embed": {
-      "memberName": "Username",
-      "authorName": "Who reported",
+      "memberName": "用戶名稱",
+      "authorName": "誰舉報",
       "channel": "頻道",
       "reason": "原因"
     }
@@ -60,9 +60,9 @@
     "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
     "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
     "choice": {
-      "rock": "rock",
-      "paper": "paper",
-      "scissors": "scissors"
+      "rock": "石頭",
+      "paper": "布",
+      "scissors": "剪刀"
     }
   },
   "daily": {
@@ -89,11 +89,11 @@
   "channelinfo": {
     "title": "`Information about #{{0}}`",
     "noTopic": "This channel doesn't have a topic.",
-    "mention": "Channel Mention",
-    "channelID": "Channel ID",
-    "guild": "Guild",
-    "category": "Category",
-    "createdAt": "Created At"
+    "mention": "提及頻道",
+    "channelID": "頻道 ID",
+    "guild": "伺服器",
+    "category": "類別",
+    "createdAt": "創建于"
   },
   "favcolor": {
     "description": "Changes your profile color to your favorite color.",
@@ -110,7 +110,7 @@
     "embed": {
       "title": "Emoji information",
       "name": "Emoji name",
-      "id": "Emoji ID",
+      "id": "表情符號 ID",
       "mention": "Emoji mention",
       "url": "Download"
     }
@@ -133,15 +133,15 @@
     "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
   },
   "help": {
-    "commandList": "Command list",
+    "commandList": "指令列表",
     "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
-    "economy": "Economy ({{0}})",
-    "fun": "Fun ({{0}})",
+    "economy": "經濟（{{0}}）",
+    "fun": "娛樂（{{0}}）",
     "image": "Image Manipulation ({{0}})",
-    "minecraft": "Minecraft ({{0}})",
+    "minecraft": "麥塊（{{0}}）",
     "misc": "Miscellaneous ({{0}})",
     "mod": "Moderation ({{0}})",
-    "social": "Social ({{0}})",
+    "social": "社交（{{0}}）",
     "utils": "Utils ({{0}})",
     "description": "Show my command list to you.",
     "commandsLoaded": "I have {{0}} public commands loaded.",
@@ -173,8 +173,8 @@
   },
   "baninfo": {
     "title": "Ban information",
-    "memberName": "User banned",
-    "reason": "Reason",
+    "memberName": "已封鎖用戶",
+    "reason": "原因",
     "unban": "Click here to unban this user.",
     "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
     "description": "Check the ban information about an user"
