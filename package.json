@@ -30,6 +30,7 @@
     "ms": "^2.1.3",
     "nekos.life": "^3.0.0",
     "os-utils": "^0.0.14",
+    "revolt.js": "github:RabbitHouseCorp/revolt.js#master",
     "tsc-compile-projects": "github:RabbitHouseCorp/tsc-compile-projects#main",
     "usagi-http-interaction": "github:RabbitHouseCorp/usagi-http-interaction#main",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
