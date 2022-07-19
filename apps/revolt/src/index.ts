@@ -4,7 +4,7 @@ interface ProjectWrapper {
 }
 
 interface StateApplicationI {
-  'projectWrapper': ProjectWrapper
+  projectWrapper: ProjectWrapper
 }
 
 export class StateApplication {
