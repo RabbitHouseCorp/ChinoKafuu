@@ -15,7 +15,6 @@ module.exports = class Revolt extends PlatformPackage.Platform {
 
   // Starting the Discord Application!
   runner() {
-    console.log('heeeeey!!!!')
     const t = Date.now()
     delete require.cache[require.resolve('@chinokafuu/revolt')]
     const { StateApplication } = require('@chinokafuu/revolt')

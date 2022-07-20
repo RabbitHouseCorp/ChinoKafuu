@@ -39,13 +39,13 @@
     // "checkJs": true,                                  /* Enable error reporting in type-checked JavaScript files. */
     // "maxNodeModuleJsDepth": 1,                        /* Specify the maximum folder depth used for checking JavaScript files from `node_modules`. Only applicable with `allowJs`. */
     /* Emit */
-    "declaration": false, /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+    "declaration": true, /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
     "declarationMap": false, /* Create sourcemaps for d.ts files. */
     // "emitDeclarationOnly": true,                      /* Only output d.ts files and not JavaScript files. */
-    // "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
     // "outFile": "./",                                  /* Specify a file that bundles all outputs into one JavaScript file. If `declaration` is true, also designates a file that bundles all .d.ts output. */
     "outDir": "build", /* Specify an output folder for all emitted files. */
-    // "removeComments": true,                           /* Disable emitting comments. */
+    "removeComments": true,                           /* Disable emitting comments. */
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
     // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
     // "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types */
@@ -54,7 +54,7 @@
     // "mapRoot": "",                                    /* Specify the location where debugger should locate map files instead of generated locations. */
     // "inlineSourceMap": true,                          /* Include sourcemap files inside the emitted JavaScript. */
     // "inlineSources": true,                            /* Include source code in the sourcemaps inside the emitted JavaScript. */
-    // "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
+    "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
     // "newLine": "crlf",                                /* Set the newline character for emitting files. */
     // "stripInternal": true,                            /* Disable emitting declarations that have `@internal` in their JSDoc comments. */
     // "noEmitHelpers": true,                            /* Disable generating custom helper functions like `__extends` in compiled output. */

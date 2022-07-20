@@ -9,9 +9,6 @@ export interface StateApplicationI {
   projectWrapper: ProjectWrapper
 }
 
-export const Versions = {
-  p: '2'
-}
 export class StateApplication {
   state: StateApplicationI
   // Starting service of RevoltClient
@@ -20,7 +17,7 @@ export class StateApplication {
   hotreload: Hotreload
   constructor(state: StateApplicationI) {
     this.state = state
-    this.revoltClient = new RevoltClient('', {})
+    this.revoltClient = new RevoltClient('a', {})
     this.hotreload = new Hotreload(this.revoltClient, state)
   }
 
