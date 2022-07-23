@@ -1,6 +1,47 @@
 const EventEmitter = require('events');
+const { LoggerWrapper } = require('../../utils/src/LoggerWrapper')
+class PlatformCacheManager extends
+  class extends EventEmitter {
+    constructor() {
+      super()
+    }
+  }
+{
+  constructor() {
+    super();
+    this.loaded = false
+  }
 
-class PlatformInterfaceEvents extends EventEmitter {
+  clearCacheOfPackage() {
+    const loaders = []
+    if (this.loaded === true) {
+      const regex = RegExp(`apps\\/${this.name}|apps\\${this.name}`, 'g')
+
+      // Delete cache all package.
+      for (const cache in require.cache) {
+        if (cache.match(regex) !== null) {
+          loaders.push(loaders)
+          delete require.cache[cache]
+        }
+      }
+
+      LoggerWrapper.log({
+        typeLog: 'WARNING',
+        message: `${loaders.length} package cache of ${this.name} has been deleted. Injecting the new packages.`,
+        project: this.name
+      })
+
+
+      // Delete cache main package.
+      delete require.cache[require.resolve('@chinokafuu/revolt')]
+    } else {
+      this.loaded = true
+    }
+  }
+}
+
+
+class PlatformInterfaceEvents extends PlatformCacheManager {
   constructor() {
     super()
     this.started = Date.now()
@@ -22,7 +63,7 @@ class PlatformInterface extends PlatformInterfaceEvents {
     this.isTypescript = typeof options.isTypescript === 'boolean' ? false : options.isTypescript
   }
 
-  runner() {}
+  runner() { }
 }
 
 /**
@@ -58,4 +99,5 @@ module.exports.PlatformPackage = {
   PlatformInterface,
   PlatformManager,
   PlatformInterfaceEvents,
+  PlatformCacheManager
 }

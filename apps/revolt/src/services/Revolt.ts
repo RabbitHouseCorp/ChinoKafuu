@@ -26,7 +26,7 @@ export class RevoltClient extends ClientBase {
   shutdown() { }
 
   build() {
-    console.log('Starting revolt..')
+    console.log('Starting revolt!')
     return this
   }
 }

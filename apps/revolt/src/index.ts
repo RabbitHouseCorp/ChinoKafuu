@@ -29,6 +29,7 @@ export class StateApplication {
 
   start() {
     this.hotreload.reload()
+    this.revoltClient.build()
   }
 
   stop() {

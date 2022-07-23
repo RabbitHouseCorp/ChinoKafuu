@@ -46,6 +46,7 @@ module.exports = class Wrapper extends EventEmitter {
   constructor(platformManager) {
     super();
     this.platformManager = platformManager
+    this.skipLoggerClear = true
   }
   runner() {
     const build = ProjectWrapper.initializeDefault({
@@ -66,6 +67,7 @@ module.exports = class Wrapper extends EventEmitter {
         wrapper.interpreter.on('debugData', ({ eventName, interpreter, parse }) => {
           switch (eventName) {
             case 'startingCompilation': {
+              this.skipLoggerClear = true
               if (times.get(interpreter.projectName) !== null) {
                 times.delete(interpreter.projectName)
               }
@@ -90,6 +92,7 @@ module.exports = class Wrapper extends EventEmitter {
             }
               break
             case 'eventFindCountOfError': {
+              this.skipLoggerClear = true
               const t = Date.now() - times.get(interpreter.projectName)
               if (reloads.get(interpreter.projectName) !== null) {
                 reloads.delete(interpreter.projectName)
@@ -103,6 +106,10 @@ module.exports = class Wrapper extends EventEmitter {
             }
               break
             default:
+              if (this.skipLoggerClear == true) {
+                this.skipLoggerClear = false
+                return
+              }
               LoggerWrapper.log({
                 typeLog: 'LOG',
                 project: `Typescript::${interpreter.projectName}()`,
