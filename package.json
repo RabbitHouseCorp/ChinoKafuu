@@ -20,6 +20,7 @@
     "@clusterws/cws": "^3.0.0",
     "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
     "@top-gg/sdk": "^3.1.3",
+    "@uranusjs/revolt": "github:uranusjs/revolt#dev",
     "anilist-node": "^1.12.0",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
