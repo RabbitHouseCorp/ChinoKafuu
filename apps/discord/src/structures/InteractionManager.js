@@ -1,6 +1,6 @@
 /* eslint-disable quotes */
 const { UsagiClient } = require('usagi-http-interaction')
-const Interaction = require('eris/lib/structures/Interaction')
+const { Interaction } = require('eris')
 const { Logger } = require('../structures/util')
 const chalk = require('chalk')
 

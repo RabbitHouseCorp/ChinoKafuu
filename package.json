@@ -24,7 +24,7 @@
     "anilist-node": "^1.12.0",
     "axios": "^0.27.2",
     "chalk": "^4.1.2",
-    "eris": "github:RabbitHouseCorp/eris#e9a250d6ad5cdfef22bc1180e85041d87253bb5a",
+    "eris": "github:RabbitHouseCorp/eris#9d506cc3414baab112d0c3281442d38b3c02161f",
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.4",
     "mongoose": "^6.3.2",
