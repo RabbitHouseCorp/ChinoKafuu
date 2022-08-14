@@ -62,12 +62,21 @@ module.exports = class PayCommand extends Command {
     }).then(message => {
       const ack = new NightlyInteraction(message)
       ack.on('collect', ({ packet }) => {
-        if ((packet.d.member.user.id !== ctx.message.member.user.id && message.author.id === ctx.client.user.id)) {
+        const author = ctx.message.author.id
+        const receiver = member.id
+        if ((packet.d.member.user.id === receiver && message.author.id === ctx.client.user.id)) {
           ack.sendAck('respond', {
-            content: ctx._locale('commands:pay.needToWait'),
+            content: ctx._locale('command:pay.bePatient', { 0: Emoji.getEmoji('chino_smile').mention, 1: member.mention, 2: ctx.message.author.mention }),
             flags: 1 << 6
           })
-          return;
+          return
+         }
+        if ((packet.d.member.user.id !== author && message.author.id === ctx.client.user.id)) {
+          ack.sendAck('respond', {
+            content: ctx._locale('commands:pay.notTheAuthor', { 0: Emoji.getEmoji('chino_pout').mention, 1: `<@${packet.d.member.user.id}>`, 2: ctx.message.author.mention }),
+            flags: 1 << 6
+          })
+          return
         }
         switch (packet.d.data.custom_id) {
           case 'confirm_button': {
