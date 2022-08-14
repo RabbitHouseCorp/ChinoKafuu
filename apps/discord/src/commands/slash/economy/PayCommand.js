@@ -66,7 +66,7 @@ module.exports = class PayCommand extends Command {
         const receiver = member.id
         if ((packet.d.member.user.id === receiver && message.author.id === ctx.client.user.id)) {
           ack.sendAck('respond', {
-            content: ctx._locale('command:pay.bePatient', { 0: Emoji.getEmoji('chino_smile').mention, 1: member.mention, 2: ctx.message.author.mention }),
+            content: ctx._locale('commands:pay.bePatient', { 0: Emoji.getEmoji('chino_smile').mention, 1: member.mention, 2: ctx.message.author.mention }),
             flags: 1 << 6
           })
           return
