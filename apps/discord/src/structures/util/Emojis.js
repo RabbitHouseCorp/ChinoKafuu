@@ -38,5 +38,7 @@ module.exports = {
   wumpus: '<:Wumpus:579455982053097485>',
   photo_frame: '🖼️',
   eris: '<:eris:967618691804057670>',
-  nodejs: '<:nodejs:967619029390991410>'
+  nodejs: '<:nodejs:967619029390991410>',
+  chino_pout: '<:chino_pout:564106391984275506>',
+  chino_smile: '<:chino_smile:554079183265857851>'
 }
