@@ -15,7 +15,6 @@ index.d.ts
 kube/
 Dockerfile
 test.js
-yarn.lock
 .altostra
 .node_modules/
 .dccache
