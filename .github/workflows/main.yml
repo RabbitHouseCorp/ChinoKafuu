@@ -10,7 +10,7 @@ jobs:
     strategy:
         matrix:
            os: [ubuntu-latest, macos-latest]
-           node: [14.x, 16.x, 17.x]
+           node: [16.x, 18.x]
     steps:
       - name: Checkout 📝
         uses: actions/checkout@master
@@ -29,7 +29,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install dependencies ⚙
-        run: npm install --force
+        run: yarn install
 
       - name: Run tests 🧪
-        run: npm test
+        run: yarn test
