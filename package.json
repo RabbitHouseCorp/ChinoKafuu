@@ -48,7 +48,7 @@
   ],
   "devDependencies": {
     "@types/node": "^18.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "@typescript-eslint/eslint-plugin": "^5.36.0",
     "@typescript-eslint/parser": "^5.30.7",
     "dotenv": "^16.0.0",
     "eslint": "^8.23.0",
