@@ -913,8 +913,8 @@
 
 "@uranusjs/revolt@github:uranusjs/revolt#dev":
   version "1.0.0"
-  uid "2af741527fa660a9a4470c0c1f9cd9b076c47531"
-  resolved "https://codeload.github.com/uranusjs/revolt/tar.gz/2af741527fa660a9a4470c0c1f9cd9b076c47531"
+  uid ee9ea3ab995d8b6dc7077b8fa0eefddf8d8553c6
+  resolved "https://codeload.github.com/uranusjs/revolt/tar.gz/ee9ea3ab995d8b6dc7077b8fa0eefddf8d8553c6"
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.35.1"
     eslint-config-standard "^16.0.3"
