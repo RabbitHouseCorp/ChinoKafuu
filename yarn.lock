@@ -614,7 +614,8 @@
 
 "@lavacord/eris@github:RabbitHouseCorp/lavacord-eris#master":
   version "0.0.2"
-  resolved "https://codeload.github.com/RabbitHouseCorp/lavacord-eris/tar.gz/07d91cf17f39f89efe6514336bd4caa9d22cb889"
+  uid "9c68200d2065c34c16b8983794d38978e0cf1bea"
+  resolved "https://codeload.github.com/RabbitHouseCorp/lavacord-eris/tar.gz/9c68200d2065c34c16b8983794d38978e0cf1bea"
   dependencies:
     lavacord latest
 
