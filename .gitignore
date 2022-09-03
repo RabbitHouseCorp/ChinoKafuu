@@ -4,7 +4,6 @@ node_modules/
 config.json
 /discord/src/lavalink/LavalinkConfig.json
 *.env
-*config.json
 .env
 .idea
 coverage/
@@ -16,7 +15,6 @@ index.d.ts
 kube/
 Dockerfile
 test.js
-yarn.lock
 .altostra
 .node_modules/
 .dccache

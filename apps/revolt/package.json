@@ -1,0 +1,20 @@
+{
+  "name": "@chinokafuu/revolt",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RabbitHouseCorp/ChinoKafuu.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/RabbitHouseCorp/ChinoKafuu/issues"
+  },
+  "homepage": "https://github.com/RabbitHouseCorp/ChinoKafuu#readme",
+  "description": ""
+}
