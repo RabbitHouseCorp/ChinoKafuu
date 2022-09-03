@@ -38,6 +38,7 @@
   "useExternalStickers": "Usar figurinhas externas",
   "manageThreads": "Gerenciar tópicos",
   "sendMessagesInThreads": "Enviar mensagens em tópicos",
-  "startEmbeddedActivities": "Começar atividades",
-  "moderateMembers": "Castigar membros"
+  "useEmbeddedActivities": "Usar atividades",
+  "moderateMembers": "Membros de castigo",
+  "manageEvents": "Gerenciar eventos"
 }

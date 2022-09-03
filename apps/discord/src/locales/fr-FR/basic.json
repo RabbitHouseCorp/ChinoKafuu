@@ -4,13 +4,13 @@
     "permissionBotRequired": "Je dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
     "title": "Permissions"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Bonjour, {{0}}. Mon préfixe est `{{1}}`. Si vous voulez voir ce que je peux faire, utilisez `{{1}}help`.",
   "missingBotPermission": "Je n'ai pas la permission {{perm}}. Vérifie mes permissions/rôles et réessaye.",
   "missingUserPermission": "tu n'as pas la permission {{perm}}. Tu ne peux pas exécuter cette commande.",
   "missingBotPermissionOnChannel": "Hey {{0}} je n'ai pas la permission {{1}} dans {{2}}. S'il te plaît, vérifie mes permissions et réessaie.",
-  "invalidUser": "I can't find this person. Are you sure this user exist?",
-  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
-  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
+  "invalidUser": "Je ne trouve pas cette personne. Êtes-vous sûr que cet utilisateur existe ?",
+  "invalidRole": "Je ne trouve pas ce rôle. Êtes-vous sûr que ce rôle existe dans ce serveur ?",
+  "invalidEmoji": "Je ne trouve pas cet émoji. Êtes-vous sûr que cet émoji provient de ce serveur ?",
   "noReason": "Aucune raison",
   "clickHere": "Clique ici",
   "punishment": {
@@ -28,9 +28,9 @@
     },
     "reason": "Sanctionné par: {{0}} - Raison: {{1}}",
     "bigReason": "tu dois écrire une raison plus courte, cette raison est trop longue pour moi.",
-    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
-    "ownerPunish": "you lost your mind? You can't punish this person, they're the owner of this guild.",
-    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
+    "selfPunishment": "désolé, mais, comme vous ne pouvez pas vous punir sur le Discord normal, vous ne pouvez pas vous punir par moi.",
+    "ownerPunish": "tu as perdu la tête ? Tu ne peux pas punir cette personne, c'est le propriétaire de ce serveur.",
+    "error": "Je ne pouvais pas punir ce membre. Peut-être que ses rôles sont plus élevés que les miens. Vérifiez les rôles et réessayez."
   },
   "missingArgs": "Arguments invalides ! Utilise `{{prefix}}{{commandName}}` pour voir son utilisation.",
   "howToUse": "Comment l'utiliser?",
@@ -42,12 +42,12 @@
   },
   "noAliases": "Cette commande n'a aucun alias.",
   "voice": {
-    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
-    "playerAlreadyPlaying": "the radio is already playing on me.",
-    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
-    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
-    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
-    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
+    "authorAreNotInVoiceChannel": "vous devez être sur un salon vocal, mais vous ne l'êtes pas.",
+    "playerAlreadyPlaying": "la radio joue déjà sur moi.",
+    "clientAreNotInVoiceChannel": "Je ne suis pas dans un canal vocal en ce moment, utilisez `/animu play`.",
+    "playerNotFound": "Je ne suis pas en train de jouer quoi que ce soit pour le moment, utilisez `/animu play`.",
+    "maxVolume": "hé, calmez-vous ! Le volume maximum autorisé est de `100`.",
+    "minVolume": "hé, calmez-vous ! Le volume minimal autorisé est de `5`."
   },
   "boolean": {
     "true": "Oui",
@@ -64,11 +64,11 @@
   "blockedChannel": "tu ne peux pas utiliser de commandes ici, va dans {{0}} et essaie encore.",
   "migrate": {
     "migrateTitle": "Les commandes slash sont là !",
-    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "migrateToSlashCommand": "Hey ! Après Janvier 2022 je ne répondrai qu'aux commandes slash, s'il vous plaît, si vous voulez continuer à m'utiliser, alors vous devez me réinscrire, vous pouvez le faire en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), vous n'avez pas besoin de me virer du serveur. Merci ! Si vous voulez arrêter de recevoir ce message, écrire `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
     "disabledTitle": "Les commandes vanilla sont obsolètes",
     "disabledToSlashCommands": "Il est temps de dire adieu aux commandes normales, maintenant, ce sont seulement les commandes slash qui entrent en scène. Pour l'instant, cette commande est obsolète, mais tu peux m'utiliser normalement à l'aide des slash, tape `/help` pour voir ma liste de commandes.",
     "howToUseTitle": "Comment les utiliser ?",
-    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "howToUseSlash": "1.) Pour les anciens utilisateurs qui ne m'ont pas réinvité sur ce serveur, vous pouvez me réinviter en cliquant [ici](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), il est important de vous assurer que vous m'avez déjà réinvité.\n2.) L'utilisateur doit avoir la permission de `Utiliser les commandes de l'application` pour utiliser mes commandes.\n3.) Si vous ne pouvez pas voir les commandes slash, vérifiez que vous avez activé `Paramètres utilisateur -> Texte & Images -> Utilise les commandes slash et affiche un aperçu des émojis, des mentions et de la syntaxe Markdown pendant que tu écris`",
     "needSupportTitle": "Toujours confus·e de comment utiliser le bot ?",
     "needSupportSlash": "Si tu as toujours des problèmes quant à mon utilisation, n'hésite pas à rejoindre notre [serveur de support](https://discord.gg/Jr57UrsXeC) pour obtenir de l'aide de notre équipe de support."
   }

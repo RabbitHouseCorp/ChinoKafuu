@@ -1,8 +1,32 @@
 {
+  "userbanner": {
+    "description": "Pega o banner de um usuário.",
+    "download": "Abrir o banner no seu navegador.",
+    "userBanner": "Banner de {{0}}"
+  },
+  "inventory": {
+    "background": {},
+    "confirmationButton": "Sim, eu quero",
+    "denyButton": "Não, eu não quero",
+    "loadingPreview": "Carregando a preview do perfil espere um pouco.",
+    "noDescription": "Sem descrição",
+    "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
+    "profile": {
+      "areYouSure": "Você tem certeza que você quer selecionar este perfil? Se sim, então clique em `Sim, eu quero` para confirmar, se não, então clique em `Não, eu não quero`",
+      "cancelled": "Okay. A seleção foi cancelada com sucesso!",
+      "selected": "Ótimo! Eu defini o perfil `{{0}}` do seu inventário como seu novo perfil! Agora tente usar /profile",
+      "wantUseThisProfile": "Eu quero usar este perfil!",
+      "welcome": "Olá! Bem-vindo ao seu inventário de perfil. Para selecionar o seu novo perfil, basta clicar no menu e selecionar qualquer um.",
+      "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado."
+    }
+  },
   "shop": {
     "background": {},
     "buttonDisabled": "**Aviso**: O botão está desativado por este motivo ->",
     "noIDont": "Não, eu não quero este perfil",
+    "notAllowed": "parece que você não é a pessoa que executou este comando, você não pode fazer isso.",
+    "noDescription": "Sem descrição",
+    "price": "Preço",
     "profile": {
       "alreadyHaveThisProfile": "Parece que você já possui este perfil.",
       "enoughYens": "Parece que você não tem ienes o suficiente para comprar este perfil.",
@@ -11,8 +35,8 @@
       "profileUnavailable": "Este perfil ainda não está disponível, talvez em uma atualização futura ele será adicionado. Entre no meu servidor de suporte para ficar atualizado.",
       "purchaseCancelled": "Certo! Compra cancelada com sucesso!",
       "successfullyPurchased": "Obrigada por comprar! O perfil está disponível no seu inventário.",
-      "youWantThisProfile": "Tem certeza de que deseja comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não clicar em `{{1}}`",
-      "welcomeToTheShop": "Oi! Bem-vindo à loja de perfil decorativo. Você pode selecionar um desses perfis para ver o perfil. Lembre que se alguns não aparecer o botão verde para comprá-lo significa que você já comprou o perfil na sua conta!"
+      "youWantThisProfile": "Você tem certeza que você quer comprar este perfil? Se sim, então clique em `{{0}}` para confirmar, se não, então clique em `{{1}}`",
+      "welcomeToTheShop": "Olá! Bem-vindo à loja de perfil decorativo. Você pode selecionar um desses perfis para ver o perfil. Lembre que se alguns não aparecer o botão verde para comprá-lo significa que você já comprou o perfil na sua conta!"
     },
     "yesIWant": "Sim, eu quero este perfil"
   },
@@ -299,7 +323,8 @@
       "ANIMATED_BANNER": "Banner Animado",
       "NEW_THREAD_PERMISSIONS": "Novas Permissões de Tópicos",
       "MEMBER_PROFILES": "Perfil de Membros",
-      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment",
+      "AUTO_MODERATION": "Auto moderação"
     },
     "booster": {
       "levelCount": "Nível de Impulsionamento",
@@ -330,7 +355,7 @@
   },
   "botinfo": {
     "title": "Minhas informações",
-    "extraDescription": "Olá {{0}}, que bom te ver. Estou rodando por [{{1}} Node.JS](https://nodejs.org) e um fork do [{{2}} Eris](https://abal.moe/Eris).",
+    "extraDescription": "Olá {{0}}, que bom te ver. Estou rodando por {{1}} [Node.JS](https://nodejs.org) e um fork do {{2}} [Eris](https://abal.moe/Eris).",
     "specs": "Especificações",
     "guildsAmount": "Total de servidores",
     "usersAmount": "Total de usuários",
@@ -352,7 +377,7 @@
     "description": "Mostra o corpo de um jogador de Minecraft."
   },
   "mchead": {
-    "description": "Mostra a cabeça de um jogador do Minecraft."
+    "description": "Mostra a cabeça de um jogador de Minecraft."
   },
   "mcskin": {
     "description": "Mostra a skin de um jogador de Minecraft."
@@ -452,7 +477,7 @@
     "description": "Chama um usuário de baka"
   },
   "clap": {
-    "noArgs": "argumento inválido",
+    "noArgs": "você precisa digitar algo para mim, e depois eu modificarei sua mensagem.",
     "description": "Vamos todos bater palmas com os seus amigos."
   },
   "congaparrot": {

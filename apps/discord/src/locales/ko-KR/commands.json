@@ -1,18 +1,42 @@
 {
+  "userbanner": {
+    "description": "Gets the banner of an user.",
+    "download": "Open the banner in your browser.",
+    "userBanner": "Banner of {{0}}"
+  },
+  "inventory": {
+    "background": {},
+    "confirmationButton": "Yes, I want",
+    "denyButton": "No, I don't want",
+    "loadingPreview": "Loading profile preview please wait a while.",
+    "noDescription": "No description",
+    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "profile": {
+      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
+      "cancelled": "Okay. The selection was successfully canceled!",
+      "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
+      "wantUseThisProfile": "I want use this profile!",
+      "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
+      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date."
+    }
+  },
   "shop": {
     "background": {},
     "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
     "noIDont": "No, I don't want this profile",
+    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "noDescription": "No description",
+    "price": "Price",
     "profile": {
       "alreadyHaveThisProfile": "It seems you already have this profile.",
       "enoughYens": "It seems you don't have enough yens to buy this profile.",
       "loadingPreview": "Loading the preview, please wait for a moment.",
       "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to dated.",
+      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
       "purchaseCancelled": "Right! Purchase successfully cancelled!",
       "successfullyPurchased": "Thank you for buying! The profile is available in your inventory.",
-      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not click on `{{1}}`",
-      "welcomeToTheShop": "Hi! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
+      "youWantThisProfile": "Are you sure you want to buy this profile? If so, then click in `{{0}}` to confirm, if not, then click in `{{1}}`",
+      "welcomeToTheShop": "Hello! Welcome to the decorative profile shop. You can select one of these profiles to view the profile. Remembering if some do not appear green button to buy it means that you already have the profile purchased in your account!"
     },
     "yesIWant": "Yes, I want this profile"
   },
@@ -277,7 +301,7 @@
       "INVITE_SPLASH": "Invite Splash",
       "VIP_REGIONS": "Vip Regions",
       "VANITY_URL": "Vanity URL",
-      "VERIFIED": "Verfied",
+      "VERIFIED": "Verified",
       "PARTNERED": "Partnered",
       "COMMUNITY": "Community",
       "COMMERCE": "Commerce",
@@ -299,7 +323,8 @@
       "ANIMATED_BANNER": "Animated Banner",
       "NEW_THREAD_PERMISSIONS": "New Thread Permissions",
       "MEMBER_PROFILES": "Member Profiles",
-      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment"
+      "EXPOSED_TO_ACTIVITIES_WTP_EXPERIMENT": "Exposed to Activities WTP Experiment",
+      "AUTO_MODERATION": "Auto Moderation"
     },
     "booster": {
       "levelCount": "Level Booster",
@@ -330,7 +355,7 @@
   },
   "botinfo": {
     "title": "My informations",
-    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by [{{1}} Node.JS](https://nodejs.org) and a fork of the [{{2}} Eris](https://abal.moe/Eris) wrapper.",
+    "extraDescription": "Hello, {{0}}, nice to see you. I'm powered by {{1}} [Node.JS](https://nodejs.org) and a fork of the {{2}} [Eris](https://abal.moe/Eris) wrapper.",
     "specs": "Specifications",
     "guildsAmount": "Total guilds",
     "usersAmount": "Total users",
@@ -346,16 +371,16 @@
     "description": "Shows more information about me."
   },
   "mcavatar": {
-    "description": "Shows a player's minecraft avatar."
+    "description": "Shows a Minecraft player's avatar."
   },
   "mcbody": {
-    "description": "Shows a player's Minecraft body."
+    "description": "Shows a Minecraft player's body."
   },
   "mchead": {
-    "description": "Shows a player's Minecraft head."
+    "description": "Shows a Minecraft player's head."
   },
   "mcskin": {
-    "description": "Shows a player's Minecraft skin."
+    "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
     "description": "Show a Minecraft server info",
@@ -452,7 +477,7 @@
     "description": "Calls an user baka"
   },
   "clap": {
-    "noArgs": "invalid input",
+    "noArgs": "you have to type something to me, then i will modify your message.",
     "description": "Let's clap, clap, clap, clap, clap with your friends."
   },
   "congaparrot": {
@@ -519,7 +544,7 @@
     "description": "Soft bans an user. If `purge-days` ends unspecified, the default value (7) will be used."
   },
   "choose": {
-    "description": "Makes the me choose something for you (Use `,` to separate)",
+    "description": "Makes me choose something for you (Use `,` to separate)",
     "chosen": "I choose `{{chosen}}` 💁‍♀️"
   },
   "avatar": {
