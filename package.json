@@ -49,7 +49,7 @@
   "devDependencies": {
     "@types/node": "^18.7.16",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
+    "@typescript-eslint/parser": "^5.37.0",
     "dotenv": "^16.0.2",
     "eslint": "^8.23.1",
     "eslint-config-google": "^0.14.0",
