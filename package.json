@@ -50,7 +50,7 @@
     "@types/node": "^18.7.23",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "eslint": "^8.24.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-sort-class-members": "^1.15.2",
