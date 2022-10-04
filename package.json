@@ -47,7 +47,7 @@
     "launcher/*"
   ],
   "devDependencies": {
-    "@types/node": "^18.8.0",
+    "@types/node": "^18.8.1",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
     "dotenv": "^16.0.3",
