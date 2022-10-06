@@ -23,7 +23,7 @@
     "@uranusjs/revolt": "github:uranusjs/revolt#dev",
     "anilist-node": "^1.12.0",
     "axios": "^1.0.0",
-    "chalk": "^4.1.2",
+    "chalk": "^5.1.0",
     "eris": "github:RabbitHouseCorp/eris#9d506cc3414baab112d0c3281442d38b3c02161f",
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.4",
