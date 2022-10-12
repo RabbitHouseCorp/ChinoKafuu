@@ -917,10 +917,10 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-anilist-node@^1.12.0:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/anilist-node/-/anilist-node-1.12.1.tgz#02299721360b0770571178c71c92c6306b712017"
-  integrity sha512-z5bKzkw9EirSdZcqNTT705+MIU8wt1HsaOgqNIlk8J7UDzhK1Ect0eIXzD7pHKo4u/Hl5ENUU3ZVOMxh5bOnMQ==
+anilist-node@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/anilist-node/-/anilist-node-1.13.0.tgz#b0255e62759c57890d8add834bb49ce1283f3f81"
+  integrity sha512-IB5r37j3u3qvz7Bu+G6tSaq+qrar+qiEBvJyYUnSdwlnvmL8Us26bLIhAmf1SrXRF/RCyEGmKvUsVEtVl/ZH/A==
   dependencies:
     abort-controller "^3.0.0"
     node-fetch "^2.6.7"
