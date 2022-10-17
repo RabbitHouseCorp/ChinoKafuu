@@ -31,7 +31,7 @@ module.exports = class ShardPreReadyListener extends Listener {
 
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874315596060311602/tumblr_ox2eeks2My1uctmvwo8_1280.png',
+        avatarURL: 'https://cdn.discordapp.com/attachments/699339406657585363/1031243956895350904/20221016_133420.jpg',
         username: 'Syaro Kirima'
       })
     })
