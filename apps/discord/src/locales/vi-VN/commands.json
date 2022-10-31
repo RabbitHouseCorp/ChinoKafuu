@@ -42,127 +42,127 @@
   },
   "report": {
     "description": "Reports an user on this server if the module is enable.",
-    "moduleDisable": "module bị vô hiệu hóa trong server này.",
-    "noReason": "không đưa ra lí do",
-    "successfullySent": "báo cáo của bạn đã được gửi đi.",
+    "moduleDisable": "this module is disabled on this server.",
+    "noReason": "no reason specified",
+    "successfullySent": "report successfully sent.",
     "embed": {
-      "memberName": "Tên người dùng",
-      "authorName": "Người báo cáo",
-      "channel": "Kênh",
-      "reason": "Lý do"
+      "memberName": "Username",
+      "authorName": "Who reported",
+      "channel": "Channel",
+      "reason": "Reason"
     }
   },
   "jankenpon": {
-    "description": "Chơi búa bao kéo, thắng ăn tiền, thua mất tiền.",
-    "optionNotFound": "chỉ có thể chọn một trong `búa`, `bao` hoặc `kéo` thôi.",
-    "valueNotInputed": "bạn vẫn chưa ghi ra số tền muốn đặt cược.",
+    "description": "Plays jankenpon and win or lose yens.",
+    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
+    "valueNotInputed": "you didn't provide any value to bet.",
     "tie": "It's a draw! Nobody won and nobody lost.",
-    "youWin": "bạn ra `{{0}}` và mình ra `{{1}}`. Chúc mừng, bạn thắng rồi. `{{2}}` yên của bạn đây.",
-    "youLose": "bạn ra `{{0}}` và mình ra `{{1}}`, Mình thắng rồi! Xin nhẹ `{{2}}` yên, em iu",
+    "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
+    "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
     "choice": {
-      "rock": "búa",
-      "paper": "bao",
-      "scissors": "kéo"
+      "rock": "rock",
+      "paper": "paper",
+      "scissors": "scissors"
     }
   },
   "daily": {
-    "congrats": "Xin chúc mừng! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
-    "yensDaily": "Điểm danh",
+    "congrats": "Congratulations! You've received `{{0}}` yens and `{{1}}` sugarcubes today. You can get more yens tomorrow. See you later and have a nice day!",
+    "yensDaily": "Daily yens",
     "hasBeenPicked": "you've already claimed your daily yens today. Wait for {{0}} before claiming them again.",
-    "description": "Bằng cách điểm danh, bạn có thể nhận được yên mỗi ngày",
-    "almostThere": "Sắp đến rồi!",
-    "explaining": "Để nhận thêm yên, bạn có thể vote cho mình. Cứ mỗi 12 giờ thì bạn có thể vote và nhận yên một lần. Nhưng vote xong thì phải chờ xíu mới có yên nhé.",
-    "proceed": "Bạn có muốn làm không?",
-    "confirm": "Vậy thì, bấm vào [đây](https://top.gg/bot/481282441294905344/vote) để vote cho mình. Cứ sau mỗi lần vote xong, hãy dùng lệnh này lại một lần nữa."
+    "description": "You can get your daily yens by using this command",
+    "almostThere": "We're almost there!",
+    "explaining": "To get your yens, you'll have to vote on me. Every 12 hours, you'll be able to claim your yens again. Please, wait some seconds after voting.",
+    "proceed": "Do you want to proceed?",
+    "confirm": "If so, click [here](https://top.gg/bot/481282441294905344/vote) to vote on me. Once you have voted, execute this command again."
   },
   "laranjo": {
     "description": "Make Laranjo say something silly."
   },
   "rize": {
-    "decription": "Rize sẽ viết một cái gì đó ra giấy."
+    "decription": "Rize will write something in the paper."
   },
   "license": {
-    "licensedFor": "Giấy phép cho việc",
-    "beCute": "Dễ thương",
-    "description": "Có giấy phép chưa? Chưa đúng không? Thế thì hãy tạo một cái cho bản thân xem! Hoặc cho người khác cũng được."
+    "licensedFor": "Licensed for",
+    "beCute": "Be cute",
+    "description": "Are you licensed? No? Then create one for yourself! Or for someone else."
   },
   "channelinfo": {
-    "title": "`Thông tin của #{{0}}`",
-    "noTopic": "Kênh này hiện không có topic nào cả.",
-    "mention": "Mention Kênh",
-    "channelID": "ID Kênh",
-    "guild": "Server",
-    "category": "Danh mục",
-    "createdAt": "Được tạo lúc"
+    "title": "`Information about #{{0}}`",
+    "noTopic": "This channel doesn't have a topic.",
+    "mention": "Channel Mention",
+    "channelID": "Channel ID",
+    "guild": "Guild",
+    "category": "Category",
+    "createdAt": "Created At"
   },
   "favcolor": {
-    "description": "Đổi màu hồ sơ của bạn thành màu bạn yêu thích.",
-    "invalidColor": "màu bạn vừa chọn không hợp lệ.",
-    "poorUser": "bạn cần thêm `{{0}}` yên nữa to đổi màu yêu thích.",
-    "successfullyChanged": "chắc rồi. Mình vừa đổi thành công màu yêu thích của bạn."
+    "description": "Changes your profile color to your favorite color.",
+    "invalidColor": "the color you've chosen is invalid.",
+    "poorUser": "you need more `{{0}}` yens to change your favorite color.",
+    "successfullyChanged": "sure. I have successfully changed your favorite color."
   },
   "profile": {
-    "description": "Hiển thị hồ sơ công khai của bạn hoặc của người một người dùng khác.",
+    "description": "Shows your social profile or the social profile of someone.",
     "defaultAboutMe": "I'm at Rabbit House Coffee drinking a cappuccino (you can change this using /aboutme)."
   },
   "emojiinfo": {
-    "description": "Xem chút thông tin về một emoji.",
+    "description": "Get some info about an emoji.",
     "embed": {
-      "title": "Thông tin về emoji",
-      "name": "Tên emoji",
+      "title": "Emoji information",
+      "name": "Emoji name",
       "id": "Emoji ID",
-      "mention": "Mention emoji",
-      "url": "Tải về"
+      "mention": "Emoji mention",
+      "url": "Download"
     }
   },
   "emoji": {
-    "description": "Đính kèm tệp emoji."
+    "description": "Get the emoji attachment."
   },
   "fakemsg": {
     "argsNull": "Welp, it seems you don't have nothing to say.",
-    "description": "Chọc ai đó bằng bằng một tin nhắn fake thông qua webhook."
+    "description": "Prank on someone with a fake message through webhook."
   },
   "divorce": {
     "description": "Divorces you to your current partner (I will charge 300 yens to divorce both of you).",
-    "youAreNotMarried": "bạn chưa lập gia đình, nếu như muốn cưới, dùng `{{0}}marry <user>` và nhớ hạnh phúc nhé.",
-    "youNeedToDivorce": "bạn cần thêm `{{0}}` yên nữa để ly hôn.",
-    "theyNeedToDivorce": "đối phương còn thếu `{{0}}` yên nữa để ly hôn.",
-    "requestConfirm": "bạn có thực sự muốn không? Nước đi này không đi lại được đâu đấy.",
-    "successfullyDivorced": "Được thôi, để mình gọi luật sư. Hai bạn phải trả `300` yên tiền phí nha.",
+    "youAreNotMarried": "you're not married, if you want marry, use `{{0}}marry <user>` and be happy.",
+    "youNeedToDivorce": "you must have more `{{0}}` yens to divorce.",
+    "theyNeedToDivorce": "your partner must have `{{0}}` more yens to divorce.",
+    "requestConfirm": "are you sure you want divorce? This action is irreversible.",
+    "successfullyDivorced": "Sure, I will call the lawyers. Both of you will pay `300` yens for it.",
     "needToWait": "You need to wait for the person to sign the paperwork to run this command.",
-    "rejectedRequest": "Mình tin rằng phép màu của tình yêu là thứ gắn kết hai bạn. Thấy các bạn hoà thuận như vậy làm mình cũng vui lây."
+    "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
   },
   "help": {
-    "commandList": "Danh sách lệnh",
-    "explain": "Muốn biết rõ thêm về một lệnh nào đó, hãy chat `{{0}}help [tên lệnh]` và mình sẽ giải thích tường tận về nó.",
-    "economy": "Kinh tế ({{0}})",
-    "fun": "Vui ({{0}})",
-    "image": "Thao tác với ảnh ({{0}})",
+    "commandList": "Command list",
+    "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
+    "economy": "Economy ({{0}})",
+    "fun": "Fun ({{0}})",
+    "image": "Image Manipulation ({{0}})",
     "minecraft": "Minecraft ({{0}})",
-    "misc": "Vài cái linh tinh ({{0}})",
-    "mod": "Quản lý ({{0}})",
-    "social": "Xã hội ({{0}})",
-    "utils": "Tiện ích ({{0}})",
-    "description": "Cho bạn thấy toàn bộ khả năng của mình.",
-    "commandsLoaded": "Mình có {{0}} các lệnh công khai đã load.",
+    "misc": "Miscellaneous ({{0}})",
+    "mod": "Moderation ({{0}})",
+    "social": "Social ({{0}})",
+    "utils": "Utils ({{0}})",
+    "description": "Show my command list to you.",
+    "commandsLoaded": "I have {{0}} public commands loaded.",
     "additionalLinks": {
-      "embedTitle": "Link Bổ Sung",
-      "embedDescription": "[Mời mình](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedTitle": "Additional Links",
+      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
     "cannotGiveRepForYourself": "you can't give a reputation to yourself.",
     "forTheClient": "thank you for giving me a reputation point! Now I have `{{0}}` reputations",
-    "successffully": "bạn đã tặng cho {{0}} một rep, và giờ, {{0}} đã có `{{1}}` rep.",
+    "successffully": "you gave a reputation to {{0}}, now {{0}} have `{{1}}` reputations.",
     "cooldown": "You can't give a reputation now. You must wait for {{0}} before giving reputation points again.",
-    "description": "Tặng điểm rep (uy tín) cho người khác."
+    "description": "Gives a reputation to someone."
   },
   "marry": {
-    "youNeedToMarry": "bạn cần thêm `{{0}}` yên nữa để kết hôn.",
-    "theyNeedToMarry": "xin lỗi nhưng, {{0}} cần thêm `{{1}}` yên nữa để cưới.",
-    "youAlreadyMarried": "thật đáng xấu hổ! Bạn không thể cưới thêm người khác nữa bởi vì bạn đã cưới trước rồi.",
-    "theyAlreadyMarried": "bạn không thể làm đám cưới với {{0}} nữa, bởi vì {{0}} đã là hoa có chủ rồi.",
-    "requestConfirm": "{{0}}, bạn có đồng ý để nên duyên với {{1}}, dù là khi mạnh khỏe cũng như lúc đau yếu, khi thịnh vượng cũng như lúc gian nan để yêu nhau và sống hạnh phúc với nhau suốt đời không?",
+    "youNeedToMarry": "you need `{{0}}` more yens to marry.",
+    "theyNeedToMarry": "sorry, but {{0}} need more `{{1}}` yens to marry.",
+    "youAlreadyMarried": "what a shame! You can't marry someone else because you already are.",
+    "theyAlreadyMarried": "you can't marry with {{0}}, because {{0}} is already married.",
+    "requestConfirm": "{{0}}, do you agree to get married with {{1}}, in sickness and in health, in richness and in poorness until death do part you both?",
     "successfullyMarried": "Congratulations, now you both are married.",
     "rejectedRequest": "It seems that {{0}} doesn't want to share their life with you, maybe {{0}} isn't the love of your life. The oracle of love fails once more...",
     "cannotMarryWithYourself": "imagine trying to marry yourself. I can't make it happen, sorry.",
@@ -206,13 +206,13 @@
     "description": "Removes a role from a guild member."
   },
   "removeemoji": {
-    "successfullyRemoved": "đã xoá thành công emoji.",
-    "emojiNotFound": "emoji này không ở trong server.",
-    "description": "Xoá một emoji trong server."
+    "successfullyRemoved": "emoji successfully removed.",
+    "emojiNotFound": "this emoji isn't from this guild.",
+    "description": "Removes an emoji in the current guild."
   },
   "announce": {
-    "channelNotFound": "Mình tìm mãi cũng không thấy kênh đó, bạn có chắc là kênh đó có tồn tại không?",
-    "argsNotFound": "bạn chưa viết gì cả, mình không thể gửi tin nhắn trống được.",
+    "channelNotFound": "I can't find this channel, make sure it exists.",
+    "argsNotFound": "your didn't write anything, I can't send an empty message.",
     "embedSendBy": "Announcement sent by: {{0}}",
     "requestConfirm": "warning, you are about to send an announcement on {{0}}, please, confirm with the buttons below.",
     "announceSent": "announcement successfully sent.",
@@ -350,7 +350,7 @@
   },
   "invite": {
     "addMeInYourGuild": "Add me in your guild",
-    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
     "description": "Shows how you can add me in your server."
   },
   "botinfo": {
@@ -469,7 +469,8 @@
     "success": "successfully donated {{yens}} yens to {{user}}",
     "poorUser": "you don't have enough yens to complete this payment",
     "cancelled": "alright, payment cancelled",
-    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
+    "notTheAuthor": "{{0}} **|** {{1}} you are NOT {{2}}, so don't try to accept the transaction that {{2}} has created. Hmph!",
+    "bePatient": "{{0}} **|** {{1}} you have to wait for {{2}} to confirm the transaction, just be a little patient, okay?",
     "confirm": "{{user}} is going to receive __`{{yens}}`__ yens. Do you want to proceed?"
   },
   "baka": {
