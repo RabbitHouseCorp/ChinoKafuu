@@ -1,46 +1,46 @@
 {
   "permissions": {
-    "permissionUserRequired": "Bạn phải có các quyền sau đây để sử dụng lệnh này: {{0}}.",
-    "permissionBotRequired": "Bạn phải có những quyền sau đây mới có thể dùng lệnh này: {{0}}.",
-    "title": "Quyền hạn"
+    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+    "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
+    "title": "Permissions"
   },
   "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
-  "missingBotPermission": "Mình vẫn chưa có quyền {{perm}}. Kiểm tra giúp mình cái role cũng như quyền hạn rồi mới thử lại sau.",
-  "missingUserPermission": "bạn không có quyền {{perm}}. Đồng nghĩa bạn cũng không có quyền thực thi lệnh này.",
-  "missingBotPermissionOnChannel": "Này {{0}}! Hình như mình bị thiếu quyền {{1}} ở kênh {{2}}. Kiểm tra quyền giúp mình rồi sau đó thử lại nhé.",
+  "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
+  "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
+  "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
   "invalidUser": "I can't find this person. Are you sure this user exist?",
   "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
   "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
-  "noReason": "Không có lý do",
-  "clickHere": "Click vào đây",
+  "noReason": "No reason",
+  "clickHere": "Click here",
   "punishment": {
-    "banned": "{{0}} | Bị ban",
-    "unbanned": "{{0}} | Được gỡ ban",
+    "banned": "{{0}} | Banned",
+    "unbanned": "{{0}} | Unbanned",
     "kicked": "{{0}} | Kicked",
     "softBan": "{{0}} | Soft banned",
     "muted": "{{0}} | Muted",
     "unmuted": "{{0}} | Unmuted",
     "embed": {
-      "memberName": "Tên người dùng",
-      "memberID": "ID người dùng",
-      "staffName": "Người thực thi hình phạt",
-      "reason": "Lý do"
+      "memberName": "Username",
+      "memberID": "User ID",
+      "staffName": "Who punished",
+      "reason": "Reason"
     },
     "reason": "Punished by: {{0}} - Reason: {{1}}",
-    "bigReason": "viết lý do ngắn lại giúp mình, viết dài như thế thì quá sức mình mất.",
+    "bigReason": "you must write an shorter reason, this reason is too big to me.",
     "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
     "ownerPunish": "have you lost your mind? You can't punish this person, they're the owner of this guild.",
     "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
-  "missingArgs": "Cú pháp không hợp lệ! Chat `{{prefix}}{{commandName}}` để xem cách dùng đúng của lệnh đó.",
-  "howToUse": "Dùng như nào?",
-  "aliases": "Bí danh",
+  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+  "howToUse": "How to use?",
+  "aliases": "Aliases",
   "addedToGuild": {
-    "thanks": "Cảm ơn vì đã thêm tôi vào server",
-    "description": "Whoa {{0}}! Cảm ơn vì đã đưa mình đến với `{{1}}`, mình xin được mạn phép giới thiệu bản thân đôi chút.\n\nMình là một \"cô bot\" bé bỏng mang trong mình rất nhiều chức năng hữu ích, như là... **moderation**, **fun** and **utilities**. Mặc định thì prefix của mình sẽ là `{{2}}`\n\nNếu thấy cần giúp đỡ thì còn ngại gì nữa mà không tham gia ngay server của mình bằng cách chat `{{2}}help` hoặc `{{2}}invite`. Chúc vui vẻ và hẹn gặp lại.",
-    "guildSaved": "Lưu thành công dữ liệu của {{0}} vào database!"
+    "thanks": "Thanks for adding me",
+    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+    "guildSaved": "Successfully saved the server {{0}} in the database!"
   },
-  "noAliases": "Lệnh này không có bí danh nào cả.",
+  "noAliases": "This command doesn't have any aliases.",
   "voice": {
     "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
     "playerAlreadyPlaying": "the radio is already playing on me.",
@@ -50,18 +50,18 @@
     "minVolume": "hey, calm down! The minimal volume allowed is `5`."
   },
   "boolean": {
-    "true": "Có",
-    "false": "Không"
+    "true": "Yes",
+    "false": "No"
   },
   "guildban": {
-    "title": "Server Banned",
-    "explain": "`{{0}}` đã bị ban vì lý do dưới đây. Bạn có thấy điều đó có gì hơi bất công? Tham gia ngay [support server](https://discord.gg/Jr57UrsXeC) của tụi mình để phóng thích bọn họ nhé.",
-    "reason": "Lý do"
+    "title": "Guild Banned",
+    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
+    "reason": "Reason"
   },
-  "cooldown": "vui lòng chờ thêm {{0}} giây nữa để tiếp tục thực thi lệnh này!",
-  "cooldownLowThanZero": "một số",
-  "disabledCommand": "xin lỗi, lệnh này có vẻ gặp đôi chút vấn đề nên tạm thời đã bị vô hiệu hóa\n**Lý do:** `{{0}}`",
-  "blockedChannel": "bạn không được phép dùng lệnh này ở đây, hãy đến {{0}} và thử lại.",
+  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
+  "cooldownLowThanZero": "some",
+  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
   "migrate": {
     "migrateTitle": "Slash commands are here!",
     "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
