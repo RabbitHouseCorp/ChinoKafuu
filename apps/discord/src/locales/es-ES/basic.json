@@ -1,75 +1,75 @@
 {
   "permissions": {
-    "permissionUserRequired": "Debes tener los siguientes permisos para usar este comando: {{0}}.",
-    "permissionBotRequired": "Debo tener los siguientes permisos para usar este comando: {{0}}.",
-    "title": "Permisos"
+    "permissionUserRequired": "You must have the following permissions to use this command: {{0}}.",
+    "permissionBotRequired": "I must have the following permissions to use this command: {{0}}.",
+    "title": "Permissions"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo es `{{1}}`. Si quieres ver lo que puedo hacer, usa `{{1}}help`.",
-  "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
-  "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
-  "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
-  "invalidUser": "No puedo encontrar a esta persona. ¿Estás seguro de que este usuario existe?",
-  "invalidRole": "No puedo encontrar este rol. ¿Estás seguro de que este rol existe en este gremio?",
-  "invalidEmoji": "Emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
-  "noReason": "Sin razón",
-  "clickHere": "Clic aquí",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hello, {{0}}. My prefix is `{{1}}`. If you want to see what I can do, use `{{1}}help`.",
+  "missingBotPermission": "I don't have the {{perm}} permission. Check my permissions/roles and try again.",
+  "missingUserPermission": "you don't have the {{perm}} permission. You can't execute this command.",
+  "missingBotPermissionOnChannel": "Hey {{0}} I don't have the {{1}} permission on {{2}}. Please, check my permissions and try again.",
+  "invalidUser": "I can't find this person. Are you sure this user exist?",
+  "invalidRole": "I can't find this role. Are you sure this role exist in this guild?",
+  "invalidEmoji": "I can't find this emoji. Are you sure this emoji is from this guild?",
+  "noReason": "No reason",
+  "clickHere": "Click here",
   "punishment": {
-    "banned": "{{0}} | Baneado",
-    "unbanned": "{{0}} | Desbaneado",
-    "kicked": "{{0}} | Expulsado",
-    "softBan": "{{0}} | Baneado levemente",
-    "muted": "{{0}} | Silenciado",
-    "unmuted": "{{0}} | Des-silenciado",
+    "banned": "{{0}} | Banned",
+    "unbanned": "{{0}} | Unbanned",
+    "kicked": "{{0}} | Kicked",
+    "softBan": "{{0}} | Soft banned",
+    "muted": "{{0}} | Muted",
+    "unmuted": "{{0}} | Unmuted",
     "embed": {
-      "memberName": "Nombre de usuario",
-      "memberID": "ID de Usuario",
-      "staffName": "Quien ha castigado",
-      "reason": "Razón"
+      "memberName": "Username",
+      "memberID": "User ID",
+      "staffName": "Who punished",
+      "reason": "Reason"
     },
-    "reason": "Castigado por: {{0}} - Razón: {{1}}",
-    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
-    "selfPunishment": "lo siento, pero como no puedes castigarte a ti mismo en Discord normal, no te puedes castigar a través de mí.",
-    "ownerPunish": "¿has perdido la cabeza? No puedes castigar a esta persona, es el dueño de este servidor.",
-    "error": "No he podido castigar a esa persona. Quizá sus roles son más altos que los míos. Compruébalo y prueba de nuevo."
+    "reason": "Punished by: {{0}} - Reason: {{1}}",
+    "bigReason": "you must write an shorter reason, this reason is too big to me.",
+    "selfPunishment": "sorry, but, as you're unable to punish yourself on normal Discord, you can't punish yourself by me.",
+    "ownerPunish": "have you lost your mind? You can't punish this person, they're the owner of this guild.",
+    "error": "I couldn't punish this member. Perhaps their roles are higher than mine. Check the roles and try again."
   },
-  "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
-  "howToUse": "¿Cómo se usa?",
+  "missingArgs": "Invalid arguments! Use `{{prefix}}{{commandName}}` to see the correct usage.",
+  "howToUse": "How to use?",
   "aliases": "Aliases",
   "addedToGuild": {
-    "thanks": "Gracias por añadirme",
-    "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
-    "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
+    "thanks": "Thanks for adding me",
+    "description": "Whoa {{0}}! Thanks for adding me in `{{1}}`, let me introduce myself.\n\nI'm a little bot with many functions that can be useful, like... **moderation**, **fun** and **utilities**. By default, my prefix is `{{2}}`\n\nIf you need help, then join my support server using `{{2}}help` or `{{2}}invite`. Have fun and see you later.",
+    "guildSaved": "Successfully saved the server {{0}} in the database!"
   },
-  "noAliases": "Este comando no tiene ningún alias.",
+  "noAliases": "This command doesn't have any aliases.",
   "voice": {
-    "authorAreNotInVoiceChannel": "debe estar en un canal de voz, pero no lo está.",
-    "playerAlreadyPlaying": "la radio ya está tocando en mí.",
-    "clientAreNotInVoiceChannel": "No estoy en un canal de voz en este momento, usa `/animu play`.",
-    "playerNotFound": "No estoy en un canal de voz en este momento, usa `/animu play`.",
-    "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
-    "minVolume": "¡tranquilo! El volumen máximo permitido es `5`."
+    "authorAreNotInVoiceChannel": "you've must be on a voice channel, but you're not.",
+    "playerAlreadyPlaying": "the radio is already playing on me.",
+    "clientAreNotInVoiceChannel": "I'm not in a voice channel right now, use `/animu play`.",
+    "playerNotFound": "I'm not in a playing anything right now, use `/animu play`.",
+    "maxVolume": "hey, calm down! The maximum volume allowed is `100`.",
+    "minVolume": "hey, calm down! The minimal volume allowed is `5`."
   },
   "boolean": {
-    "true": "Sí",
+    "true": "Yes",
     "false": "No"
   },
   "guildban": {
-    "title": "Servidor Baneado",
-    "explain": "`{{0}}` está baneado, de acuerdo a la razón de abajo. ¿Crees que el baneo fue injusto? Únete a mi [servidor de soporte](https://discord.gg/Jr57UrsXeC) y talvez consiga que se desbaneen.",
-    "reason": "Razón"
+    "title": "Guild Banned",
+    "explain": "`{{0}}` is banned, according to the reason below. Do you think the ban was unfair? Join my [support server](https://discord.gg/Jr57UrsXeC) and maybe get them unbanned.",
+    "reason": "Reason"
   },
-  "cooldown": "por favor, ¡espera más `{{0}}` segundos para ejecutar este comando de nuevo!",
-  "cooldownLowThanZero": "algunos",
-  "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
-  "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
+  "cooldown": "please, wait more {{0}} seconds to execute this command again!",
+  "cooldownLowThanZero": "some",
+  "disabledCommand": "sorry, but, this command has some problems and it is disabled for a while\n**Reason:** `{{0}}`",
+  "blockedChannel": "you can't use commands here, go to {{0}} and try again.",
   "migrate": {
-    "migrateTitle": "¡Los comandos de barra están aquí!",
-    "migrateToSlashCommand": "¡Hola! Después de enero de 2022 sólo responderé con comandos de barra diagonal, por favor, si quieres continuar usándome, luego vuelva a agregarme haciendo clic [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), no necesitas expulsarme del servidor, simplemente haz clic en la url. Gracias! Se deseas dejar de recebir este mensaje, escribe `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
-    "disabledTitle": "Los comandos normales están obsoletos",
-    "disabledToSlashCommands": "Es hora de decir adiós a los comandos normales, ahora sólo está disponible el comando de barra diagonal. Ahora mismo, este comando está obsoleto, pero puedes usarme normalmente usando los comandos de barra diagonal, escribe `/help` para ver mi lista de comandos.",
-    "howToUseTitle": "¿Cómo se usa?",
-    "howToUseSlash": "1.) Para los antiguos usuarios que no me hayan reinvitado a este servidor, podéis reinvitarme clickando [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), es importante que os aseguréis de que ya me habéis reinvitado.\n2.) El usuario necesita tener el permiso de `Use Application Commands` para usar mis comandos.\n3.) Si no puedes ver los comandos de barra, asegúrate de haber activado `Configuración del usuario -> Texto e imágenes -> Usa comandos de barra diagonal y previsualiza emojis, menciones y sintaxis Markdown a medida que escribes.`",
-    "needSupportTitle": "¿Todavía no sabes cómo usar el bot?",
-    "needSupportSlash": "Si todavía no sabes cómo utilizarme correctamente, no dudes en unirte a nuestro [servidor de soporte](https://discord.gg/Jr57UrsXeC) para obtener ayuda de nuestro equipo de soporte."
+    "migrateTitle": "Slash commands are here!",
+    "migrateToSlashCommand": "Hey! After January 2022 I'll only answer to slash commands, please, if you want to continue using me, then you must re-add me, you can do that by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), you don't need to kick me out of the server. Thank you! If you want stop receive this message, type `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
+    "disabledTitle": "Vanilla commands are deprecated",
+    "disabledToSlashCommands": "It's time to say goodbye to normal commands, now it's only available slash commands. Right now, this command is deprecated, but you can use me normally using slash commands, type `/help` to see my command list.",
+    "howToUseTitle": "How to use?",
+    "howToUseSlash": "1.) For old users who don't re-invited me to this server, you can re-invite me by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), it's important you make sure that you've already re-invited me.\n2.) The user need to have `Use Application Commands`'s permission to use my commands.\n3.) If you are unable to see the slash commands, make sure you enabled `User Settings -> Text and Images -> Use slash commands and preview emojis, mentions, and markdown syntax as you type`",
+    "needSupportTitle": "Still confused how to use the bot?",
+    "needSupportSlash": "If you still confused how to using me properly, feel free to join our [support server](https://discord.gg/Jr57UrsXeC) to get help from our support team."
   }
 }
