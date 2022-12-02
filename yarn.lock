@@ -2245,10 +2245,10 @@ eslint-config-xo@^0.41.0:
   dependencies:
     confusing-browser-globals "1.0.11"
 
-eslint-plugin-sort-class-members@^1.15.2:
-  version "1.15.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-class-members/-/eslint-plugin-sort-class-members-1.15.2.tgz#3a529258cb95f5a97ddc682a12a4fae12626bc64"
-  integrity sha512-QDbNL3VY8yFhLsa951zN6eEdul3jpH2slOIWIxbmDlsdZ71sqVDvboUq3egWjqmPeLg5eaxCmWOTLVK3gOJSfQ==
+eslint-plugin-sort-class-members@^1.16.0:
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-class-members/-/eslint-plugin-sort-class-members-1.16.0.tgz#e47596d867a57713571f040024c03fe674dec3fc"
+  integrity sha512-8l0IqUmoupk9PvO5D4I5zJqirVe9sax5Hpfv9xQmnrSpLYkc8BSYGnUjuHGMSSe4jKuC73NIr38kQv1tPbO+Xg==
 
 eslint-scope@^5.1.1:
   version "5.1.1"
