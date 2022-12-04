@@ -14,6 +14,14 @@ module.exports = class BotInterface {
       defaultImageFormat: 'png',
       defaultImageSize: 2048,
       restMode: true,
+      ws: {
+        protocolVersion: 13,
+        perMessageDeflate: true,
+        headers: {
+          'Accept-Encoding': 'gzip, deflate, br',
+          'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits'
+        },
+      },
       allowedMentions: {
         everyone: false,
         roles: false,
