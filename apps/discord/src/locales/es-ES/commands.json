@@ -1,15 +1,15 @@
 {
   "userbanner": {
-    "description": "Gets the banner of an user.",
-    "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{0}}"
+    "description": "Obtiene el banner del usuario",
+    "download": "Abrir el avatar en tu navegador.",
+    "userBanner": "Banner de {{0}}"
   },
   "inventory": {
     "background": {},
-    "confirmationButton": "Yes, I want",
-    "denyButton": "No, I don't want",
-    "loadingPreview": "Loading profile preview please wait a while.",
-    "noDescription": "No description",
+    "confirmationButton": "Sí, yo quiero",
+    "denyButton": "No, yo no quiero",
+    "loadingPreview": "Cargando vista previa del perfil, por favor espere un tiempo.",
+    "noDescription": "No hay descripción",
     "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
     "profile": {
       "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
