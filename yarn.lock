@@ -1611,10 +1611,10 @@ ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-anilist-node@^1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/anilist-node/-/anilist-node-1.13.0.tgz#b0255e62759c57890d8add834bb49ce1283f3f81"
-  integrity sha512-IB5r37j3u3qvz7Bu+G6tSaq+qrar+qiEBvJyYUnSdwlnvmL8Us26bLIhAmf1SrXRF/RCyEGmKvUsVEtVl/ZH/A==
+anilist-node@^1.13.1:
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/anilist-node/-/anilist-node-1.13.1.tgz#b2c5bd143248864ac59e76cc2edc1f1242dbad93"
+  integrity sha512-lq8p0GJH5QsWXhJZ9qJM41wF/bOl52WVPLInxjTbEIS0oQZ9+tdogZEQ7yBRgK+8nas8aJIYtsAfDKayfQy7vA==
   dependencies:
     abort-controller "^3.0.0"
     node-fetch "^2.6.7"
