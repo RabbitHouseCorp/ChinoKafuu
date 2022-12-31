@@ -1,5 +1,5 @@
 {
-  "name": "@chinokafuu/global",
+  "name": "chinokafuu",
   "version": "0.0.1",
   "private": true,
   "description": "🐰 | An incredible bot which can help you in your daily routine in your guild whenever you need it.",
@@ -36,16 +36,7 @@
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
     "ws": "^8.11.0"
   },
-  "workspaces": [
-    "apps/revolt/*",
-    "apps/discord/*",
-    "apps/discord",
-    "apps/revolt",
-    "revolt",
-    "discord",
-    "launcher",
-    "launcher/*"
-  ],
+  "workspaces": ["apps/discord", "apps/revolt", "launcher"],
   "devDependencies": {
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
