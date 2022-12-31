@@ -38,7 +38,7 @@
   },
   "workspaces": ["apps/discord", "apps/revolt", "launcher"],
   "devDependencies": {
-    "@types/node": "^18.11.17",
+    "@types/node": "^18.11.18",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@typescript-eslint/parser": "^5.47.0",
     "dotenv": "^16.0.3",
