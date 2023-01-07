@@ -9,7 +9,7 @@ const BotStore = require('./src/structures/util/plugins/store/BotStore')
 const LavalinkStore = require('./src/structures/util/plugins/store/LavalinkStore')
 const CacheProfile = require('./src/structures/util/plugins/cache/CacheProfile')
 const BuildStore = require('./src/structures/util/plugins/store/BuildStore')
-        // Load packages global!
+// Load packages global!
 require('./src/tools/JSONTools')
 require('./src/tools/Exception')
 require('./src/tools/StringBuilder')
@@ -42,4 +42,6 @@ class StateApplication {
     })
   }
 }
-module.exports = StateApplication;
+
+
+new StateApplication().start()

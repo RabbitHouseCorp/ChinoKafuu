@@ -16,5 +16,9 @@
     "url": "https://github.com/RabbitHouseCorp/ChinoKafuu/issues"
   },
   "homepage": "https://github.com/RabbitHouseCorp/ChinoKafuu#readme",
-  "description": ""
+  "description": "",
+  "packageManager": "yarn",
+  "dependencies": {
+    "@uranusjs/revolt": "github:uranusjs/revolt#dev"
+  }
 }

@@ -22,3 +22,5 @@ dist/
 dist
 *.d.ts
 revolt/src/*.js
+yarn-error.log
+.chinokafuu
