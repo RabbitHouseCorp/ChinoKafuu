@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node .",
     "start:bun": "node index.js",
-    "test": "jest"
+    "test": "jest",
+    "test:lint": "eslint ."
   },
   "repository": {
     "type": "git",
