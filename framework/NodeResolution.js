@@ -9,22 +9,36 @@ const logger = new LoggerSystem('NodeResolution')
 // Check if application is using --dev argument. What this enabled in general.
 const isDeveloper = () => process.argv.includes('--dev')
 const upgradeArg = () => process.argv.includes('--upgrade-packages')
+const installPackageMode = () => process.argv.includes('installPackage')
 
 
 export class NodeResolution extends EventEmitter {
   constructor(node) {
     super()
     this.resolution = node
-    this.list = ['package', 'upgrade', 'compile', 'run']
+    this.list = ['package', 'upgrade', 'compile', 'run', 'installPackage']
   }
 
   async start() {
-    for (const i of this.list) {
+    const modeInstallPackage = installPackageMode()
 
+
+    if (modeInstallPackage) {
+      logger.debug(`Package install mode enabled.`)
+    }
+
+    for (const i of this.list) {
       const node = this.resolution
+
       if (node instanceof Node) {
+
+        if (node.isThisRepositoryThatInstallsPackages()) return logger.debug(`Is this repository ${node.getNameProject()} that installs the packages? ${node.isThisRepositoryThatInstallsPackages()}`);
+
         // Package Manager
         if (i === 'package' && node.options.requiredInstallationOfPackages) {
+          if (modeInstallPackage) return;
+
+
           logger.log(`${node.getNameProject()}: Preparing to install. packageManager=${node.packageManager}.`)
           try {
             await node.install()  // Install packages
@@ -50,6 +64,8 @@ export class NodeResolution extends EventEmitter {
 
         // @Typescript
         if (i === 'compile' && node.settings.typescript) {
+          if (modeInstallPackage) return;
+
           let errorCompile = false
           await node.compile(isDeveloper()).catch(() => errorCompile = true) // Compile projects
 
@@ -60,7 +76,9 @@ export class NodeResolution extends EventEmitter {
           return
         }
 
-        if (i === 'run') {
+        if (i === 'run' && !modeInstallPackage) {
+
+
           let errorCompile = false
           await node.runner().catch(() => errorCompile = true)
 
@@ -70,8 +88,12 @@ export class NodeResolution extends EventEmitter {
           }
         }
 
-      }
+        if (i === 'installPackage' && modeInstallPackage) {
+          logger.debug('Preparing to install the packages..')
+          await node.installPackage()
+        }
 
+      }
     }
   }
 

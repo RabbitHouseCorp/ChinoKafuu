@@ -15,6 +15,14 @@ const yarnCommand = {
       args: ['dev']
     },
   },
+  add: {
+    commandName: 'yarn add',
+    commandArgs: {
+      name: 'yarn',
+      arg: 'add',
+      args: ['add']
+    },
+  },
   run: {
     commandName: 'yarn start',
     commandArgs: {
@@ -67,6 +75,14 @@ const npmCommand = {
       args: ['run', 'start']
     },
   },
+  add: {
+    commandName: 'npm install',
+    commandArgs: {
+      name: 'npm',
+      arg: 'install',
+      args: ['install']
+    },
+  },
   test: {
     commandName: 'npm run test',
     commandArgs: {
@@ -109,6 +125,14 @@ const pnpmCommand = {
       name: 'pnpm',
       arg: 'run start',
       args: ['run', 'start']
+    },
+  },
+  add: {
+    commandName: 'pnpm install',
+    commandArgs: {
+      name: 'pnpm',
+      arg: 'install',
+      args: ['install']
     },
   },
   test: {
@@ -154,6 +178,14 @@ const bunCommand = {
       name: 'yarn',
       arg: 'start:bun',
       args: ['start:bun']
+    },
+  },
+  add: {
+    commandName: 'yarn add',
+    commandArgs: {
+      name: 'yarn',
+      arg: 'add',
+      args: ['add']
     },
   },
   test: {

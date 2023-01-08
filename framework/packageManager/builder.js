@@ -33,6 +33,27 @@ const selectPackageManager = (projectName) => {
   return packageManager
 }
 
+
+const selectRepository = () => {
+  let repository = []
+  let start = false;
+  for (const argv of process.argv) {
+    if (argv.startsWith('--repository') && argv.startsWith('--repository=')) {
+      logger.debug('Enlisting list of commands:')
+      // yarn installPackage --repository @chinokafuu/revolt @chinokafuu/discord
+      repository.push(argv)
+
+      start = true
+    } else if (argv.startsWith('--')) {
+      start = false
+    }
+  }
+
+  return {
+    repository
+  }
+}
+
 /**
  * This class is a core node for controlling repository.
  */
@@ -107,6 +128,11 @@ export class Node extends EventEmitter {
     this.emit('settings', (false, this.settings, this))
   }
 
+
+  isThisRepositoryThatInstallsPackages() {
+    return selectRepository().repository.includes(this.getNameProject())
+  }
+
   /**
    * ### Install the required packages.
    * 
@@ -134,6 +160,62 @@ export class Node extends EventEmitter {
       const command = spawn(
         this.commandSelector.install.commandArgs.name,
         this.commandSelector.install.commandArgs.args,
+        {
+          cwd: path.resolve(this.resolved),
+          shell: true,
+          stdio: 'inherit', // It's easier to develop having a little insight into package management.
+          serialization: 'json',
+        })
+
+      command.on('error', (error) => {
+        logger.error(`:install().command<error>: ${error}`)
+        rejects(error)
+      })
+
+      command.on('exit', (code) => {
+        if (code != 0) {
+          logger.error(`:install().command<exit>: Package Manager closed unexpectedly or was forced to close.`)
+          rejects(null)
+        }
+      })
+
+      command.on('close', (code) => {
+        resolve()
+      })
+    })
+  }
+
+
+
+  async installPackage() {
+    return new Promise((resolve, rejects) => {
+      if (this.isThisRepositoryThatInstallsPackages()) {
+        return resolve()
+      }
+      const argv = process.argv
+      const packages = []
+      let collectPackage = false
+
+      for (const arg of argv) {
+        let ignoreThat = false
+        if (arg.includes('--installPackage')) {
+          ignoreThat = true
+          collectPackage = true
+          // yarn installPackage --installPackage package1 package2 (--no-ts) = Break loop
+        } else if (arg.includes('--')) {
+          collectPackage = false
+        }
+
+        if (collectPackage && !ignoreThat) {
+          packages.push(arg)
+        }
+      }
+
+      this.commandSelector.add.commandArgs.args.push(...packages) // Add packages or args :^) 
+
+      const command = spawn(
+        this.commandSelector.add.commandArgs.name,
+        this.commandSelector.add.commandArgs.args,
         {
           cwd: path.resolve(this.resolved),
           shell: true,

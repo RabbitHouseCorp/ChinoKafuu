@@ -37,7 +37,8 @@
     },
     "plugins": [
         "sort-class-members",
-        "jest"
+        "jest",
+        "@rushstack/eslint-plugin-security"
     ],
     "rules": {
         "jest/no-disabled-tests": "warn",

@@ -7,8 +7,10 @@
   "license": "AGPL-3.0",
   "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git",
   "scripts": {
-    "start": "node ./framework/index.js",
-    "dev": "node ./framework/index.js --dev",
+    "installPackage": "node ./framework/index.js installPackage",
+    "start": "node ./framework/index.js --no-ts",
+    "dev": "node ./framework/index.js --dev --no-ts",
+    "dev:ts": "node ./framework/index.js --dev --no-ts",
     "tracemMode": "node ./framework/index.js --dev --debug --trace",
     "start:bun": "bun run ./framework/index.js",
     "dev:bun": "bun run ./framework/index.js --dev",
