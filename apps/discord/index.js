@@ -1,3 +1,4 @@
+/* eslint-disable jest/require-hook */
 const dotenv = require('dotenv')
 dotenv.config()
 const Logger = require('./src/structures/util/Logger')
@@ -42,6 +43,5 @@ class StateApplication {
     })
   }
 }
-
 
 new StateApplication().start()

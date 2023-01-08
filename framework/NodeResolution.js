@@ -35,7 +35,7 @@ export class NodeResolution extends EventEmitter {
           return
         }
 
-        
+
         if (i === 'upgrade' && (node.options.requiredInstallationOfPackages || upgradeArg())) {
           logger.log(`${node.getNameProject()}: Preparing to upgrade packages. packageManager=${node.packageManager}.`)
           try {
@@ -57,6 +57,7 @@ export class NodeResolution extends EventEmitter {
             logger.error(`Typescript Compiler: The ${node.getNameProject()} cannot be started, maybe jump to another project.`)
             break
           }
+          return
         }
 
         if (i === 'run') {

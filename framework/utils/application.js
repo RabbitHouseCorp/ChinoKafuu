@@ -2,7 +2,7 @@ import { spawn } from 'child_process'
 import { EventEmitter } from 'events'
 import { LoggerSystem } from '../logger/defineLogger.js'
 
-const RESTART_APPLICATION = 2 * 1000
+const RESTART_APPLICATION = 5 * 1000
 const START_APPLICATION = 600
 const HOT_RELOAD = 500
 
@@ -69,7 +69,7 @@ export class NodeApplication extends EventEmitter {
       const app = () => {
         this.started = true
         this.restarting = false;
-        logger.log(`Initializing application from repository of ${this.node.getNameProject()}`)
+        logger.log(`Initializing application from repository of ${this.node.getNameProject()}\n`)
 
         const application = spawn(
           commandSelector.commandArgs.name,

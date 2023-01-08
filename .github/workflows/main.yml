@@ -6,11 +6,11 @@ on:
 
 jobs:
   ci:
-    runs-on: [ubuntu-latest]
-    strategy:
-        matrix:
-           os: [ubuntu-latest, macos-latest]
-           node: [16.x, 18.x]
+    runs-on:
+      strategy:
+          matrix:
+            os: [ubuntu-latest, macos-latest]
+            node: [16.x, 18.x]
     steps:
       - name: Checkout 📝
         uses: actions/checkout@master

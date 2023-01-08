@@ -15,8 +15,8 @@
         "window": true
     },
     "plugins": [
-        "@typescript-eslint",
-        "sort-class-members"
+        "sort-class-members",
+        "plugin:security/recommended"
     ],
     "rules": {
       "indent": ["error", 2, {"SwitchCase": 1, "ignoreComments": true}],

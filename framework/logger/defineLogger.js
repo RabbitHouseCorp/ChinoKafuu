@@ -50,24 +50,24 @@ export class LoggerSystem {
   }
 
   warn(message) {
-    console.warn(`${chalk.yellowBright('[!]')} ${this.#template} ${chalk.yellowBright('WARN')}  [${chalk.white(this.name)}]: ${this.#colorMessage(message)}`)
+    console.warn(`\n${chalk.yellowBright('[!]')} ${this.#template} ${chalk.yellowBright('WARN')}  [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n`)
   }
 
   error(message) {
-    console.error(`${chalk.redBright('[+]')} ${this.#template} ${chalk.redBright('ERROR')} [${chalk.white(this.name)}]: ${this.#colorMessage(message)}`)
+    console.error(`\n${chalk.redBright('[+]')} ${this.#template} ${chalk.redBright('ERROR')} [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n`)
   }
 
   debug(message) {
     if (process.argv.includes('--silent')) return;
     if (process.argv.includes('--debug')) {
-      console.debug(`${chalk.blue('[-]')} ${this.#template} ${chalk.blueBright('DEBUG')} [${chalk.white(this.name)}]: ${this.#colorMessage(message)}`)
+      console.debug(`\n${chalk.blue('[-]')} ${this.#template} ${chalk.blueBright('DEBUG')} [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n`)
     }
   }
 
   trace(message) {
     if (process.argv.includes('--silent')) return;
     if (process.argv.includes('--trace')) {
-      console.trace(`${chalk.gray('[{}]')}  ${this.#template} ${chalk.white('TRACE')}  [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n\n`)
+      console.trace(`\n${chalk.gray('[{}]')}  ${this.#template} ${chalk.white('TRACE')}  [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n\n`)
     }
   }
 }
