@@ -10,7 +10,7 @@ const logger = new LoggerSystem('FrameworkRepository')
 /**
  * Solving and fitting the knots.
  */
-const resolveLink = (n) => {
+const resolveLink = (n, isTest) => {
   const nodes = []
   const unresolved = (node) => {
     logger.debug(`Solving solution from link=${JSON.stringify(node, undefined, '  ')}\n`)
@@ -19,7 +19,8 @@ const resolveLink = (n) => {
         if (n.repositoryCheck) {
           nodes.push(new Node(n.path, {
             repositoryCheck: n.repositoryCheck,
-            requiredInstallationOfPackages: n.requiredInstallationOfPackages
+            requiredInstallationOfPackages: n.requiredInstallationOfPackages,
+            isTest
           })) // Pull this node which is a repository.
         }
 
@@ -91,7 +92,7 @@ export class NodeLinkResolver extends EventEmitter {
   }
 
   // Create a new links node.
-  static new(nodes) {
-    return new NodeLinkResolver(resolveLink(nodes))
+  static new(nodes, isTest) {
+    return new NodeLinkResolver(resolveLink(nodes, isTest))
   }
 }

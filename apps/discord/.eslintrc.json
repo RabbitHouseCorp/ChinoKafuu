@@ -22,7 +22,6 @@
     },
     "extends": [
         "eslint:recommended",
-        "plugin:security/recommended",
         "plugin:jest/recommended",
         "plugin:jest/style",
         "plugin:jest/all"
@@ -37,8 +36,7 @@
     },
     "plugins": [
         "sort-class-members",
-        "jest",
-        "@rushstack/eslint-plugin-security"
+        "jest"
     ],
     "rules": {
         "jest/no-disabled-tests": "warn",

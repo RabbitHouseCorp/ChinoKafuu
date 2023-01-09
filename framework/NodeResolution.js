@@ -10,13 +10,18 @@ const logger = new LoggerSystem('NodeResolution')
 const isDeveloper = () => process.argv.includes('--dev')
 const upgradeArg = () => process.argv.includes('--upgrade-packages')
 const installPackageMode = () => process.argv.includes('installPackage')
+const repositoryPackageMode = () => process.argv.includes('--repository')
 
 
 export class NodeResolution extends EventEmitter {
   constructor(node) {
     super()
     this.resolution = node
-    this.list = ['package', 'upgrade', 'compile', 'run', 'installPackage']
+    this.list = ['installPackage', 'package', 'upgrade', 'compile', 'run']
+  }
+
+  async test() {
+    return this.resolution.test()
   }
 
   async start() {
@@ -27,12 +32,18 @@ export class NodeResolution extends EventEmitter {
       logger.debug(`Package install mode enabled.`)
     }
 
+    const modePackage = (modeInstallPackage || repositoryPackageMode());
     for (const i of this.list) {
       const node = this.resolution
 
       if (node instanceof Node) {
 
         if (node.isThisRepositoryThatInstallsPackages()) return logger.debug(`Is this repository ${node.getNameProject()} that installs the packages? ${node.isThisRepositoryThatInstallsPackages()}`);
+        if (i === 'installPackage' && modePackage) {
+          logger.log(`Preparing to install the packages on repository ${node.getNameProject()}..`)
+          await node.installPackage()
+          break
+        }
 
         // Package Manager
         if (i === 'package' && node.options.requiredInstallationOfPackages) {
@@ -86,11 +97,6 @@ export class NodeResolution extends EventEmitter {
             logger.error(`NodeApplication Runner: The ${node.getNameProject()} cannot be started, maybe jump to another project.`)
             break
           }
-        }
-
-        if (i === 'installPackage' && modeInstallPackage) {
-          logger.debug('Preparing to install the packages..')
-          await node.installPackage()
         }
 
       }

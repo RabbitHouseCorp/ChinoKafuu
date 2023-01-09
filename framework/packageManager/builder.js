@@ -6,6 +6,7 @@ import { LoggerSystem } from '../logger/defineLogger.js'
 import { ModelNodeBuilder } from '../model/NodeBuilder.js'
 import { ModelNodeResolver } from '../model/noderesolver.js'
 import { NodeResolution } from '../NodeResolution.js'
+import { NodeTest } from '../tester/NodeTest.js'
 import { NodeApplication } from '../utils/application.js'
 
 import { loadConfiguration } from '../utils/loadSettings.js'
@@ -60,7 +61,8 @@ const selectRepository = () => {
 export class Node extends EventEmitter {
   constructor(resolved = '/', options = {
     repositoryCheck: false,
-    requiredInstallationOfPackages: false
+    requiredInstallationOfPackages: false,
+    isTest: false
   }) {
     super()
     this.secretName = null
@@ -74,14 +76,21 @@ export class Node extends EventEmitter {
     this.loaded = false
     this.resolution = new NodeResolution(this)
     this.application = new NodeApplication(this)
+    this.tester = new NodeTest(this)
     this.#loadPackage()
     this.loadSettings()
     this.#check()
   }
 
+  async test() {
+    return this.tester.runTest()
+  }
+
   #loadPackage() {
     const packageProject = readFileSync(path.resolve(this.resolved + '/package.json'))
-    logger.log('@/package.json has been loaded successfully!')
+    if (!this.options.isTest) {
+      logger.log('@/package.json has been loaded successfully!')
+    }
 
     this.packageProject = JSON.parse(packageProject)
     const customPackageManager = selectPackageManager(this.packageProject.name)
@@ -101,7 +110,9 @@ export class Node extends EventEmitter {
 
   #check() {
     if (this.options.requiredInstallationOfPackages) {
-      logger.warn('This repository requires installation!')
+      if (!this.options.isTest) {
+        logger.warn('This repository requires installation!')
+      }
     }
     this.#loadName()
   }
@@ -111,13 +122,17 @@ export class Node extends EventEmitter {
    */
   loadSettings() {
     this.settings = {}
-    logger.log('No configuration loaded, preparing to load one.')
-
+    if (!this.options.isTest) {
+      logger.log('No configuration loaded, preparing to load one.')
+    }
     if (!this.loaded) {
       const settings = loadConfiguration(path.resolve(this.resolved + '/settingsFramework.json'))
 
       if (ModelNodeResolver(settings, path.resolve(this.resolved + '/settingsFramework.json'))) {
-        logger.log(`Configuration uploaded successfully! @/settingsFrameworkGlobal.json`)
+        if (!this.options.isTest) {
+          logger.log(`Configuration uploaded successfully! @/settingsFrameworkGlobal.json`)
+        }
+
         this.emit('settings', (true, this.settings, this))
         this.loaded = true
       }
@@ -211,17 +226,32 @@ export class Node extends EventEmitter {
         }
       }
 
-      this.commandSelector.add.commandArgs.args.push(...packages) // Add packages or args :^) 
 
-      const command = spawn(
-        this.commandSelector.add.commandArgs.name,
-        this.commandSelector.add.commandArgs.args,
-        {
-          cwd: path.resolve(this.resolved),
-          shell: true,
-          stdio: 'inherit', // It's easier to develop having a little insight into package management.
-          serialization: 'json',
-        })
+
+      let command;
+
+      if (packages.length <= 0) {
+        this.commandSelector.add.commandArgs.args.push(...packages) // Add packages or args :^) 
+        command = spawn(
+          this.commandSelector.install.commandArgs.name,
+          this.commandSelector.install.commandArgs.args,
+          {
+            cwd: path.resolve(this.resolved),
+            shell: true,
+            stdio: 'inherit', // It's easier to develop having a little insight into package management.
+            serialization: 'json',
+          })
+      } else {
+        command = spawn(
+          this.commandSelector.add.commandArgs.name,
+          this.commandSelector.add.commandArgs.args,
+          {
+            cwd: path.resolve(this.resolved),
+            shell: true,
+            stdio: 'inherit', // It's easier to develop having a little insight into package management.
+            serialization: 'json',
+          })
+      }
 
       command.on('error', (error) => {
         logger.error(`:install().command<error>: ${error}`)

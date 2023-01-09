@@ -28,16 +28,16 @@ const startFramework = async () => {
   logger.log(`The ${t.name} is working with version ${t.version}`)
 
   const dirs = await resolveDir()
-  const link = NodeLinkResolver.new(dirs, false)
+  const link = NodeLinkResolver.new(dirs, true)
   let filtered = link.nodes
 
   if (process.argv.includes('--no-ts')) {
     filtered = link.nodes.filter((node) => node.settings.typescript == false)
   }
 
-  
+
   for (const node of filtered) {
-    await node.resolution.start()
+    await node.resolution.test()
   }
 }
 
