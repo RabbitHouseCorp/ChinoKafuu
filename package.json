@@ -34,7 +34,7 @@
     "tsc-compile-projects": "github:RabbitHouseCorp/tsc-compile-projects#main",
     "usagi-http-interaction": "github:RabbitHouseCorp/usagi-http-interaction#main",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
-    "ws": "^8.11.0"
+    "ws": "^8.12.0"
   },
   "workspaces": ["apps/discord", "apps/revolt", "launcher"],
   "devDependencies": {
