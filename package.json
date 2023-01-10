@@ -8,7 +8,7 @@
   "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git",
   "scripts": {
     "installPackage": "node ./framework/index.js --repository @chinokafuu/discord --no-ts",
-    "test": "node ./framework/nodeTest.js",
+    "test": "node ./framework/nodeTest.js --no-ts",
     "start": "node ./framework/index.js --no-ts",
     "dev": "node ./framework/index.js --dev --no-ts",
     "dev:ts": "node ./framework/index.js --dev --no-ts",
