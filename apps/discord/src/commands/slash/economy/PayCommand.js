@@ -70,7 +70,7 @@ module.exports = class PayCommand extends Command {
             flags: 1 << 6
           })
           return
-         }
+        }
         if ((packet.d.member.user.id !== author && message.author.id === ctx.client.user.id)) {
           ack.sendAck('respond', {
             content: ctx._locale('commands:pay.notTheAuthor', { 0: Emoji.getEmoji('chino_pout').mention, 1: `<@${packet.d.member.user.id}>`, 2: ctx.message.author.mention }),

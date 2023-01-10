@@ -1,4 +1,5 @@
 const package = require('../../package.json')
+// eslint-disable-next-line jest/require-hook
 require('node:zlib')
 
 Error.prototype.debug = function (details, log) {

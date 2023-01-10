@@ -256,11 +256,11 @@ module.exports = class Database extends EventEmitter {
       return a
     }
     object_a.took_off = Date.now() - time
-    this.#logger_receive('get', object_a)
+    this.logger_receive('get', object_a)
     return object_a
   }
 
-  #logger_receive(action, data) {
+  logger_receive(action, data) {
     const loggers = []
     loggers.push(' ')
     let list = []
@@ -270,7 +270,7 @@ module.exports = class Database extends EventEmitter {
       process.env.FLUX_LOGGER.replace(' ', '').split(',')
     }
     if (list.includes('took')) {
-      loggers.push(`Took (${this.#lantecy(data.took_off)})`)
+      loggers.push(`Took (${this.lantecy(data.took_off)})`)
     }
     if (list.includes('get_data')) {
       loggers.push(`GET Data ~> ${JSON.stringify(data.data.query)}`)
@@ -280,7 +280,7 @@ module.exports = class Database extends EventEmitter {
       const bar_2 = '____________________'
       for (const b of data.data.query) {
         if (!(b.saved === null)) {
-          map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.#lantecy(b.took_off)}\n${bar_2}`)
+          map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.lantecy(b.took_off)}\n${bar_2}`)
         }
       }
       if (!(map.length === 0)) {
@@ -304,7 +304,7 @@ module.exports = class Database extends EventEmitter {
     }
   }
 
-  #lantecy(latency, emoji) {
+  lantecy(latency, emoji) {
     if (latency > 267) {
       return `${chalk.yellow(`${latency}ms`)} --- This is bad! Flow is too slow!`
     }
