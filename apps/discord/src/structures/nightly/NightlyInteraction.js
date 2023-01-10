@@ -20,16 +20,16 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     this.typeInteraction = 1
     this.user = message.member.user
     if (this.client.interactionPost.connected) {
-      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.#interactionHttp(a, isHttp, interactionPost))
+      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.interactionHttp(a, isHttp, interactionPost))
     } else {
-      this.client.on('rawWS', (packet) => this.#interactionNormal(packet))
+      this.client.on('rawWS', (packet) => this.interactionNormal(packet))
     }
     this.on('click', () => {
-      this.#resetTimeout()
+      this.resetTimeout()
     })
   }
 
-  #resetTimeout() {
+  resetTimeout() {
     clearTimeout(this.timeoutRun)
     this.timeoutRun = null
     if (this.options?.time !== undefined) {
@@ -44,7 +44,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     this.timeoutRun = null
   }
 
-  #interactionNormal(packet) {
+  interactionNormal(packet) {
     if (packet.t === 'INTERACTION_CREATE') {
       if (packet.d.type === 3) {
         if (this.message.id === packet.d.message.id) {
@@ -63,7 +63,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     }
   }
 
-  #interactionHttp(a, isHttp, interactionPost) {
+  interactionHttp(a, isHttp, interactionPost) {
     if (isHttp !== undefined) {
       this.isHttp = true
       this.interactionPost = interactionPost
