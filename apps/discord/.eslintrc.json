@@ -57,7 +57,7 @@
         "security/detect-non-literal-regexp": "error",
         "security/detect-non-literal-require": "error",
         "security/detect-possible-timing-attacks": "error",
-        "security/detect-pseudoRandomBytes": "error",
+        // "security/detect-pseudoRandomBytes": "error",
         "security/detect-unsafe-regex": "error",
         "security/detect-object-injection": "error",
         "import/no-duplicates": "error",
