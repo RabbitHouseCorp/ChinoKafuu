@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder, NightlyInteraction, Emoji, Button } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command, EmbedBuilder, NightlyInteraction, Emoji, Button } from '../../../structures/util'
+import { CommandBase, CommandOptions } from 'eris'
 
-module.exports = class AnnounceCommand extends Command {
+export default class AnnounceCommand extends Command {
   constructor() {
     super({
       name: 'announce',

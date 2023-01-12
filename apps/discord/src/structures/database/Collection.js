@@ -1,4 +1,4 @@
-module.exports = class Collection {
+export class Collection {
   constructor (model) {
     this.model = model
   }

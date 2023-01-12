@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { Command } from '../../../structures/util'
 
-module.exports = class FakeMsgCommand extends Command {
+export default class FakeMsgCommand extends Command {
   constructor() {
     super({
       name: 'fakemsg',

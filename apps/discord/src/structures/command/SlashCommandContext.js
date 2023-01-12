@@ -1,7 +1,8 @@
-const CommandContext = require('./CommandContext')
-const Emoji = require('../util/EmotesInstance')
+import axios from 'axios'
+import { Emoji } from '../util/EmotesInstance'
+import { CommandContext } from './CommandContext'
 
-module.exports = class SlashCommandContext extends CommandContext {
+export class SlashCommandContext extends CommandContext {
   /**
    *
    * @param bot {Eris.Client}
@@ -156,7 +157,6 @@ module.exports = class SlashCommandContext extends CommandContext {
         }
       }
 
-      const axios = require('axios')
       try {
         if (await axios.get(`https://twemoji.maxcdn.com/2/72x72/${this.toUnicode(args).join('-')}.png`)) {
           return {
@@ -174,6 +174,7 @@ module.exports = class SlashCommandContext extends CommandContext {
       }
     }
 
+    // eslint-disable-next-line security/detect-unsafe-regex
     const m = args.match(/<?(?:(a):)?(\w{2,32}):(\d{17,19})?>?/)
     if (!m) return undefined
     if (m[2] && !m[3]) return undefined

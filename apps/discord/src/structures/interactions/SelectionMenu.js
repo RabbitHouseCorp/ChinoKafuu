@@ -1,5 +1,5 @@
 
-module.exports = class SelectionMenu {
+export class SelectionMenu {
   constructor(data) {
     this.type = 3
     if (data?.custom_id !== undefined) {

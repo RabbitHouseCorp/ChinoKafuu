@@ -1,6 +1,7 @@
-const EmbedBuilder = require('./EmbedBuilder')
-const Logger = require('./Logger')
-module.exports = async (client, message) => {
+import { EmbedBuilder } from './EmbedBuilder'
+import { Logger } from './Logger'
+
+export const InviteDMUtils = async (client, message) => {
   const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
   if (isInvite) {
     try {

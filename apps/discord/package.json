@@ -2,12 +2,13 @@
   "name": "@chinokafuu/discord",
   "version": "7.0.0",
   "main": "index.js",
+  "type": "module",
   "private": true,
   "scripts": {
-    "start": "node .",
+    "start": "node --tls-min-v1.3 --es-module-specifier-resolution=node --experimental-vm-modules  index.js",
     "start:bun": "node index.js",
     "test": "jest",
-    "test:lint": "eslint ."
+    "test:lint": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "axios": "^1.2.1",
     "chalk": "^4.1.2",
     "eris": "github:RabbitHouseCorp/eris#2c9783995179dd4ee775151d7202afd4dc0a064a",
+    "eslint-plugin-node": "^11.1.0",
     "hound": "^1.0.5",
     "mal-scraper": "^2.11.4",
     "mongoose": "^6.8.1",
@@ -41,10 +43,11 @@
     "ws": "^8.11.0"
   },
   "devDependencies": {
-    "@rushstack/eslint-plugin-security": "^0.5.0",
+    "@babel/preset-env": "^7.20.2",
     "dotenv": "^16.0.3",
     "eslint": "^8.31.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-security": "^1.5.0",
     "eslint-plugin-sort-class-members": "^1.16.0",
@@ -52,6 +55,9 @@
   },
   "jest": {
     "collectCoverage": true,
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
     "moduleFileExtensions": [
       "js",
       "json",

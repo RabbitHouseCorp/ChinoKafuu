@@ -1,9 +1,8 @@
-// FIXME
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command } from '../../../structures/util'
+import axios from 'axios'
+import { CommandBase, CommandOptions } from 'eris'
 
-module.exports = class LicenseCommand extends Command {
+export default class LicenseCommand extends Command {
   constructor() {
     super({
       name: 'license',

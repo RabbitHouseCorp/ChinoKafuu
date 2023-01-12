@@ -1,19 +1,22 @@
 /* eslint-disable jest/require-hook */
-const dotenv = require('dotenv')
-dotenv.config()
-const Logger = require('./src/structures/util/Logger')
-const Constants = require('./src/structures/util/Constants')
-Constants.BUILD_INFO.commit_log()
-const PluginManager = require('./src/structures/util/plugins/PluginManager')
-const DatabaseStore = require('./src/structures/util/plugins/store/DatabaseStore')
-const BotStore = require('./src/structures/util/plugins/store/BotStore')
-const LavalinkStore = require('./src/structures/util/plugins/store/LavalinkStore')
-const CacheProfile = require('./src/structures/util/plugins/cache/CacheProfile')
-const BuildStore = require('./src/structures/util/plugins/store/BuildStore')
+import dotenv from 'dotenv'
+import { Logger } from './src/structures/util/index'
+import { BUILD_INFO } from './src/structures/util/Constants'
+import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile'
+import { PluginManager } from './src/structures/util/plugins/PluginManager'
+import { BotStore } from './src/structures/util/plugins/store/BotStore'
+import { BuildStore } from './src/structures/util/plugins/store/BuildStore'
+import { DatabaseStore } from './src/structures/util/plugins/store/DatabaseStore'
+import { LavalinkStore } from './src/structures/util/plugins/store/LavalinkStore'
+
 // Load packages global!
-require('./src/tools/JSONTools')
-require('./src/tools/Exception')
-require('./src/tools/StringBuilder')
+await import('./src/tools/JSONTools')
+await import('./src/tools/Exception')
+await import('./src/tools/StringBuilder')
+
+dotenv.config()
+BUILD_INFO.commit_log()
+
 class StateApplication {
   constructor(state) {
     this.state = state ?? {}

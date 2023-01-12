@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const Helper = require('../../../structures/util/Helper')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { Helper } from '../../../structures/util/Helper'
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class HelpCommand extends Command {
+export default class HelpCommand extends Command {
   constructor() {
     super({
       name: 'help',

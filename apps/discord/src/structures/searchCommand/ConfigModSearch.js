@@ -1,7 +1,7 @@
-const { Interaction } = require('eris')
-const ResultsMechanism = require('../util/ResultsMechanism')
+import { Interaction } from 'eris'
+import { ResultsMechanism } from '../util/ResultsMechanism'
 
-module.exports = {
+export const ConfigModSearch = {
   CONFIG_MOD_SEARCH: 'config mod',
   searchClass: class {
     constructor() { }

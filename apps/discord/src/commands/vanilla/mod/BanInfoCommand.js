@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, ReactionCollector, Emoji } = require('../../../structures/util')
+import { Command, EmbedBuilder, ReactionCollector, Emoji } from '../../../structures/util'
 
-module.exports = class BanInfoCommand extends Command {
+export default class BanInfoCommand extends Command {
   constructor() {
     super({
       name: 'baninfo',

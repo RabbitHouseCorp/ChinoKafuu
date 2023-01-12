@@ -1,8 +1,8 @@
-const { Command } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
-const axios = require('axios')
+import axios from 'axios'
+import { CommandBase, CommandOptions } from 'eris'
+import { Command } from '../../../structures/util'
 
-module.exports = class AddEmojiCommand extends Command {
+export default class AddEmojiCommand extends Command {
   constructor() {
     super({
       name: 'addemoji',

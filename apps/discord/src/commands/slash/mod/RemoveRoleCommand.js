@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command } from '../../../structures/util'
+import { CommandBase, CommandOptions } from 'eris'
 
-module.exports = class RemoveRoleCommand extends Command {
+export default class RemoveRoleCommand extends Command {
   constructor() {
     super({
       name: 'removerole',

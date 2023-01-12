@@ -1,6 +1,6 @@
-const Listener = require('../../structures/events/Listener')
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class ReadyListener extends Listener {
+export default class ReadyListener extends Listener {
   constructor() {
     super()
     this.send = false

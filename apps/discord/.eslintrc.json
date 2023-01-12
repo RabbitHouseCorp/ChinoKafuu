@@ -22,23 +22,48 @@
     },
     "extends": [
         "eslint:recommended",
+        "plugin:security/recommended",
         "plugin:jest/recommended",
         "plugin:jest/style",
-        "plugin:jest/all"
+        "plugin:jest/all",
+        "plugin:import/recommended"
     ],
     // "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2021
+        "ecmaVersion": 2022,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "modules": true
+        }
     },
     "globals": {
         "bigint": true,
         "window": true
     },
     "plugins": [
+        "import",
         "sort-class-members",
-        "jest"
+        "jest",
+        "@rushstack/eslint-plugin-security"
     ],
     "rules": {
+        "security/detect-buffer-noassert": "error",
+        "security/detect-child-process": "error",
+        "security/detect-disable-mustache-escape": "error",
+        "security/detect-eval-with-expression": "error",
+        "security/detect-new-buffer": "error",
+        "security/detect-no-csrf-before-method-override": "error",
+        "security/detect-non-literal-fs-filename": "error",
+        "security/detect-non-literal-regexp": "error",
+        "security/detect-non-literal-require": "error",
+        "security/detect-possible-timing-attacks": "error",
+        "security/detect-pseudoRandomBytes": "error",
+        "security/detect-unsafe-regex": "error",
+        "security/detect-object-injection": "error",
+        "import/no-duplicates": "error",
+        "import/no-unresolved": "error",
+        "import/no-extraneous-dependencies": "error",
+        "import/no-mutable-exports": "error",
         "jest/no-disabled-tests": "warn",
         "jest/no-focused-tests": "error",
         "jest/no-identical-title": "error",

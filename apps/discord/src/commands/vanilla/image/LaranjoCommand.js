@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
+import { Command } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class LaranjoCommand extends Command {
+export default class LaranjoCommand extends Command {
   constructor() {
     super({
       name: 'laranjo',

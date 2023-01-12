@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class RemoveEmojiCommand extends Command {
+export default class RemoveEmojiCommand extends Command {
   constructor() {
     super({
       name: 'removeemoji',

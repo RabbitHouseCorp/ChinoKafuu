@@ -1,7 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
-const ms = require('ms')
-module.exports = class MuteCommand extends Command {
+import { CommandBase, CommandOptions } from 'eris'
+import ms from 'ms'
+import { Command, EmbedBuilder } from '../../../structures/util'
+
+export default class MuteCommand extends Command {
   constructor() {
     super({
       name: 'mute',

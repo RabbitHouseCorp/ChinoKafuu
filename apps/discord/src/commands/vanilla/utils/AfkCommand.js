@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class AfkCommand extends Command {
+export default class AfkCommand extends Command {
   constructor() {
     super({
       name: 'afk',
@@ -11,6 +11,7 @@ module.exports = class AfkCommand extends Command {
   async run(ctx) {
     const member = ctx.db.user
     let reason = ctx.args.join(' ') ?? 'Unspecified'
+    // eslint-disable-next-line security/detect-unsafe-regex
     const guildInviteRegex = /(https?:\/\/)?(www\.)?(discord\.(gg|io|me|li)|(discordapp|discord)\.com\/invite)\/.+[a-z]/g
 
     const hasInvite = reason.match(guildInviteRegex)

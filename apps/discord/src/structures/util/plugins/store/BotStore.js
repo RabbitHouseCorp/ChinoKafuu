@@ -1,6 +1,8 @@
-const PluginExtend = require('../loaders/PluginExtend')
+import { BotInterface } from '../../../../manager/BotInterface'
+import { Manager } from '../../../../sharder/manager/Manager'
+import { PluginExtend } from '../loaders/PluginExtend'
 
-module.exports = class BotStore extends PluginExtend {
+export class BotStore extends PluginExtend {
   constructor() {
     super({
       name: 'bot',
@@ -12,11 +14,9 @@ module.exports = class BotStore extends PluginExtend {
   start() {
     try {
       if (process.env.CLUSTERS === 'true') {
-        const Manager = require('../../../../sharder/manager/Manager')
         const manager = new Manager()
         manager.start()
       } else {
-        const BotInterface = require('../../../../manager/BotInterface')
         this.$addClassState({ data: new BotInterface().spawnShards(this) })
       }
 

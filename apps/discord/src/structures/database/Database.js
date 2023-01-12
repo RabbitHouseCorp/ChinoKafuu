@@ -1,14 +1,13 @@
-/* eslint-disable quotes */
-const Logger = require('../util/Logger')
-const command = require('./collections/Command')
-const guild = require('./collections/Guild')
-const user = require('./collections/User')
-const Collection = require('./Collection')
-const mongoose = require('mongoose')
-const EventEmitter = require('events')
-const chalk = require('chalk')
+import chalk from 'chalk'
+import EventEmitter from 'events'
+import mongoose from 'mongoose'
+import { Logger } from '../util/Logger'
+import { Collection } from './Collection'
+import command from './collections/Command'
+import guild from './collections/Guild'
+import user from './collections/User'
 
-module.exports = class Database extends EventEmitter {
+export class Database extends EventEmitter {
   constructor() {
     super()
     if (process.env.DISCORD_MONGO_URI) {
@@ -76,7 +75,7 @@ module.exports = class Database extends EventEmitter {
 
     object_a.queries = {}
     for (const a in this) {
-      const b = this[a]
+      const b = this[typeof a === 'string' ? a : '']
       if (b instanceof Collection) {
         map.set(`${a}`, b)
       }
@@ -89,8 +88,8 @@ module.exports = class Database extends EventEmitter {
         let found = 0
         let notFound = 0
         let saveData = 0
-        if (Array.isArray(data.search[tag])) {
-          for (const objData of data.search[tag]) {
+        if (Array.isArray(data.search[typeof tag === 'string' ? tag : ''])) {
+          for (const objData of data.search[typeof tag === 'string' ? tag : '']) {
             if (!(map.get(tag) === undefined)) {
               c++
               let t_data = Date.now()
@@ -107,13 +106,13 @@ module.exports = class Database extends EventEmitter {
                         if (d_data.id === undefined) {
                           d_data.id = id_data
                         }
-                        const newData = await this[tag].model({ ...d_data }).save()
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                        const newData = await this[typeof tag === 'string' ? tag : ''].model({ ...d_data }).save()
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       } else {
                         found++
                         const $a = null
 
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       }
                     } else {
                       let b = null
@@ -129,8 +128,8 @@ module.exports = class Database extends EventEmitter {
                           if (d_data.id === undefined) {
                             d_data.id = id_data
                           }
-                          const newData = await this[tag].model({ ...d_data }).save()
-                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                          const newData = await this[typeof tag === 'string' ? tag : ''].model({ ...d_data }).save()
+                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                         } else {
                           if (!(objData.noFetchData === true)) {
                             notFound++
@@ -144,16 +143,16 @@ module.exports = class Database extends EventEmitter {
                           saveData++
                           const id_data = objData.fetch.id
                           const d_data = objData.data ?? {}
-                          $a = await this[tag].model({ id_data, ...d_data }).save()
+                          $a = await this[typeof tag === 'string' ? tag : ''].model({ id_data, ...d_data }).save()
                         }
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       }
                     }
                   }
                 }
 
               } catch (err) {
-                object_a.errors[c] = {
+                object_a.errors[typeof c === 'string' ? c : ''] = {
                   error: err,
                   data: objData,
                   tag: tag
@@ -162,7 +161,7 @@ module.exports = class Database extends EventEmitter {
             }
           }
         } else {
-          for (const objData in data.search[tag]) {
+          for (const objData in data.search[typeof tag === 'string' ? tag : '']) {
             if (!(map.get(tag) === undefined)) {
               c++
               let t_data = Date.now()
@@ -179,13 +178,13 @@ module.exports = class Database extends EventEmitter {
                         if (d_data.id === undefined) {
                           d_data.id = id_data
                         }
-                        const newData = await this[tag].model({ ...d_data }).save()
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                        const newData = await this[typeof tag === 'string' ? tag : ''].model({ ...d_data }).save()
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       } else {
                         found++
                         const $a = null
 
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       }
                     } else {
                       let b = null
@@ -201,8 +200,8 @@ module.exports = class Database extends EventEmitter {
                           if (d_data.id === undefined) {
                             d_data.id = id_data
                           }
-                          const newData = await this[tag].model({ ...d_data }).save()
-                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[tag] })
+                          const newData = await this[typeof tag === 'string' ? tag : ''].model({ ...d_data }).save()
+                          object_a.data.query.push({ took_off: Date.now() - t_data, data: newData, saved: newData, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                         } else {
                           if (!(objData.noFetchData === true)) {
                             notFound++
@@ -216,16 +215,16 @@ module.exports = class Database extends EventEmitter {
                           saveData++
                           const id_data = objData.fetch.id
                           const d_data = objData.data ?? {}
-                          $a = await this[tag].model({ id_data, ...d_data }).save()
+                          $a = await this[typeof tag === 'string' ? tag : ''].model({ id_data, ...d_data }).save()
                         }
-                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[tag] })
+                        object_a.data.query.push({ took_off: Date.now() - t_data, data: b, saved: $a, tag: tag, collection: this[typeof tag === 'string' ? tag : ''] })
                       }
                     }
                   }
                 }
 
               } catch (err) {
-                object_a.errors[c] = {
+                object_a.errors[typeof c === 'string' ? c : ''] = {
                   error: err,
                   data: objData,
                   tag: tag
@@ -235,7 +234,7 @@ module.exports = class Database extends EventEmitter {
           }
         }
 
-        object_a.queries[tag] = {
+        object_a.queries[typeof tag === 'string' ? tag : ''] = {
           took_off: Date.now() - t,
           success: found,
           notFound: notFound,

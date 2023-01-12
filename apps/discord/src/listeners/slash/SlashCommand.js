@@ -1,6 +1,6 @@
-const Listener = require('../../structures/events/Listener')
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class SlashCommand extends Listener {
+export default class SlashCommand extends Listener {
   constructor() {
     super()
     this.event = 'ready'

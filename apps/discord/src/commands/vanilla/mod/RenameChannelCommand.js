@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class RenameChannelCommand extends Command {
+export default class RenameChannelCommand extends Command {
   constructor() {
     super({
       name: 'renamechannel',

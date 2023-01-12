@@ -1,7 +1,7 @@
-const Registry = require('../registry/Registry')
-
-module.exports = class SlashCommandRegistry extends Registry {
-  constructor(path = __dirname + '/../../commands/slash') {
+import { resolve } from 'path'
+import { Registry } from '../registry/Registry'
+export class SlashCommandRegistry extends Registry {
+  constructor(path = resolve('src/commands/slash')) {
     super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
 
     this.loadAll(this.path)

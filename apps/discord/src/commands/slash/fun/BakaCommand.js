@@ -1,9 +1,9 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const NekosLife = require('nekos.life')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import NekosLife from 'nekos.life'
+import { Command, EmbedBuilder } from '../../../structures/util'
 const NekoClient = new NekosLife()
 
-module.exports = class BakaCommand extends Command {
+export default class BakaCommand extends Command {
   constructor() {
     super({
       name: 'baka',

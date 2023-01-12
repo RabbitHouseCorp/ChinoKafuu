@@ -1,15 +1,15 @@
-const { Client } = require('eris')
-const ListenerRegistry = require('./events/ListenerRegistry')
-const CommandRegistry = require('./command/CommandRegistry')
-const I18NRegistry = require('./i18n/I18NRegistry')
-const ClusteringInterface = require('./util/ClusteringInterface')
-const Database = require('./database/Database')
-const CommandCooldown = require('./command/CommandCooldown')
-const SlashCommandRegistry = require('./command/SlashCommandRegistry')
-const InteractionManager = require('./InteractionManager')
+import { Client } from 'eris'
+import { CommandCooldown } from './command/CommandCooldown'
+import { CommandRegistry } from './command/CommandRegistry'
+import { SlashCommandRegistry } from './command/SlashCommandRegistry'
+import { Database } from './database/Database'
+import { ListenerRegistry } from './events/ListenerRegistry'
+import { I18NRegistry } from './i18n/I18NRegistry'
+import { InteractionManager } from './InteractionManager'
+import { ClusteringInterface } from './util/ClusteringInterface'
 // const CacheManager = require('./util/cache/CacheManager')
 
-module.exports = class Bot extends Client {
+export class Bot extends Client {
   constructor(...data) {
     super(...data)
     this.startShard = 0

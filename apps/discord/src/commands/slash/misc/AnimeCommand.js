@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const malScraper = require('mal-scraper')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import malScraper from 'mal-scraper'
+import { CommandBase, CommandOptions } from 'eris'
 
-module.exports = class AnimeCommand extends Command {
+export default class AnimeCommand extends Command {
   constructor() {
     super({
       name: 'anime',

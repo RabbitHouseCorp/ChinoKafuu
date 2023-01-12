@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class GuildBanCommand extends Command {
+export default class GuildBanCommand extends Command {
   constructor() {
     super({
       name: 'guildban',

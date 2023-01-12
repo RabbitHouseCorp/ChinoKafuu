@@ -1,9 +1,9 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const Anilist = require('anilist-node')
+import Anilist from 'anilist-node'
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { Logger } from '../../../structures/util/Logger'
 const anilist = new Anilist()
-const Logger = require('../../../structures/util/Logger')
 
-module.exports = class MangaCommand extends Command {
+export default class MangaCommand extends Command {
   constructor() {
     super({
       name: 'manga',

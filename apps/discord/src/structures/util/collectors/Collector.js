@@ -1,6 +1,6 @@
-const { EventEmitter } = require('events')
+import { EventEmitter } from 'events'
 
-class Collector extends EventEmitter {
+export class Collector extends EventEmitter {
   constructor (filter, options) {
     super()
 
@@ -61,5 +61,3 @@ class Collector extends EventEmitter {
     this.emit('end', this.collected, reason)
   }
 }
-
-module.exports = Collector

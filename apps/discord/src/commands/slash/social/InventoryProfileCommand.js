@@ -1,9 +1,9 @@
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command } = require('../../../structures/util')
-const { profileInfo } = require('../../../structures/util/Constants')
-const axios = require('axios')
+import axios from 'axios'
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Command } from '../../../structures/util'
+import { profileInfo } from '../../../structures/util/Constants'
 
-module.exports = class InventoryProfileCommand extends Command {
+export default class InventoryProfileCommand extends Command {
   constructor() {
     super({
       name: 'inventory profile',
@@ -24,7 +24,7 @@ module.exports = class InventoryProfileCommand extends Command {
       const disabled = false
       if (user.profileList.includes(profile._id)) {
         loadList.push({
-          'label':  profile.name,
+          'label': profile.name,
           'value': profile._id,
           'description': profile.shotDescription ?? ctx._locale('commands:shop.noDescription'),
           'disabled': true,
@@ -91,7 +91,7 @@ module.exports = class InventoryProfileCommand extends Command {
                   type: 2,
                   style: 3,
                   label: ctx._locale('commands:inventory.profile.wantUseThisProfile'),
-                  custom_id: profileInfo[position].buttonId,
+                  custom_id: profileInfo[typeof position === 'number' ? position : null].buttonId,
                   disabled: disabled
                 }]
               }

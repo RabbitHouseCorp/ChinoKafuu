@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class KickCommand extends Command {
+export default class KickCommand extends Command {
   constructor() {
     super({
       name: 'kick',

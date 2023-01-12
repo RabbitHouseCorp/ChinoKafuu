@@ -1,7 +1,7 @@
-const EventEmitter = require('events')
-const Logger = require('../../../../structures/util/Logger')
+import EventEmitter from 'events'
+import { Logger } from '../../../../structures/util/Logger'
 
-module.exports = class PluginExtend extends EventEmitter {
+export class PluginExtend extends EventEmitter {
   constructor({ name, optionsExtend }) {
     super()
     this.args = optionsExtend?.args ?? null
@@ -33,7 +33,7 @@ module.exports = class PluginExtend extends EventEmitter {
 
   // Start function
   // eslint-disable-next-line no-unused-vars
-  start({ options, env, pluginManager, $worker }) {}
+  start({ options, env, pluginManager, $worker }) { }
 
   // this.$classState
   $addClassState({ data }) {

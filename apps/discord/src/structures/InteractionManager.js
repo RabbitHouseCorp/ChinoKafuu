@@ -1,17 +1,17 @@
 /* eslint-disable quotes */
-const { UsagiClient } = require('usagi-http-interaction')
-const { Interaction } = require('eris')
-const { Logger } = require('../structures/util')
-const chalk = require('chalk')
+import chalk from 'chalk'
+import { Interaction } from 'eris'
+import { UsagiClient } from 'usagi-http-interaction'
+import { Logger } from '../structures/util'
 
-module.exports = class InteractionManager extends UsagiClient {
+export class InteractionManager extends UsagiClient {
   constructor(client) {
     super({
       protocol: process.env.INTERACTION_URL.startsWith('wss://') ? 'https://' : 'http://',
       ip: process.env.INTERACTION_URL.replace('wss://', '').replace('ws://', ''),
       secret: process.env.SECRET_INTERACTION,
       publicKey: process.env.PUBLIC_KEY,
-      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null :  parseInt(process.env.INTERACTION_PORT) ,
+      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null : parseInt(process.env.INTERACTION_PORT),
       client: client,
       eventName: 'interactionCreate',
       lengthLatency: 3,

@@ -1,17 +1,19 @@
-const { Manager } = require('@lavacord/eris')
-const LavalinkPlayer = require('./LavalinkPlayer')
-const { Logger } = require('../structures/util')
-const EventEmitter = require('events')
+import { Manager } from '@lavacord/eris'
+import EventEmitter from 'events'
+import { Logger } from '../structures/util'
+import { LavalinkPlayer } from './LavalinkPlayer'
+
 // fallback for test env
 let connect
 try {
-  connect = require('./LavalinkConfig').connect
+  // connect = require('./LavalinkConfig').connect
+  throw Error('')
 } catch (e) {
   Logger.info('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
   connect = []
 }
 
-module.exports = class LavalinkManager extends EventEmitter {
+export class LavalinkManager extends EventEmitter {
   constructor(client) {
     super()
     this.client = client

@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class EmojiInfoCommand extends Command {
+export default class EmojiInfoCommand extends Command {
   constructor() {
     super({
       name: 'emojiinfo',

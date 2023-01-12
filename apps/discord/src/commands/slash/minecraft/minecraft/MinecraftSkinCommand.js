@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../../structures/util')
+import { Command, EmbedBuilder, Emoji } from '../../../../structures/util'
 
-module.exports = class MinecraftSkinCommand extends Command {
+export default class MinecraftSkinCommand extends Command {
   constructor() {
     super({
       name: 'minecraft skin',

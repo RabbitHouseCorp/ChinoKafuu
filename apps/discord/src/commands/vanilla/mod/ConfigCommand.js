@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class ConfigCommand extends Command {
+export default class ConfigCommand extends Command {
   constructor() {
     super({
       name: 'config',

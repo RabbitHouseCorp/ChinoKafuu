@@ -1,9 +1,10 @@
-const chalk = require('chalk')
+import chalk from 'chalk'
+import { isMainThread } from 'worker_threads'
 chalk.level = 8
 
-module.exports = class Logger {
+export class Logger {
   static get processType() {
-    return require('worker_threads').isMainThread
+    return isMainThread
       ? chalk.bgBlue('LOG')
       : chalk.black.bgMagenta(`CLUSTER ${process.env.CLUSTER_ID}`)
   }

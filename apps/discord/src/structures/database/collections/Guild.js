@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 const Guilds = new mongoose.Schema({
   id: { type: String, index: { unique: true } },
   prefix: { type: String, default: process.env.BOT_PREFIX },
@@ -17,4 +17,4 @@ const Guilds = new mongoose.Schema({
   antiflood: { type: Object, default: { enabled: false, messagesLimit: 5 } }
 })
 
-module.exports = mongoose.model('Guilds', Guilds)
+export default mongoose.model('Guilds', Guilds)

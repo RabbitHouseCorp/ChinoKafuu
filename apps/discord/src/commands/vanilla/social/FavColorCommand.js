@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class FavColorCommand extends Command {
+export default class FavColorCommand extends Command {
   constructor() {
     super({
       name: 'favcolor',

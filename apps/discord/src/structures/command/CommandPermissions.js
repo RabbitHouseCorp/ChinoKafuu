@@ -1,4 +1,4 @@
-module.exports = class CommandPermissions {
+export class CommandPermissions {
   constructor(client, member, guild) {
     this.client = client
     this.member = member

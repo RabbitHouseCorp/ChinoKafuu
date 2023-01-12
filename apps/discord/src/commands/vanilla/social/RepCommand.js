@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class RepCommand extends Command {
+export default class RepCommand extends Command {
   constructor() {
     super({
       name: 'rep',

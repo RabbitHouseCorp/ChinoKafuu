@@ -1,9 +1,9 @@
-const { BlacklistUtils, EmbedBuilder, Helper } = require('../util')
-const Logger = require('../util/Logger')
-const CommandPermissions = require('./CommandPermissions')
-const SlashCommandContext = require('./SlashCommandContext')
+import { BlacklistUtils, EmbedBuilder, Helper } from '../util'
+import { Logger } from '../util/Logger'
+import { CommandPermissions } from './CommandPermissions'
+import { SlashCommandContext } from './SlashCommandContext'
 
-module.exports = class SlashRunner {
+export class SlashRunner {
   /**
    *
    * @param client

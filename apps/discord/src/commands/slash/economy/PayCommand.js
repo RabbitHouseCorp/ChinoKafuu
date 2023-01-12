@@ -1,8 +1,8 @@
-const { Command, Button, Emoji } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
+import { CommandBase, CommandOptions } from 'eris'
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Button, Command, Emoji } from '../../../structures/util'
 
-module.exports = class PayCommand extends Command {
+export default class PayCommand extends Command {
   constructor() {
     super({
       name: 'pay',

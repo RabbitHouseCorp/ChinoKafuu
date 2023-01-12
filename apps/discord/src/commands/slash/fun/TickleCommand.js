@@ -1,9 +1,9 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { UsagiAPI } = require('usagiapi')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { UsagiAPI } from 'usagiapi'
+import { CommandBase, CommandOptions } from 'eris'
 const usagi = new UsagiAPI()
 
-module.exports = class TickleCommand extends Command {
+export default class TickleCommand extends Command {
   constructor() {
     super({
       name: 'tickle',

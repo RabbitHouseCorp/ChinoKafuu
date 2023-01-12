@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../structures/util')
+import { Command, EmbedBuilder, Emoji } from '../../../structures/util'
 
-module.exports = class PingCommand extends Command {
+export default class PingCommand extends Command {
   constructor() {
     super({
       name: 'ping',

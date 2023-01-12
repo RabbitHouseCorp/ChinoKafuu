@@ -1,5 +1,5 @@
-const { Command, Logger } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, Logger } from '../../../structures/util'
+import axios from 'axios'
 
 const flags = [
   {
@@ -49,7 +49,7 @@ const flags = [
 
 ]
 
-module.exports = class ProfileCommand extends Command {
+export default class ProfileCommand extends Command {
   constructor() {
     super({
       name: 'profile',

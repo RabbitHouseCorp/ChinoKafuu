@@ -1,7 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { Logger } = require('../../structures/util')
+import { Listener } from '../../structures/events/Listener'
+import { Logger } from '../../structures/util'
 
-module.exports = class ConnectListener extends Listener {
+export default class ConnectListener extends Listener {
   constructor() {
     super()
     this.event = 'connect'

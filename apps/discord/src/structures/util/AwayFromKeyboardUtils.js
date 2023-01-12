@@ -1,4 +1,4 @@
-module.exports = async (client, message, locale) => {
+export const AwayFromKeyboardUtils = async (client, message, locale) => {
   const userData = await client.database.users.findOneByID(message.author.id)
   if (userData.afk) {
     userData.afk = false

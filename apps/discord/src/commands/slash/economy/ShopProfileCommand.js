@@ -1,7 +1,8 @@
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command, Logger } = require('../../../structures/util')
-const { profileInfo } = require('../../../structures/util/Constants')
-const axios = require('axios')
+import axios from 'axios'
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Command, Logger } from '../../../structures/util'
+import { profileInfo } from '../../../structures/util/Constants'
+
 const flags = [
   {
     flag: 1 << 0,
@@ -50,7 +51,7 @@ const flags = [
 
 ]
 
-module.exports = class ShopProfileCommand extends Command {
+export default class ShopProfileCommand extends Command {
   constructor() {
     super({
       name: 'shop profile',
@@ -152,7 +153,7 @@ module.exports = class ShopProfileCommand extends Command {
                 }
               }
 
-              if (!(user.yens > profileInfo[positionProfile].price - 1) || user.yens <= 0) {
+              if (!(user.yens > profileInfo[typeof positionProfile === 'number' ? positionProfile : null].price - 1) || user.yens <= 0) {
                 disabledReason = ctx._locale('commands:shop.profile.enoughYens')
                 disabled = true
               }
@@ -164,7 +165,7 @@ module.exports = class ShopProfileCommand extends Command {
                     type: 2,
                     style: 3,
                     label: 'Buy',
-                    custom_id: profileInfo[position].buttonId,
+                    custom_id: profileInfo[typeof position === 'number' ? position : null].buttonId,
                     disabled: disabled
                   }]
                 }

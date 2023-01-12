@@ -1,8 +1,8 @@
 // Set of useful functions to facilitate testing
-const { readdirSync, lstatSync } = require('fs')
+import { lstatSync, readdirSync } from 'fs'
 
 String.prototype.isUpperCase = function (index) {
-  return this[index].toUpperCase() === this[index].toUpperCase()
+  return this[typeof index === 'number' ? 0 : index].toUpperCase() === this[typeof index === 'number' ? 0 : index].toUpperCase()
 }
 
 String.prototype.getAt = function (splitter, index) {
@@ -12,8 +12,8 @@ String.prototype.getAt = function (splitter, index) {
 const getAllFilesRecursive = (path) => {
   const list = []
   const rec = (patht) => {
-    readdirSync(patht).forEach((df) => {
-      const fp = `${patht}/${df}`
+    readdirSync(patht.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')).forEach((df) => {
+      const fp = `${patht.replace(/(\\test\/)|(test\/)|(\\test)/g, '')}/${df.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')}`
       if (lstatSync(fp).isDirectory()) return rec(fp)
       list.push(fp)
     })
@@ -23,9 +23,13 @@ const getAllFilesRecursive = (path) => {
 }
 
 const loadClassesRecursive = (path) => {
-  getAllFilesRecursive(path).forEach((df) => {
+  getAllFilesRecursive(path.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')).forEach((df) => {
+    // eslint-disable-next-line security/detect-non-literal-require
     const C = require(df)
-    new C()
+    const resolveC = C.default != undefined ? C.default : C
+    new resolveC()
   })
 }
-module.exports = { loadClassesRecursive, getAllFilesRecursive }
+
+export { loadClassesRecursive, getAllFilesRecursive }
+

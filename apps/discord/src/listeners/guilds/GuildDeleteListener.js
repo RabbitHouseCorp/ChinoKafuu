@@ -1,7 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, TopGGUtils, BlacklistUtils } = require('../../structures/util')
+import { Listener } from '../../structures/events/Listener'
+import { BlacklistUtils, EmbedBuilder, TopGGUtils } from '../../structures/util'
 
-module.exports = class GuildDeleteListener extends Listener {
+export default class GuildDeleteListener extends Listener {
   constructor() {
     super()
     this.event = 'guildDelete'

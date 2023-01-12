@@ -1,4 +1,4 @@
-module.exports = class Button {
+export class Button {
   constructor() {
     this.type = 2
     this.emoji = null

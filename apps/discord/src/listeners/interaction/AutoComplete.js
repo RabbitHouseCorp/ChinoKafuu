@@ -1,10 +1,10 @@
 
-const Listener = require('../../structures/events/Listener')
-const ConfigAnimuSearch = require('../../structures/searchCommand/ConfigAnimuSearch')
-const ConfigModSearch = require('../../structures/searchCommand/ConfigModSearch')
-const ConfigReportSearch = require('../../structures/searchCommand/ConfigReportSearch')
+import { Listener } from '../../structures/events/Listener'
+import { ConfigAnimuSearch } from '../../structures/searchCommand/ConfigAnimuSearch'
+import { ConfigModSearch } from '../../structures/searchCommand/ConfigModSearch'
+import { ConfigReportSearch } from '../../structures/searchCommand/ConfigReportSearch'
 
-module.exports = class extends Listener {
+export default class AutoCompleteListener extends Listener {
   constructor() {
     super()
 

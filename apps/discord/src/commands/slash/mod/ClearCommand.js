@@ -1,7 +1,7 @@
-const { Command, Emoji } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { Command, Emoji } from '../../../structures/util'
+import { CommandBase, CommandOptions } from 'eris'
 
-module.exports = class ClearCommand extends Command {
+export default class ClearCommand extends Command {
   constructor() {
     super({
       name: 'clear',

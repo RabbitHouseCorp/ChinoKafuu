@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const NekosLife = require('nekos.life')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import NekosLife from 'nekos.life'
 const NekoClient = new NekosLife()
 
-module.exports = class CatCommand extends Command {
+export default class CatCommand extends Command {
   constructor() {
     super({
       name: 'cat',

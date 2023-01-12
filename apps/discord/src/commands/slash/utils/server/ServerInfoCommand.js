@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, Button, Emoji } = require('../../../../structures/util')
+import { Button, Command, EmbedBuilder, Emoji } from '../../../../structures/util'
 
-module.exports = class ServerInfoCommand extends Command {
+export default class ServerInfoCommand extends Command {
   constructor() {
     super({
       name: 'server info',

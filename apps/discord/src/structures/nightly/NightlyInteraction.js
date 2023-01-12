@@ -1,7 +1,8 @@
-const NightlyDeveloper = require('./Nightly')
-const { Message } = require('eris')
-const InteractionPacket = require('../interactions/InteractionPacket')
-module.exports = class NightlyInteraction extends NightlyDeveloper {
+import { Message } from 'eris';
+import { InteractionPacket } from '../interactions/InteractionPacket';
+import { NightlyDeveloper } from './Nightly';
+
+export class NightlyInteraction extends NightlyDeveloper {
   constructor(message, options) {
     super()
     this.options = options === undefined ? options : {};

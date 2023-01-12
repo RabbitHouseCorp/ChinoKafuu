@@ -1,6 +1,6 @@
-const { Constants } = require('eris')
+import { Constants } from 'eris'
 
-module.exports = class ResultsMechanism {
+export class ResultsMechanism {
   searchChannel_Interaction(search, interaction) {
     let channels = []
 
@@ -16,7 +16,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] === undefined) {
+          if (y[typeof letter === 'string' ? letter : ''] === undefined) {
             wrong = true
             wrong++
           } else {
@@ -75,7 +75,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] === undefined) {
+          if (y[typeof letter === 'string' ? letter : ''] === undefined) {
             wrong = true
             wrong++
           } else {
@@ -141,7 +141,7 @@ module.exports = class ResultsMechanism {
         const letter = y.indexOf(k)
 
         if (!wrong) {
-          if (y[letter] === undefined) {
+          if (y[typeof letter === 'string' ? letter : ''] === undefined) {
             wrong = true
             wrong++
           } else {

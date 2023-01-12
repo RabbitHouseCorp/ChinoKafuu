@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
+import { Command } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class AddEmojiCommand extends Command {
+export default class AddEmojiCommand extends Command {
   constructor() {
     super({
       name: 'addemoji',

@@ -1,7 +1,7 @@
-const LavalinkManager = require('../../../../lavalink/LavalinkManager')
-const PluginExtend = require('../loaders/PluginExtend')
+import { LavalinkManager } from '../../../../lavalink/LavalinkManager'
+import { PluginExtend } from '../loaders/PluginExtend'
 
-module.exports = class LavalinkStore extends PluginExtend {
+export class LavalinkStore extends PluginExtend {
   constructor() {
     super({
       name: 'lavalink',

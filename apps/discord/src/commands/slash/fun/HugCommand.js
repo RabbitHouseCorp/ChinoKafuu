@@ -1,9 +1,10 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { UsagiAPI } = require('usagiapi')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { UsagiAPI } from 'usagiapi'
+import { Command, EmbedBuilder } from '../../../structures/util'
+
 const usagi = new UsagiAPI()
 
-module.exports = class HugCommand extends Command {
+export default class HugCommand extends Command {
   constructor() {
     super({
       name: 'hug',

@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class StopNotifyCommand extends Command {
+export default class StopNotifyCommand extends Command {
   constructor() {
     super({
       name: 'stopnotify',

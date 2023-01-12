@@ -1,1 +1,1 @@
-module.exports = class Module {}
+export class Module {}

@@ -1,6 +1,7 @@
-const Emoji = require('../util/EmotesInstance')
-const CommandInteractions = require('../interactions/CommandInteractions')
-module.exports = class CommandContext {
+import axios from 'axios'
+import { CommandInteractions } from '../interactions/CommandInteractions'
+import { Emoji } from '../util/EmotesInstance'
+export class CommandContext {
   constructor(bot, message, args, db, _locale) {
     this.client = bot
     this.message = message
@@ -149,15 +150,14 @@ module.exports = class CommandContext {
         }
       }
 
-      const axios = require('axios')
       try {
-        if (await axios.get(`https://twemoji.maxcdn.com/2/72x72/${this.toUnicode(args).join('-')}.png`)) {
+        if (await axios.get(`https://twemoji.maxcdn.com/v2/72x72/${this.toUnicode(args).join('-')}.png`)) {
           return {
             animated: false,
             name: args,
             mention: args,
             id: this.toUnicode(args).join('-').toString(0),
-            url: `https://twemoji.maxcdn.com/2/72x72/${this.toUnicode(args).join('-')}.png`
+            url: `https://twemoji.maxcdn.com/v2/72x72/${this.toUnicode(args).join('-')}.png`
           }
         } else {
           return false
@@ -167,6 +167,7 @@ module.exports = class CommandContext {
       }
     }
 
+    // eslint-disable-next-line security/detect-unsafe-regex
     const m = args.match(/<?(?:(a):)?(\w{2,32}):(\d{17,19})?>?/)
     if (!m) return false
     if (m[2] && !m[3]) return false

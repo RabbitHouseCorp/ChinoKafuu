@@ -1,17 +1,18 @@
-const Logger = require('../util/Logger')
-const { resolve, sep } = require('path')
-const Registry = require('../registry/Registry')
-const LanguageModule = require('./LanguageModule')
+import { readFileSync } from 'fs'
+import { resolve, sep } from 'path'
+import { Registry } from '../registry/Registry'
+import { Logger } from '../util/Logger'
+import { LanguageModule } from './LanguageModule'
 const DEFAULT_LANG = 'en-US'
 
-module.exports = class I18NRegistry extends Registry {
-  constructor (path = resolve(__dirname, '..', '..', 'locales')) {
+export class I18NRegistry extends Registry {
+  constructor(path = resolve('src', 'locales')) {
     super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
     this._defaultLang = null
     this.loadAll(this.path)
   }
 
-  registerLanguage (language, path) {
+  registerLanguage(language, path) {
     const existing = this.modules.find(m => m.language === language)
     if (existing) {
       return existing
@@ -21,14 +22,14 @@ module.exports = class I18NRegistry extends Registry {
     return newLanguage
   }
 
-  loadAll (...args) {
+  loadAll(...args) {
     super.loadAll(...args)
   }
 
-  loadModule (path) {
+  loadModule(path) {
     try {
-      delete require.cache[require.resolve(path)]
-      const data = require(path)
+
+      const data = JSON.parse(readFileSync(path))
 
       const [, language, namespace] = path.replace(this.path, '').split(sep)
       const module = this.registerLanguage(language, resolve(this.path, path))
@@ -43,32 +44,32 @@ module.exports = class I18NRegistry extends Registry {
     }
   }
 
-  _locale (languageModule, key, placeholders) {
+  _locale(languageModule, key, placeholders) {
     if (!languageModule || !Object.prototype.hasOwnProperty.call(languageModule.translations, key)) {
       return
     }
 
-    return I18NRegistry.interpolation(languageModule.translations[key], placeholders)
+    return I18NRegistry.interpolation(languageModule.translations[typeof key === 'string' ? key : ''], placeholders)
   }
 
-  get defaultLanguage () {
+  get defaultLanguage() {
     if (!this._defaultLang) {
       this._defaultLang = this.modules.find(m => m.language === DEFAULT_LANG)
     }
     return this._defaultLang
   }
 
-  getT (language) {
+  getT(language) {
     return (key, placeholders) => {
       const languageModule = this.modules.find(m => m.language === language) || this.defaultLanguage
       return this._locale(languageModule, key, placeholders) || this._locale(this.defaultLanguage, key, placeholders) || key
     }
   }
 
-  static interpolation (str, placeholders) {
+  static interpolation(str, placeholders) {
     let parsed = str
     for (const placeholder in placeholders) {
-      parsed = parsed.split(`{{${placeholder}}}`).join(placeholders[placeholder])
+      parsed = parsed.split(`{{${placeholder}}}`).join(placeholders[typeof placeholder === 'string' ? placeholder : ''])
     }
     return parsed
   }

@@ -1,6 +1,6 @@
-const Collector = require('./Collector')
+import { Collector } from './Collector'
 
-class MessageCollector extends Collector {
+export class MessageCollector extends Collector {
   constructor(channel, filter, options = {}) {
     super(filter, options)
 
@@ -33,4 +33,3 @@ class MessageCollector extends Collector {
   }
 }
 
-module.exports = MessageCollector

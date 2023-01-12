@@ -1,8 +1,8 @@
-const Helper = require('../../../structures/util/Helper')
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const axios = require('axios')
+import axios from 'axios'
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { Helper } from '../../../structures/util/Helper'
 
-module.exports = class SetIconCommand extends Command {
+export default class SetIconCommand extends Command {
   constructor() {
     super({
       name: 'seticon',

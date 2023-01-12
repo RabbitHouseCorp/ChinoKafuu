@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class RoleInfoCommand extends Command {
+export default class RoleInfoCommand extends Command {
   constructor() {
     super({
       name: 'roleinfo',

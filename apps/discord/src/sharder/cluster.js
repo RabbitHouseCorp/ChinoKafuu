@@ -1,1 +1,1 @@
-new (require('./cluster/Cluster'))()
+new (import('./cluster/Cluster'))()

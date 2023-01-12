@@ -2,9 +2,11 @@
 //
 /* eslint-disable jest/require-top-level-describe */
 /* eslint-disable jest/prefer-expect-assertions */
-const util = require('./test-utils.disabled.js')
+import {
+  loadClassesRecursive
+} from './test-utils.disabled.js'
 
 test('all listeners can be properly required and initializated', () => {
-  expect(() => util.loadClassesRecursive(`${__dirname}/../src/listeners`))
+  expect(() => loadClassesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/listeners`))
     .not.toThrow()
 })

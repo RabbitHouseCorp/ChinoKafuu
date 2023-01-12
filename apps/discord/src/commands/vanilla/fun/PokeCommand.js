@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { UsagiAPI } = require('usagiapi')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { UsagiAPI } from 'usagiapi'
 const usagi = new UsagiAPI()
 
-module.exports = class PokeCommand extends Command {
+export default class PokeCommand extends Command {
   constructor() {
     super({
       name: 'poke',

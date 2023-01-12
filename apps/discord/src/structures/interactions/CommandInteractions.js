@@ -1,4 +1,4 @@
-module.exports = class CommandInteractions {
+export class CommandInteractions {
   constructor(message, commandContext) {
     this.message = message
     this.ctx = commandContext

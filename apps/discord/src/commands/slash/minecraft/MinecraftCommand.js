@@ -1,7 +1,7 @@
-const Command = require('../../../structures/command/Command')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { Command } from '../../../structures/command/Command'
 
-module.exports = class MinecraftCommand extends Command {
+export default class MinecraftCommand extends Command {
   constructor() {
     super({
       name: 'minecraft-base',

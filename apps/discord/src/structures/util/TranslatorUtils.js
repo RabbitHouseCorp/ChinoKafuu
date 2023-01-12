@@ -1,4 +1,4 @@
-module.exports = function (language) {
+export const TranslatorUtils = function (language) {
   const langs = {
     auto: 'auto',
     af: 'af',
@@ -110,5 +110,5 @@ module.exports = function (language) {
     language = 'en'
   }
 
-  return langs[language]
+  return langs[typeof language == 'string' ? language : '']
 }

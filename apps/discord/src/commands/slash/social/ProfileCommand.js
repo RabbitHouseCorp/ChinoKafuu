@@ -1,6 +1,6 @@
-const { Command, Logger } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandOptions, CommandBase } = require('eris')
+import axios from 'axios'
+import { CommandBase, CommandOptions } from 'eris'
+import { Command, Logger } from '../../../structures/util'
 
 const flags = [
   {
@@ -50,7 +50,7 @@ const flags = [
 
 ]
 
-module.exports = class ProfileCommand extends Command {
+export default class ProfileCommand extends Command {
   constructor() {
     super({
       name: 'profile',

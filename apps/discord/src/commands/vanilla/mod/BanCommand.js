@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class BanCommand extends Command {
+export default class BanCommand extends Command {
   constructor() {
     super({
       name: 'ban',

@@ -1,7 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, Logger } = require('../../structures/util')
+import { Listener } from '../../structures/events/Listener'
+import { EmbedBuilder, Logger } from '../../structures/util'
 
-module.exports = class ShardDisconnectListener extends Listener {
+export default class ShardDisconnectListener extends Listener {
   constructor() {
     super()
     this.event = 'shardDisconnect'

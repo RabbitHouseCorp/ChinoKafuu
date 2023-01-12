@@ -1,7 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder } = require('../../structures/util')
+import { Listener } from '../../structures/events/Listener'
+import { EmbedBuilder } from '../../structures/util'
 
-module.exports = class GuildBanAddListener extends Listener {
+export default class GuildBanAddListener extends Listener {
   constructor() {
     super()
     this.event = 'guildBanAdd'

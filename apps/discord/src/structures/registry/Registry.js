@@ -1,12 +1,12 @@
-const { readdirSync, lstatSync } = require('fs')
-const Logger = require('../../structures/util/Logger')
-const { EventEmitter } = require('events')
-const hound = require('hound')
-const path = require('path')
-const { resolve } = require('path')
+import { EventEmitter } from 'events'
+import { lstatSync, readdirSync } from 'fs'
+import hound from 'hound'
+import { createRequire } from 'node:module'
+import path, { relative, resolve } from 'path'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports = class Registry extends EventEmitter {
-  constructor (options) {
+export class Registry extends EventEmitter {
+  constructor(options) {
     super()
 
     this.path = path.resolve(options.path) || process.exit()
@@ -16,16 +16,19 @@ module.exports = class Registry extends EventEmitter {
     if (this.autoReload) this.startWatcher()
   }
 
-  loadModule (path) {
+  loadModule(path) {
     try {
+      const require = createRequire(resolve(path))
       delete require.cache[require.resolve(path)]
-      const module = new (require(path))()
-      if (this.modules.filter((a) => a.__path === path)[0]) return true
 
-      module.__path = path
-      this.modules.push(module)
+      import('file://' + resolve(relative(process.cwd(), path))).then(({ default: ModuleDefault }) => {
+        const module = new ModuleDefault();
+        if (this.modules.filter((a) => a.__path === path)[0]) return true;
+        module.__path = path;
+        this.modules.push(module);
+        this.emit('load', module);
 
-      this.emit('load', module)
+      })
       return true
     } catch (e) {
       Logger.error(`Error loading ${path}: ${e.stack}`)
@@ -33,7 +36,7 @@ module.exports = class Registry extends EventEmitter {
     }
   }
 
-  loadAll (path) {
+  loadAll(path) {
     readdirSync(path).forEach((file) => {
       const fullpath = resolve(path, file)
       if (lstatSync(fullpath).isDirectory()) {
@@ -43,13 +46,16 @@ module.exports = class Registry extends EventEmitter {
     })
   }
 
-  deleteModule (obj) {
+  deleteModule(obj) {
     this.modules.splice(this.modules.findIndex((a) => a.__path === obj.__path), 1)
     this.emit('removal', obj)
   }
 
-  reloadModule (object, safeReload = true) {
+  reloadModule(object, safeReload = true) {
     try {
+      // "TypeError: Cannot read properties of undefined (reading '__path')"
+      if (object.__path == undefined) return;
+
       const obj = this.modules.filter(a => a.__path === object.__path)[0]
       this.deleteModule(obj)
       if (this.loadModule(obj.__path)) {
@@ -66,11 +72,12 @@ module.exports = class Registry extends EventEmitter {
     }
   }
 
-  reloadAllModules (safeReload = true) {
+  reloadAllModules(safeReload = true) {
     this.modules.forEach((module) => this.reloadModule(module.__path, safeReload))
   }
 
-  startWatcher () {
+  startWatcher() {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     const watcher = hound.watch(this.path)
 
     // eslint-disable-next-line no-unused-vars
@@ -79,11 +86,11 @@ module.exports = class Registry extends EventEmitter {
     watcher.on('delete', (file) => setTimeout(() => this.deleteModule(this.findByFileName(file)), 2000))
   }
 
-  findByProperty (property, value) {
-    return this.modules.filter((a) => a[property] === value)[0]
+  findByProperty(property, value) {
+    return this.modules.filter((a) => a[typeof property === 'string' ? property : null] === value)[0]
   }
 
-  findByFileName (path) {
+  findByFileName(path) {
     return this.modules.filter((a) => a.__path === path)[0]
   }
 }

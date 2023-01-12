@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class RemoveRoleCommand extends Command {
+export default class RemoveRoleCommand extends Command {
   constructor() {
     super({
       name: 'removerole',

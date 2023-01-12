@@ -1,6 +1,6 @@
-const Listener = require('../../structures/events/Listener')
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class VoiceChannelLeaveListener extends Listener {
+export default class VoiceChannelLeaveListener extends Listener {
   constructor() {
     super()
     this.event = 'voiceChannelLeave'

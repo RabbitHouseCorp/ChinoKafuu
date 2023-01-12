@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../../structures/util')
-const axios = require('axios')
+import { Command, EmbedBuilder, Emoji } from '../../../../structures/util'
+import axios from 'axios'
 
-module.exports = class MinecraftQueryCommand extends Command {
+export default class MinecraftQueryCommand extends Command {
   constructor() {
     super({
       name: 'minecraft query',

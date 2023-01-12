@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder, Button, Emoji, version } = require('../../../structures/util')
-const os = require('os')
-const { CommandBase } = require('eris')
+import { CommandBase } from 'eris'
+import os from 'os'
+import { Button, Command, EmbedBuilder, Emoji, version } from '../../../structures/util'
 
-module.exports = class BotInfoCommand extends Command {
+export default class BotInfoCommand extends Command {
   constructor() {
     super({
       name: 'botinfo',
@@ -30,7 +30,7 @@ module.exports = class BotInfoCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')
     embed.setTitle(ctx._locale('commands:botinfo.title'))
-    embed.setDescription(`${ctx._locale('commands:botinfo.extraDescription', { 0: ctx.message.author.mention, 1: Emoji.getEmoji('nodejs').mention, 2: Emoji.getEmoji('eris').mention,  })}\n\u200B`)
+    embed.setDescription(`${ctx._locale('commands:botinfo.extraDescription', { 0: ctx.message.author.mention, 1: Emoji.getEmoji('nodejs').mention, 2: Emoji.getEmoji('eris').mention, })}\n\u200B`)
     embed.setFooter(`${ctx._locale('commands:botinfo.cpuModel')}: ${os.cpus().map(i => i.model)[0]}`)
     embed.setThumbnail(ctx.client.user.avatarURL)
     embed.addField(ctx._locale('commands:botinfo.specs'), description.join('\n'))

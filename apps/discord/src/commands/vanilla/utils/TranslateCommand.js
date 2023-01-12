@@ -1,7 +1,7 @@
-const { Command, TranslatorUtils } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, TranslatorUtils } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class TranslateCommand extends Command {
+export default class TranslateCommand extends Command {
   constructor() {
     super({
       name: 'translate',

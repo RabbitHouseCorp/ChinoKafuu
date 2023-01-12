@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, Button, Emoji } = require('../../../../structures/util')
+import { Button, Command, EmbedBuilder, Emoji } from '../../../../structures/util'
 
-module.exports = class UserAvatarCommand extends Command {
+export default class UserAvatarCommand extends Command {
   constructor() {
     super({
       name: 'user avatar',

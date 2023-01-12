@@ -1,6 +1,6 @@
-const { Api } = require('@top-gg/sdk')
+import { Api } from '@top-gg/sdk'
 
-module.exports = class TopGGUtils extends Api {
+export class TopGGUtils extends Api {
   constructor() {
     super(process.env.TOPGG_TOKEN)
     this.token = process.env.TOPGG_TOKEN ? process.env.TOPGG_TOKEN : null
