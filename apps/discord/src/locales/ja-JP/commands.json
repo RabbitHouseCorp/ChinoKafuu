@@ -46,9 +46,9 @@
     "noReason": "no reason specified",
     "successfullySent": "report successfully sent.",
     "embed": {
-      "memberName": "Username",
+      "memberName": "ユーザー名",
       "authorName": "Who reported",
-      "channel": "Channel",
+      "channel": "チャンネル",
       "reason": "Reason"
     }
   },
@@ -90,8 +90,8 @@
     "title": "`Information about #{{0}}`",
     "noTopic": "This channel doesn't have a topic.",
     "mention": "Channel Mention",
-    "channelID": "Channel ID",
-    "guild": "Guild",
+    "channelID": "チャネルID",
+    "guild": "サーバ",
     "category": "Category",
     "createdAt": "Created At"
   },
@@ -147,7 +147,7 @@
     "commandsLoaded": "I have {{0}} public commands loaded.",
     "additionalLinks": {
       "embedTitle": "Additional Links",
-      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
@@ -173,7 +173,7 @@
   },
   "baninfo": {
     "title": "Ban information",
-    "memberName": "User banned",
+    "memberName": "ユーザーがアク禁",
     "reason": "Reason",
     "unban": "Click here to unban this user.",
     "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
@@ -240,7 +240,7 @@
     "roleMention": "Role Mention",
     "roleID": "Role ID",
     "roleColor": "Role Color",
-    "roleGuild": "Guild",
+    "roleGuild": "サーバ",
     "roleHoist": "Separate Category",
     "roleMentionable": "Mentionable",
     "roleManaged": "Integration",
@@ -250,7 +250,7 @@
   "userinfo": {
     "description": "Shows some information about an user.",
     "username": "User Tag",
-    "userid": "User ID",
+    "userid": "ユーザーID",
     "createdAt": "Account Created",
     "joinedAt": "User Joined At",
     "highRole": "Highest role",
@@ -350,7 +350,7 @@
   },
   "invite": {
     "addMeInYourGuild": "Add me in your guild",
-    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
     "description": "Shows how you can add me in your server."
   },
   "botinfo": {
@@ -383,25 +383,25 @@
     "description": "Shows a Minecraft player's skin."
   },
   "mcquery": {
-    "description": "Show a Minecraft server info",
+    "description": "Minecraftサーバーのインフォを表示します。",
     "version": "Version",
     "serverOffline": "the server `{{0}}` is offline or doesn't exist."
   },
   "dance": {
     "danced": "{{0}} danced with {{1}}",
-    "description": "Dance with your friend."
+    "description": "友達と踊ります。"
   },
   "hug": {
     "huged": "{{0}} gave a very warm hug in {{1}}",
     "description": "Hug a friend and make them happy."
   },
   "pat": {
-    "pated": "{{0}} pated {{1}}",
-    "description": "Pat, pat, pat me, please! Give a pat to your friend."
+    "pated": "{{0}} が {{1}} をなでしました",
+    "description": "なで、なで、なでお願いします。友達をなでくれ。"
   },
   "poke": {
-    "poked": "{{0}} poked {{1}}",
-    "description": "Poke someone on your server."
+    "poked": "{{0}} が {{1}} つついだしました",
+    "description": "サーバーに誰かをつついます。"
   },
   "ping": {
     "totalShard": "Total shards: {{totalShard}}",
@@ -416,16 +416,16 @@
     "description": "Just a test command. Use it to check my ping."
   },
   "slap": {
-    "slaped": "{{0}} slapped on {{1}}",
+    "slaped": "{{0}} が {{1}} をぱんぱんしました。",
     "description": "Slap someone on your server."
   },
   "tickle": {
-    "tickle": "{{0}} tickled on {{1}}",
+    "tickle": "{{0}} が {{1}} をくすぐりました。",
     "description": "Hahahaha, it tickles! Make it stop! Tickle someone on your server."
   },
   "kiss": {
     "kissed": "{{author}} kissed {{member}}",
-    "unable": "uh... you can't kiss yourself.",
+    "unable": "自分をキスはできないだよ!",
     "description": "Kiss your true love (or not)."
   },
   "yens": {
@@ -434,32 +434,32 @@
     "description": "Shows you current balance or someone else's balance."
   },
   "anime": {
-    "synopsis": "Synopsis",
-    "animeName": "Anime name",
-    "type": "Type",
-    "episodes": "Episodes",
-    "rating": "Rating",
-    "aired": "Aired",
-    "score": "Score",
-    "scoreStats": "Score stats",
+    "synopsis": "あらすじ",
+    "animeName": "アニメ名",
+    "type": "タイプ",
+    "episodes": "エピソード",
+    "rating": "評価",
+    "aired": "放映した",
+    "score": "スコア",
+    "scoreStats": "スコアのステータス",
     "duration": "Episodes duration",
-    "ranked": "Ranked",
-    "popularity": "Popularity",
-    "genres": "Genres",
+    "ranked": "ランク",
+    "popularity": "人気",
+    "genres": "ジャンル",
     "invalidAnime": "enter the name of the desired anime",
     "animeNotFound": "I didn't find any anime with the name like `{{0}}`.",
     "description": "Shows some information about an anime."
   },
   "manga": {
     "mangaNotFound": "I didn't find any manga with the name matching `{{0}}`.",
-    "type": "Type",
-    "status": "Status",
-    "vols": "Volumes",
+    "type": "タイプ",
+    "status": "ステータス",
+    "vols": "刊行号",
     "chapters": "Chapters",
-    "score": "Score",
-    "aired": "Aired",
-    "genres": "Genres",
-    "characters": "Characters",
+    "score": "スコア",
+    "aired": "放映した",
+    "genres": "ジャンル",
+    "characters": "キャラクター",
     "description": "Shows some information about an manga."
   },
   "pay": {
@@ -495,7 +495,7 @@
     "error": "something terrible happened while I tried to add your emoji. Check the URL and also check if its file format is either png, jpg, jpeg, or gif."
   },
   "addrole": {
-    "description": "Adds a role to a guild member",
+    "description": "ギルドメンバーにロールを追加",
     "roleNotFound": "I couldn't find any role matching {{name}}",
     "success": "successfully added the role",
     "higher": "I couldn't add this role because it is, probably, above my highest one. Check the roles and try again."
@@ -508,8 +508,8 @@
   },
   "chat": {
     "description": "Locks the chat, updating the `Send Messages` permissions for the `@everyone` role",
-    "locked": "got it, channel locked",
-    "unlocked": "got it, channel unlocked"
+    "locked": "わかったよ、チャネルロックする!",
+    "unlocked": "わかったよ、チャネルアンロックする！"
   },
   "clear": {
     "description": "Clears messages in this channel. If specified an user, it clears messages from that user",
@@ -546,7 +546,7 @@
   },
   "choose": {
     "description": "Makes me choose something for you (Use `,` to separate)",
-    "chosen": "I choose `{{chosen}}` 💁‍♀️"
+    "chosen": "あたしが`{{chosen}}`を選び💁‍♀️"
   },
   "avatar": {
     "descripton": "Shows your avatar or someone else's.",
