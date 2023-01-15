@@ -1,15 +1,15 @@
 {
   "permissions": {
-    "permissionUserRequired": "Para usar este comando debes tener los siguientes permisos:{{0}}",
-    "permissionBotRequired": "No puedo usar este comando si no tengo los siguientes permisos: {{0}}",
+    "permissionUserRequired": "Debes tener los siguientes permisos para usar este comando: {{0}}.",
+    "permissionBotRequired": "Debo tener los siguientes permisos para usar este comando: {{0}}.",
     "title": "Permisos"
   },
-  "onMention": "<:chino_rawr:751215250245943318> **|** Hola , {{0}}.  Mi prefix es `{{1}}`. Si deseas saber de lo que puedo hacer puedes usar  `{{1}}help`.",
+  "onMention": "<:chino_rawr:751215250245943318> **|** Hola, {{0}}. Mi prefijo es `{{1}}`. Si quieres ver lo que puedo hacer, usa `{{1}}help`.",
   "missingBotPermission": "No tengo el permiso {{perm}}. Verifica mis permisos/roles e inténtalo de nuevo.",
   "missingUserPermission": "no tienes el permiso {{perm}}. No puedes ejecutar este comando.",
   "missingBotPermissionOnChannel": "Hey {{0}} no tengo el permiso {{1}} en {{2}}. Por favor, comprueba mis permisos e inténtalo de nuevo.",
   "invalidUser": "No puedo encontrar a esta persona. ¿Estás seguro de que este usuario existe?",
-  "invalidRole": "No puedo encontrar este rol. ¿Estás seguro de que este rol existe en este servidor?",
+  "invalidRole": "No puedo encontrar este rol. ¿Estás seguro de que este rol existe en este gremio?",
   "invalidEmoji": "Emoji no encontrado ¿estás seguro que este emoji es de este servidor?",
   "noReason": "Sin razón",
   "clickHere": "Clic aquí",
@@ -19,7 +19,7 @@
     "kicked": "{{0}} | Expulsado",
     "softBan": "{{0}} | Baneado levemente",
     "muted": "{{0}} | Silenciado",
-    "unmuted": "{{0}} | Des-Muteado",
+    "unmuted": "{{0}} | Des-silenciado",
     "embed": {
       "memberName": "Nombre de usuario",
       "memberID": "ID de Usuario",
@@ -27,7 +27,7 @@
       "reason": "Razón"
     },
     "reason": "Castigado por: {{0}} - Razón: {{1}}",
-    "bigReason": "debes poner una razón más corta, esta razón es muy larga para mí.",
+    "bigReason": "usted debe poner una razón más corta, esta razón es muy grande para mí.",
     "selfPunishment": "lo siento, pero como no puedes castigarte a ti mismo en Discord normal, no te puedes castigar a través de mí.",
     "ownerPunish": "¿has perdido la cabeza? No puedes castigar a esta persona, es el dueño de este servidor.",
     "error": "No he podido castigar a esa persona. Quizá sus roles son más altos que los míos. Compruébalo y prueba de nuevo."
@@ -37,17 +37,17 @@
   "aliases": "Alias",
   "addedToGuild": {
     "thanks": "Gracias por añadirme",
-    "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión**, **música** y otras **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
+    "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",
     "guildSaved": "¡Se ha guardado el servidor {{0}} correctamente a la base de datos!"
   },
   "noAliases": "Este comando no tiene ningún alias.",
   "voice": {
     "authorAreNotInVoiceChannel": "debe estar en un canal de voz, pero no lo está.",
-    "playerAlreadyPlaying": "la pista ya se está reproduciendo.",
+    "playerAlreadyPlaying": "la radio ya está tocando en mí.",
     "clientAreNotInVoiceChannel": "No estoy en un canal de voz en este momento, usa `/animu play`.",
     "playerNotFound": "No estoy en un canal de voz en este momento, usa `/animu play`.",
     "maxVolume": "¡tranquilo! El volumen máximo permitido es `100`.",
-    "minVolume": "¡tranquilo! El volumen mínimo permitido es `5`."
+    "minVolume": "¡tranquilo! El volumen máximo permitido es `5`."
   },
   "boolean": {
     "true": "Sí",
@@ -59,13 +59,13 @@
     "reason": "Razón"
   },
   "cooldown": "por favor, ¡espera más `{{0}}` segundos para ejecutar este comando de nuevo!",
-  "cooldownLowThanZero": "alguno",
+  "cooldownLowThanZero": "algunos",
   "disabledCommand": "lo siento, pero este comando tiene algunos problemas y está desactivado por un tiempo\n**Razón:** `{{0}}`",
   "blockedChannel": "no puedes usar comandos aquí, ve a {{0}} e inténtalo de nuevo.",
   "migrate": {
-    "migrateTitle": "¡Los comandos de slash están aquí!",
+    "migrateTitle": "¡Los comandos de barra están aquí!",
     "migrateToSlashCommand": "¡Hola! Después de enero de 2022 sólo responderé con comandos de barra diagonal, por favor, si quieres continuar usándome, luego vuelva a agregarme haciendo clic [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566&guild_id={{1}}), no necesitas expulsarme del servidor, simplemente haz clic en la url. Gracias! Se deseas dejar de recebir este mensaje, escribe `{{2}}stopnotify`. <a:chino_petpet:760564885280784405>",
-    "disabledTitle": "Los comandos prefix están obsoletos",
+    "disabledTitle": "Los comandos normales están obsoletos",
     "disabledToSlashCommands": "Es hora de decir adiós a los comandos normales, ahora sólo está disponible el comando de barra diagonal. Ahora mismo, este comando está obsoleto, pero puedes usarme normalmente usando los comandos de barra diagonal, escribe `/help` para ver mi lista de comandos.",
     "howToUseTitle": "¿Cómo se usa?",
     "howToUseSlash": "1.) Para los antiguos usuarios que no me hayan reinvitado a este servidor, podéis reinvitarme clickando [aquí](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands&guild_id={{1}}), es importante que os aseguréis de que ya me habéis reinvitado.\n2.) El usuario necesita tener el permiso de `Use Application Commands` para usar mis comandos.\n3.) Si no puedes ver los comandos de barra, asegúrate de haber activado `Configuración del usuario -> Texto e imágenes -> Usa comandos de barra diagonal y previsualiza emojis, menciones y sintaxis Markdown a medida que escribes.`",
