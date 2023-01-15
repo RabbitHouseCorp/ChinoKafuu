@@ -6,6 +6,7 @@ const RESTART_APPLICATION = 5 * 1000
 const START_APPLICATION = 600
 const HOT_RELOAD = 500
 
+
 const sleep = async (time) => new Promise((resolved) => setTimeout(resolved, time))
 const notReturn = async () => new Promise((resolved) => resolved())
 const cannotRunApplication = (node) => {

@@ -14,7 +14,9 @@ await import('./src/tools/JSONTools')
 await import('./src/tools/Exception')
 await import('./src/tools/StringBuilder')
 
-dotenv.config()
+dotenv.config({
+  path: '../../.env'
+})
 BUILD_INFO.commit_log()
 
 class StateApplication {

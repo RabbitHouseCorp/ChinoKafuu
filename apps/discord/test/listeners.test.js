@@ -4,7 +4,7 @@
 /* eslint-disable jest/prefer-expect-assertions */
 import {
   loadClassesRecursive
-} from './test-utils.disabled.js'
+} from './test-utils'
 
 test('all listeners can be properly required and initializated', () => {
   expect(() => loadClassesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/listeners`))

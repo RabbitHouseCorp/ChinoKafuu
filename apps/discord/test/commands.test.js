@@ -3,7 +3,7 @@
 /* eslint-disable jest/no-conditional-in-test */
 /* eslint-disable jest/require-top-level-describe */
 /* eslint-disable jest/prefer-expect-assertions */
-import * as util from './test-utils.disabled'
+import * as util from './test-utils'
 
 test('all commands can be properly required and initializated', () => {
   expect(() => util.loadClassesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/commands`))

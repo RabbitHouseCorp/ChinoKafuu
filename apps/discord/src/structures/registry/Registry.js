@@ -54,7 +54,7 @@ export class Registry extends EventEmitter {
   reloadModule(object, safeReload = true) {
     try {
       // "TypeError: Cannot read properties of undefined (reading '__path')"
-      if (object.__path == undefined) return;
+      if (object == undefined && object?.__path == undefined) return;
 
       const obj = this.modules.filter(a => a.__path === object.__path)[0]
       this.deleteModule(obj)
