@@ -11,7 +11,7 @@ export const Emoji = {
       }
     }
 
-    const emojiSplit = emotes[typeof emoji === 'string' ? emoji : '🐛'].replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')
+    const emojiSplit = emotes[typeof emoji === 'string' ? emoji : '🐛'].replace(/(<:)/g, '').replace(/(<a:)/g, '').replace(/(>)/g, '').trim().split(':')
     const objectEmoji = {
       name: emojiSplit[0],
       id: (emojiSplit[1] !== undefined) ? emojiSplit[1] : emojiSplit[0],
