@@ -1,5 +1,5 @@
-import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
+import { requestTokamak } from '../../../lib'
 import { Command, Logger } from '../../../structures/util'
 
 const flags = [
@@ -108,21 +108,20 @@ export default class ProfileCommand extends Command {
       badges: arrayBadges
     }
     if (cache.check(member.id, cache, data)) {
-      axios({
-        url: `${process.env.TOKAMAK_URL}/render/profile?w=600&h=400&type=thumb`,
-        method: 'post',
-        data: data,
-        responseType: 'arraybuffer'
-      }).then(profile => {
-        Logger.debug(`profile (${member.id}) request took ${Date.now() - a}ms to receive.`)
-        cache.setCache(member.id, cache, data, profile.data)
-        ctx.send('', {
-          file: {
-            file: profile.data,
-            name: 'profile.png'
-          }
-        })
+      requestTokamak({
+        action: 'renderProfile',
+        profileStruct: data
       })
+        .then((profile) => {
+          Logger.debug(`profile (${member.id}) request took ${Date.now() - a}ms to receive.`)
+          cache.setCache(member.id, cache, data, profile.buffer)
+          ctx.send('', {
+            file: {
+              file: profile.buffer,
+              name: 'profile.png'
+            }
+          })
+        })
     } else {
       ctx.send('', {
         file: {
