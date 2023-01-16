@@ -1,6 +1,5 @@
 import axios from 'axios'
 import { Buffer } from 'node:buffer'
-import zlib from 'node:zlib'
 
 const Actions = ['renderProfile', 'renderLaranjo', 'renderLicense', 'renderRize', 'version']
 const defineObject = (data = {}) => ({
@@ -70,24 +69,16 @@ const Endpoints = (url) => ({
 
 // Resolve image type.
 const defineImageBufferTokamak = (contentType = '', buffer = {}) => {
-  if (contentType === 'imageCompressed') {
-    const imageBuffer = zlib.deflateSync(buffer)
-
-    return defineObject({
-      buffer: imageBuffer,
-      byteLength: imageBuffer.byteLength,
-      length: imageBuffer.length
-    })
-  }
-
   return defineObject({
     buffer: buffer,
     byteLength: buffer.byteLength,
-    length: buffer.length
+    length: buffer.length,
+    contentType
   })
 }
 
 const renderProfile = async (options = optionsTokamak) => {
+  console.log(JSON.stringify(options))
   return new Promise((resolve, rejects) => {
     axios({
       url: Endpoints(options.tokamakUrl).render,
@@ -97,7 +88,7 @@ const renderProfile = async (options = optionsTokamak) => {
     })
       .then((request) => {
         const time = Date.now()
-        const buffer = defineImageBufferTokamak(request.headers.getContentType, request.data)
+        const buffer = defineImageBufferTokamak(request.headers.getContentType(), request.data)
         resolve(defineMetadata({
           timeRequest: time - Date.now(),
           ...buffer,
@@ -118,7 +109,7 @@ const renderLaranjo = async (options = optionsTokamak) => {
     })
       .then((request) => {
         const time = Date.now()
-        const buffer = defineImageBufferTokamak(request.headers.getContentType, request.data)
+        const buffer = defineImageBufferTokamak(request.headers.getContentType(), request.data)
         resolve(defineMetadata({
           timeRequest: time - Date.now(),
           ...buffer,
@@ -139,7 +130,7 @@ const renderLicense = async (options = optionsTokamak) => {
     })
       .then((request) => {
         const time = Date.now()
-        const buffer = defineImageBufferTokamak(request.headers.getContentType, request.data)
+        const buffer = defineImageBufferTokamak(request.headers.getContentType(), request.data)
         resolve(defineMetadata({
           timeRequest: time - Date.now(),
           ...buffer,
@@ -160,7 +151,7 @@ const renderRize = async (options = optionsTokamak) => {
     })
       .then((request) => {
         const time = Date.now()
-        const buffer = defineImageBufferTokamak(request.headers.getContentType, request.data)
+        const buffer = defineImageBufferTokamak(request.headers.getContentType(), request.data)
         resolve(defineMetadata({
           timeRequest: time - Date.now(),
           ...buffer,
