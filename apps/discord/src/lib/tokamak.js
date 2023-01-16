@@ -78,7 +78,6 @@ const defineImageBufferTokamak = (contentType = '', buffer = {}) => {
 }
 
 const renderProfile = async (options = optionsTokamak) => {
-  console.log(JSON.stringify(options))
   return new Promise((resolve, rejects) => {
     axios({
       url: Endpoints(options.tokamakUrl).render,
