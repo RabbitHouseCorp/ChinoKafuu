@@ -6,10 +6,9 @@ on:
 
 jobs:
   ci:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
         node: [16.x, 18.x]
     steps:
       - name: Checkout 📝
@@ -27,6 +26,7 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+          cache: 'yarn'
         
       - name: Install dependencies ⚙
         run: yarn install
@@ -36,3 +36,5 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
+        with:
+          cache: 'test'
