@@ -16,7 +16,6 @@ const load = (path = '') => {
     file = readFileSync(path)
     loaded = true
   } catch (err) {
-    console.log(path)
     if (err.message.startsWith('ENOENT: no such file or directory') && detectFileExample) {
       Logger.info('The Lavalink configuration was not loaded because the file called "LavalinkConfig.json" in the "src/lavalink" directory was not created or could not be found.')
     } else {
@@ -50,7 +49,7 @@ const loadSettings = () => {
   } else {
     return undefined
   }
-  console.log(loadConfigurationLavalink.file)
+
   return loadConfigurationLavalink.file
 }
 
