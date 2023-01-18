@@ -82,6 +82,7 @@ export class NodeApplication extends EventEmitter {
             serialization: 'json',
           })
 
+       
         this.process = application
 
         application.on('spawn', () => resolved())

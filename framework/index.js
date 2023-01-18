@@ -6,7 +6,7 @@ import { NodeLinkResolver } from './NodeLinkResolver.js'
 import { resolveDir } from './utils/resolveDir.js'
 
 // Clear chat :)
-if (process.argv.includes('--auto-clear')) {
+if (process.argv.includes('--r')) {
   process.stdout.write(`\x1Bc`)
 }
 

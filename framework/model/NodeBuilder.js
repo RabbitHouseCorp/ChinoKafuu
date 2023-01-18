@@ -4,9 +4,6 @@
  */
 export const ModelNodeBuilder = () => ({
   developer: false,
-  ipc: false,
-  clustering: false,
-  smart: false,
   debug: false,
   typescript: false,
   typescriptArgs: ['-D'],
