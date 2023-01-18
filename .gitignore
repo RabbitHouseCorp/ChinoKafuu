@@ -2,7 +2,7 @@ revolt/build/
 build/
 node_modules/
 config.json
-/discord/src/lavalink/LavalinkConfig.json
+LavalinkConfig.json
 *.env
 .env
 .idea

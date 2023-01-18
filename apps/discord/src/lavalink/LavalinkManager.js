@@ -1,17 +1,60 @@
 import { Manager } from '@lavacord/eris'
 import EventEmitter from 'events'
+import { readFileSync } from 'fs'
+import { resolve } from 'path'
 import { Logger } from '../structures/util'
 import { LavalinkPlayer } from './LavalinkPlayer'
 
-// fallback for test env
-let connect
-try {
-  // connect = require('./LavalinkConfig').connect
-  throw Error('')
-} catch (e) {
-  Logger.info('Couldn\'t find LavalinkConfig.json. Music support will be unavaliable.')
-  connect = []
+const load = (path = '') => {
+  let file = null
+  let detectFileExample = false
+  let loaded = false
+  if (path.endsWith('.example')) {
+    detectFileExample = true
+  }
+  try {
+    file = readFileSync(path)
+    loaded = true
+  } catch (err) {
+    console.log(path)
+    if (err.message.startsWith('ENOENT: no such file or directory') && detectFileExample) {
+      Logger.info('The Lavalink configuration was not loaded because the file called "LavalinkConfig.json" in the "src/lavalink" directory was not created or could not be found.')
+    } else {
+      loaded = false
+      if (!detectFileExample) {
+        Logger.error(err)
+      }
+
+    }
+  }
+
+  return {
+    loaded,
+    detectFileExample,
+    file: file == null ? null : [...JSON.parse(file).connect]
+  }
 }
+// fallback for test env
+const loadSettings = () => {
+  const pathLavalinkConfig = resolve('src', 'lavalink', 'LavalinkConfig.json')
+  const pathLavalinkConfigExample = resolve('src', 'lavalink', 'LavalinkConfig.json.example')
+  const loadConfigurationLavalink = load(pathLavalinkConfig)
+  const loadConfigurationLavalinkExample = load(pathLavalinkConfigExample)
+
+  if (loadConfigurationLavalink.loaded && loadConfigurationLavalinkExample.loaded) {
+    Logger.warning('So the directory doesn\'t get messed up you can remove `LavalinkConfig.json.example`')
+  }
+
+  if (loadConfigurationLavalink.loaded) {
+    Logger.info(`The directory of ${pathLavalinkConfig} successfully loaded Lavalink configuration!`)
+  } else {
+    return undefined
+  }
+  console.log(loadConfigurationLavalink.file)
+  return loadConfigurationLavalink.file
+}
+
+const connect = loadSettings()
 
 export class LavalinkManager extends EventEmitter {
   constructor(client) {
