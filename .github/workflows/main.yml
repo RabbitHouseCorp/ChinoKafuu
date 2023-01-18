@@ -36,5 +36,3 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
-        with:
-          cache: 'test'
