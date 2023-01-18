@@ -1,36 +1,36 @@
 {
   "userbanner": {
-    "description": "Gets the banner of an user.",
-    "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{0}}"
+    "description": "獲取使用者的橫幅。",
+    "download": "在瀏覽器中打開橫幅。",
+    "userBanner": "{{0}} 的橫幅"
   },
   "inventory": {
     "background": {},
-    "confirmationButton": "Yes, I want",
-    "denyButton": "No, I don't want",
-    "loadingPreview": "Loading profile preview please wait a while.",
-    "noDescription": "No description",
-    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
+    "confirmationButton": "我想",
+    "denyButton": "我不想",
+    "loadingPreview": "正在加載配置文件預覽，請稍候。",
+    "noDescription": "沒有說明",
+    "notAllowed": "看起來你不是執行這個指令的人，你不能這樣做。",
     "profile": {
-      "areYouSure": "Are you sure you want to select this profile? If so, then click in `Yes, I want` to confirm, if not, then click in `No, I don't want`",
-      "cancelled": "Okay. The selection was successfully canceled!",
-      "selected": "Great! I setted the profile `{{0}}` of your inventory as your new profile! Now try use /profile",
-      "wantUseThisProfile": "I want use this profile!",
-      "welcome": "Hello! Welcome to your profile inventory. To select the profile change, just click on the menu and select only one.",
-      "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date."
+      "areYouSure": "您確定要選擇此配置文件嗎？如果是，則點擊“是”確認，如果不是，則點擊“否”",
+      "cancelled": "好的。選擇已成功取消！",
+      "selected": "好的！我將您庫存的配置文件“{{0}}”設置為您的新配置文件！現在嘗試使用 /profile",
+      "wantUseThisProfile": "我想使用這個配置文件！",
+      "welcome": "你好！歡迎使用您的個人資料庫存。要選擇配置文件更改，只需點擊選單並僅選擇一項。",
+      "profileUnavailable": "此配置文件尚不可用，也許在將來的更新中會添加它。加入我的幫助伺服器以保持最新狀態。"
     }
   },
   "shop": {
     "background": {},
-    "buttonDisabled": "**Warning**: The button is disabled for this reason ->",
-    "noIDont": "No, I don't want this profile",
-    "notAllowed": "looks like that you are not the person who executed this command, you can't do this.",
-    "noDescription": "No description",
-    "price": "Price",
+    "buttonDisabled": "**警告**：由於這個原因，該按鈕被禁用 ->",
+    "noIDont": "不，我不想要此個人資料",
+    "notAllowed": "看起來你不是執行這個指令的人，你不能這樣做。",
+    "noDescription": "沒有說明",
+    "price": "價格",
     "profile": {
-      "alreadyHaveThisProfile": "It seems you already have this profile.",
-      "enoughYens": "It seems you don't have enough yens to buy this profile.",
-      "loadingPreview": "Loading the preview, please wait for a moment.",
+      "alreadyHaveThisProfile": "您似乎已經擁有此個人資料。",
+      "enoughYens": "您似乎沒有足夠的yens購買此個人資料。",
+      "loadingPreview": "正在加載預覽，請稍等。",
       "problemFound": "I detected a problem running profile preview, do you want to try again?\nIf the problem persists you can report this bug to my support.",
       "profileUnavailable": "This profile isn't available yet, maybe in a future update it will be added. Join my support server to stay up to date.",
       "purchaseCancelled": "Right! Purchase successfully cancelled!",
@@ -46,23 +46,23 @@
     "noReason": "no reason specified",
     "successfullySent": "report successfully sent.",
     "embed": {
-      "memberName": "Username",
-      "authorName": "Who reported",
-      "channel": "Channel",
-      "reason": "Reason"
+      "memberName": "用戶名稱",
+      "authorName": "誰舉報",
+      "channel": "頻道",
+      "reason": "原因"
     }
   },
   "jankenpon": {
-    "description": "Plays jankenpon and win or lose yens.",
-    "optionNotFound": "you can only choose between `rock`, `paper` or `scissors`.",
+    "description": "玩猜拳贏或輸yens。",
+    "optionNotFound": "您只能在“剪刀”、“布”或“剪刀”之間進行選擇。",
     "valueNotInputed": "you didn't provide any value to bet.",
     "tie": "It's a draw! Nobody won and nobody lost.",
     "youWin": "you picked `{{0}}` and I picked `{{1}}`. Congratulations, you won. Here's your `{{2}}` yens.",
     "youLose": "you picked `{{0}}` and I picked `{{1}}`, I won! Charging you `{{2}}` yens, sweetheart",
     "choice": {
-      "rock": "rock",
-      "paper": "paper",
-      "scissors": "scissors"
+      "rock": "石頭",
+      "paper": "布",
+      "scissors": "剪刀"
     }
   },
   "daily": {
@@ -89,11 +89,11 @@
   "channelinfo": {
     "title": "`Information about #{{0}}`",
     "noTopic": "This channel doesn't have a topic.",
-    "mention": "Channel Mention",
-    "channelID": "Channel ID",
-    "guild": "Guild",
-    "category": "Category",
-    "createdAt": "Created At"
+    "mention": "提及頻道",
+    "channelID": "頻道 ID",
+    "guild": "伺服器",
+    "category": "類別",
+    "createdAt": "創建于"
   },
   "favcolor": {
     "description": "Changes your profile color to your favorite color.",
@@ -110,7 +110,7 @@
     "embed": {
       "title": "Emoji information",
       "name": "Emoji name",
-      "id": "Emoji ID",
+      "id": "表情符號 ID",
       "mention": "Emoji mention",
       "url": "Download"
     }
@@ -133,15 +133,15 @@
     "rejectedRequest": "I think the oracle of love didn't let you separate. I'm glad you guys got along."
   },
   "help": {
-    "commandList": "Command list",
+    "commandList": "指令列表",
     "explain": "If you want know more about a command, just use `{{0}}help [command]` and I will explain how use the command.",
-    "economy": "Economy ({{0}})",
-    "fun": "Fun ({{0}})",
+    "economy": "經濟（{{0}}）",
+    "fun": "娛樂（{{0}}）",
     "image": "Image Manipulation ({{0}})",
-    "minecraft": "Minecraft ({{0}})",
+    "minecraft": "麥塊（{{0}}）",
     "misc": "Miscellaneous ({{0}})",
     "mod": "Moderation ({{0}})",
-    "social": "Social ({{0}})",
+    "social": "社交（{{0}}）",
     "utils": "Utils ({{0}})",
     "description": "Show my command list to you.",
     "commandsLoaded": "I have {{0}} public commands loaded.",
@@ -173,8 +173,8 @@
   },
   "baninfo": {
     "title": "Ban information",
-    "memberName": "User banned",
-    "reason": "Reason",
+    "memberName": "已封鎖用戶",
+    "reason": "原因",
     "unban": "Click here to unban this user.",
     "onlyWhoExecuted": "You can't do this action, only who executed the command can unban the user.",
     "description": "Check the ban information about an user"
