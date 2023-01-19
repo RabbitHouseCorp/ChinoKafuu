@@ -7,7 +7,7 @@
   "license": "AGPL-3.0",
   "repository": "https://github.com/RabbitHouseCorp/ChinoKafuu.git",
   "scripts": {
-    "installPackage": "node ./framework/index.js --repository @chinokafuu/discord --no-ts",
+    "installPackage": "node ./framework/index.js --repository @chinokafuu/discord --no-ts --installPackage",
     "test": "node ./framework/nodeTest.js --no-ts",
     "start": "node ./framework/index.js --no-ts",
     "dev": "node ./framework/index.js --dev --no-ts",
@@ -19,6 +19,8 @@
   },
   "type": "module",
   "dependencies": {
-    "chalk": "^5.2.0"
+    "chalk": "^5.2.0",
+    "dotenv": "^16.0.3"
   }
+
 }

@@ -3,10 +3,13 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { LoggerSystem } from './logger/defineLogger.js'
 import { NodeLinkResolver } from './NodeLinkResolver.js'
+import { executeCommand } from './utils/helperCommand.js'
 import { resolveDir } from './utils/resolveDir.js'
 
+
+
 // Clear chat :)
-if (process.argv.includes('--r')) {
+if (process.argv.includes('--clear-log')) {
   process.stdout.write(`\x1Bc`)
 }
 
@@ -35,12 +38,15 @@ const startFramework = async () => {
     filtered = link.nodes.filter((node) => node.settings.typescript == false)
   }
 
-  
+
   for (const node of filtered) {
     await node.resolution.start()
   }
 }
 
+if (!executeCommand()) {
+  startFramework()
+}
 
-startFramework()
+
 

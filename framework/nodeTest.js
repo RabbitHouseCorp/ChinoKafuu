@@ -3,10 +3,11 @@ import { readFileSync } from 'fs'
 import { resolve } from 'path'
 import { LoggerSystem } from './logger/defineLogger.js'
 import { NodeLinkResolver } from './NodeLinkResolver.js'
+import { executeCommand } from './utils/helperCommand.js'
 import { resolveDir } from './utils/resolveDir.js'
 
 // Clear chat :)
-if (process.argv.includes('--auto-clear')) {
+if (process.argv.includes('--clear-log')) {
   process.stdout.write(`\x1Bc`)
 }
 
@@ -42,5 +43,7 @@ const startFramework = async () => {
 }
 
 
-startFramework()
+if (!executeCommand()) {
+  startFramework()
+}
 
