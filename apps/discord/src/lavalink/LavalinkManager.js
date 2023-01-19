@@ -16,7 +16,7 @@ const load = (path = '') => {
     file = readFileSync(path)
     loaded = true
   } catch (err) {
-    if (err.message.startsWith('ENOENT: no such file or directory') && detectFileExample) {
+    if ((err.message.search(/ENOENT/g) == 0) && !detectFileExample) {
       Logger.info('The Lavalink configuration was not loaded because the file called "LavalinkConfig.json" in the "src/lavalink" directory was not created or could not be found.')
     } else {
       loaded = false
@@ -54,7 +54,6 @@ const loadSettings = () => {
 }
 
 const connect = loadSettings()
-
 export class LavalinkManager extends EventEmitter {
   constructor(client) {
     super()
@@ -72,14 +71,16 @@ export class LavalinkManager extends EventEmitter {
 
     if (this.default === false) {
       this.on('setManager', (client) => {
+        if (connect !== undefined) {
 
-        this.client = client
-        this.default = true
-        this.manager = new Manager(this.client, connect, {
-          user: this.client.user.id,
-          shards: parseInt(process.env.SHARD_COUNT)
-        })
-        this.manager.connect().catch(() => Logger.error('I\'m unable to connect to Lavalink, sorry...'))
+          this.client = client
+          this.default = true
+          this.manager = new Manager(this.client, connect, {
+            user: this.client.user.id,
+            shards: parseInt(process.env.SHARD_COUNT)
+          })
+          this.manager.connect().catch(() => Logger.error('I\'m unable to connect to Lavalink, sorry...'))
+        }
       })
     }
   }
