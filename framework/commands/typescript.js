@@ -3,7 +3,7 @@ import { defineCommand, supportedState } from '../utils/defineCommand.js'
 
 
 export const typescriptCommand = defineCommand({
-  name: 'no-ts',
+  name: '--no-ts',
   description: 'When using this command, the framework may not run the repository written in Typescript.',
   supports: [
     supportedState({
