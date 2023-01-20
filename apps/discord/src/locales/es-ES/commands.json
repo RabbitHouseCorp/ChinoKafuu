@@ -1,8 +1,8 @@
 {
   "userbanner": {
-    "description": "Gets the banner of an user.",
-    "download": "Open the banner in your browser.",
-    "userBanner": "Banner of {{0}}"
+    "description": "Obtiene el banner del usuario",
+    "download": "Abrir el avatar en tu navegador.",
+    "userBanner": "Banner de {{0}}"
   },
   "inventory": {
     "background": {},
@@ -469,7 +469,8 @@
     "success": "{{yens}} yenes donados con éxito a {{user}}",
     "poorUser": "no tienes yenes suficientes para completar este pago",
     "cancelled": "Bien, pago cancelado",
-    "needToWait": "Tienes que esperar a que la persona que te paga acepte la solicitud de transacción.",
+    "notTheAuthor": "{{0}} **|** {{1}} you are NOT {{2}}, so don't try to accept the transaction that {{2}} has created. Hmph!",
+    "bePatient": "{{0}} **|** {{1}} you have to wait for {{2}} to confirm the transaction, just be a little patient, okay?",
     "confirm": "{{user}} va a recibir __`{{yens}}`__ yenes. ¿Quieres continuar?"
   },
   "baka": {

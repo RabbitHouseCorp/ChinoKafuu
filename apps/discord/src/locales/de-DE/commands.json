@@ -147,7 +147,7 @@
     "commandsLoaded": "I have {{0}} public commands loaded.",
     "additionalLinks": {
       "embedTitle": "Additional Links",
-      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
+      "embedDescription": "[My invite](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands) | [top.gg](https://top.gg/bot/481282441294905344) | [My server](https://discord.gg/Jr57UrsXeC)"
     }
   },
   "rep": {
@@ -350,7 +350,7 @@
   },
   "invite": {
     "addMeInYourGuild": "Add me in your guild",
-    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&scope=bot%20applications.commands&permissions=8560045566).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
+    "canAddMe": "You can invite me to your Discord server by clicking [here](https://discord.com/oauth2/authorize?client_id={{0}}&permissions=1378654604670&scope=bot%20applications.commands).\nDon't forget to vote me by clicking [here](https://top.gg/bot/481282441294905344/vote)\n\nDo you need help? Join my support server by clicking [here](https://discord.gg/Jr57UrsXeC). Thank you and see you later.",
     "description": "Shows how you can add me in your server."
   },
   "botinfo": {
@@ -469,7 +469,8 @@
     "success": "successfully donated {{yens}} yens to {{user}}",
     "poorUser": "you don't have enough yens to complete this payment",
     "cancelled": "alright, payment cancelled",
-    "needToWait": "You need to wait for the person paying you to accept the transaction request.",
+    "notTheAuthor": "{{0}} **|** {{1}} you are NOT {{2}}, so don't try to accept the transaction that {{2}} has created. Hmph!",
+    "bePatient": "{{0}} **|** {{1}} you have to wait for {{2}} to confirm the transaction, just be a little patient, okay?",
     "confirm": "{{user}} is going to receive __`{{yens}}`__ yens. Do you want to proceed?"
   },
   "baka": {

@@ -469,7 +469,8 @@
     "success": "transferência de {{yens}} ienes efetuada para {{user}} com sucesso",
     "poorUser": "você não possui ienes para completar essa transferência",
     "cancelled": "certo, transferência cancelada",
-    "needToWait": "Você precisa esperar a pessoa que estiver te pagando aceite a solicitação de transação.",
+    "notTheAuthor": "{{0}} **|** {{1}} you are NOT {{2}}, so don't try to accept the transaction that {{2}} has created. Hmph!",
+    "bePatient": "{{0}} **|** {{1}} you have to wait for {{2}} to confirm the transaction, just be a little patient, okay?",
     "confirm": "{{user}} irá receber __`{{yens}}`__ ienes. Deseja continuar?"
   },
   "baka": {

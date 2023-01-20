@@ -34,7 +34,7 @@
   },
   "missingArgs": "¡Argumentos inválidos! Utiliza `{{prefix}}{{commandName}}` para ver su correcto uso.",
   "howToUse": "¿Cómo se usa?",
-  "aliases": "Aliases",
+  "aliases": "Alias",
   "addedToGuild": {
     "thanks": "Gracias por añadirme",
     "description": "¡Guau {{0}}! Gracias por añadirme a `{{1}}`, permíteme presentarme.\n\nSoy una pequeña bot con muchas funcionalidades que pueden ser útiles, como... **moderación**, **diversión** y **utilidades**. Por defecto, mi prefijo es `{{2}}`.\n\nSi necesitas ayuda, únete a mi servidor de soporte utilizando `{{2}}help` o `{{2}}invite`. Diviértete y espero verte más tarde.",

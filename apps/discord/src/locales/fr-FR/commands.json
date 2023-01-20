@@ -469,7 +469,8 @@
     "success": "a fait don avec succès de {{yens}} yens à {{user}}",
     "poorUser": "vous n'avez pas assez de yens pour effectuer ce paiement",
     "cancelled": "d'accord, paiement annulé",
-    "needToWait": "Vous devez attendre que la personne qui vous paie accepte la demande de transaction.",
+    "notTheAuthor": "{{0}} **|** {{1}} you are NOT {{2}}, so don't try to accept the transaction that {{2}} has created. Hmph!",
+    "bePatient": "{{0}} **|** {{1}} you have to wait for {{2}} to confirm the transaction, just be a little patient, okay?",
     "confirm": "{{user}} va recevoir __`{{yens}}`__ yens. Voulez-vous continuer ?"
   },
   "baka": {

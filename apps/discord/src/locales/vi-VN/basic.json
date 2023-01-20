@@ -54,7 +54,7 @@
     "false": "Không"
   },
   "guildban": {
-    "title": "Server Banned",
+    "title": "Guild Banned",
     "explain": "`{{0}}` đã bị ban vì lý do dưới đây. Bạn có thấy điều đó có gì hơi bất công? Tham gia ngay [support server](https://discord.gg/Jr57UrsXeC) của tụi mình để phóng thích bọn họ nhé.",
     "reason": "Lý do"
   },
