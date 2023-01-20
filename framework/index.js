@@ -1,6 +1,8 @@
 
 import { readFileSync } from 'fs'
 import { resolve } from 'path'
+import { watchStart } from './developer/WatchCommand.js'
+import { WebSocketServerDeveloper } from './developer/WebsocketServerDeveloper.js'
 import { LoggerSystem } from './logger/defineLogger.js'
 import { NodeLinkResolver } from './NodeLinkResolver.js'
 import { executeCommand } from './utils/helperCommand.js'
@@ -27,6 +29,8 @@ const logger = new LoggerSystem('FrameworkRepository')
 
 
 const startFramework = async () => {
+  // Start WebSocketServerDeveloper
+
   const t = packageFramework()
   logger.log(`The ${t.name} is working with version ${t.version}`)
 
@@ -38,13 +42,13 @@ const startFramework = async () => {
     filtered = link.nodes.filter((node) => node.settings.typescript == false)
   }
 
-
+  const server = new WebSocketServerDeveloper(link)
   for (const node of filtered) {
     await node.resolution.start()
   }
 }
 
-if (!executeCommand()) {
+if (!executeCommand() && !watchStart()) {
   startFramework()
 }
 

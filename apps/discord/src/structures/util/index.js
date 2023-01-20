@@ -1,5 +1,5 @@
 
-export const version = process.version
+export const version = globalThis.versionProject
 export * from '../command/Command'
 export * from '../nightly/NightlyInteraction'
 export * from './../interactions/Button'

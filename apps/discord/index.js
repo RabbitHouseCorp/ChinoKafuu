@@ -1,7 +1,8 @@
 /* eslint-disable jest/require-hook */
 import dotenv from 'dotenv'
-import { Logger } from './src/structures/util/index'
+import { APIProcess } from './src/structures/Process'
 import { BUILD_INFO } from './src/structures/util/Constants'
+import { Logger } from './src/structures/util/index'
 import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile'
 import { PluginManager } from './src/structures/util/plugins/PluginManager'
 import { BotStore } from './src/structures/util/plugins/store/BotStore'
@@ -14,9 +15,14 @@ await import('./src/tools/JSONTools')
 await import('./src/tools/Exception')
 await import('./src/tools/StringBuilder')
 
+globalThis.versionProject = '0.0.0.0'
+
 dotenv.config({
   path: '../../.env'
 })
+
+APIProcess()
+
 BUILD_INFO.commit_log()
 
 class StateApplication {

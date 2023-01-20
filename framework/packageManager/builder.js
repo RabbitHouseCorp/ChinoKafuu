@@ -2,6 +2,7 @@ import { spawn } from 'child_process'
 import { EventEmitter } from 'events'
 import { readFileSync } from 'fs'
 import path from 'path'
+import { ProcessModel } from '../developer/model/ProcessModel.js'
 import { LoggerSystem } from '../logger/defineLogger.js'
 import { ModelNodeBuilder } from '../model/NodeBuilder.js'
 import { ModelNodeResolver } from '../model/noderesolver.js'
@@ -66,6 +67,22 @@ export class Node extends EventEmitter {
   }) {
     super()
     this.secretName = null
+    this.clientState = {
+      client: null,
+      stateProcess: ProcessModel({}),
+      commandStats: {
+        executed: [],
+        errors: [],
+      },
+      listeners: {
+        executed: [],
+        errors: [],
+      },
+      stateGlobal: {
+        errors: [],
+        cacheLoaded: []
+      }
+    }
     this.packageProject = {}
     this.resolved = resolved
     this.isProject = false

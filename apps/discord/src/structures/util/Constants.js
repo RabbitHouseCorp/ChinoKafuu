@@ -1,7 +1,6 @@
 import chalk from 'chalk'
 import { exec } from 'child_process'
 import { Logger } from '../../structures/util/Logger'
-const version = process.version
 
 const profileConstants = {
   default: 1 << 1,
@@ -181,8 +180,8 @@ const Flags_Command = {
 }
 
 const BUILD_INFO = {
-  version: version,
-  build: Buffer.from(version).toString('base64'),
+  version: globalThis.versionProject,
+  build: Buffer.from(`${globalThis.versionProject}`).toString('base64'),
   commit_log: async () => {
 
     let kill_process = false
@@ -200,7 +199,7 @@ const BUILD_INFO = {
       }
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
-      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${version}) / ${get_message}`)
+      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${globalThis.versionProject}) / ${get_message}`)
       Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
       await e.kill()
       kill_process = true
@@ -213,7 +212,7 @@ const BUILD_INFO = {
     const data = {
       commit: null,
       message: null,
-      version: version
+      version: globalThis.versionProject
     }
     if (process.env.BUILD_SHOW === undefined) {
       return data
@@ -271,3 +270,4 @@ export {
   Flags_Guild,
   BUILD_INFO
 }
+

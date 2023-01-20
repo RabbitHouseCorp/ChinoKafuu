@@ -48,29 +48,27 @@ export class NodeLinkResolver extends EventEmitter {
      * Save these nodes to work with repository links.
      */
     this.nodes = nodes
-    this.#listenerAll()
   }
 
   /**
    * Let's listen to these nodes to work with the links.
+   * @deprecated 
    * 
-   * 
-   * OBS: It is not a link to access the internet*
    */
   #listenerAll() {
-    for (const n of this.nodes) {
-      n.on('debug', (...args) => this.emit('debug', args))
-      n.on('warn', (...args) => this.emit('warn', args))
-      n.on('log', (...args) => this.emit('log', args))
-      n.on('error', (...args) => this.emit('error', args))
-      n.on('installing', (...args) => this.emit('installing', args))
-      n.on('installed', (...args) => this.emit('installed', args))
-      n.on('typescript-state', (...args) => this.emit('typescript-state', args))
-      n.on('hotreload', (...args) => this.emit('hotreload', args))
-      n.on('developer', (...args) => this.emit('developer', args))
-      n.on('ipc', (...args) => this.emit('ipc', args))
-      n.on('clustering', (...args) => this.emit('clustering', args))
-    }
+    // for (const n of this.nodes) {
+    //   n.on('debug', (...args) => this.emit('debug', args))
+    //   n.on('warn', (...args) => this.emit('warn', args))
+    //   n.on('log', (...args) => this.emit('log', args))
+    //   n.on('error', (...args) => this.emit('error', args))
+    //   n.on('installing', (...args) => this.emit('installing', args))
+    //   n.on('installed', (...args) => this.emit('installed', args))
+    //   n.on('typescript-state', (...args) => this.emit('typescript-state', args))
+    //   n.on('hotreload', (...args) => this.emit('hotreload', args))
+    //   n.on('developer', (...args) => this.emit('developer', args))
+    //   n.on('ipc', (...args) => this.emit('ipc', args))
+    //   n.on('clustering', (...args) => this.emit('clustering', args))
+    // }
   }
 
   /**
@@ -81,8 +79,12 @@ export class NodeLinkResolver extends EventEmitter {
   searchNode(name) {
     let node = null
     for (const n of this.nodes) {
-      if (node.resolved.endsWith(name) &&
-        (node.resolved.endsWith(`name/`) && node.resolved.endsWith(`name\\`))) {
+      if (n.resolved.endsWith(name) &&
+        (n.resolved.endsWith(`${name}/`) && n.resolved.endsWith(`${name}\\`))) {
+        node = n
+        break
+      }
+      if (n.packageProject.name == name) {
         node = n
         break
       }
