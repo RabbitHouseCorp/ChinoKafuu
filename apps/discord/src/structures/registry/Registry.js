@@ -37,8 +37,10 @@ export class Registry extends EventEmitter {
   }
 
   loadAll(path) {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     readdirSync(path).forEach((file) => {
       const fullpath = resolve(path, file)
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
       if (lstatSync(fullpath).isDirectory()) {
         return this.loadAll(fullpath)
       }

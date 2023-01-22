@@ -12,8 +12,10 @@ String.prototype.getAt = function (splitter, index) {
 const getAllFilesRecursive = (path) => {
   const list = []
   const rec = (patht) => {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     readdirSync(patht.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')).forEach((df) => {
       const fp = `${patht.replace(/(\\test\/)|(test\/)|(\\test)/g, '')}/${df.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')}`
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
       if (lstatSync(fp).isDirectory()) return rec(fp)
       list.push(fp)
     })

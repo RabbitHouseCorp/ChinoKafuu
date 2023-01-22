@@ -13,6 +13,7 @@ const load = (path = '') => {
     detectFileExample = true
   }
   try {
+    // eslint-disable-next-line security/detect-non-literal-fs-filename
     file = readFileSync(path)
     loaded = true
   } catch (err) {

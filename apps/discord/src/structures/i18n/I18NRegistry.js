@@ -28,7 +28,7 @@ export class I18NRegistry extends Registry {
 
   loadModule(path) {
     try {
-
+      // eslint-disable-next-line security/detect-non-literal-fs-filename
       const data = JSON.parse(readFileSync(path))
 
       const [, language, namespace] = path.replace(this.path, '').split(sep)
