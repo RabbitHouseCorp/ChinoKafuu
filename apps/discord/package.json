@@ -46,7 +46,7 @@
     "@babel/preset-env": "^7.20.2",
     "@rushstack/eslint-plugin-security": "^0.5.0",
     "dotenv": "^16.0.3",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jest": "^27.2.1",

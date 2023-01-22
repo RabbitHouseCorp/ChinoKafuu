@@ -259,9 +259,11 @@ export class Node extends EventEmitter {
             serialization: 'json',
           })
       } else {
+        const addCommand = this.commandSelector.add
+        addCommand.commandArgs.args.push(...packages) // Add packages or args :^) 
         command = spawn(
-          this.commandSelector.add.commandArgs.name,
-          this.commandSelector.add.commandArgs.args,
+          addCommand.commandArgs.name,
+          addCommand.commandArgs.args,
           {
             cwd: path.resolve(this.resolved),
             shell: true,
