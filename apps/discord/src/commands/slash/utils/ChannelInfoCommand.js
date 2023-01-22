@@ -26,7 +26,6 @@ export default class ChannelInfoCommand extends Command {
   async run(ctx) {
     const args = ctx.args.get('channel').value
     let channel = ctx.client.getChannel(args)
-    console.log(channel?.mention)
     if (!channel) {
       channel = ctx.message.channel
     }

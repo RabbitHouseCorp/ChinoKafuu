@@ -28,7 +28,6 @@ export default class TranslateCommand extends Command {
     for (const translateOutput of res.data[0]) {
       letters.push(translateOutput[0].trim())
     }
-    console.log(letters)
     ctx.reply('map', letters.join(' '))
   }
 }

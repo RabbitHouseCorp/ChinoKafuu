@@ -16,9 +16,7 @@ export class LavalinkStore extends PluginExtend {
       const state = new LavalinkManager(null)
       this.$addClassState({ data: state })
       state.on('state', (a) => {
-        if (a) {
-          console.log('yes')
-        } else {
+        if (!a) {
           this.fail(Error('Unable to connect to the lavalink client'))
         }
       }).on('err', (err) => {

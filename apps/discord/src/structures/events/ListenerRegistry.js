@@ -1,5 +1,6 @@
 import { resolve } from 'path'
 import { Registry } from '../registry/Registry'
+import { Logger } from '../util'
 export class ListenerRegistry extends Registry {
   constructor(client, path = resolve('src/listeners')) {
 
@@ -25,7 +26,7 @@ export class ListenerRegistry extends Registry {
   }
 
   onRemoval(listener) {
-    console.log(listener.event)
+    Logger.debug(listener.event)
     if (!this.modules.filter((a) => a !== listener && a.event === listener.event)[0]) this.client.off(listener.event, (...data) => this.onEvent(listener.event, ...data))
   }
 }

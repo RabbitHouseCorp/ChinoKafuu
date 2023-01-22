@@ -11,7 +11,7 @@ export const InviteDMUtils = async (client, message) => {
         .replace('https:', '')
         .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
         .replace(/(\/)/g, '')
-      console.log(findInvite)
+
       const invite = await client.getInvite(findInvite)
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')
