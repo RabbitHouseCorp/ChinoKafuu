@@ -10,7 +10,15 @@ import user from './collections/User'
 export class Database extends EventEmitter {
   constructor() {
     super()
+    this.commands = new Collection(command)
+    this.guilds = new Collection(guild)
+    this.users = new Collection(user)
+    this.#connect()
+  }
+
+  #connect() {
     if (process.env.DISCORD_MONGO_URI) {
+      mongoose.set('strictQuery', true);
       mongoose.connect(process.env.DISCORD_MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (err) {
           this.emit('state', (false))
@@ -20,10 +28,6 @@ export class Database extends EventEmitter {
         Logger.debug('Connected to the database.')
       })
     }
-
-    this.commands = new Collection(command)
-    this.guilds = new Collection(guild)
-    this.users = new Collection(user)
   }
 
   async flux(data) {

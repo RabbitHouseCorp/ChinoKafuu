@@ -49,9 +49,6 @@ export class Bot extends Client {
          *
          * @type {Database}
          */
-    if (this.database === undefined) {
-      this.database = new Database()
-    }
     /**
          *
          * @type {Map}
@@ -80,6 +77,12 @@ export class Bot extends Client {
     return {
       lengthEris: 0,
       lengthBuffer: 0
+    }
+  }
+
+  loadDatabase() {
+    if (this.database == undefined) {
+      this.database = new Database()
     }
   }
 }
