@@ -28,12 +28,21 @@
         "plugin:jest/all",
         "plugin:import/recommended"
     ],
-    // "parser": "@typescript-eslint/parser",
+    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaVersion": 2022,
         "sourceType": "module",
         "ecmaFeatures": {
-            "modules": true
+            "modules": true,
+            "experimentalObjectRestSpread": true
+        },
+        "requireConfigFile": false,
+        "babelOptions": {
+            "parserOpts": {
+                "plugins": [
+                    "importAssertions"
+                ]
+            }
         }
     },
     "globals": {

@@ -15,8 +15,6 @@ await import('./src/tools/JSONTools')
 await import('./src/tools/Exception')
 await import('./src/tools/StringBuilder')
 
-globalThis.versionProject = '0.0.0.0'
-
 dotenv.config({
   path: '../../.env'
 })

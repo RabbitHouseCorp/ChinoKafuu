@@ -1,5 +1,6 @@
+import loadSettings from '../loadSettings'
 
-export const version = globalThis.versionProject
+export const version = loadSettings().version
 export * from '../command/Command'
 export * from '../nightly/NightlyInteraction'
 export * from './../interactions/Button'
