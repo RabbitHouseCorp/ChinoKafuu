@@ -18,7 +18,7 @@ export class Database extends EventEmitter {
 
   #connect() {
     if (process.env.DISCORD_MONGO_URI) {
-      mongoose.set('strictQuery', true);
+      mongoose.set('strictQuery', true)
       mongoose.connect(process.env.DISCORD_MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
         if (err) {
           this.emit('state', (false))
@@ -53,15 +53,15 @@ export class Database extends EventEmitter {
         case 'array': {
           object_a.data.query = new Array()
         }
-          break;
+          break
         case '$': {
           object_a.data.query = {}
         }
-          break;
+          break
         case 'map': {
           object_a.data.query = new Map()
         }
-          break;
+          break
         default:
           object_a.mode = 'array'
           object_a.data.query = new Array()

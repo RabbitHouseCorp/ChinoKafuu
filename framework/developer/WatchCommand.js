@@ -97,7 +97,7 @@ const renderComponent = () => {
 
     renderCurrent = renderNew
     process.stdout.write(`\r${renderCurrent}`)
-  });
+  })
 }
 
 const wsClient = () => {

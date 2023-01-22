@@ -84,7 +84,7 @@ export default class ConfigCommand extends Command {
           return ctx.replyT('success', 'commands:config.modules.animu.enable')
         }
       }
-        break;
+        break
       case 'mod': {
         if (!ctx.args[1]) return ctx.replyT('error', 'commands:config.optionsNotFound')
         if (!['set', 'disable'].includes(ctx.args[1].toLowerCase())) return ctx.replyT('error', 'commands:config.optionsNotFound')
@@ -107,7 +107,7 @@ export default class ConfigCommand extends Command {
           return ctx.replyT('success', 'commands:config.modules.mod.enable')
         }
       }
-        break;
+        break
       case 'report': {
         if (!ctx.args[1]) return ctx.replyT('error', 'commands:config.optionsNotFound')
         if (!['set', 'disable'].includes(ctx.args[1].toLowerCase())) return ctx.replyT('error', 'commands:config.optionsNotFound')
@@ -130,7 +130,7 @@ export default class ConfigCommand extends Command {
           return ctx.replyT('success', 'commands:config.modules.report.enable')
         }
       }
-        break;
+        break
       case 'allowed_channel': {
         if (!ctx.args[1]) return ctx.replyT('error', 'commands:config.optionsNotFound')
         if (!['set', 'disable'].includes(ctx.args[1].toLowerCase())) return ctx.replyT('error', 'commands:config.optionsNotFound')
@@ -191,7 +191,7 @@ export default class ConfigCommand extends Command {
           }
         }
       }
-        break;
+        break
       default: {
         ctx.send(embed.build())
       }

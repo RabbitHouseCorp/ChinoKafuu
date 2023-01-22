@@ -61,7 +61,7 @@ export class WebSocketServerDeveloper extends EventEmitter {
       logger.error(err)
     })
     this.ws.on('connection', (socket, request) => {
-      const family = (request.socket.remoteAddress !== '::1' && request.socket.remoteAddress !== '0.0.0.0');
+      const family = (request.socket.remoteAddress !== '::1' && request.socket.remoteAddress !== '0.0.0.0')
       const family2 = (request.socket.remoteAddress !== '::ffff:127.0.0.1' && request.socket.remoteAddress !== '127.0.0.1')
       if (!family2 && !family) {
         socket.close()

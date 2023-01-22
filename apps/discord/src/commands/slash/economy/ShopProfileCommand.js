@@ -146,7 +146,7 @@ export default class ShopProfileCommand extends Command {
               let positionProfile = -1
               // eslint-disable-next-line no-unused-vars
               for (const a of profileInfo) {
-                positionProfile++;
+                positionProfile++
                 if (user.profileList.includes(selected)) {
                   disabledReason = ctx._locale('commands:shop.profile.alreadyHaveThisProfile')
                   disabled = true
@@ -180,7 +180,7 @@ export default class ShopProfileCommand extends Command {
                   components: resultFinal
                 }
                 await msgInteraction.edit(messageData, profileData.image)
-                return;
+                return
               }
               const dataProfile = await this.generateProfile(data.type, data, ctx._locale)
               if (dataProfile === undefined) throw Error('ProfileTokamak: undefined')
@@ -207,11 +207,11 @@ export default class ShopProfileCommand extends Command {
           case 'modern': {
             messagePrepared(1, interaction.data.values[0])
           }
-            break;
+            break
           case 'profile_2': {
             messagePrepared(2, interaction.data.values[0])
           }
-            break;
+            break
           default:
             nightly.sendAck('update', {
               content: ctx._locale('commands:shop.profile.profileUnavailable'),
@@ -231,11 +231,11 @@ export default class ShopProfileCommand extends Command {
             }
             this.buy(interaction, nightly, ctx, msgInteraction, messageData, readyForBuy)
           }
-            break;
+            break
           case 3: {
             functionNightly(interaction)
           }
-            break;
+            break
 
         }
       })

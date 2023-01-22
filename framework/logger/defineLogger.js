@@ -45,7 +45,7 @@ export class LoggerSystem {
   }
 
   log(message) {
-    if (process.argv.includes('--silent')) return;
+    if (process.argv.includes('--silent')) return
     console.log(`${chalk.gray('[ ]')} ${this.#template} ${chalk.greenBright('LOG')}   [${chalk.white(this.name)}]: ${this.#colorMessage(message)}`)
   }
 
@@ -58,14 +58,14 @@ export class LoggerSystem {
   }
 
   debug(message) {
-    if (process.argv.includes('--silent')) return;
+    if (process.argv.includes('--silent')) return
     if (process.argv.includes('--debug')) {
       console.debug(`\n${chalk.blue('[-]')} ${this.#template} ${chalk.blueBright('DEBUG')} [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n`)
     }
   }
 
   trace(message) {
-    if (process.argv.includes('--silent')) return;
+    if (process.argv.includes('--silent')) return
     if (process.argv.includes('--trace')) {
       console.trace(`\n${chalk.gray('[{}]')}  ${this.#template} ${chalk.white('TRACE')}  [${chalk.white(this.name)}]: ${this.#colorMessage(message)}\n\n`)
     }

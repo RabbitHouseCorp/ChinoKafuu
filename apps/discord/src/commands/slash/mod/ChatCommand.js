@@ -36,11 +36,11 @@ export default class ChatCommand extends Command {
       case 'on': {
         ctx.message.channel.editPermission(role, 2048, 0, 'role').then(ctx.replyT('success', 'commands:chat.unlocked'))
       }
-        break;
+        break
       case 'off': {
         ctx.message.channel.editPermission(role, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
       }
-        break;
+        break
     }
   }
 }

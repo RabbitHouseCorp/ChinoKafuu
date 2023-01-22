@@ -69,7 +69,7 @@ export class NodeApplication extends EventEmitter {
 
       const app = () => {
         this.started = true
-        this.restarting = false;
+        this.restarting = false
         logger.log(`Initializing application from repository of ${this.node.getNameProject()}\n`)
 
         const application = spawn(
@@ -108,8 +108,8 @@ export class NodeApplication extends EventEmitter {
             logger.error(`Application of repository ${this.node.getNameProject()} cannot be terminated because it has exceeded the limit. For security reasons, I suggest pressing CONTROL + C to end the framework or restart.`)
             return
           }
-          this.tryRestart++;
-          this.restarting = true;
+          this.tryRestart++
+          this.restarting = true
           logger.warn(`Starting project application ${this.node.getNameProject()} again in 2 seconds`)
           await sleep(RESTART_APPLICATION)
           app()

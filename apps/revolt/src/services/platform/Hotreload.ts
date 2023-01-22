@@ -1,5 +1,5 @@
-import { StateApplicationI } from '../../index';
-import { RevoltClient } from '../Revolt';
+import { StateApplicationI } from '../../index'
+import { RevoltClient } from '../Revolt'
 
 
 export class Hotreload {

@@ -32,13 +32,13 @@ export class NodeResolution extends EventEmitter {
       logger.debug(`Package install mode enabled.`)
     }
 
-    const modePackage = (modeInstallPackage || repositoryPackageMode());
+    const modePackage = (modeInstallPackage || repositoryPackageMode())
     for (const i of this.list) {
       const node = this.resolution
 
       if (node instanceof Node) {
 
-        if (node.isThisRepositoryThatInstallsPackages()) return logger.debug(`Is this repository ${node.getNameProject()} that installs the packages? ${node.isThisRepositoryThatInstallsPackages()}`);
+        if (node.isThisRepositoryThatInstallsPackages()) return logger.debug(`Is this repository ${node.getNameProject()} that installs the packages? ${node.isThisRepositoryThatInstallsPackages()}`)
         if (i === 'installPackage' && modePackage) {
           logger.log(`Preparing to install the packages on repository ${node.getNameProject()}..`)
           await node.installPackage()
@@ -47,7 +47,7 @@ export class NodeResolution extends EventEmitter {
 
         // Package Manager
         if (i === 'package' && node.options.requiredInstallationOfPackages) {
-          if (modeInstallPackage) return;
+          if (modeInstallPackage) return
 
 
           logger.log(`${node.getNameProject()}: Preparing to install. packageManager=${node.packageManager}.`)
@@ -75,7 +75,7 @@ export class NodeResolution extends EventEmitter {
 
         // @Typescript
         if (i === 'compile' && node.settings.typescript) {
-          if (modeInstallPackage) return;
+          if (modeInstallPackage) return
 
           let errorCompile = false
           await node.compile(isDeveloper()).catch(() => errorCompile = true) // Compile projects

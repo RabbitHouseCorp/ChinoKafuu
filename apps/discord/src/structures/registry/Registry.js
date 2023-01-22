@@ -22,11 +22,11 @@ export class Registry extends EventEmitter {
       delete require.cache[require.resolve(path)]
 
       import('file://' + resolve(relative(process.cwd(), path))).then(({ default: ModuleDefault }) => {
-        const module = new ModuleDefault();
-        if (this.modules.filter((a) => a.__path === path)[0]) return true;
-        module.__path = path;
-        this.modules.push(module);
-        this.emit('load', module);
+        const module = new ModuleDefault()
+        if (this.modules.filter((a) => a.__path === path)[0]) return true
+        module.__path = path
+        this.modules.push(module)
+        this.emit('load', module)
 
       })
       return true
@@ -54,7 +54,7 @@ export class Registry extends EventEmitter {
   reloadModule(object, safeReload = true) {
     try {
       // "TypeError: Cannot read properties of undefined (reading '__path')"
-      if (object == undefined && object?.__path == undefined) return;
+      if (object == undefined && object?.__path == undefined) return
 
       const obj = this.modules.filter(a => a.__path === object.__path)[0]
       this.deleteModule(obj)

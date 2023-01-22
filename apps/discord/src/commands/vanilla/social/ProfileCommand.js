@@ -80,7 +80,7 @@ export default class ProfileCommand extends Command {
         case false:
       }
     }
-    const a = Date.now();
+    const a = Date.now()
     const cache = ctx.client.pluginManager.pluginStore.get('cache_profile').classState
     const data = {
       type: user.profileType,

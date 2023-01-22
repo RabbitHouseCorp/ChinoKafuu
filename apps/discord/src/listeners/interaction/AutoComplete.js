@@ -20,15 +20,15 @@ export default class AutoCompleteListener extends Listener {
         case ConfigAnimuSearch.CONFIG_ANIMU_SEARCH: {
           ConfigAnimuSearch.searchClass.search(interaction)
         }
-          break;
+          break
         case ConfigModSearch.CONFIG_MOD_SEARCH: {
           ConfigModSearch.searchClass.search(interaction)
         }
-          break;
+          break
         case ConfigReportSearch.CONFIG_REPORT_SEARCH: {
           ConfigReportSearch.searchClass.search(interaction)
         }
-          break;
+          break
       }
     }
   }

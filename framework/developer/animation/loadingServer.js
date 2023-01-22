@@ -33,8 +33,8 @@ export const watchConnectComponent = () => {
     return ` ${frame} Connecting in ServerDeveloper...`
   }
   return setInterval(() => {
-    process.stdout.write("\r" + changeAnimation());
-  }, 200);
+    process.stdout.write("\r" + changeAnimation())
+  }, 200)
 }
 
 
@@ -64,6 +64,6 @@ export const watchfailToConnectComponent = () => {
     return ` ${frame} Unable to connect to the server!`
   }
   return setInterval(() => {
-    process.stdout.write("\r" + changeAnimation());
-  }, 800);
+    process.stdout.write("\r" + changeAnimation())
+  }, 800)
 }

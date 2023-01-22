@@ -73,7 +73,7 @@ export default class AnnounceCommand extends Command {
             content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:announce.notAllowed')}`,
             flags: 1 << 6
           })
-          return;
+          return
         }
         switch (packet.d.data.custom_id) {
           case 'everyone': {

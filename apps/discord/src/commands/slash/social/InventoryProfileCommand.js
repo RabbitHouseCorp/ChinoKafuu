@@ -102,7 +102,7 @@ export default class InventoryProfileCommand extends Command {
 
               messageData = { content: '', embeds: dataProfile.embeds, attachments: [], components: resultFinal }
               await msgInteraction.edit(messageData, dataProfile.image)
-              return;
+              return
             }
 
             const dataProfile = await this.generateProfile(data.type, data, ctx._locale)
@@ -116,15 +116,15 @@ export default class InventoryProfileCommand extends Command {
           case 'default': {
             messagePrepared(0, interaction.data.values[0])
           }
-            break;
+            break
           case 'modern': {
             messagePrepared(1, interaction.data.values[0])
           }
-            break;
+            break
           case 'profile_2': {
             messagePrepared(2, interaction.data.values[0])
           }
-            break;
+            break
           default:
             nightly.sendAck('update', {
               content: ctx._locale('commands:inventory.profile.profileUnavailable'),
@@ -144,11 +144,11 @@ export default class InventoryProfileCommand extends Command {
             }
             this.confirm(interaction, nightly, ctx, msgInteraction, messageData, iAmReady)
           }
-            break;
+            break
           case 3: {
             functionNightly(interaction)
           }
-            break;
+            break
 
         }
       })

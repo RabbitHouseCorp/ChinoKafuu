@@ -38,7 +38,7 @@ const selectPackageManager = (projectName) => {
 
 const selectRepository = () => {
   let repository = []
-  let start = false;
+  let start = false
   for (const argv of process.argv) {
     if (argv.startsWith('--repository') && argv.startsWith('--repository=')) {
       logger.debug('Enlisting list of commands:')
@@ -245,7 +245,7 @@ export class Node extends EventEmitter {
 
 
 
-      let command;
+      let command
 
       if (packages.length <= 0) {
         this.commandSelector.add.commandArgs.args.push(...packages) // Add packages or args :^) 

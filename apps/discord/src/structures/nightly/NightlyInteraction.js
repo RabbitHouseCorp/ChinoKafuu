@@ -1,11 +1,11 @@
-import { Message } from 'eris';
-import { InteractionPacket } from '../interactions/InteractionPacket';
-import { NightlyDeveloper } from './Nightly';
+import { Message } from 'eris'
+import { InteractionPacket } from '../interactions/InteractionPacket'
+import { NightlyDeveloper } from './Nightly'
 
 export class NightlyInteraction extends NightlyDeveloper {
   constructor(message, options) {
     super()
-    this.options = options === undefined ? options : {};
+    this.options = options === undefined ? options : {}
     this.timeoutRun = null
     if (this.options?.time !== undefined) {
       this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
@@ -15,7 +15,7 @@ export class NightlyInteraction extends NightlyDeveloper {
     this.token = ''
     this.data = null
     this.isHttp = false
-    this.interactionPost = null;
+    this.interactionPost = null
     this.message = message
     this.client = message.channel.client
     this.typeInteraction = 1
@@ -107,16 +107,16 @@ export class NightlyInteraction extends NightlyDeveloper {
     switch (typeAck) {
       case 'update':
         type = 7
-        break;
+        break
       case 'respond':
         type = 4
-        break;
+        break
       case 'later':
         type = 5
-        break;
+        break
       case 'ack':
         type = 6
-        break;
+        break
       default:
         type = 4
     }

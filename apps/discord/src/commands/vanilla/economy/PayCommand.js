@@ -48,7 +48,7 @@ export default class PayCommand extends Command {
               content: `You need to wait for the person paying you to accept the transaction request.`,
               flags: 1 << 6
             })
-            return;
+            return
           }
           switch (packet.d.data.custom_id) {
             case 'confirm_button': {
