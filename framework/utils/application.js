@@ -28,7 +28,7 @@ const cannotRunApplication = (node) => {
         throw new Error('You need to enter a reason or you entered a parameter incorrectly.')
       }
 
-      logger.log(`${node.getNameProject()} repository cannot be started for this reason: ${reason}`)
+      logger.error(`${node.getNameProject()} repository cannot be started for this reason: ${reason}`)
 
       return true
     } else {

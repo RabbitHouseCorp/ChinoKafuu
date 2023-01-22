@@ -106,7 +106,7 @@ export class Node extends EventEmitter {
   #loadPackage() {
     const packageProject = readFileSync(path.resolve(this.resolved + '/package.json'))
     if (!this.options.isTest) {
-      logger.log('@/package.json has been loaded successfully!')
+      logger.debug('@/package.json has been loaded successfully!')
     }
 
     this.packageProject = JSON.parse(packageProject)
@@ -140,14 +140,14 @@ export class Node extends EventEmitter {
   loadSettings() {
     this.settings = {}
     if (!this.options.isTest) {
-      logger.log('No configuration loaded, preparing to load one.')
+      logger.debug('No configuration loaded, preparing to load one.')
     }
     if (!this.loaded) {
       const settings = loadConfiguration(path.resolve(this.resolved + '/settingsFramework.json'))
 
       if (ModelNodeResolver(settings, path.resolve(this.resolved + '/settingsFramework.json'))) {
         if (!this.options.isTest) {
-          logger.log(`Configuration uploaded successfully! @/settingsFrameworkGlobal.json`)
+          logger.debug(`Configuration uploaded successfully! @/settingsFrameworkGlobal.json`)
         }
 
         this.emit('settings', (true, this.settings, this))
