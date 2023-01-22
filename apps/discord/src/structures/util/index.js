@@ -16,4 +16,5 @@ export * from './InviteDMUtil'
 export * from './Logger'
 export * from './TranslatorUtils'
 export * from './UtilsGenerator'
+export * from './ErrorStack'
 

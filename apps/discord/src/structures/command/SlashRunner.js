@@ -1,5 +1,4 @@
-import { BlacklistUtils, EmbedBuilder, Helper } from '../util'
-import { Logger } from '../util/Logger'
+import { BlacklistUtils, EmbedBuilder, ErrorStack, Helper } from '../util'
 import { CommandPermissions } from './CommandPermissions'
 import { SlashCommandContext } from './SlashCommandContext'
 
@@ -73,20 +72,28 @@ export class SlashRunner {
 
     try {
       await command.run(ctx)
-    } catch (e) {
-      const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
-      client.emit('error', (client, e, interaction.guild.shard))
+    } catch (errorStack) {
+      console.log(errorStack)
+
+      const errorMessage = ErrorStack(errorStack, {
+        embed: true,
+        hidePath: true,
+        limit: 1800
+      })
+
       const embed = new EmbedBuilder()
       embed.setColor('ERROR')
       embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${errorMessage.removePath()}\`\`\``)
+      embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
       embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
+      embed.addField(ctx._locale('events:executionFailure.commandExecuted'), commandName)
+
       if (ctx.used) {
         ctx.embeds.push(embed.build().embeds[0])
       } else {
         await ctx.send(embed.build())
       }
-      Logger.error(e.debug({ guild_id: interaction?.guild?.id ?? null, shard_id: interaction?.guild?.shard ?? null, user_id: interaction.member?.user?.id ?? interaction?.user?.id, isSlash: true }, true))
+
       return
     }
   }
