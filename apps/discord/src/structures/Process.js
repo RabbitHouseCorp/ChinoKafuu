@@ -9,6 +9,8 @@ export const APIProcess = () => {
       }
     })
 
+    ws.on('error', () => null)
+
     ws.on('open', () => {
       setInterval(() => {
         const memoryUsage = process.memoryUsage()
