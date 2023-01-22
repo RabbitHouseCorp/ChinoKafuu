@@ -9,6 +9,8 @@
   "scripts": {
     "watchMode": "node ./framework/index.js watchMode",
     "installPackage": "node ./framework/index.js --repository @chinokafuu/discord --no-ts --installPackage",
+    "upgradePackages": "node ./framework/index.js --no-ts --upgrade-packages",
+    "helpFramework": "node ./framework/index.js -h",
     "test": "node ./framework/nodeTest.js --no-ts",
     "start": "node ./framework/index.js --no-ts",
     "dev": "node ./framework/index.js --dev --no-ts",
