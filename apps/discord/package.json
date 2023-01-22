@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "node --tls-min-v1.3 --es-module-specifier-resolution=node --experimental-vm-modules  index.js",
+    "start": "node --tls-min-v1.3 --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings index.js",
     "start:bun": "node index.js",
     "test": "jest",
     "test:lint": "eslint . --fix"
