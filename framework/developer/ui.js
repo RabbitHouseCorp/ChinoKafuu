@@ -8,6 +8,8 @@ export const UIKit = {
   BAR: '│'
 }
 
+
+
 const resizeText = (text = '') => {
   return text.length >= process.stdout.columns - 15 ? text.substring(0, process.stdout.columns - 14) + '...' : text
 }
@@ -26,12 +28,14 @@ export const Projects = (options = {
   for (const i of options.data) {
     const usage = i.d.stateProcess.d.memoryUsage
     const memoryUsage = (usage.heapUsed / usage.heapTotal) * 100
+    const cpuUsage = i.d.stateProcess.d.cpuUsage
+    const calcCpu = cpuUsage.system
 
-    table.push({ message: `${chalk.yellowBright(0)}`.padStart(14, ' ') })
+    table.push({ message: `${chalk.yellowBright(0)}`.padStart(14, ' ') }) // Process ID: soon
     table.push({ message: `${chalk.blueBright(i.d.projectName)}` })
-    table.push({ message: `${chalk.greenBright('CONNECTED')}` })
+    table.push({ message: `${chalk.greenBright(i.d.statusConnection ? 'CONNECTED' : 'DISCONNECTED')}` }) // Then I will develop a way to resolve process status.
     table.push({ message: chalk.redBright(`${(usage.heapUsed / (1024 ** 2)).toFixed(2)}MB/${(usage.heapTotal / (1024 ** 2)).toFixed(2)}MB (${memoryUsage.toFixed(2)}%)`) })
-    table.push({ message: chalk.whiteBright('0%') })
+    table.push({ message: chalk.yellowBright(`${(calcCpu).toFixed(1)}%`) })
 
   }
 

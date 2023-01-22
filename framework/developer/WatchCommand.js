@@ -1,3 +1,4 @@
+''
 import WebSocket from 'ws'
 import { watchConnectComponent, watchfailToConnectComponent } from './animation/loadingServer.js'
 import { Window } from './ui.js'
@@ -86,15 +87,17 @@ const renderComponent = () => {
   killInterval = setInterval(() => {
     renderNew = [Window('Projects', state)].join('\n')
     if (renderNew === renderCurrent) return
-    renderCurrent = renderNew
+    const calcLine = renderNew.split('\n').length
+    const line = calcLine <= 0 ? '\n'.repeat(calcLine) : ''
     if (process.stdout.columns <= currentWidth) {
       currentWidth = process.stdout.columns
-      process.stdout.write(`\x1Bc`)
-    } else if (process.stdout.columns >= currentWidth) {
-      process.stdout.write(`\x1Bc`)
     }
+
+    process.stdout.write(line + `\u001B[E\x1Bc\u001B[?25l`)
+
+    renderCurrent = renderNew
     process.stdout.write(`\r${renderCurrent}`)
-  });
+  }, 800);
 }
 
 const wsClient = () => {
@@ -115,6 +118,7 @@ const watchComponentHeader = () => {
 const watchComponent = () => {
   const stdin = process.openStdin()
   renderComponent()
+
 
   stdin.setRawMode(true)
   stdin.resume()

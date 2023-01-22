@@ -18,8 +18,10 @@ const ClientWebsocket = (options = {
   process: null,
   trackProject: null,
   terminal: null,
+  statusConnection: false,
   request: null,
-  socket: null
+  socket: null,
+  dataOld: {},
 }) => ({
   type: 'client',
   name: nameCute(),
@@ -28,11 +30,14 @@ const ClientWebsocket = (options = {
   latency: '',
   process: '',
   trackProject: '',
+  statusConnection: true,
   terminal: '',
   request: null,
+  dataOld: {},
   ...options
 })
 
+const randomID = () => Math.floor(Math.random() * 1000000000000)
 
 export class WebSocketServerDeveloper extends EventEmitter {
   constructor(nodes) {
@@ -63,13 +68,17 @@ export class WebSocketServerDeveloper extends EventEmitter {
         return
       }
 
+      const headerProjectName = request.headers['projectname']
       const client = ClientWebsocket({
+        idClient: randomID(),
+        projectName: headerProjectName == undefined ? randomID() : headerProjectName,
         type: request.headers['watch'] === undefined ? 'client' : 'watch',
         ip: request.socket.remoteAddress,
         port: request.socket.remotePort,
         latency: -1,
         process: process.execPath,
         trackProject: '',
+        statusConnection: true,
         terminal: null,
         request,
         socket
@@ -77,10 +86,13 @@ export class WebSocketServerDeveloper extends EventEmitter {
 
       if (client.type === 'client') {
         logger.log(`${client.name} connected in the communication center of develop. (${client.ip + `:${client.port}`})`)
+        this.deleteWatch(client)
         this.addClient(client, socket, request)
       } else {
         this.addWatchClient(client, socket, request)
       }
+
+      socket.on('close', () => this.clientDisconnect(client))
     })
     this.ws.on('listening', () => logger.debug(`Server listening port on 24607`))
     this.on('message', (data) => {
@@ -88,8 +100,48 @@ export class WebSocketServerDeveloper extends EventEmitter {
     })
   }
 
+  clientDisconnect(client) {
+    if (client === 'watch') return
+
+    client.statusConnection = false
+    const clientWatcher = this.clients.filter((i) => i.type === 'watch')
+    const clients = this.clients.filter((i) => i.type === 'client')
+    const getInformations = clients.map((i) => {
+      const stateProcess = i.project?.clientState?.stateProcess !== undefined ? i.project.clientState.stateProcess : null
+      const commandStats = i.project?.clientState?.commandStats !== undefined ? i.project?.clientState?.commandStats : null
+      const listeners = i.project.clientState.listeners !== undefined ? i.project.clientState.listeners : null
+      const stateGlobal = i.project.clientState.stateGlobal !== undefined ? i.project.clientState.stateGlobal : null
+      return {
+        d: {
+          projectName: i.projectName,
+          statusConnection: i.statusConnection,
+          projectName: i.project.getNameProject(),
+          stateProcess,
+          commandStats,
+          listeners,
+          stateGlobal
+        }
+      }
+    })
+
+    for (const watcher of clientWatcher) {
+      watcher.socket.send(JSON.stringify(getInformations))
+    }
+  }
+
   addWatchClient(client, socket, request) {
     this.clients.push(client)
+  }
+
+
+  deleteWatch(client) {
+
+    const clientOld = this.clients.filter((i) => i.projectName === client.projectName && i.statusConnection == false)
+    if (clientOld !== undefined) {
+      const index = this.clients.findIndex((i) => i.projectName === client.projectName && i.statusConnection == false)
+
+      this.clients.splice(index, 1)
+    }
   }
 
   sendMessageForWatchers() {
@@ -97,13 +149,14 @@ export class WebSocketServerDeveloper extends EventEmitter {
     const clients = this.clients.filter((i) => i.type === 'client')
 
     const getInformations = clients.map((i) => {
-      const stateProcess = i.project.clientState.stateProcess
-      const commandStats = i.project.clientState.commandStats
-      const listeners = i.project.clientState.listeners
-      const stateGlobal = i.project.clientState.stateGlobal
+      const stateProcess = i.project?.clientState?.stateProcess !== undefined ? i.project.clientState.stateProcess : null
+      const commandStats = i.project?.clientState?.commandStats !== undefined ? i.project.clientState.commandStats : null
+      const listeners = i.project?.clientState?.listeners !== undefined ? i.project.clientState.listeners : null
+      const stateGlobal = i.project?.clientState?.stateGlobal !== undefined ? i.project.clientState.stateGlobal : null
       return {
         d: {
-          projectName: i.project.getNameProject(),
+          projectName: i.projectName,
+          statusConnection: i.statusConnection,
           stateProcess,
           commandStats,
           listeners,
@@ -125,9 +178,10 @@ export class WebSocketServerDeveloper extends EventEmitter {
       const parseModel = ProcessModel(json)
 
       if (parseModel.t === 'process') {
-
+        client.dataOld = parseModel
         try {
-          const node = this.nodes.searchNode(parseModel.d.projectName).clientState = {
+          client.projectName = parseModel.d.projectName
+          this.nodes.searchNode(parseModel.d.projectName).clientState = {
             client,
             stateProcess: parseModel
           }
