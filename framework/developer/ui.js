@@ -8,6 +8,7 @@ export const UIKit = {
   BAR: '│'
 }
 
+let warnMessage = 'The tool is currently not complete. This can take a while to complete. Until you develop another data structure.'
 
 
 const resizeText = (text = '') => {
@@ -114,6 +115,7 @@ export const Window = (title = '', state) => {
 
 
   return [
+    chalk.yellowBright(`| WARN:   ${warnMessage}`),
     windowTitle,
     Projects({
       disableTable: false,
