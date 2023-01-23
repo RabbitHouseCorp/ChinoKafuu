@@ -37,9 +37,9 @@ export default class UserInfoCommand extends Command {
     guildMember ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), `<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:F> (<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:R>)`, true) : null
     guildMember ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
 
-    if (guildMember?.premiumSince !== null || guildMember?.premiumSince !== undefined) {
-      embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(new Date(guildMember.premiumSince).getTime() / 1000)
-        .toFixed(0)}:F> (<t:${parseInt(new Date(guildMember.premiumSince).getTime() / 1000).toFixed(0)}:R>)`, true)
+    if (guildMember?.premiumSince !== null && guildMember?.premiumSince !== undefined) {
+      embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(new Date(guildMember?.premiumSince).getTime() / 1000)
+        .toFixed(0)}:F> (<t:${parseInt(new Date(guildMember?.premiumSince).getTime() / 1000).toFixed(0)}:R>)`, true)
     }
     guildMember ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), guildMember?.permissions?.array?.map(perm => `\`${ctx._locale(`permission:${perm}`)}\``)?.join(', ')) : null
 
