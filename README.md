@@ -23,10 +23,11 @@ For that reason, we are **NOT** providing any kind of support for unoriginal sel
 
 > Use that commands in your terminal
 ```
-npm install
+yarn install
+yarn start --force-install
 ```
 ```
-node .
+yarn start
 ```
 ### How to connect a Lavalink
 > Create a file named `LavalinkConfig.json` in the folder `lavalink` and input this informations on this file
