@@ -1,17 +1,17 @@
 /* eslint-disable quotes */
-const { UsagiClient } = require('usagi-http-interaction')
-const { Interaction } = require('eris')
-const { Logger } = require('../structures/util')
-const chalk = require('chalk')
+import chalk from 'chalk'
+import { Interaction } from 'eris'
+import { UsagiClient } from 'usagi-http-interaction'
+import { Logger } from '../structures/util'
 
-module.exports = class InteractionManager extends UsagiClient {
+export class InteractionManager extends UsagiClient {
   constructor(client) {
     super({
       protocol: process.env.INTERACTION_URL.startsWith('wss://') ? 'https://' : 'http://',
       ip: process.env.INTERACTION_URL.replace('wss://', '').replace('ws://', ''),
       secret: process.env.SECRET_INTERACTION,
       publicKey: process.env.PUBLIC_KEY,
-      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null :  parseInt(process.env.INTERACTION_PORT) ,
+      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null : parseInt(process.env.INTERACTION_PORT),
       client: client,
       eventName: 'interactionCreate',
       lengthLatency: 3,
@@ -56,7 +56,7 @@ module.exports = class InteractionManager extends UsagiClient {
         Logger.debug(`Interaction: ${JSON.stringify(interaction, ('', ' '))}`)
       }
       if (interaction.type === 1) return this // Ignore
-      if (interaction.type === 200) return this; // Ping
+      if (interaction.type === 200) return this // Ping
 
       if (interaction.type === 2) {
         this.client.emit('slashCommand', new Interaction(interaction,
@@ -76,21 +76,21 @@ module.exports = class InteractionManager extends UsagiClient {
         )
 
         if (interaction.channel_id !== undefined) {
-          interactionClass.channel_id = interaction.channel_id;
+          interactionClass.channel_id = interaction.channel_id
         }
         if (interaction.guild_id !== undefined) {
-          interactionClass.guild_id = interaction.guild_id;
+          interactionClass.guild_id = interaction.guild_id
         }
         if (interaction.message !== undefined) {
-          interactionClass.message_data = interaction.message;
+          interactionClass.message_data = interaction.message
         }
         if (interaction.data !== undefined) {
-          interactionClass.data = interaction.data;
+          interactionClass.data = interaction.data
         }
         if (interaction.member !== undefined) {
-          interactionClass.member = interaction.member;
+          interactionClass.member = interaction.member
         }
-        interaction.is_http = true;
+        interaction.is_http = true
         this.client.emit('interactionCreate', interactionClass, true, this)
       }
     })

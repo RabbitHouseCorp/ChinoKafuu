@@ -1,4 +1,4 @@
-module.exports = class CommandCooldown {
+export class CommandCooldown {
   constructor() {
     this.users = new Map()
   }

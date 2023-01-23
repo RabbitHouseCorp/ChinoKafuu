@@ -1,7 +1,7 @@
-const { Command, TranslatorUtils } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, TranslatorUtils } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class TranslateCommand extends Command {
+export default class TranslateCommand extends Command {
   constructor() {
     super({
       name: 'translate',
@@ -28,7 +28,6 @@ module.exports = class TranslateCommand extends Command {
     for (const translateOutput of res.data[0]) {
       letters.push(translateOutput[0].trim())
     }
-    console.log(letters)
     ctx.reply('map', letters.join(' '))
   }
 }

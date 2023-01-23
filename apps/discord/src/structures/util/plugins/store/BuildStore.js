@@ -1,6 +1,7 @@
-const PluginExtend = require('../loaders/PluginExtend')
-const Constants = require('../../Constants')
-module.exports = class BuildStore extends PluginExtend {
+import { BUILD_INFO } from '../../Constants'
+import { PluginExtend } from '../loaders/PluginExtend'
+
+export class BuildStore extends PluginExtend {
   constructor() {
     super({
       name: 'buildStore',
@@ -12,7 +13,7 @@ module.exports = class BuildStore extends PluginExtend {
 
   async start() {
     try {
-      const data = await Constants.BUILD_INFO.getCommit()
+      const data = await BUILD_INFO.getCommit()
       this.$addClassState({ data: data })
 
       this.ready()

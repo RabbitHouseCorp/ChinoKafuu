@@ -1,7 +1,9 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const util = require('util')
+/* eslint-disable security/detect-non-literal-regexp */
+/* eslint-disable security/detect-eval-with-expression */
+import { Command, EmbedBuilder } from '../../../structures/util'
+import util from 'util'
 
-module.exports = class EvalCommand extends Command {
+export default class EvalCommand extends Command {
   constructor() {
     super({
       name: 'eval',

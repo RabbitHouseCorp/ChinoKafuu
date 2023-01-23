@@ -1,6 +1,6 @@
-const ColorResolver = require('./ColorResolver')
+import { ColorResolver } from './ColorResolver'
 
-module.exports = class EmbedBuilder {
+export class EmbedBuilder {
   constructor() {
     this.fields = []
     this.author = null

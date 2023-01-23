@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../../structures/util')
+import { Command, EmbedBuilder } from '../../../../structures/util'
 
-module.exports = class UserInfoCommand extends Command {
+export default class UserInfoCommand extends Command {
   constructor() {
     super({
       name: 'user info',

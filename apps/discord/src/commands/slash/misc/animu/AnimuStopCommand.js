@@ -1,6 +1,6 @@
-const { Command } = require('../../../../structures/util')
+import { Command } from '../../../../structures/util'
 
-module.exports = class AnimuStopCommand extends Command {
+export default class AnimuStopCommand extends Command {
   constructor() {
     super({
       name: 'animu leave',

@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const Helper = require('../../../structures/util/Helper')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { Helper } from '../../../structures/util/Helper'
 
-module.exports = class HelpCommand extends Command {
+export default class HelpCommand extends Command {
   constructor() {
     super({
       name: 'help',

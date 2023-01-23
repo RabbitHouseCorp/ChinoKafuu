@@ -1,7 +1,7 @@
-const Database = require('../../../../structures/database/Database')
-const PluginExtend = require('../loaders/PluginExtend')
+import { Database } from '../../../../structures/database/Database'
+import { PluginExtend } from '../loaders/PluginExtend'
 
-module.exports = class DatabaseStore extends PluginExtend {
+export class DatabaseStore extends PluginExtend {
   constructor() {
     super({
       name: 'mongodb',

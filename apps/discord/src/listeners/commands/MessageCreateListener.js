@@ -1,14 +1,14 @@
-const Listener = require('../../structures/events/Listener')
-const CommandRunner = require('../../structures/command/CommandRunner')
+import { CommandRunner } from '../../structures/command/CommandRunner'
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class MessageCreateListener extends Listener {
-  constructor () {
+export default class MessageCreateListener extends Listener {
+  constructor() {
     super()
 
     this.event = 'messageCreate'
   }
 
-  async on (client, msg) {
+  async on(client, msg) {
     await CommandRunner.run(client, msg)
   }
 }

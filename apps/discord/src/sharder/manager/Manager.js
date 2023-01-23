@@ -1,11 +1,11 @@
-const Logger = require('../../structures/util/Logger')
-const { Worker } = require('worker_threads')
-const path = require('path')
-const os = require('os-utils')
+import os from 'os-utils'
+import path from 'path'
+import { Worker } from 'worker_threads'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports = class Manager {
-  constructor () {
-    this.clusterAmount = parseInt(process.env.CLUSTER_AMOUNT) || require('os').cpus().length || 6
+export class Manager {
+  constructor() {
+    this.clusterAmount = parseInt(process.env.CLUSTER_AMOUNT) || import('os').cpus().length || 6
     this.shardsPerCluster = Math.round(parseInt(process.env.SHARD_AMOUNT) / this.clusterAmount)
     this.aliveClusters = 0
     this.clusters = []
@@ -21,13 +21,13 @@ module.exports = class Manager {
     }
   }
 
-  start () {
+  start() {
     Logger.info(`Spawning ${this.clusterAmount} clusters, each one with ${this.shardsPerCluster} ${this.shardsPerCluster === 1 ? 'shard' : 'shards'}.`)
     this.spawnClusters()
   }
 
-  createCluster (id, env) {
-    const worker = new Worker(path.resolve(__dirname + '/../', 'cluster.js'), {
+  createCluster(id, env) {
+    const worker = new Worker(path.resolve(import.meta.url + '/../', 'cluster.js'), {
       env: env ? { ...process.env, ...env } : {
         ...process.env,
         CLUSTER_ID: id,
@@ -42,27 +42,28 @@ module.exports = class Manager {
     return worker
   }
 
-  spawnClusters () {
+  spawnClusters() {
     this.clusters = new Array(this.clusterAmount).fill(0).map((_, i) => this.createCluster(i))
   }
 
-  onExit (worker) {
+  onExit(worker) {
     this.aliveClusters--
     Logger.error(`Mayday! Cluster ${worker} died! Starting another cluster now.`)
-    this.clusters[worker] = this.createCluster(worker)
+    this.clusters[typeof worker === 'number' ? worker : null] = this.createCluster(worker)
   }
 
-  onError (id, error) {
+  onError(id, error) {
     Logger.error(`Cluster ${id} returned an error: ${error.stack}`)
   }
 
-  onMessage (m) {
+  onMessage(m) {
     // our job here is simple: all we have to do is get the message recipient and send it to them.
     if (m.recipient === 'all') {
       this.clusters.forEach(c => c.postMessage(m))
     } else if (m.recipient === 'manager') { // hey, that's me!
       let rst
       try {
+        // eslint-disable-next-line security/detect-eval-with-expression
         rst = { success: true, rst: eval(m.data) }
       } catch (e) {
         rst = { success: false, rst: e.stack }
@@ -74,7 +75,7 @@ module.exports = class Manager {
     }
   }
 
-  _send (m, rst, swi = true) {
+  _send(m, rst, swi = true) {
     m.at = m.id
     m.data = rst
     if (swi) {

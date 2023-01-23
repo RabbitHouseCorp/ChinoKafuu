@@ -1,16 +1,15 @@
-/* eslint-disable no-empty */
 /* eslint-disable no-case-declarations */
-const { parentPort } = require('worker_threads')
+import { parentPort } from 'worker_threads'
 
-module.exports = class ClusteringInterface {
-  constructor (client) {
+export class ClusteringInterface {
+  constructor(client) {
     this.client = client
     this.tba = new Map()
 
     parentPort.on('message', (m) => this._handleMessage(m))
   }
 
-  _getPingData (off) {
+  _getPingData(off) {
     const d = {}
     const onlineShards = !off ? this.client.shards.filter(a => a.latency !== Infinity) : []
     d.onlineShards = !off ? onlineShards.length : 0
@@ -24,14 +23,14 @@ module.exports = class ClusteringInterface {
     return d
   }
 
-  async getAveragePing () {
+  async getAveragePing() {
     return this.padMissingClusters(await this.send('all', 'eval', 'this._getPingData()'), this._getPingData(true))
       .map(({ cluster, result }) => {
         return { id: cluster, ...result }
       }).sort((a, b) => a.id - b.id)
   }
 
-  padMissingClusters (array, val = {}) {
+  padMissingClusters(array, val = {}) {
     if (array.length === parseInt(process.env.CLUSTER_AMOUNT)) return array
     return new Array(parseInt(process.env.CLUSTER_AMOUNT)).fill(val).map((v, i) => {
       if (array.filter(a => a.cluster === i)[0]) return array.filter(a => a.cluster === i)[0]
@@ -39,7 +38,7 @@ module.exports = class ClusteringInterface {
     })
   }
 
-  send (recp, t, d) {
+  send(recp, t, d) {
     return new Promise((call) => {
       let c = 0
       const q = []
@@ -54,13 +53,14 @@ module.exports = class ClusteringInterface {
     })
   }
 
-  _handleMessage (m) {
+  _handleMessage(m) {
     if (m.at) return this._handleAnswer(m)
 
     switch (m.type) {
       case 'eval':
         let rst
         try {
+          // eslint-disable-next-line security/detect-eval-with-expression
           rst = { success: true, rst: eval(m.data) }
         } catch (e) {
           rst = { sucess: false, rst: e.stack }
@@ -70,13 +70,14 @@ module.exports = class ClusteringInterface {
     }
   }
 
-  _handleAnswer (m) {
+  _handleAnswer(m) {
     const data = this.tba.get(m.at)
     if (!data) return // guess they weren't talking to us?
 
     try {
       data.f({ cluster: m.sender !== 'manager' ? parseInt(m.sender) : 'manager', result: m.data?.rst || m.data })
-    } catch (_) {}
+      // eslint-disable-next-line no-empty
+    } catch (_) { }
     if (m.all && data.answers + 1 !== parseInt(process.env.CLUSTER_AMOUNT)) {
       this.tba.set(m.at, { f: data.f, answers: data.answers + 1 })
     } else {
@@ -84,7 +85,7 @@ module.exports = class ClusteringInterface {
     }
   }
 
-  _send (m, type, data, recipient, callback) {
+  _send(m, type, data, recipient, callback) {
     /*
       recipient/sender logic (> in, < out)
 
@@ -125,11 +126,11 @@ module.exports = class ClusteringInterface {
     }
   }
 
-  _generateID () {
+  _generateID() {
     return Date.now() + Math.random().toString(36).substring(7)
   }
 
-  get firstShardID () {
+  get firstShardID() {
     if (process.env.CLUSTER_ID === '0') return 0
     return parseInt(process.env.CLUSTER_ID) * parseInt(process.env.SHARDS_PER_CLUSTER)
   }

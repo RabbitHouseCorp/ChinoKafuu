@@ -1,10 +1,11 @@
-const NightlyDeveloper = require('./Nightly')
-const { Message } = require('eris')
-const InteractionPacket = require('../interactions/InteractionPacket')
-module.exports = class NightlyInteraction extends NightlyDeveloper {
+import { Message } from 'eris'
+import { InteractionPacket } from '../interactions/InteractionPacket'
+import { NightlyDeveloper } from './Nightly'
+
+export class NightlyInteraction extends NightlyDeveloper {
   constructor(message, options) {
     super()
-    this.options = options === undefined ? options : {};
+    this.options = options === undefined ? options : {}
     this.timeoutRun = null
     if (this.options?.time !== undefined) {
       this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
@@ -14,22 +15,22 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     this.token = ''
     this.data = null
     this.isHttp = false
-    this.interactionPost = null;
+    this.interactionPost = null
     this.message = message
     this.client = message.channel.client
     this.typeInteraction = 1
     this.user = message.member.user
     if (this.client.interactionPost.connected) {
-      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.#interactionHttp(a, isHttp, interactionPost))
+      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.interactionHttp(a, isHttp, interactionPost))
     } else {
-      this.client.on('rawWS', (packet) => this.#interactionNormal(packet))
+      this.client.on('rawWS', (packet) => this.interactionNormal(packet))
     }
     this.on('click', () => {
-      this.#resetTimeout()
+      this.resetTimeout()
     })
   }
 
-  #resetTimeout() {
+  resetTimeout() {
     clearTimeout(this.timeoutRun)
     this.timeoutRun = null
     if (this.options?.time !== undefined) {
@@ -44,7 +45,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     this.timeoutRun = null
   }
 
-  #interactionNormal(packet) {
+  interactionNormal(packet) {
     if (packet.t === 'INTERACTION_CREATE') {
       if (packet.d.type === 3) {
         if (this.message.id === packet.d.message.id) {
@@ -63,7 +64,7 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     }
   }
 
-  #interactionHttp(a, isHttp, interactionPost) {
+  interactionHttp(a, isHttp, interactionPost) {
     if (isHttp !== undefined) {
       this.isHttp = true
       this.interactionPost = interactionPost
@@ -106,16 +107,16 @@ module.exports = class NightlyInteraction extends NightlyDeveloper {
     switch (typeAck) {
       case 'update':
         type = 7
-        break;
+        break
       case 'respond':
         type = 4
-        break;
+        break
       case 'later':
         type = 5
-        break;
+        break
       case 'ack':
         type = 6
-        break;
+        break
       default:
         type = 4
     }

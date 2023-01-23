@@ -1,8 +1,9 @@
-const { Command } = require('../../../structures/util')
-const { CommandBase, CommandOptions, Choice } = require('eris')
-const Emoji = require('../../../structures/util/EmotesInstance')
+/* eslint-disable security/detect-object-injection */
+import { Choice, CommandBase, CommandOptions } from 'eris'
+import { Command } from '../../../structures/util'
+import { Emoji } from '../../../structures/util/EmotesInstance'
 
-module.exports = class JanKenPonCommand extends Command {
+export default class JanKenPonCommand extends Command {
   constructor() {
     super({
       name: 'jankenpon',

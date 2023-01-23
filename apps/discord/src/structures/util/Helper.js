@@ -1,7 +1,7 @@
-const EmbedBuilder = require('../../structures/util/EmbedBuilder')
+import { EmbedBuilder } from '../../structures/util/EmbedBuilder'
 
-module.exports = class Helper {
-  constructor (context, commandName, commandAliases, commandDescription, perms, slash = false) {
+export class Helper {
+  constructor(context, commandName, commandAliases, commandDescription, perms, slash = false) {
     this.context = context
     this.name = commandName
     this.aliases = commandAliases
@@ -10,7 +10,7 @@ module.exports = class Helper {
     this.slash = slash
   }
 
-  help () {
+  help() {
     // const command = this.context.client.commandRegistry.findByName(this.name) ?? this.context.client.slashCommandRegistry.findByName(this.name)
     const commandName = `${this.slash ? '/' : this.context.db.guild.prefix}${this.name}`
     const commandWithUsage = `\`${commandName}\``

@@ -1,9 +1,9 @@
-module.exports = class ColorResolver {
+export class ColorResolver {
   /**
      * @param color {string} The color to be resolved
      * @returns {string | Error}
      */
-  static resolve (color) {
+  static resolve(color) {
     if (typeof (color) !== 'string') throw new Error(`Unexpected type ${typeof color} while building the embed`)
     color = color.toUpperCase()
     const defaultColors = {
@@ -16,8 +16,8 @@ module.exports = class ColorResolver {
     }
 
     if (!color) color = null
-    if (defaultColors[color]) {
-      return defaultColors[color]
+    if (defaultColors[typeof color === 'number' ? color : defaultColors.DEFAULT]) {
+      return defaultColors[typeof color === 'number' ? color : defaultColors.DEFAULT]
     }
 
     return parseInt(color.replace('#', ''), 16)

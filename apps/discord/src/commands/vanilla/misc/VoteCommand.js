@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class VoteCommand extends Command {
+export default class VoteCommand extends Command {
   constructor() {
     super({
       name: 'vote',

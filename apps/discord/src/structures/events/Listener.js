@@ -1,1 +1,1 @@
-module.exports = class Listener {}
+export class Listener {}

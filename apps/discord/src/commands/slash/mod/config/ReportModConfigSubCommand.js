@@ -1,10 +1,10 @@
-const { Command } = require('../../../../structures/util')
+import { Command } from '../../../../structures/util'
 const Status = {
   typeOne: 'enable',
   typeTwo: 'disable'
 }
 
-module.exports = class ReportModConfigSubCommand extends Command {
+export default class ReportModConfigSubCommand extends Command {
   constructor() {
     super({
       name: 'config report',

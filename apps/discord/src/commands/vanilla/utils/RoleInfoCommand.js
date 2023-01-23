@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class RoleInfoCommand extends Command {
+export default class RoleInfoCommand extends Command {
   constructor() {
     super({
       name: 'roleinfo',

@@ -1,4 +1,4 @@
-module.exports = class Options {
+export class Options {
   constructor(data) {
     if (data?.label !== undefined) {
       this.label = data.label

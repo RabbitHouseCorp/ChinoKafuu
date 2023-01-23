@@ -1,7 +1,11 @@
-const package = require('../../package.json')
-require('node:zlib')
+
+import('node:zlib')
 
 Error.prototype.debug = function (details, log) {
+  const myPackage = {
+    version: process.version
+  }
+
   const a = this.stack
     .removePath()
     .split('\n')
@@ -12,15 +16,15 @@ Error.prototype.debug = function (details, log) {
       let type = 'unknown'
       switch (process.env.PRODUCTION) {
         case 'false': {
-          type = `stable-${package.version}`
+          type = `stable-${myPackage.version}`
           break
         }
         case 'true': {
-          type = `beta-${package.version}`
+          type = `beta-${myPackage.version}`
           break
         }
         default:
-          type = `productionUnknown-${package.version} -> (${process.env.PRODUCTION})`
+          type = `productionUnknown-${myPackage.version} -> (${process.env.PRODUCTION})`
       }
       a.push(`Production: ${type}`)
     }

@@ -1,9 +1,9 @@
-const Listener = require('../../structures/events/Listener')
-const { Interaction } = require('eris')
-const SlashRunner = require('../../structures/command/SlashRunner')
-const { Logger } = require('../../structures/util')
+import { Interaction } from 'eris'
+import { SlashRunner } from '../../structures/command/SlashRunner'
+import { Listener } from '../../structures/events/Listener'
+import { Logger } from '../../structures/util'
 
-module.exports = class Command extends Listener {
+export default class Command extends Listener {
   constructor() {
     super()
     this.event = 'slashCommand'

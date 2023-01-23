@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
+import { Command } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class LicenseCommand extends Command {
+export default class LicenseCommand extends Command {
   constructor() {
     super({
       name: 'license',

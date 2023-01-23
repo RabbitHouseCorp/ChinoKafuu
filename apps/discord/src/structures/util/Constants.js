@@ -1,14 +1,14 @@
-const { version } = require('../../../package.json')
-const Logger = require('../../structures/util/Logger')
-const chalk = require('chalk')
+import chalk from 'chalk'
+import { exec } from 'child_process'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports.profileConstants = {
+const profileConstants = {
   default: 1 << 1,
   modern: 1 << 2,
   profile_2: 1 << 3,
 }
 
-module.exports.backgroundConstants = {
+const backgroundConstants = {
   gochiusa_1: 1 << 1,
   gochiusa_2: 1 << 2,
   gochiusa_3: 1 << 3,
@@ -24,7 +24,7 @@ module.exports.backgroundConstants = {
   showByRock_4: 1 << 13
 }
 
-module.exports.backgroundPriceTableConstants = {
+const backgroundPriceTableConstants = {
   'gochiusa_1': 10000,
   'gochiusa_2': 10350,
   'gochiusa_3': 10300,
@@ -40,7 +40,7 @@ module.exports.backgroundPriceTableConstants = {
   'showByRock_4': 257000
 }
 
-module.exports.profilePriceTableConstants = {
+const profilePriceTableConstants = {
   'default': 0,
   'modern': 115000,
   'profile_2': 280000,
@@ -48,7 +48,7 @@ module.exports.profilePriceTableConstants = {
   data: [0, 115000, 280000, 0]
 }
 
-module.exports.profileInfo = [
+const profileInfo = [
   {
     name: 'Default',
     _id: 'default',
@@ -68,7 +68,7 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: 'I guess I will put a note on my notebook.',
-    price: module.exports.profilePriceTableConstants.data[1],
+    price: profilePriceTableConstants.data[1],
     buttonId: 'modern',
     disabled: false,
     isDefault: false
@@ -80,7 +80,7 @@ module.exports.profileInfo = [
     readyForSale: true,
     description: null,
     shotDescription: 'The default profile, but more modern.',
-    price: module.exports.profilePriceTableConstants.data[2],
+    price: profilePriceTableConstants.data[2],
     buttonId: 'profile_2',
     disabled: false,
     isDefault: false
@@ -92,14 +92,14 @@ module.exports.profileInfo = [
     readyForSale: false,
     description: null,
     shotDescription: 'This profile is not available yet, wait until the next update.',
-    price: module.exports.profilePriceTableConstants.data[3],
+    price: profilePriceTableConstants.data[3],
     buttonId: 'cute_profile',
     disabled: false,
     isDefault: true
   }
 ]
 
-module.exports.applicationCommandOptionType = {
+const applicationCommandOptionType = {
   subCommand: 1,
   subCommandGroup: 2,
   string: 3,
@@ -112,25 +112,25 @@ module.exports.applicationCommandOptionType = {
   number: 10
 }
 
-module.exports.applicationCommandPermissionType = {
+const applicationCommandPermissionType = {
   role: 1,
   user: 2
 }
 
-module.exports.typeCommand = {
+const typeCommand = {
   slashCommand: 1,
   userCommand: 2,
   messageCommands: 3,
   autoCompete: 4
 }
 
-module.exports.componentTypes = {
+const componentTypes = {
   actionRow: 1,
   button: 2,
   selectMenu: 3
 }
 
-module.exports.buttonStyle = {
+const buttonStyle = {
   primary: 1,
   secondary: 2,
   success: 3,
@@ -138,7 +138,7 @@ module.exports.buttonStyle = {
   link: 5
 }
 
-module.exports.Flags_Guild = {
+const Flags_Guild = {
   GUILD_TESTER: 1 << 0,
   PREMIUM: 1 << 1,
   COMMAND_ACCESS_TESTER: 1 << 2,
@@ -150,7 +150,7 @@ module.exports.Flags_Guild = {
   NO_COOLDOWN: 1 << 6,
 }
 
-module.exports.Flags_Users = {
+const Flags_Users = {
   DEVELOPER: 1 << 0,
   BUG_HUNTER: 1 << 1,
   BUG_HUNTER_EXTREME: 1 << 2,
@@ -171,7 +171,7 @@ module.exports.Flags_Users = {
   PARTNER_STORE: 1 << 13
 }
 
-module.exports.Flags_Command = {
+const Flags_Command = {
   BROKEN_COMMAND: 1 << 0,
   BROKEN_COMMAND_NOTICED: 1 << 1,
   BUG_TRACKING: 1 << 2,
@@ -179,11 +179,11 @@ module.exports.Flags_Command = {
   COMMAND_TESTER: 1 << 4
 }
 
-module.exports.BUILD_INFO = {
-  version: version,
-  build: Buffer.from(version).toString('base64'),
+const BUILD_INFO = {
+  version: globalThis.versionProject,
+  build: Buffer.from(`${globalThis.versionProject}`).toString('base64'),
   commit_log: async () => {
-    const { exec } = require('child_process')
+
     let kill_process = false
     if (process.env.BUILD_SHOW === undefined) {
       return
@@ -199,7 +199,7 @@ module.exports.BUILD_INFO = {
       }
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
-      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${version}) / ${get_message}`)
+      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${globalThis.versionProject}) / ${get_message}`)
       Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
       await e.kill()
       kill_process = true
@@ -209,11 +209,10 @@ module.exports.BUILD_INFO = {
     }
   },
   getCommit: async () => {
-    const { exec } = require('child_process')
     const data = {
       commit: null,
       message: null,
-      version: version
+      version: globalThis.versionProject
     }
     if (process.env.BUILD_SHOW === undefined) {
       return data
@@ -236,3 +235,39 @@ module.exports.BUILD_INFO = {
     return data
   }
 }
+
+const Constants = {
+  profileConstants,
+  backgroundConstants,
+  backgroundPriceTableConstants,
+  profilePriceTableConstants,
+  profileInfo,
+  applicationCommandOptionType,
+  applicationCommandPermissionType,
+  typeCommand,
+  componentTypes,
+  buttonStyle,
+  Flags_Command,
+  Flags_Users,
+  Flags_Guild,
+  BUILD_INFO
+}
+export default Constants
+
+export {
+  profileConstants,
+  backgroundConstants,
+  backgroundPriceTableConstants,
+  profilePriceTableConstants,
+  profileInfo,
+  applicationCommandOptionType,
+  applicationCommandPermissionType,
+  typeCommand,
+  componentTypes,
+  buttonStyle,
+  Flags_Command,
+  Flags_Users,
+  Flags_Guild,
+  BUILD_INFO
+}
+

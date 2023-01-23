@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder, TopGGUtils } = require('../../../structures/util')
-const { CommandBase } = require('eris')
+import { CommandBase } from 'eris'
+import { Command, EmbedBuilder, TopGGUtils } from '../../../structures/util'
 
-module.exports = class DailyCommand extends Command {
+export default class DailyCommand extends Command {
   constructor() {
     super({
       name: 'daily',

@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class SetNickCommand extends Command {
+export default class SetNickCommand extends Command {
   constructor() {
     super({
       name: 'setnick',

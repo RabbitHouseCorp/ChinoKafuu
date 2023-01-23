@@ -1,6 +1,6 @@
-const { Command, Emoji } = require('../../../structures/util')
+import { Command, Emoji } from '../../../structures/util'
 
-module.exports = class ClearCommand extends Command {
+export default class ClearCommand extends Command {
   constructor() {
     super({
       name: 'clear',

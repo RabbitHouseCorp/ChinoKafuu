@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { UsagiAPI } = require('usagiapi')
+import { UsagiAPI } from 'usagiapi'
+import { Command, EmbedBuilder } from '../../../structures/util'
 const usagi = new UsagiAPI()
 
-module.exports = class DanceCommand extends Command {
+export default class DanceCommand extends Command {
   constructor() {
     super({
       name: 'dance',

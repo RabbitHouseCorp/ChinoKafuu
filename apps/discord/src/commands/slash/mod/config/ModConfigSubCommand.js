@@ -1,10 +1,10 @@
-const { Command } = require('../../../../structures/util')
+import { Command } from '../../../../structures/util'
 const Status = {
   typeOne: 'enable',
   typeTwo: 'disable'
 }
 
-module.exports = class ModConfigSubCommand extends Command {
+export default class ModConfigSubCommand extends Command {
   constructor() {
     super({
       name: 'config mod',
@@ -29,7 +29,6 @@ module.exports = class ModConfigSubCommand extends Command {
         if (ctx.args.get('channel')?.value === undefined) return ctx.replyT('error', 'commands:config.channel.needChannel')
         // Tag: CHANNEL_NOT_WAS_FOUND
         // Message: Woah! Channel not found check permissions from Chino Kafuu most likely she is without permission, if not permission then channel has been deleted.
-        console.log(ctx.message.guild.channels.get(ctx.args.get('channel')?.value))
         if (ctx.message.guild.channels.get(ctx.args.get('channel')?.value) === undefined) return ctx.replyT('error', 'commands:config.channel.channelWasNotFound')
         // Tag:  SAME_CHANNEL
         // Message: It looks like it's the same channel you selected. (<#{channel-id}> - {channel-id})

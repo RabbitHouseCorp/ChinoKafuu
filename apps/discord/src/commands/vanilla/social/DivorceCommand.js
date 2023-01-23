@@ -1,7 +1,7 @@
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command, Button, Emoji } = require('../../../structures/util')
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Button, Command, Emoji } from '../../../structures/util'
 
-module.exports = class DivorceCommand extends Command {
+export default class DivorceCommand extends Command {
   constructor() {
     super({
       name: 'divorce',

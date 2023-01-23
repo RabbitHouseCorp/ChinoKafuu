@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const malScraper = require('mal-scraper')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import malScraper from 'mal-scraper'
 
-module.exports = class AnimeCommand extends Command {
+export default class AnimeCommand extends Command {
   constructor() {
     super({
       name: 'anime',

@@ -1,7 +1,7 @@
-const Logger = require('../../structures/util/Logger')
-const Bot = require('../../structures/Bot')
+import { Bot } from '../../structures/Bot'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports = class Cluster {
+export class Cluster {
   constructor() {
     Logger.info('Online. Spawning shards...')
     if (process.env.PRODUCTION === 'true' && !process.env.DISCORD_MONGO_URI) {
@@ -37,8 +37,8 @@ module.exports = class Cluster {
       await this.shardManager.connect().then(() => {
         Logger.debug('Successfully connected to Discord\'s gateway.')
       })
-    // eslint-disable-next-line no-empty
-    } catch (e) {}
+      // eslint-disable-next-line no-empty
+    } catch (e) { }
   }
 
   get firstClusterShardID() {

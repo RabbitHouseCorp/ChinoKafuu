@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const { CommandBase, CommandOptions, Choice } = require('eris')
+import { Command } from '../../../structures/util'
+import { CommandBase, CommandOptions, Choice } from 'eris'
 
-module.exports = class ChatCommand extends Command {
+export default class ChatCommand extends Command {
   constructor() {
     super({
       name: 'chat',
@@ -36,11 +36,11 @@ module.exports = class ChatCommand extends Command {
       case 'on': {
         ctx.message.channel.editPermission(role, 2048, 0, 'role').then(ctx.replyT('success', 'commands:chat.unlocked'))
       }
-        break;
+        break
       case 'off': {
         ctx.message.channel.editPermission(role, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
       }
-        break;
+        break
     }
   }
 }

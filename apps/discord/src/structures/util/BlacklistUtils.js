@@ -1,4 +1,4 @@
-module.exports = class BlacklistUtils {
+export class BlacklistUtils {
   constructor(client) {
     this.client = client
   }

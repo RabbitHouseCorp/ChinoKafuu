@@ -1,8 +1,8 @@
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { requestTokamak } from '../../../lib'
+import { Command } from '../../../structures/util'
 
-module.exports = class LaranjoCommand extends Command {
+export default class LaranjoCommand extends Command {
   constructor() {
     super({
       name: 'laranjo',
@@ -24,15 +24,13 @@ module.exports = class LaranjoCommand extends Command {
   }
 
   async run(ctx) {
-    const buffer = await axios({
-      url: 'http://127.0.0.1:1234/render/laranjo',
-      method: 'post',
-      data: {
+    const render = await requestTokamak({
+      action: 'renderLaranjo',
+      laranjoStruct: {
         text: ctx.args.get('text').value
-      },
-      responseType: 'arraybuffer'
+      }
     })
 
-    ctx.send('', { file: { file: buffer.data, name: 'laranjo.png' } })
+    ctx.send('', { file: { file: render.buffer, name: 'laranjo.png' } })
   }
 }

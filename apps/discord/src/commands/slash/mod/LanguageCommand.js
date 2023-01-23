@@ -1,8 +1,9 @@
-const { Command, EmbedBuilder, Emoji, NightlyInteraction } = require('../../../structures/util')
-const { CommandBase } = require('eris')
-const SelectionMenu = require('../../../structures/interactions/SelectionMenu')
-const Options = require('../../../structures/interactions/Options')
-module.exports = class LanguageCommand extends Command {
+import { CommandBase } from 'eris'
+import { Options } from '../../../structures/interactions/Options'
+import { SelectionMenu } from '../../../structures/interactions/SelectionMenu'
+import { Command, EmbedBuilder, Emoji, NightlyInteraction } from '../../../structures/util'
+
+export default class LanguageCommand extends Command {
   constructor() {
     super({
       name: 'language',

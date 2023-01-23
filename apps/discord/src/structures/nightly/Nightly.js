@@ -1,6 +1,6 @@
-const EventEmitter = require('events')
-const { User, Member } = require('eris')
-module.exports = class NightlyDeveloper extends EventEmitter {
+import { Member, User } from 'eris'
+import EventEmitter from 'events'
+export class NightlyDeveloper extends EventEmitter {
   constructor() {
     super()
     // Add your tools to work with good functions.

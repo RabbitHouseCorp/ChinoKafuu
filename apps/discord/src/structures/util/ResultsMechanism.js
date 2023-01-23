@@ -1,58 +1,24 @@
-const { Constants } = require('eris')
+import { Constants } from 'eris'
 
-module.exports = class ResultsMechanism {
+const resolveMatch = (text = '', textVerify = '') => {
+  const input = typeof text !== 'string' ? '' : text.toLocaleLowerCase()
+  const inputVerify = typeof textVerify !== 'string' ? '' : textVerify.toLocaleLowerCase()
+
+  return inputVerify.includes(input)
+}
+
+export class ResultsMechanism {
   searchChannel_Interaction(search, interaction) {
-    let channels = []
-
-    for (const channelPosition of interaction.channel.guild.channels) {
-      const channel = channelPosition[1]
-      const p = search.split('')
-      const y = channel.name.replace('-', '').split('')
-
-      let confirm = 0
-      let wrong = false
-
-      for (const k of p) {
-        const letter = y.indexOf(k)
-
-        if (!wrong) {
-          if (y[letter] === undefined) {
-            wrong = true
-            wrong++
-          } else {
-            confirm++
-          }
-        }
-      }
-
-      if (!wrong) {
-        if (confirm > 0) {
-          channels.push({
-            type: 3,
-            name: `${channel.name} - ${channel.id}`,
-            value: channel.id
-          })
-        }
-      }
-      if (channel.name.replace('-', '') === search) {
-        channels = []
-        channels.push({
+    const channels = interaction.channel.guild.channels
+      .filter((e) => e.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) || e.id == search)
+      .map((i) => {
+        return {
           type: 3,
-          name: `${channel.name} - ${channel.id}`,
-          value: channel.id
-        })
-        break
-      }
-      if (channel.id === search) {
-        channels = []
-        channels.push({
-          type: 3,
-          name: `${channel.name} - ${channel.id}`,
-          value: channel.id
-        })
-        break
-      }
-    }
+          name: `${i.name} - ${i.id}`,
+          value: i.id
+        }
+      })
+
     if (channels.size === 0) {
       interaction.autoComplete.addOptions().callback()
     } else {
@@ -61,63 +27,16 @@ module.exports = class ResultsMechanism {
   }
 
   searchTextChannel_Interaction(search, interaction) {
-    let channels = []
-
-    for (const channelPosition of interaction.channel.guild.channels) {
-      const channel = channelPosition[1]
-      const p = search.split('')
-      const y = channel.name.replace('-', '').split('')
-
-      let confirm = 0
-      let wrong = false
-
-      for (const k of p) {
-        const letter = y.indexOf(k)
-
-        if (!wrong) {
-          if (y[letter] === undefined) {
-            wrong = true
-            wrong++
-          } else {
-            confirm++
-          }
+    const channels = interaction.channel.guild.channels
+      .filter((e) => e.type === Constants.ChannelTypes.GUILD_TEXT)
+      .filter((e) => resolveMatch(search, e.name) || e.id == search)
+      .map((i) => {
+        return {
+          type: 3,
+          name: `${i.name} - ${i.id}`,
+          value: i.id
         }
-      }
-
-      if (!wrong) {
-        if (confirm > 0) {
-          if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
-            channels.push({
-              type: 3,
-              name: `${channel.name} - ${channel.id}`,
-              value: channel.id
-            })
-          }
-        }
-      }
-      if (channel.name.replace('-', '') === search) {
-        if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
-          channels = []
-          channels.push({
-            type: 3,
-            name: `${channel.name} - ${channel.id}`,
-            value: channel.id
-          })
-        }
-        break
-      }
-      if (channel.id === search) {
-        if (channel.type === Constants.ChannelTypes.GUILD_TEXT) {
-          channels = []
-          channels.push({
-            type: 3,
-            name: `${channel.name} - ${channel.id}`,
-            value: channel.id
-          })
-        }
-        break
-      }
-    }
+      })
 
     if (channels.size === 0) {
       interaction.autoComplete.addOptions().callback()
@@ -127,64 +46,17 @@ module.exports = class ResultsMechanism {
   }
 
   searchVoiceChannel_Interaction(search, interaction) {
-    let channels = []
 
-    for (const channelPosition of interaction.channel.guild.channels) {
-      const channel = channelPosition[1]
-      const p = search.split('')
-      const y = channel.name.replace('-', '').split('')
-
-      let confirm = 0
-      let wrong = false
-
-      for (const k of p) {
-        const letter = y.indexOf(k)
-
-        if (!wrong) {
-          if (y[letter] === undefined) {
-            wrong = true
-            wrong++
-          } else {
-            confirm++
-          }
+    const channels = interaction.channel.guild.channels
+      .filter((e) => e.type === Constants.ChannelTypes.GUILD_VOICE)
+      .filter((e) => resolveMatch(search, e.name) || e.id == search)
+      .map((i) => {
+        return {
+          type: 3,
+          name: `${i.name} - ${i.id}`,
+          value: i.id
         }
-      }
-
-      if (!wrong) {
-        if (confirm > 0) {
-          if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
-            channels.push({
-              type: 3,
-              name: `${channel.name} - ${channel.id}`,
-              value: channel.id
-            })
-          }
-        }
-      }
-      if (channel.name.replace('-', '') === search) {
-        if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
-          channels = []
-          channels.push({
-            type: 3,
-            name: `${channel.name} - ${channel.id}`,
-            value: channel.id
-          })
-        }
-        break
-      }
-      if (channel.id === search) {
-        if (channel.type === Constants.ChannelTypes.GUILD_VOICE) {
-
-          channels = []
-          channels.push({
-            type: 3,
-            name: `${channel.name} - ${channel.id}`,
-            value: channel.id
-          })
-        }
-        break
-      }
-    }
+      })
 
     if (channels.size === 0) {
       interaction.autoComplete.addOptions().callback()

@@ -2,7 +2,7 @@ revolt/build/
 build/
 node_modules/
 config.json
-/discord/src/lavalink/LavalinkConfig.json
+LavalinkConfig.json
 *.env
 .env
 .idea
@@ -22,3 +22,5 @@ dist/
 dist
 *.d.ts
 revolt/src/*.js
+yarn-error.log
+.chinokafuu

@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class JanKenPonCommand extends Command {
+export default class JanKenPonCommand extends Command {
   constructor() {
     super({
       name: 'jankenpon',
@@ -37,22 +37,23 @@ module.exports = class JanKenPonCommand extends Command {
       paper: 'paper'
     }
 
-    const userWinOption = (clientChoiceMappings[clientChoice]).includes(clientDrawMappings[me])
+    const userWinOption = (clientChoiceMappings[typeof clientChoice === 'string' ? clientChoice : null])
+      .includes(clientDrawMappings[typeof me === 'string' ? me : null])
     if (userWinOption) {
       emoji = 'chino_upset'
-      result = ctx._locale('commands:jankenpon.youWin', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[me]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[clientChoice]}`), 2: Number(value).toLocaleString() })
+      result = ctx._locale('commands:jankenpon.youWin', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[typeof me === 'string' ? me : null]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[typeof clientChoice === 'string' ? clientChoice : null]}`), 2: Number(value).toLocaleString() })
       user.yens += Math.floor(value)
       user.save()
       if (Number(value) <= client.yens) {
         client.yens -= Math.floor(value)
         client.save()
       }
-    } else if (clientDrawMappings[clientChoice] === clientDrawMappings[me]) {
+    } else if (clientDrawMappings[typeof clientChoice === 'string' ? clientChoice : null] === clientDrawMappings[typeof me === 'string' ? me : null]) {
       emoji = 'chino_whoa'
       result = ctx._locale('commands:jankenpon.tie')
     } else if (!userWinOption) {
       emoji = 'chino_kek'
-      result = ctx._locale('commands:jankenpon.youLose', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[me]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[clientChoice]}`), 2: Number(value).toLocaleString() })
+      result = ctx._locale('commands:jankenpon.youLose', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[typeof me === 'string' ? me : null]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[typeof clientChoice === 'string' ? clientChoice : null]}`), 2: Number(value).toLocaleString() })
       user.yens -= Math.floor(value)
       client.yens += Math.floor(value)
       user.save()

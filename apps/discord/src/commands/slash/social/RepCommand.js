@@ -1,7 +1,7 @@
-const { Command } = require('../../../structures/util')
-const { CommandOptions, CommandBase } = require('eris')
+import { Command } from '../../../structures/util'
+import { CommandOptions, CommandBase } from 'eris'
 
-module.exports = class RepCommand extends Command {
+export default class RepCommand extends Command {
   constructor() {
     super({
       name: 'rep',

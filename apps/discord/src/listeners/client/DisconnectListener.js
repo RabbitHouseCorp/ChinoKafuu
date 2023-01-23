@@ -1,14 +1,14 @@
-const Listener = require('../../structures/events/Listener')
-const Logger = require('../../structures/util/Logger')
+import { Listener } from '../../structures/events/Listener'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports = class DisconnectListener extends Listener {
-  constructor () {
+export default class DisconnectListener extends Listener {
+  constructor() {
     super()
     this.event = 'disconnect'
   }
 
   // eslint-disable-next-line no-unused-vars
-  async on (client) {
+  async on(client) {
     Logger.shardMessage('Mayday! All shard has died!')
   }
 }

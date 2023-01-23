@@ -1,8 +1,8 @@
-const { Command, Button, Emoji } = require('../../../structures/util')
-const { CommandBase } = require('eris')
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
+import { CommandBase } from 'eris'
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Button, Command, Emoji } from '../../../structures/util'
 
-module.exports = class DivorceCommand extends Command {
+export default class DivorceCommand extends Command {
   constructor() {
     super({
       name: 'divorce',

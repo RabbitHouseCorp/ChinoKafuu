@@ -1,6 +1,9 @@
-const { EventEmitter } = require('events')
-const { Logger } = require('../structures/util')
-module.exports = class LavalinkPlayer extends EventEmitter {
+import axios from 'axios'
+import { EventEmitter } from 'events'
+import { URLSearchParams } from 'url'
+import { Logger } from '../structures/util'
+
+export class LavalinkPlayer extends EventEmitter {
   constructor(player, clientManager) {
     super()
     this.clientManager = clientManager
@@ -10,8 +13,6 @@ module.exports = class LavalinkPlayer extends EventEmitter {
   }
 
   async getSongs(node, search) {
-    const axios = require('axios')
-    const { URLSearchParams } = require('url')
     const params = new URLSearchParams()
     params.append('identifier', search)
     try {

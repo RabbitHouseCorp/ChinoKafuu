@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose'
 const Users = new mongoose.Schema({
   id: { type: String, index: { unique: true } },
   yens: { type: Number, default: 0, index: true },
@@ -26,4 +26,4 @@ const Users = new mongoose.Schema({
   stopNotify: { type: Boolean, default: false }
 })
 
-module.exports = mongoose.model('Users', Users)
+export default mongoose.model('Users', Users)

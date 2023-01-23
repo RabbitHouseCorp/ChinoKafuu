@@ -1,8 +1,8 @@
-const Logger = require('../../../structures/util/Logger')
-const PluginExtend = require('./loaders/PluginExtend')
-const EventEmitter = require('events')
+import EventEmitter from 'events'
+import { Logger } from '../../../structures/util/Logger'
+import { PluginExtend } from './loaders/PluginExtend'
 
-module.exports = class PluginManager extends EventEmitter {
+export class PluginManager extends EventEmitter {
 
   // This class will be used to remove some interfaces from the Eris Context to avoid reconnection explosions.
 

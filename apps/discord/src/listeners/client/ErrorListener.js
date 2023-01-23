@@ -1,7 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { EmbedBuilder, Logger } = require('../../structures/util')
+import { Listener } from '../../structures/events/Listener'
+import { EmbedBuilder, Logger } from '../../structures/util'
 
-module.exports = class ErrorListener extends Listener {
+export default class ErrorListener extends Listener {
   constructor() {
     super()
     this.event = 'error'

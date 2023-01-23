@@ -1,10 +1,9 @@
-/* eslint-disable no-useless-escape */
-const { EmbedBuilder, Helper, AwayFromKeyboardUtils, InviteDMUtils, BlacklistUtils } = require('../util')
-const Logger = require('../util/Logger')
-const CommandContext = require('./CommandContext')
-const CommandPermissions = require('./CommandPermissions')
+import { AwayFromKeyboardUtils, BlacklistUtils, EmbedBuilder, Helper, InviteDMUtils } from '../util'
+import { Logger } from '../util/Logger'
+import { CommandContext } from './CommandContext'
+import { CommandPermissions } from './CommandPermissions'
 
-module.exports = class CommandRunner {
+export class CommandRunner {
   static async run(client, message) {
     if (message.author.bot) return
     if (!message.channel.guild) {
@@ -24,6 +23,7 @@ module.exports = class CommandRunner {
       1: '/'
     }))
 
+    // eslint-disable-next-line security/detect-non-literal-regexp
     const regexp = new RegExp(`^(${guildData.prefix.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&')}|${process.env.GLOBAL_BOT_PREFIX}|<@!?${client.user.id}>)( )*`, 'gi')
 
     if (!message.content.match(regexp)) return
@@ -99,7 +99,7 @@ module.exports = class CommandRunner {
           }
           if (!userData.user_was_warned) {
             const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
-            ctx.replyT('error', 'I\'m limiting your command usage by too many command requests, wait for \`{time}\` seconds and try again.', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+            ctx.replyT('error', 'I\'m limiting your command usage by too many command requests, wait for \\`{time}\\` seconds and try again.', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
           }
           return
         }

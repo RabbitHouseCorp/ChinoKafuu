@@ -1,4 +1,4 @@
-import { RevoltClient } from "./services/Revolt";
+import { RevoltClient } from "./services/Revolt"
 import { Hotreload } from './services/platform/Hotreload'
 
 export interface ProjectWrapper {

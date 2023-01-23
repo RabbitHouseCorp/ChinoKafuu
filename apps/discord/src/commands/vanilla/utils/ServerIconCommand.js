@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class ServerIconCommand extends Command {
+export default class ServerIconCommand extends Command {
   constructor() {
     super({
       name: 'servericon',

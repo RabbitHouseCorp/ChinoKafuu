@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class ChangeAvatarCommand extends Command {
+export default class ChangeAvatarCommand extends Command {
   constructor() {
     super({
       name: 'changeavatar',

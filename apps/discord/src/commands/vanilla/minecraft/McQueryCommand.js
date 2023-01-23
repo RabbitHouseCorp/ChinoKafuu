@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, EmbedBuilder, Emoji } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class McQueryCommand extends Command {
+export default class McQueryCommand extends Command {
   constructor() {
     super({
       name: 'mcquery',

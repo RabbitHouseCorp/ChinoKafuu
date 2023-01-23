@@ -1,20 +1,20 @@
-const collectors = {
-  MessageCollector: require('./collectors/MessageCollector'),
-  ReactionCollector: require('./collectors/ReactionCollector'),
-  EmbedBuilder: require('./EmbedBuilder'),
-  Emoji: require('./EmotesInstance'),
-  Logger: require('./Logger'),
-  Command: require('../command/Command'),
-  version: require('../../../package.json').version,
-  TranslatorUtils: require('./TranslatorUtils'),
-  TopGGUtils: require('./botlists/TopGGUtils'),
-  Helper: require('./Helper'),
-  AwayFromKeyboardUtils: require('./AwayFromKeyboardUtils'),
-  InviteDMUtils: require('./InviteDMUtil'),
-  BlacklistUtils: require('./BlacklistUtils'),
-  Button: require('./../interactions/Button'),
-  UtilsGenerator: require('./UtilsGenerator'),
-  NightlyInteraction: require('../nightly/NightlyInteraction')
-}
+import loadSettings from '../loadSettings'
 
-module.exports = collectors
+export const version = loadSettings().version
+export * from '../command/Command'
+export * from '../nightly/NightlyInteraction'
+export * from './../interactions/Button'
+export * from './AwayFromKeyboardUtils'
+export * from './BlacklistUtils'
+export * from './botlists/TopGGUtils'
+export * from './collectors/MessageCollector'
+export * from './collectors/ReactionCollector'
+export * from './EmbedBuilder'
+export * from './EmotesInstance'
+export * from './Helper'
+export * from './InviteDMUtil'
+export * from './Logger'
+export * from './TranslatorUtils'
+export * from './UtilsGenerator'
+export * from './ErrorStack'
+

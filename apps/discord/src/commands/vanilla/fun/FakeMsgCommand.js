@@ -1,6 +1,6 @@
-const { Command } = require('../../../structures/util')
+import { Command } from '../../../structures/util'
 
-module.exports = class FakeMsgCommand extends Command {
+export default class FakeMsgCommand extends Command {
   constructor() {
     super({
       name: 'fakemsg',

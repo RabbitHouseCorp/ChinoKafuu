@@ -1,6 +1,6 @@
-const Listener = require('../../structures/events/Listener')
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class CommandError extends Listener {
+export default class CommandError extends Listener {
   constructor() {
     super()
     this.event = 'rawWS'

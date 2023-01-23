@@ -1,8 +1,8 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
+import axios from 'axios'
+import { CommandBase, CommandOptions } from 'eris'
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class ChannelInfoCommand extends Command {
+export default class ChannelInfoCommand extends Command {
   constructor() {
     super({
       name: 'channelinfo',
@@ -26,7 +26,6 @@ module.exports = class ChannelInfoCommand extends Command {
   async run(ctx) {
     const args = ctx.args.get('channel').value
     let channel = ctx.client.getChannel(args)
-    console.log(channel?.mention)
     if (!channel) {
       channel = ctx.message.channel
     }

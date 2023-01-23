@@ -1,14 +1,14 @@
-const Listener = require('../../structures/events/Listener')
-const CommandRunner = require('../../structures/command/CommandRunner')
+import { CommandRunner } from '../../structures/command/CommandRunner'
+import { Listener } from '../../structures/events/Listener'
 
-module.exports = class MessageUpdateListener extends Listener {
-  constructor () {
+export default class MessageUpdateListener extends Listener {
+  constructor() {
     super()
 
     this.event = 'messageUpdate'
   }
 
-  async on (client, newMsg, oldMsg) {
+  async on(client, newMsg, oldMsg) {
     if (newMsg?.content === oldMsg?.content) return
     await CommandRunner.run(client, newMsg)
   }

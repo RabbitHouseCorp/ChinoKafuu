@@ -1,6 +1,6 @@
-const { Command, EmbedBuilder, Emoji } = require('../../../structures/util')
+import { Command, EmbedBuilder, Emoji } from '../../../structures/util'
 
-module.exports = class McHeadCommand extends Command {
+export default class McHeadCommand extends Command {
   constructor() {
     super({
       name: 'mchead',

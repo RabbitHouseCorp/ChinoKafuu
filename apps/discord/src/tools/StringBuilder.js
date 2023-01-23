@@ -18,7 +18,7 @@ String.prototype.byteLength = function (out) {
 }
 
 String.prototype.removePath = function () {
-  const getPath = require.main.path.replace('//', '')
+  const getPath = import.meta.url.replace('//', '')
     .replace('\\\\', '')
     .replace('./', '/')
     .replace('.\\', '\\')

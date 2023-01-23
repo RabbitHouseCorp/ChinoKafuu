@@ -1,13 +1,13 @@
-const Listener = require('../../structures/events/Listener')
-const Logger = require('../../structures/util/Logger')
+import { Listener } from '../../structures/events/Listener'
+import { Logger } from '../../structures/util/Logger'
 
-module.exports = class DebugListener extends Listener {
-  constructor () {
+export default class DebugListener extends Listener {
+  constructor() {
     super()
     this.event = 'debug'
   }
 
-  async on (client, message) {
+  async on(client, message) {
     if (process.env.PRODUCTION === 'false') {
       Logger.debug(message)
     }

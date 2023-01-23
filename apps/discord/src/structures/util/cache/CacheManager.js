@@ -1,4 +1,4 @@
-module.exports = class CacheManager {
+export class CacheManager {
   constructor(client) {
     this.client = client
     this.timeFunction = null

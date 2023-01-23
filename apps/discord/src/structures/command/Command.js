@@ -1,7 +1,7 @@
-const Module = require('../registry/Module')
+import { Module } from '../registry/Module'
 
-module.exports = class Command extends Module {
-  constructor (options) {
+export class Command extends Module {
+  constructor(options) {
     super()
     this.name = options.name
     this.aliases = options.aliases || []
@@ -18,5 +18,5 @@ module.exports = class Command extends Module {
   callback(interaction) { }
 
   // eslint-disable-next-line no-unused-vars
-  run (ctx) {}
+  run(ctx) { }
 }

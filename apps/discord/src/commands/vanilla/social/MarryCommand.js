@@ -1,6 +1,6 @@
-const { Command, Button, ResponseAck, Emoji } = require('../../../structures/util')
+import { Button, Command, Emoji, NightlyInteraction } from '../../../structures/util'
 
-module.exports = class MarryCommand extends Command {
+export default class MarryCommand extends Command {
   constructor() {
     super({
       name: 'marry',
@@ -36,7 +36,7 @@ module.exports = class MarryCommand extends Command {
       .returnCtx()
       .sendT('commands:marry.requestConfirm', { 0: member.mention, 1: ctx.message.author.mention })
       .then(msg => {
-        const ack = new ResponseAck(msg)
+        const ack = new NightlyInteraction(msg)
         ack.on('collect', (data) => {
           if ((data.d.member.user.id == member.id && msg.author.id === ctx.client.user.id)) {
             return ack.sendAck('respond', {

@@ -1,6 +1,6 @@
-const PluginExtend = require('../loaders/PluginExtend')
+import { PluginExtend } from '../loaders/PluginExtend'
 
-module.exports = class CacheProfile extends PluginExtend {
+export class CacheProfile extends PluginExtend {
   constructor() {
     super({
       name: 'cache_profile',

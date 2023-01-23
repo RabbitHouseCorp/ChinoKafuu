@@ -1,6 +1,6 @@
-const { Command } = require('../../../../structures/util')
+import { Command } from '../../../../structures/util'
 
-module.exports = class AnimuVolumeCommand extends Command {
+export default class AnimuVolumeCommand extends Command {
   constructor() {
     super({
       name: 'animu volume',

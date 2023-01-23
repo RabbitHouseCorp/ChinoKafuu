@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { Command, EmbedBuilder } from '../../../structures/util'
 
-module.exports = class BanCommand extends Command {
+export default class BanCommand extends Command {
   constructor() {
     super({
       name: 'ban',

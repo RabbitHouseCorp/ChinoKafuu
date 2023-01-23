@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder, version } = require('../../../structures/util')
-const os = require('os')
+import os from 'os'
+import { Command, EmbedBuilder, version } from '../../../structures/util'
 
-module.exports = class BotInfoCommand extends Command {
+export default class BotInfoCommand extends Command {
   constructor() {
     super({
       name: 'botinfo',

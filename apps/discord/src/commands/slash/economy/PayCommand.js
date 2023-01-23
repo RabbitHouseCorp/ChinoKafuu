@@ -1,8 +1,8 @@
-const { Command, Button, Emoji } = require('../../../structures/util')
-const { CommandBase, CommandOptions } = require('eris')
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
+import { CommandBase, CommandOptions } from 'eris'
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Button, Command, Emoji } from '../../../structures/util'
 
-module.exports = class PayCommand extends Command {
+export default class PayCommand extends Command {
   constructor() {
     super({
       name: 'pay',
@@ -70,7 +70,7 @@ module.exports = class PayCommand extends Command {
             flags: 1 << 6
           })
           return
-         }
+        }
         if ((packet.d.member.user.id !== author && message.author.id === ctx.client.user.id)) {
           ack.sendAck('respond', {
             content: ctx._locale('commands:pay.notTheAuthor', { 0: Emoji.getEmoji('chino_pout').mention, 1: `<@${packet.d.member.user.id}>`, 2: ctx.message.author.mention }),

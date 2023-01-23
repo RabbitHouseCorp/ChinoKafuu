@@ -1,12 +1,12 @@
-const Bot = require('../structures/Bot')
-const Logger = require('../structures/util/Logger')
-module.exports = class BotInterface {
+import { Bot } from '../structures/Bot'
+import { Logger } from '../structures/util/Logger'
+
+export class BotInterface {
 
   async spawnShards(pluginManager) {
     if (!process.env.DISCORD_TOKEN?.startsWith('Bot')) {
       Logger.error(`The token can't be prefix-less, please, use 'Bot ${process.env.DISCORD_TOKEN}'`)
       process.exit()
-      return
     }
     this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
       maxShards: parseInt(process.env.SHARD_AMOUNT),

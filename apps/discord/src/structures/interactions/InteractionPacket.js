@@ -1,6 +1,6 @@
-const ButtonEvent = require('./ButtonEvent')
+import { ButtonEvent } from './ButtonEvent'
 
-module.exports = class InteractionPacket {
+export class InteractionPacket {
   constructor(data) {
     this.token = data.token
     this.version = data.version

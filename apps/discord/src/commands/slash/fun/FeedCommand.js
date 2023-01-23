@@ -1,9 +1,9 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { UsagiAPI } = require('usagiapi')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { UsagiAPI } from 'usagiapi'
+import { Command, EmbedBuilder } from '../../../structures/util'
 const usagi = new UsagiAPI()
 
-module.exports = class FeedCommand extends Command {
+export default class FeedCommand extends Command {
   constructor() {
     super({
       name: 'feed',

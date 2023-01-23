@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const axios = require('axios')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import axios from 'axios'
 
-module.exports = class AnimuCommand extends Command {
+export default class AnimuCommand extends Command {
   constructor() {
     super({
       name: 'animu',

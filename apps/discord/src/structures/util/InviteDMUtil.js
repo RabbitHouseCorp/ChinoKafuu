@@ -1,6 +1,7 @@
-const EmbedBuilder = require('./EmbedBuilder')
-const Logger = require('./Logger')
-module.exports = async (client, message) => {
+import { EmbedBuilder } from './EmbedBuilder'
+import { Logger } from './Logger'
+
+export const InviteDMUtils = async (client, message) => {
   const isInvite = (/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g).test(message.content)
   if (isInvite) {
     try {
@@ -10,7 +11,7 @@ module.exports = async (client, message) => {
         .replace('https:', '')
         .replace(/((?:discord\.gg|discordapp\.com\/invite|discord\.com\/invite))/g, '')
         .replace(/(\/)/g, '')
-      console.log(findInvite)
+
       const invite = await client.getInvite(findInvite)
       const embed = new EmbedBuilder()
       embed.setColor('DEFAULT')

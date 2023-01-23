@@ -1,9 +1,8 @@
-// FIXME
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { requestTokamak } from '../../../lib'
+import { Command } from '../../../structures/util'
 
-module.exports = class LicenseCommand extends Command {
+export default class LicenseCommand extends Command {
   constructor() {
     super({
       name: 'license',
@@ -58,22 +57,16 @@ module.exports = class LicenseCommand extends Command {
           })
       }
     }
-    await axios({
-      url: 'http://127.0.0.1:1234/render/license',
-      method: 'post',
-      timeout: 10 * 1000, // max 10 seconds for timeout on request.
-      data: {
+    const render = await requestTokamak({
+      action: 'renderLicense',
+      licenseStruct: {
         name: member.username,
         text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.args.get('text')?.value || ctx._locale('commands:license.beCute') : ctx.args.get('text')?.value || ctx._locale('commands:license.beCute')}`,
         hexColor: highRole,
         avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
-      },
-      responseType: 'arraybuffer'
-    }).then(res => {
-      ctx.message.hook.createMessage('', { file: res.data, name: 'license.png' })
+      }
     })
-      .catch((err) => {
-        throw err
-      })
+
+    ctx.message.hook.createMessage('', { file: render.buffer, name: 'license.png' })
   }
 }

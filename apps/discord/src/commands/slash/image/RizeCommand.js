@@ -1,8 +1,8 @@
-const { Command } = require('../../../structures/util')
-const axios = require('axios')
-const { CommandBase, CommandOptions } = require('eris')
+import { CommandBase, CommandOptions } from 'eris'
+import { requestTokamak } from '../../../lib'
+import { Command } from '../../../structures/util'
 
-module.exports = class RizeCommand extends Command {
+export default class RizeCommand extends Command {
   constructor() {
     super({
       name: 'rize',
@@ -25,15 +25,13 @@ module.exports = class RizeCommand extends Command {
   }
 
   async run(ctx) {
-    const buffer = await axios({
-      url: 'http://127.0.0.1:1234/render/rize',
-      method: 'post',
-      data: {
+    const render = await requestTokamak({
+      action: 'renderRize',
+      rizeStruct: {
         text: ctx.args.get('text').value
-      },
-      responseType: 'arraybuffer'
+      }
     })
 
-    ctx.send('', { file: { file: buffer.data, name: 'rize.png' } })
+    ctx.send('', { file: { file: render.buffer, name: 'rize.png' } })
   }
 }

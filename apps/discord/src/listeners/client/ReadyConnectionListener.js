@@ -1,6 +1,7 @@
-const Listener = require('../../structures/events/Listener')
-const { TopGGUtils, Logger } = require('../../structures/util')
-module.exports = class ReadyConnectionListener extends Listener {
+import { Listener } from '../../structures/events/Listener'
+import { Logger, TopGGUtils } from '../../structures/util'
+
+export default class ReadyConnectionListener extends Listener {
   constructor() {
     super()
     this.send = false

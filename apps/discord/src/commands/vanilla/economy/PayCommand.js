@@ -1,7 +1,7 @@
-const NightlyInteraction = require('../../../structures/nightly/NightlyInteraction')
-const { Command, Button, Emoji } = require('../../../structures/util')
+import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { Button, Command, Emoji } from '../../../structures/util'
 
-module.exports = class PayCommand extends Command {
+export default class PayCommand extends Command {
   constructor() {
     super({
       name: 'pay',
@@ -43,12 +43,12 @@ module.exports = class PayCommand extends Command {
       .then(message => {
         const ack = new NightlyInteraction(message)
         ack.on('collect', ({ packet }) => {
-          if ((packet.d.member.user.id !== ctx.message.author.id && message.member.id === ctx.client.user.id))  {
+          if ((packet.d.member.user.id !== ctx.message.author.id && message.member.id === ctx.client.user.id)) {
             ack.sendAck('respond', {
               content: `You need to wait for the person paying you to accept the transaction request.`,
               flags: 1 << 6
             })
-            return;
+            return
           }
           switch (packet.d.data.custom_id) {
             case 'confirm_button': {

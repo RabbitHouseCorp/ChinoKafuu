@@ -1,7 +1,7 @@
-const { Command, EmbedBuilder } = require('../../../structures/util')
-const { CommandBase } = require('eris')
+import { Command, EmbedBuilder } from '../../../structures/util'
+import { CommandBase } from 'eris'
 
-module.exports = class InviteCommand extends Command {
+export default class InviteCommand extends Command {
   constructor() {
     super({
       name: 'invite',

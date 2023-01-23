@@ -1,10 +1,10 @@
-const { Command } = require('../../../../structures/util')
+import { Command } from '../../../../structures/util'
 const Status = {
   typeOne: 'enable',
   typeTwo: 'disable'
 }
 
-module.exports = class AnimuConfigSubCommand extends Command {
+export default class AnimuConfigSubCommand extends Command {
   constructor() {
     super({
       name: 'config animu',

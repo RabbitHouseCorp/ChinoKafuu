@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   chino_tail: '<a:chino_tail:685197800434171933>',
   chino_think: '<:chino_think:545802783232753669>',
   error: '<:gochiusa_error:788464284316991508>',
