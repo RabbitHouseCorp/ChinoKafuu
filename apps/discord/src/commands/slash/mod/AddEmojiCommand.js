@@ -31,23 +31,23 @@ export default class AddEmojiCommand extends Command {
 
   async run(ctx) {
     const name = ctx.args.get('name').value
-    const url = ctx.args.get('url').value
-    if (!name || !url) {
+    let source = ctx.args.get('url').value
+    if (!name || !source) {
       return ctx.replyT('error', 'basic:missingArgs', {
-        prefix: ctx.db.guild.prefix,
+        prefix: '/',
         commandName: this.name
       })
     }
     try {
-      const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
-      const base64Emoji = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
+      if (await ctx.getEmoji(source)) source = await ctx.getEmoji(source)?.url
+      const buffer = await axios.get(source, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
+      const image = `data:image/${source.substr(source.length - 3)};base64,${buffer}`
 
       const emoji = await ctx.message.guild.createEmoji({
-        name: name,
-        image: base64Emoji
+        name,
+        image
       })
-      const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}>`)
-      ctx.send(`${getEmoji.mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
+      ctx.send(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}> **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
     } catch (err) {
       ctx.client.emit('error', (ctx.client, err))
       return ctx.replyT('error', 'commands:addemoji.error')

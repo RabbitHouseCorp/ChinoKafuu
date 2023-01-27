@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "node --tls-min-v1.3 --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings index.js",
+    "start": "node --es-module-specifier-resolution=node --experimental-vm-modules --no-warnings index.js",
     "start:bun": "node index.js",
     "test": "jest",
     "test:lint": "eslint . --fix"
@@ -25,7 +25,7 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.19.1",
     "@clusterws/cws": "^3.0.0",
-    "@lavacord/eris": "github:RabbitHouseCorp/lavacord-eris#master",
+    "@lavacord/eris": "github:RabbitHouseCorp/Sirius#9c68200d2065c34c16b8983794d38978e0cf1bea",
     "@top-gg/sdk": "^3.1.3",
     "anilist-node": "^1.13.1",
     "axios": "^1.2.1",
