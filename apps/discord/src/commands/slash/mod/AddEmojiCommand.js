@@ -47,7 +47,6 @@ export default class AddEmojiCommand extends Command {
         name,
         image
       })
-      const getEmoji = await ctx.getEmoji(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}>`)
       ctx.send(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}> **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
     } catch (err) {
       ctx.client.emit('error', (ctx.client, err))
