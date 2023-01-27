@@ -16,8 +16,8 @@ export class ColorResolver {
     }
 
     if (!color) color = null
-    if (defaultColors[typeof color === 'number' ? color : defaultColors.DEFAULT]) {
-      return defaultColors[typeof color === 'number' ? color : defaultColors.DEFAULT]
+    if (defaultColors[typeof color === 'number' ? defaultColors.DEFAULT : color]) {
+      return defaultColors[typeof color === 'number' ? defaultColors.DEFAULT : color]
     }
 
     return parseInt(color.replace('#', ''), 16)
