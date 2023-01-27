@@ -13,17 +13,17 @@ export default class AddEmojiCommand extends Command {
       }],
       slash: new CommandBase()
         .setName('addemoji')
-        .setDescription('Adds an emoji to your server')
+        .setDescription('Creates an new emoji to your server')
         .addOptions(
           new CommandOptions()
             .setType(3)
             .setName('name')
-            .setDescription('The name of the emoji')
+            .setDescription('The way that you want to name the emoji')
             .isRequired(),
           new CommandOptions()
             .setType(3)
-            .setName('url')
-            .setDescription('The URL of the image')
+            .setName('source')
+            .setDescription('The source of the new emoji')
             .isRequired()
         )
     })
@@ -31,22 +31,16 @@ export default class AddEmojiCommand extends Command {
 
   async run(ctx) {
     const name = ctx.args.get('name').value
-    let source = ctx.args.get('url').value
-    if (!name || !source) {
-      return ctx.replyT('error', 'basic:missingArgs', {
-        prefix: '/',
-        commandName: this.name
-      })
-    }
+    let source = ctx.args.get('source').value
+
     try {
       const get_emoji = await ctx.getEmoji(source)
       if (get_emoji) {
-        console.log(get_emoji)
         source = get_emoji?.url
       }
+
       const buffer = await axios.get(source, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
       const image = `data:image/${source.substr(source.length - 3)};base64,${buffer}`
-
       const emoji = await ctx.message.guild.createEmoji({
         name,
         image
