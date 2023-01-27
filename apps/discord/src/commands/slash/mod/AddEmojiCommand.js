@@ -39,7 +39,11 @@ export default class AddEmojiCommand extends Command {
       })
     }
     try {
-      if (await ctx.getEmoji(source)) source = await ctx.getEmoji(source)?.url
+      const get_emoji = await ctx.getEmoji(source)
+      if (get_emoji) {
+        console.log(get_emoji)
+        source = get_emoji?.url
+      }
       const buffer = await axios.get(source, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
       const image = `data:image/${source.substr(source.length - 3)};base64,${buffer}`
 
