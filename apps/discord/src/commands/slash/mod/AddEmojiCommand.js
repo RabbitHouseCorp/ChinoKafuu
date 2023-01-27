@@ -13,17 +13,17 @@ export default class AddEmojiCommand extends Command {
       }],
       slash: new CommandBase()
         .setName('addemoji')
-        .setDescription('Creates an new emoji to your server')
+        .setDescription('Creates an new emoji to your guild.')
         .addOptions(
           new CommandOptions()
             .setType(3)
             .setName('name')
-            .setDescription('The way that you want to name the emoji')
+            .setDescription('The way that you want to name the emoji.')
             .isRequired(),
           new CommandOptions()
             .setType(3)
             .setName('source')
-            .setDescription('The source of the new emoji')
+            .setDescription('The source of the new emoji (URL or other emoji).')
             .isRequired()
         )
     })
