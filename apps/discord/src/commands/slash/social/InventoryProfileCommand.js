@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { requestTokamak } from '../../../lib/tokamak'
 import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
 import { Command } from '../../../structures/util'
 import { profileInfo } from '../../../structures/util/Constants'
@@ -237,12 +237,13 @@ export default class InventoryProfileCommand extends Command {
         getProfile = i
         break
       }
-
-    return axios({
-      url: `${process.env.TOKAMAK_URL}/render/profile?w=600&h=400&type=thumb`,
-      method: 'post',
-      data: data,
-      responseType: 'arraybuffer'
+    requestTokamak({
+      action: 'renderProfile',
+      profileStruct: data,
+    })
+    return requestTokamak({
+      action: 'renderProfile',
+      profileStruct: data,
     }).then(file => {
       const id = Math.floor(Math.random() * 10000000000)
       return {
@@ -255,7 +256,7 @@ export default class InventoryProfileCommand extends Command {
           }
         }],
         image: {
-          file: file.data,
+          file: file.buffer,
           name: `profile-${id}.png`
         }
       }
