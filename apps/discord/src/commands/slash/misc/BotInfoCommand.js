@@ -24,7 +24,7 @@ export default class BotInfoCommand extends Command {
       `**${ctx._locale('commands:botinfo.usersAmount')}:** ${Number(ctx.client.guilds.reduce((a, b) => a + b.memberCount, 0)).toLocaleString()}`,
       `**${ctx._locale('commands:botinfo.shardLatency')}:** ${ctx.message.guild.shard.latency}ms (Shard: ${ctx.message.guild.shard.id})`,
       `**${ctx._locale('commands:botinfo.memoryUsage')}:** ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB (${(process.resourceUsage().maxRSS / 1024 / 1024).toFixed(2)}MB)`,
-      `**${ctx._locale('commands:botinfo.clientVersion')}:** ${version} ${getCommit.commit === null ? '' : `(${getCommit.commit.substring(0, 7)})`}`,
+      `**${ctx._locale('commands:botinfo.clientVersion')}:** ${version} ${getCommit.commit === null ? '' : `[(${getCommit.commit.substring(0, 7)})](https://github.com/RabbitHouseCorp/ChinoKafuu/commit/${getCommit.commit})`}`,
       `**${ctx._locale('commands:botinfo.shardUptime')}:** <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).toFixed(0)}:R>`
     ]
     const embed = new EmbedBuilder()
