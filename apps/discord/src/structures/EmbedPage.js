@@ -50,7 +50,7 @@ export class EmbedPage extends EventEmitter {
       await this.nightly.sendAck('update', {
         // content: '',
         embeds: component,
-        components: this.getComponents,
+        components: this.#getComponents,
         attachments: [],
         flags: 0
       })
@@ -103,7 +103,7 @@ export class EmbedPage extends EventEmitter {
     const component = this.componentsEmbed[Math.max(0, this.page)]
 
     return {
-      components: this.getComponents,
+      components: this.#getComponents,
       embeds: [component == undefined ? this.#defaultEmbed() : component]
     }
   }

@@ -38,16 +38,17 @@ export default class TranslateCommand extends Command {
     }, ctx)
 
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
+
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
     const data = res.data
       .filter((i) => Array.isArray(i))
       .flatMap((i) => i)
       .filter((i) => Array.isArray(i) && !(i.length <= 1))
       .map((i) => Array.isArray(i) ? i[0] : null)
-
-    const textComponents = data.join(' ').split(/(.{1,4093})/g)
+    const textComponents = data.join(' ').split(/([^]{1,4093})/g)
       .filter((i) => i.length >= 1)
       .map((i) => this.#prepareEmbed(ctx, i.length >= 4093 - 3 ? i + '...' : i))
+
     embed.addComponents(...textComponents)
 
     ctx.send(embed.prepareToSend()).then((message) => embed.setDefaultMessage(message))
