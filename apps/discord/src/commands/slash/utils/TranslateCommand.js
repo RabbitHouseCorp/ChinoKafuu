@@ -1,6 +1,7 @@
-import { Command, TranslatorUtils } from '../../../structures/util'
 import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
+import { EmbedPage } from '../../../structures/EmbedPage'
+import { Command, EmbedBuilder, TranslatorUtils } from '../../../structures/util'
 
 export default class TranslateCommand extends Command {
   constructor() {
@@ -28,19 +29,34 @@ export default class TranslateCommand extends Command {
   async run(ctx) {
     const language = ctx.args.get('language').value
     let content = ctx.args.get('text').value
-
     if (!content) {
       content = 'I\'m a little girl'
     }
+    const embed = new EmbedPage(90 * 1000, {
+      waitMessage: true,
+      users: [ctx.message.member.id]
+    }, ctx)
 
     const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
     const res = await axios.get(encodeURI(url), { responseType: 'json' })
+    const data = res.data
+      .filter((i) => Array.isArray(i))
+      .flatMap((i) => i)
+      .filter((i) => Array.isArray(i) && !(i.length <= 1))
+      .map((i) => Array.isArray(i) ? i[0] : null)
 
-    const letters = []
-    for (const translateOutput of res.data[0]) {
-      letters.push(translateOutput[0].trim())
-    }
+    const textComponents = data.join(' ').split(/(.{1,4093})/g)
+      .filter((i) => i.length >= 1)
+      .map((i) => this.#prepareEmbed(ctx, i.length >= 4093 - 3 ? i + '...' : i))
+    embed.addComponents(...textComponents)
 
-    ctx.reply('map', letters.join(' '))
+    ctx.send(embed.prepareToSend()).then((message) => embed.setDefaultMessage(message))
+  }
+
+  #prepareEmbed(ctx, desc) {
+    return new EmbedBuilder()
+      .setColor('DEFAULT')
+      .setTitle('Translation')
+      .setDescription(desc)
   }
 }

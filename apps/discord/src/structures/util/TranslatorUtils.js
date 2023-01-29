@@ -73,6 +73,7 @@ export const TranslatorUtils = function (language) {
     fa: 'fa',
     pl: 'pl',
     pt: 'pt',
+    'pt-br': 'pt-br',
     ma: 'ma',
     ro: 'ro',
     ru: 'ru',
@@ -106,9 +107,18 @@ export const TranslatorUtils = function (language) {
     zu: 'zu'
   }
 
-  if (!langs[language.toLowerCase()]) {
-    language = 'en'
-  }
+  const input = typeof language == 'string' ? language.toLocaleLowerCase().replace(/([^A-Za-z]+)/g, '') : 'en'
 
-  return langs[typeof language == 'string' ? language : '']
+  const checkIndex = ([k = '', v = '']) => {
+    // Just to add percentage of searching in languages.
+    k = k.replace(/([^A-Za-z]+)/g, '')
+    v = v.replace(/([^A-Za-z]+)/g, '')
+    return (k.search(input) >= 0 && k.includes(input)) && (v.search(input) >= 0 && v.includes(input))
+  }
+  const checkString = (i) => i[0].toLocaleLowerCase() === input && i[1].toLocaleLowerCase() === input
+  const getLang = Object.entries(langs)
+    .filter((i) => checkIndex(i) || checkString(i))
+    .map((i) => i[1])
+
+  return getLang[0] == undefined ? 'en' : getLang[0]
 }
