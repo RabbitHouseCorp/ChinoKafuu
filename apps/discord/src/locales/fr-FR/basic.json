@@ -1,4 +1,8 @@
 {
+  "page": {
+    "backPage": "Back to previous page",
+    "nextPage": "Next page"
+  },
   "permissions": {
     "permissionUserRequired": "Tu dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
     "permissionBotRequired": "Je dois avoir les permissions suivantes pour pouvoir utiliser cette commande: {{0}}.",
