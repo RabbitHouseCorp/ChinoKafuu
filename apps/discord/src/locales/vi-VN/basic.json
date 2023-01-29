@@ -1,4 +1,8 @@
 {
+  "page": {
+    "backPage": "Back to previous page",
+    "nextPage": "Next page"
+  },
   "permissions": {
     "permissionUserRequired": "Bạn phải có các quyền sau đây để sử dụng lệnh này: {{0}}.",
     "permissionBotRequired": "Bạn phải có những quyền sau đây mới có thể dùng lệnh này: {{0}}.",
