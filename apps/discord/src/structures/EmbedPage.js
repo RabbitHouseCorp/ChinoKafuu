@@ -1,12 +1,11 @@
 import EventEmitter from 'events'
-import { EmbedBuilder, NightlyInteraction } from './util'
+import { EmbedBuilder } from './util'
 
 export class EmbedPage extends EventEmitter {
   constructor(
     time = 50 * 1000,
     options = { users: [], waitMessage: false },
-    ctx,
-    message
+    ctx
   ) {
     super()
     this.ctx = ctx
@@ -15,10 +14,10 @@ export class EmbedPage extends EventEmitter {
     this.options = options ?? { users: [], waitMessage: false }
 
     if (!options.waitMessage) {
-      this.nightly = new NightlyInteraction(message)
       this.setListenerEmbed()
     }
-
+    this.interactionBase = null
+    this.id = options.id ?? null
     this.closed = false
     this.components = []
     this.timeout = null
@@ -26,65 +25,6 @@ export class EmbedPage extends EventEmitter {
 
     this.#setTimeout()
     this.#setButton()
-  }
-
-  get maxPage() {
-    return this.componentsEmbed.length - 1
-  }
-
-  setListenerEmbed() {
-    this.on('nextPage', () => {
-      this.page++
-      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
-      this.emit('page', (component == undefined ? [this.#defaultEmbed()] : [component]))
-    })
-
-    this.on('backPage', () => {
-      this.page = Math.max(0, this.page - 1)
-      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
-
-      this.emit('page', (component == undefined ? [this.#defaultEmbed()] : [component]))
-    })
-
-    this.on('page', async (component) => {
-      await this.nightly.sendAck('update', {
-        // content: '',
-        embeds: component,
-        components: this.#getComponents,
-        attachments: [],
-        flags: 0
-      })
-    })
-
-    this.nightly.on('collect', async ({ interaction }) => {
-      if (!this.options.users.includes(this.ctx.message.member.id)) this.nightly.sendAck('respond', { content: this.ctx._locale('commands:inventory.notAllowed'), flags: 1 << 6 })
-      if (interaction.data.component_type == 2) {
-        if (interaction.data.custom_id === 'nextPage') {
-          this.emit('nextPage')
-        } else if (interaction.data.custom_id == 'backPage') {
-          this.emit('backPage')
-        }
-      }
-    })
-
-  }
-
-  #setButton() {
-    const data = [{
-      type: 2,
-      style: 3,
-      label: this.ctx._locale('basic:page.backPage'),
-      custom_id: `backPage`,
-      disabled: this.page - 1 <= -1
-    },
-    {
-      type: 2,
-      style: 3,
-      label: this.ctx._locale('basic:page.nextPage'),
-      custom_id: `nextPage`,
-      disabled: this.page >= this.maxPage
-    }]
-    return this.componentsEmbed.length >= 2 ? data : []
   }
 
   get #getComponents() {
@@ -98,6 +38,47 @@ export class EmbedPage extends EventEmitter {
     ] : []
   }
 
+  #addID(str) {
+    const getID = typeof this.id === 'string' ? `${this.id}:` : ''
+
+    return getID + str
+  }
+
+  get maxPage() {
+    return this.componentsEmbed.length - 1
+  }
+
+  setListenerEmbed() {
+    this.on('nextPage', (ctx) => {
+      this.page++
+      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
+      this.emit('page', (component == undefined ? [this.#defaultEmbed()] : [component]), ctx)
+    })
+
+    this.on('backPage', (ctx) => {
+      this.page = Math.max(0, this.page - 1)
+      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
+
+      this.emit('page', component == undefined ? [this.#defaultEmbed()] : [component], ctx)
+    })
+
+    this.on('page', async (component, ctx) => {
+      ctx.editMessageInteraction({
+        embeds: component,
+        components: this.#getComponents,
+      })
+    })
+
+    this.on('interaction', async ({ interaction, ctx }) => {
+      if (interaction.data.custom_id === this.#addID('embedPage:nextPage')) {
+        this.emit('nextPage', (ctx))
+      } else if (interaction.data.custom_id == this.#addID('embedPage:backPage')) {
+        this.emit('backPage', (ctx))
+      }
+    })
+
+  }
+
   prepareToSend() {
     this.page = 0
     const component = this.componentsEmbed[Math.max(0, this.page)]
@@ -109,12 +90,36 @@ export class EmbedPage extends EventEmitter {
   }
 
   setDefaultMessage(message) {
-    this.nightly = new NightlyInteraction(message)
+    if (this.componentsEmbed.length <= 0) return
+    this.interactionBase = this.ctx.client.interactionManager.createInteractionBase(message.id, 2, {
+      users: [this.ctx.message.member.id],
+      expireUntil: this.time,
+      isEmbedPage: true,
+      embedPage: this
+    })
     this.setListenerEmbed()
   }
 
   addComponents(...args) {
     this.componentsEmbed.push(...args)
+  }
+
+  #setButton() {
+    const data = [{
+      type: 2,
+      style: 3,
+      label: this.ctx._locale('basic:page.backPage'),
+      custom_id: this.#addID(`embedPage:backPage`),
+      disabled: this.page - 1 <= -1
+    },
+    {
+      type: 2,
+      style: 3,
+      label: this.ctx._locale('basic:page.nextPage'),
+      custom_id: this.#addID(`embedPage:nextPage`),
+      disabled: this.page >= this.maxPage
+    }]
+    return this.componentsEmbed.length >= 2 ? data : []
   }
 
   #defaultEmbed() {
@@ -125,9 +130,11 @@ export class EmbedPage extends EventEmitter {
   }
 
   #setTimeout() {
-    this.timeout = setTimeout(() => {
-      this.#destroy()
-    }, this.time)
+    if (this.time !== null) {
+      this.timeout = setTimeout(() => {
+        this.#destroy()
+      }, this.time)
+    }
   }
 
   #clearTimeout() {

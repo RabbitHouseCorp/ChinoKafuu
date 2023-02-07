@@ -6,6 +6,8 @@ import { Database } from './database/Database'
 import { ListenerRegistry } from './events/ListenerRegistry'
 import { I18NRegistry } from './i18n/I18NRegistry'
 import { InteractionManager } from './InteractionManager'
+import { InteractionManagerHttp } from './InteractionManagerHttp'
+import { InteractionFunctionRegistry } from './othersRegistry/InteractionFunctionRegistry'
 import { ClusteringInterface } from './util/ClusteringInterface'
 // const CacheManager = require('./util/cache/CacheManager')
 
@@ -13,23 +15,21 @@ export class Bot extends Client {
   constructor(...data) {
     super(...data)
     this.startShard = 0
-    this.options.ws
-
     // this.cacheManager = new CacheManager(this)
     /**
-         *
-         * @type {ListenerRegistry}
-         */
+    *
+    * @type {ListenerRegistry}
+    */
     this.listenerRegistry = new ListenerRegistry(this)
     /**
-         *
-         * @type {I18NRegistry}
-         */
+    *
+    * @type {I18NRegistry}
+    */
     this.i18nRegistry = new I18NRegistry()
     /**
-         *
-         * @type {CommandRegistry}
-         */
+    *
+    * @type {CommandRegistry}
+    */
     this.commandRegistry = new CommandRegistry()
     /**
      *
@@ -37,47 +37,45 @@ export class Bot extends Client {
      */
     this.slashCommandRegistry = new SlashCommandRegistry()
     /**
-         *
-         * @type {ClusteringInterface}
-         */
+     * @type {InteractionFunctionRegistry}
+     */
+    this.interactionRegistry = new InteractionFunctionRegistry()
+    /**
+    *
+    * @type {ClusteringInterface}
+    */
     if (process.env.CLUSTERS === 'true') {
       this.clusters = new ClusteringInterface(this)
     } else {
       this.clusters = null
     }
     /**
-         *
-         * @type {Database}
-         */
+    *
+    * @type {Database}
+    */
     /**
-         *
-         * @type {Map}
-         */
+    *
+    * @type {Map}
+    */
     this.shardUptime = new Map()
 
     /**
-          * @type {CommandCooldown}
-          * @description This class is for blocking access to commands globally and Soon will have future implementations
-          */
+    * @type {CommandCooldown}
+    * @description This class is for blocking access to commands globally and Soon will have future implementations
+    */
     this.commandCooldown = new CommandCooldown()
-
-    this.interactionPost = new InteractionManager(this)
-
-  }
-
-  get size() {
-    if (process.env.PRODUCTION === 'false') {
-      const parseJsonData = JSON.stringify(this)
-      const buf = Buffer.from(parseJsonData)
-      return {
-        lengthEris: buf.length,
-        lengthBuffer: buf.byteLength
-      }
-    }
-    return {
-      lengthEris: 0,
-      lengthBuffer: 0
-    }
+    /**
+    * @description Perhaps this will be deprecated or will be used very soon by a repository rewrite.
+    */
+    this.interactionPost = new InteractionManagerHttp(this)
+    /**
+     * @description To manage Bot interactions. Not just commands, it can manage buttons and menu and modal selection
+     */
+    this.interactionManager = new InteractionManager(this)
+    /**
+     * @description
+     */
+    this.commands = []
   }
 
   loadDatabase() {

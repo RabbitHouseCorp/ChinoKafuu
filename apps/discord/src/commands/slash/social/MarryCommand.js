@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { defineState } from '../../../defineTypes/defineState'
 import { Button, Command, Emoji } from '../../../structures/util'
 
 export default class MarryCommand extends Command {
@@ -25,6 +25,7 @@ export default class MarryCommand extends Command {
   }
 
   async run(ctx) {
+
     const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')
@@ -39,49 +40,48 @@ export default class MarryCommand extends Command {
     if (couple.isMarry) return ctx.replyT('error', 'commands:marry.theyAlreadyMarried', { 0: member.mention })
     const accept = new Button()
       .setLabel(ctx._locale('basic:boolean.true'))
-      .customID('confirm_button')
+      .customID('confirmButton')
       .setStyle(3)
       .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
     const reject = new Button()
       .setLabel(ctx._locale('basic:boolean.false'))
-      .customID('reject_button')
+      .customID('rejectButton')
       .setStyle(4)
       .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
-    ctx.replyT('warn', 'commands:marry.requestConfirm', {}, {
-      components: [accept.build(), reject.build()]
+    const state = defineState({
+      member: member.id,
+      author: ctx.message.author.id,
+      action: ''
+    }, { eventEmitter: true })
+
+    ctx.replyT('warn', 'commands:marry.requestConfirm', {
+      0: `<@!${member.id}>`,
+      1: `<@!${ctx.message.author.id}>`,
+    }, {
+      components: [{
+        type: 1,
+        components: [accept.build(), reject.build()]
+      }]
     }).then(message => {
-      const ack = new NightlyInteraction(message)
-      ack.on('collect', ({ packet }) => {
-        if ((packet.d.member.user.id !== member.id && message.author.id === ctx.client.user.id)) {
-          return ack.sendAck('respond', {
-            content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:marry.needToWait')}`,
-            flags: 1 << 6
-          })
-        }
-        switch (packet.d.data.custom_id) {
-          case 'confirm_button': {
-            author.yens -= Number(7500)
-            author.isMarry = true
-            author.marryWith = member.id
-            couple.yens -= Number(7500)
-            couple.isMarry = true
-            couple.marryWith = ctx.message.author.id
-            author.save()
-            couple.save().then(() => {
-              ack.sendAck('update', {
-                content: `${Emoji.getEmoji('ring_couple').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.successfullyMarried')}`,
-                components: []
-              })
+      ctx.createInteractionFunction('marryInteraction', message, {
+        state,
+        users: [member.id]
+      })
+      state.actionState.event.on('stateUpdated', (stateUpdated) => {
+        if (stateUpdated.action === 'confirmButton') {
+          author.yens -= Number(7500)
+          author.isMarry = true
+          author.marryWith = member.id
+          couple.yens -= Number(7500)
+          couple.isMarry = true
+          couple.marryWith = ctx.message.author.id
+          author.save()
+          couple.save()
+            .then(() => {
+              state.actionState.event.emit('done')
+            }).catch((err) => {
+              state.actionState.event.emit('error', err)
             })
-          }
-            break
-          case 'reject_button': {
-            ack.sendAck('update', {
-              content: `${Emoji.getEmoji('heart').mention} **|** ${message.author.mention}, ${ctx._locale('commands:marry.rejectedRequest', { 0: member.mention })}`,
-              components: []
-            })
-          }
-            break
         }
       })
     })

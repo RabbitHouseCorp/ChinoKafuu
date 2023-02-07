@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { NightlyInteraction } from '../../../structures/nightly/NightlyInteraction'
+import { defineState } from '../../../defineTypes/defineState'
 import { Button, Command, Emoji } from '../../../structures/util'
 
 export default class PayCommand extends Command {
@@ -46,58 +46,40 @@ export default class PayCommand extends Command {
     const totalYens = Math.round(value)
     const confirm = new Button()
       .setLabel(ctx._locale('basic:boolean.true'))
-      .customID('confirm_button')
+      .customID('confirmButton')
       .setStyle(3)
       .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
     const reject = new Button()
       .setLabel(ctx._locale('basic:boolean.false'))
-      .customID('reject_button')
+      .customID('rejectButton')
       .setStyle(4)
       .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
+    const state = defineState({
+      member: member.id,
+      author: ctx.message.author.id,
+      action: '',
+      totalYens,
+      yens: totalYens,
+      total: value
+    }, { eventEmitter: true })
+
     ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value }, {
       components: [{
         type: 1,
         components: [confirm.build(), reject.build()]
       }]
     }).then(message => {
-      const ack = new NightlyInteraction(message)
-      ack.on('collect', ({ packet }) => {
-        const author = ctx.message.author.id
-        const receiver = member.id
-        if ((packet.d.member.user.id === receiver && message.author.id === ctx.client.user.id)) {
-          ack.sendAck('respond', {
-            content: ctx._locale('commands:pay.bePatient', { 0: Emoji.getEmoji('chino_smile').mention, 1: member.mention, 2: ctx.message.author.mention }),
-            flags: 1 << 6
-          })
-          return
-        }
-        if ((packet.d.member.user.id !== author && message.author.id === ctx.client.user.id)) {
-          ack.sendAck('respond', {
-            content: ctx._locale('commands:pay.notTheAuthor', { 0: Emoji.getEmoji('chino_pout').mention, 1: `<@${packet.d.member.user.id}>`, 2: ctx.message.author.mention }),
-            flags: 1 << 6
-          })
-          return
-        }
-        switch (packet.d.data.custom_id) {
-          case 'confirm_button': {
-            fromUser.yens -= totalYens
-            toUser.yens += totalYens
-            ctx.db.user.save()
-            toUser.save().then(() => {
-              ack.sendAck('update', {
-                content: `${Emoji.getEmoji('yen').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.success', { yens: totalYens, user: member.mention })}`,
-                components: []
-              })
-            })
-          }
-            break
-          case 'reject_button': {
-            ack.sendAck('update', {
-              content: `${Emoji.getEmoji('error').mention} **|** ${ctx.message.member.mention}, ${ctx._locale('commands:pay.cancelled')}`,
-              components: []
-            })
-          }
-            break
+      ctx.createInteractionFunction('payInteraction', message, {
+        state,
+        users: [ctx.message.author.id]
+      })
+      state.actionState.event.on('stateUpdated', (stateUpdated) => {
+        if (stateUpdated.action === 'confirmButton') {
+          fromUser.yens -= stateUpdated.totalYens
+          toUser.yens += stateUpdated.totalYens
+          state.actionState.event.emit('done')
+          ctx.db.user.save()
+          toUser.save()
         }
       })
     })

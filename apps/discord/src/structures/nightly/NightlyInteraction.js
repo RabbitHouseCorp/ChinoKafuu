@@ -64,32 +64,10 @@ export class NightlyInteraction extends NightlyDeveloper {
     }
   }
 
-  interactionHttp(a, isHttp, interactionPost) {
-    if (isHttp !== undefined) {
-      this.isHttp = true
-      this.interactionPost = interactionPost
-    }
-    const packet = {
-      t: 'INTERACTION_CREATE',
-      d: a
-    }
-    if (packet.t === 'INTERACTION_CREATE') {
-      if (packet.d.type === 3) {
-        if (this.message.id === packet.d.message.id) {
-          if (packet.d.isHttp !== undefined) {
-            this.data = packet.d
-          }
-          this.token = packet.d.token
-          this.id = packet.d.id
-          this.emit('collect', ({
-            messageCollect: new Message(packet.d.message_data, this.client),
-            interaction: new InteractionPacket(packet.d),
-            packet: packet,
-          }))
-        }
-      }
-    }
-  }
+  /**
+   * @deprecated Immediate migration to InteractionManager. And that is also causing a memory leak.
+   */
+  interactionHttp() { }
 
   interactionType(type) {
     this.interactionType = type
@@ -102,7 +80,6 @@ export class NightlyInteraction extends NightlyDeveloper {
   }
 
   async sendAck(typeAck, data) {
-    this.emit('click', true, { typeAck, data })
     let type = 4
     switch (typeAck) {
       case 'update':

@@ -23,6 +23,23 @@ export class SlashCommandContext extends CommandContext {
     this.deferMessage = null
   }
 
+  createInteractionFunction(name, message, options) {
+    this.interactionBase = this.client.interactionManager.createInteractionBase(message.id, -1, {
+      expireUntil: 420 * 1000,
+      name,
+      ...options
+    })
+  }
+
+  createInteractionModal(name, interactionId, options) {
+    this.interactionBase = this.client.interactionManager.createInteractionModal(interactionId, 5, {
+      expireUntil: 420 * 1000,
+      name,
+      isModal: true,
+      ...options
+    })
+  }
+
   /**
    * Sends a message to this channel
    * @param content The content to be sent

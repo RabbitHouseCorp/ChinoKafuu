@@ -11,6 +11,8 @@ export class Command extends Module {
     this.slash = options.slash || null
     this.removeDefaultCallback = options.removeDefaultCallback || false
     this.callback_metadata = {}
+    this.modal = options.modal || null
+    this.isCommandModal = options.isCommandModal || false
   }
 
   // This is done to return the interaction data so when the user will execute the command automatically the function will be executed.
@@ -19,4 +21,6 @@ export class Command extends Module {
 
   // eslint-disable-next-line no-unused-vars
   run(ctx) { }
+
+  setModal() { }
 }

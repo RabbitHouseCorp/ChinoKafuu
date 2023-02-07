@@ -34,7 +34,14 @@ export class SlashRunner {
       db: client.database.users
     }, _locale)
     ctx.ms = ms
-
+    if (command.isCommandModal) {
+      command.setModal(ctx, interaction)
+      await client.interactionManager.hookInteraction(interaction, {
+        type: 9, data: command.modal
+      })
+    } else {
+      await client.interactionManager.hookInteraction(interaction, { type: 5 })
+    }
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
 
     if (userData?.blacklist) {
@@ -45,23 +52,31 @@ export class SlashRunner {
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
 
-      ctx.send(embed.build())
+      ctx.send({ ...embed.build() }, {
+        flags: 1 << 6
+      })
       return
     }
 
     const commandData = await client.database.commands.getOrCreate(interaction.command.commandName)
     if (commandData?.disable) {
-      return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason })
+      return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason }, {
+        flags: 1 << 6
+      })
     }
 
     const userPermissions = permissions.userHas(command.permissions)
     const botPermissions = permissions.botHas(command.permissions)
     if (userPermissions.length > 0) {
-      return ctx.replyT('error', 'basic:missingUserPermission', { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.replyT('error', 'basic:missingUserPermission', { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') }, {
+        flags: 1 << 6
+      })
     }
 
     if (botPermissions.length > 0) {
-      return ctx.replyT('error', 'basic:missingBotPermission', { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.replyT('error', 'basic:missingBotPermission', { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') }, {
+        flags: 1 << 6
+      })
     }
 
     if ((command.arguments && ctx.args.size < command.arguments)) {
@@ -91,7 +106,7 @@ export class SlashRunner {
       if (ctx.used) {
         ctx.embeds.push(embed.build().embeds[0])
       } else {
-        await ctx.send(embed.build())
+        await ctx.send({ ...embed.build(), flags: 1 << 6 })
       }
 
       return

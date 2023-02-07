@@ -1,112 +1,305 @@
-/* eslint-disable quotes */
-import chalk from 'chalk'
-import { Interaction } from 'eris'
-import { UsagiClient } from 'usagi-http-interaction'
-import { Logger } from '../structures/util'
+import EventEmitter from 'events'
+import { InteractionBase } from './InteractionBase'
+import { InteractionContext } from './InteractionContext'
+import { InteractionRateLimit } from './InteractionRateLimit'
+import { Logger } from './util'
+const interactions = [5, 3]
+export const defineOptionsCtx = (ctx, options = {
+  expandFunctionsInOptions: true,
+}, defineState) => {
+  if (!options.expandFunctionsInOptions) return { ctx, defineState }
+  return {
+    createMessageInteraction: async (...args) => ctx.createMessageInteraction(...args),
+    editMessageInteraction: async (...args) => ctx.editMessageInteraction(...args),
+    editT: async (...args) => ctx.editT(...args),
+    editInteraction: async (...args) => ctx.editInteraction(...args),
+    edit: async (...args) => ctx.edit(...args),
+    getUserInteraction: (...args) => ctx.getUserInteraction(...args),
+    reply: async (...args) => ctx.reply(...args),
+    replyT: async (...args) => ctx.replyT(...args),
+    send: async (...args) => ctx.send(...args),
+    sendT: async (...args) => ctx.sendT(...args),
+    userGetsInteractionAccess: (...args) => ctx.userGetsInteractionAccess(...args),
+    getState: (...args) => ctx.getState(...args),
+    deleteInteraction: async (...args) => ctx.deleteInteraction(...args),
+    sendEmbedPage: async (...args) => ctx.sendEmbedPage(...args),
+    getData: (...args) => ctx.getData(...args),
+    getArg: (key) => {
+      if (ctx.trackingCommand == null && ctx.trackingCommand == undefined) {
+        return null
+      }
+      return ctx.trackingCommand.command.interface.get(key) ?? null
+    },
+    trackingCommand: ctx.trackingCommand,
+    ctx,
+    defineState
+  }
+}
 
-export class InteractionManager extends UsagiClient {
+export const defineTypeInteraction = (d) => {
+  d = d?.data?.component_type ?? d
+  if (d == componentType.button.type) {
+    return componentType.button
+  } else if (d == componentType.selectMenus.type) {
+    return componentType.selectMenus
+  } else if (d == componentType.selectionMenuResolved.type) {
+    return componentType.selectionMenuResolved
+  } else if (d == componentType.modal) {
+    return componentType.modal
+  }
+  return componentType.any
+}
+
+export const defineTypeInteractionMessage = (type, error = false) => {
+  const types = ['channelMessageWithSource', 'deferredChannelMessageWithSource', 'deferredUpdateMessage', 'updateMessage', 'applicationCommandAutoComplete', 'modal']
+  if (type === 'pong') {
+    return 1
+  } else if (type === 'channelMessageWithSource') {
+    return 4
+  } else if (type === 'deferredChannelMessageWithSource') {
+    return 5
+  } else if (type === 'deferredUpdateMessage') {
+    return 6
+  } else if (type === 'updateMessage') {
+    return 7
+  } else if (type === 'applicationCommandAutoComplete') {
+    return 8
+  } else if (type === 'modal') {
+    return 9
+  } else if (error && typeof type !== 'string')
+    throw Error(`TypeOfError: ${typeof type}: This is not string`)
+  else if (error && !types.includes(type))
+    throw Error(`TypeInteractionMessageError(${type}): Type of interactions available are -> ${types.join(', ')}.`)
+
+  return 4
+}
+
+export const componentType = {
+  any: {
+    type: -1,
+    name: 'any',
+    tag: 'any-interaction',
+    tags: ['any', 'any-interaction', 'anyInteraction'],
+    resolved: false
+  },
+  button: {
+    type: 2,
+    name: 'button',
+    tag: 'button-interaction',
+    tags: ['button', 'buttonInteractions', 'buttonInteraction'],
+    resolved: false
+  },
+  selectMenus: {
+    type: 3,
+    name: 'selectMenu',
+    tag: 'selectMenu-interaction',
+    resolved: false
+  },
+  modal: {
+    type: 5,
+    name: 'modal',
+    tag: 'modal-interaction',
+    resolved: false
+  },
+  selectionMenuResolved: {
+    type: 8,
+    name: 'selectMenuResolved',
+    tag: 'selectMenu-interaction-resolved',
+    resolved: true
+  }
+}
+
+const parseButtonControlledByPageManager = (interaction) => {
+  const data = {
+    id: null,
+    command: null,
+    control: null,
+    isPageManager: false
+  }
+  if (interaction?.data?.custom_id !== undefined && interaction?.data?.component_type === 2) {
+    const [id, command, control] = interaction?.data?.custom_id.split(':') ?? undefined
+    data.id = id ?? null
+    data.command = command ?? null
+    data.control = control ?? null
+    data.isPageManager = (typeof id === 'string' && typeof command === 'string') && typeof control === 'string'
+    return data
+  }
+  return data
+}
+
+const parseModalCommand = (interaction) => {
+  const data = {
+    id: null,
+    command: null
+  }
+  if (interaction?.data?.custom_id == undefined && interaction?.data?.component_type == undefined) return data
+  if (interaction?.type === 5) {
+    const [id, command] = interaction?.data?.custom_id.split(':') ?? undefined
+    if (id !== 'modal') return data;
+    data.id = id ?? null
+    data.command = command ?? null
+    return data
+  }
+  return data
+}
+
+export class InteractionManager extends EventEmitter {
   constructor(client) {
-    super({
-      protocol: process.env.INTERACTION_URL.startsWith('wss://') ? 'https://' : 'http://',
-      ip: process.env.INTERACTION_URL.replace('wss://', '').replace('ws://', ''),
-      secret: process.env.SECRET_INTERACTION,
-      publicKey: process.env.PUBLIC_KEY,
-      port: parseInt(process.env.INTERACTION_PORT.length) === 0 ? null : parseInt(process.env.INTERACTION_PORT),
-      client: client,
-      eventName: 'interactionCreate',
-      lengthLatency: 3,
-      websocketOptions: {
-        reconnect: true,
-        time: 2 * 1000,
-        maxReconnect: 90
-      }
-    })
-
-    this.connected = false
-    this.on('reconnecting', () => {
-      this.connected = true
-      Logger.info('Reconnecting the Interaction API!')
-    })
-    this.on('connected', () => {
-      this.connected = true
-      Logger.info(`The connection made to the API was successful! (${this.stats.end - this.stats.start}ms)`)
-    })
-    this.on('in', (data, time, json) => {
-      if (Date.now() - time > 7) {
-        return Logger.warning(`Decompressing (${chalk.yellowBright(Date.now() - time)}ms):  Heavy compression maybe...`)
-      }
-      if (process.env.TRACER === 'true') {
-        Logger.debug(`Decompressing (${Date.now() - time}ms): ${data.toString('utf-8').replace(/\n/g, '')} - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
-        return
-      }
-      Logger.debug(`Decompressing (${Date.now() - time}ms): [${data.toString('base64').substring(0, 4).replace(/\n/g, '')}] - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
-    })
-    this.on('out', (data, time, json) => {
-      if (Date.now() - time > 7) {
-        return Logger.warning(`Decompressing (${chalk.yellowBright(Date.now() - time)}ms):  Heavy compression maybe...`)
-      }
-      if (process.env.TRACER === 'true') {
-        Logger.debug(`Compressing (${Date.now() - time}ms): ${data.toString('utf-8').replace(/\n/g, '')} - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
-        return
-      }
-      Logger.debug(`Compressing (${Date.now() - time}ms): [${data.toString('base64').substring(0, 4).replace(/\n/g, '')}] - (${this.byte(data, Buffer.from(JSON.stringify(json)))})`)
-    })
-    this.on('interaction', (interaction) => {
-      if (process.env.TRACING === 'true') {
-        Logger.debug(`Interaction: ${JSON.stringify(interaction, ('', ' '))}`)
-      }
-      if (interaction.type === 1) return this // Ignore
-      if (interaction.type === 200) return this // Ping
-
-      if (interaction.type === 2) {
-        this.client.emit('slashCommand', new Interaction(interaction,
-          this.client,
-          this.client.guilds.get(interaction.guild_id),
-          undefined,
-          undefined,
-          false
-        ), true)
-      } else {
-        const interactionClass = new Interaction(interaction,
-          this.client,
-          this.client.guilds.get(interaction.guild_id),
-          undefined,
-          undefined,
-          false
-        )
-
-        if (interaction.channel_id !== undefined) {
-          interactionClass.channel_id = interaction.channel_id
-        }
-        if (interaction.guild_id !== undefined) {
-          interactionClass.guild_id = interaction.guild_id
-        }
-        if (interaction.message !== undefined) {
-          interactionClass.message_data = interaction.message
-        }
-        if (interaction.data !== undefined) {
-          interactionClass.data = interaction.data
-        }
-        if (interaction.member !== undefined) {
-          interactionClass.member = interaction.member
-        }
-        interaction.is_http = true
-        this.client.emit('interactionCreate', interactionClass, true, this)
-      }
-    })
-    this.on('error', (err) => Logger.error(err))
+    super()
+    this.interactions = new Array()
+    this.rateLimiterManager = new InteractionRateLimit()
+    this.client = client
+    this.interactionRegistry = client.interactionRegistry
+    this.#addListeners()
+    this.#watchInteraction()
   }
 
-  byte(a, b) {
-    if (a.byteLength >= b.byteLength) {
-      return `${chalk.blueBright(a.byteLength)}B ↔ ${chalk.blueBright(b.byteLength)}B`
+  #addListeners() {
+    this.client.on('rawWS', (data) => {
+      if (data.t === 'INTERACTION_CREATE') {
+        if (!interactions.includes(data?.d?.type)) return
+        if (data.d.type == 5) {
+          const parse = parseModalCommand(data.d)
+          if (parse.command !== null) {
+            this.createInteractionModal(data.d.id, 5, {
+              expireUntil: 420 * 1000,
+              name: parse.command,
+              isModal: true,
+            })
+          }
+        }
+
+        this.emit('interactionRaw', ({
+          interactionData: data.d,
+          typeResolved: defineTypeInteraction(data.d),
+          data: data.d.data
+        }))
+      }
+    })
+    this.on('interactionRaw', ({ interactionData, typeResolved }) => {
+      this.#runnerContext(interactionData, typeResolved)
+    })
+    this.on('interactionContext', () => {
+
+    })
+  }
+
+  /**
+   * To remove all interactions when time expires.
+   */
+  #watchInteraction() {
+    setInterval(() => {
+      this.rateLimiterManager.users
+        .filter((i) => i.finishIn - Date.now() <= 0)
+        .map((i) => {
+          this.rateLimiterManager.removeUser(i.userID)
+        })
+      this.interactions
+        .filter((i) => i.expireUntil !== null && this.expiresIn !== null)
+        .filter((i) => (i.expiresIn - Date.now() + i.expireUntil) <= 0)
+        .map((index) => {
+          const findInteraction = this.interactions.findIndex((i) => (i.id == index.id || i.messageID == index.messageID) && i.typeResolved == index.typeResolved)
+
+          if (findInteraction >= 0) {
+            this.interactions.splice(findInteraction, 1)
+          }
+          return findInteraction
+        })
+    }, 300);
+
+  }
+
+  genID() {
+    const a = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 8)
+    const b = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
+    const c = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
+    const d = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
+    const e = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 12)
+
+    return [a, b, c, d, e].join('-')
+  }
+
+  async #runnerContext(interaction, typeResolved) {
+    let getInteraction = this.getInteraction(interaction.id, interaction?.message?.id, typeResolved)
+    if (interaction.guild_id == undefined && interaction.user_id == undefined) return
+
+    const getDataDB = await this.client.database.flux({
+      search: {
+        guilds: [{ fetch: { id: interaction.guild_id }, data: { prefix: process.env.PREFIX }, getOrAdd: true }],
+        users: [{ fetch: { id: interaction.user_id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
+      }
+    })
+    const mapData = getDataDB.data.toMap()
+    const guildData = mapData.get(`guilds:${interaction.guild_id}`)
+    const _locale = this.client.i18nRegistry.getT(guildData.data.lang)
+    const isModal = interaction.type == 5
+    const parseButton = parseButtonControlledByPageManager(interaction)
+    if (parseButton.isPageManager) {
+      getInteraction = this.getInteraction(parseButton.id, null, typeResolved)
     }
-    if (a.byteLength > b.byteLength) {
-      return `${chalk.greenBright(a.byteLength)}B → ${chalk.redBright(b.byteLength)}B`
+
+    const ctx = new InteractionContext(interaction, this.client, null, this, { interactionData: interaction, typeResolved, _locale, interactionBase: getInteraction, isModal }, getInteraction)
+    if (getInteraction == null || getInteraction == undefined) {
+      return ctx.replyT('cocoa_what', 'basic:message.interactionExpired', { enableEphemeral: true })
     }
-    if (a.byteLength < b.byteLength) {
-      return `${chalk.blueBright(a.byteLength)}B ← ${chalk.yellowBright(b.byteLength)}B / ${chalk.redBright(b.byteLength - a.byteLength)}B of difference`
+    if (getInteraction.id.includes('-')) {
+      getInteraction.id = interaction.id
     }
-    return `${a.byteLength}B / ${b.byteLength}B`
+    if (!ctx.userGetsInteractionAccess(ctx.getMemberInteraction.id)) {
+      const content = getInteraction.getCustomMessageTranslateInteraction(ctx.data)?.customMessage?.userLimited ?? 'basic:message.interactionOtherUser'
+      return ctx.replyT('cocoa_what', content, { enableEphemeral: true })
+    }
+    if (typeResolved !== undefined && this.rateLimiterManager.checkUser(ctx.data.member.user.id))
+      return ctx.replyT('cocoa_what', 'basic:message.interactionRateLimit', { enableEphemeral: true })
+
+    if (getInteraction.isEmbedPage || parseButton.isPageManager) {
+      getInteraction.sendInteraction(interaction, ctx)
+      return
+    }
+    if (parseButton.isPageManager) return
+    try {
+      getInteraction.interactionCurrent = interaction
+      getInteraction.runner(defineOptionsCtx(ctx, { expandFunctionsInOptions: true }, getInteraction.state))
+    } catch (errorStack) {
+      Logger.error(errorStack)
+      console.error(errorStack)
+      await ctx.replyT('error', 'basic:message.interactionError', { enableEphemeral: true })
+    }
+  }
+
+  getInteraction(id, messageID) {
+    const checkMessageOrInteraction = (i) => {
+      if (typeof messageID == 'string') return i.id === id || i.messageID === messageID
+      return i.id === id
+    }
+    return this.interactions.find((i) => checkMessageOrInteraction(i)) ?? null
+  }
+
+  removeInteraction(id) {
+    const index = this.interactions.findIndex((i) => i.id === id || i.name)
+    if (index >= 0)
+      this.interactions.splice(index, 1)
+
+    return index >= 0
+  }
+
+  createInteractionBase(messageID, typeResolved, options = { expireUntil: null, state: null, message: null, isEmbedPage: false, embedPage: null }) {
+    this.interactions.push(new InteractionBase(this.genID() + `:${messageID}`, messageID, typeResolved, this, options))
+  }
+
+  createInteractionModal(interactionID, typeResolved, options = { expireUntil: null, state: null, message: null, isEmbedPage: false, embedPage: null }) {
+    this.interactions.push(new InteractionBase(interactionID, null, typeResolved, this, options))
+  }
+
+  createInteraction(interactionBase = null) {
+    if (interactionBase instanceof InteractionBase) {
+      this.interactions.push(interactionBase)
+    } else
+      throw Error('That is not InteractionBase')
+    return interactionBase
+  }
+
+  async hookInteraction(interaction, data) {
+    return this.client.requestHandler.request('POST', `/interactions/${interaction.id}/${interaction.token}/callback`, true, data, null)
   }
 }

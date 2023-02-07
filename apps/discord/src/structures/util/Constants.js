@@ -55,7 +55,7 @@ const profileInfo = [
     flag: 1 << 1,
     readyForSale: true,
     description: null,
-    shotDescription: 'It\'s only the default profile.',
+    shortDescription: 'It\'s only the default profile.',
     price: 0,
     buttonId: 'default',
     disabled: true,
@@ -67,7 +67,7 @@ const profileInfo = [
     flag: 1 << 2,
     readyForSale: true,
     description: null,
-    shotDescription: 'I guess I will put a note on my notebook.',
+    shortDescription: 'I guess I will put a note on my notebook.',
     price: profilePriceTableConstants.data[1],
     buttonId: 'modern',
     disabled: false,
@@ -79,7 +79,7 @@ const profileInfo = [
     flag: 1 << 3,
     readyForSale: true,
     description: null,
-    shotDescription: 'The default profile, but more modern.',
+    shortDescription: 'The default profile, but more modern.',
     price: profilePriceTableConstants.data[2],
     buttonId: 'profile_2',
     disabled: false,
@@ -91,11 +91,11 @@ const profileInfo = [
     flag: 1 << 4,
     readyForSale: false,
     description: null,
-    shotDescription: 'This profile is not available yet, wait until the next update.',
+    shortDescription: 'This profile is not available yet, wait until the next update.',
     price: profilePriceTableConstants.data[3],
     buttonId: 'cute_profile',
-    disabled: false,
-    isDefault: true
+    disabled: true,
+    isDefault: false
   }
 ]
 
