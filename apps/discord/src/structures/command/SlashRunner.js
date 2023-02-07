@@ -52,9 +52,7 @@ export class SlashRunner {
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
 
-      ctx.send({ ...embed.build() }, {
-        flags: 1 << 6
-      })
+      ctx.send({ ...embed.build() })
       return
     }
 
