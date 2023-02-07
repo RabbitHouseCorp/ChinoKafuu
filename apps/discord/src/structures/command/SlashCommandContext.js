@@ -57,15 +57,18 @@ export class SlashCommandContext extends CommandContext {
     this.content = {
       content: (typeof content === 'string') ? content : content.content,
       embeds: this.embeds,
+      flags: content.flags ?? 0,
       components: content.components ?? this.commandInteractions.component,
       options: props[0]?.options
+    }
+    if (this.content.options == undefined) {
+      delete this.content.options
     }
     if (this.used) {
       const messageFunction = this.deferMessage.deferEdit(this.content, props[0]?.file, 6)
       this.deferMessage = messageFunction
       return messageFunction
     } else {
-
       this.used = true
       const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
       this.deferMessage = messageFunction
