@@ -1,4 +1,6 @@
 import mongoose from 'mongoose'
+import { intervalsDefault } from '../default/intervalsDefault'
+import { workDefault } from '../default/workDefault'
 const Users = new mongoose.Schema({
   id: { type: String, index: { unique: true } },
   yens: { type: Number, default: 0, index: true },
@@ -23,7 +25,9 @@ const Users = new mongoose.Schema({
   profileType: { type: String, default: 'default' },
   backgroundList: { type: Array, default: ['gochiusa_3'] },
   profileList: { type: Array, default: ['default'] },
-  stopNotify: { type: Boolean, default: false }
+  stopNotify: { type: Boolean, default: false },
+  economy: { type: Object, default: workDefault() },
+  intervals: { type: Object, default: intervalsDefault() }
 })
 
 export default mongoose.model('Users', Users)
