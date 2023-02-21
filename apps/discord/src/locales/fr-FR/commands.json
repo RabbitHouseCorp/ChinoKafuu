@@ -5,6 +5,7 @@
     "userBanner": "Banner of {{0}}"
   },
   "inventory": {
+    "tips": "**Tip**: To view the profile type /profile or you can access the quick command which is **{{1}}**.",
     "background": {},
     "confirmationButton": "Oui, je veux",
     "denyButton": "Non, je ne veux pas",
@@ -18,16 +19,23 @@
       "wantUseThisProfile": "Je veux utiliser ce profil !",
       "welcome": "Bonjour ! Bienvenue dans l'inventaire de votre profil. Pour sélectionner le changement de profil, il suffit de cliquer sur le menu et d'en sélectionner un seul.",
       "profileUnavailable": "Ce profil n'est pas encore disponible, peut-être sera-t-il ajouté dans une prochaine mise à jour. Rejoignez mon serveur de support pour rester à jour."
-    }
+    },
+    "success": "Excellent! You are using profile **`{{0}}`** now."
   },
   "shop": {
+    "itemPurschased": "This item was purchased",
     "background": {},
     "buttonDisabled": "**Attention** : Le bouton est désactivé pour cette raison ->",
     "noIDont": "Non, je ne veux pas de ce profil",
     "notAllowed": "il semble que vous n'êtes pas la personne qui a exécuté cette commande, vous ne pouvez pas le faire.",
     "noDescription": "Pas de description",
-    "price": "Prix",
+    "price": "",
     "profile": {
+      "buyProfile": "Now you can buy this profile for **`{{0}} yens`**.",
+      "profileInfo": "This profile costs **`{{0}} yens`**.",
+      "price": "I want to compose this profile for {{0}} yens",
+      "valueInsufficientMessage": "You cannot buy this profile because it costs **{{0}} yens**, you need to gather **{{1}} yens** to buy it.",
+      "valueInsufficient": "You cannot purchase this profile.",
       "alreadyHaveThisProfile": "Il semble que vous ayez déjà ce profil.",
       "enoughYens": "Il semble que vous n'ayez pas assez de yens pour acheter ce profil.",
       "loadingPreview": "Chargement de l'aperçu, veuillez patienter un moment.",
@@ -258,7 +266,11 @@
     "hasPermissions": "Permissions"
   },
   "translate": {
-    "description": "Traduisez un texte sans devoir recourir à un service de traduction en ligne."
+    "title": "Translate",
+    "translateLabel": "Text to Translate",
+    "translateText": "Enter text",
+    "languageLabel": "Language",
+    "languageText": "Translate to..."
   },
   "animu": {
     "title": "Animu Radio Station - La radio la plus moe du Brésil !",
