@@ -1,4 +1,24 @@
 {
+  "message": {
+    "interactionExpired": "This interaction has expired. Try to run the command and repeat the same process.",
+    "interactionError": "An error occurred in the interaction. I am forwarding the error to the team to analyze and solve the problem.",
+    "interactionWithoutPermission": "This interaction is not allowed to perform such processes as: {{0}}",
+    "interactionSuspectedBug": "Oops! We detected something odd while working on the interaction. I am forwarding it to the team to investigate and resolve the issue.",
+    "interactionLimited": "This interaction is limited to {{0}} users. And that's why this interaction is blocked for you.",
+    "interactionOtherUser": "Oops! This interaction was initiated by someone else and therefore you do not have permission to control it.",
+    "interactionBanned": "This interaction is blocked because you are banned from using ChinoKafuu commands or resources.",
+    "interactionBlockedForMaintenance": "Interaction blocked to do maintenance.",
+    "interactionTimeout": "We noticed that this interaction took a long time to respond. Try to repeat the same process.",
+    "interactionBlockedToAttempt": "This interaction was blocked because it has a suspected bug and takes a long time to load other functions. I am forwarding it to the team to analyze the problem. Try again later.",
+    "buttonInteractionExpired": "This interaction button has expired. Try running command and repeating the same process.",
+    "menuInteractionExpired": "This menu selection interaction has expired. Try to run command and repeat the same process.",
+    "itemsSelectedDoMenuLimited": "Woah! There are too many items selected, you can only select {{0}} up to {{1}}",
+    "rateLimit": "Currently, there are a lot of people using this feature right now, so it has been limited to avoid overloading the service. Try later."
+  },
+  "page": {
+    "backPage": "Back to previous page",
+    "nextPage": "Next page"
+  },
   "permissions": {
     "permissionUserRequired": "您必須具有以下權限才能使用此命令：{{0}}.",
     "permissionBotRequired": "您必須具有以下權限才能使用此指令：{{0}}.",
