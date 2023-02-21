@@ -1,5 +1,23 @@
 {
+  "profiles": {
+    "default": {
+      "name": "Default",
+      "shortDescription": "It's only the default profile.",
+      "description": "It's only the default profile."
+    },
+    "modern": {
+      "name": "Notebook",
+      "shortDescription": "I guess I will put a note on my notebook.",
+      "description": "I guess I will put a note on my notebook."
+    },
+    "profile_2": {
+      "name": "Modern",
+      "shortDescription": "The default profile, but more modern.",
+      "description": "The default profile, but more modern."
+    }
+  },
   "message": {
+    "interactionRateLimit": "Oops! Calm down, it looks like there's an interaction working at the same time, so you've been limited for a few seconds... Try again!",
     "interactionExpired": "This interaction has expired. Try to run the command and repeat the same process.",
     "interactionError": "An error occurred in the interaction. I am forwarding the error to the team to analyze and solve the problem.",
     "interactionWithoutPermission": "This interaction is not allowed to perform such processes as: {{0}}",
