@@ -5,6 +5,7 @@
     "userBanner": "Banner de {{0}}"
   },
   "inventory": {
+    "tips": "**Tip**: To view the profile type /profile or you can access the quick command which is **{{1}}**.",
     "background": {},
     "confirmationButton": "Sí, yo quiero",
     "denyButton": "No, yo no quiero",
@@ -18,16 +19,23 @@
       "wantUseThisProfile": "¡Quiero usar este perfil!",
       "welcome": "¡Hola! Bienvenido a tu inventario de perfil. Para seleccionar el cambio de perfil, simplemente haz clic en el menú y selecciona solo uno.",
       "profileUnavailable": "Este perfil no está disponible todavía, tal vez en una actualización futura se añadirá. Únete a mi servidor de soporte para mantenerse actualizado."
-    }
+    },
+    "success": "Excellent! You are using profile **`{{0}}`** now."
   },
   "shop": {
+    "itemPurschased": "This item was purchased",
     "background": {},
     "buttonDisabled": "**Aviso**: El botón está desactivado por esta razón ->",
     "noIDont": "No, no quiero este perfil",
     "notAllowed": "parece que no eres la persona que ha ejecutado este comando, no puedes hacer esto.",
     "noDescription": "No hay descripción",
-    "price": "Precio",
+    "price": "",
     "profile": {
+      "buyProfile": "Now you can buy this profile for **`{{0}} yens`**.",
+      "profileInfo": "This profile costs **`{{0}} yens`**.",
+      "price": "I want to compose this profile for {{0}} yens",
+      "valueInsufficientMessage": "You cannot buy this profile because it costs **{{0}} yens**, you need to gather **{{1}} yens** to buy it.",
+      "valueInsufficient": "You cannot purchase this profile.",
       "alreadyHaveThisProfile": "Parece que ya tienes este perfil.",
       "enoughYens": "Parece que no tienes suficientes yenes para comprar este perfil.",
       "loadingPreview": "Cargando la vista previa, por favor espere un momento.",
@@ -258,7 +266,11 @@
     "hasPermissions": "Permisos"
   },
   "translate": {
-    "description": "Traducir un texto sin tener que utilizar otros servicios de traductores."
+    "title": "Translate",
+    "translateLabel": "Text to Translate",
+    "translateText": "Enter text",
+    "languageLabel": "Language",
+    "languageText": "Translate to..."
   },
   "animu": {
     "title": "Radio Animu - ¡La Radio más Moe de Brasil!",
