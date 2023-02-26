@@ -1,4 +1,20 @@
 {
+  "timestamp": {
+    "year": "{{0}} year{space}{{1}}{space}",
+    "years": "{{0}} years{space}{{1}}{space}",
+    "week": "{{0}} week{space}{{1}}{space}",
+    "weeks": "{{0}} weeks{space}{{1}}{space}",
+    "day": "{{0}} day{space}{{1}}{space}",
+    "days": "{{0}} days{space}{{1}}{space}",
+    "hour": "{{0}} hour{space}{{1}}{space}",
+    "hours": "{{0}} hours{space}{{1}}{space}",
+    "minute": "{{0}} minute{space}{{1}}{space}",
+    "minutes": "{{0}} minutes{space}{{1}}{space}",
+    "second": "{{0}} second{space}{{1}}{space}",
+    "seconds": "{{0}} seconds{space}{{1}}{space}",
+    "prefix": "and",
+    "notime": "no time"
+  },
   "profiles": {
     "default": {
       "name": "Default",
