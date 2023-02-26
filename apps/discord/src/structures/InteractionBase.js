@@ -101,11 +101,11 @@ export class InteractionBase {
     if (Array.isArray(this.name)) {
       const { data } = args.ctx
       const interactions = this.#whichInteractionIsWorking(data)
-      interactions.map((interaction) => {
+      interactions.map(async (interaction) => {
         if (!this._once) {
           interaction.once(args)
         }
-        interaction.interactionFunction(args)
+        await interaction.interactionFunction(args)
       })
       this._once = true
       return

@@ -26,8 +26,8 @@ const Users = new mongoose.Schema({
   backgroundList: { type: Array, default: ['gochiusa_3'] },
   profileList: { type: Array, default: ['default'] },
   stopNotify: { type: Boolean, default: false },
-  economy: { type: Object, default: workDefault() },
-  intervals: { type: Object, default: intervalsDefault() }
+  economy: workDefault(),
+  intervals: intervalsDefault()
 })
 
 export default mongoose.model('Users', Users)

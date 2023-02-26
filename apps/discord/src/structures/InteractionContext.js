@@ -6,7 +6,7 @@ export class InteractionContext {
     this.client = client
     this.messageCreated = messageCreated
     this.interactionManager = interactionManager
-    this.options = options
+    this.options = options ?? {}
     this.id = options.interactionData.id
     this.interactionData = options.interactionData
     this.typeResolved = options.typeResolved
@@ -79,16 +79,21 @@ export class InteractionContext {
 
   async editMessageInteraction(data = {}) {
     let file = null
+    let type = defineTypeInteractionMessage('updateMessage')
     if (data.enableEphemeral) {
       delete data.enableEphemeral
       data.flags = 1 << 6
+    }
+    if (data.typeInteraction) {
+      delete data.typeInteraction
+      type = defineTypeInteractionMessage(data.typeInteraction)
     }
     if (data.file) {
       file = data.file
       delete data.file
     }
     return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
-      type: defineTypeInteractionMessage('updateMessage'),
+      type: type,
       data: data,
     }, file?.image ?? null)
   }

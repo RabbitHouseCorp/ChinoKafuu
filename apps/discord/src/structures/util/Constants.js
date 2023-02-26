@@ -1,6 +1,7 @@
 import chalk from 'chalk'
 import { exec } from 'child_process'
 import { Logger } from '../../structures/util/Logger'
+import loadSettings from '../loadSettings'
 
 const profileConstants = {
   default: 1 << 1,
@@ -209,27 +210,29 @@ const BUILD_INFO = {
     }
   },
   getCommit: async () => {
+    const { version } = loadSettings()
+
     const data = {
       commit: null,
       message: null,
-      version: globalThis.versionProject
+      version: version
     }
-    if (process.env.BUILD_SHOW === undefined) {
-      return data
-    }
-    if (process.env.BUILD_SHOW === 'false') {
-      return data
-    }
+
     const e = await exec('git show', async (error, stdout) => {
       if (error) {
         await e.kill()
         return
       }
+
       const get_first_line = stdout.split('\n')[0]
       const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
       data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
       data.message = get_message
       await e.kill()
+      if (data.commit !== null && data.message !== null) {
+        Logger.info(`${chalk.green(`[BUILD COMMIT] ${version}@${data.commit} ->`)} ${data.message}`)
+        Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
+      }
     })
 
     return data

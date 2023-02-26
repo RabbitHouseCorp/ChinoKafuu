@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { defineTypeInteractionMessage } from '../InteractionManager'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
 
@@ -13,6 +14,7 @@ export class SlashCommandContext extends CommandContext {
    */
   constructor(bot, interaction, args, db, _locale) {
     super(bot, interaction.message, args, db, _locale)
+    this.getInteraction = interaction
     this.message = interaction
     this.args = args
     this.db = db
@@ -61,6 +63,7 @@ export class SlashCommandContext extends CommandContext {
       components: content.components ?? this.commandInteractions.component,
       options: props[0]?.options
     }
+
     if (this.content.options == undefined) {
       delete this.content.options
     }
@@ -77,6 +80,13 @@ export class SlashCommandContext extends CommandContext {
     // const messageFunction = this.message.hook.createMessage(this.content, props[0]?.file)
     // this.deferMessage = messageFunction
     // return messageFunction
+  }
+
+  async sendHook(data, file = null) {
+    return this.client.interactionManager.hookInteraction({ id: this.getInteraction.id, token: this.getInteraction.token }, {
+      type: 4,
+      data: data,
+    }, file)
   }
 
   /**
@@ -121,6 +131,7 @@ export class SlashCommandContext extends CommandContext {
     return this.message.hook.createMessage({
       content: `${Emoji.getEmoji(emoji).mention} **》** <@${this.message.member.user.id}> ${this._locale(content, data)}`,
       components: props[0]?.components ?? this.commandInteractions.component,
+      ...data,
       options: props[0]?.options
     }, props[0]?.file)
   }

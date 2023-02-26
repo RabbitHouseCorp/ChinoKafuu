@@ -34,17 +34,18 @@ export class SlashRunner {
       db: client.database.users
     }, _locale)
     ctx.ms = ms
-    if (command.isCommandModal) {
-      command.setModal(ctx, interaction)
-      await client.interactionManager.hookInteraction(interaction, {
-        type: 9, data: command.modal
-      })
-    } else {
-      await client.interactionManager.hookInteraction(interaction, { type: 5 })
+    if (userData?.data.blacklist == false) {
+      if (command.isCommandModal == true) {
+        command.setModal(ctx, interaction)
+        await client.interactionManager.hookInteraction(interaction, {
+          type: 9, data: command.modal
+        })
+      } else {
+        await client.interactionManager.hookInteraction(interaction, { type: 5 })
+      }
     }
     const permissions = new CommandPermissions(client, interaction.member, interaction.guild)
-
-    if (userData?.blacklist) {
+    if (userData?.data.blacklist) {
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
       embed.setAuthor('Você foi banido', interaction.member.user.avatarURL)
@@ -52,7 +53,7 @@ export class SlashRunner {
       embed.addField('Motivo', userData.blacklistReason)
       embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
 
-      ctx.send({ ...embed.build() })
+      ctx.sendHook({ ...embed.build(), flags: 1 << 6 })
       return
     }
 

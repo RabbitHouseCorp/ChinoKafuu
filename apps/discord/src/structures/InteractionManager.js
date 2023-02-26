@@ -23,6 +23,7 @@ export const defineOptionsCtx = (ctx, options = {
     getState: (...args) => ctx.getState(...args),
     deleteInteraction: async (...args) => ctx.deleteInteraction(...args),
     sendEmbedPage: async (...args) => ctx.sendEmbedPage(...args),
+    _locale: (...args) => ctx.options._locale(...args),
     getData: (...args) => ctx.getData(...args),
     getArg: (key) => {
       if (ctx.trackingCommand == null && ctx.trackingCommand == undefined) {
@@ -247,10 +248,10 @@ export class InteractionManager extends EventEmitter {
     }
     if (!ctx.userGetsInteractionAccess(ctx.getMemberInteraction.id)) {
       const content = getInteraction.getCustomMessageTranslateInteraction(ctx.data)?.customMessage?.userLimited ?? 'basic:message.interactionOtherUser'
-      return ctx.replyT('cocoa_what', content, { enableEphemeral: true })
+      return ctx.replyT('cocoa_what', content, { enableEphemeral: true, webhook_id: interaction.message.webhook_id })
     }
     if (typeResolved !== undefined && this.rateLimiterManager.checkUser(ctx.data.member.user.id))
-      return ctx.replyT('cocoa_what', 'basic:message.interactionRateLimit', { enableEphemeral: true })
+      return ctx.replyT('cocoa_what', 'basic:message.interactionRateLimit', { enableEphemeral: true, webhook_id: interaction.message.webhook_id })
 
     if (getInteraction.isEmbedPage || parseButton.isPageManager) {
       getInteraction.sendInteraction(interaction, ctx)
@@ -299,7 +300,20 @@ export class InteractionManager extends EventEmitter {
     return interactionBase
   }
 
-  async hookInteraction(interaction, data) {
-    return this.client.requestHandler.request('POST', `/interactions/${interaction.id}/${interaction.token}/callback`, true, data, null)
+  async hookInteraction(interaction, data, file = null) {
+    return this.client.requestHandler.request('POST', `/interactions/${interaction.id}/${interaction.token}/callback`, true, data, file ?? null)
   }
+
+  async webhookCreateFollowupMessage(interaction, data) {
+    return this.client.requestHandler.request('POST', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, data, null)
+  }
+
+  async webhookEditFollowupMessage(interaction, data) {
+    return this.client.requestHandler.request('PATCH', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, data, null)
+  }
+
+  async webhookDeleteFollowupMessage(interaction) {
+    return this.client.requestHandler.request('DELETE', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, null, null)
+  }
+
 }

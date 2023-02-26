@@ -1,8 +1,8 @@
 export const workDefault = () => ({
-  bank: 0,
-  value: 0,
+  bank: { type: Number, default: 0 },
+  value: { type: Number, default: 0 },
   work: {
-    job: 0,
-    arrested: false,
+    job: { type: Number, default: 0 },
+    arrested: { type: Boolean, default: false },
   }
 })
