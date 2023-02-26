@@ -1,4 +1,5 @@
 import { Listener } from '../../structures/events/Listener'
+import { addLocaleInCommands } from '../../structures/InteractionTranslation'
 
 export default class SlashCommand extends Listener {
   constructor() {
@@ -26,6 +27,8 @@ export default class SlashCommand extends Listener {
 
       }
 
+      await addLocaleInCommands(commandFolder, client)
+
       // commandRegistry:
 
       // This is for production testing.
@@ -34,7 +37,8 @@ export default class SlashCommand extends Listener {
       // from the server and add it again to update the commands quickly.
 
       // client.slashCommand.createCommand(commandFolder)
-      client.slashCommand.addVolumeOfCommands(commandFolder)
+
+      await client.addVolumeOfCommands(commandFolder, client.user.id)
     }
   }
 }
