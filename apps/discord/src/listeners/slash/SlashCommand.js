@@ -1,5 +1,5 @@
 import { Listener } from '../../structures/events/Listener'
-import { addLocaleInCommands } from '../../structures/InteractionTranslation'
+import { addLocaleInCommands } from '../../structures/interactionTranslation'
 
 export default class SlashCommand extends Listener {
   constructor() {
