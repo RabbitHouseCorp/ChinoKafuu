@@ -20,6 +20,9 @@ const Users = new mongoose.Schema({
   rep: { type: Number, default: 0 },
   repTime: { type: Number, default: 0 },
   shipValue: { type: String, default: null },
+  lastUpdates: {
+    job: { type: Number, default: -1 }
+  },
   background: { type: String, default: 'gochiusa_3' },
   sticker: { type: String, default: 'bjork_post' },
   profileType: { type: String, default: 'default' },
