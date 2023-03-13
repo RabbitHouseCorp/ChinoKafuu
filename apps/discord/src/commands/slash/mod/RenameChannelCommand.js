@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class RenameChannelCommand extends Command {
   constructor() {
@@ -28,6 +28,11 @@ export default class RenameChannelCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   run(ctx) {
     const guild = ctx.message.guild
     const channel = guild.channels.get(ctx.args.get('channel').value)

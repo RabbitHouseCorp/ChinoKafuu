@@ -1,4 +1,4 @@
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
 
 export default class RemoveRoleCommand extends Command {
@@ -28,6 +28,11 @@ export default class RemoveRoleCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const member = await ctx.getMember(ctx.args.get('member').value?.id ?? ctx.args.get('member').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')

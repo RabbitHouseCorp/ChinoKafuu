@@ -1,5 +1,5 @@
 import { defineState } from '../../../defineTypes/defineState'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { profileInfo } from '../../../structures/util/Constants'
 
 export default class ShopProfileCommand extends Command {
@@ -13,6 +13,11 @@ export default class ShopProfileCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const user = ctx.db.user
     const profiles = Object.entries(profileInfo)

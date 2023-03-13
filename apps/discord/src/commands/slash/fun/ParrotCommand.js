@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class ParrotCommand extends Command {
   constructor() {
@@ -22,6 +22,11 @@ export default class ParrotCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const quantity = ctx.args.get('quantity').value
     if (quantity > 20) return ctx.replyT('error', ctx._locale('commands:congaparrot.maxAllowed'))

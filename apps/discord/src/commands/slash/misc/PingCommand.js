@@ -1,5 +1,5 @@
 import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, Emoji } from '../../../structures/util'
+import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../structures/util'
 
 export default class PingCommand extends Command {
   constructor() {
@@ -29,6 +29,11 @@ export default class PingCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const time = Date.now() - ctx.ms
     switch (ctx.args.get('options')?.value) {

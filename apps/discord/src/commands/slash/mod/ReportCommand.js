@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class ReportCommand extends Command {
   constructor() {
@@ -32,6 +32,11 @@ export default class ReportCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const server = ctx.db.guild
     if (!server.reportModule) return ctx.replyT('error', 'commands:report.moduleDisable')

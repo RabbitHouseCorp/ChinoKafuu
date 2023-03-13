@@ -1,4 +1,4 @@
-import { Command } from '../../../../structures/util'
+import { Command, SlashCommandContext } from '../../../../structures/util'
 import axios from 'axios'
 
 export default class AnimuPlayCommand extends Command {
@@ -12,6 +12,11 @@ export default class AnimuPlayCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
 
     if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')

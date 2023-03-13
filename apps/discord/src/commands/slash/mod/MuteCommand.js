@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import ms from 'ms'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class MuteCommand extends Command {
   constructor() {
@@ -33,6 +33,11 @@ export default class MuteCommand extends Command {
     })
   }
 
+  /**
+     * @method run
+     * @param {SlashCommandContext} ctx
+     * @returns {void}
+     */
   async run(ctx) {
     const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     const guildMember = ctx.message.guild.members.get(member.id)

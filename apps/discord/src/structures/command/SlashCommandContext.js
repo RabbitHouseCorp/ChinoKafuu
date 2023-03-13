@@ -1,22 +1,43 @@
 import axios from 'axios'
-import { defineTypeInteractionMessage } from '../InteractionManager'
+import { Interaction, Message } from 'eris'
+import { Database } from '../database/Database'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
 
+const InteractionTypeOf = Interaction.prototype.hook.interaction.command.interface
+
+/**
+ * @typedef {object} SlashCommandOptions
+ * @property {Interaction} getInteraction
+ * @property {Message} message
+ * @property {string[]} args
+ * @property {Database} db
+ * @property {[{title: ''}]} embeds
+ */
 export class SlashCommandContext extends CommandContext {
   /**
-   *
-   * @param bot {Eris.Client}
-   * @param message {Eris.Interaction}
-   * @param args
-   * @param db
-   * @param t
-   */
+  * @constructor
+  * @param {SlashCommandOptions} options
+  * @property {Interaction} interaction
+  * @property {InteractionTypeOf} args
+  */
   constructor(bot, interaction, args, db, _locale) {
     super(bot, interaction.message, args, db, _locale)
+    /**
+     * @type {Interaction}
+     */
     this.getInteraction = interaction
+    /**
+     * @type {Message}
+     */
     this.message = interaction
+    /**
+     * @type {InteractionTypeOf}
+     */
     this.args = args
+    /**
+     * @type {Database}
+     */
     this.db = db
     this.embeds = []
     this._locale = _locale
@@ -44,8 +65,8 @@ export class SlashCommandContext extends CommandContext {
 
   /**
    * Sends a message to this channel
-   * @param content The content to be sent
-   * @param props {object}
+   * @param {string} content The content to be sent
+   * @param {string} props {object}
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
   async send(content, ...props) {
@@ -82,6 +103,12 @@ export class SlashCommandContext extends CommandContext {
     // return messageFunction
   }
 
+  /**
+   *
+   * @param {object} data
+   * @param {Buffer} file
+   * @returns {any}
+   */
   async sendHook(data, file = null) {
     return this.client.interactionManager.hookInteraction({ id: this.getInteraction.id, token: this.getInteraction.token }, {
       type: 4,
@@ -91,9 +118,9 @@ export class SlashCommandContext extends CommandContext {
 
   /**
    *
-   * @param content
-   * @param data
-   * @param props
+   * @param {string} content
+   * @param {{content: string, embeds: [], attachments: []}} data
+   * @param {object} props
    * @returns {Promise<Eris.MessageInteraction>}
    */
   async sendT(content, data = {}, ...props) {
@@ -106,8 +133,8 @@ export class SlashCommandContext extends CommandContext {
 
   /**
    * Sends a message with the author mention and an emoji
-   * @param emoji The emoji of the message
-   * @param content The content to be sent
+   * @param {string} emoji The emoji of the message
+   * @param {string | {content: string, components: [], options: any}} content The content to be sent
    * @param props
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
@@ -121,10 +148,10 @@ export class SlashCommandContext extends CommandContext {
 
   /**
    *
-   * @param emoji
-   * @param content
-   * @param data
-   * @param props
+   * @param {string} emoji
+   * @param {string | {content: string, components: [], options: any}} content
+   * @param {object} data
+   * @param {any} props
    * @returns {Promise<Eris.MessageInteraction>}
    */
   async replyT(emoji, content, data = {}, ...props) {

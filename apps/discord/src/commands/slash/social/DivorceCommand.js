@@ -1,6 +1,6 @@
 import { CommandBase } from 'eris'
 import { defineState } from '../../../defineTypes/defineState'
-import { Button, Command, Emoji } from '../../../structures/util'
+import { Button, Command, Emoji, SlashCommandContext } from '../../../structures/util'
 
 export default class DivorceCommand extends Command {
   constructor() {
@@ -17,6 +17,11 @@ export default class DivorceCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const author = ctx.db.user
     if (!author.isMarry) return ctx.replyT('error', 'commands:divorce.youAreNotMarried', { 0: ctx.db.guild.prefix })

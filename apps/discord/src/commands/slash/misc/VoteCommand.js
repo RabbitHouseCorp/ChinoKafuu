@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 import { CommandBase } from 'eris'
 
 export default class VoteCommand extends Command {
@@ -17,6 +17,11 @@ export default class VoteCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const embed = new EmbedBuilder()
     embed.setColor('DEFAULT')

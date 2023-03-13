@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 import malScraper from 'mal-scraper'
 import { CommandBase, CommandOptions } from 'eris'
 
@@ -24,6 +24,11 @@ export default class AnimeCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
 
     const search = ctx.args.get('name').value

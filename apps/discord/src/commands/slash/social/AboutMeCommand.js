@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class AboutMeCommand extends Command {
   constructor() {
@@ -19,6 +19,11 @@ export default class AboutMeCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     if (ctx.args.get('text').value.length > 128) return ctx.replyT('error', 'commands:aboutme.bioLimit')
     const bio = ctx.args.get('text').value.replace(/[`]/g, '')

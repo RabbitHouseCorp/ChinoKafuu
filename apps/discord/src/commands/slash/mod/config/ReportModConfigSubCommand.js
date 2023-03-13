@@ -1,4 +1,4 @@
-import { Command } from '../../../../structures/util'
+import { Command, SlashCommandContext } from '../../../../structures/util'
 const Status = {
   typeOne: 'enable',
   typeTwo: 'disable'
@@ -20,6 +20,11 @@ export default class ReportModConfigSubCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   run(ctx) {
     if (ctx.args.get('status') === undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
     switch (ctx.args.get('status').value) {

@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class SlowmodeCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class SlowmodeCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   run(ctx) {
     const time = Math.round(ctx.args.get('time').value)
     if (time > 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')

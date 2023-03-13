@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
 
 export default class UserInfoCommand extends Command {
   constructor() {
@@ -12,6 +12,11 @@ export default class UserInfoCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user, true)

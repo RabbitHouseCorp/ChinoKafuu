@@ -1,4 +1,4 @@
-import { Command } from '../../../../structures/util'
+import { Command, SlashCommandContext } from '../../../../structures/util'
 
 export default class AnimuStopCommand extends Command {
   constructor() {
@@ -11,6 +11,11 @@ export default class AnimuStopCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     await ctx.client.lavalink.manager.leave(ctx.message.guild.id)
     ctx.client.lavalink.manager.players.delete(ctx.message.guild.id)

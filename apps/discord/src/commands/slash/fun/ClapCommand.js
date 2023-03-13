@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class ClapCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class ClapCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const clap = ctx.args.get('text').value.split(' ').join('<a:clap:554482751542132736>')
     if (!clap) return ctx.replyT('error', 'commands:clap.noArgs')

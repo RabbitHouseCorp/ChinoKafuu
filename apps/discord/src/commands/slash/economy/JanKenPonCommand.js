@@ -1,6 +1,6 @@
 /* eslint-disable security/detect-object-injection */
 import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { Emoji } from '../../../structures/util/EmotesInstance'
 
 export default class JanKenPonCommand extends Command {
@@ -37,6 +37,11 @@ export default class JanKenPonCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const user = await ctx.db.user
     const client = await ctx.client.database.users.getOrCreate(ctx.client.user.id)

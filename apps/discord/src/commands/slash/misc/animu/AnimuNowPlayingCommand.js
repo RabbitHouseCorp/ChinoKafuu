@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
 import axios from 'axios'
 
 export default class AnimuNowPlayingCommand extends Command {
@@ -12,6 +12,11 @@ export default class AnimuNowPlayingCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const res = await axios.get(process.env.ANIMU_API_URI)
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')

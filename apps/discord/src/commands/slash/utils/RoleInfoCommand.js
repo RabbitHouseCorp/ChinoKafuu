@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class RoleInfoCommand extends Command {
   constructor() {
@@ -20,6 +20,11 @@ export default class RoleInfoCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   run(ctx) {
     const role = ctx.message.guild.roles.get(ctx.args.get('role').value)
     if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')

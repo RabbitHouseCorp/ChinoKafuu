@@ -1,6 +1,6 @@
 import Anilist from 'anilist-node'
 import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 import { Logger } from '../../../structures/util/Logger'
 const anilist = new Anilist()
 
@@ -26,6 +26,11 @@ export default class MangaCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const search = ctx.args.get('name').value
     const t = ctx._locale

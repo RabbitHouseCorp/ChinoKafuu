@@ -1,5 +1,5 @@
 import { CommandBase } from 'eris'
-import { Command, EmbedBuilder, TopGGUtils } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext, TopGGUtils } from '../../../structures/util'
 
 export default class DailyCommand extends Command {
   constructor() {
@@ -15,6 +15,11 @@ export default class DailyCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const top_gg = new TopGGUtils()
     const user = ctx.db.user

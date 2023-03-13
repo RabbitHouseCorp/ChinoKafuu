@@ -1,4 +1,4 @@
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
 
 export default class FavColorCommand extends Command {
@@ -19,6 +19,11 @@ export default class FavColorCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     if (ctx.db.user.yens < 150) return ctx.replyT('error', 'commands:favcolor.poorUser', { 0: ctx.db.user.yens - 75 })
     const color = ctx.args.get('color').value

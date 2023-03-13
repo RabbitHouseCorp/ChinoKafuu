@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class AddEmojiCommand extends Command {
   constructor() {
@@ -29,6 +29,11 @@ export default class AddEmojiCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const name = ctx.args.get('name').value
     let source = ctx.args.get('source').value

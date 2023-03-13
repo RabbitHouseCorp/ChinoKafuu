@@ -1,11 +1,43 @@
 import axios from 'axios'
+import { Message } from 'eris'
+import { Bot } from '../Bot'
+import { Database } from '../database/Database'
 import { CommandInteractions } from '../interactions/CommandInteractions'
 import { Emoji } from '../util/EmotesInstance'
+
+/**
+ * @typedef CommandContextOptions
+ * @property {Bot} client
+ * @property {Message} message
+ * @property {string[]} args
+ * @property {Database} db
+ */
 export class CommandContext {
+  /**
+ * @constructor
+ * @param {CommandContextOptions} options
+ * @param {Bot} bot
+ * @param {Message} message
+ * @param {string[]} args
+ * @param {Database} db
+ * @property {Bot} client
+ */
   constructor(bot, message, args, db, _locale) {
+    /**
+     * @type {Bot}
+     */
     this.client = bot
+    /**
+      * @type {Message}
+      */
     this.message = message
+    /**
+      * @type {string[]}
+      */
     this.args = args
+    /**
+      * @type {Database}
+      */
     this.db = db
     this._locale = _locale
     this.commandInteractions = new CommandInteractions(message, this)
@@ -13,8 +45,8 @@ export class CommandContext {
 
   /**
      * Sends a message to this channel
-     * @param content The content to be sent
-     * @param props {object}
+     * @param {string} content The content to be sent
+     * @param {object} props {object}
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
   async send(content, ...props) {
@@ -33,9 +65,9 @@ export class CommandContext {
 
   /**
      *
-     * @param content
-     * @param data
-     * @param props
+     * @param {string} content
+     * @param {object} data
+     * @param {object} props
      * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
      */
   async sendT(content, data = {}, ...props) {
@@ -53,9 +85,9 @@ export class CommandContext {
 
   /**
      * Sends a message with the author mention and an emoji
-     * @param emoji The emoji of the message
-     * @param content The content to be sent
-     * @param props
+     * @param {string} emoji The emoji of the message
+     * @param {string | object} content The content to be sent
+     * @param {object} props
      * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
      */
   async reply(emoji, content, ...props) {

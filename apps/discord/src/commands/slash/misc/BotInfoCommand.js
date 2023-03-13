@@ -1,6 +1,6 @@
 import { CommandBase } from 'eris'
 import os from 'os'
-import { Button, Command, EmbedBuilder, Emoji, version } from '../../../structures/util'
+import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext, version } from '../../../structures/util'
 
 export default class BotInfoCommand extends Command {
   constructor() {
@@ -17,6 +17,11 @@ export default class BotInfoCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const getCommit = ctx.client.pluginManager.pluginStore.get('buildStore').classState
     const description = [

@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class RemoveEmojiCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class RemoveEmojiCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const guild = ctx.message.guild
     const getEmoji = await ctx.getEmoji(ctx.args.get('emoji').value)

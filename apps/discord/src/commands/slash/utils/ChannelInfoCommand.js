@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class ChannelInfoCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class ChannelInfoCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const args = ctx.args.get('channel').value
     let channel = ctx.client.getChannel(args)

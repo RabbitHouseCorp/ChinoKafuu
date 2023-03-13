@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 import { UsagiAPI } from 'usagiapi'
 import { CommandBase, CommandOptions } from 'eris'
 const usagi = new UsagiAPI()
@@ -25,6 +25,11 @@ export default class TickleCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')

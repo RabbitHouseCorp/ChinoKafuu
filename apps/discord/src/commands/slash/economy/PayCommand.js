@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import { defineState } from '../../../defineTypes/defineState'
-import { Button, Command, Emoji } from '../../../structures/util'
+import { Button, Command, Emoji, SlashCommandContext } from '../../../structures/util'
 
 export default class PayCommand extends Command {
   constructor() {
@@ -29,6 +29,11 @@ export default class PayCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value) ?? ctx.args.get('user').member ?? null
     if (!member) return ctx.replyT('error', 'basic:invalidUser')

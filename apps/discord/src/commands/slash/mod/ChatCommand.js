@@ -1,5 +1,5 @@
-import { Command } from '../../../structures/util'
-import { CommandBase, CommandOptions, Choice } from 'eris'
+import { Choice, CommandBase, CommandOptions } from 'eris'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class ChatCommand extends Command {
   constructor() {
@@ -30,6 +30,11 @@ export default class ChatCommand extends Command {
     })
   }
 
+  /**
+     * @method run
+     * @param {SlashCommandContext} ctx
+     * @returns {void}
+     */
   async run(ctx) {
     const role = ctx.message.guild.id
     switch (ctx.args.get('mode').value) {

@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder, Emoji } from '../../../../structures/util'
+import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
 import axios from 'axios'
 
 export default class MinecraftQueryCommand extends Command {
@@ -13,6 +13,11 @@ export default class MinecraftQueryCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.args.get('minecraft-server-ip').value}`)}`, { responseType: 'json' })
     const mcserver = body.data

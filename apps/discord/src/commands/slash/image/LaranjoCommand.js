@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import { requestTokamak } from '../../../lib'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class LaranjoCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class LaranjoCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const render = await requestTokamak({
       action: 'renderLaranjo',

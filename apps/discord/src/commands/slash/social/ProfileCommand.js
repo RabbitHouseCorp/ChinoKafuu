@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import { requestTokamak } from '../../../lib'
-import { Command, Logger } from '../../../structures/util'
+import { Command, Logger, SlashCommandContext } from '../../../structures/util'
 
 const flags = [
   {
@@ -71,6 +71,11 @@ export default class ProfileCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const user1 = ctx.args.get('user')?.value
     const member = await ctx.getUser(user1?.id ?? user1, true)

@@ -2,7 +2,7 @@ import { CommandBase } from 'eris'
 import { defineState } from '../../../defineTypes/defineState'
 import { Options } from '../../../structures/interactions/Options'
 import { SelectionMenu } from '../../../structures/interactions/SelectionMenu'
-import { Command, EmbedBuilder, Emoji } from '../../../structures/util'
+import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../structures/util'
 
 export default class LanguageCommand extends Command {
   constructor() {
@@ -22,6 +22,11 @@ export default class LanguageCommand extends Command {
     })
   }
 
+  /**
+     * @method run
+     * @param {SlashCommandContext} ctx
+     * @returns {void}
+     */
   async run(ctx) {
     const languages = [
       `${Emoji.getEmoji('brazil').mention} **Português, Brasil**`,

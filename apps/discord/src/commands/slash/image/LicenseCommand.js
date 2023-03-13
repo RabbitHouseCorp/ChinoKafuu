@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import { requestTokamak } from '../../../lib'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class LicenseCommand extends Command {
   constructor() {
@@ -27,6 +27,11 @@ export default class LicenseCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const guild = ctx.message.guild
     const member = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, true)

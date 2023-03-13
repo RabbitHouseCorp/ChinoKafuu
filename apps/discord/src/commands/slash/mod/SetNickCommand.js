@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class SetNickCommand extends Command {
   constructor() {
@@ -28,6 +28,11 @@ export default class SetNickCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     const newNick = ctx.args.get('nickname').value

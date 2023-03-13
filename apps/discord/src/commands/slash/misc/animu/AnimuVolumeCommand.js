@@ -1,4 +1,4 @@
-import { Command } from '../../../../structures/util'
+import { Command, SlashCommandContext } from '../../../../structures/util'
 
 export default class AnimuVolumeCommand extends Command {
   constructor() {
@@ -11,6 +11,11 @@ export default class AnimuVolumeCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   run(ctx) {
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
     if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')

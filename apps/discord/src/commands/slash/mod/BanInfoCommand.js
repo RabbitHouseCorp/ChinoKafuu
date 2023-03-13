@@ -1,5 +1,5 @@
-import { Command, EmbedBuilder, Emoji, NightlyInteraction, Button } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
+import { Button, Command, EmbedBuilder, Emoji, NightlyInteraction, SlashCommandContext } from '../../../structures/util'
 
 export default class BanInfoCommand extends Command {
   constructor() {
@@ -27,6 +27,11 @@ export default class BanInfoCommand extends Command {
     })
   }
 
+  /**
+     * @method run
+     * @param {SlashCommandContext} ctx
+     * @returns {void}
+     */
   async run(ctx) {
     const guild = ctx.message.guild
     const bans = await guild.getBans()
@@ -44,7 +49,7 @@ export default class BanInfoCommand extends Command {
       .setLabel(ctx._locale('commands:baninfo.unban'))
       .setEmoji({ name: Emoji.getEmoji('tools').name })
       .customID('unban')
-    ctx.send({ embeds: [embed], components: [{  type: 1, components: [unban.build()] }] }).then(async (msg) => {
+    ctx.send({ embeds: [embed], components: [{ type: 1, components: [unban.build()] }] }).then(async (msg) => {
       const ack = new NightlyInteraction(msg)
       ack.on('collect', ({ packet }) => {
         if ((ctx.message.author.id !== packet.d.member.user.id && packet.d.application_id === ctx.client.user.id)) {

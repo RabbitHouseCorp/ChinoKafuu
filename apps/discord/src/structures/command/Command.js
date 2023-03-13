@@ -1,6 +1,32 @@
+/* eslint-disable no-unused-vars */
 import { Module } from '../registry/Module'
+import { SlashCommandContext } from './SlashCommandContext'
 
+export { SlashCommandContext }
+
+/**
+ * @typedef {object} CommandOptions
+ * @property {string} name
+ * @property {string[]} [aliases]
+ * @property {string[]} [permissions]
+ * @property {boolean} [isBeta]
+ * @property {number} [cooldown]
+ * @property {any} [slash]
+ * @property {boolean} [removeDefaultCallback]
+ * @property {object} [callback_metadata]
+ * @property {any} [modal]
+ * @property {boolean} [isCommandModal]
+ */
+
+/**
+ * @class Command
+ * @extends Module
+ */
 export class Command extends Module {
+  /**
+   * @constructor
+   * @param {CommandOptions} options
+   */
   constructor(options) {
     super()
     this.name = options.name
@@ -20,6 +46,11 @@ export class Command extends Module {
   callback(interaction) { }
 
   // eslint-disable-next-line no-unused-vars
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   run(ctx) { }
 
   setModal() { }

@@ -1,5 +1,5 @@
-import { Command, Emoji } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
+import { Command, Emoji, SlashCommandContext } from '../../../structures/util'
 
 export default class ClearCommand extends Command {
   constructor() {
@@ -27,6 +27,11 @@ export default class ClearCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const quantity = ctx.args.get('quantity').value
     if (quantity > 100) return ctx.replyT('error', 'commands:clear.limit')

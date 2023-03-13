@@ -1,6 +1,6 @@
 import { CommandBase } from 'eris'
 import NekosLife from 'nekos.life'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 const NekoClient = new NekosLife()
 
@@ -19,6 +19,11 @@ export default class CatCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const image = await NekoClient.meow()
     const embed = new EmbedBuilder()

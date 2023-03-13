@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
 
 export default class SoftBanCommand extends Command {
@@ -30,6 +30,11 @@ export default class SoftBanCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
     if (!member) return ctx.replyT('error', 'basic:invalidUser')

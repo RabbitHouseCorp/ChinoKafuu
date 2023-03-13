@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris'
 import { Helper } from '../../../structures/util/Helper'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class HelpCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class HelpCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const command = ctx.client.slashCommandRegistry
     const commandLength = command.filterByCategory('economy').length + command.filterByCategory('fun').length + command.filterByCategory('minecraft').length + command.filterByCategory('misc').length + command.filterByCategory('mod').length + command.filterByCategory('social').length + command.filterByCategory('utils').length + command.filterByCategory('image').length

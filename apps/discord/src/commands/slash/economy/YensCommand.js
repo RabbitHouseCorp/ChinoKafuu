@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class YensCommand extends Command {
   constructor() {
@@ -17,6 +17,11 @@ export default class YensCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const user = ctx.args.get('user')?.value
     const member = await ctx.getUser(user?.id ?? user)

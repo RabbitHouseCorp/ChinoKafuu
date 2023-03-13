@@ -1,4 +1,4 @@
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
 
 export default class ChooseCommand extends Command {
@@ -19,6 +19,11 @@ export default class ChooseCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const argArray = ctx.args.get('choose').value.split(',')
     const chosen = argArray[Math.floor(Math.random() * argArray.length)].trim()

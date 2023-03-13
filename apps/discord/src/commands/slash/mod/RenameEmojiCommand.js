@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class RenameEmojiCommand extends Command {
   constructor() {
@@ -28,6 +28,11 @@ export default class RenameEmojiCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   run(ctx) {
     const guild = ctx.message.guild
     const getEmoji = ctx.args.get('emoji').value.replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')

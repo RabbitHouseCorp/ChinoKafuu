@@ -1,4 +1,4 @@
-import { Button, Command, EmbedBuilder, Emoji } from '../../../../structures/util'
+import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
 
 export default class ServerIconCommand extends Command {
   constructor() {
@@ -12,6 +12,11 @@ export default class ServerIconCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const guild = ctx.message.guild
     if (!guild.icon) return ctx.replyT('error', 'commands:servericon.missingIcon')

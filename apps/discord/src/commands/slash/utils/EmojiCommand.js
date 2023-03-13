@@ -1,4 +1,4 @@
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
 
@@ -24,6 +24,11 @@ export default class EmojiCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const emoji = await ctx.getEmoji(ctx.args.get('emoji')?.value)
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')

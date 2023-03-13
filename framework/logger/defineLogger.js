@@ -2,7 +2,7 @@ import chalk from 'chalk'
 
 
 
-export class LoggerSystem {
+class LoggerSystem {
   constructor(name) {
     this.name = name
   }
@@ -71,3 +71,5 @@ export class LoggerSystem {
     }
   }
 }
+
+export { LoggerSystem }

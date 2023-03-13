@@ -1,4 +1,4 @@
-import { Command } from '../../../structures/util'
+import { Command, SlashCommandContext } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
 
 export default class RoleColorCommand extends Command {
@@ -28,6 +28,11 @@ export default class RoleColorCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const getRole = ctx.args.get('role').value
     const role = ctx.message.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.guild.roles.get(getRole.replace(/[<@&>]/g, ''))

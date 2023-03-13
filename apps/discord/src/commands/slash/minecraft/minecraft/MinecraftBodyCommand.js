@@ -1,4 +1,4 @@
-import { Command, EmbedBuilder, Emoji } from '../../../../structures/util'
+import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
 
 export default class MinecraftBodyCommand extends Command {
   constructor() {
@@ -12,6 +12,11 @@ export default class MinecraftBodyCommand extends Command {
     })
   }
 
+  /**
+  * @method run
+  * @param {SlashCommandContext} ctx
+  * @returns {void}
+  */
   async run(ctx) {
     const body = `https://mc-heads.net/body/${ctx.args.get('minecraft-nickname').value}`
     const embed = new EmbedBuilder()

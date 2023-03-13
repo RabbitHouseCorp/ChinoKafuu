@@ -1,4 +1,4 @@
-import { Button, Command, EmbedBuilder, Emoji } from '../../../../structures/util'
+import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
 
 export default class UserBannerCommand extends Command {
   constructor() {
@@ -11,6 +11,11 @@ export default class UserBannerCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const member = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, true)
     const banner = member.bannerURL

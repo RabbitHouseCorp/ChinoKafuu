@@ -1,5 +1,5 @@
 import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder } from '../../../structures/util'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
 
 export default class EmojiInfoCommand extends Command {
   constructor() {
@@ -23,6 +23,11 @@ export default class EmojiInfoCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const emoji = await ctx.getEmoji(ctx.args.get('emoji').value)
     if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')

@@ -1,6 +1,6 @@
 import { CommandBase, CommandOptions } from 'eris';
 import { defineState } from '../../../defineTypes/defineState';
-import { Command } from '../../../structures/util';
+import { Command, SlashCommandContext } from '../../../structures/util';
 import { TypeProfession } from '../../../structures/util/ConstantsTypes';
 
 export default class WorkCommand extends Command {
@@ -23,6 +23,11 @@ export default class WorkCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const userDB = ctx.db.user
 

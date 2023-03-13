@@ -1,5 +1,5 @@
-import { Command, EmbedBuilder, NightlyInteraction, Emoji, Button } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
+import { Button, Command, EmbedBuilder, Emoji, NightlyInteraction, SlashCommandContext } from '../../../structures/util'
 
 export default class AnnounceCommand extends Command {
   constructor() {
@@ -32,6 +32,11 @@ export default class AnnounceCommand extends Command {
     })
   }
 
+  /**
+   * @method run
+   * @param {SlashCommandContext} ctx
+   * @returns {void}
+   */
   async run(ctx) {
     const guild = ctx.message.guild
     const channel = guild.channels.get(ctx.args.get('channel').value)
