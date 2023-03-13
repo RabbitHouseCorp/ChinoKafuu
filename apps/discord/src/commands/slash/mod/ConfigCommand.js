@@ -1,5 +1,5 @@
+import { Choice, CommandBase, CommandOptions } from 'eris'
 import { Command } from '../../../structures/util'
-import { CommandBase, CommandOptions, Choice } from 'eris'
 
 export default class ConfigCommand extends Command {
   constructor() {
@@ -14,6 +14,7 @@ export default class ConfigCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('config')
         .setDescription('Enable and disable some modules who I have in your guild.')

@@ -9,6 +9,7 @@ export default class ShopBaseCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('shop')
         .setDescription('The shop command that allows you to buy new things to customize your account.')

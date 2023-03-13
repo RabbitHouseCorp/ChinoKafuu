@@ -10,6 +10,7 @@ export default class AnimuCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('animu')
         .setDescription('Starts the Animu Radio')

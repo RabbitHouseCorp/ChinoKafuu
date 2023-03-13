@@ -11,6 +11,7 @@ export default class MinecraftCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('minecraft')
         .setDescription('Minecraft Command')

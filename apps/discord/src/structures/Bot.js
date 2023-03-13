@@ -11,6 +11,26 @@ import { InteractionFunctionRegistry } from './othersRegistry/InteractionFunctio
 import { ClusteringInterface } from './util/ClusteringInterface'
 // const CacheManager = require('./util/cache/CacheManager')
 
+/**
+ * @typedef SubCommandGlobalUi
+ * @property {number} type
+ * @property {string} name
+ * @property {description} description
+ * @property {boolean?} required
+ * @property {boolean?} autocomplete
+ */
+
+/**
+ * @typedef CommandGlobalUi
+ * @property {string} name
+ * @property {string} id
+ * @property {boolean  | null | undefined} dm_permission
+ * @property {boolean  | null | undefined} default_permission
+ * @property {SubCommandGlobalUi[] | null | undefined} options
+ * @property {boolean  | null | undefined} nsfw
+ * @property {string} version
+ */
+
 export class Bot extends Client {
   constructor(...data) {
     super(...data)
@@ -74,6 +94,7 @@ export class Bot extends Client {
     this.interactionManager = new InteractionManager(this)
     /**
      * @description
+     * @type {CommandGlobalUi[]}
      */
     this.commands = []
   }

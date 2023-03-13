@@ -9,6 +9,7 @@ export default class ServerBaseCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('server')
         .setDescription('Shows some informations about the current server.')

@@ -10,6 +10,7 @@ export default class UserBaseCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('user')
         .setDescription('Shows some information about a user.')

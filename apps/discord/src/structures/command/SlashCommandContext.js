@@ -1,10 +1,8 @@
 import axios from 'axios'
-import { Interaction, Message } from 'eris'
+import { CommandDataOption, Interaction, Message } from 'eris'
 import { Database } from '../database/Database'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
-
-const InteractionTypeOf = Interaction.prototype.hook.interaction.command.interface
 
 /**
  * @typedef {object} SlashCommandOptions
@@ -19,7 +17,7 @@ export class SlashCommandContext extends CommandContext {
   * @constructor
   * @param {SlashCommandOptions} options
   * @property {Interaction} interaction
-  * @property {InteractionTypeOf} args
+  * @property {Map<string, CommandDataOption>} args
   */
   constructor(bot, interaction, args, db, _locale) {
     super(bot, interaction.message, args, db, _locale)
@@ -32,7 +30,7 @@ export class SlashCommandContext extends CommandContext {
      */
     this.message = interaction
     /**
-     * @type {InteractionTypeOf}
+     * @type {Map<string, CommandDataOption>}
      */
     this.args = args
     /**

@@ -1,5 +1,5 @@
-import { Command } from '../../../structures/util'
 import { CommandBase, CommandOptions } from 'eris'
+import { Command } from '../../../structures/util'
 
 export default class InventoryBaseCommand extends Command {
   constructor() {
@@ -9,6 +9,7 @@ export default class InventoryBaseCommand extends Command {
         entity: 'bot',
         permissions: ['embedLinks']
       }],
+      isBase: true,
       slash: new CommandBase()
         .setName('inventory')
         .setDescription('To manage inventory')

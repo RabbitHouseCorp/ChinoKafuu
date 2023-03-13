@@ -39,6 +39,7 @@ export class Command extends Module {
     this.callback_metadata = {}
     this.modal = options.modal || null
     this.isCommandModal = options.isCommandModal || false
+    this.isBase = options.isBase || false
   }
 
   // This is done to return the interaction data so when the user will execute the command automatically the function will be executed.
