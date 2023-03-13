@@ -12,7 +12,7 @@ test('all commands can be properly required and initializated', () => {
 test('all commands follow proper naming rules (CommandName and suffix -Command.js)', () => {
   expect(() => {
     util.getAllFilesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/commands`).forEach(c => {
-      let hm = c.getAt('/', -1)
+      const hm = c.getAt('/', -1)
       if (!hm.endsWith('Command.js') || !hm.isUpperCase(0)) throw new Error(`${c} doesn't following naming rule! Use CommandName (uppercased) *and* the suffix Command.js`)
 
       // eslint-disable-next-line security/detect-non-literal-require
