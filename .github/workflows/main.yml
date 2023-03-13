@@ -26,8 +26,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-          cache: 'yarn'
-        
+          cache: "yarn"
+
       - name: Install dependencies ⚙
         run: yarn install
 
@@ -36,3 +36,6 @@ jobs:
 
       - name: Run tests 🧪
         run: yarn test
+
+      - name: Run Lint
+        run: yarn lint
