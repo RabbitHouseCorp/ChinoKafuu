@@ -1,4 +1,3 @@
-import chalk from 'chalk'
 import EventEmitter from 'events'
 import mongoose from 'mongoose'
 import { Logger } from '../util/Logger'
@@ -134,7 +133,7 @@ export class Database extends EventEmitter {
         latency: Date.now() - trackTime
       },
       getQuery: (query = '', mouse = (_) => null) => {
-        const obj = [[Queries.Guilds, guilds], [Queries.Users, users]]
+        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
         const [_, getQueries] = obj.find(([id]) => id === query)
         const getData = getQueries.find(mouse)?.data ?? null
         return getData
@@ -143,65 +142,6 @@ export class Database extends EventEmitter {
     return { ...func }
   }
 
-  logger_receive(action, data) {
-    const loggers = []
-    loggers.push(' ')
-    let list = []
-    if (!process.env.FLUX_LOGGER) {
-      list = []
-    } else {
-      process.env.FLUX_LOGGER.replace(' ', '').split(',')
-    }
-    if (list.includes('took')) {
-      loggers.push(`Took (${this.lantecy(data.took_off)})`)
-    }
-    if (list.includes('get_data')) {
-      loggers.push(`GET Data ~> ${JSON.stringify(data.data.query)}`)
-    }
-    if (list.includes('post_data')) {
-      const map = []
-      const bar_2 = '____________________'
-      for (const b of data.data.query) {
-        if (!(b.saved === null)) {
-          map.push(`${bar_2}\nTag: ${b.tag}\nTook: ${this.lantecy(b.took_off)}\n${bar_2}`)
-        }
-      }
-      if (!(map.length === 0)) {
-        loggers.push(`Post data:\n${map.join('\n')}`)
-      }
-    }
-
-    if (list.includes('error')) {
-      const bar = chalk.bgRedBright(Array.from({ length: process.stdout.columns }, () => ` `).join(''))
-      const bar_2 = '____________________'
-      // eslint-disable-next-line keyword-spacing
-      const d = (errorInf) => { try { return JSON.stringify(errorInf.data) } catch (_er) { return errorInf.data } }
-
-      if (Object.values(data.erros ?? []).length > 0) {
-        loggers.push(`Errors ${chalk.green('MongoDB')}:\n${bar}\n${Object.values(data.errors).map((errorInf) => { return `${bar_2}\n${chalk.yellow('Tag')}: ${errorInf.tag}\n${chalk.cyan('Data')}: ${d(errorInf)}\n${chalk.red('Error')}:${errorInf.error}\n${bar_2}` })}\n${bar}`)
-      }
-    }
-
-    if (list.length > 0) {
-      Logger.debug(`[FLUX DATA] [MONGODB] ${loggers.length === 1 ? 'no-logger' : loggers.join(`\n | - `)}`)
-    }
-  }
-
-  lantecy(latency, emoji) {
-    if (latency > 267) {
-      return `${chalk.yellow(`${latency}ms`)} --- This is bad! Flow is too slow!`
-    }
-    if (latency > 100) {
-      return `${chalk.yellow(`${latency}ms`)} --- Lightly heavy flow...`
-    }
-    if (latency > 100) {
-      return `${chalk.yellow(`${latency}ms`)} --- Flow is medium${emoji === true ? '🤔' : ''}...`
-    }
-    if (latency > -100) {
-      return `${chalk.green(`${latency}ms`)} --- ${emoji === true ? '🎉' : ''}Woah! Good.${emoji === true ? '🎉' : ''}`
-    }
-
-  }
 }
 
 export const Queries = {
