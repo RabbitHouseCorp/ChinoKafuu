@@ -9,6 +9,7 @@ export default class DisconnectListener extends Listener {
 
   // eslint-disable-next-line no-unused-vars
   async on(client) {
+    client.connect = false
     Logger.shardMessage('Mayday! All shard has died!')
   }
 }

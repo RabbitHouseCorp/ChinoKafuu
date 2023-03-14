@@ -9,6 +9,7 @@ export default class ReadyConnectionListener extends Listener {
   }
 
   async on(client) {
+    client.connect = true
     if (process.env.INTERACTION_URL.startsWith('ws://') || process.env.INTERACTION_URL.startsWith('wss://')) {
       client.interactionPost.client = client
       client.interactionPost.connect()
@@ -41,6 +42,8 @@ export default class ReadyConnectionListener extends Listener {
       { name: 'Chimame Chronicle', type: 0 }
     ]
     const updateStatus = () => {
+      // If the bot disconnects from WebSocket, we must pause message sending to update Chino's status.
+      if (!client.connect) return;
       const status = game[Math.round(Math.random() * game.length)]
       if (status?.type === 0) {
         client.editStatus('idle', status)
@@ -49,8 +52,10 @@ export default class ReadyConnectionListener extends Listener {
       }
     }
 
-    updateStatus()
-    setInterval(() => updateStatus(), 490 * 1000)
+    if (client.statusInterval == undefined) {
+      updateStatus()
+      client.statusInterval = setInterval(() => updateStatus(), 490 * 1000)
+    }
 
     if (process.env.CLUSTERS === 'true') {
       Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
