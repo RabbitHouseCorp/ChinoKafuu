@@ -227,11 +227,11 @@ export class InteractionManager extends EventEmitter {
     const getDataDB = await this.client.database.flux({
       search: {
         guilds: [{ fetch: { id: interaction.guild_id }, data: { prefix: process.env.PREFIX }, getOrAdd: true }],
-        users: [{ fetch: { id: interaction.user_id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
+        users: [{ fetch: { id: interaction.member.id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
       }
     })
-    const mapData = getDataDB.data.toMap()
-    const guildData = mapData.get(`guilds:${interaction.guild_id}`)
+
+    const guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild_id)
     const _locale = this.client.i18nRegistry.getT(guildData.data.lang)
     const isModal = interaction.type == 5
     const parseButton = parseButtonControlledByPageManager(interaction)

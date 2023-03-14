@@ -17,14 +17,8 @@ export default class CommandError extends Listener {
           search: {
             guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],
           },
-        }).data.toMap().get(`guilds:${json.guild_id}`).data
-        let locale = null
-        if (guild_query.data.query.includes(json.guild_id)) {
-          const guildData = guild_query.data.query
-          locale = client.i18nRegistry.getT(guildData.lang)
-        } else {
-          locale = client.i18nRegistry.getT(null)
-        }
+        }).getQuery('guilds', (query) => query.typeQuery === json.guild_id).data
+        const locale = client.i18nRegistry.getT(guild_query.lang)
         if (!this.$guild.includes(json.guild_id)) {
           this.$guild.push(json.guild_id)
         }

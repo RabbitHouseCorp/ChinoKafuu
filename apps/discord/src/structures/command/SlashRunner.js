@@ -18,9 +18,8 @@ export class SlashRunner {
       }
     })
 
-    const mapData = getDataDB.data.toMap()
-    const userData = mapData.get(`users:${interaction.member.id}`)
-    const guildData = mapData.get(`guilds:${interaction.guild.id}`)
+    const guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild.id)
+    const userData = getDataDB.getQuery('users', (query) => query.typeQuery === interaction.member.id)
 
     const blacklist = new BlacklistUtils(client)
     if (await blacklist.verifyGuild(interaction.guild)) return client.leaveGuild(interaction.guild.id)
