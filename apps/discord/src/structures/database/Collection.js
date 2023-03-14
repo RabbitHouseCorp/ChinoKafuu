@@ -1,5 +1,13 @@
+/**
+ * @typedef Collection
+ * @template T
+ */
 export class Collection {
-  constructor (model) {
+  /**
+   * @constructor
+   * @param {T} model
+   */
+  constructor(model) {
     this.model = model
   }
 
@@ -8,7 +16,7 @@ export class Collection {
      * @param id
      * @returns {*}
      */
-  findOneByID (id) {
+  findOneByID(id) {
     return this.findOne({ id })
   }
 
@@ -16,7 +24,7 @@ export class Collection {
      *
      * @param args
      */
-  findOne (...args) {
+  findOne(...args) {
     return this.model.findOne(...args)
   }
 
@@ -25,7 +33,7 @@ export class Collection {
      * @param id
      * @returns {Promise<Promise|void|*>}
      */
-  async getAndDelete (id) {
+  async getAndDelete(id) {
     const data = await this.findOneByID(id)
     if (data) {
       return this.model.findOneAndDelete({ id })
@@ -40,7 +48,7 @@ export class Collection {
      * @param defaultValues
      * @returns {Promise<Promise|void|*>}
      */
-  async getOrCreate (id, defaultValues = {}) {
+  async getOrCreate(id, defaultValues = {}) {
     const data = await this.findOneByID(id)
     if (!data) {
       return this.model({ id, ...defaultValues }).save()

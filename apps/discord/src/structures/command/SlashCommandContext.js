@@ -1,15 +1,25 @@
+/* eslint-disable no-unused-vars */
 import axios from 'axios'
 import { CommandDataOption, Interaction, Message } from 'eris'
-import { Database } from '../database/Database'
+import { Model } from 'mongoose'
+import IGuildCollection from '../interfaces/IGuildCollection'
+import IUserCollection from '../interfaces/IUserCollection'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
+
+/**
+ * @typedef {object} DBOptions
+ * @property {IUserCollection} user
+ * @property {IGuildCollection} guild
+ * @property {import('mongoose').CollectionBase} db
+ */
 
 /**
  * @typedef {object} SlashCommandOptions
  * @property {Interaction} getInteraction
  * @property {Message} message
  * @property {string[]} args
- * @property {Database} db
+ * @property {DBOptions} db
  * @property {[{title: ''}]} embeds
  */
 export class SlashCommandContext extends CommandContext {
@@ -34,7 +44,7 @@ export class SlashCommandContext extends CommandContext {
      */
     this.args = args
     /**
-     * @type {Database}
+     * @type {DBOptions}
      */
     this.db = db
     this.embeds = []
