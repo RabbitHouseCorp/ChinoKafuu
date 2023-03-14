@@ -40,32 +40,18 @@ export default class ReadyConnectionListener extends Listener {
       { name: 'Miracle Girls Festival', type: 0 },
       { name: 'Chimame Chronicle', type: 0 }
     ]
-    if (!this.send) {
-      /**
-       * @description This will serve to enable first hit features
-       */
-      this.send = true
-      const update = () => {
-        setTimeout(() => {
-          const status = game[Math.round(Math.random() * game.length)]
-          if (status?.type === 0) {
-            client.editStatus('idle', status)
-          } else {
-            client.editStatus('online', status)
-          }
-        }, 7 * 1000)
-      }
-      update()
-    }
-
-    setInterval(() => {
+    const updateStatus = () => {
       const status = game[Math.round(Math.random() * game.length)]
       if (status?.type === 0) {
         client.editStatus('idle', status)
       } else {
         client.editStatus('online', status)
       }
-    }, 20 * 1000) // Add 20 seconds to avoid over-updating.
+    }
+
+    updateStatus()
+    setInterval(() => updateStatus(), 490 * 1000)
+
     if (process.env.CLUSTERS === 'true') {
       Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
     } else {
