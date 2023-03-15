@@ -60,7 +60,9 @@
       "currentlyWorking": "You are currently working and need to wait **{{0}}** to choose a new job.",
       "message": "We saw that you currently have a job, are you sure you want to change jobs?",
       "jobUnavailable": "Oh no! Something unexpected just happened, this job is currently unavailable. Try a few hours or another day.",
-      "wait": "You need to wait **8 hours** to start working again."
+      "wait": "You need to wait **8 hours** to start working again.",
+      "chooseAJob": "You need to choose a job to start working!",
+      "robError": "ssssh! You in a different job. Try running another command and try not to get caught."
     },
     "messages": {
       "salary": "Congratulations! You received {{0}} from working for 8 hours. You can deposit money by running command {{1}}. I renewed your work and it starts from now. "
