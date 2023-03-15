@@ -16,6 +16,7 @@ export { SlashCommandContext }
  * @property {object} [callback_metadata]
  * @property {any} [modal]
  * @property {boolean} [isCommandModal]
+ * @property {{jitter: number; lantecy: number;}} statsDB
  */
 
 /**
@@ -40,6 +41,10 @@ export class Command extends Module {
     this.modal = options.modal || null
     this.isCommandModal = options.isCommandModal || false
     this.isBase = options.isBase || false
+    this.statsDB = {
+      jitter: 0,
+      latency: 0
+    }
   }
 
   // This is done to return the interaction data so when the user will execute the command automatically the function will be executed.

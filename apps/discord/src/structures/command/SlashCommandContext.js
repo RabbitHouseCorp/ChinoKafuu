@@ -11,7 +11,7 @@ import { CommandContext } from './CommandContext'
  * @typedef {object} DBOptions
  * @property {IUserCollection} user
  * @property {IGuildCollection} guild
- * @property {import('mongoose').CollectionBase} db
+ * @property {import('mongoose').Model} db
  */
 
 /**
@@ -22,6 +22,10 @@ import { CommandContext } from './CommandContext'
  * @property {DBOptions} db
  * @property {[{title: ''}]} embeds
  */
+/**
+ * @class
+ * @extends {CommandContext}
+ */
 export class SlashCommandContext extends CommandContext {
   /**
   * @constructor
@@ -29,7 +33,7 @@ export class SlashCommandContext extends CommandContext {
   * @property {Interaction} interaction
   * @property {Map<string, CommandDataOption>} args
   */
-  constructor(bot, interaction, args, db, _locale) {
+  constructor(bot, interaction, args, db, _locale, statsDB) {
     super(bot, interaction.message, args, db, _locale)
     /**
      * @type {Interaction}
@@ -52,6 +56,13 @@ export class SlashCommandContext extends CommandContext {
     this.used = false
     this.content = {}
     this.deferMessage = null
+    /**
+     * @type {{jitter: number; latency: number;}}
+     */
+    this.statsDB = {
+      jitter: statsDB?.jitter ?? 0,
+      latency: statsDB?.latency ?? 0
+    }
   }
 
   createInteractionFunction(name, message, options) {

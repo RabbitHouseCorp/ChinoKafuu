@@ -31,7 +31,7 @@ export class SlashRunner {
       user: userData.data,
       guild: guildData.data,
       db: client.database.users
-    }, _locale)
+    }, _locale, { jitter: getDataDB.time.jitter, latency: getDataDB.time.latency })
     ctx.ms = ms
     if (userData?.data.blacklist == false) {
       if (command.isCommandModal == true) {
