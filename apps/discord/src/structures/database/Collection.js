@@ -1,5 +1,5 @@
 /**
- * @typedef Collection
+ * @class
  * @template T
  */
 export class Collection {
@@ -8,6 +8,9 @@ export class Collection {
    * @param {T} model
    */
   constructor(model) {
+    /**
+     * @type {model}
+     */
     this.model = model
   }
 
