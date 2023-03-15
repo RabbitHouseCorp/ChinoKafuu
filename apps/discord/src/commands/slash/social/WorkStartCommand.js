@@ -23,7 +23,7 @@ export default class WorkCommand extends Command {
     const [type, value, emoji, localeCtx, time] = Object.values(TypeProfession).find(([type]) => type == userDB.economy.work.job) ?? []
     const messages = []
     if (userDB.economy.work.job == -1) return ctx.send({
-      content:  ctx._locale('commands:work.errors.chooseAJob'),
+      content: ctx._locale('commands:work.errors.chooseAJob'),
       flags: 1 << 6
     })
     if (userDB.economy.work.arrested) {
