@@ -1,7 +1,7 @@
 import { Command, SlashCommandContext } from '../../../structures/util';
 import { TypeProfession } from '../../../structures/util/ConstantsTypes';
 
-export default class WorkCommand extends Command {
+export default class WorkStartCommand extends Command {
   constructor() {
     super({
       name: 'work start',
@@ -58,7 +58,6 @@ export default class WorkCommand extends Command {
         })
       }))
       .catch((err) => console.error(err))
-
   }
 }
 
