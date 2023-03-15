@@ -91,6 +91,9 @@ export default class WorkCommand extends Command {
           state.actionState.event.emit('refuseInteraction')
           return;
         }
+        if (profission.type != 2) {
+          userDB.intervals.job_interval = Date.now() + profission.time
+        }
         userDB.economy.work.job = profission.type
         userDB.lastUpdates.job = Date.now()
         userDB.save().then(() => {
