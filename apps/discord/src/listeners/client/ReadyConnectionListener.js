@@ -54,7 +54,7 @@ export default class ReadyConnectionListener extends Listener {
 
     if (client.statusInterval == undefined) {
       updateStatus()
-      client.statusInterval = setInterval(() => updateStatus(), 490 * 1000)
+      client.statusInterval = setInterval(() => updateStatus(), 880000000) // 8 hours
     }
 
     if (process.env.CLUSTERS === 'true') {
