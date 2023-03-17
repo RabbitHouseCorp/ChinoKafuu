@@ -131,31 +131,6 @@ export class InteractionContext {
     }, file?.image ?? null)
   }
 
-  async modalSumbit(option = {}) {
-    // let file = null
-    // if (option.file) {
-    //   file = option.file
-    //   delete option.file
-    // }
-    // if (option.enableEphemeral !== undefined && option.enableEphemeral) {
-    //   delete option.data.enableEphemeral
-    //   option.flags = (1 << 1) + (1 << 6)
-    // }
-    // if (option.enableEphemeral !== undefined && option.enableEphemeral) {
-    //   delete option.enableEphemeral
-    //   option.flags = (1 << 1) + (1 << 6)
-    // }
-    // let attachments = null
-
-    // if (option.attachments !== undefined) {
-    //   attachments = option.attachments
-    //   delete option.attachments
-    // }
-    // return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
-    //   type: 7,
-    // }, file?.image ?? null)
-  }
-
   async replyT(emoji, content, data = {
     enableEphemeral: false
   }, ...props) {
