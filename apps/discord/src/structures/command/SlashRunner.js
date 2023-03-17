@@ -13,8 +13,8 @@ export class SlashRunner {
     const ms = Date.now()
     const getDataDB = await client.database.flux({
       search: {
-        guilds: [{ fetch: { id: interaction.guild.id }, data: { prefix: process.env.PREFIX }, getOrAdd: true }],
-        users: [{ fetch: { id: interaction.member.id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
+        guilds: [{ fetch: { id: interaction.guild.id }, data: { prefix: process.env.PREFIX }, getOrCreate: true }],
+        users: [{ fetch: { id: interaction.member.id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrCreate: true }],
       }
     })
 

@@ -1,10 +1,34 @@
 import EventEmitter from 'events'
 import mongoose from 'mongoose'
+import IGuildCollection from '../interfaces/IGuildCollection'
+import IUserCollection from '../interfaces/IUserCollection'
 import { Logger } from '../util/Logger'
 import { Collection } from './Collection'
 import command from './collections/Command'
 import guild from './collections/Guild'
 import user from './collections/User'
+
+const defineSearchCollections = (property = {}) => {
+  if (typeof property !== 'object') {
+    property = {}
+  }
+  if (typeof property?.search !== 'object') {
+    property.search = {
+      guilds: [],
+      users: [],
+      commands: []
+    }
+  }
+  if (typeof property?.search?.guilds === 'object' && !Array.isArray(property.search.guilds)) {
+    property.search.guilds = []
+  }
+  if (typeof property?.search?.users === 'object' && !Array.isArray(property.search.users)) {
+    property.search.users = []
+  }
+  if (typeof property?.search?.commands === 'object' && !Array.isArray(property.search.commands)) {
+    property.search.commands = []
+  }
+}
 
 // It is used to get only the response time, if the latency is high it is necessary to get faster analysis support to improve latency.
 const traceLatency = (type, value, database) => {
@@ -96,46 +120,115 @@ export class Database extends EventEmitter {
     }
   }
 
+  /**
+   * @param {'guilds' | 'users' | 'commands'} queries
+   * @param {string} id
+   * @param {string | null} defaultValues
+   * @param {boolean} getOrCreate
+   * @returns {Promise<IGuildCollection | IUserCollection | any | null>}
+   */
+  async #resolveData(queries = '', id = '', defaultValues = {}, getOrCreate = false) {
+    if (queries === Queries.Guilds) {
+      if (getOrCreate === true) {
+        return this.guilds.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      }
+
+      return this.guilds.findOneByID(id ?? '') ?? null
+    } else if (queries === Queries.Users) {
+      if (getOrCreate === true) {
+        return this.users.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      }
+
+      return this.users.findOneByID(id ?? '') ?? null
+    } else if (queries === Queries.Commands) {
+      if (getOrCreate === true) {
+        return this.commands.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      }
+
+      return this.commands.findOneByID(id ?? '') ?? null
+    } if (typeof queries != 'string') {
+      throw Error('You entered the queries invalidly.')
+    }
+
+    return null
+  }
+
   async flux(data) {
+    defineSearchCollections(data) // Define the property that is missing from the search.
     const trackTime = Date.now()
     const guildTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataGuild = async (id, defaultValues = {}) => dataQuery('guild', id, await this.guilds.getOrCreate(id, defaultValues), guildTimestamp, {}, this)
+    const fetchDataGuild = async (id, defaultValues = {}, getOrCreate = false) =>
+      dataQuery('guild', id, await this.#resolveData(Queries.Guilds, id, defaultValues, getOrCreate), guildTimestamp, {}, this)
+
     const userTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataUser = async (id, defaultValues = {}) => dataQuery('user', id, await this.users.getOrCreate(id, defaultValues), userTimestamp, {}, this)
+    const fetchDataUser = async (id, defaultValues = {}, getOrCreate = false) =>
+      dataQuery('user', id, await this.#resolveData(Queries.Users, id, defaultValues, getOrCreate), userTimestamp, {}, this)
+
     const commandsTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataCommands = async (id, defaultValues = {}) => dataQuery('commands', id, await this.commands.getOrCreate(id, defaultValues), commandsTimestamp, {}, this)
+    const fetchDataCommands = async (id, defaultValues = {}, getOrCreate = false) =>
+      dataQuery('commands', id, await this.#resolveData(Queries.Commands, id, defaultValues, getOrCreate), commandsTimestamp, {}, this)
+
     const commandsTimestamps = { original: Date.now(), date: Date.now() }
     const commands = await Promise.all(
       data.search.guilds
         .filter((search) => typeof search.fetch.id === 'string')
         .filter((search) => typeof search.data === 'object')
-        .map((search) => [search.fetch.id, search.data])
-        .map(async ([id, defaultValues]) => query('commands', id, await fetchDataCommands(id, defaultValues), commandsTimestamps, {}, this))
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
+        .map(async ([id, defaultValues, getOrCreate]) => query('commands', id, await fetchDataCommands(id, defaultValues, getOrCreate), commandsTimestamps, {}, this))
     )
+
     const guildsTimestamp = { original: Date.now(), date: Date.now() }
     const guilds = await Promise.all(
       data.search.guilds
         .filter((search) => typeof search.fetch.id === 'string')
         .filter((search) => typeof search.data === 'object')
-        .map((search) => [search.fetch.id, search.data])
-        .map(async ([id, defaultValues]) => query('guilds', id, await fetchDataGuild(id, defaultValues), guildsTimestamp, {}, this))
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
+        .map(async ([id, defaultValues, getOrCreate]) => query('guilds', id, await fetchDataGuild(id, defaultValues, getOrCreate), guildsTimestamp, {}, this))
     )
     const usersTimestamp = { original: Date.now(), date: Date.now(), latency: 0 }
     const users = await Promise.all(
       data.search.users
-        .map((search) => [search.fetch.id, search.data])
-        .map(async ([id, defaultValues]) => query('users', id, await fetchDataUser(id, defaultValues), usersTimestamp, {}, this))
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
+        .map(async ([id, defaultValues, getOrCreate]) => query('users', id, await fetchDataUser(id, defaultValues, getOrCreate), usersTimestamp, {}, this))
     )
+
     const func = {
       data: { guilds, users, commands },
       time: {
         jitter: (Date.now() - trackTime) / 1000 ** 0.1,
         latency: Date.now() - trackTime
       },
+      /**
+       *
+       * @param {'guilds' | 'users' | 'commands'} query
+       * @param {*} mouse
+       */
       getQuery: (query = '', mouse = (_) => null) => {
         const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
         const [_, getQueries] = obj.find(([id]) => id === query)
         const getData = getQueries.find(mouse)?.data ?? null
+        return getData
+      },
+      /**
+       *
+       * @param {'guilds' | 'users' | 'commands'} query
+       * @param {*} mouse
+       */
+      getQueryWithFilter: (query = '', mouse = (_) => null) => {
+        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
+        const [_, getQueries] = obj.find(([id]) => id === query)
+        const getData = getQueries.filter(mouse)?.data ?? null
+        return getData
+      },
+      /**
+      *
+      * @param {'guilds' | 'users' | 'commands'} query
+      * @param {*} mouse
+      */
+      getAllDataInQuery: (query = '') => {
+        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
+        const [_, getQueries] = obj.find(([id]) => id === query)
+        const getData = getQueries?.map((d) => d?.data ?? ({})) ?? []
         return getData
       }
     }
