@@ -1,10 +1,10 @@
 {
   "timestamp": {
-    "year": "{{0}} year{space}{{1}}{space}",
-    "years": "{{0}} years{space}{{1}}{space}",
-    "week": "{{0}} week{space}{{1}}{space}",
-    "weeks": "{{0}} weeks{space}{{1}}{space}",
-    "day": "{{0}} day{space}{{1}}{space}",
+    "year": "{{0}} ano{space}{{1}}{space}",
+    "years": "{{0}} anos{space}{{1}}{space}",
+    "week": "{{0}} semana{space}{{1}}{space}",
+    "weeks": "{{0}} semanas{space}{{1}}{space}",
+    "day": "{{0}} dia{space}{{1}}{space}",
     "days": "{{0}} days{space}{{1}}{space}",
     "hour": "{{0}} hour{space}{{1}}{space}",
     "hours": "{{0}} hours{space}{{1}}{space}",
