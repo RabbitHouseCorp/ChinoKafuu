@@ -5,21 +5,21 @@
     "week": "{{0}} semana{space}{{1}}{space}",
     "weeks": "{{0}} semanas{space}{{1}}{space}",
     "day": "{{0}} dia{space}{{1}}{space}",
-    "days": "{{0}} days{space}{{1}}{space}",
-    "hour": "{{0}} hour{space}{{1}}{space}",
-    "hours": "{{0}} hours{space}{{1}}{space}",
-    "minute": "{{0}} minute{space}{{1}}{space}",
-    "minutes": "{{0}} minutes{space}{{1}}{space}",
-    "second": "{{0}} second{space}{{1}}{space}",
-    "seconds": "{{0}} seconds{space}{{1}}{space}",
-    "prefix": "and",
+    "days": "{{0}} dias{space}{{1}}{space}",
+    "hour": "{{0}} hora{space}{{1}}{space}",
+    "hours": "{{0}} horas{space}{{1}}{space}",
+    "minute": "{{0}} minuto{space}{{1}}{space}",
+    "minutes": "{{0}} minutos{space}{{1}}{space}",
+    "second": "{{0}} segundo{space}{{1}}{space}",
+    "seconds": "{{0}} segundos{space}{{1}}{space}",
+    "prefix": "e",
     "notime": "no time"
   },
   "profiles": {
     "default": {
-      "name": "Default",
-      "shortDescription": "It's only the default profile.",
-      "description": "It's only the default profile."
+      "name": "Padrão",
+      "shortDescription": "É apenas o perfil padrão.",
+      "description": "É apenas o perfil padrão."
     },
     "modern": {
       "name": "Notebook",
@@ -28,13 +28,13 @@
     },
     "profile_2": {
       "name": "Modern",
-      "shortDescription": "The default profile, but more modern.",
-      "description": "The default profile, but more modern."
+      "shortDescription": "O perfil padrão, porém mais moderno.",
+      "description": "O perfil padrão, porém mais moderno."
     }
   },
   "message": {
     "interactionRateLimit": "Oops! Calm down, it looks like there's an interaction working at the same time, so you've been limited for a few seconds... Try again!",
-    "interactionExpired": "This interaction has expired. Try to run the command and repeat the same process.",
+    "interactionExpired": "Esta interação expirou. Tente executar o comando e repetir o mesmo processo.",
     "interactionError": "An error occurred in the interaction. I am forwarding the error to the team to analyze and solve the problem.",
     "interactionWithoutPermission": "This interaction is not allowed to perform such processes as: {{0}}",
     "interactionSuspectedBug": "Oops! We detected something odd while working on the interaction. I am forwarding it to the team to investigate and resolve the issue.",
