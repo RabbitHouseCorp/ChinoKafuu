@@ -13,7 +13,7 @@
     "second": "{{0}} segundo{space}{{1}}{space}",
     "seconds": "{{0}} segundos{space}{{1}}{space}",
     "prefix": "e",
-    "notime": "no time"
+    "notime": "sem horário"
   },
   "profiles": {
     "default": {
@@ -22,18 +22,18 @@
       "description": "É apenas o perfil padrão."
     },
     "modern": {
-      "name": "Notebook",
-      "shortDescription": "I guess I will put a note on my notebook.",
-      "description": "I guess I will put a note on my notebook."
+      "name": "Caderno",
+      "shortDescription": "Acho que eu vou colocar uma anotação no meu caderno.",
+      "description": "Acho que eu vou colocar uma anotação no meu caderno."
     },
     "profile_2": {
-      "name": "Modern",
+      "name": "Moderno",
       "shortDescription": "O perfil padrão, porém mais moderno.",
       "description": "O perfil padrão, porém mais moderno."
     }
   },
   "message": {
-    "interactionRateLimit": "Oops! Calm down, it looks like there's an interaction working at the same time, so you've been limited for a few seconds... Try again!",
+    "interactionRateLimit": "Oops! Fique calmo, parece haver uma interação funcionando simultaneamente, então você foi limitado por alguns segundos... Tente novamente!",
     "interactionExpired": "Esta interação expirou. Tente executar o comando e repetir o mesmo processo.",
     "interactionError": "An error occurred in the interaction. I am forwarding the error to the team to analyze and solve the problem.",
     "interactionWithoutPermission": "This interaction is not allowed to perform such processes as: {{0}}",
