@@ -36,22 +36,22 @@
     "interactionRateLimit": "Oops! Fique calmo, parece haver uma interação funcionando simultaneamente, então você foi limitado por alguns segundos... Tente novamente!",
     "interactionExpired": "Esta interação expirou. Tente executar o comando e repetir o mesmo processo.",
     "interactionError": "An error occurred in the interaction. I am forwarding the error to the team to analyze and solve the problem.",
-    "interactionWithoutPermission": "This interaction is not allowed to perform such processes as: {{0}}",
+    "interactionWithoutPermission": "Esta interação não é permitida para realizar processos como: {{0}}",
     "interactionSuspectedBug": "Oops! We detected something odd while working on the interaction. I am forwarding it to the team to investigate and resolve the issue.",
-    "interactionLimited": "This interaction is limited to {{0}} users. And that's why this interaction is blocked for you.",
-    "interactionOtherUser": "Oops! This interaction was initiated by someone else and therefore you do not have permission to control it.",
+    "interactionLimited": "Esta interação é limitada a usuários {{0}}. E é por isso que essa interação está bloqueada para você.",
+    "interactionOtherUser": "Oops! Esta interação foi iniciada por outra pessoa, portanto você não tem permissão para controlá-la.",
     "interactionBanned": "This interaction is blocked because you are banned from using ChinoKafuu commands or resources.",
     "interactionBlockedForMaintenance": "Interaction blocked to do maintenance.",
     "interactionTimeout": "Percebemos que essa interação levou muito tempo para responder. Tente repetir o mesmo processo.",
     "interactionBlockedToAttempt": "Essa interação foi bloqueada porque existe uma suspeita de falha e leva muito tempo para carregar outras funções. Estou encaminhando isso para a equipe para analisar o problema. Tente novamente mais tarde.",
     "buttonInteractionExpired": "This interaction button has expired. Try running command and repeating the same process.",
     "menuInteractionExpired": "This menu selection interaction has expired. Try to run command and repeat the same process.",
-    "itemsSelectedDoMenuLimited": "Woah! There are too many items selected, you can only select {{0}} up to {{1}}",
-    "rateLimit": "Currently, there are a lot of people using this feature right now, so it has been limited to avoid overloading the service. Try later."
+    "itemsSelectedDoMenuLimited": "Uau! Há muitos itens selecionados, você pode selecionar apenas {{0}} até {{1}}",
+    "rateLimit": "Atualmente, existem muitas pessoas usando este recurso agora, por isso ele foi limitado para evitar sobrecarregar o serviço. Tente mais tarde."
   },
   "page": {
-    "backPage": "Back to previous page",
-    "nextPage": "Next page"
+    "backPage": "Voltar à página anterior",
+    "nextPage": "Próxima página"
   },
   "permissions": {
     "permissionUserRequired": "Você precisa ter as seguintes permissões para usar esse comando: {{0}}.",
