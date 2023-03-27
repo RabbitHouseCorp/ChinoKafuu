@@ -62,7 +62,8 @@
       "jobUnavailable": "Oh no! Something unexpected just happened, this job is currently unavailable. Try a few hours or another day.",
       "wait": "You need to wait **8 hours** to start working again.",
       "chooseAJob": "You need to choose a job to start working!",
-      "robError": "ssssh! You in a different job. Try running another command and try not to get caught."
+      "robError": "ssssh! You in a different job. Try running another command and try not to get caught.",
+      "cannotChangeJobsAtTheMoment": "Are you sure you want to change jobs? You recently started a job that you need to wait for **8 hours** to complete, after which you order it in the job exchange."
     },
     "messages": {
       "salary": "Congratulations! You received {{0}} from working for 8 hours. You can deposit money by running command {{1}}. I renewed your work and it starts from now. "
