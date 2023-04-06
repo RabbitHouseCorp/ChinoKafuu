@@ -136,7 +136,7 @@
   "kiss": {
     "options": {
       "option0": {
-        "name": "user",
+        "name": "usuário",
         "description": "Mention the member on the server",
         "choices": {}
       }
@@ -270,7 +270,7 @@
   "botinfo": {
     "options": {},
     "name": "botinfo",
-    "description": "Shows more information about me."
+    "description": "Mostra mais informações sobre mim."
   },
   "choose": {
     "options": {
@@ -412,7 +412,7 @@
   "clear": {
     "options": {
       "option0": {
-        "name": "quantity",
+        "name": "quantidade",
         "description": "Amount of message to delete.",
         "choices": {}
       },
@@ -546,7 +546,7 @@
       },
       "option1": {
         "name": "reason",
-        "description": "Inform the reason why to report the user.",
+        "description": "Informe o motivo pelo qual você quer reportar o usuário.",
         "choices": {}
       },
       "option2": {
@@ -555,136 +555,136 @@
         "choices": {}
       }
     },
-    "name": "report",
-    "description": "Reports a user on this server if the module is enable."
+    "name": "reportar",
+    "description": "Denuncia um usuário neste servidor se a funcionalidade estiver ativa."
   },
   "rolecolor": {
     "options": {
       "option0": {
-        "name": "role",
+        "name": "cargo",
         "description": "Mention role on server.",
         "choices": {}
       },
       "option1": {
-        "name": "color",
-        "description": "For example: #f55f96",
+        "name": "cor",
+        "description": "Por exemplo: #f55f96",
         "choices": {}
       }
     },
     "name": "rolecolor",
-    "description": "Changes the color of a role."
+    "description": "Altera a cor de um cargo."
   },
   "renamechannel": {
     "options": {
       "option0": {
-        "name": "channel",
-        "description": "Mention of the channel who you want rename.",
+        "name": "canal",
+        "description": "Mencione o canal que você quer renomear.",
         "choices": {}
       },
       "option1": {
-        "name": "name",
-        "description": "The new name of the channel.",
+        "name": "nome",
+        "description": "O novo nome do canal.",
         "choices": {}
       }
     },
     "name": "renamechannel",
-    "description": "Renames a channel in the current guild."
+    "description": "Renomeia um canal do servidor atual."
   },
   "setbanner": {
     "options": {
       "option0": {
         "name": "url",
-        "description": "The URL of the new banner.",
+        "description": "A URL do novo banner.",
         "choices": {}
       }
     },
     "name": "setbanner",
-    "description": "Sets the banner of your server (not available for all servers)."
+    "description": "Define o banner do seu servidor (não disponível para todos os servidores)."
   },
   "seticon": {
     "options": {
       "option0": {
         "name": "url",
-        "description": "The URL of the new icon.",
+        "description": "A URL do novo ícone.",
         "choices": {}
       }
     },
     "name": "seticon",
-    "description": "Set an icon in the current guild."
+    "description": "Define um ícone no servidor atual."
   },
   "softban": {
     "options": {
       "option0": {
-        "name": "user",
-        "description": "Mention member on server.",
+        "name": "usuário",
+        "description": "Mencione um membro do servidor.",
         "choices": {}
       },
       "option1": {
-        "name": "reason",
-        "description": "Inform reason",
+        "name": "motivo",
+        "description": "Informe o motivo",
         "choices": {}
       },
       "option2": {
         "name": "purge-days",
-        "description": "Mention the duration",
+        "description": "Selecione a duração",
         "choices": {}
       }
     },
     "name": "softban",
-    "description": "Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used."
+    "description": "Bane temporariamente um usuário. Se `purge-day` não estiver definido, o valor usado será 7"
   },
   "setnick": {
     "options": {
       "option0": {
-        "name": "user",
-        "description": "Mention member on server.",
+        "name": "usuário",
+        "description": "Mencione um membro do servidor.",
         "choices": {}
       },
       "option1": {
-        "name": "nickname",
-        "description": "Add a new nickname.",
+        "name": "apelido",
+        "description": "Adicione um novo apelido.",
         "choices": {}
       }
     },
     "name": "setnick",
-    "description": "Sets the nickname of a member"
+    "description": "Define o apelido de um membro"
   },
   "unban": {
     "options": {
       "option0": {
-        "name": "user",
-        "description": "ID of the banned user.",
+        "name": "usuário",
+        "description": "ID do usuário banido.",
         "choices": {}
       },
       "option1": {
-        "name": "reason",
-        "description": "Inform reason",
+        "name": "motivo",
+        "description": "Informe o motivo",
         "choices": {}
       }
     },
     "name": "unban",
-    "description": "Unbans a user if they're banned."
+    "description": "Desbane um usuário se estiver banido."
   },
   "unmute": {
     "options": {
       "option0": {
-        "name": "user",
-        "description": "To unmute the member.",
+        "name": "usuário",
+        "description": "Para desmutar um membro.",
         "choices": {}
       },
       "option1": {
-        "name": "reason",
-        "description": "Enter reason to unmute the member.",
+        "name": "motivo",
+        "description": "Digite o motivo para desmutar o membro mencionado.",
         "choices": {}
       }
     },
     "name": "unmute",
-    "description": "Remove the mute for the member in the guild"
+    "description": "Remove o mute de um membro do servidor"
   },
   "slowmode": {
     "options": {
       "option0": {
-        "name": "time",
+        "name": "tempo",
         "description": "Set slowmode in the current channel.",
         "choices": {}
       }
