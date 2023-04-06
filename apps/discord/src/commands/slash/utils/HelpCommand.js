@@ -36,12 +36,12 @@ export default class HelpCommand extends Command {
         const options = i.options.filter((option) => option.type == 2 || option.type == 1) ?? []
         options.map((option) => {
           const name = [i.name, option.name]
-          commands.push({ name: name.join(' '), hasSubCommand: true, autocomplete: option.autocomplete ?? false, mention: `**[</${name.join(' ')}:${i.id}>]**` })
+          commands.push({ name: name.join(' '), hasSubCommand: true, autocomplete: option.autocomplete ?? false, mention: `**</${name.join(' ')}:${i.id}>**` })
         })
       }
 
       if (commands.length <= 0) {
-        commands.push([{ name: i.name, id: i.id, hasSubCommand: i.options !== undefined, mention: `**[</${i.name}:${i.id}>]**`, autocomplete: false }])
+        commands.push([{ name: i.name, id: i.id, hasSubCommand: i.options !== undefined, mention: `**</${i.name}:${i.id}>**`, autocomplete: false }])
       }
       return commands
     }).flatMap((i) => i.flatMap((option) => option))
