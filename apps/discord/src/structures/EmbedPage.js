@@ -52,14 +52,14 @@ export class EmbedPage extends EventEmitter {
     this.on('nextPage', (ctx) => {
       this.page++
       const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
-      this.emit('page', (component == undefined ? [this.#defaultEmbed()] : [component]), ctx)
+      this.emit('page', (component === undefined ? [this.#defaultEmbed()] : [component]), ctx)
     })
 
     this.on('backPage', (ctx) => {
       this.page = Math.max(0, this.page - 1)
       const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
 
-      this.emit('page', component == undefined ? [this.#defaultEmbed()] : [component], ctx)
+      this.emit('page', component === undefined ? [this.#defaultEmbed()] : [component], ctx)
     })
 
     this.on('page', async (component, ctx) => {
@@ -72,7 +72,7 @@ export class EmbedPage extends EventEmitter {
     this.on('interaction', async ({ interaction, ctx }) => {
       if (interaction.data.custom_id === this.#addID('embedPage:nextPage')) {
         this.emit('nextPage', (ctx))
-      } else if (interaction.data.custom_id == this.#addID('embedPage:backPage')) {
+      } else if (interaction.data.custom_id === this.#addID('embedPage:backPage')) {
         this.emit('backPage', (ctx))
       }
     })
@@ -85,7 +85,7 @@ export class EmbedPage extends EventEmitter {
 
     return {
       components: this.#getComponents,
-      embeds: [component == undefined ? this.#defaultEmbed() : component]
+      embeds: [component === undefined ? this.#defaultEmbed() : component]
     }
   }
 

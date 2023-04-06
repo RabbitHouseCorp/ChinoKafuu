@@ -54,7 +54,7 @@ export const watchfailToConnectComponent = () => {
     skip++
     skip &= 1
 
-    if (skip == 0) {
+    if (skip === 0) {
       loadingFrame = __loadingFrame
     } else {
       loadingFrame = _loadingFrame

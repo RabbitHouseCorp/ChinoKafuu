@@ -25,8 +25,8 @@ export default class ShopProfileCommand extends Command {
     const marryWith = user.isMarry ? await ctx.getUser(user.marryWith) : null
     const profileComponent = profiles
       // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => v.isDefault == false && v.readyForSale === true)
-      .filter(([_, v]) => v.disabled == false)
+      .filter(([_, v]) => v.isDefault === false && v.readyForSale === true)
+      .filter(([_, v]) => v.disabled === false)
       // eslint-disable-next-line no-unused-vars
       .map(([_, v]) => ({
         label: (user.profileList.includes(v._id) ? `${ctx._locale(`basic:profiles.${v._id}.name`)} - (${ctx._locale('commands:shop.itemPurschased')})` : v.name),

@@ -29,11 +29,11 @@ export class NodeTest {
 
 
       test.on('exit', (code) => {
-        if (code == 0) {
+        if (code === 0) {
           console.log('================================================')
           resolved()
           return
-        } else if (code == 1) {
+        } else if (code === 1) {
           process.exit(1)
         } else {
           logger.error(`An error occurred while running the Jest test:\n\n  - Jest terminated unexpectedly. Restart application.\n  - Code: ${code}\n\n`)
@@ -66,10 +66,10 @@ export class NodeTest {
       test.on('exit', (code) => {
         console.log('================================================')
         console.log('\n')
-        if (code == 0) {
+        if (code === 0) {
           resolved()
           return
-        } else if (code == 1) {
+        } else if (code === 1) {
           console.log('\n\n\n\n\n')
           process.exit(1)
         } else {

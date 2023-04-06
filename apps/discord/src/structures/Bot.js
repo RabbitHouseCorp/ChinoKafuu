@@ -100,7 +100,7 @@ export class Bot extends Client {
   }
 
   loadDatabase() {
-    if (this.database == undefined) {
+    if (this.database === undefined) {
       this.database = new Database()
     }
   }

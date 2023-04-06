@@ -22,7 +22,7 @@ export const TimeString = (time) => {
     .filter((t) => (t.d % t.p) > 0)
   const timeFormat = format
     .reverse()
-    .map((i) => `${i.d % i.p} ${i.t + (format.length == 0 || (i.d % i.p) > 1 ? 's' : '')}`)
+    .map((i) => `${i.d % i.p} ${i.t + (format.length === 0 || (i.d % i.p) > 1 ? 's' : '')}`)
     .join(', ')
   return timeFormat.length > 0 ? timeFormat : '{{0}}'
 }
@@ -30,15 +30,15 @@ export const TimeString = (time) => {
 export const TimeStringLocale = (time, _locale) => {
   const format = prepareTimestamp(time)
     .filter((t) => t.d >= 1)
-    .filter((t) => (t.p == 0 ? t.d : t.d % t.p) >= 1)
+    .filter((t) => (t.p === 0 ? t.d : t.d % t.p) >= 1)
   const timeFormat = format
     .reverse()
     .map((i, index) => {
-      const m = (i.p == 0 ? i.d : (i.d % i.p))
+      const m = (i.p === 0 ? i.d : (i.d % i.p))
       const size = Math.max(format.length - 1, 0)
       const checkValue = !(format.length <= 1) && index >= size - 1
       const removePrefix = _locale(`basic:timestamp.${i.t}${m > 1 && !(format.length <= 1) ? 's' : ''}`).includes('{-}')
-      const prefix = index == size - 1 && format.at(size - 1)
+      const prefix = index === size - 1 && format.at(size - 1)
       const strPrefix = prefix ? _locale('basic:timestamp.prefix') : (index >= size ? '' : ', ')
 
       return _locale(`basic:timestamp.${i.t}${checkValue && m > 1 ? 's' : ''}`, {

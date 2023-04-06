@@ -104,7 +104,7 @@ export class SlashCommandContext extends CommandContext {
       options: props[0]?.options
     }
 
-    if (this.content.options == undefined) {
+    if (this.content.options === undefined) {
       delete this.content.options
     }
     if (this.used) {

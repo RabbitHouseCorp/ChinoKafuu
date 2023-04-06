@@ -219,13 +219,13 @@ export class InteractionContext {
     args
       .filter((arg) => typeof arg === 'object')
       .map((i) => Object.assign(data, i))
-    const IsTranslate = args.find((i) => i == true || i == false)
+    const IsTranslate = args.find((i) => i === true || i === false)
     const t = typeof IsTranslate === 'boolean' && IsTranslate ? this._locale(content, data) : content
     let str = ''
 
     if (typeof emoji === 'string') {
       str = `${Emoji.getEmoji(emoji).mention} **|** `
-    } else if (typeof emoji == 'object') {
+    } else if (typeof emoji === 'object') {
       str = Emoji.getEmoji(emoji.name)[emoji.type]
     }
     return `${str}${t}`

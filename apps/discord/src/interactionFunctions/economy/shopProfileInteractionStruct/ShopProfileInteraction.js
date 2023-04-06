@@ -13,10 +13,10 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
     const { custom_id } = data
     const { actionState } = defineState
     if (!data.custom_id.startsWith('profile:')) return
-    const profile = profileInfo.find((i) => i._id == custom_id.replace('profile:', '')) ?? null
+    const profile = profileInfo.find((i) => i._id === custom_id.replace('profile:', '')) ?? null
 
     // Something went wrong...
-    if (profile == null) {
+    if (profile === null) {
       editInteraction({
         content: ctx._locale('basic:message.interactionSuspectedBug'),
         embeds: message.embeds,
@@ -42,7 +42,7 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
           }
         ]
         const command = ctx.client.commands.find((i) => i.name === 'inventory') ?? null
-        const ctxProfileCommand = command == null ? '???' : `</inventory profile:${command.id}>`
+        const ctxProfileCommand = command === null ? '???' : `</inventory profile:${command.id}>`
         editInteraction({
           content: ctx.contentWithEmoji('success', 'commands:shop.profile.successfullyPurchased', true, { 0: ctxProfileCommand }),
           components: componentsUpdated,

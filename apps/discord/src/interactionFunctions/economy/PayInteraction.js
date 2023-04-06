@@ -23,7 +23,7 @@ export default class PayInteraction extends InteractionFunction {
           throw err
         })
       state.actionState.setState({ action: 'confirmButton', totalYens: defineState.totalYens })
-    } else if (data.custom_id !== undefined && data.custom_id == 'rejectButton') {
+    } else if (data.custom_id !== undefined && data.custom_id === 'rejectButton') {
       deleteInteraction()
       editT({ name: 'error', type: 'mention' }, ` **|** <@!${defineState.author}>, ${ctx._locale('commands:pay.cancelled')}`, {
         components: []

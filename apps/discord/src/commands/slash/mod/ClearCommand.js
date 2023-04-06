@@ -38,7 +38,7 @@ export default class ClearCommand extends Command {
     if (isNaN(quantity)) return ctx.replyT('error', 'commands:clear.nan')
     const user = await ctx.getUser(ctx.args.get('user')?.value)
 
-    if (user !== undefined && user == null) return ctx.replyT('error', 'commands:clear.userNotFound')
+    if (user !== undefined && user === null) return ctx.replyT('error', 'commands:clear.userNotFound')
     const filter = ((msg) => msg.author.id === user?.id)
     ctx.message.channel.purge(Number(quantity), filter).then((msg) => {
       ctx.message.channel.createMessage(`${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:clear.success', { messages: msg })}`)

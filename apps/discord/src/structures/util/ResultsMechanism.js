@@ -10,7 +10,7 @@ const resolveMatch = (text = '', textVerify = '') => {
 export class ResultsMechanism {
   searchChannel_Interaction(search, interaction) {
     const channels = interaction.channel.guild.channels
-      .filter((e) => e.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) || e.id == search)
+      .filter((e) => e.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) || e.id === search)
       .map((i) => {
         return {
           type: 3,
@@ -29,7 +29,7 @@ export class ResultsMechanism {
   searchTextChannel_Interaction(search, interaction) {
     const channels = interaction.channel.guild.channels
       .filter((e) => e.type === Constants.ChannelTypes.GUILD_TEXT)
-      .filter((e) => resolveMatch(search, e.name) || e.id == search)
+      .filter((e) => resolveMatch(search, e.name) || e.id === search)
       .map((i) => {
         return {
           type: 3,
@@ -49,7 +49,7 @@ export class ResultsMechanism {
 
     const channels = interaction.channel.guild.channels
       .filter((e) => e.type === Constants.ChannelTypes.GUILD_VOICE)
-      .filter((e) => resolveMatch(search, e.name) || e.id == search)
+      .filter((e) => resolveMatch(search, e.name) || e.id === search)
       .map((i) => {
         return {
           type: 3,

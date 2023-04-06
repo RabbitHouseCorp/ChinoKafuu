@@ -52,7 +52,7 @@ export const defineState = (data, options = { eventEmitter: false }) => {
   const del = (stateName) => {
     const stateData = Object.entries(state).filter(([key]) => key === stateName)
 
-    if (stateData == undefined) return
+    if (stateData === undefined) return
     if (event !== null) {
       event.emit('deleteData', (state[stateData[0]], stateName))
     }
