@@ -9,7 +9,7 @@ export class Collection {
    */
   constructor(model) {
     /**
-     * @type {model}
+     * @type {import('mongoose').Model}
      */
     this.model = model
   }
@@ -43,6 +43,10 @@ export class Collection {
     } else {
       return undefined
     }
+  }
+
+  async find() {
+
   }
 
   /**

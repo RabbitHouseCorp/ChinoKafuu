@@ -7,6 +7,9 @@ import { Collection } from './Collection'
 import command from './collections/Command'
 import guild from './collections/Guild'
 import user from './collections/User'
+import SearchCommandsData from './search/SearchCommandsData'
+import SearchGuildsData from './search/SearchGuildsData'
+import SearchUsersData from './search/SearchUsersData'
 
 const defineSearchCollections = (property = {}) => {
   if (typeof property !== 'object') {
@@ -103,7 +106,16 @@ export class Database extends EventEmitter {
      */
     this.users = new Collection(user)
     this.highLatency = 0
+    this.researchers = {
+      users: new SearchUsersData(this),
+      guilds: new SearchGuildsData(this),
+      commands: new SearchCommandsData(this)
+    }
     this.#connect()
+  }
+
+  advancedDataSearchEngine() {
+    return this.researchers
   }
 
   #connect() {
@@ -214,8 +226,10 @@ export class Database extends EventEmitter {
        * @param {'guilds' | 'users' | 'commands'} query
        * @param {*} mouse
        */
+      // eslint-disable-next-line no-unused-vars
       getQueryWithFilter: (query = '', mouse = (_) => null) => {
         const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
+        // eslint-disable-next-line no-unused-vars
         const [_, getQueries] = obj.find(([id]) => id === query)
         const getData = getQueries.filter(mouse)?.data ?? null
         return getData
@@ -227,6 +241,7 @@ export class Database extends EventEmitter {
       */
       getAllDataInQuery: (query = '') => {
         const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
+        // eslint-disable-next-line no-unused-vars
         const [_, getQueries] = obj.find(([id]) => id === query)
         const getData = getQueries?.map((d) => d?.data ?? ({})) ?? []
         return getData

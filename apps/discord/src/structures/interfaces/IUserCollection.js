@@ -1,5 +1,6 @@
 /**
  * @interface
+ * @name IUserCollection
  */
 export default class IUserCollection {
   /**
