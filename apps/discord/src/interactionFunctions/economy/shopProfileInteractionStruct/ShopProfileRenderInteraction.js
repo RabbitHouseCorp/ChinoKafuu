@@ -27,8 +27,8 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
     const profiles = Object.entries(_profileInfo)
     const profileOptions = profiles
       // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => v.isDefault == false && v.readyForSale === true)
-      .filter(([_, v]) => v.disabled == false)
+      .filter(([_, v]) => v.isDefault === false && v.readyForSale === true)
+      .filter(([_, v]) => v.disabled === false)
       // eslint-disable-next-line no-unused-vars
       .map(([_, v]) => ({
         label: (user.profileList.includes(v._id) ? `${ctx._locale(`basic:profiles.${v._id}.name`)} - (${ctx._locale('commands:shop.itemPurschased')})` : v.name),
@@ -54,7 +54,7 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
 
     let profile = null
     let imageMetadata = null
-    if (embed.image?.url == undefined) {
+    if (embed.image?.url === undefined) {
       profile = await requestTokamak({
         action: 'renderProfile',
         profileStruct: profileUser

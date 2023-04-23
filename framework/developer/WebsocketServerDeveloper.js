@@ -71,7 +71,7 @@ export class WebSocketServerDeveloper extends EventEmitter {
       const headerProjectName = request.headers['projectname']
       const client = ClientWebsocket({
         idClient: randomID(),
-        projectName: headerProjectName == undefined ? randomID() : headerProjectName,
+        projectName: headerProjectName === undefined ? randomID() : headerProjectName,
         type: request.headers['watch'] === undefined ? 'client' : 'watch',
         ip: request.socket.remoteAddress,
         port: request.socket.remotePort,
@@ -136,9 +136,9 @@ export class WebSocketServerDeveloper extends EventEmitter {
 
   deleteWatch(client) {
 
-    const clientOld = this.clients.filter((i) => i.projectName === client.projectName && i.statusConnection == false)
+    const clientOld = this.clients.filter((i) => i.projectName === client.projectName && i.statusConnection === false)
     if (clientOld !== undefined) {
-      const index = this.clients.findIndex((i) => i.projectName === client.projectName && i.statusConnection == false)
+      const index = this.clients.findIndex((i) => i.projectName === client.projectName && i.statusConnection === false)
 
       this.clients.splice(index, 1)
     }

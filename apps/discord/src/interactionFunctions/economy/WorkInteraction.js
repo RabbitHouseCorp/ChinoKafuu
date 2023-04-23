@@ -51,8 +51,8 @@ export default class WorkInteraction extends InteractionFunction {
       components: [{
         type: 2,
         label: _locale('commands:work.buttonConfirm'),
-        style: state.job == job.type ? 2 : 1,
-        disabled: state.job == job.type,
+        style: state.job === job.type ? 2 : 1,
+        disabled: state.job === job.type,
         custom_id: `job:${job.type}`
       }]
     })
@@ -64,7 +64,7 @@ export default class WorkInteraction extends InteractionFunction {
       .at(0)
 
     menu.options.map((obj, index) => {
-      obj.default = index == job.type
+      obj.default = index === job.type
       return obj
     })
 

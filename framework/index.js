@@ -39,7 +39,7 @@ const startFramework = async () => {
   let filtered = link.nodes
 
   if (process.argv.includes('--no-ts')) {
-    filtered = link.nodes.filter((node) => node.settings.typescript == false)
+    filtered = link.nodes.filter((node) => node.settings.typescript === false)
   }
 
   const server = new WebSocketServerDeveloper(link)

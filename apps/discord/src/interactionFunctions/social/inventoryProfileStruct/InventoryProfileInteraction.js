@@ -12,10 +12,10 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
     const { data, message } = getData()
     const { custom_id } = data
     const { actionState } = defineState
-    const profile = profileInfo.find((i) => i._id == custom_id.replace('profile:', '')) ?? null
+    const profile = profileInfo.find((i) => i._id === custom_id.replace('profile:', '')) ?? null
 
     // Something went wrong...
-    if (profile == null) {
+    if (profile === null) {
       editInteraction({
         content: ctx._locale('basic:message.interactionSuspectedBug'),
         embeds: message.embeds,
@@ -40,8 +40,8 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
         ]
         const command = ctx.client.commands.find((i) => i.name === 'inventory') ?? null
         const commandProfile = ctx.client.commands.find((i) => i.name === 'profile') ?? null
-        const ctxCommand = command == null ? '???' : `</inventory background:${command.id}>`
-        const ctxProfileCommand = command == null ? '???' : `</profile:${commandProfile.id}>`
+        const ctxCommand = command === null ? '???' : `</inventory background:${command.id}>`
+        const ctxProfileCommand = command === null ? '???' : `</profile:${commandProfile.id}>`
 
         editInteraction({
           content: [

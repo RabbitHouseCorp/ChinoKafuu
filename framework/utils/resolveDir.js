@@ -30,7 +30,7 @@ const repositoryCheck = (list = [''], path = null) => {
   if (path != null) {
     list = readdirSync(path)
   }
-  const packageFilter = list.filter((k) => k.endsWith('package.json'))[0] != undefined 
+  const packageFilter = list.filter((k) => k.endsWith('package.json'))[0] != undefined
   const settingsFilter = list.filter((k) => k.endsWith('settingsFramework.json'))[0] != undefined
 
   return packageFilter && settingsFilter
@@ -57,7 +57,7 @@ const requiredInstallationOfPackages = (list = [''], path = null) => {
     list = readdirSync(path)
   }
 
-  const nodeModulesFilter = list.filter((k) => k.endsWith('node_modules'))[0] == undefined || forceInstall
+  const nodeModulesFilter = list.filter((k) => k.endsWith('node_modules'))[0] === undefined || forceInstall
 
 
   return nodeModulesFilter
@@ -77,13 +77,13 @@ export const resolveDir = async (
 
   let directoryIsNull = false
   let dirs = []
-  const dirsCache = dirMap == null ? false : true
+  const dirsCache = dirMap === null ? false : true
   let isDirectory = true
   let lock = false
 
   if (locked) return { isDirectory, dirs, repositoryCheck: false, requiredInstallationOfPackages: false }
 
-  if (dir == null) {
+  if (dir === null) {
     dir = resolve()
     directoryIsNull = true
   }

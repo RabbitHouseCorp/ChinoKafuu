@@ -84,7 +84,7 @@ export class NodeLinkResolver extends EventEmitter {
         node = n
         break
       }
-      if (n.packageProject.name == name) {
+      if (n.packageProject.name === name) {
         node = n
         break
       }

@@ -24,7 +24,7 @@ export default class DivorceInteraction extends InteractionFunction {
           deleteInteraction()
           throw err
         })
-    } else if (data.custom_id !== undefined && data.custom_id == 'rejectButton') {
+    } else if (data.custom_id !== undefined && data.custom_id === 'rejectButton') {
       defineState.actionState.setState({ action: 'rejectButton' })
       deleteInteraction()
       editT({ name: 'heart', type: 'mention' }, ` **|** <@!${defineState.author}>, ${ctx._locale('commands:divorce.rejectedRequest')}`, {

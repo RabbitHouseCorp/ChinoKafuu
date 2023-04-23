@@ -52,7 +52,7 @@ export default class ReadyConnectionListener extends Listener {
       }
     }
 
-    if (client.statusInterval == undefined) {
+    if (client.statusInterval === undefined) {
       updateStatus()
       client.statusInterval = setInterval(() => updateStatus(), 880000000) // 8 hours
     }

@@ -20,11 +20,11 @@ const cannotRunApplication = (node) => {
         return true
       }
 
-      if (run == undefined && typeof run === 'number') {
+      if (run === undefined && typeof run === 'number') {
         throw new Error('You didn\'t inform parameter in boolean about application status.')
       }
 
-      if (reason == undefined && typeof run === 'string') {
+      if (reason === undefined && typeof run === 'string') {
         throw new Error('You need to enter a reason or you entered a parameter incorrectly.')
       }
 

@@ -25,7 +25,7 @@ export default class InventoryProfileCommand extends Command {
     const profiles = Object.entries(profileInfo)
     const profileComponent = profiles
       // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => (v.disabled == false && v.readyForSale) || v.isDefault == true)
+      .filter(([_, v]) => (v.disabled === false && v.readyForSale) || v.isDefault === true)
       .filter(([_, v]) => user.profileList.includes(v._id))
       // eslint-disable-next-line no-unused-vars
       .map(([_, v]) => ({

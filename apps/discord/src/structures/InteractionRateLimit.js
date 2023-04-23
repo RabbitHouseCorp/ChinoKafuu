@@ -5,7 +5,7 @@ export class InteractionRateLimit {
 
   checkUser(userID) {
     const getUser = this.getUser(userID)
-    if (getUser == null) {
+    if (getUser === null) {
       this.addUser(userID, 100)
       return false
     }
@@ -29,7 +29,7 @@ export class InteractionRateLimit {
 
   removeUser(userID) {
     const index = this.users.findIndex((i) => i.userID === userID)
-    if (index == -1) return this.users
+    if (index === -1) return this.users
 
     return this.users.splice(index, 1)
   }

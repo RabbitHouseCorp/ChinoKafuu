@@ -17,7 +17,7 @@ const load = (path = '') => {
     file = readFileSync(path)
     loaded = true
   } catch (err) {
-    if ((err.message.search(/ENOENT/g) == 0) && !detectFileExample) {
+    if ((err.message.search(/ENOENT/g) === 0) && !detectFileExample) {
       Logger.info('The Lavalink configuration was not loaded because the file called "LavalinkConfig.json" in the "src/lavalink" directory was not created or could not be found.')
     } else {
       loaded = false
@@ -31,7 +31,7 @@ const load = (path = '') => {
   return {
     loaded,
     detectFileExample,
-    file: file == null ? null : [...JSON.parse(file).connect]
+    file: file === null ? null : [...JSON.parse(file).connect]
   }
 }
 // fallback for test env

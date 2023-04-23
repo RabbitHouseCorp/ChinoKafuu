@@ -20,9 +20,9 @@ export default class WorkStartCommand extends Command {
    */
   async run(ctx) {
     const userDB = ctx.db.user
-    const [type, value, emoji, localeCtx, time] = Object.values(TypeProfession).find(([type]) => type == userDB.economy.work.job) ?? []
+    const [type, value, emoji, localeCtx, time] = Object.values(TypeProfession).find(([type]) => type === userDB.economy.work.job) ?? []
     const messages = []
-    if (userDB.economy.work.job == -1) return ctx.send({
+    if (userDB.economy.work.job === -1) return ctx.send({
       content: ctx._locale('commands:work.errors.chooseAJob'),
       flags: 1 << 6
     })
@@ -34,7 +34,7 @@ export default class WorkStartCommand extends Command {
 
     const messageExtra = messages.join('\n') + '\n'
 
-    if (type == 2) return ctx.send({
+    if (type === 2) return ctx.send({
       content: messageExtra + ctx._locale('commands:work.errors.robError')
     })
 

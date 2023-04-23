@@ -88,7 +88,7 @@ export const executeCommand = () => {
   const key = getCommandKey()
 
   if (!key.isCommandHelper) return false
-  if (key.getCommand == null) {
+  if (key.getCommand === null) {
     [CommandHeader(), CommandList(loadListCommands)]
     return true
   } else {

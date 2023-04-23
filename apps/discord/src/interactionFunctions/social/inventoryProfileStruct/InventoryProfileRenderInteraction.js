@@ -52,8 +52,8 @@ export default class InventoryProfileRenderInteraction extends InteractionFuncti
     defineState.actionState.setState({ embeds })
     const command = ctx.client.commands.find((i) => i.name === 'inventory') ?? null
     const commandProfile = ctx.client.commands.find((i) => i.name === 'profile') ?? null
-    const ctxCommand = command == null ? '???' : `</inventory background:${command.id}>`
-    const ctxProfileCommand = command == null ? '???' : `</profile:${commandProfile.id}>`
+    const ctxCommand = command === null ? '???' : `</inventory background:${command.id}>`
+    const ctxProfileCommand = command === null ? '???' : `</profile:${commandProfile.id}>`
 
     editInteraction({
       content: ctx._locale('commands:inventory.tips', { 0: ctxCommand, 1: ctxProfileCommand }),

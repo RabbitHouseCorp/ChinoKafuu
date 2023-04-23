@@ -76,7 +76,7 @@ const selectorKey = (key) => {
   ]
   const k = list.filter((i) => i.command === key)[0]
 
-  return k == undefined ? {
+  return k === undefined ? {
     'name': key,
     'command': null
   } : k
@@ -132,11 +132,11 @@ const watchComponent = () => {
 
     const keySelected = selectorKey(key)
 
-    if (keySelected.name == 'up') {
+    if (keySelected.name === 'up') {
       control.position++
     }
 
-    if (keySelected.name == 'down') {
+    if (keySelected.name === 'down') {
       control.position--
     }
   })

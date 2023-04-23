@@ -105,8 +105,8 @@ export default class WorkCommand extends Command {
 
     if (userDB.economy.work.job != -1)
       return ctx.send({
-        content: `❓ **|** ` + ctx._locale(userDB.economy.work.job == 2 ? 'commands:work.errors.robError' : 'commands:work.errors.message'),
-        flags: userDB.economy.work.job == 2 ? 1 << 6 : 0,
+        content: `❓ **|** ` + ctx._locale(userDB.economy.work.job === 2 ? 'commands:work.errors.robError' : 'commands:work.errors.message'),
+        flags: userDB.economy.work.job === 2 ? 1 << 6 : 0,
         components: [{
           type: 1,
           components: [

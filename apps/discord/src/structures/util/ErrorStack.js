@@ -6,7 +6,7 @@ const embed = (i, limit, s) => {
 }
 
 export const removePath = (str, hidePath) => {
-  const stack = str?.stack == undefined ? str : str.stack
+  const stack = str?.stack === undefined ? str : str.stack
   const path = resolve().replace(/\\/g, '/')
   const regexFile = RegExp(`${path}`, 'g')
   const getPath = stack
@@ -38,7 +38,7 @@ export const ErrorStack = (error, options = {
    *  */
   limit: -1,
 }) => {
-  if (options.limit == undefined && options.limit == null) {
+  if (options.limit === undefined && options.limit === null) {
     options.limit = -1
   }
   if (options.showMessageOnly) {

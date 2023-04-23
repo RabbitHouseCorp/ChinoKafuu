@@ -26,7 +26,7 @@ export const defineOptionsCtx = (ctx, options = {
     _locale: (...args) => ctx.options._locale(...args),
     getData: (...args) => ctx.getData(...args),
     getArg: (key) => {
-      if (ctx.trackingCommand == null && ctx.trackingCommand == undefined) {
+      if (ctx.trackingCommand === null && ctx.trackingCommand === undefined) {
         return null
       }
       return ctx.trackingCommand.command.interface.get(key) ?? null
@@ -39,13 +39,13 @@ export const defineOptionsCtx = (ctx, options = {
 
 export const defineTypeInteraction = (d) => {
   d = d?.data?.component_type ?? d
-  if (d == componentType.button.type) {
+  if (d === componentType.button.type) {
     return componentType.button
-  } else if (d == componentType.selectMenus.type) {
+  } else if (d === componentType.selectMenus.type) {
     return componentType.selectMenus
-  } else if (d == componentType.selectionMenuResolved.type) {
+  } else if (d === componentType.selectionMenuResolved.type) {
     return componentType.selectionMenuResolved
-  } else if (d == componentType.modal) {
+  } else if (d === componentType.modal) {
     return componentType.modal
   }
   return componentType.any
@@ -133,7 +133,7 @@ const parseModalCommand = (interaction) => {
     id: null,
     command: null
   }
-  if (interaction?.data?.custom_id == undefined && interaction?.data?.component_type == undefined) return data
+  if (interaction?.data?.custom_id === undefined && interaction?.data?.component_type === undefined) return data
   if (interaction?.type === 5) {
     const [id, command] = interaction?.data?.custom_id.split(':') ?? undefined
     if (id !== 'modal') return data;
@@ -159,7 +159,7 @@ export class InteractionManager extends EventEmitter {
     this.client.on('rawWS', (data) => {
       if (data.t === 'INTERACTION_CREATE') {
         if (!interactions.includes(data?.d?.type)) return
-        if (data.d.type == 5) {
+        if (data.d.type === 5) {
           const parse = parseModalCommand(data.d)
           if (parse.command !== null) {
             this.createInteractionModal(data.d.id, 5, {
@@ -199,7 +199,7 @@ export class InteractionManager extends EventEmitter {
         .filter((i) => i.expireUntil !== null && this.expiresIn !== null)
         .filter((i) => (i.expiresIn - Date.now() + i.expireUntil) <= 0)
         .map((index) => {
-          const findInteraction = this.interactions.findIndex((i) => (i.id == index.id || i.messageID == index.messageID) && i.typeResolved == index.typeResolved)
+          const findInteraction = this.interactions.findIndex((i) => (i.id === index.id || i.messageID === index.messageID) && i.typeResolved === index.typeResolved)
 
           if (findInteraction >= 0) {
             this.interactions.splice(findInteraction, 1)
@@ -222,7 +222,7 @@ export class InteractionManager extends EventEmitter {
 
   async #runnerContext(interaction, typeResolved) {
     let getInteraction = this.getInteraction(interaction.id, interaction?.message?.id, typeResolved)
-    if (interaction.guild_id == undefined && interaction.user_id == undefined) return
+    if (interaction.guild_id === undefined && interaction.user_id === undefined) return
 
     const getDataDB = await this.client.database.flux({
       search: {
@@ -233,14 +233,14 @@ export class InteractionManager extends EventEmitter {
 
     const guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild_id)
     const _locale = this.client.i18nRegistry.getT(guildData.data.lang)
-    const isModal = interaction.type == 5
+    const isModal = interaction.type === 5
     const parseButton = parseButtonControlledByPageManager(interaction)
     if (parseButton.isPageManager) {
       getInteraction = this.getInteraction(parseButton.id, null, typeResolved)
     }
 
     const ctx = new InteractionContext(interaction, this.client, null, this, { interactionData: interaction, typeResolved, _locale, interactionBase: getInteraction, isModal }, getInteraction)
-    if (getInteraction == null || getInteraction == undefined) {
+    if (getInteraction === null || getInteraction === undefined) {
       return ctx.replyT('cocoa_what', 'basic:message.interactionExpired', { enableEphemeral: true })
     }
     if (getInteraction.id.includes('-')) {
@@ -270,7 +270,7 @@ export class InteractionManager extends EventEmitter {
 
   getInteraction(id, messageID) {
     const checkMessageOrInteraction = (i) => {
-      if (typeof messageID == 'string') return i.id === id || i.messageID === messageID
+      if (typeof messageID === 'string') return i.id === id || i.messageID === messageID
       return i.id === id
     }
     return this.interactions.find((i) => checkMessageOrInteraction(i)) ?? null

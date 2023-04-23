@@ -107,7 +107,7 @@ export const TranslatorUtils = function (language) {
     zu: 'zu'
   }
 
-  const input = typeof language == 'string' ? language.toLocaleLowerCase().replace(/([^A-Za-z]+)/g, '') : 'en'
+  const input = typeof language === 'string' ? language.toLocaleLowerCase().replace(/([^A-Za-z]+)/g, '') : 'en'
 
   const checkIndex = ([k = '', v = '']) => {
     // Just to add percentage of searching in languages.
@@ -120,5 +120,5 @@ export const TranslatorUtils = function (language) {
     .filter((i) => checkIndex(i) || checkString(i))
     .map((i) => i[1])
 
-  return getLang[0] == undefined ? 'en' : getLang[0]
+  return getLang[0] === undefined ? 'en' : getLang[0]
 }

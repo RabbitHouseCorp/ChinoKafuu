@@ -65,25 +65,25 @@ export class InteractionBase {
   }
 
   setEmbedPage(embedPage) {
-    if (this.embedPage == null)
+    if (this.embedPage === null)
       this.embedPage = embedPage
   }
 
   sendInteraction(interaction, ctx) {
-    if (this.embedPage == null) return
+    if (this.embedPage === null) return
     this.embedPage.emit('interaction', ({ interaction, ctx }))
   }
 
   updateGuildData(guildData) {
     // To check if the data is different. It's a safe and fast way.
-    if (JSON.stringify(guildData) == JSON.stringify(this.guildData)) {
+    if (JSON.stringify(guildData) === JSON.stringify(this.guildData)) {
       this.guildData = guildData
     }
   }
 
   updateUserData(userData) {
     // To check if the data is different. It's a safe and fast way.
-    if (JSON.stringify(userData) == JSON.stringify(this.userData)) {
+    if (JSON.stringify(userData) === JSON.stringify(this.userData)) {
       this.guildData = userData
     }
   }

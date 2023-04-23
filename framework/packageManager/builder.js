@@ -22,7 +22,7 @@ const selectPackageManager = (projectName) => {
     if (argv.startsWith('--packageManager')) {
       packageManager = argv.replace(/--packageManager=/, '')
 
-      if (packageManager.match(/yarn|yarnpkg|pnpm|pnpx|bun|bunPackageManager|npm|npx/g) == null) {
+      if (packageManager.match(/yarn|yarnpkg|pnpm|pnpx|bun|bunPackageManager|npm|npx/g) === null) {
         logger.error(`The $""${packageManager}"" is not supported or does not exist. Currently works with Yarn or NPM or Bun or PNPM OR PNPX\n\n`)
         throw Error(`The ${packageManager} is not supported or does not exist. Currently works with Yarn or NPM or Bun or PNPM OR PNPX`)
       }
@@ -111,7 +111,7 @@ export class Node extends EventEmitter {
 
     this.packageProject = JSON.parse(packageProject)
     const customPackageManager = selectPackageManager(this.packageProject.name)
-    if (customPackageManager == null) {
+    if (customPackageManager === null) {
       this.packageManager = this.packageProject.packageManager ?? 'npm'
     } else {
       this.packageManager = customPackageManager

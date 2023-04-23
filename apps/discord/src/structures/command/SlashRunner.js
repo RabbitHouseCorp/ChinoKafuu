@@ -33,8 +33,8 @@ export class SlashRunner {
       db: client.database.users
     }, _locale, { jitter: getDataDB.time.jitter, latency: getDataDB.time.latency })
     ctx.ms = ms
-    if (userData?.data.blacklist == false) {
-      if (command.isCommandModal == true) {
+    if (userData?.data.blacklist === false) {
+      if (command.isCommandModal === true) {
         command.setModal(ctx, interaction)
         await client.interactionManager.hookInteraction(interaction, {
           type: 9, data: command.modal
