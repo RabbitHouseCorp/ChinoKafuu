@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
 import axios from 'axios'
 import { CommandDataOption, Interaction, Message } from 'eris'
-import { Model } from 'mongoose'
 import IGuildCollection from '../interfaces/IGuildCollection'
 import IUserCollection from '../interfaces/IUserCollection'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
+import { Emojis } from '../util/Emojis'
 
 /**
  * @typedef {object} DBOptions
@@ -32,6 +32,7 @@ export class SlashCommandContext extends CommandContext {
   * @param {SlashCommandOptions} options
   * @property {Interaction} interaction
   * @property {Map<string, CommandDataOption>} args
+  * @property {(args: 'commands:lang' | 'basic:lang' | 'events:lang' | 'permissions:lang'): string} _locale
   */
   constructor(bot, interaction, args, db, _locale, statsDB) {
     super(bot, interaction.message, args, db, _locale)
@@ -52,6 +53,10 @@ export class SlashCommandContext extends CommandContext {
      */
     this.db = db
     this.embeds = []
+    /**
+     * @type {(args: 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:') => string}
+     * @returns {string}
+     */
     this._locale = _locale
     this.used = false
     this.content = {}
@@ -167,8 +172,8 @@ export class SlashCommandContext extends CommandContext {
 
   /**
    *
-   * @param {string} emoji
-   * @param {string | {content: string, components: [], options: any}} content
+   * @param {keyof Emojis | null} emoji
+   * @param {string | {content: string, components: [], options: any} | 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:'} content
    * @param {object} data
    * @param {any} props
    * @returns {Promise<Eris.MessageInteraction>}
