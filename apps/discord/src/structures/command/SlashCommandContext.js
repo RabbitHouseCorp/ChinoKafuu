@@ -8,6 +8,84 @@ import { CommandContext } from './CommandContext'
 import { Emojis } from '../util/Emojis'
 
 /**
+ * @typedef {object} Embed
+ * @property {string} [title]
+ * @property {string} [description]
+ * @property {string | 'https://' | 'http://'} [url]
+ * @property {string | Date} [timestamp]
+ * @property {number} [color]
+ * @property {{text?:string; icon_url?:string; proxy_icon_url?:string}[]} [footer]
+ * @property {{url?: string | 'https://' | 'http://'; proxy_url: string | 'https://' | 'http://'; height?: number; width?: number}} [image]
+ * @property {{url?: string | 'https://' | 'http://'; proxy_url: string | 'https://' | 'http://'; height?: number; width?: number}} [thumbnail]
+ * @property {{name: string; url?: string; icon_url?: string | 'https://' | 'http://'; proxy_icon_url?: string | 'https://' | 'http://'}} [author]
+ * @property {{name: string; value: string; inline?: boolean}[]} [fields]
+ */
+
+/**
+ * @typedef {object} Button
+ * @property {2} type
+ * @property {1 | 2 | 3 | 4 | 5} style
+ * @property {string} label
+ * @property {{name?: string; id?: string}} [emoji]
+ * @property {string} [custom_id]
+ * @property {string} [url]
+ * @property {boolean} [disabled]
+ */
+
+/**
+ * @typedef {object} SelectMenu
+ * @property {3 | 5 | 6 | 7 | 8} type
+ * @property {string} custom_id
+ * @property {{label: string; value: string; description?: string; emoji?: {id?: string | null; name?: string | null; animated?: boolean | null}; default?: boolean}} [options]
+ * @property {0 | 1 | 2 | 3 | 4 | 5 | 10| 11| 12 | 13 | 14 | 15} [channel_types]
+ * @property {string} [placeholder]
+ * @property {number} [min_values]
+ * @property {number} [max_values]
+ * @property {boolean} [disabled]
+ */
+
+/**
+ * @typedef {object} TextInput
+ * @property {string} custom_id
+ * @property {number} style
+ * @property {string} label
+ * @property {number} [min_length]
+ * @property {number} [max_length]
+ * @property {boolean} [required]
+ * @property {string} [value]
+ * @property {string} [placeholder]
+ */
+
+/**
+ * @typedef {TextInput | Button | SelectMenu | {type: number}} ComponentMetadata
+ */
+
+/**
+ * @typedef {object} MessageComponent
+ * @property {string | null} [content]
+ * @property {number | string} [nonce]
+ * @property {boolean | null} [tts]
+ * @property {Embed[] | null} [embeds]
+ * @property {{parse?: 'roles' | 'users' | 'everyone'; roles?: string[]; users?: string[];replied_user?: boolean}} [allowed_mentions]
+ * @property {{message_id?: string; channel_id?: string; guild_id?: string; fail_if_not_exists?: boolean}} [message_reference]
+ * @property {{type: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8; components?: ComponentMetadata[]}[]} [components]
+ * @property {{
+ *     id: string;
+ *     pack_id?: string;
+ *     name: string;
+ *     description: string | null;
+ *     tags?: string; asset?:
+ *     string type?: number;
+ *     format_type: number;
+ *     available?: number;
+ *     guild_id: string;
+ *     user?: any;
+ *     sort_value?: number;
+ * }} [sticker_ids]
+ * @property {number} [flags]
+ */
+
+/**
  * @typedef {object} DBOptions
  * @property {IUserCollection} user
  * @property {IGuildCollection} guild
@@ -173,7 +251,7 @@ export class SlashCommandContext extends CommandContext {
   /**
    *
    * @param {keyof Emojis | null} emoji
-   * @param {string | {content: string, components: [], options: any} | 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:'} content
+   * @param {string | MessageComponent | 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:'} content
    * @param {object} data
    * @param {any} props
    * @returns {Promise<Eris.MessageInteraction>}
