@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { CommandBase } from 'eris'
 import { Module } from '../registry/Module'
 import { SlashCommandContext } from './SlashCommandContext'
 
@@ -11,7 +12,7 @@ export { SlashCommandContext }
  * @property {string[]} [permissions]
  * @property {boolean} [isBeta]
  * @property {number} [cooldown]
- * @property {any} [slash]
+ * @property {CommandBase} [slash]
  * @property {boolean} [removeDefaultCallback]
  * @property {object} [callback_metadata]
  * @property {any} [modal]
