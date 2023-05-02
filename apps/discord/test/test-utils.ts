@@ -9,7 +9,7 @@ String.prototype.isUpperCase = function (index: any = 0) {
 
 //@ts-ignore
 String.prototype.isLowerCase = function () {
-  return this !== this.toLocaleLowerCase()
+  return this === this.toLocaleLowerCase()
 }
 
 //@ts-ignore
