@@ -10,7 +10,7 @@ describe('interaction test', () => {
       },
       timeoutInteraction: 90
     })).toStrictEqual({
-      name: 'test',
+      interactionName: 'test',
       customMessage: {
         'error': 'test'
       },
