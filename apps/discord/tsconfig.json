@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
-    "types": ["@types/jest", "@types/mocha", "@types/node"]
-  }
+    "types": [
+      "@types/jest",
+      "@types/mocha",
+      "@types/node"
+    ],
+    "allowJs": true
+  },
 }
