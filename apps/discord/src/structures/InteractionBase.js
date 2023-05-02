@@ -112,12 +112,19 @@ export class InteractionBase {
     }
 
     const interaction = this.interactionManager.interactionRegistry.findByName(this.name)
-
     if (!this._once) {
       this._once = true
-      interaction.once(args)
+      if (interaction?.mode === undefined && interaction?.mode !== 'define') {
+        interaction.once(args)
+      }
     }
-    interaction.interactionFunction(args)
+
+    if (interaction?.mode !== undefined && interaction?.mode === 'define') {
+      interaction.R(args)
+    } else {
+
+      interaction.interactionFunction(args)
+    }
   }
 
 }

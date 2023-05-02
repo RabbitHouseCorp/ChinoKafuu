@@ -8,7 +8,7 @@ const isJson = (data) => {
     return false
   }
 }
-class StateData {
+export class StateData {
   constructor(actionState) {
     this.actionState = actionState
   }
@@ -17,6 +17,7 @@ class StateData {
 /**
  *
  * @description This will help save unnecessary variable and after you are done and set the data to null and let the GC work.
+ * @returns {StateData?}
  */
 export const defineState = (data, options = { eventEmitter: false }) => {
   let state = data ?? {}
@@ -35,6 +36,7 @@ export const defineState = (data, options = { eventEmitter: false }) => {
     }
     return state
   }
+
   const postStructJson = (stateName, data) => {
     if (isJson(data))
       throw new Error('PostDataStateError: This doesn\'t appear to be JSON data.')

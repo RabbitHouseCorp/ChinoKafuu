@@ -9,7 +9,9 @@ LavalinkConfig.json
 coverage/
 package-lock.json
 UPDATE.md
-.vscode
+.vscode/**
+# Snippets
+!.vscode/*.code-snippets
 index.d.ts
 .dockerignore
 kube/
