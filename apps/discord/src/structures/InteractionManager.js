@@ -23,6 +23,7 @@ export const defineOptionsCtx = (ctx, options = {
     getState: (...args) => ctx.getState(...args),
     deleteInteraction: async (...args) => ctx.deleteInteraction(...args),
     sendEmbedPage: async (...args) => ctx.sendEmbedPage(...args),
+    useModal: async (...args) => ctx.useModal(...args),
     _locale: (...args) => ctx.options._locale(...args),
     getData: (...args) => ctx.getData(...args),
     getArg: (key) => {
@@ -151,8 +152,32 @@ export class InteractionManager extends EventEmitter {
     this.rateLimiterManager = new InteractionRateLimit()
     this.client = client
     this.interactionRegistry = client.interactionRegistry
+    this.modalIds = []
     this.#addListeners()
     this.#watchInteraction()
+  }
+
+  addModal(modalOptions) {
+    const modal = this.modalIds.find((m) => m.targetInteraction === modalOptions.targetInteraction)
+    if (modal > 0) return this.removeModal(modalOptions)
+
+    this.modalIds.push(modalOptions)
+  }
+
+  callbackModal(modalOptions, data) {
+    const deleteModal = () => this.removeModal(modalOptions)
+    const modal = this.modalIds.find((data) => data.idModal == modalOptions.idModal)
+    if (modal === undefined) return;
+
+    modal.callback(data, modalOptions, deleteModal)
+  }
+
+  removeModal(modalOptions) {
+    const modal = this.modalIds.findIndex((data) => data.idModal == modalOptions.idModal)
+
+    if (modal < 0) return;
+
+    this.modalIds.splice(modal, 1)
   }
 
   #addListeners() {

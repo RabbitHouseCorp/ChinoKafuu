@@ -1,3 +1,4 @@
+import { randomUUID } from 'node:crypto'
 import { defineTypeInteraction, defineTypeInteractionMessage } from './InteractionManager'
 import { Emoji } from './util'
 
@@ -15,6 +16,7 @@ export class InteractionContext {
     this.trackingCommand = interactionBase?.trackingCommand
     this.isModal = options.isModal ?? false
     this.data = data ?? {}
+    this.modalIds = new Set()
   }
 
   async sendEmbedPage(embedPageManager, data) {
@@ -59,6 +61,23 @@ export class InteractionContext {
     return this.options._locale(...args)
   }
 
+  useModal(title, components) {
+    const custom_id = randomUUID()
+    return this.patchMessage({
+      type: 9,
+      data: {
+        title: typeof title === 'string' ? title : 'Title Unknown',
+        custom_id,
+        components: [
+          {
+            type: 1,
+            components: [...(Array.isArray(components) ? components : [])]
+          },
+        ]
+      }
+    })
+  }
+
   async editT(emoji, content, data = {}, ...props) {
     return this.editMessageInteraction({
       content: this.contentWithEmoji(emoji, content),
@@ -75,6 +94,10 @@ export class InteractionContext {
 
   async editInteraction(data = {}) {
     return this.editMessageInteraction(data)
+  }
+
+  patchMessage(data, file = {}) {
+    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, data ?? {}, file?.image ?? null)
   }
 
   async editMessageInteraction(data = {}) {

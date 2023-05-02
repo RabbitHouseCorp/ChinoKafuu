@@ -37,6 +37,7 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['replyT']} replyT
  * @property {InteractionContext['send']} send
  * @property {InteractionContext['sendT']} sendT
+ * @property {InteractionContext['useModal']} useModal
  * @property {InteractionContext['userGetsInteractionAccess']} userGetsInteractionAccess
  * @property {InteractionContext['getState']} getState
  * @property {InteractionContext['deleteInteraction']} deleteInteraction
