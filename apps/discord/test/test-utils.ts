@@ -1,11 +1,19 @@
 // Set of useful functions to facilitate testing
 import { lstatSync, readdirSync } from 'fs'
+import { resolve } from 'path'
 
-String.prototype.isUpperCase = function (index) {
+//@ts-ignore
+String.prototype.isUpperCase = function (index: any = 0) {
   return this[typeof index === 'number' ? 0 : index].toUpperCase() === this[typeof index === 'number' ? 0 : index].toUpperCase()
 }
 
-String.prototype.getAt = function (splitter, index) {
+//@ts-ignore
+String.prototype.isLowerCase = function () {
+  return this !== this.toLocaleLowerCase()
+}
+
+//@ts-ignore
+String.prototype.getAt = function (splitter: any, index: any) {
   return this.split(splitter)[index === -1 ? this.split(splitter).length - 1 : index]
 }
 
@@ -33,5 +41,41 @@ const loadClassesRecursive = (path) => {
   })
 }
 
-export { loadClassesRecursive, getAllFilesRecursive }
+
+const loadCommands = () => {
+  const modules = []
+  const open = async (path = resolve(__dirname.replace(/\\test|\/test/g, '') + '/src/commands/slash')) => {
+    const dir = readdirSync(path)
+    for (const modulePath of dir) {
+      if (modulePath.endsWith('.js')) {
+        const module = require(path + `/${modulePath}`)
+        const C = module.default != undefined ? module.default : module
+        modules.push(C)
+
+      } else {
+        open(resolve(path + `/${modulePath}`))
+      }
+    }
+  }
+
+  open()
+  return modules
+}
+
+
+const checkCommand = (Command) => {
+  const commandBlock = new Command()
+  if (typeof commandBlock.name !== 'string') {
+    throw new Error(`Command.name is ${commandBlock.name}`)
+  }
+  if (!commandBlock.name.isLowerCase()) {
+    throw new Error(`The "${Command.name}" command in the "name" (${commandBlock.name}) field must have all lowercase letters.`)
+  }
+  if (commandBlock.aliases !== undefined && commandBlock.slashCommand !== undefined) {
+    throw new Error(`Command.aliases is deprecated.`)
+  }
+
+  return true
+}
+export { loadClassesRecursive, getAllFilesRecursive, loadCommands, checkCommand }
 

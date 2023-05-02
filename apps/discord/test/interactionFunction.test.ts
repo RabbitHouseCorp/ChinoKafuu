@@ -15,7 +15,7 @@ describe('interaction test', () => {
         'error': 'test'
       },
       autoComplete: false,
-      timeoutInteraction: 10000
+      timeoutInteraction: 90
     })
   })
 })
