@@ -1,6 +1,6 @@
 import { checkCommand, loadCommands } from './test-utils'
 let commands = []
-jest.useFakeTimers()
+
 
 beforeAll(async () => {
   commands = loadCommands()
