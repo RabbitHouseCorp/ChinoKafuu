@@ -2,6 +2,8 @@ import chalk from 'chalk'
 import { isMainThread } from 'worker_threads'
 chalk.level = 8
 
+const loggerDeveloper = process.argv.find((arg) => arg === '--loggerDev') ?? null
+
 export class Logger {
   static get processType() {
     return isMainThread
@@ -9,8 +11,33 @@ export class Logger {
       : chalk.black.bgMagenta(`CLUSTER ${process.env.CLUSTER_ID}`)
   }
 
-  static generateLog(logType, message) {
-    console.log(`${chalk.yellow(Date().toString())} ${this.processType} ${logType} ${message}`)
+  static generateLog(logType, message = '') {
+    if (loggerDeveloper !== null) {
+      const regexJson = /^\s*[{[][\s\S]*[}\]]\s*$/
+
+      if (regexJson.test(message)) {
+        console.log(`${chalk.gray(this.#getTimestamp)} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
+      } else {
+        console.log(`${chalk.gray(this.#getTimestamp) } ${logType.replace(/\[([A-Za-z]+)\]/g, '$1')} ― ${message}`)
+      }
+
+      return
+    }
+    console.log(`${chalk.yellow(Date().toString())} ${logType} ${message}`)
+  }
+
+  static get #getTimestamp() {
+    const now = new Date()
+    const trace = [
+      `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-`,
+      `${String(now.getDate()).padStart(2, '0')}T`,
+      `${String(now.getHours()).padStart(2, '0')}:`,
+      `${String(now.getMinutes()).padStart(2, '0')}:`,
+      `${String(now.getSeconds()).padStart(2, '0')}.`,
+      `${String(now.getMilliseconds()).padStart(3, '0')}Z`
+    ]
+
+    return trace.join('')
   }
 
   static debug(message) {
