@@ -165,7 +165,7 @@ export class InteractionManager extends EventEmitter {
   }
 
   getModal(data) {
-    const modal = this.modalIds.find((m) => m.id === data.custom_id)
+    const modal = this.modalIds.find((m) => m.id === data?.custom_id)
     if (modal == undefined) return null
 
     return modal
