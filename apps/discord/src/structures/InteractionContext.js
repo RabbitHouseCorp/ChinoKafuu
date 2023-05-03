@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto'
 import { defineTypeInteraction, defineTypeInteractionMessage } from './InteractionManager'
-import { Emoji } from './util'
+import { Emoji, Logger } from './util'
 
 export class InteractionContext {
   constructor(data, client, messageCreated, interactionManager, options, interactionBase) {
@@ -63,6 +63,14 @@ export class InteractionContext {
 
   useModal(title, callback, components) {
     const custom_id = randomUUID()
+    const checkLimit = (text = '', limit = 20, type = '') => {
+      if (text.length >= limit) {
+        Logger.warning(`UseModalWarning: The field limit of ${type} exceeded the character limit. The maximum is ${limit} characters.`)
+        return text.slice(0, limit - 4) + '...'
+      }
+
+      return text
+    }
     this.interactionManager.addModal({
       id: custom_id,
       targetInteraction: this.interactionBase.id,
@@ -71,7 +79,7 @@ export class InteractionContext {
     return this.patchMessage({
       type: 9,
       data: {
-        title: typeof title === 'string' ? title : 'Title Unknown',
+        title: typeof title === 'string' ? checkLimit(title, 45, 'title') : 'Title Unknown',
         custom_id,
         components: [
           {
