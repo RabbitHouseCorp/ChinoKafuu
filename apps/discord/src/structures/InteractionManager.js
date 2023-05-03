@@ -164,12 +164,26 @@ export class InteractionManager extends EventEmitter {
     this.modalIds.push(modalOptions)
   }
 
+  getModal(data) {
+    const modal = this.modalIds.find((m) => m.id === data.custom_id)
+    if (modal == undefined) return null
+
+    return modal
+  }
+
   callbackModal(modalOptions, data) {
     const deleteModal = () => this.removeModal(modalOptions)
-    const modal = this.modalIds.find((data) => data.idModal == modalOptions.idModal)
+    const modal = this.modalIds.find((data) => data.idModal === modalOptions.idModal)
     if (modal === undefined) return;
 
-    modal.callback(data, modalOptions, deleteModal)
+    modal.callback({
+      data, modalOptions, deleteModal
+    })
+  }
+
+  checkModal(id) {
+    const modal = this.modalIds.find((m) => id === m.targetInteraction || id === m.id)
+    return modal !== undefined
   }
 
   removeModal(modalOptions) {
@@ -259,6 +273,13 @@ export class InteractionManager extends EventEmitter {
     const guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild_id)
     const _locale = this.client.i18nRegistry.getT(guildData.data.lang)
     const isModal = interaction.type === 5
+
+    if (isModal) {
+      if (this.checkModal(interaction?.data?.custom_id ?? '')) {
+        this.callbackModal(this.getModal(interaction.data), interaction)
+        return
+      }
+    }
     const parseButton = parseButtonControlledByPageManager(interaction)
     if (parseButton.isPageManager) {
       getInteraction = this.getInteraction(parseButton.id, null, typeResolved)

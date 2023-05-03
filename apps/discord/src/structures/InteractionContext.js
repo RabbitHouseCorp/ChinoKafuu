@@ -61,8 +61,13 @@ export class InteractionContext {
     return this.options._locale(...args)
   }
 
-  useModal(title, components) {
+  useModal(title, callback, components) {
     const custom_id = randomUUID()
+    this.interactionManager.addModal({
+      id: custom_id,
+      targetInteraction: this.interactionBase.id,
+      callback,
+    })
     return this.patchMessage({
       type: 9,
       data: {
