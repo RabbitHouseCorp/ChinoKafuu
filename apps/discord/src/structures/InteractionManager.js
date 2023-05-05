@@ -14,6 +14,7 @@ export const defineOptionsCtx = (ctx, options = {
     editT: async (...args) => ctx.editT(...args),
     editInteraction: async (...args) => ctx.editInteraction(...args),
     edit: async (...args) => ctx.edit(...args),
+    editMessage: async (...args) => ctx.editMessage(...args),
     getUserInteraction: (...args) => ctx.getUserInteraction(...args),
     reply: async (...args) => ctx.reply(...args),
     replyT: async (...args) => ctx.replyT(...args),
@@ -175,7 +176,7 @@ export class InteractionManager extends EventEmitter {
     const deleteModal = () => this.removeModal(modalOptions)
     const modal = this.modalIds.find((data) => data.idModal === modalOptions.idModal)
     if (modal === undefined) return;
-
+    modal.updateInteraction(data)
     modal.callback({
       data, modalOptions, deleteModal
     })

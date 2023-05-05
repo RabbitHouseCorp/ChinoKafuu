@@ -30,6 +30,7 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
  * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
  * @property {InteractionContext['editT']} editT
+ * @property {InteractionContext['editMessage']} editMessage
  * @property {InteractionContext['editInteraction']} editInteraction
  * @property {InteractionContext['edit']} edit
  * @property {InteractionContext['getUserInteraction']} getUserInteraction

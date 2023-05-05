@@ -68,13 +68,16 @@ export class InteractionContext {
         Logger.warning(`UseModalWarning: The field limit of ${type} exceeded the character limit. The maximum is ${limit} characters.`)
         return text.slice(0, limit - 4) + '...'
       }
-
       return text
     }
     this.interactionManager.addModal({
       id: custom_id,
       targetInteraction: this.interactionBase.id,
       callback,
+      updateInteraction: (interactionData) => {
+        this.token = interactionData.token
+        this.id = interactionData.id
+      }
     })
     return this.patchMessage({
       type: 9,
@@ -165,6 +168,14 @@ export class InteractionContext {
       type: option?.type ?? defineTypeInteractionMessage(option.type),
       data: option.data,
     }, file?.image ?? null)
+  }
+
+  async editMessage(data, file = undefined) {
+    const metadata = {
+      type: defineTypeInteractionMessage('updateMessage'),
+      data
+    }
+    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
   }
 
   async replyT(emoji, content, data = {
