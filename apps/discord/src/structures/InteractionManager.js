@@ -15,6 +15,7 @@ export const defineOptionsCtx = (ctx, options = {
     editInteraction: async (...args) => ctx.editInteraction(...args),
     edit: async (...args) => ctx.edit(...args),
     editMessage: async (...args) => ctx.editMessage(...args),
+    editMessageT: async (...args) => ctx.editMessageT(...args),
     getUserInteraction: (...args) => ctx.getUserInteraction(...args),
     reply: async (...args) => ctx.reply(...args),
     replyT: async (...args) => ctx.replyT(...args),

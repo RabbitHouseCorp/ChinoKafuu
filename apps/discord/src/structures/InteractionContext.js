@@ -177,6 +177,25 @@ export class InteractionContext {
     return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
   }
 
+  async editMessageT(emoji, content, data = {
+    enableEphemeral: false
+  }, file) {
+    let enableEphemeral = false
+    if (data.enableEphemeral !== undefined) {
+      enableEphemeral = true
+      delete data.enableEphemeral
+    }
+    const metadata = {
+      type: defineTypeInteractionMessage('updateMessage'),
+      data: {
+        content: this.contentWithEmoji(emoji, content, true),
+        flags: enableEphemeral ? 1 >> 6 : 0,
+        ...data.data
+      },
+    }
+    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
+  }
+
   async replyT(emoji, content, data = {
     enableEphemeral: false
   }, ...props) {

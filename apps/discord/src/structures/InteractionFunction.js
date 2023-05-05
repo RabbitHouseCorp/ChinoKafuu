@@ -7,6 +7,8 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
  * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
  * @property {InteractionContext['editT']} editT
+ * @property {InteractionContext['editMessage']} editMessage
+ * @property {InteractionContext['editMessageT']} editMessageT
  * @property {InteractionContext['editInteraction']} editInteraction
  * @property {InteractionContext['edit']} edit
  * @property {InteractionContext['getUserInteraction']} getUserInteraction
@@ -14,6 +16,7 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['replyT']} replyT
  * @property {InteractionContext['send']} send
  * @property {InteractionContext['sendT']} sendT
+ * @property {InteractionContext['useModal']} useModal
  * @property {InteractionContext['userGetsInteractionAccess']} userGetsInteractionAccess
  * @property {InteractionContext['getState']} getState
  * @property {InteractionContext['deleteInteraction']} deleteInteraction
@@ -31,6 +34,7 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
  * @property {InteractionContext['editT']} editT
  * @property {InteractionContext['editMessage']} editMessage
+ * @property {InteractionContext['editMessageT']} editMessageT
  * @property {InteractionContext['editInteraction']} editInteraction
  * @property {InteractionContext['edit']} edit
  * @property {InteractionContext['getUserInteraction']} getUserInteraction
