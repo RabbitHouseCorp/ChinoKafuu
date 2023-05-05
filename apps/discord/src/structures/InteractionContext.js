@@ -16,7 +16,6 @@ export class InteractionContext {
     this.trackingCommand = interactionBase?.trackingCommand
     this.isModal = options.isModal ?? false
     this.data = data ?? {}
-    this.modalIds = new Set()
   }
 
   async sendEmbedPage(embedPageManager, data) {
