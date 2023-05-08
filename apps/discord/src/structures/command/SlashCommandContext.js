@@ -5,7 +5,6 @@ import IGuildCollection from '../interfaces/IGuildCollection'
 import IUserCollection from '../interfaces/IUserCollection'
 import { Emoji } from '../util/EmotesInstance'
 import { CommandContext } from './CommandContext'
-import { Emojis } from '../util/Emojis'
 
 /**
  * @typedef {object} Embed
@@ -132,7 +131,7 @@ export class SlashCommandContext extends CommandContext {
     this.db = db
     this.embeds = []
     /**
-     * @type {(args: 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:') => string}
+     * @type {(args: 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:', placeholder: Object.<number, string | 'Text example.'>) => string}
      * @returns {string}
      */
     this._locale = _locale
@@ -148,6 +147,14 @@ export class SlashCommandContext extends CommandContext {
     }
   }
 
+  /**
+   * ```js
+   * ctx.createInteractionFunction('nameInteraction', message, {
+   *    state,
+   *    users: [ctx.message.author.id]
+   * })
+   * ```
+   */
   createInteractionFunction(name, message, options) {
     this.interactionBase = this.client.interactionManager.createInteractionBase(message.id, -1, {
       expireUntil: 420 * 1000,
@@ -240,11 +247,18 @@ export class SlashCommandContext extends CommandContext {
    * @param props
    * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
    */
-  async reply(emoji, content, ...props) {
+  async reply(emoji, obj, ...props) {
+    const optionsMessage = typeof obj === 'string' ? {} : obj
+
+    if (Array.isArray(props) && props[0]) {
+      (typeof obj === 'string' ? null : (delete props[0].content))
+    }
+
     return this.message.hook.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **》**<@${this.message.member.user.id}> ${content}`,
+      content: `${Emoji.getEmoji(emoji).mention} **》**<@${this.message.member.user.id}> ${typeof obj === 'string' ? obj : (obj.content ?? '')}`,
       components: this.commandInteractions.component,
       options: props[0]?.options,
+      ...optionsMessage
     }, props[0]?.file)
   }
 
@@ -256,9 +270,12 @@ export class SlashCommandContext extends CommandContext {
    * @param {any} props
    * @returns {Promise<Eris.MessageInteraction>}
    */
-  async replyT(emoji, content, data = {}, ...props) {
+  async replyT(emoji, obj, data = {}, ...props) {
+    if (data !== undefined && data.content !== undefined) {
+      (typeof obj === 'string' ? null : (delete data.content))
+    }
     return this.message.hook.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **》** <@${this.message.member.user.id}> ${this._locale(content, data)}`,
+      content: `${Emoji.getEmoji(emoji).mention} **》** <@${this.message.member.user.id}> ${this._locale(typeof obj === 'string' ? obj : (obj.content ?? ''), data)}`,
       components: props[0]?.components ?? this.commandInteractions.component,
       ...data,
       options: props[0]?.options
@@ -284,7 +301,7 @@ export class SlashCommandContext extends CommandContext {
 
       return member
     } catch {
-      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
+      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `@${member.username}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
           return await this.client.getRESTUser(this.message.author.id)
