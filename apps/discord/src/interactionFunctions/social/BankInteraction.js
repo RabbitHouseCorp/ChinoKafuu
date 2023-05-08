@@ -31,12 +31,12 @@ export default defineInteractionDefault(
 
       const state = defineState.user
       if (type === ':withDraw') {
-        if (count >= state.economy.bank) return editMessageT('error', 'commands:bank.error.rejectedBankWithdrawalValue', { 0: count.toLocaleString(), 1: state.economy.value.toLocaleString() })
+        if (count > state.economy.bank) return editMessageT('error', 'commands:bank.error.rejectedBankWithdrawalValue', { 0: count.toLocaleString(), 1: state.economy.value.toLocaleString() })
         context = 'commands:bank.success.valueWasWithdrawnFromBank'
         state.economy.value += Math.max(count, 0)
         state.economy.bank -= Math.max(count, 0)
       } else {
-        if (count >= state.economy.value) return editMessageT('error', 'commands:bank.error.rejectedValue', { 0: count.toLocaleString(), 1: state.economy.value.toLocaleString() })
+        if (count > state.economy.value) return editMessageT('error', 'commands:bank.error.rejectedValue', { 0: count.toLocaleString(), 1: state.economy.value.toLocaleString() })
         state.economy.value -= Math.max(count, 0)
         state.economy.bank += Math.max(count, 0)
       }
