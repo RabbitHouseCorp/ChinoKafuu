@@ -4,7 +4,7 @@ import { Buffer } from 'node:buffer'
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 
 import fs, { join } from 'node:path'
-import { deflateRawSync, inflateRawSync } from 'node:zlib'
+import { deflateRawSync, inflateRawSync, constants } from 'node:zlib'
 
 /**
  *
@@ -307,7 +307,7 @@ export const getBackground = async (name, options = { cache: false }) => {
       const checkCache = readdirSync(pathDirOfApp)
       if (checkCache.find((c) => c === backgroundInfo.id) !== undefined) {
         return inflateRawSync(readFileSync(join(pathDirOfApp, backgroundInfo.id)), {
-          level: 9
+          level: constants.Z_BEST_SPEED
         })
       }
     } else {
@@ -324,15 +324,14 @@ export const getBackground = async (name, options = { cache: false }) => {
         if (request.status != '200' && request.status != '201')
           throw Error(`Tokamak.getBackground: 'Status Code invalid: ${request.statusText}'`)
         if (request.data instanceof Buffer && (options !== undefined && options.cache)) {
-          const job = {
-            id: backgroundInfo.id,
-            options: {},
-            size: request.data.byteLength
-          }
+          // const job = {
+          //   id: backgroundInfo.id,
+          //   options: {},
+          //   size: request.data.byteLength
+          // }
           const compressData = deflateRawSync(request.data, {
-            level: 9
+            level: constants.Z_BEST_COMPRESSION
           })
-
           writeFileSync(join(pathDirOfApp, backgroundInfo.id), compressData, {})
         }
         resolve(request.data)
