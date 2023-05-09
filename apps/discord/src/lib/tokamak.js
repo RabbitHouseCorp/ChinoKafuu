@@ -1,5 +1,108 @@
 import axios from 'axios'
 import { Buffer } from 'node:buffer'
+const genID = (name, disabled, cached) => Buffer.from(JSON.stringify({ name, disabled, cached }), 'base64')
+export const ConstantBackground = {
+  'chino_woaaah': {
+    name: 'chino_woaaah',
+    id: genID('chino_woaaah', false, false),
+    disabled: false,
+    cached: false,
+    animated: true,
+  },
+  'gochiusa_1': {
+    name: 'gochiusa_1',
+    id: genID('gochiusa_1', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'gochiusa_2': {
+    name: 'gochiusa_2',
+    id: genID('gochiusa_2', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'gochiusa_3': {
+    name: 'gochiusa_3',
+    id: genID('gochiusa_3', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'gochiusa_4': {
+    name: 'gochiusa_4',
+    id: genID('gochiusa_4', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'gochiusa_5': {
+    name: 'gochiusa_5',
+    id: genID('gochiusa_5', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'mctha_red': {
+    name: 'mctha_red',
+    id: genID('mctha_red', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'no_game_no_life_1': {
+    name: 'no_game_no_life_1',
+    id: genID('no_game_no_life_1', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'no_game_no_life_2': {
+    name: 'no_game_no_life_2',
+    id: genID('no_game_no_life_2', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'nyc_skyline': {
+    name: 'nyc_skyline',
+    id: genID('nyc_skyline', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'show_by_rock_1': {
+    name: 'show_by_rock_1',
+    id: genID('show_by_rock_1', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'show_by_rock_2': {
+    name: 'show_by_rock_2',
+    id: genID('show_by_rock_2', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'show_by_rock_3': {
+    name: 'show_by_rock_3',
+    id: genID('show_by_rock_3', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+  'show_by_rock_4': {
+    name: 'show_by_rock_4',
+    id: genID('show_by_rock_4', false, false),
+    disabled: false,
+    cached: false,
+    animated: false,
+  },
+}
+
+// const versionExperimental = () => false
 
 const Actions = ['renderProfile', 'renderLaranjo', 'renderLicense', 'renderRize', 'version']
 const defineObject = (data = {}) => ({
@@ -8,6 +111,12 @@ const defineObject = (data = {}) => ({
   length: 0,
   ...data
 })
+
+/**
+ *
+ * @param {{action: string;render: {buffer: BufferConstructor;byteLength: number;length: number; }; timeRequest: number;}} data
+ * @returns
+ */
 const defineMetadata = (data = {}) => ({
   action: '', // String
   render: defineObject({}), // Buffer,
@@ -65,6 +174,7 @@ const Endpoints = (url) => ({
   renderLicense: url + '/render/license',
   renderRize: url + '/render/rize',
   renderLaranjo: url + '/render/laranjo',
+  getBackground: url + '/get_backgrounds'
 })
 
 // Resolve image type.
@@ -158,6 +268,32 @@ const renderRize = async (options = optionsTokamak) => {
         }))
       })
       .catch((error) => rejects(error))
+  })
+}
+
+/**
+ *
+ * @param {keyof ConstantBackground} name
+ * @returns {Promise<Buffer | null | undefined>}
+ */
+export const getBackground = async (name) => {
+  const findBackground = Object.values(ConstantBackground)
+    .find(([k]) => k === name)
+  if (findBackground === undefined && findBackground === null)
+    throw Error(`Tokamak.getBackground: You provided the wrong background name, I'm receiving: ${name}`)
+
+  return new Promise((resolve, reject) => {
+    return axios({
+      url: (Endpoints(process.env.TOKAMAK_URL).getBackground + '/' + findBackground.name + '.png'),
+      method: 'get',
+      responseType: 'arraybuffer'
+    })
+      .then((request) => {
+        if (request.statusText != '200' && request.statusText != '201')
+          throw Error(`Tokamak.getBackground: 'Status Code invalid: ${request.statusText}'`)
+        resolve(request.data)
+      })
+      .catch((error) => reject(error))
   })
 }
 
