@@ -1,101 +1,120 @@
+/* eslint-disable security/detect-non-literal-fs-filename */
 import axios from 'axios'
 import { Buffer } from 'node:buffer'
-const genID = (name, disabled, cached) => Buffer.from(JSON.stringify({ name, disabled, cached }), 'base64')
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+
+import fs, { join } from 'node:path'
+import { deflateRawSync, inflateRawSync } from 'node:zlib'
+
+/**
+ *
+ * @param {*} name Add an extra identifier to include in the cache information
+ * @param {boolean} disabled Disable auto-delete of cache. (Make the framework not remove this cache temporarily)
+ * @param {{expire?:number; status: boolean; typeCache: 'DO_NOT_CACHE' | 'CACHING_ENABLED' | 'CACHE_LIMITED'}} cached
+ * @returns
+ */
+const genID = (name, disabled, cached = { expire: 20 * 1000, status: false, typeCache: 'DO_NOT_CACHE' }) =>
+  Buffer.from(JSON.stringify({ name, disabled, cached }))
+    .toString('base64')
+    .replace(/==$|=$/g, '')
+    .split('')
+    .reverse()
+    .join('') + '=='
 export const ConstantBackground = {
   'chino_woaaah': {
     name: 'chino_woaaah',
-    id: genID('chino_woaaah', false, false),
+    id: genID('chino_woaaah', false),
     disabled: false,
     cached: false,
     animated: true,
   },
   'gochiusa_1': {
     name: 'gochiusa_1',
-    id: genID('gochiusa_1', false, false),
+    id: genID('gochiusa_1', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_2': {
     name: 'gochiusa_2',
-    id: genID('gochiusa_2', false, false),
+    id: genID('gochiusa_2', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_3': {
     name: 'gochiusa_3',
-    id: genID('gochiusa_3', false, false),
+    id: genID('gochiusa_3', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_4': {
     name: 'gochiusa_4',
-    id: genID('gochiusa_4', false, false),
+    id: genID('gochiusa_4', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_5': {
     name: 'gochiusa_5',
-    id: genID('gochiusa_5', false, false),
+    id: genID('gochiusa_5', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'mctha_red': {
     name: 'mctha_red',
-    id: genID('mctha_red', false, false),
+    id: genID('mctha_red', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'no_game_no_life_1': {
     name: 'no_game_no_life_1',
-    id: genID('no_game_no_life_1', false, false),
+    id: genID('no_game_no_life_1', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'no_game_no_life_2': {
     name: 'no_game_no_life_2',
-    id: genID('no_game_no_life_2', false, false),
+    id: genID('no_game_no_life_2', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'nyc_skyline': {
     name: 'nyc_skyline',
-    id: genID('nyc_skyline', false, false),
+    id: genID('nyc_skyline', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_1': {
     name: 'show_by_rock_1',
-    id: genID('show_by_rock_1', false, false),
+    id: genID('show_by_rock_1', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_2': {
     name: 'show_by_rock_2',
-    id: genID('show_by_rock_2', false, false),
+    id: genID('show_by_rock_2', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_3': {
     name: 'show_by_rock_3',
-    id: genID('show_by_rock_3', false, false),
+    id: genID('show_by_rock_3', false),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_4': {
     name: 'show_by_rock_4',
-    id: genID('show_by_rock_4', false, false),
+    id: genID('show_by_rock_4', false),
     disabled: false,
     cached: false,
     animated: false,
@@ -276,22 +295,48 @@ const renderRize = async (options = optionsTokamak) => {
  * @param {keyof ConstantBackground} name
  * @returns {Promise<Buffer | null | undefined>}
  */
-export const getBackground = async (name) => {
-  const findBackground = Object.values(ConstantBackground)
+export const getBackground = async (name, options = { cache: false }) => {
+  const [findBackground, backgroundInfo] = Object.entries(ConstantBackground)
     .find(([k]) => k === name)
   if (findBackground === undefined && findBackground === null)
     throw Error(`Tokamak.getBackground: You provided the wrong background name, I'm receiving: ${name}`)
-
+  const pathDirOfApp = fs.resolve('../', '../', '.chinokafuu/cache/image')
+  if (options !== undefined && options.cache) {
+    const checkFramework = existsSync(pathDirOfApp)
+    if (checkFramework) {
+      const checkCache = readdirSync(pathDirOfApp)
+      if (checkCache.find((c) => c === backgroundInfo.id) !== undefined) {
+        return inflateRawSync(readFileSync(join(pathDirOfApp, backgroundInfo.id)), {
+          level: 9
+        })
+      }
+    } else {
+      mkdirSync(pathDirOfApp, { recursive: true })
+    }
+  }
   return new Promise((resolve, reject) => {
     return axios({
-      url: (Endpoints(process.env.TOKAMAK_URL).getBackground + '/' + findBackground.name + '.png'),
+      url: (Endpoints(process.env.TOKAMAK_URL).getBackground + '/' + backgroundInfo.name + '.png'),
       method: 'get',
       responseType: 'arraybuffer'
     })
       .then((request) => {
-        if (request.statusText != '200' && request.statusText != '201')
+        if (request.status != '200' && request.status != '201')
           throw Error(`Tokamak.getBackground: 'Status Code invalid: ${request.statusText}'`)
+        if (request.data instanceof Buffer && (options !== undefined && options.cache)) {
+          const job = {
+            id: backgroundInfo.id,
+            options: {},
+            size: request.data.byteLength
+          }
+          const compressData = deflateRawSync(request.data, {
+            level: 9
+          })
+
+          writeFileSync(join(pathDirOfApp, backgroundInfo.id), compressData, {})
+        }
         resolve(request.data)
+
       })
       .catch((error) => reject(error))
   })
