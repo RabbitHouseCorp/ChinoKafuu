@@ -1,120 +1,134 @@
 /* eslint-disable security/detect-non-literal-fs-filename */
 import axios from 'axios'
 import { Buffer } from 'node:buffer'
+import { randomBytes } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 
 import fs, { join } from 'node:path'
-import { deflateRawSync, inflateRawSync, constants } from 'node:zlib'
+import { constants, deflateRawSync, inflateRawSync } from 'node:zlib'
 
 /**
  *
  * @param {*} name Add an extra identifier to include in the cache information
  * @param {boolean} disabled Disable auto-delete of cache. (Make the framework not remove this cache temporarily)
- * @param {{expire?:number; status: boolean; typeCache: 'DO_NOT_CACHE' | 'CACHING_ENABLED' | 'CACHE_LIMITED'}} cached
+ * @param {{
+ *  expire?:number;
+ *  status: boolean;
+ *  typeCache: 'DO_NOT_CACHE' | 'CACHING_ENABLED' | 'CACHE_LIMITED';
+ *  contentType?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png';
+ *  typeFile?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png'
+ * }} cached
  * @returns
  */
-const genID = (name, disabled, cached = { expire: 20 * 1000, status: false, typeCache: 'DO_NOT_CACHE' }) =>
-  Buffer.from(JSON.stringify({ name, disabled, cached }))
-    .toString('base64')
-    .replace(/==$|=$/g, '')
-    .split('')
-    .reverse()
-    .join('') + '=='
+const genID = (name, disabled, cached = {}) => {
+  return {
+    name,
+    disabled,
+    cached: {
+      expire: 20 * 1000,
+      status: false,
+      typeCache: 'DO_NOT_CACHE',
+      contentType: null,
+      typeFile: null, ...cached
+    }
+  }
+
+}
 export const ConstantBackground = {
   'chino_woaaah': {
     name: 'chino_woaaah',
-    id: genID('chino_woaaah', false),
+    id: genID('chino_woaaah', false, { contentType: 'gif', typeFile: 'gif' }),
     disabled: false,
     cached: false,
     animated: true,
   },
   'gochiusa_1': {
     name: 'gochiusa_1',
-    id: genID('gochiusa_1', false),
+    id: genID('gochiusa_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_2': {
     name: 'gochiusa_2',
-    id: genID('gochiusa_2', false),
+    id: genID('gochiusa_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_3': {
     name: 'gochiusa_3',
-    id: genID('gochiusa_3', false),
+    id: genID('gochiusa_3', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_4': {
     name: 'gochiusa_4',
-    id: genID('gochiusa_4', false),
+    id: genID('gochiusa_4', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'gochiusa_5': {
     name: 'gochiusa_5',
-    id: genID('gochiusa_5', false),
+    id: genID('gochiusa_5', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'mctha_red': {
     name: 'mctha_red',
-    id: genID('mctha_red', false),
+    id: genID('mctha_red', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'no_game_no_life_1': {
     name: 'no_game_no_life_1',
-    id: genID('no_game_no_life_1', false),
+    id: genID('no_game_no_life_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'no_game_no_life_2': {
     name: 'no_game_no_life_2',
-    id: genID('no_game_no_life_2', false),
+    id: genID('no_game_no_life_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'nyc_skyline': {
     name: 'nyc_skyline',
-    id: genID('nyc_skyline', false),
+    id: genID('nyc_skyline', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_1': {
     name: 'show_by_rock_1',
-    id: genID('show_by_rock_1', false),
+    id: genID('show_by_rock_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_2': {
     name: 'show_by_rock_2',
-    id: genID('show_by_rock_2', false),
+    id: genID('show_by_rock_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_3': {
     name: 'show_by_rock_3',
-    id: genID('show_by_rock_3', false),
+    id: genID('show_by_rock_3', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
   },
   'show_by_rock_4': {
     name: 'show_by_rock_4',
-    id: genID('show_by_rock_4', false),
+    id: genID('show_by_rock_4', false, { contentType: 'image/png', typeFile: 'image/png' }),
     disabled: false,
     cached: false,
     animated: false,
@@ -296,43 +310,74 @@ const renderRize = async (options = optionsTokamak) => {
  * @returns {Promise<Buffer | null | undefined>}
  */
 export const getBackground = async (name, options = { cache: false }) => {
-  const [findBackground, backgroundInfo] = Object.entries(ConstantBackground)
+  const backgroundData = Object.entries(ConstantBackground)
     .find(([k]) => k === name)
-  if (findBackground === undefined && findBackground === null)
+  const [findBackground, backgroundInfo] = backgroundData ?? [null, null]
+  if (findBackground === null && findBackground === null)
     throw Error(`Tokamak.getBackground: You provided the wrong background name, I'm receiving: ${name}`)
   const pathDirOfApp = fs.resolve('../', '../', '.chinokafuu/cache/image')
+  const pathDirOfMap = fs.resolve('../', '../', '.chinokafuu/cache/map')
   if (options !== undefined && options.cache) {
     const checkFramework = existsSync(pathDirOfApp)
     if (checkFramework) {
-      const checkCache = readdirSync(pathDirOfApp)
-      if (checkCache.find((c) => c === backgroundInfo.id) !== undefined) {
-        return inflateRawSync(readFileSync(join(pathDirOfApp, backgroundInfo.id)), {
-          level: constants.Z_BEST_SPEED
-        })
+      const nameOfMap = (Buffer.from(backgroundInfo.name).toString('base64') + '.json').replace(/\\|\//g, '')
+      if (existsSync(join(pathDirOfMap, nameOfMap))) {
+        const checkCacheMap = readdirSync(join(pathDirOfMap))
+        if (checkCacheMap.find((c) => c === nameOfMap) !== undefined) {
+          const readMap = JSON.parse(readFileSync(join(pathDirOfMap, nameOfMap)))
+          const pathImage = join(pathDirOfApp, readMap.parent)
+          if (existsSync(pathImage)) {
+            return inflateRawSync(readFileSync(pathImage), {
+              level: constants.Z_BEST_SPEED
+            })
+          }
+        }
       }
     } else {
       mkdirSync(pathDirOfApp, { recursive: true })
     }
   }
   return new Promise((resolve, reject) => {
+    const startTimestamp = Date.now()
     return axios({
       url: (Endpoints(process.env.TOKAMAK_URL).getBackground + '/' + backgroundInfo.name + '.png'),
       method: 'get',
       responseType: 'arraybuffer'
     })
       .then((request) => {
+        const endTimestamp = Date.now()
         if (request.status != '200' && request.status != '201')
           throw Error(`Tokamak.getBackground: 'Status Code invalid: ${request.statusText}'`)
         if (request.data instanceof Buffer && (options !== undefined && options.cache)) {
-          // const job = {
-          //   id: backgroundInfo.id,
-          //   options: {},
-          //   size: request.data.byteLength
-          // }
           const compressData = deflateRawSync(request.data, {
             level: constants.Z_BEST_COMPRESSION
           })
-          writeFileSync(join(pathDirOfApp, backgroundInfo.id), compressData, {})
+          const id = Buffer.from(randomBytes(40 * 1)).toString('base64').replace(/\\|\//g, '')
+          const nameOfMap = (Buffer.from(backgroundInfo.name).toString('base64') + '.json').replace(/\\|\//g, '')
+          const data = JSON.stringify({
+            name: backgroundInfo.name,
+            metadata: backgroundInfo.id,
+            details: {
+              isRequest: false,
+              startTimestamp,
+              endTimestamp
+            },
+            date: Date.now(),
+            type: 'cache/image',
+            flags: ['CACHE_IMAGE', 'BACKGROUND', 'DATA', 'TOKAMAK'],
+            path: `image/${id}`,
+            parent: id,
+            file: {
+              compress: true,
+              sizeOfFile: compressData.byteLength,
+              sizeOfFileOriginal: request.data.byteLength
+            },
+            metadata_file: Buffer.from(JSON.stringify({
+              data: [backgroundInfo, constants.Z_BEST_COMPRESSION, constants.Z_BEST_SPEED]
+            })).toString('base64')
+          })
+          writeFileSync(join(pathDirOfMap, nameOfMap), data)
+          writeFileSync(join(pathDirOfApp, id), compressData, {})
         }
         resolve(request.data)
 
