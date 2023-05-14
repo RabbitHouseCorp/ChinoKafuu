@@ -21,13 +21,15 @@ export class Logger {
       if (regexJson.test(message)) {
         console.log(`${chalk.gray(this.#getTimestamp)} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
       } else {
-        message = message
-          .replace(/DiscordRESTError \[[0-9]+\]/, (str) => chalk.redBright(str))
-          .replace(/\s([A-Za-z0-9_]+:.*)/g, (str) => {
-            const [key, value] = str.split(':')
-            return [chalk.greenBright(key), value].join(':')
-          })
-          .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (str) => chalk.gray(str))
+        if (typeof message === 'string') {
+          message = message
+            .replace(/DiscordRESTError \[[0-9]+\]/, (str) => chalk.redBright(str))
+            .replace(/\s([A-Za-z0-9_]+:.*)/g, (str) => {
+              const [key, value] = str.split(':')
+              return [chalk.greenBright(key), value].join(':')
+            })
+            .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (str) => chalk.gray(str))
+        }
         console.log(`${chalk.gray(this.#getTimestamp)} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(20, ' ')}― ${message}`)
       }
 
