@@ -2,8 +2,8 @@
   "bank": {
     "message": "> 🔹 **Bank**: `{{0}}`\n> 🔹 **Value**: `{{1}}`",
     "button": {
-      "transfer": "Transfer to bank",
-      "withDraw": "Withdraw money"
+      "transfer": "存進銀行",
+      "withDraw": "提領"
     },
     "success": {
       "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n > 🔻 **Bank:** `{{1}}`\n > 📈 **Value**: `{{2}}`",
