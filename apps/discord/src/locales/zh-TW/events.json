@@ -1,8 +1,8 @@
 {
   "executionFailure": {
-    "embedTitle": "An error has occurred! Sorry...",
+    "embedTitle": "很抱歉，發生了一些錯誤！",
     "fieldTitle": "Notify us",
-    "fieldValue": "As we probably don't know about this error, you can either [open an issue](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose) on GitHub or contact us in our [support server](https://discord.gg/Jr57UrsXeC). Don't forget to attach this _little message_ when reporting the error.\nThanks and sorry!"
+    "fieldValue": "我們並不知道這項錯誤，你可以[在Github上回報問題](https://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose)或者是到我們的[社群](https://discord.gg/Jr57UrsXeC)諮詢。在回報錯誤時請記得附加 _這則訊息_。\n非常感謝！"
   },
   "stopnotify": {
     "alreadyStopped": "sorry but, you already told me to stop notify you about the migration.",
