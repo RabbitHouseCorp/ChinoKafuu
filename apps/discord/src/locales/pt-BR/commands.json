@@ -1,4 +1,34 @@
 {
+  "bank": {
+    "message": "> 🔹 **Bank**: `{{0}}`\n> 🔹 **Value**: `{{1}}`",
+    "button": {
+      "transfer": "Transfer to bank",
+      "withDraw": "Withdraw money"
+    },
+    "success": {
+      "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n > 🔻 **Bank:** `{{1}}`\n > 📈 **Value**: `{{2}}`",
+      "valueWasTransferred": "The value of **{{0}}** was successfully transferred to the bank!\n > 🔹 **Bank**: `{{1}}`\n > 🔻 **Value**: `{{2}}`"
+    },
+    "interaction": {
+      "value": "Value",
+      "title": "Transfer"
+    },
+    "error": {
+      "rejectedValue": "You entered a value of {{0}} while the total value is {{1}}. Please try again.",
+      "rejectedBankWithdrawalValue": "The value you are trying to withdraw, which is **`{{0}}`**, is too high! Please try again with a lower value.",
+      "valueIsInvalid": "The value you entered is invalid! Please try again.",
+      "valueNotAcceptable": "Oops! I think you entered **`-10000`** or something similar, which makes the value negative. If you want to remove the money from the bank, try clicking on the \"Withdraw Money\" button.",
+      "transactionWithError": "Oh no!!! There was a problem on our side and we couldn't transfer or withdraw the money. I am forwarding this to the team to resolve. Please try again later or in 20 minutes."
+    }
+  },
+  "rob": {
+    "error": "Oh, I'm sorry, but it seems that this job is not compatible.",
+    "timeout": "You'll need to wait 3 hours before running this command again",
+    "didNotFindAnyoneNearby": "I couldn't find any user on this server to steal from. We'll have to cancel this plan.",
+    "errorWhilePlanning": "Oh no! It looks like we've lost sight of the user. Should we try to search for them?",
+    "missionAccomplished": "Oh my, it seems like you have successfully stolen the {{0}} with a quantity of {{1}}.",
+    "youWereArrested": "Oh no, it looks like you've been caught by the police {{names of the police officers}}. You'll need to wait for 3 hours before you can use this command again."
+  },
   "userbanner": {
     "description": "Pega o banner de um usuário.",
     "download": "Abrir o banner no seu navegador.",
