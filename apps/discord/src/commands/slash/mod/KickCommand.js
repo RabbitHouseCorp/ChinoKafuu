@@ -48,11 +48,11 @@ export default class KickCommand extends Command {
     if (!guildMember) return ctx.replyT('error', 'basic:invalidUser')
     try {
       const embed = new EmbedBuilder()
-      embed.setTitle(ctx._locale('basic:punishment.kicked', { 0: `${member.username}#${member.discriminator}` }))
+      embed.setTitle(ctx._locale('basic:punishment.kicked', { 0: `@${member.username}` }))
       embed.setColor('MODERATION')
       embed.setThumbnail(member.avatarURL)
-      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${guildMember.user.username}#${guildMember.user.discriminator} (\`${guildMember.user.id}\`)`)
-      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${guildMember.user.username} (\`${guildMember.user.id}\`)`)
+      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
       embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
       guildMember.kick(reason).then(() => ctx.send(embed.build()))
 

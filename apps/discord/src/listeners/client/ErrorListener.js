@@ -34,7 +34,7 @@ export default class ErrorListener extends Listener {
       embed.setColor('ERROR')
       embed.setTitle(_locale('events:executionFailure.embedTitle'))
       embed.setDescription(`\`\`\`js\n${error.stack.removePath().slice(0, 1800)}\`\`\``)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
       embed.setTimestamp()
       client.executeWebhook(webhook.id, webhook.token, {
         embeds: [embed],

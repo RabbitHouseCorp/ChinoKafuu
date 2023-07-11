@@ -149,7 +149,7 @@ export class CommandContext {
 
       return member
     } catch {
-      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `${member.username}#${member.discriminator}`.toLowerCase() === args.toLowerCase())
+      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `@${member.username}`.toLowerCase() === args.toLowerCase())
       if (!member) {
         if (hasAuthor) {
           return await this.client.getRESTUser(this.message.author.id)

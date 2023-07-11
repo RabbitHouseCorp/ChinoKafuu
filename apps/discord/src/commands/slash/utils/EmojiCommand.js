@@ -1,6 +1,6 @@
-import { Command, SlashCommandContext } from '../../../structures/util'
 import axios from 'axios'
 import { CommandBase, CommandOptions } from 'eris'
+import { Command, SlashCommandContext } from '../../../structures/util'
 
 export default class EmojiCommand extends Command {
   constructor() {

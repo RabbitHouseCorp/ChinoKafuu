@@ -43,13 +43,13 @@ export default class UnbanCommand extends Command {
     if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
     const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
 
-    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.author.username}#${ctx.message.author.discriminator}`, 1: reason })).then(() => {
+    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `@${ctx.message.author.username}`, 1: reason })).then(() => {
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
       embed.setThumbnail(member.user.avatarURL)
-      embed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `${member.user.username}#${member.user.discriminator}` }))
-      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
-      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+      embed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `@${member.user.username}` }))
+      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
+      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
       embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
       ctx.send(embed.build())

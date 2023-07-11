@@ -14,6 +14,7 @@ export class NodeTest {
     logger.log(`Starting a Jest in repository ${this.node.getNameProject()}`)
     console.log('\n')
     return new Promise((resolved, rejects) => {
+      if (process.argv0.includes('--lint')) return;
       const test = spawn('yarn', ['test'], {
         cwd: this.node.resolved,
         shell: true,
@@ -50,6 +51,7 @@ export class NodeTest {
     logger.log(`Starting a Eslint in repository ${this.node.getNameProject()}`)
     console.log('\n')
     return new Promise((resolved, rejects) => {
+      if (!process.argv0.includes('--lint')) return;
       const test = spawn('yarn', ['test:lint'], {
         cwd: this.node.resolved,
         shell: true,

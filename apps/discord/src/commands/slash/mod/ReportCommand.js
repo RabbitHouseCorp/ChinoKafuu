@@ -55,8 +55,8 @@ export default class ReportCommand extends Command {
     const embed = new EmbedBuilder()
     embed.setColor('MODERATION')
     embed.setThumbnail(member.avatarURL)
-    embed.addField(ctx._locale('commands:report.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
-    embed.addField(ctx._locale('commands:report.embed.authorName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+    embed.addField(ctx._locale('commands:report.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
+    embed.addField(ctx._locale('commands:report.embed.authorName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
     embed.addField(ctx._locale('commands:report.embed.channel'), ctx.message.channel.mention)
     embed.addField(ctx._locale('commands:report.embed.reason'), proof ? `[${reason}](${proof})` : reason)
 

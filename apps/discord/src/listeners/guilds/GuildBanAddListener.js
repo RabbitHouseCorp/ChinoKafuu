@@ -20,9 +20,9 @@ export default class GuildBanAddListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
       embed.setThumbnail(member.avatarURL)
-      embed.setTitle(_locale('basic:punishment.banned', { 0: `${member.username}#${member.discriminator}` }))
-      embed.addField(_locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
-      embed.addField(_locale('basic:punishment.embed.staffName'), `${mod.username}#${mod.discriminator} (\`${mod.id}\`)`)
+      embed.setTitle(_locale('basic:punishment.banned', { 0: `@${member.username}` }))
+      embed.addField(_locale('basic:punishment.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
+      embed.addField(_locale('basic:punishment.embed.staffName'), `@${mod.username} (\`${mod.id}\`)`)
       embed.addField(_locale('basic:punishment.embed.reason'), reason)
 
       if (!server.punishModule) return
@@ -42,8 +42,8 @@ export default class GuildBanAddListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('MODERATION')
       embed.setThumbnail(member.avatarURL)
-      embed.setTitle(_locale('basic:punishment.banned', { 0: `${member.username}#${member.discriminator}` }))
-      embed.addField(_locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
+      embed.setTitle(_locale('basic:punishment.banned', { 0: `@${member.username}` }))
+      embed.addField(_locale('basic:punishment.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
       embed.addField(_locale('basic:punishment.embed.reason'), reason)
 
       if (!server.punishModule) return

@@ -105,7 +105,7 @@ export default class ProfileCommand extends Command {
       money: Number(user.yens).toLocaleString(),
       aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
       married: user.isMarry,
-      partnerName: `${couple?.username}#${couple.discriminator}`,
+      partnerName: `@${couple?.username}`,
       bgId: user.background,
       stickerId: user.sticker,
       favColor: user.profileColor,

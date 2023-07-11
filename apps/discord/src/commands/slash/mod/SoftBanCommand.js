@@ -49,12 +49,12 @@ export default class SoftBanCommand extends Command {
     }))
       .then(() => {
         const embed = new EmbedBuilder()
-        embed.setTitle(ctx._locale('basic:punishment.softBan', { 0: `${member.username}#${member.discriminator}` }))
+        embed.setTitle(ctx._locale('basic:punishment.softBan', { 0: `@${member.username}` }))
         embed.setColor('MODERATION')
         embed.setThumbnail(member.avatarURL)
-        embed.addField(ctx._locale('basic:punishment.memberName'), `${member.username}#${member.discriminator}`, true)
-        embed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.username}#${member.discriminator} (\`${member.id}\`)`)
-        embed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.author.username}#${ctx.message.author.discriminator} (\`${ctx.message.author.id}\`)`)
+        embed.addField(ctx._locale('basic:punishment.memberName'), `@${member.username}`, true)
+        embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
+        embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
         embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
 
         ctx.send(embed.build())

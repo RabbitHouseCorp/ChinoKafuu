@@ -40,7 +40,7 @@ export default class ServerInfoCommand extends Command {
     }
     const description = [
       `**${_locale('commands:serverinfo.guildName')}:** ${guild.name} (\`${guild.id}\`)`,
-      `**${_locale('commands:serverinfo.guildOwner')}:** ${owner.username}#${owner.discriminator} (\`${owner.id}\`)`,
+      `**${_locale('commands:serverinfo.guildOwner')}:** @${owner.username} (\`${owner.id}\`)`,
       `**${_locale('commands:serverinfo.guildAFKChannel.title')}:** ${guild.channels.get(guild.afkChannelID) ? `${guild.channels.get(guild.afkChannelID).name} (\`${guild.channels.get(guild.afkChannelID).id}\`)` : _locale('commands:serverinfo.guildAFKChannel.noAfkChannel')}`,
       `**${_locale('commands:serverinfo.booster.levelCount')}:** ${guild.premiumTier} (${_locale('commands:serverinfo.booster.boosterCount')}: ${guild.premiumSubscriptionCount})`,
       `**${_locale('commands:serverinfo.guildMember')}:** ${guild.memberCount}`,

@@ -8,16 +8,43 @@ const isJson = (data) => {
     return false
   }
 }
+
+/**
+ * @template T
+ */
 export class StateData {
+  /**
+   *
+   * @param {T} actionState
+   */
   constructor(actionState) {
     this.actionState = actionState
   }
 }
 
 /**
- *
+ * @template T
+ * @typedef  StateEffect
+ * @property {(property: T) => keyof property} get
+ * @property {<S>(data: S) => StateDataEffect<T & S>} setState
+ * @property {(property: keyof T) => StateDataEffect<T>} del
+ * @property {import('events').EventEmitter | null} [event]
+ * @property {() => void} destroy;
+ * @memberof StateEffect
+ */
+
+/**
+ * @template T
+ * @typedef StateDataEffect
+ * @type {StateData<StateEffect<T>> & T}
+ */
+
+/**
+ * @template T
  * @description This will help save unnecessary variable and after you are done and set the data to null and let the GC work.
- * @returns {StateData?}
+ * @param {T} [data]
+ * @param {{eventEmitter: boolean;}} [options]
+ * @returns {StateDataEffect<T>}
  */
 export const defineState = (data, options = { eventEmitter: false }) => {
   let state = data ?? {}

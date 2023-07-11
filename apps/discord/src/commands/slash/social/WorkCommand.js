@@ -34,7 +34,7 @@ export default class WorkCommand extends Command {
     const jobsList = Object.entries(TypeProfession)
       .map(([k, [type, salary, emoji, text, time]]) => {
         return {
-          label: ctx._locale(text),
+          label: ctx._locale(text.toString()),
           value: k,
           description: ctx._locale(`commands:work.description.${k}`),
           custom_id: k,

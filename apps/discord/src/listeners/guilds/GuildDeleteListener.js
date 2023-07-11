@@ -30,8 +30,8 @@ export default class GuildDeleteListener extends Listener {
         const embed = new EmbedBuilder()
         embed.setColor('#730101')
         embed.setTitle('Guild Blacklisted')
-        embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
-        embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+        embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}`)
+        embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
         embed.setTimestamp()
 
         client.executeWebhook(webhook.id, webhook.token, {
@@ -45,8 +45,8 @@ export default class GuildDeleteListener extends Listener {
       const embed = new EmbedBuilder()
       embed.setColor('#eb2323')
       embed.setTitle('Guild Deleted')
-      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** ${owner.username}#${owner.discriminator}`)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}`)
+      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
       embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {

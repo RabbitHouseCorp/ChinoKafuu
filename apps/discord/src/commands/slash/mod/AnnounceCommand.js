@@ -47,7 +47,7 @@ export default class AnnounceCommand extends Command {
     embed.setColor('DEFAULT')
     embed.setAuthor(guild.name, guild.iconURL)
     embed.setDescription(announce)
-    embed.setFooter(ctx._locale('commands:announce.embedSendBy', { 0: `${ctx.message.member.username}#${ctx.message.member.discriminator}` }), ctx.message.member.avatarURL)
+    embed.setFooter(ctx._locale('commands:announce.embedSendBy', { 0: `@${ctx.message.member.username}` }), ctx.message.member.avatarURL)
     const everyone = new Button()
     everyone.setStyle(1)
     everyone.setLabel(ctx._locale('commands:announce.mentionEveryone'))

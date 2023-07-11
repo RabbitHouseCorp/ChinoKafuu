@@ -1,6 +1,7 @@
 import { EventEmitter } from 'events'
 import { WebSocketServer } from 'ws'
 import { LoggerSystem } from '../logger/defineLogger.js'
+
 import { ProcessModel } from './model/ProcessModel.js'
 const isDeveloperMode = () => process.argv.includes('--dev')
 const enableServer = () => process.argv.includes('--watch-server')

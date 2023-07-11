@@ -307,6 +307,7 @@ const renderRize = async (options = optionsTokamak) => {
 /**
  *
  * @param {keyof ConstantBackground} name
+ * @param {cache: boolean} [options]
  * @returns {Promise<Buffer | null | undefined>}
  */
 export const getBackground = async (name, options = { cache: false }) => {

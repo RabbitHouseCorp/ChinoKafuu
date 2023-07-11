@@ -42,7 +42,7 @@ export default class BanInfoCommand extends Command {
     embed.setColor('MODERATION')
     embed.setThumbnail(member.user.avatarURL)
     embed.setTitle(ctx._locale('commands:baninfo.title'))
-    embed.addField(ctx._locale('commands:baninfo.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
+    embed.addField(ctx._locale('commands:baninfo.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
     embed.addField(ctx._locale('commands:baninfo.reason'), member.reason ? member.reason : ctx._locale('basic:noReason'))
     const unban = new Button()
       .setStyle(4)
@@ -70,13 +70,13 @@ export default class BanInfoCommand extends Command {
   }
 
   unban(guild, member, ctx, ack) {
-    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator}`, 1: ctx._locale('basic:noReason') })).then(() => {
+    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `@${ctx.message.member.user.username}`, 1: ctx._locale('basic:noReason') })).then(() => {
       const unbanEmbed = new EmbedBuilder()
       unbanEmbed.setColor('MODERATION')
       unbanEmbed.setThumbnail(member.user.avatarURL)
-      unbanEmbed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `${member.user.username}#${member.user.discriminator}` }))
-      unbanEmbed.addField(ctx._locale('basic:punishment.embed.memberName'), `${member.user.username}#${member.user.discriminator} (\`${member.user.id}\`)`)
-      unbanEmbed.addField(ctx._locale('basic:punishment.embed.staffName'), `${ctx.message.member.user.username}#${ctx.message.member.user.discriminator} (\`${ctx.message.member.user.id}\`)`)
+      unbanEmbed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `@${member.user.username}` }))
+      unbanEmbed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
+      unbanEmbed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.member.user.username} (\`${ctx.message.member.user.id}\`)`)
       unbanEmbed.addField(ctx._locale('basic:punishment.embed.reason'), ctx._locale('basic:noReason'))
 
       ack.sendAck('update', {

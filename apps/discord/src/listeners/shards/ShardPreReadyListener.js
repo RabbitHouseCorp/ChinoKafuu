@@ -26,7 +26,7 @@ export default class ShardPreReadyListener extends Listener {
       embed.setColor('ERROR')
       embed.setTitle('Shard Reconnecting')
       embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Reconnecting\``)
-      embed.setFooter(`Instance: ${client.user.username}#${client.user.discriminator}`, client.user.avatarURL)
+      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
       embed.setTimestamp()
 
       client.executeWebhook(webhook.id, webhook.token, {

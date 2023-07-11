@@ -40,7 +40,7 @@ export default class InventoryProfileCommand extends Command {
       componentSelected: '',
       profileType: user.profileType,
       married: user.isMarry,
-      partnerName: marryWith ? `${marryWith?.username}#${marryWith.discriminator}` : '',
+      partnerName: marryWith ? `@${marryWith?.username}` : '',
       user,
       marryWith,
       avatar,
