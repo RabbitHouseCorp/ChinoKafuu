@@ -1,4 +1,8 @@
 {
+  "bank": {
+    "description": "bank.description",
+    "name": "bank"
+  },
   "daily": {
     "options": {},
     "name": "daily",
