@@ -38,6 +38,12 @@ export const ConstantBackground = {
   'chino_woaaah': {
     name: 'chino_woaaah',
     id: genID('chino_woaaah', false, { contentType: 'gif', typeFile: 'gif' }),
+    title: 'Chino Woaaah',
+    emoji: {
+      id: '628330389764571157',
+      name: 'chino_excited',
+      animated: true
+    },
     disabled: false,
     cached: false,
     animated: true,
@@ -45,6 +51,11 @@ export const ConstantBackground = {
   'gochiusa_1': {
     name: 'gochiusa_1',
     id: genID('gochiusa_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Gochiusa 1',
+    emoji: {
+      id: null,
+      name: '1️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -52,6 +63,11 @@ export const ConstantBackground = {
   'gochiusa_2': {
     name: 'gochiusa_2',
     id: genID('gochiusa_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Gochiusa 2',
+    emoji: {
+      id: null,
+      name: '2️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -59,6 +75,11 @@ export const ConstantBackground = {
   'gochiusa_3': {
     name: 'gochiusa_3',
     id: genID('gochiusa_3', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Gochiusa 3',
+    emoji: {
+      id: null,
+      name: '3️⃣',
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -66,6 +87,11 @@ export const ConstantBackground = {
   'gochiusa_4': {
     name: 'gochiusa_4',
     id: genID('gochiusa_4', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Gochiusa 4',
+    emoji: {
+      id: null,
+      name: '4️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -73,6 +99,11 @@ export const ConstantBackground = {
   'gochiusa_5': {
     name: 'gochiusa_5',
     id: genID('gochiusa_5', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Gochiusa 5',
+    emoji: {
+      id: null,
+      name: '5️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -80,6 +111,11 @@ export const ConstantBackground = {
   'mctha_red': {
     name: 'mctha_red',
     id: genID('mctha_red', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Mctha Red',
+    emoji: {
+      id: null,
+      name: '⭐'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -87,6 +123,11 @@ export const ConstantBackground = {
   'no_game_no_life_1': {
     name: 'no_game_no_life_1',
     id: genID('no_game_no_life_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'No Game No Life 1',
+    emoji: {
+      id: null,
+      name: '1️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -94,6 +135,11 @@ export const ConstantBackground = {
   'no_game_no_life_2': {
     name: 'no_game_no_life_2',
     id: genID('no_game_no_life_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'No Game No Life 2',
+    emoji: {
+      id: null,
+      name: '2️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -101,6 +147,11 @@ export const ConstantBackground = {
   'nyc_skyline': {
     name: 'nyc_skyline',
     id: genID('nyc_skyline', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'NYC Skyline',
+    emoji: {
+      id: null,
+      name: '🌆',
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -108,6 +159,11 @@ export const ConstantBackground = {
   'show_by_rock_1': {
     name: 'show_by_rock_1',
     id: genID('show_by_rock_1', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Show By Rock 1',
+    emoji: {
+      id: null,
+      name: '1️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -115,6 +171,11 @@ export const ConstantBackground = {
   'show_by_rock_2': {
     name: 'show_by_rock_2',
     id: genID('show_by_rock_2', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Show by Rock 2',
+    emoji: {
+      id: null,
+      name: '2️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -122,6 +183,11 @@ export const ConstantBackground = {
   'show_by_rock_3': {
     name: 'show_by_rock_3',
     id: genID('show_by_rock_3', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Show By Rock 3',
+    emoji: {
+      id: null,
+      name: '3️⃣',
+    },
     disabled: false,
     cached: false,
     animated: false,
@@ -129,6 +195,11 @@ export const ConstantBackground = {
   'show_by_rock_4': {
     name: 'show_by_rock_4',
     id: genID('show_by_rock_4', false, { contentType: 'image/png', typeFile: 'image/png' }),
+    title: 'Show by Rock 4',
+    emoji: {
+      id: null,
+      name: '4️⃣'
+    },
     disabled: false,
     cached: false,
     animated: false,
