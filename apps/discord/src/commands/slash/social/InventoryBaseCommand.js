@@ -18,10 +18,10 @@ export default class InventoryBaseCommand extends Command {
             .setType(1)
             .setName('profile')
             .setDescription('Change profiles that you\'ve purchased or that you already have.'),
-          // new CommandOptions()
-          //   .setType(1)
-          //   .setName('background')
-          //   .setDescription('Change background that you\'ve purchased or that you already have.'),
+          new CommandOptions()
+            .setType(1)
+            .setName('background')
+            .setDescription('Change background that you\'ve purchased or that you already have.'),
         )
     })
   }
