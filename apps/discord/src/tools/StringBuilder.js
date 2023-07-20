@@ -39,6 +39,28 @@ String.prototype.removePath = function () {
 
 }
 
+String.prototype.isUpperCase = function () {
+  return this === this.toUpperCase()
+}
+
+String.prototype.isLowerCase = function () {
+  return this === this.toLocaleLowerCase()
+}
+
+String.prototype.convertToColor = function () {
+  if (this.startsWith('#')) {
+    return Number(`0x${this}`.replace('#',''))
+  }
+  return 0
+}
+
+String.prototype.toTitle = function () {
+  return this
+    .split(' ')
+    .map((str) => str.split('').map((s, n) => (n == 0) ? (s.toUpperCase()) : s.toLocaleLowerCase()).join(''))
+    .join(' ')
+}
+
 Object.prototype.toJSONString = function () {
   return JSON.stringify(this)
 }
