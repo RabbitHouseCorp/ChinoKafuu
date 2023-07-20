@@ -1,3 +1,4 @@
+import { isAsyncFunction } from 'util/types'
 import { defineTypeInteraction } from './InteractionManager'
 
 export class InteractionBase {
@@ -56,8 +57,10 @@ export class InteractionBase {
   #whichInteractionIsWorking({ data }) {
     if (Array.isArray(this.name)) {
       const findInteraction = (name) => this.interactionManager.interactionRegistry.findByName(name).typeInteraction()
+
       return this.name
-        .filter((i) => findInteraction(i).includes(defineTypeInteraction(data.component_type).name))
+        .filter((i) => findInteraction(i)
+          .find((interactionType) => defineTypeInteraction(data.component_type).tags.includes(interactionType)) ?? false)
         .map((i) => this.interactionManager.interactionRegistry.findByName(i))
     }
 
@@ -102,10 +105,18 @@ export class InteractionBase {
       const { data } = args.ctx
       const interactions = this.#whichInteractionIsWorking(data)
       interactions.map(async (interaction) => {
-        if (!this._once) {
-          interaction.once(args)
+        if (interaction.mode !== undefined) {
+          if (isAsyncFunction(interaction.R)) {
+            interaction.R(args).catch((err) => { throw err })
+          } else {
+            interaction.R(args)
+          }
+        } else {
+          if (!this._once) {
+            interaction.once(args)
+          }
+          await interaction.interactionFunction(args)
         }
-        await interaction.interactionFunction(args)
       })
       this._once = true
       return
@@ -118,12 +129,18 @@ export class InteractionBase {
         interaction.once(args)
       }
     }
-
     if (interaction?.mode !== undefined && interaction?.mode === 'define') {
-      interaction.R(args)
+      if (isAsyncFunction(interaction.R)) {
+        interaction.R(args).catch((err) => { throw err })
+      } else {
+        interaction.R(args)
+      }
     } else {
-
-      interaction.interactionFunction(args)
+      if (isAsyncFunction(interaction.interactionFunction)) {
+        interaction.interactionFunction(args).catch((err) => { throw err })
+      } else {
+        interaction.interactionFunction(args)
+      }
     }
   }
 

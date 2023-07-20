@@ -1,7 +1,8 @@
 import { randomUUID } from 'node:crypto'
 import { defineTypeInteraction, defineTypeInteractionMessage } from './InteractionManager'
 import { Emoji, Logger } from './util'
-
+import { Emojis } from './util/Emojis'
+const listOfEmojis = Emojis
 export class InteractionContext {
   constructor(data, client, messageCreated, interactionManager, options, interactionBase) {
     this.client = client
@@ -39,6 +40,78 @@ export class InteractionContext {
     return this.editInteraction(embedPageManager.prepareToSend())
   }
 
+  /**
+   * @returns {{
+   *  version: number;
+   *  type: number;
+   *  token: string;
+   *  message: {
+   *    webhook_id: string;
+   *    type: number;
+   *    tts: boolean
+   *    timestamp: string;
+   *    pinned: boolean;
+   *    mentions: [];
+   *    mentions_role: [];
+   *    interaction: {
+   *      user: { id: string }
+   *      type: 2,
+   *      name: string;
+   *      id: string;
+   *    } | null
+   *    id: string;
+   *    flags: number;
+   *    embeds: [];
+   *    edited_timestamp: string | null;
+   *    content: string;
+   *    components: [];
+   *    channel_id: string | null;
+   *    author: {
+   *      username: string;
+   *      public_flags: number;
+   *      id: string;
+   *      global_name: string;
+   *      bot: boolean;
+   *      avatar_decoration: string;
+   *      avatar: string;
+   *    } | null;
+   *    attachments: [] | null;
+   *   locale: string | null;
+   *  }
+   *  member: {
+   *     user: {
+   *       username: string;
+   *       public_flags: number;
+   *       id: string;
+   *       global_name: string | null;
+   *       discriminator: string | null;
+   *       avatar_decoration: string | null;
+   *       avatar: string | null;
+   *     } | null;
+   *     unusual_dm_activity_until: null;
+   *     roles: string[] | null;
+   *     premium_since: string | null;
+   *     pending: boolean;
+   *     nick: string | null;
+   *     mute: boolean;
+   *     joined_at: string | null;
+   *     flags: number;
+   *     deaf: boolean;
+   *     avatar: string | null;
+   *  } | null
+   *  id: string | null;
+   *  guild_locale: string | null;
+   *  guild_id: string | null;
+   *  guild: {
+   *    locale: string | null;
+   *    id: string | null;
+   *    features: string[] | null
+   *  } | null;
+   *  data: { custom_id: string | null; component_type: 2 } | { custom_id: string | null; component_type: 3; values: string[] | null }
+   *  application_id: string | null;
+   *  app_permissions: string | null;
+   * }}
+   */
   getData() {
     return this.data
   }
@@ -196,13 +269,21 @@ export class InteractionContext {
     return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
   }
 
+  /**
+   * @arg {keyof listOfEmojis} emoji
+   * @arg {string} content
+   * @arg {{enableEphemeral?: boolean; options: { mentionUser?: string[] | null; } | null; data?: any}} data
+   */
   async replyT(emoji, content, data = {
-    enableEphemeral: false
+    enableEphemeral: false,
+    options: {
+      mentionUser: null
+    }
   }, ...props) {
     return this.createMessageInteraction({
       type: data?.type ?? defineTypeInteractionMessage('channelMessageWithSource'),
       data: {
-        content: this.contentWithEmoji(emoji, content, true),
+        content: this.contentWithEmoji(emoji, content, true, data.options),
         enableEphemeral: data.enableEphemeral,
         ...data.data
       },
@@ -262,9 +343,8 @@ export class InteractionContext {
     const IsTranslate = args.find((i) => i === true || i === false)
     const t = typeof IsTranslate === 'boolean' && IsTranslate ? this._locale(content, data) : content
     let str = ''
-
     if (typeof emoji === 'string') {
-      str = `${Emoji.getEmoji(emoji).mention} **|** `
+      str = `${Emoji.getEmoji(emoji).mention}${data?.mentionUser ? ' ' + data.mentionUser.map((user) => `<@${user}>`) : ''} **|** `
     } else if (typeof emoji === 'object') {
       str = Emoji.getEmoji(emoji.name)[emoji.type]
     }

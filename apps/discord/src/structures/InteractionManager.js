@@ -1,4 +1,5 @@
 import EventEmitter from 'events'
+import { ManageState } from '../defineTypes/defineState'
 import { InteractionBase } from './InteractionBase'
 import { InteractionContext } from './InteractionContext'
 import { InteractionRateLimit } from './InteractionRateLimit'
@@ -22,12 +23,46 @@ export const defineOptionsCtx = (ctx, options = {
     send: async (...args) => ctx.send(...args),
     sendT: async (...args) => ctx.sendT(...args),
     userGetsInteractionAccess: (...args) => ctx.userGetsInteractionAccess(...args),
-    getState: (...args) => ctx.getState(...args),
+    getState: (...args) => typeof ctx.getState === 'function' ? ctx.getState(...args) : ctx.getState,
     deleteInteraction: async (...args) => ctx.deleteInteraction(...args),
     sendEmbedPage: async (...args) => ctx.sendEmbedPage(...args),
     useModal: async (...args) => ctx.useModal(...args),
     _locale: (...args) => ctx.options._locale(...args),
     getData: (...args) => ctx.getData(...args),
+    /**
+     * This effect can only be used once in each function,
+     * if the other function were to use the useState with effects again, it could cancel the previous function and hand it over to the new one.
+     *
+     * This function is used for cases that are complicated to develop a certain thing and need to receive object updates in real time.
+     * @template T
+     * @param {(var: T) => void | null} func
+     * @param {keyof T} variable
+     * @returns {T | null}
+     */
+    useState: (func = null, variable = null) => {
+      if (defineState.helper.tasks !== undefined || defineState.helper.tasks !== null) {
+        clearInterval(defineState.helper.tasks)
+      }
+
+      if (typeof func === 'function' && Array.isArray(variable)) {
+        defineState.helper.tasks = setInterval(() => {
+          let valid = true
+          const no = ['helper', 'actionState']
+          if (defineState.helper.cache == null) {
+            valid = false
+          }
+          const oldCache = defineState.helper.cache
+          const newCache = Object.entries(defineState).filter(([key]) => no.includes(key))
+
+          defineState.helper.cache = newCache
+          if (valid && defineState.helper.update) {
+            func({ ...defineState, defineState }, { oldCache, newCache })
+          }
+        }, 100)
+        return null
+      }
+      return defineState
+    },
     getArg: (key) => {
       if (ctx.trackingCommand === null && ctx.trackingCommand === undefined) {
         return null
@@ -41,7 +76,9 @@ export const defineOptionsCtx = (ctx, options = {
 }
 
 export const defineTypeInteraction = (d) => {
-  d = d?.data?.component_type ?? d
+  if (typeof d !== 'number') {
+    d = d?.data?.component_type
+  }
   if (d === componentType.button.type) {
     return componentType.button
   } else if (d === componentType.selectMenus.type) {
@@ -97,18 +134,21 @@ export const componentType = {
     type: 3,
     name: 'selectMenu',
     tag: 'selectMenu-interaction',
+    tags: ['select', 'select-menu', 'selectMenu', 'selectMenus'],
     resolved: false
   },
   modal: {
     type: 5,
     name: 'modal',
     tag: 'modal-interaction',
+    tags: ['modal', 'modalInteraction', 'modalInterface', 'modalClient'],
     resolved: false
   },
   selectionMenuResolved: {
     type: 8,
     name: 'selectMenuResolved',
     tag: 'selectMenu-interaction-resolved',
+    tags: ['selectMenuResolved'],
     resolved: true
   }
 }
@@ -155,6 +195,7 @@ export class InteractionManager extends EventEmitter {
     this.client = client
     this.interactionRegistry = client.interactionRegistry
     this.modalIds = []
+    this.stateManager = new ManageState()
     this.#addListeners()
     this.#watchInteraction()
   }
@@ -247,6 +288,7 @@ export class InteractionManager extends EventEmitter {
           }
           return findInteraction
         })
+      this.stateManager.delStates()
     }, 300);
 
   }

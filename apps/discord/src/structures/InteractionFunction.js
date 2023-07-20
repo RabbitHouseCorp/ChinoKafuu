@@ -1,8 +1,19 @@
 /* eslint-disable no-unused-vars */
 import { isAsyncFunction } from 'util/types'
+// eslint-disable-next-line import/named
+import { StateDataEffect, defineState } from '../defineTypes/defineState'
 import { InteractionContext } from './InteractionContext'
+const defineStateDefault = defineState({ default: false })
 
 /**
+ * @template S
+ * @typedef TypeDefineInteractionState
+ * @type {defineInteractionFunction<S>}
+ *
+ */
+
+/**
+ * @template T
  * @typedef {object} defineOptionsCtx
  * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
  * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
@@ -25,10 +36,12 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['getData']} getData
  * @property {InteractionContext['getArg']} getArg
  * @property {InteractionContext} ctx
+ * @property {(func?: (var: StateDataEffect<T>), variable?: keyof StateDataEffect<T>) => StateDataEffect<T> | null} useState
  * @property {InteractionContext['trackingCommand']} trackingCommand
- * @property {defineState} defineState
+ * @property {StateDataEffect<T>} defineState
  */
 /**
+ * @template T
  * @typedef {object} defineOptionsInterface
  * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
  * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
@@ -51,14 +64,32 @@ import { InteractionContext } from './InteractionContext'
  * @property {InteractionContext['getData']} getData
  * @property {InteractionContext['getArg']} getArg
  * @property {InteractionContext} ctx
+ * @property {(func: (variable: T, cache: { newCache: StateDataEffect<T>; oldCache: StateDataEffect<T> })
+ *  => StateDataEffect<T>, options: { timeout?: number; }) => StateDataEffect<T>} useState
  * @property {InteractionContext['trackingCommand']} trackingCommand
- * @property {defineState} defineState
+ * @property {StateDataEffect<T>} defineState
  * @property {async () => void} once
- * @property {}
  */
+
+const genErr = (err, { isAsync = false }) => {
+  if (err instanceof Error) {
+
+    const message = err.stack.split('\n')
+    message.push(`isAsync: "${isAsync}"`)
+    return `\n${message.join('\n')}`
+  }
+
+  return err
+}
+
+const test = { ok: true }
+const deplot = () => ({ ...test })
+
 /**
  *  This type of interaction function definition is used to reduce workload and make it a single and asynchronous (or non-asynchronous) function.
- *  @param {(T: defineOptionsInterface) => void} interactionDefault
+ *  @template S
+ *  @param {(T: defineOptionsInterface<S>, stateTemplate?: S) => void} interactionDefault
+ *  @param {S} _
  *  ```js
  *  import { defineInteractionFunction } from './InteractionFunction'
  *
@@ -66,15 +97,15 @@ import { InteractionContext } from './InteractionContext'
  *      /// ...code
  *  })
  *  ```
- *
  */
-export const defineInteractionFunction = async (interactionDefault) => {
-  /**
-   * @param {defineOptionsInterface} arguments
-   * @returns {void}
-   */
-  return async (args) => {
-
+export const defineInteractionFunction = async (interactionDefault, _ = null) => {
+  if (_ != null) {
+    _ = null
+  }
+  return async (args, _ = null) => {
+    if (_ != null) {
+      _ = null
+    }
     return new Promise((resolve, reject) => {
       const defaultFunc = {
         isAsync: isAsyncFunction(interactionDefault),
@@ -82,20 +113,17 @@ export const defineInteractionFunction = async (interactionDefault) => {
         args: []
       }
       if (defaultFunc.isAsync) {
-        defaultFunc.fn(args)
-          .then(() => resolve(true))
-          .catch((err) => reject({ err, error: true, isAsync: true }))
-        delete defaultFunc.fn
-        return
+        defaultFunc.fn(args).catch((err) => { throw genErr(err, { isAsync: true }) })
+        resolve(true)
+      } else {
+        try {
+          defaultFunc.fn(args)
+          resolve(true)
+        } catch (err) {
+          throw genErr(err, { isAsync: false })
+        }
       }
 
-      try {
-        defaultFunc.fn(args)
-        resolve(true)
-        delete defaultFunc.fn
-      } catch (err) {
-        reject({ err, error: true, isAsync: false })
-      }
     })
   }
 }
@@ -110,6 +138,7 @@ export const defineInteractionFunction = async (interactionDefault) => {
  *      'timeout'?: 'string | null';
  *  };
  *  autoComplete?: boolean;
+ *  typeInteraction: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal'
  *  timeoutInteraction?: number | null | undefined;
  * }} interactionOptionsTypeDef
  */
@@ -118,20 +147,23 @@ export const defineInteractionFunction = async (interactionDefault) => {
  * @template T, R
  * @param {defineInteraction} T
  * @param {defineInteractionFunction} R
- * @param options soon!
  */
-export const defineInteractionDefault = (T, R, options = {}) => {
+export const defineInteractionDefault = (T, R) => {
 
   const obj = ({
     mode: 'define',
     T: T instanceof Object ? T : (() => { throw new Error('') }),
-    R: async (args) => (await R)(args)
+    R: async (args) => (await R)(args),
+    typeInteraction: () => T instanceof Object ?
+      T.typeInteraction()
+      : (() => { throw new Error('Error: Fail to execute: defineInteractionDefault().obj().typeInteraction was broked!') })
   })
 
   // To make the code safer, let's avoid modifying property names.
   Object.defineProperty(obj, 'mode', { writable: false })
   Object.defineProperty(obj, 'T', { writable: false })
   Object.defineProperty(obj, 'R', { writable: false })
+  Object.defineProperty(obj, 'typeInteraction', { writable: false })
 
   return obj
 }
@@ -141,8 +173,10 @@ export const defineInteractionDefault = (T, R, options = {}) => {
  * @param {interactionOptionsTypeDef} interactionOptions
  * @returns {interactionOptionsTypeDef}
  */
-export const defineInteraction = ({ name, customMessage, autoComplete, timeoutInteraction }) => ({
+export const defineInteraction = ({ name, customMessage, autoComplete, timeoutInteraction, typeInteraction }) => ({
   interactionName: typeof name === 'string' ? name : (() => { throw Error(`Field of name is string: (${typeof name}) - ${name}`) })(),
+  typeInteraction: () => Array.isArray(typeInteraction) ?
+    [] : typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] /* ANY */,
   customMessage: Object.is(customMessage) ? {} : customMessage,
   autoComplete: typeof autoComplete === 'boolean' ? autoComplete : false,
   timeoutInteraction: typeof timeoutInteraction === 'number' ? timeoutInteraction : null
