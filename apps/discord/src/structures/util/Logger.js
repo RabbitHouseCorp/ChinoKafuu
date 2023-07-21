@@ -1,5 +1,5 @@
 import chalk from 'chalk'
-import { isMainThread } from 'worker_threads'
+import { isMainThread, workerData } from 'worker_threads'
 chalk.level = 8
 
 const loggerDeveloper = process.argv.find((arg) => arg === '--loggerDev') ?? null
@@ -8,7 +8,7 @@ export class Logger {
   static get processType() {
     return isMainThread
       ? chalk.bgBlue('LOG')
-      : chalk.black.bgMagenta(`CLUSTER ${process.env.CLUSTER_ID}`)
+      : chalk.black.bgMagenta(` [${workerData?.name ?? 'THREADING UNKNOWN'}] `)
   }
 
   static generateLog(logType, message = '') {
@@ -35,7 +35,7 @@ export class Logger {
 
       return
     }
-    console.log(`${chalk.yellow(Date().toString())} ${logType} ${message}`)
+    console.log(`${chalk.yellow(Date().toString())} ${this.processType} ${logType} ${message}`)
   }
 
   static get #getTimestamp() {

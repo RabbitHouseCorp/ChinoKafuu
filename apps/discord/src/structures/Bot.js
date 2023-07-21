@@ -1,12 +1,13 @@
 import { Client } from 'eris'
+import { RequestWorker } from '../thread/rest/RequestThreading'
+import { InteractionManager } from './InteractionManager'
+import { InteractionManagerHttp } from './InteractionManagerHttp'
 import { CommandCooldown } from './command/CommandCooldown'
 import { CommandRegistry } from './command/CommandRegistry'
 import { SlashCommandRegistry } from './command/SlashCommandRegistry'
 import { Database } from './database/Database'
 import { ListenerRegistry } from './events/ListenerRegistry'
 import { I18NRegistry } from './i18n/I18NRegistry'
-import { InteractionManager } from './InteractionManager'
-import { InteractionManagerHttp } from './InteractionManagerHttp'
 import { InteractionFunctionRegistry } from './othersRegistry/InteractionFunctionRegistry'
 import { ClusteringInterface } from './util/ClusteringInterface'
 // const CacheManager = require('./util/cache/CacheManager')
@@ -34,6 +35,10 @@ import { ClusteringInterface } from './util/ClusteringInterface'
 export class Bot extends Client {
   constructor(...data) {
     super(...data)
+    if (Number(process?.env?.MAX_THREAD_REST ?? 0) >= 1) {
+      this.requestHandler = new RequestWorker(this)
+    }
+
     this.startShard = 0
     // this.cacheManager = new CacheManager(this)
     /**
