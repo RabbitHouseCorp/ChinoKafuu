@@ -27,7 +27,7 @@ export default defineInteractionDefault(
   }),
   defineInteractionFunction(async ({ ctx, getData, useState, defineState }) => {
     const { data, member } = getData()
-    const updateMessage = async (isUpdate = false) => {
+    const updateMessage = async (isUpdate = false, content = '') => {
       const userDB = await ctx.client.database.users.getOrCreate(member.user.id)
       const { metadataMessage, stateMessage, user, actionState } = useState()
       const valueBackground = Object.values(ConstantBackground)
@@ -55,6 +55,7 @@ export default defineInteractionDefault(
       const metadataUpdated = {
         metadataMessage: {
           attachments: [],
+          content,
           embeds: [
             {
               color: user.profileColor.convertToColor(),
@@ -180,7 +181,12 @@ export default defineInteractionDefault(
       // eslint-disable-next-line no-unused-vars
       const [_, background] = data.custom_id.split(':')
       user.background = background
-      user.save().then(() => updateMessage(true))
+      user.save()
+        .then(() => updateMessage(true, '<:gochiusa_success:788464186752499732> **|** ' + ctx._locale('commands:inventory.background.success')))
+        .catch((error) => {
+          updateMessage(true, '<:gochiusa_error:788464284316991508> **|** ' + ctx._locale('commands:inventory.background.error'))
+          throw error
+        })
       return
     }
 
