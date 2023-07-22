@@ -8,7 +8,7 @@ export class Logger {
   static get processType() {
     return isMainThread
       ? chalk.bgBlue('LOG')
-      : chalk.black.bgMagenta(` [${workerData?.name ?? 'THREADING UNKNOWN'}] `)
+      : chalk.black.bold.bgYellow(`[${workerData?.name ?? 'THREADING UNKNOWN'}]`)
   }
 
   static generateLog(logType, message = '') {
@@ -30,7 +30,7 @@ export class Logger {
             })
             .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (str) => chalk.gray(str))
         }
-        console.log(`${chalk.gray(this.#getTimestamp)} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(20, ' ')}― ${message}`)
+        console.log(`${chalk.gray(this.#getTimestamp)} ${this.processType} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(20, ' ')} ― ${message}`)
       }
 
       return
@@ -55,29 +55,29 @@ export class Logger {
   static debug(message) {
     if (process.env.PRODUCTION === 'true') return
     // chalk.rgb(80, 250, 159)('[DEBUG]')
-    this.generateLog(chalk.blueBright('[DEBUG]'), message)
+    this.generateLog(chalk.bold.blueBright('[DEBUG]'), message)
   }
 
   static info(message) {
-    this.generateLog(chalk.blue('[INFO]').toString('utf-8'), message)
+    this.generateLog(chalk.bold.blue('[INFO]').toString('utf-8'), message)
   }
 
   static warning(message) {
-    this.generateLog(chalk.yellow('[WARNING]').toString('utf-8'), message)
+    this.generateLog(chalk.bold.yellow('[WARNING]').toString('utf-8'), message)
   }
 
   static error(message) {
-    this.generateLog(chalk.red('[ERROR]').toString('utf-8'), message)
+    this.generateLog(chalk.bold.red('[ERROR]').toString('utf-8'), message)
   }
 
   static shardMessage(message) {
     if (process.env.PRODUCTION === 'true') return
     // chalk.rgb(49, 204, 201)
-    this.generateLog(chalk.bgMagentaBright('[SHARD MANAGER]'), message)
+    this.generateLog(chalk.bold.bgMagentaBright('[SHARD MANAGER]'), message)
   }
 
   static fatalError(message) {
-    this.generateLog(chalk.bgRed('[FATAL ERROR]'), message)
+    this.generateLog(chalk.bold.bgRed('[FATAL ERROR]'), message)
     process.exit()
   }
 }

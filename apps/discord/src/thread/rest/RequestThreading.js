@@ -2,6 +2,25 @@ import { Client, RequestHandler } from 'eris'
 import { Worker, isMainThread, parentPort } from 'node:worker_threads'
 import { Logger } from '../../structures/util'
 const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
+const defineTypeStatus = (data) => {
+  if (data.time >= 100 || data.buckets <= 10) {
+    return {
+      status: 'LOW',
+    }
+  } else if (data.time >= 40 || data.buckets <= 90) {
+    return {
+      status: 'MEDIUM',
+    }
+  } else if (data.buckets <= 5) {
+    return {
+      status: 'LOW',
+    }
+  }
+
+  return {
+    status: 'HIGH',
+  }
+}
 export class BotInstance extends Client {
   constructor() {
     super(process.env.DISCORD_TOKEN, {
@@ -40,10 +59,11 @@ export class RequestThreading extends RequestHandler {
     })
     parentPort.on('message', async (data) => {
       try {
-        await this.createRequest(data).catch((e) => { })
+        await this.createRequest(data).catch(() => { })
       } catch (err) {
         console.error(err)
       }
+      data = null
     })
 
   }
@@ -70,49 +90,117 @@ export class RequestThreading extends RequestHandler {
 }
 
 export class RequestWorker {
+  /**
+    * @type {Worker[]}
+    */
   #worker;
 
   #buckets;
 
   #moveThread;
 
+  #time;
+
+  #timeNow;
+
+  #timeTotal;
+
+  #status;
+
+  /**
+   * @type {{ threadId: number; activity: number }[]}
+   */
+  #stats;
+
   constructor(client) {
     this.client = client
-    /**
-     * @type {Worker[]}
-     */
+
     this.#worker = []
     this.#buckets = []
+    this.#stats = []
     this.#init()
     this.#moveThread = 0
+    this.#time = null
+    this.#timeNow = null
+    this.#timeTotal = null
+    this.#status = {
+      status: 'LOW'
+    }
+    this.#watch()
+  }
+
+  #watch() {
+    setInterval(() => {
+      if (this.#time != null && this.#timeNow != null) {
+        if (this.#timeTotal == this.#timeNow - this.#time) return
+        this.#timeTotal = this.#timeNow - this.#time
+        this.#status = defineTypeStatus({ time: this.#timeNow - this.#time, buckets: this.#buckets.length })
+      }
+      // this.#stats
+      //   .filter((worker, index) => index != 0 && (Date.now() - worker.activity) >= 60000)
+      //   .map((workerStat) => {
+      //     const thread = this.#worker.find((worker) => worker.threadId == workerStat.threadId)
+      //     if (thread !== undefined) {
+      //       thread.terminate()
+      //     }
+      //   })
+    }, 100);
+  }
+
+  #apply(id) {
+    Object.assign(this.#stats.find((stat) => stat.threadId == this.#worker.at(id).threadId) ?? {}, {
+      activity: Date.now()
+    })
   }
 
   get getThreadsWorking() {
     return this.#worker.length
   }
 
-  getThread(endpoint) {
-    return this.#buckets.length % this.#worker.length
+  getThread() {
+    let id = 0;
+    if (process.env?.THREAD_REST_MODE === 'EACH_FOR_ITSELF') {
+      this.#moveThread = (this.#moveThread + 1) % this.#worker.length
+      id = this.#moveThread
+
+      this.#apply(id)
+      return id
+    } else if (process.env?.THREAD_REST_MODE === 'RANDOM') {
+      id = Math.floor(Math.random() * this.#worker.length)
+      this.#apply(this.#moveThread)
+      return this.#moveThread
+    }
+    id = Math.min(Math.max(Math.floor(Math.log(this.#buckets.length)), 0), this.#worker.length)
+    this.#apply(id)
+    return id
   }
 
   async #init() {
     const maxThread = Number(process?.env?.MAX_THREAD_REST ?? 1)
     for (let i = 0; i < maxThread; i++) {
-      if (i > 0) await sleep(70 * 1000)
+      const active = Math.min(Math.max(Math.floor(1 + Math.log(maxThread)), 0), maxThread)
       const create = () => {
         const threadWorker = new Worker('./src/thread/rest/RequestThreading', {
-          name: `Rest Thread (${i})`,
+          eval: false,
+          name: `Rest Thread = ${i}`,
           workerData: {
-            name: `Rest Thread (${i})`
+            name: `Rest Thread = ${i}`
           },
           resourceLimits: {
             maxYoungGenerationSizeMb: 1024 * 9009990,
-          }
+          },
+          argv: [process.argv.find((arg) => arg === '--loggerDev') ?? '']
         })
-        threadWorker.once('exit', () => {
-          Logger.error(`Rest Thread ${i} died, restarting back to the queue.`)
-          this.#worker.splice(this.#worker.findIndex((thread) => thread.threadId == threadWorker.threadId), 1)
-          this.#worker.push(create())
+        this.#stats.push({
+          threadId: threadWorker.threadId,
+          activity: Date.now()
+        })
+        threadWorker.once('exit', (code) => {
+          if (code != 1) {
+            Logger.error(`Rest Thread ${i} died, restarting back to the queue.`)
+            this.#worker.splice(this.#worker.findIndex((thread) => thread.threadId == threadWorker.threadId), 1)
+            this.#worker.push(create())
+          }
         })
         threadWorker.on('message', ({ id, error, data }) => {
           const workerFunctionIndex = this.#buckets.findIndex((w) => w.id == id)
@@ -136,11 +224,12 @@ export class RequestWorker {
   }
 
   request(...args) {
-    const [method, endpoint] = args
-    const worker = this.#worker[this.getThread(endpoint)]
+    this.#time = this.#timeNow
+    this.#timeNow = Date.now()
+    const worker = this.#worker.at(this.getThread())
     return new Promise((resolve, reject) => {
       const genID = String(Math.floor(Math.random() * (1000000000000 * 10000000)))
-      this.#buckets.push({ id: genID, resolve, reject, threads: 0, endpoint })
+      this.#buckets.push({ id: genID, resolve, reject, threads: 0 })
       worker.postMessage({ id: genID, args: args })
     })
   }
