@@ -65,11 +65,14 @@ const logger = new LoggerSystem('FrameworkRepository')
 
 
 const startFramework = async () => {
-  // check /.chinokafuu/*
-  checkDir()
+  const isManagerPackage = ['installPackage', 'package', 'upgrade', 'compile'].find((commandInstall) => process.argv.find((i) => i == commandInstall))
+  if (!isManagerPackage) {
+    // check /.chinokafuu/*
+    checkDir()
 
 
-  initializeCacheManager()
+    initializeCacheManager()
+  }
 
 
   // Start WebSocketServerDeveloper
