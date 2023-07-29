@@ -81,10 +81,8 @@ const genErr = (err, { isAsync = false }) => {
 
   return err
 }
-
-const test = { ok: true }
-const deplot = () => ({ ...test })
-
+const regexPath = new RegExp(/node_modules(\/+|\\+)jest-worker(\/+|\\+)build(\/+|\\+)workers(\/+|\\+)processChild\.js/)
+const IS_ENVIRONMENT_JEST = typeof process.argv.find((arg, index) => regexPath.test(arg) && index == 1) == 'string'
 /**
  *  This type of interaction function definition is used to reduce workload and make it a single and asynchronous (or non-asynchronous) function.
  *  @template S
@@ -138,7 +136,7 @@ export const defineInteractionFunction = async (interactionDefault, _ = null) =>
  *      'timeout'?: 'string | null';
  *  };
  *  autoComplete?: boolean;
- *  typeInteraction?: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal'
+ *  typeInteraction?: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal' | ['button', 'selectionMenu', 'modal', 'any', 'selectMenus']
  *  timeoutInteraction?: number | null | undefined;
  * }} interactionOptionsTypeDef
  */
@@ -175,8 +173,10 @@ export const defineInteractionDefault = (T, R) => {
  */
 export const defineInteraction = ({ name, customMessage, autoComplete, timeoutInteraction, typeInteraction }) => ({
   interactionName: typeof name === 'string' ? name : (() => { throw Error(`Field of name is string: (${typeof name}) - ${name}`) })(),
-  typeInteraction: () => Array.isArray(typeInteraction) ?
-    [] : typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] /* ANY */,
+  typeInteraction:
+    IS_ENVIRONMENT_JEST ? typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] : (
+      () => Array.isArray(typeInteraction) ?
+        [] : typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] /* ANY */),
   customMessage: Object.is(customMessage) ? {} : customMessage,
   autoComplete: typeof autoComplete === 'boolean' ? autoComplete : false,
   timeoutInteraction: typeof timeoutInteraction === 'number' ? timeoutInteraction : null

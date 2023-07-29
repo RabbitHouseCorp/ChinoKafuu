@@ -14,6 +14,7 @@ describe('interaction test', () => {
       customMessage: {
         'error': 'test'
       },
+      typeInteraction: ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'],
       autoComplete: false,
       timeoutInteraction: 90
     })
