@@ -40,7 +40,6 @@
     "nekos.life": "^3.0.0",
     "os-utils": "^0.0.14",
     "tsc-compile-projects": "github:RabbitHouseCorp/tsc-compile-projects#main",
-    "usagi-http-interaction": "github:RabbitHouseCorp/usagi-http-interaction#main",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
     "ws": "^8.11.0"
   },
