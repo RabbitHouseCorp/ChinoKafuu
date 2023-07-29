@@ -56,8 +56,11 @@ String.prototype.convertToColor = function () {
 
 String.prototype.toTitle = function () {
   return this
+    .split(/\s+|\n/)
+    .map((str) => str.split('').map((s, n) => (n == 0) ? s.toUpperCase() : s.toLocaleLowerCase()).join(''))
+    .join(' ')
     .split(' ')
-    .map((str) => str.split('').map((s, n) => (n == 0) ? (s.toUpperCase()) : s.toLocaleLowerCase()).join(''))
+    .map((str) => str.length == 2 ? str.toUpperCase() : str)
     .join(' ')
 }
 
