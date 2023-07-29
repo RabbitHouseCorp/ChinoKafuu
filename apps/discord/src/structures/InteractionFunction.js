@@ -130,7 +130,7 @@ export const defineInteractionFunction = async (interactionDefault, _ = null) =>
 
 /**
  * @typedef {{
- *   name: string;
+ *   name?: string;
  *   customMessage?: {
  *      'userLimited'?: string | null;
  *      'userBanned'?: string | null;
@@ -138,7 +138,7 @@ export const defineInteractionFunction = async (interactionDefault, _ = null) =>
  *      'timeout'?: 'string | null';
  *  };
  *  autoComplete?: boolean;
- *  typeInteraction: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal'
+ *  typeInteraction?: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal'
  *  timeoutInteraction?: number | null | undefined;
  * }} interactionOptionsTypeDef
  */
