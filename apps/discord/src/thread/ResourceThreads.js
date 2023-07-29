@@ -30,7 +30,7 @@ export class ResourceThreads {
     } else {
       if (this.checkResource('request') && this.checkResource('ws')) {
         Logger.info('All Eris library resources were directed to Thread.')
-      } else  {
+      } else {
         Logger.info(`Features enabled and directed to Threads: ${this.getResources.join(', ')}`)
       }
     }
@@ -47,11 +47,29 @@ export class ResourceThreads {
   }
 
   get getResources() {
-    return (process.env?.THREAD_RESOURCES ?? '').split(/,|\s+/g).filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
+    return (process.env?.THREAD_RESOURCES ?? '')
+      .replace(/(,\s+)/g, '')
+      .split(',')
+      .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
+      .filter((str) => str.length >= 1)
+  }
+
+  nameOfThread(name = null, index = null) {
+    return (process.env?.THREAD_NAME ?? '')
+      .replace(/(,\s+)/g, '')
+      .split(',')
+      .filter((str) => str.length > 0)
+      .filter((str) => str == (typeof name === 'string' ? name : str))
+      .filter((str) => str != ',' || str != ' ')
+      .find((str, i) => typeof name === 'string' ? name == str : i == index) ?? null
   }
 
   get lengthResources() {
-    return (process.env?.THREAD_RESOURCES ?? '').split(/,|\s+/g).filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
+    return (process.env?.THREAD_RESOURCES ?? '')
+      .replace(/(,\s+)/g, '')
+      .split(',')
+      .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
+      .filter((str) => str.length >= 1)
   }
 
   get maxThreadRest() {
@@ -106,7 +124,7 @@ export class ResourceThreads {
       const create = () => {
         const typeShard = status ? true : !(i > 0)
         const options = {
-          name: `Thread = ${i}`,
+          name: `Thread(${this.nameOfThread(null, i) ?? 'None'}) = ${i}`,
           shardLimit: Number(process.env.SHARD_AMOUNT) > 1 ?
             Math.min((i + 1) * Math.round(sizeShard / maxThread), Number(process.env.SHARD_AMOUNT)) : 1,
           shardIn: typeShard ? i * Math.floor(sizeShard / maxThread) : 9999999,
