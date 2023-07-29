@@ -24,12 +24,12 @@
   "type": "module",
   "dependencies": {
     "chalk": "^5.2.0",
-    "dotenv": "^16.0.3",
+    "dotenv": "^16.3.1",
     "ws": "^8.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
-    "@babel/plugin-syntax-import-assertions": "^7.20.0",
+    "@babel/plugin-syntax-import-assertions": "^7.22.5",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-typescript": "^7.21.4",
     "@jest/globals": "^29.5.0",
