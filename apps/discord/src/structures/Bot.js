@@ -1,7 +1,6 @@
 import { Client } from 'eris'
 import { ResourceThreads } from '../thread/ResourceThreads'
 import { InteractionManager } from './InteractionManager'
-import { InteractionManagerHttp } from './InteractionManagerHttp'
 import { CommandCooldown } from './command/CommandCooldown'
 import { CommandRegistry } from './command/CommandRegistry'
 import { SlashCommandRegistry } from './command/SlashCommandRegistry'
@@ -51,7 +50,6 @@ export class Bot extends Client {
     }
 
     this.startShard = 0
-    // this.cacheManager = new CacheManager(this)
     /**
     *
     * @type {ListenerRegistry}
@@ -118,12 +116,22 @@ export class Bot extends Client {
     }
   }
 
+  get threadIsEnabled() {
+    return (process.env?.THREAD == 'true' && this.#threads != null) && this.#threads.maxThread > 0
+  }
+
+  getNameOfThread(...args) {
+    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
+    return this.#threads.nameOfThread(...args)
+  }
+
   get getThreadsSize() {
+    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
     return this.#threads.getWorker.length
   }
 
   getShardsByThreads() {
-    if (process.env.THREAD != 'true') return []
+    if (this.threadIsEnabled == false) return []
     const threads = []
     for (const worker of this.#threads.getWorker) {
       threads.push({ threadActive: worker, shards: this.shards.filter((shard) => shard.ws.worker.threadId == worker.threadId) })
@@ -135,5 +143,10 @@ export class Bot extends Client {
     if (this.database === undefined) {
       this.database = new Database()
     }
+  }
+
+  get getResourceThread() {
+    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
+    return this.#threads.getResources
   }
 }
