@@ -1,7 +1,7 @@
 import { Client, RequestHandler } from 'eris'
-import { Worker, isMainThread, parentPort } from 'node:worker_threads'
+import { isMainThread, parentPort } from 'node:worker_threads'
 import { Logger } from '../../structures/util'
-const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time))
+
 const defineTypeStatus = (data) => {
   if (data.time >= 100 || data.buckets <= 10) {
     return {
@@ -57,15 +57,6 @@ export class RequestThreading extends RequestHandler {
     super(new BotInstance(), {
       baseURL: '/api/v10'
     })
-    parentPort.on('message', async (data) => {
-      try {
-        await this.createRequest(data).catch(() => { })
-      } catch (err) {
-        console.error(err)
-      }
-      data = null
-    })
-
   }
 
   async createRequest(data) {
@@ -73,17 +64,19 @@ export class RequestThreading extends RequestHandler {
       try {
         this.request(...(data.args))
           .then((requestData) => {
-            parentPort.postMessage({ id: data.id, error: false, data: requestData })
+            parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: false, data: requestData } })
             data = null
+
           })
           .catch((err) => {
-            parentPort.postMessage({ id: data.id, error: true, data: err })
+            parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
             data = null
           })
-
+        resolve(null)
       } catch (err) {
-        parentPort.postMessage({ id: data.id, error: true, data: err })
+        parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
         data = null
+        resolve(null)
       }
     })
   }
@@ -112,17 +105,20 @@ export class RequestWorker {
    */
   #stats;
 
-  constructor(client) {
+  constructor(client, workers = []) {
     this.client = client
-
-    this.#worker = []
+    this.#worker = Array.isArray(workers) ? workers : []
     this.#buckets = []
     this.#stats = []
-    this.#init()
     this.#moveThread = 0
     this.#time = null
     this.#timeNow = null
     this.#timeTotal = null
+    this.started = false
+    this.start = () => {
+      if (this.started) return
+      this.#init()
+    }
     this.#status = {
       status: 'LOW'
     }
@@ -147,10 +143,29 @@ export class RequestWorker {
     }, 100);
   }
 
-  #apply(id) {
-    Object.assign(this.#stats.find((stat) => stat.threadId == this.#worker.at(id).threadId) ?? {}, {
-      activity: Date.now()
-    })
+  #init() {
+    this.started = true
+    for (const worker of this.#worker) {
+      worker.on('message', ({ type, data: requestData }) => {
+        if (type === 'handlerRequest') {
+          let { id, data } = requestData
+          const workerFunctionIndex = this.#buckets.findIndex((w) => w.id == id)
+          if (workerFunctionIndex != undefined && workerFunctionIndex != -1) {
+            const workerFunction = this.#buckets.find((w) => w.id == id)
+            if (id === id && requestData.error == false) {
+              workerFunction.resolve(data)
+            } else if (requestData.error == true) {
+              workerFunction.reject(data)
+            }
+
+            this.#buckets.splice(workerFunctionIndex, 1)
+          }
+          data = null
+          id = null
+        }
+
+      })
+    }
   }
 
   get getThreadsWorking() {
@@ -163,64 +178,13 @@ export class RequestWorker {
       this.#moveThread = (this.#moveThread + 1) % this.#worker.length
       id = this.#moveThread
 
-      this.#apply(id)
       return id
     } else if (process.env?.THREAD_REST_MODE === 'RANDOM') {
       id = Math.floor(Math.random() * this.#worker.length)
-      this.#apply(this.#moveThread)
       return this.#moveThread
     }
     id = Math.min(Math.max(Math.floor(Math.log(this.#buckets.length)), 0), this.#worker.length)
-    this.#apply(id)
     return id
-  }
-
-  async #init() {
-    const maxThread = Number(process?.env?.MAX_THREAD_REST ?? 1)
-    for (let i = 0; i < maxThread; i++) {
-      const active = Math.min(Math.max(Math.floor(1 + Math.log(maxThread)), 0), maxThread)
-      const create = () => {
-        const threadWorker = new Worker('./src/thread/rest/RequestThreading', {
-          eval: false,
-          name: `Rest Thread = ${i}`,
-          workerData: {
-            name: `Rest Thread = ${i}`
-          },
-          resourceLimits: {
-            maxYoungGenerationSizeMb: 1024 * 9009990,
-          },
-          argv: [process.argv.find((arg) => arg === '--loggerDev') ?? '']
-        })
-        this.#stats.push({
-          threadId: threadWorker.threadId,
-          activity: Date.now()
-        })
-        threadWorker.once('exit', (code) => {
-          if (code != 1) {
-            Logger.error(`Rest Thread ${i} died, restarting back to the queue.`)
-            this.#worker.splice(this.#worker.findIndex((thread) => thread.threadId == threadWorker.threadId), 1)
-            this.#worker.push(create())
-          }
-        })
-        threadWorker.on('message', ({ id, error, data }) => {
-          const workerFunctionIndex = this.#buckets.findIndex((w) => w.id == id)
-          if (workerFunctionIndex != undefined && workerFunctionIndex != -1) {
-            const workerFunction = this.#buckets.find((w) => w.id == id)
-            if (id === id && error == false) {
-              workerFunction.resolve(data)
-            } else if (error == true) {
-              workerFunction.reject(data)
-            }
-
-            this.#buckets.splice(workerFunctionIndex, 1)
-          }
-          data = null
-          id = null
-        })
-        return threadWorker
-      }
-      this.#worker.push(create())
-    }
   }
 
   request(...args) {
@@ -230,16 +194,7 @@ export class RequestWorker {
     return new Promise((resolve, reject) => {
       const genID = String(Math.floor(Math.random() * (1000000000000 * 10000000)))
       this.#buckets.push({ id: genID, resolve, reject, threads: 0 })
-      worker.postMessage({ id: genID, args: args })
+      worker.postMessage({ type: 'requestBot', data: { id: genID, args: args } })
     })
   }
 }
-
-const startThreading = () => {
-  try {
-    new RequestThreading()
-    // eslint-disable-next-line no-empty
-  } catch (_) { }
-}
-
-if (!isMainThread) startThreading()
