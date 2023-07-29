@@ -1,5 +1,5 @@
 import { Client } from 'eris'
-import { RequestWorker } from '../thread/rest/RequestThreading'
+import { ResourceThreads } from '../thread/ResourceThreads'
 import { InteractionManager } from './InteractionManager'
 import { InteractionManagerHttp } from './InteractionManagerHttp'
 import { CommandCooldown } from './command/CommandCooldown'
@@ -33,10 +33,21 @@ import { ClusteringInterface } from './util/ClusteringInterface'
  */
 
 export class Bot extends Client {
+  /**
+   * @type {ResourceThreads}
+   */
+  #threads
+
   constructor(...data) {
     super(...data)
-    if (Number(process?.env?.MAX_THREAD_REST ?? 0) >= 1) {
-      this.requestHandler = new RequestWorker(this)
+
+    if (process.env?.THREAD === 'true') {
+      this.#threads = new ResourceThreads(this)
+    } else {
+      this.#threads = null
+    }
+    if ((this.#threads != null && this.#threads.checkResource('request')) && this.#threads.maxThread > 0) {
+      this.requestHandler = this.#threads.requestHandler
     }
 
     this.startShard = 0
@@ -92,7 +103,7 @@ export class Bot extends Client {
     /**
     * @description Perhaps this will be deprecated or will be used very soon by a repository rewrite.
     */
-    this.interactionPost = new InteractionManagerHttp(this)
+    //this.interactionPost = new InteractionManagerHttp(this)
     /**
      * @description To manage Bot interactions. Not just commands, it can manage buttons and menu and modal selection
      */
@@ -102,6 +113,22 @@ export class Bot extends Client {
      * @type {CommandGlobalUi[]}
      */
     this.commands = []
+    if ((this.#threads != null && this.#threads.checkResource('ws')) && this.#threads.maxThread > 0) {
+      this.connect = process.env.THREAD === 'true' ? this.#threads.connect.bind(this.#threads) : this.connect.bind(this)
+    }
+  }
+
+  get getThreadsSize() {
+    return this.#threads.getWorker.length
+  }
+
+  getShardsByThreads() {
+    if (process.env.THREAD != 'true') return []
+    const threads = []
+    for (const worker of this.#threads.getWorker) {
+      threads.push({ threadActive: worker, shards: this.shards.filter((shard) => shard.ws.worker.threadId == worker.threadId) })
+    }
+    return threads
   }
 
   loadDatabase() {
