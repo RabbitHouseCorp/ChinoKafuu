@@ -19,7 +19,7 @@ export class Logger {
       const regexJson = /^\s*[{[][\s\S]*[}\]]\s*$/
 
       if (regexJson.test(message)) {
-        console.log(`${chalk.gray(this.#getTimestamp)} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
+        console.log(`${chalk.gray(this.#getTimestamp)} ${this.processType} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
       } else {
         if (typeof message === 'string') {
           message = message
