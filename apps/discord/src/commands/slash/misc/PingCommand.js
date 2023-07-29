@@ -22,6 +22,9 @@ export default class PingCommand extends Command {
                 .setName('shards')
                 .setValue('shards'),
               new Choice()
+                .setName('threads')
+                .setValue('threads'),
+              new Choice()
                 .setName('clusters')
                 .setValue('clusters')
             )
@@ -78,6 +81,37 @@ export default class PingCommand extends Command {
           embed.setDescription('Cluster system is disabled.')
           ctx.send(embed.build())
         }
+        break
+      }
+      case 'threads': {
+        const bar = '**==============================**'
+        ctx.send({
+          content: `Running ${ctx.client.getShardsByThreads().length} active threads and utilizing **${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB** of RAM, more details below:`,
+          embeds: ctx.client.getShardsByThreads().map((thread, index) => {
+            let threadID = null
+            const fields = thread.shards.map((shard) => {
+              if (ctx.message.guild.shard.id === shard.id) {
+                threadID = thread.threadActive.threadId
+              }
+              const shardStatus = shard.status === 'ready' ? ['CONNECTED', '<:online:518876154720026633>']
+                : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
+                  : shard.status === 'connecting' ? ['CONNECTING', '<:dnd:518876154933936146>']
+                    : ['HANDSHAKING', '<:idle:518876154912833549>']
+              const uptime = ctx.client.shardUptime.get(shard.id) ? `**Uptime**: <t:${parseInt((ctx.client.shardUptime.get(shard.id).uptime) / 1000).toFixed(0)}:R>` : ''
+              return {
+                name: `${ctx.message.guild.shard.id === shard.id ? '***** ' : ''}Shard ${shard.id} ${shardStatus[1]}`,
+                value: `${shard.latency !== Infinity ? `**Ping**: ${shard.latency}ms` : ''}\n**Status**: ${shardStatus[0]}\n${uptime}`,
+                inline: true
+              }
+            })
+            return {
+              title: `${threadID === thread.threadActive.threadId ? '***** ' : ''}Thread - ${index}`,
+              color: 0x7DAFFF,
+              description: `- **Shards**: ${thread.shards.length}\n- **${ctx._locale('commands:botinfo.memoryUsage')}:** ${(thread.threadActive.stats.memoryUsage.heapUsed / 1024 / 1024).toFixed(2)}MB\n- **${ctx._locale('commands:botinfo.memoryTotal')}:** ${(thread.threadActive.stats.memoryUsage.heapTotal / 1024 / 1024).toFixed(2)}MB\n${bar}`,
+              fields
+            }
+          })
+        })
         break
       }
       default: {
