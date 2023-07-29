@@ -5,7 +5,7 @@ import { Logger } from '../structures/util/index'
 import { RequestThreading, RequestWorker } from './rest/RequestThreading'
 import { ShardThread } from './sharding/ShardThreadService'
 import { ShardProxy } from './sharding/ShardingProxy'
-
+const events = ['shardResume', 'shardDisconnect', 'connect', 'disconnect']
 export class ResourceThreads {
   /**
    * @type {WorkerBot}
@@ -43,13 +43,16 @@ export class ResourceThreads {
    * @returns
    */
   checkResource(name = '') {
-    return (process.env?.THREAD_RESOURCES ?? '').includes(typeof name === 'string' ? name.toUpperCase() : '')
+    return (process.env?.THREAD_RESOURCES ?? '')
+      .replace(/(,\s+|\s+,)/, '')
+      .includes(typeof name === 'string' ? name.toUpperCase() : '')
   }
 
   get getResources() {
     return (process.env?.THREAD_RESOURCES ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
+      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
       .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
       .filter((str) => str.length >= 1)
   }
@@ -58,6 +61,7 @@ export class ResourceThreads {
     return (process.env?.THREAD_NAME ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
+      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
       .filter((str) => str.length > 0)
       .filter((str) => str == (typeof name === 'string' ? name : str))
       .filter((str) => str != ',' || str != ' ')
@@ -68,6 +72,7 @@ export class ResourceThreads {
     return (process.env?.THREAD_RESOURCES ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
+      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
       .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
       .filter((str) => str.length >= 1)
   }
@@ -161,13 +166,14 @@ export class ResourceThreads {
             } else if (data.type == 'websocketMessage') {
               this.#client.shards.get(data.id).ws.emit('dataWorker', data.data)
             } else if (data.type == 'shardEvent') {
-              if (['shardResume', 'shardDisconnect', 'connect', 'disconnect'].includes(data.event)) {
+              if (events.includes(data.event)) {
                 this.#client.emit(data.event, ...(data.data))
                 return
               }
-              if (data.id) {
+              if (typeof data.id === 'number') {
                 const shard = this.#client.shards.get(data.id)
                 if (shard !== undefined) {
+
                   shard.emit(data.event, ...(data.data))
                 }
               }
