@@ -65,7 +65,7 @@ const logger = new LoggerSystem('FrameworkRepository')
 
 
 const startFramework = async () => {
-  const isManagerPackage = ['installPackage', 'package', 'upgrade', 'compile'].find((commandInstall) => process.argv.find((i) => i == commandInstall))
+  const isManagerPackage = process.argv.find((i) => i == '--installPackage')
   if (!isManagerPackage) {
     // check /.chinokafuu/*
     checkDir()
