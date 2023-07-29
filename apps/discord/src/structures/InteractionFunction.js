@@ -82,7 +82,9 @@ const genErr = (err, { isAsync = false }) => {
   return err
 }
 const regexPath = new RegExp(/node_modules(\/+|\\+)jest-worker(\/+|\\+)build(\/+|\\+)workers(\/+|\\+)processChild\.js/)
-const IS_ENVIRONMENT_JEST = typeof process.argv.find((arg, index) => regexPath.test(arg) && index == 1) == 'string'
+const IS_ENVIRONMENT_JEST =
+  typeof process.argv.find((arg, index) => regexPath.test(arg) && index == 1) === 'string'
+  || typeof process.env?.JEST_WORKER_ID === 'string'
 /**
  *  This type of interaction function definition is used to reduce workload and make it a single and asynchronous (or non-asynchronous) function.
  *  @template S
