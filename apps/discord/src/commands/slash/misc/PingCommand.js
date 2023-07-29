@@ -84,9 +84,17 @@ export default class PingCommand extends Command {
         break
       }
       case 'threads': {
+        if (process.env?.THREAD !== 'true')
+          return ctx.send(
+            new EmbedBuilder()
+              .setColor('#ffdb57')
+              .setDescription('Thread system is disabled.')
+              .build()
+          )
+
         const bar = '**==============================**'
         ctx.send({
-          content: `Running ${ctx.client.getShardsByThreads().length} active threads and utilizing **${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB** of RAM, more details below:`,
+          content: `**Resource Enabled**: \`${ctx.client.getResourceThread.join(', ').toTitle()}\`\nRunning ${ctx.client.getShardsByThreads().length} active threads and utilizing **${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB** of RAM, more details below`,
           embeds: ctx.client.getShardsByThreads().map((thread, index) => {
             let threadID = null
             const fields = thread.shards.map((shard) => {
@@ -105,7 +113,7 @@ export default class PingCommand extends Command {
               }
             })
             return {
-              title: `${threadID === thread.threadActive.threadId ? '***** ' : ''}Thread - ${index}`,
+              title: `${threadID === thread.threadActive.threadId ? '***** ' : ''}Thread(${ctx.client.getNameOfThread(null, index) ?? 'None'}) - ${index}`,
               color: 0x7DAFFF,
               description: `- **Shards**: ${thread.shards.length}\n- **${ctx._locale('commands:botinfo.memoryUsage')}:** ${(thread.threadActive.stats.memoryUsage.heapUsed / 1024 / 1024).toFixed(2)}MB\n- **${ctx._locale('commands:botinfo.memoryTotal')}:** ${(thread.threadActive.stats.memoryUsage.heapTotal / 1024 / 1024).toFixed(2)}MB\n${bar}`,
               fields
