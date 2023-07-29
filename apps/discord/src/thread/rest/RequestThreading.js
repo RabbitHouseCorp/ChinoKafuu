@@ -1,5 +1,5 @@
 import { Client, RequestHandler } from 'eris'
-import { isMainThread, parentPort } from 'node:worker_threads'
+import { Worker, isMainThread, parentPort } from 'node:worker_threads'
 import { Logger } from '../../structures/util'
 
 const defineTypeStatus = (data) => {
@@ -66,7 +66,7 @@ export class RequestThreading extends RequestHandler {
           .then((requestData) => {
             parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: false, data: requestData } })
             data = null
-
+            resolve(null)
           })
           .catch((err) => {
             parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
@@ -76,7 +76,6 @@ export class RequestThreading extends RequestHandler {
       } catch (err) {
         parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
         data = null
-        resolve(null)
       }
     })
   }
