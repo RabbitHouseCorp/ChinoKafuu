@@ -1,13 +1,13 @@
 {
   "bank": {
-    "message": "> 🔹 **Bank**: `{{0}}`\n> 🔹 **Value**: `{{1}}`",
+    "message": "### - 🔹 **Bank**: `{{0}}`\n### - 🔹 **Value**: `{{1}}`",
     "button": {
       "transfer": "Transfer to bank",
       "withDraw": "Withdraw money"
     },
     "success": {
-      "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n > 🔻 **Bank:** `{{1}}`\n > 📈 **Value**: `{{2}}`",
-      "valueWasTransferred": "The value of **{{0}}** was successfully transferred to the bank!\n > 🔹 **Bank**: `{{1}}`\n > 🔻 **Value**: `{{2}}`"
+      "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n### - 🔻 **Bank:** `{{1}}`\n### - 📈 **Value**: `{{2}}`",
+      "valueWasTransferred": "The value of **{{0}}** was successfully transferred to the bank!\n### - 🔹 **Bank**: `{{1}}`\n### - 🔻 **Value**: `{{2}}`"
     },
     "interaction": {
       "value": "Value",
@@ -468,6 +468,7 @@
     "usersAmount": "Total users",
     "shardLatency": "Shard latency",
     "memoryUsage": "RAM usage",
+    "memoryTotal": "Memory Total",
     "clientVersion": "Current version",
     "shardUptime": "Current shard uptime",
     "cpuModel": "CPU model",
