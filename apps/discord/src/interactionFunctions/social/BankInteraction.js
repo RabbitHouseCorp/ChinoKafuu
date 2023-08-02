@@ -5,7 +5,7 @@ export default defineInteractionDefault(
   defineInteraction({
     name: 'bankInteraction',
   }),
-  defineInteractionFunction(async ({ useModal, editMessageT, _locale, defineState, getData }) => {
+  defineInteractionFunction(async ({ useModal, editMessageT, _locale, defineState, getData, editMessage }) => {
     const { data: dataInteraction } = getData()
     const type = dataInteraction?.custom_id === 'withDraw' ? ':withDraw' : ':transfer'
     const component = [{
@@ -18,11 +18,11 @@ export default defineInteractionDefault(
       'placeholder': '',
       'required': true
     }]
-
     useModal(_locale('commands:bank.interaction.title'), async ({ data: interactionData, deleteModal }) => {
       deleteModal()
       const { data } = interactionData
       const [valueComponent] = data.components[0].components
+
       const count = parseInt(valueComponent.value.replace(/[^\d-]+/g, ''))
       let context = 'commands:bank.success.valueWasTransferred'
 
@@ -46,11 +46,39 @@ export default defineInteractionDefault(
         editMessageT('error', 'commands:bank.error.transactionWithError', {})
         throw err
       })
-      await editMessageT('success', context, {
+      const text = _locale(context, {
         0: count.toLocaleString(),
         1: state.economy.bank.toLocaleString(),
         2: state.economy.value.toLocaleString(),
       })
-    }, [...component])
+      await editMessage({
+        embeds: [{
+          color: 0x7cf564,
+          title: '💰 | Bank',
+          description: text,
+        }],
+        components: [
+          {
+            type: 1,
+            components: [
+              {
+                type: 2,
+                style: 1,
+                label: _locale('commands:bank.button.transfer'),
+                custom_id: 'transfer',
+                disabled: false
+              },
+              {
+                type: 2,
+                style: 1,
+                label: _locale('commands:bank.button.withDraw'),
+                custom_id: 'withDraw',
+                disabled: false
+              },
+            ]
+          }
+        ]
+      })
+    }, component)
   })
 )

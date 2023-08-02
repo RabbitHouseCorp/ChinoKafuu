@@ -31,7 +31,11 @@ export default class BankCommand extends Command {
     })
 
     ctx.reply('yen', {
-      content: text,
+      embeds: [{
+        color: 0x7cf564,
+        title: '💰 | Bank',
+        description: text,
+      }],
       components: [
         {
           type: 1,
