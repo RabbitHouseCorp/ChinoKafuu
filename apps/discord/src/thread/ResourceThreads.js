@@ -252,6 +252,7 @@ export class WorkerEndToEnd {
     }
     this.client
       .on('debug', (data) => Logger.debug(data))
+      .on('shardReady', (id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardReady', id: id, data: [id, workerData.id] }))
       .on('rawWS', (packet, id) => { parentPort.postMessage({ type: 'shardEvent', event: 'rawWS', id: id, data: [packet, id, workerData.id] }) })
       .on('shardResume', (id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardResume', id: id, data: [id, workerData.id] }))
       .on('shardDisconnect', (err, id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardDisconnect', id: id, data: [err, id, workerData.id] }))
