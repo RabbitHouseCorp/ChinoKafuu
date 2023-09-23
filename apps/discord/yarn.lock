@@ -3040,9 +3040,10 @@ entities@^4.2.0, entities@^4.3.0, entities@^4.4.0:
   resolved "https://registry.yarnpkg.com/entities/-/entities-4.4.0.tgz#97bdaba170339446495e653cfd2db78962900174"
   integrity sha512-oYp7156SP8LkeGD0GF85ad1X9Ai79WtRsZ2gxJqtBuzH+98YUV6jkHEKlZkMbcrjJjIVJNIDP/3WL9wQkoPbWA==
 
-"eris@github:RabbitHouseCorp/eris#dev":
+eris@RabbitHouseCorp/eris#dev:
   version "0.16.3-custom"
-  resolved "https://codeload.github.com/RabbitHouseCorp/eris/tar.gz/7ca9e6b00f324887c0f3c994a9adfec458a2cf8d"
+  uid "2522191e4d2c2b1d8452020b676a7d0603ea36d9"
+  resolved "https://codeload.github.com/RabbitHouseCorp/eris/tar.gz/2522191e4d2c2b1d8452020b676a7d0603ea36d9"
   dependencies:
     ws "^8.5.0"
   optionalDependencies:
