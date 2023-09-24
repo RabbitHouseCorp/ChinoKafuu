@@ -1,13 +1,13 @@
 {
   "bank": {
-    "message": "> 🔹 **Bank**: `{{0}}`\n> 🔹 **Value**: `{{1}}`",
+    "message": "### - 🔹 **Bank**: `{{0}}`\n### - 🔹 **Value**: `{{1}}`",
     "button": {
       "transfer": "Transfer to bank",
       "withDraw": "Withdraw money"
     },
     "success": {
-      "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n > 🔻 **Bank:** `{{1}}`\n > 📈 **Value**: `{{2}}`",
-      "valueWasTransferred": "The value of **{{0}}** was successfully transferred to the bank!\n > 🔹 **Bank**: `{{1}}`\n > 🔻 **Value**: `{{2}}`"
+      "valueWasWithdrawnFromBank": "The value of **{{0}}** was successfully withdrawn from the bank!\n### - 🔻 **Bank:** `{{1}}`\n### - 📈 **Value**: `{{2}}`",
+      "valueWasTransferred": "The value of **{{0}}** was successfully transferred to the bank!\n### - 🔹 **Bank**: `{{1}}`\n### - 🔻 **Value**: `{{2}}`"
     },
     "interaction": {
       "value": "Value",
@@ -36,12 +36,30 @@
   },
   "inventory": {
     "tips": "**Tip**: To view the profile type /profile or you can access the quick command which is **{{1}}**.",
-    "background": {},
     "confirmationButton": "Sí, yo quiero",
     "denyButton": "No, yo no quiero",
     "loadingPreview": "Cargando vista previa del perfil, por favor espere un tiempo.",
     "noDescription": "No hay descripción",
     "notAllowed": "parece que no eres la persona que ha ejecutado este comando, no puedes hacer esto.",
+    "background": {
+      "title": "Your Background Inventory ({{0}})",
+      "description": "Hello {{0}}, Welcome to your Background Inventory.",
+      "tipMessage": "If you have purchased something from the background store, simply click on the `Update` button. To select a background, click on the `Select this Background` button.",
+      "backgroundName": "Background: `{{0}}`",
+      "profile": "You are using profile `{{0}}`",
+      "backgroundQuantity": "You have {{0}} purchased and available for use!",
+      "used": "Currently using",
+      "selectBackground": "Select this Background",
+      "reload": "Update",
+      "backgroundDefault": "In use already (Disabled)",
+      "default": "🌟 User Default Background 🌟",
+      "unlocked": "Unlocked and ready to select",
+      "locked": "Background locked. Purchase at the store.",
+      "previewProfile": "Preview background on profile",
+      "needsToBuy": "This background is locked because you need to purchase it or buy the pack.",
+      "success": "The background was successfully changed on your profile.",
+      "error": "An error occurred while applying the background to your profile, please try again later."
+    },
     "profile": {
       "areYouSure": "¿Está seguro de que quiere seleccionar este perfil? Si es así, haga clic en `Sí, yo quiero` para confirmar, si no, haga clic en `No, yo no quiero`",
       "cancelled": "Cierto. ¡La selección se ha cancelado con éxito!",
@@ -450,6 +468,7 @@
     "usersAmount": "Total de usuarios",
     "shardLatency": "Latencia de la shard",
     "memoryUsage": "Uso de RAM",
+    "memoryTotal": "Memory Total",
     "clientVersion": "Versión actual",
     "shardUptime": "Tiempo de actividad actual de la shard",
     "cpuModel": "Modelo de CPU",
