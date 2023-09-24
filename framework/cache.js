@@ -14,7 +14,7 @@ let awaitLoad = false
  * }} cacheMetadata
  *  
  * */
-const isManagerPackage = process.argv.find((i) => i == '--installPackage')
+const isManagerPackage = process.argv.find((i) => i === '--installPackage')
 const logger = new LoggerSystem('CacheManager')
 const sleep = async () => new Promise((resolve) => setTimeout(resolve, 2 * 1000))
 const dirs = [
@@ -22,7 +22,7 @@ const dirs = [
   'cache/tmp',
   'cache/map'
 ]
-const watchDir = (path, callback) => !isManagerPackage ? watch(`.chinokafuu/${path}`, { recursive: true, persistent: true }, callback) : null
+const watchDir = (path, callback) => !isManagerPackage ? watch(`.chinokafuu/${path}`, { }, callback) : null
 const readDirCallback = (path) => !isManagerPackage  ? readdirSync(`.chinokafuu/${path}`) : null
 const readFileCallback = (path) => !isManagerPackage ? readFileSync(`.chinokafuu/${path}`) : null
 const checkPath = (path) => !isManagerPackage  ? existsSync(`.chinokafuu/${path}`) : null
