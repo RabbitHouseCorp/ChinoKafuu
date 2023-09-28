@@ -1,4 +1,4 @@
-Oiimport { Choice, CommandBase, CommandOptions } from 'eris'
+import { Choice, CommandBase, CommandOptions } from 'eris'
 import { Command } from '../../../structures/util'
 
 export default class ConfigCommand extends Command {
