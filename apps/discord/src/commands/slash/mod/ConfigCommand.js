@@ -1,4 +1,4 @@
-import { Choice, CommandBase, CommandOptions } from 'eris'
+Oiimport { Choice, CommandBase, CommandOptions } from 'eris'
 import { Command } from '../../../structures/util'
 
 export default class ConfigCommand extends Command {
@@ -41,7 +41,8 @@ export default class ConfigCommand extends Command {
                 .setType(3)
                 .setAutocomplete()
                 .setName('channel')
-                .setDescription('You need select o channel set config.'),
+                .setDescription('You need select o channel set config.')
+                .isRequired(),
             ),
           new CommandOptions()
             .setType(1)
