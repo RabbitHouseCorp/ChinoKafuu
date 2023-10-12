@@ -31,7 +31,7 @@
     "@babel/core": "^7.23.0",
     "@babel/plugin-syntax-import-assertions": "^7.22.5",
     "@babel/preset-env": "^7.22.20",
-    "@babel/preset-typescript": "^7.23.0",
+    "@babel/preset-typescript": "^7.23.2",
     "@jest/globals": "^29.7.0",
     "@types/jest": "^29.5.5",
     "@types/mocha": "^10.0.2",
