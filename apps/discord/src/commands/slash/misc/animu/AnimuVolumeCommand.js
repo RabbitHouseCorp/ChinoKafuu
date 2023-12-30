@@ -21,8 +21,7 @@ export default class AnimuVolumeCommand extends Command {
     if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
     if (parseInt(ctx.args.get('value').value) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
     if (parseInt(ctx.args.get('value').value) < 5) return ctx.replyT('error', 'basic:voice.minVolume')
-
-    ctx.client.player.get(ctx.message.guild.id).setVolume(ctx.args.get('value').value)
+    ctx.client.playerManager.getPlayer(ctx.message.guild.id).setVolume(ctx.args.get('value').value, 100)
     ctx.replyT('success', 'commands:animu.volumeChanged')
   }
 }

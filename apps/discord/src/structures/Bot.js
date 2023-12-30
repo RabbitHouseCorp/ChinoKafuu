@@ -1,4 +1,7 @@
 import { Client } from 'eris'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Manager } from 'sirius'
+import { getConfigLavalink } from '../lavalink'
 import { ResourceThreads } from '../thread/ResourceThreads'
 import { InteractionManager } from './InteractionManager'
 import { CommandCooldown } from './command/CommandCooldown'
@@ -9,6 +12,7 @@ import { ListenerRegistry } from './events/ListenerRegistry'
 import { I18NRegistry } from './i18n/I18NRegistry'
 import { InteractionFunctionRegistry } from './othersRegistry/InteractionFunctionRegistry'
 import { ClusteringInterface } from './util/ClusteringInterface'
+import { PlayerManager } from '../lavalink/PlayerManager'
 // const CacheManager = require('./util/cache/CacheManager')
 
 /**
@@ -114,6 +118,7 @@ export class Bot extends Client {
     if ((this.#threads != null && this.#threads.checkResource('ws')) && this.#threads.maxThread > 0) {
       this.connect = process.env.THREAD === 'true' ? this.#threads.connect.bind(this.#threads) : this.connect.bind(this)
     }
+    this.playerManager = new PlayerManager(this)
   }
 
   get threadIsEnabled() {

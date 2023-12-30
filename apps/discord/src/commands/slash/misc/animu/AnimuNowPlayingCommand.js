@@ -1,5 +1,5 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
 import axios from 'axios'
+import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
 
 export default class AnimuNowPlayingCommand extends Command {
   constructor() {
@@ -18,10 +18,11 @@ export default class AnimuNowPlayingCommand extends Command {
   * @returns {void}
   */
   async run(ctx) {
+    const player = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
     const res = await axios.get(process.env.ANIMU_API_URI)
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
-    if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
-    const volume = ctx.client.player.get(ctx.message.guild.id).player.state.volume
+    if (player === null) return ctx.replyT('error', 'basic:voice.playerNotFound')
+    const volume = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
     const embed = new EmbedBuilder()
     embed.setColor('ANIMU')
     embed.setAuthor('Rádio Animu')
@@ -33,5 +34,6 @@ export default class AnimuNowPlayingCommand extends Command {
     embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
 
     ctx.send(embed.build())
+
   }
 }

@@ -17,10 +17,7 @@ export default class AnimuStopCommand extends Command {
   * @returns {void}
   */
   async run(ctx) {
-    await ctx.client.lavalink.manager.leave(ctx.message.guild.id)
-    ctx.client.lavalink.manager.players.delete(ctx.message.guild.id)
-    ctx.client.player.delete(ctx.message.guild.id)
-
+    ctx.client.playerManager.getPlayer(ctx.message.guild.id).stopPlayer()
     ctx.replyT('success', 'commands:animu.leaving')
   }
 }

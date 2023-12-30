@@ -1,3 +1,4 @@
+import { Bot } from '../../structures/Bot'
 import { Listener } from '../../structures/events/Listener'
 
 export default class VoiceChannelLeaveListener extends Listener {
@@ -6,22 +7,23 @@ export default class VoiceChannelLeaveListener extends Listener {
     this.event = 'voiceChannelLeave'
   }
 
+  /**
+   *
+   * @param {Bot} client
+   * @param {*} member
+   * @param {*} oldChannel
+   * @returns
+   */
   async on(client, member, oldChannel) {
     const guild = member.guild
     const guildBot = client.guilds.get(guild.id).members.get(client.user.id)
-    if (!client.player.has(guild.id)) return
+    if (!client.playerManager.has(guild.id)) return
     if (oldChannel.id !== guildBot.voiceState.channelID) return
-    if (oldChannel.voiceMembers.filter(member => !member.user.bot).length === 0) {
-      await client.lavalink.manager.leave(guild.id)
-      client.lavalink.manager.players.delete(guild.id)
-      client.player.delete(guild.id)
-      return
-    }
+    const player = client.playerManager.getPlayer(guild.id)
 
-    if (member.user.id === client.user.id) {
-      client.lavalink.manager.players.delete(guild.id)
-      client.player.delete(guild.id)
-      return
-    }
+    if (player.player.voiceInfo?.countUsersConnected === 0)
+      player.delete()
+    if (member.id === client.user.id && player.player.voiceInfo?.countUsersConnected === 0)
+      player.delete()
   }
 }

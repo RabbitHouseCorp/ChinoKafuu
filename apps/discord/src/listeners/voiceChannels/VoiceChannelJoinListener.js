@@ -14,9 +14,8 @@ export default class VoiceChannelJoinListener extends Listener {
     if (!server.animu) return
 
     if (voiceChannel?.id !== server.animuChannel) return
-    if (client.player.has(guild.id)) return
-    const song = await client.lavalink.join(voiceChannel.id)
-    song.playAnimu()
-    client.player.set(guild.id, song)
+    if (client.playerManager.has(guild.id)) return
+    client.playerManager.getPlayer(guild.id)?.preparePlayer(voiceChannel.id)
+
   }
 }
