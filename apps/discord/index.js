@@ -3,12 +3,11 @@ import dotenv from 'dotenv'
 import { APIProcess } from './src/structures/Process'
 import { BUILD_INFO } from './src/structures/util/Constants'
 import { Logger } from './src/structures/util/index'
-import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile'
 import { PluginManager } from './src/structures/util/plugins/PluginManager'
+import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile'
 import { BotStore } from './src/structures/util/plugins/store/BotStore'
 import { BuildStore } from './src/structures/util/plugins/store/BuildStore'
 import { DatabaseStore } from './src/structures/util/plugins/store/DatabaseStore'
-import { LavalinkStore } from './src/structures/util/plugins/store/LavalinkStore'
 
 // Load packages global!
 await import('./src/tools/JSONTools')
@@ -37,7 +36,6 @@ class StateApplication {
       new CacheProfile(),
       new BuildStore(),
       new DatabaseStore(),
-      new LavalinkStore(),
       new BotStore()
     )
 
