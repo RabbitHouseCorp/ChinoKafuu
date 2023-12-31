@@ -10,7 +10,6 @@ import { PlayerExtend } from './PlayerExtend'
 
 export class PlayerManager {
   constructor(client) {
-    console.log( ...(getConfigLavalink()))
     this.manager = new Manager(client, {
       nodes: [
         ...(getConfigLavalink())
@@ -60,6 +59,7 @@ export class PlayerManager {
       const index = this.players.findIndex((playerExtend) => playerExtend.player.getPlayerID === guildID)
       this.players.splice(index, 1)
       this.manager.removePlayer(guildID)
+
     })
     this.players.push(player)
     return player

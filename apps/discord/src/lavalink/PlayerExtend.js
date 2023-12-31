@@ -20,11 +20,29 @@ export class PlayerExtend {
       .on('onTrackStart', (track) => this.track = track)
       .on('onTrackException', (track, exception) => {
         Logger.error(`ErrorTrack(${player.getPlayerID}): ${exception.message}`)
-        player.playTrack(track)
+        if (this.track != null) {
+          player.playTrack(this.track)
+        } else {
+          player.playTrack(track)
+        }
       })
       .on('onTrackStuck', (track) => player.playTrack(track))
-      .on('onTrackEnd', (track) => player.playTrack(track))
+      .on('onTrackEnd', (track, reason, mayStartNext) => {
+        if (reason === 'replaced') return
+        if (this.track != null) {
+          player.playTrack(this.track)
+        } else if (reason === 'stopped') {
+          player.playTrack(track)
+        } else if (mayStartNext) {
+          player.playTrack(track)
+        }
+      })
       .on('stop', () => this.delete())
+  }
+
+  get isConnected() {
+    return this.player?.voiceInfo?.status === 'connected'
+      || this.player?.voiceInfo?.status === 'waitingNodeResponse'
   }
 
   preparePlayer(channelID, options) {
@@ -35,8 +53,9 @@ export class PlayerExtend {
         if (!trackResult.hasAudioTrackInMetadata)
           return reject(Error('Track not available!'))
         const track = trackResult.track
+        this.track = track
         if (track === null) return reject(Error('The track search was successful, but the track was not found!'))
-        this.player.playTrack(track)
+        this.player.playTrack(track, { noReplace: false })
           .then(() => resolve(true))
           .catch((error) => reject(error))
       }).catch((error) => reject(error))
@@ -89,10 +108,9 @@ export class PlayerExtend {
     if (this.player.voiceInfo?.status === 'connected' || this.player.voiceInfo?.status === 'waitingNodeResponse') {
       this.disconnect()
     }
-
     if (this.player.isPlayingTrack)
       this.stopPlayer()
-    if (this.deletePlayer != null) {
+    if (typeof this.deletePlayer === 'function') {
       this.deletePlayer()
     }
     this.destroyPlayer()

@@ -11,11 +11,9 @@ export default class VoiceChannelJoinListener extends Listener {
     const guild = member.guild
     const voiceChannel = client.guilds.get(guild.id).channels.get(member.voiceState.channelID)
     const server = await client.database.guilds.getOrCreate(guild.id)
-    if (!server.animu) return
-
-    if (voiceChannel?.id !== server.animuChannel) return
     if (client.playerManager.has(guild.id)) return
+    if (!server.animu) return
+    if (voiceChannel?.id !== server.animuChannel) return
     client.playerManager.getPlayer(guild.id)?.preparePlayer(voiceChannel.id)
-
   }
 }

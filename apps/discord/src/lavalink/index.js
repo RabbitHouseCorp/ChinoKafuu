@@ -53,8 +53,6 @@ const loadSettings=() => {
 
 export const getConfigLavalink = function () {
   const config=loadSettings()
-  console.log(config)
-
   return config.map((node) => ({
     ip: typeof node.host === 'string' ? node.host : '',
     ...(typeof node?.port === 'string' ? { port: parseInt(node.port) } : { }),
