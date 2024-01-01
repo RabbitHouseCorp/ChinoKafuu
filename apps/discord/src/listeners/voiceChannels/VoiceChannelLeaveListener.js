@@ -15,6 +15,7 @@ export default class VoiceChannelLeaveListener extends Listener {
    * @returns
    */
   async on(client, member, oldChannel) {
+    if (!client.playerManager.isAvailable) return
     const guild = member.guild
     const guildBot = client.guilds.get(guild.id).members.get(client.user.id)
     if (member.id === client.user.id && client.playerManager.has(guild.id)) {

@@ -17,7 +17,7 @@ export default class AnimuStopCommand extends Command {
   * @returns {void}
   */
   async run(ctx) {
-    ctx.client.playerManager.getPlayer(ctx.message.guild.id).stopPlayer()
+    ctx.client.playerManager.getPlayer(ctx.message.guild.id).delete()
     ctx.replyT('success', 'commands:animu.leaving')
   }
 }

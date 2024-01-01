@@ -7,6 +7,7 @@ export default class VoiceChannelLeaveListener extends Listener {
   }
 
   async on(client, member, newChannel, oldChannel) {
+    if (!client.playerManager.isAvailable) return
     const guild = member.guild
     const voiceChannel = client.guilds.get(guild.id).channels.get(newChannel.id)
     const server = await client.database.guilds.getOrCreate(guild.id)

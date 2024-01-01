@@ -18,6 +18,7 @@ export default class AnimuPlayCommand extends Command {
   * @returns {void}
   */
   async run(ctx) {
+    if (!ctx.client.playerManager.isAvailable) return ctx.replyT('error', 'commands:animu.unavailable')
     if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
     const player = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
     if (player.player.playingTrack) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')

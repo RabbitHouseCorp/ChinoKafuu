@@ -17,6 +17,7 @@ export default class AnimuVolumeCommand extends Command {
   * @returns {void}
   */
   run(ctx) {
+    if (!ctx.client.playerManager.isAvailable) return ctx.replyT('error', 'commands:animu.unavailable')
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
     if (!ctx.client.player.has(ctx.message.guild.id)) return ctx.replyT('error', 'basic:voice.playerNotFound')
     if (parseInt(ctx.args.get('value').value) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
