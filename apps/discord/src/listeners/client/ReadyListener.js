@@ -10,9 +10,10 @@ export default class ReadyListener extends Listener {
 
   async on(client) {
     if (!this.send) {
+
       client.emit('readyConnection', client)
       const manager = new SlashCommandManager(client)
-
+      client.playerManager.connectNode()
       client.commands = await manager.fetchCommands()
     }
   }
