@@ -105,6 +105,8 @@ export class PlayerExtend {
 
   delete() {
     this.player.removeAllListeners()
+    this.destroyPlayer()
+    if (this.player.playerIsUnavailable) return
     if (this.player.voiceInfo?.status === 'connected' || this.player.voiceInfo?.status === 'waitingNodeResponse') {
       this.disconnect()
     }
@@ -113,6 +115,5 @@ export class PlayerExtend {
     if (typeof this.deletePlayer === 'function') {
       this.deletePlayer()
     }
-    this.destroyPlayer()
   }
 }

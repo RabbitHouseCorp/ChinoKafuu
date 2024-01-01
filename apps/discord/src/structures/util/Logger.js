@@ -81,3 +81,24 @@ export class Logger {
     process.exit()
   }
 }
+
+export class LoggerLavalink extends Logger {
+  static debug(message) {
+    if (process.env.PRODUCTION === 'true') return
+    // chalk.rgb(80, 250, 159)('[DEBUG]')
+    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.blueBright('[DEBUG]'), message)
+  }
+
+  static info(message) {
+    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.blue('[INFO]').toString('utf-8'), message)
+  }
+
+  static warning(message) {
+    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.yellow('[WARNING]').toString('utf-8'), message)
+  }
+
+  static error(message) {
+    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.red('[ERROR]').toString('utf-8'), message)
+  }
+
+}

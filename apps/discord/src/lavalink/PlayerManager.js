@@ -5,7 +5,7 @@
 // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 import { Manager } from 'sirius'
 import { getConfigLavalink } from '.'
-import { Logger } from '../structures/util'
+import { Logger, LoggerLavalink } from '../structures/util'
 import { PlayerExtend } from './PlayerExtend'
 
 export class PlayerManager {
@@ -24,10 +24,12 @@ export class PlayerManager {
       }
     })
     this.manager
-      .on('debug', (message) => Logger.debug(message))
-      .on('trace', (message) => Logger.debug(message))
-      .on('nodeDisconnected', () => Logger.lavalinkMessage('Node Disconnected'))
-      .on('ready', () => Logger.lavalinkMessage('All nodes are connected.'))
+      .on('debug', (message) => LoggerLavalink.debug(message))
+      .on('trace', (message) => LoggerLavalink.debug(message))
+      .on('nodeDisconnected', () => LoggerLavalink.warning('Node Disconnected'))
+      .on('reconnect', () => LoggerLavalink.warning('Reconect Node...'))
+      .on('reconnect', () => LoggerLavalink.warning('Node reconnecting'))
+      .on('ready', () => Logger.info('All nodes are connected.'))
       .on('error', (error) => console.error(error))
     /**
      * @type { PlayerExtend[] }
