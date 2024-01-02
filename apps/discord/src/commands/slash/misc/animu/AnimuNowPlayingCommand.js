@@ -23,7 +23,7 @@ export default class AnimuNowPlayingCommand extends Command {
     const res = await axios.get(process.env.ANIMU_API_URI)
     if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
     if (player === null) return ctx.replyT('error', 'basic:voice.playerNotFound')
-    const volume = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
+    const volume = ctx.client.playerManager.getPlayer(ctx.message.guild.id).player.volume
     const embed = new EmbedBuilder()
     embed.setColor('ANIMU')
     embed.setAuthor('Rádio Animu')
