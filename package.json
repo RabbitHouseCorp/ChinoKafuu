@@ -19,7 +19,8 @@
     "tracemMode": "node ./framework/index.js --dev --debug --trace",
     "start:bun": "bun run ./framework/index.js",
     "dev:bun": "bun run ./framework/index.js --dev",
-    "tracemMode:bun": "bun run ./framework/index.js --dev --debug --trace"
+    "tracemMode:bun": "bun run ./framework/index.js --dev --debug --trace",
+    "postinstall": "node ./framework/index.js --repository @chinokafuu/discord --no-ts --installPackage"
   },
   "type": "module",
   "dependencies": {
