@@ -38,7 +38,7 @@
     "ms": "^2.1.3",
     "nekos.life": "^3.0.0",
     "os-utils": "^0.0.14",
-    "sirius": "https://github.com/RabbitHouseCorp/Sirius#master",
+    "sirius": "https://github.com/RabbitHouseCorp/Sirius#f21a5729eb09d011c98aab67127a67c2420c12f7",
     "tsc-compile-projects": "github:RabbitHouseCorp/tsc-compile-projects#main",
     "usagiapi": "github:DanielaGC/UsagiAPI#master",
     "ws": "^8.11.0"
