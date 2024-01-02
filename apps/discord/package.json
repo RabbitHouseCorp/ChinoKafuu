@@ -63,6 +63,7 @@
     "jest": "^29.5.0",
     "ts-jest": "^29.0.5"
   },
+  "packageManager": "yarn",
   "jest": {
     "bail": 1,
     "verbose": true,
