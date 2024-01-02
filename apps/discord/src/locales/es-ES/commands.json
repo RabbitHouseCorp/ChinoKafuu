@@ -375,9 +375,11 @@
       "title": "Total escuchando",
       "total": "Escuchando ahora"
     },
+    "announce": "**Song**: {{0}}\n**Album**: {{1}}\n**The song ends** {{2}}",
     "artist": "Autor de la canción",
     "album": "Álbum",
     "volume": "Volumen",
+    "unavailable": "Sorry for the convenience, something went wrong with the player, please try again later. If the problem persists, contact the ChinoKafuu server.",
     "volumeChanged": "volumen cambiado con éxito.",
     "currentVolume": "el volumen actual es `{{volume}}/100`.",
     "leaving": "Estoy dejando el canal de voz.",
