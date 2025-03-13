@@ -27,7 +27,7 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "dotenv": "^16.4.7",
-    "ws": "^8.18.0"
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.8",
