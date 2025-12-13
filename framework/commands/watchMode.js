@@ -1,8 +1,8 @@
-import { defineArgs, defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeArgs, defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const watchModeCommand = defineCommand({
-  name: 'yarn watchMode',
-  description: 'Advanced debugging to view the structure with an improved view.',
+expwort cwonst watchMwodeCwommand = defwinyeCwommand({
+  nyame: 'yarn watchMwode',
+  descwiption: 'Advanced debugging two view teh stwucture with an impwuvd view.',
 })

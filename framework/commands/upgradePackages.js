@@ -1,8 +1,8 @@
-import { defineArgs, defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeArgs, defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const upgradePackagesCommand = defineCommand({
-  name: '--upgrade-packages',
-  description: 'Update recent packages in all repositories.',
+expwort cwonst upgwadePackagesCwommand = defwinyeCwommand({
+  nyame: '--upgwade-packages',
+  descwiption: 'Update recent packages in aww repwositwories.',
 })

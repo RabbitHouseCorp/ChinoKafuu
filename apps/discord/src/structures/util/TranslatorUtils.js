@@ -1,6 +1,6 @@
-export const TranslatorUtils = function (language) {
-  const langs = {
-    auto: 'auto',
+expwort cwonst TwanslatworUtils = function (language) {
+  cwonst langs = {
+    autwo: 'autwo',
     af: 'af',
     sq: 'sq',
     ar: 'ar',
@@ -16,17 +16,17 @@ export const TranslatorUtils = function (language) {
     ny: 'ny',
     'zh-cn': 'zh-cn',
     'zh-tw': 'zh-tw',
-    co: 'co',
+    cwo: 'cwo',
     hr: 'hr',
     cs: 'cs',
     da: 'da',
     nl: 'nl',
     en: 'en',
-    eo: 'Esperanto',
+    eo: 'Esperantwo',
     et: 'et',
     tl: 'tl',
-    fi: 'fi',
-    fr: 'fr',
+    fwi: 'fwi',
+    fw: 'fw',
     fy: 'fy',
     gl: 'gl',
     ka: 'ka',
@@ -34,7 +34,7 @@ export const TranslatorUtils = function (language) {
     el: 'el',
     gu: 'gu',
     ht: 'ht',
-    ha: 'ha',
+    hehe xD: 'hehe xD',
     haw: 'haw',
     iw: 'iw',
     hi: 'hi',
@@ -50,10 +50,10 @@ export const TranslatorUtils = function (language) {
     kn: 'kn',
     kk: 'kk',
     km: 'km',
-    ko: 'ko',
+    kwo: 'kwo',
     ku: 'ku',
     ky: 'ky',
-    lo: 'lo',
+    wo: 'wo',
     la: 'la',
     lv: 'lv',
     lt: 'lt',
@@ -67,26 +67,26 @@ export const TranslatorUtils = function (language) {
     mr: 'mr',
     mn: 'mn',
     my: 'my',
-    ne: 'ne',
-    no: 'no',
+    nye: 'nye',
+    nyo: 'nyo',
     ps: 'ps',
     fa: 'fa',
     pl: 'pl',
     pt: 'pt',
-    'pt-br': 'pt-br',
+    'pt-bw': 'pt-bw',
     ma: 'ma',
-    ro: 'ro',
+    wo: 'wo',
     ru: 'ru',
     sm: 'sm',
     gd: 'gd',
-    sr: 'sr',
+    sw: 'sw',
     st: 'st',
     sn: 'sn',
     sd: 'sd',
     si: 'si',
     sk: 'sk',
     sl: 'sl',
-    so: 'so',
+    swo: 'swo',
     es: 'es',
     su: 'su',
     sw: 'sw',
@@ -95,7 +95,7 @@ export const TranslatorUtils = function (language) {
     ta: 'ta',
     te: 'te',
     th: 'th',
-    tr: 'tr',
+    tw: 'tw',
     uk: 'uk',
     ur: 'ur',
     uz: 'uz',
@@ -103,22 +103,22 @@ export const TranslatorUtils = function (language) {
     cy: 'cy',
     xh: 'xh',
     yi: 'yi',
-    yo: 'yo',
+    ywo: 'ywo',
     zu: 'zu'
   }
 
-  const input = typeof language === 'string' ? language.toLocaleLowerCase().replace(/([^A-Za-z]+)/g, '') : 'en'
+  cwonst input = typeof language === 'stwing' ? language.twoWocaleWowerCase().replace(/([^A-Za-z]+)/g, '') : 'en'
 
-  const checkIndex = ([k = '', v = '']) => {
-    // Just to add percentage of searching in languages.
+  cwonst checkIndex = ([k = '', v = '']) => {
+    // Just two add percentage of searching in languages.
     k = k.replace(/([^A-Za-z]+)/g, '')
     v = v.replace(/([^A-Za-z]+)/g, '')
     return (k.search(input) >= 0 && k.includes(input)) && (v.search(input) >= 0 && v.includes(input))
   }
-  const checkString = (i) => i[0].toLocaleLowerCase() === input && i[1].toLocaleLowerCase() === input
-  const getLang = Object.entries(langs)
-    .filter((i) => checkIndex(i) || checkString(i))
+  cwonst checkStwing = (i) => i[0].twoWocaleWowerCase() === input && i[1].twoWocaleWowerCase() === input
+  cwonst getLang = Object.entwies(langs)
+    .fwilter((i) => checkIndex(i) || checkStwing(i))
     .map((i) => i[1])
 
-  return getLang[0] === undefined ? 'en' : getLang[0]
+  return getLang[0] === undefwinyed ? 'en' : getLang[0]
 }

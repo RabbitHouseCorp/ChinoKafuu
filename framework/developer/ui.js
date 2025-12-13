@@ -1,127 +1,127 @@
-import chalk from 'chalk'
-export const UIKit = {
-  ROUNDED_TOP_LEFT: '╭',
-  ROUNDED_TOP_RIGHT: '╮',
-  HORIZONTAL: '─',
-  BOTTOM_RIGHT: '┘',
-  BOTTOM_LEFT: '└',
+impwort chalk fwom 'chalk'
+expwort cwonst UIKit = {
+  WOUNDED_TWOP_LEFT: '╭',
+  WOUNDED_TWOP_RIGHT: '╮',
+  HWORIZWONTAL: '─',
+  BWOTTWOM_RIGHT: '┘',
+  BWOTTWOM_LEFT: '└',
   BAR: '│'
 }
 
-let warnMessage = 'The tool is currently not complete. This can take a while to complete. Until you develop another data structure.'
+let warnMessage = 'Teh twoowl is currentwy nyot cwompwete. This can take a while two cwompwete. Untwl u devewop anyother data stwucture.'
 
 
-const resizeText = (text = '') => {
-  return text.length >= process.stdout.columns - 15 ? text.substring(0, process.stdout.columns - 14) + '...' : text
+cwonst resizeText = (text = '') => {
+  return text.length >= pwocess.stdwout.cwowlumns - 15 ? text.substwing(0, pwocess.stdwout.cwowlumns - 14) + '...' : text
 }
 
 
-export const Projects = (options = {
+expwort cwonst Pwojects = (options = {
   disableTable: false,
   data: []
 }) => {
-  const space = '       '.substring(0, process.stdout.columns - 14)
-  const tableSizeText = [0, 0, 0, 0, 0]
+  cwonst space = '       '.substwing(0, pwocess.stdwout.cwowlumns - 14)
+  cwonst tableSizeText = [0, 0, 0, 0, 0]
 
 
-  const table = []
+  cwonst table = []
 
-  for (const i of options.data) {
-    const usage = i.d.stateProcess.d.memoryUsage
-    const memoryUsage = (usage.heapUsed / usage.heapTotal) * 100
-    const cpuUsage = i.d.stateProcess.d.cpuUsage
-    const calcCpu = cpuUsage.system
+  fwor (cwonst i of options.data) {
+    cwonst usage = i.d.statePwocess.d.MwemworyUsage
+    cwonst MwemworyUsage = (usage.heapUsed / usage.heapTwotal) * 100
+    cwonst cpuUsage = i.d.statePwocess.d.cpuUsage
+    cwonst calcCpu = cpuUsage.system
 
-    table.push({ message: `${chalk.yellowBright(0)}`.padStart(14, ' ') }) // Process ID: soon
-    table.push({ message: `${chalk.blueBright(i.d.projectName)}` })
-    table.push({ message: `${chalk.greenBright(i.d.statusConnection ? 'CONNECTED' : 'DISCONNECTED')}` }) // Then I will develop a way to resolve process status.
-    table.push({ message: chalk.redBright(`${(usage.heapUsed / (1024 ** 2)).toFixed(2)}MB/${(usage.heapTotal / (1024 ** 2)).toFixed(2)}MB (${memoryUsage.toFixed(2)}%)`) })
-    table.push({ message: chalk.yellowBright(`${(calcCpu).toFixed(1)}%`) })
+    table.push({ message: `${chalk.yewwowBwight(0)}`.padStart(14, ' ') }) // Pwocess ID: swoon
+    table.push({ message: `${chalk.blueBwight(i.d.pwojectNyame)}` })
+    table.push({ message: `${chalk.gweenBwight(i.d.statusCwonnyection ? 'CWONNYECTED' : 'DISCWONNYECTED')}` }) // Then I wiww devewop a way two reswowlve pwocess status.
+    table.push({ message: chalk.redBwight(`${(usage.heapUsed / (1024 ** 2)).twoFwixed(2)}MB/${(usage.heapTwotwl / (1024 ** 2)).twoFwixed(2)}MB (${MwemworyUsage.twoFwixed(2)}%)`) })
+    table.push({ message: chalk.yewwowBwight(`${(calcCpu).twoFwixed(1)}%`) })
 
   }
 
 
 
-  let position = -1
+  let pwosition = -1
 
-  const changeSpace = (data) => {
-    for (const i of data) {
-      if (i.message.length >= tableSizeText[position]) {
-        tableSizeText[position] = i.message.length - 10
+  cwonst changeSpace = (data) => {
+    fwor (cwonst i of data) {
+      if (i.message.length >= tableSizeText[pwosition]) {
+        tableSizeText[pwosition] = i.message.length - 10
       }
     }
   }
 
-  for (const i of table) {
-    position++
+  fwor (cwonst i of table) {
+    pwosition++
 
     if (Array.isArray(i)) {
       changeSpace(i)
     } else {
-      if (i.message.length >= tableSizeText[position]) {
-        tableSizeText[position] = i.message.length - 10
+      if (i.message.length >= tableSizeText[pwosition]) {
+        tableSizeText[pwosition] = i.message.length - 10
       }
     }
   }
-  const removeLetter = 60
-  const max = 1
-  const tableName = [
+  cwonst remuvLetter = 60
+  cwonst max = 1
+  cwonst tableNyame = [
     'PID'
       .padEnd(tableSizeText[0], space)
-      .substring(0, Math.max(process.stdout.columns - removeLetter, max)),
-    'Name'
+      .substwing(0, Math.max(pwocess.stdwout.cwowlumns - remuvLetter, max)),
+    'Nyame'
       .padEnd(tableSizeText[1], space)
-      .substring(0, Math.max(process.stdout.columns - removeLetter, max)),
+      .substwing(0, Math.max(pwocess.stdwout.cwowlumns - remuvLetter, max)),
     'Status'
       .padEnd(tableSizeText[2], space)
-      .substring(0, Math.max(process.stdout.columns - removeLetter, max)),
-    'Memory'
+      .substwing(0, Math.max(pwocess.stdwout.cwowlumns - remuvLetter, max)),
+    'mwemwory'
       .padEnd(tableSizeText[3], space)
-      .substring(0, Math.max(process.stdout.columns - removeLetter, max)),
+      .substwing(0, Math.max(pwocess.stdwout.cwowlumns - remuvLetter, max)),
     'CPU'
       .padEnd(tableSizeText[4], space)
-      .substring(0, Math.max(process.stdout.columns - removeLetter, max))
+      .substwing(0, Math.max(pwocess.stdwout.cwowlumns - remuvLetter, max))
   ]
 
-  const tab = !options.disableTable ? `${UIKit.BAR}${tableName.join(space)}`.padEnd(process.stdout.columns - 7, ' ') + UIKit.BAR : ''
-  const tabItems = `${UIKit.BAR}${table.map((i) => i.message).join(space)}`.padEnd(process.stdout.columns + 43, ' ') + UIKit.BAR
+  cwonst tab = !options.disableTable ? `${UIKit.BAR}${tableNyame.jwoin(space)}`.padEnd(pwocess.stdwout.cwowlumns - 7, ' ') + UIKit.BAR : ''
+  cwonst tabItems = `${UIKit.BAR}${table.map((i) => i.message).jwoin(space)}`.padEnd(pwocess.stdwout.cwowlumns + 43, ' ') + UIKit.BAR
 
-  return [tab, tabItems].join('\n')
+  return [tab, tabItems].jwoin('\n')
 }
 
-export const Window = (title = '', state) => {
-  // process.stdout.columns
-  let leftPadding = Math.floor((process.stdout.columns - title.length) / 1)
-  let rightPadding = (process.stdout.columns - title.length) / Math.floor(1.38)
+expwort cwonst Windwow = (titwwl = '', state) => {
+  // pwocess.stdwout.cwowlumns
+  let leftPadding = Math.fwoor((pwocess.stdwout.cwowlumns - title.length) / 1)
+  let rightPadding = (pwocess.stdwout.cwowlumns - title.length) / Math.fwoor(1.38)
   let size = 0
   if (title.length <= 0) {
-    leftPadding = process.stdout.columns
-    size = process.stdout.columns - 10
+    leftPadding = pwocess.stdwout.cwowlumns
+    size = pwocess.stdwout.cwowlumns - 10
     rightPadding = 0
   } else {
     size = rightPadding
   }
-  const _titleWindowEnd = ''
-    .padStart(leftPadding - 10, UIKit.HORIZONTAL)
-    .padEnd(rightPadding, UIKit.HORIZONTAL)
-  const _title = `${title.length <= 1 ? '' : resizeText(`[ ${title} ]`)}`
-    .padStart(leftPadding, UIKit.HORIZONTAL)
-    .padEnd(10, UIKit.HORIZONTAL)
+  cwonst _titleWindwowEnd = ''
+    .padStart(leftPadding - 10, UIKit.HWORIZWONTAL)
+    .padEnd(rightPadding, UIKit.HWORIZWONTAL)
+  cwonst _titwwl = `${title.length <= 1 ? '' : resizeText(`[ ${title} ]`)}`
+    .padStart(leftPadding, UIKit.HWORIZWONTAL)
+    .padEnd(10, UIKit.HWORIZWONTAL)
 
 
 
-  const windowTitle = `\n\n\n${UIKit.ROUNDED_TOP_LEFT}${_title}${UIKit.ROUNDED_TOP_RIGHT}`
-  const windowEnd = `${UIKit.BOTTOM_LEFT}${_titleWindowEnd}${UIKit.BOTTOM_RIGHT}\n\n\n`
+  cwonst windwowTitwwl = `\n\n\n${UIKit.WOUNDED_TWOP_LEFT}${_title}${UIKit.WOUNDED_TWOP_RIGHT}`
+  cwonst windwowEnd = `${UIKit.BWOTTWOM_LEFT}${_titleWindwowEnd}${UIKit.BWOTTWOM_RIGHT}\n\n\n`
 
 
   return [
-    chalk.yellowBright(`| WARN:   ${warnMessage}`),
-    windowTitle,
-    Projects({
+    chalk.yewwowBwight(`| WARN:   ${warnMessage}`),
+    windwowTitle,
+    Pwojects({
       disableTable: false,
       data: state
     }),
-    windowEnd
-  ].join('\n')
+    windwowEnd
+  ].jwoin('\n')
 
 }

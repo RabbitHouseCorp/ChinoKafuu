@@ -1,90 +1,90 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { defineState } from '../../../defineTypes/defineState'
-import { Button, Command, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Buttwon, Cwommand, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class PayCommand extends Command {
-  constructor() {
+expwort default class PayCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'pay',
-      aliases: ['pagar', 'doar'],
+      nyame: 'pay',
+      aliases: ['pagar', 'dwoar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['addReactions']
       }],
-      slash: new CommandBase()
-        .setName('pay')
-        .setDescription('Sends money to a user')
+      slash: nyew CwommandBase()
+        .setNyame('pay')
+        .setDescwiption('Sends mwonyey two a user')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(4)
-            .setName('amount')
-            .setDescription('Amount of yen you want to transfer.')
+            .setNyame('amwount')
+            .setDescwiption('Amwount of yen u want two twansfer.')
             .isRequired(),
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value) ?? ctx.args.get('user').member ?? null
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value) ?? ctx.args.get('user').Mwember ?? nyuww
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
 
-    const fromUser = ctx.db.user
-    const value = ctx.args.get('amount').value
-    const toUser = await ctx.db.db.getOrCreate(member.id)
+    cwonst fwomUser = ctx.db.user
+    cwonst value = ctx.args.get('amwount').value
+    cwonst twoUser = await ctx.db.db.getOrCweate(Mwember.id)
 
-    if (ctx.message.member.id === member.id) return ctx.replyT('error', 'commands:pay.userMismatch')
-    if (!value) return ctx.replyT('error', 'commands:pay.valueMismatch')
-    if (isNaN(Number(value))) return ctx.replyT('error', 'commands:pay.valueMismatch')
-    if (Number(value) === Infinity) return ctx.replyT('error', 'commands:pay.valueMismatch')
-    if (value <= 0) return ctx.replyT('error', 'commands:pay.valueMismatch')
-    if (value > fromUser.yens) return ctx.replyT('error', 'commands:pay.poorUser')
-    const totalYens = Math.round(value)
-    const confirm = new Button()
-      .setLabel(ctx._locale('basic:boolean.true'))
-      .customID('confirmButton')
+    if (ctx.message.Mwember.id === Mwember.id) return ctx.repwyT('erwor', 'cwommands:pay.userMismatch')
+    if (!value) return ctx.repwyT('erwor', 'cwommands:pay.valueMismatch')
+    if (isNyaN(Nyumber(value))) return ctx.repwyT('erwor', 'cwommands:pay.valueMismatch')
+    if (Nyumber(value) === Infwinyity) return ctx.repwyT('erwor', 'cwommands:pay.valueMismatch')
+    if (value <= 0) return ctx.repwyT('erwor', 'cwommands:pay.valueMismatch')
+    if (value > fwomUser.yens) return ctx.repwyT('erwor', 'cwommands:pay.pwoorUser')
+    cwonst twotalYens = Math.wound(value)
+    cwonst cwonfwirm = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.twue'))
+      .custwomID('cwonfwirmButtwon')
       .setStyle(3)
-      .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
-    const reject = new Button()
-      .setLabel(ctx._locale('basic:boolean.false'))
-      .customID('rejectButton')
+      .setEmwoji({ nyame: Emwoji.getEmwoji('success').nyame, id: Emwoji.getEmwoji('success').id })
+    cwonst reject = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.false'))
+      .custwomID('rejectButtwon')
       .setStyle(4)
-      .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
-    const state = defineState({
-      member: member.id,
-      author: ctx.message.author.id,
+      .setEmwoji({ nyame: Emwoji.getEmwoji('erwor').nyame, id: Emwoji.getEmwoji('erwor').id })
+    cwonst state = defwinyeState({
+      Mwember: Mwember.id,
+      authwor: ctx.message.authwor.id,
       action: '',
-      totalYens,
-      yens: totalYens,
-      total: value
-    }, { eventEmitter: true })
+      twotalYens,
+      yens: twotalYens,
+      twotal: value
+    }, { eventEmitter: twue })
 
-    ctx.replyT('warn', 'commands:pay.confirm', { user: member.mention, yens: totalYens, total: value }, {
-      components: [{
+    ctx.repwyT('warn', 'cwommands:pay.cwonfwirm', { user: Mwember.mention, yens: twotalYens, twotal: value }, {
+      cwompwonyents: [{
         type: 1,
-        components: [confirm.build(), reject.build()]
+        cwompwonyents: [cwonfwirm.build(), reject.build()]
       }]
     }).then(message => {
-      ctx.createInteractionFunction('payInteraction', message, {
+      ctx.cweateInteractionFunction('payInteraction', message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action === 'confirmButton') {
-          fromUser.yens -= stateUpdated.totalYens
-          toUser.yens += stateUpdated.totalYens
-          state.actionState.event.emit('done')
+        if (stateUpdated.action === 'cwonfwirmButtwon') {
+          fwomUser.yens -= stateUpdated.twotalYens
+          twoUser.yens += stateUpdated.twotalYens
+          state.actionState.event.emit('dwonye')
           ctx.db.user.save()
-          toUser.save()
+          twoUser.save()
         }
       })
     })

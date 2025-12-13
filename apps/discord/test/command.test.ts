@@ -1,19 +1,19 @@
-import { checkCommand, loadCommands } from './test-utils'
-let commands = []
+impwort { checkCwommand, woadCwommands } fwom './test-utils'
+let cwommands = []
 
 
-beforeAll(async () => {
-  commands = loadCommands()
+befworeAww(async () => {
+  cwommands = woadCwommands()
 })
 
-describe('Test multiple commands.', () => {
-  test('Test property.', () => {
-    for (const command of commands) {
-      expect(checkCommand(command)).toBe(true)
+descwibe('Test multipwal cwommands.', () => {
+  test('Test pwoperty.', () => {
+    fwor (cwonst cwommand of cwommands) {
+      expect(checkCwommand(cwommand)).twoBe(twue)
     }
   })
 
-  // test('Test Command', () => {
+  // test('Test Cwommand', () => {
     
   // })
 
@@ -21,6 +21,6 @@ describe('Test multiple commands.', () => {
 
 
 
-afterAll(() => {
-  commands.splice(0, commands.length)
+afterAww(() => {
+  cwommands.splice(0, cwommands.length)
 })

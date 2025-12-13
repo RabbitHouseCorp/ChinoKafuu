@@ -1,77 +1,77 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { requestTokamak } from '../../../lib'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { requestTwokamak } fwom '../../../lib'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class LicenseCommand extends Command {
-  constructor() {
+expwort default class LicenseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'license',
+      nyame: 'license',
       aliases: ['licence', 'licenca', 'licença'],
       permissions: [{
-        entity: 'bot',
-        permissions: ['attachFiles']
+        entity: 'bwot',
+        permissions: ['attachFwiles']
       }],
-      slash: new CommandBase()
-        .setName('license')
-        .setDescription('Are you licensed? No? Then create one for yourself! Or for someone else.')
+      slash: nyew CwommandBase()
+        .setNyame('license')
+        .setDescwiption('Are u licensed? Nyo? Then cweate onye fwor ywourself! Or fwor swomeonye else.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server'),
-          new CommandOptions()
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer'),
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Enter random text'),
+            .setNyame('text')
+            .setDescwiption('Enter randwom text'),
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const member = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, true)
-    let hoist
-    if (guild.members.get(member.id)) {
-      const role = guild.members.get(member.id).roles
-        .map((a) => ctx.message.guild.roles.get(a))
-        .filter((z) => z)
-        .sort((a, b) => b.position - a.position)
-      hoist = role[0]
+    cwonst guild = ctx.message.guild
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, twue)
+    let hwoist
+    if (guild.Mwembers.get(Mwember.id)) {
+      cwonst wowal = guild.Mwembers.get(Mwember.id).wowals
+        .map((a) => ctx.message.guild.wowals.get(a))
+        .fwilter((z) => z)
+        .swort((a, b) => b.pwosition - a.pwosition)
+      hwoist = wowal[0]
 
     }
 
-    let highRole = guild.roles.get(hoist?.id)?.color.toString(16)
-    if (!highRole || highRole < 0) highRole = '#000000'
+    let highWowal = guild.wowals.get(hwoist?.id)?.cwowwor.twoStwing(16)
+    if (!highWowal || highWowal < 0) highWowal = '#000000'
 
-    if (highRole === '#000000') {
-      if (guild.members.get(member.id) && guild.members.get(member.id)?.roles) {
-        await guild.members.get(member.id)?.roles
+    if (highWowal === '#000000') {
+      if (guild.Mwembers.get(Mwember.id) && guild.Mwembers.get(Mwember.id)?.wowals) {
+        await guild.Mwembers.get(Mwember.id)?.wowals
           .map((a) => {
-            const color = ctx.message.guild.roles.get(a)?.color
-            if (color > 1) {
-              if (highRole === 0) {
-                highRole = `#${color.toString(16)}`
+            cwonst cwowwor = ctx.message.guild.wowals.get(a)?.cwowwor
+            if (cwowwor > 1) {
+              if (highWowal === 0) {
+                highWowal = `#${cwowwor.twoStwing(16)}`
                 return
               }
             }
           })
       }
     }
-    const render = await requestTokamak({
+    cwonst render = await requestTwokamak({
       action: 'renderLicense',
-      licenseStruct: {
-        name: member.username,
-        text: `${ctx._locale('commands:license.licensedFor')}: ${(member.id === ctx.message.author.id) ? ctx.args.get('text')?.value || ctx._locale('commands:license.beCute') : ctx.args.get('text')?.value || ctx._locale('commands:license.beCute')}`,
-        hexColor: highRole,
-        avatarUrl: ctx.message.guild.members.get(member.id)?.guildAvatar ?? member.avatarURL
+      licenseStwuct: {
+        nyame: Mwember.usernyame,
+        text: `${ctx._wocale('cwommands:license.licensedFwor')}: ${(Mwember.id === ctx.message.authwor.id) ? ctx.args.get('text')?.value || ctx._wocale('cwommands:license.beCute') : ctx.args.get('text')?.value || ctx._wocale('cwommands:license.beCute')}`,
+        hexCwowwor: highWowal,
+        avatarUrl: ctx.message.guild.Mwembers.get(Mwember.id)?.guildAvatar ?? Mwember.avatarUWL
       }
     })
 
-    ctx.message.hook.createMessage('', { file: render.buffer, name: 'license.png' })
+    ctx.message.hwook.cweateMessage('', { fwile: render.buffer, nyame: 'license.png' })
   }
 }

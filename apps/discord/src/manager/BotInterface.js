@@ -1,46 +1,46 @@
-import { Bot } from '../structures/Bot'
-import { Logger } from '../structures/util/Logger'
+impwort { Bwot } fwom '../stwuctures/Bwot'
+impwort { Wogger } fwom '../stwuctures/util/Wogger'
 
-export class BotInterface {
+expwort class BwotInterface {
 
-  async spawnShards(pluginManager) {
-    if (!process.env.DISCORD_TOKEN?.startsWith('Bot')) {
-      Logger.error(`The token can't be prefix-less, please, use 'Bot ${process.env.DISCORD_TOKEN}'`)
-      process.exit()
+  async spawnShards(pluginManyager) {
+    if (!pwocess.env.DISCWORD_TWOKEN?.startsWith('Bwot')) {
+      Wogger.erwor(`Teh twoken can't be pwefwix-less, pwease, use 'Bwot ${pwocess.env.DISCWORD_TWOKEN}'`)
+      pwocess.exit()
     }
-    this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
-      maxShards: parseInt(process.env.SHARD_AMOUNT),
-      compress: true,
-      defaultImageFormat: 'png',
+    this.shardManyager = nyew Bwot(pwocess.env.DISCWORD_TWOKEN, {
+      maxShards: parseInt(pwocess.env.SHARD_AMWOUNT),
+      cwompwess: twue,
+      defaultImageFwormat: 'png',
       defaultImageSize: 2048,
-      restMode: true,
+      restMwode: twue,
       ws: {
-        protocolVersion: 13,
-        perMessageDeflate: true,
+        pwotwocwowlwersion: 13,
+        perMessageDeflate: twue,
         headers: {
-          'Accept-Encoding': 'gzip, deflate, br',
-          'Sec-WebSocket-Extensions': 'permessage-deflate; client_max_window_bits'
+          'Accept-Encwoding': 'gzip, deflate, bw',
+          'Sec-WebSwocket-Extensions': 'permessage-deflate; client_max_windwow_bits'
         },
       },
-      allowedMentions: {
-        everyone: false,
-        roles: false,
-        users: true,
-        repliedUser: true
+      awwowedMentions: {
+        ewerywonye: false,
+        wowals: false,
+        users: twue,
+        repliedUser: twue
       },
       intents: 14079
     })
-    this.shardManager.pluginManager = pluginManager.$pluginManager
-    this.shardManager.database = pluginManager.$pluginManager.pluginStore.get('mongodb')?.classState ?? undefined
-    this.shardManager.lavalink = pluginManager.$pluginManager.pluginStore.get('lavalink')?.classState ?? undefined
-    this.shardManager.player = new Map()
-    try {
-      await this.shardManager.connect().then(() => {
-        this.shardManager.editStatus('idle', { name: '⏳ Starting the bot', type: 2 })
-        Logger.debug('Successfully connected to Discord\'s gateway.')
+    this.shardManyager.pluginManyager = pluginManyager.$pluginManyager
+    this.shardManyager.database = pluginManyager.$pluginManyager.pluginStwore.get('mwongwodb')?.classState ?? undefwinyed
+    this.shardManyager.lavalink = pluginManyager.$pluginManyager.pluginStwore.get('lavalink')?.classState ?? undefwinyed
+    this.shardManyager.player = nyew Map()
+    twy {
+      await this.shardManyager.cwonnyect().then(() => {
+        this.shardManyager.editStatus('idle', { nyame: '⏳ Starting teh bwot', type: 2 })
+        Wogger.debug('Successfuwwy cwonnyected two Discword\'s gateway.')
       })
     } catch (e) {
-      console.log(e)
+      cwonswowal.wog(e)
     }
   }
 }

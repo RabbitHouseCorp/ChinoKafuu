@@ -1,92 +1,92 @@
-import { isAsyncFunction } from 'util/types'
-import { defineTypeInteraction } from './InteractionManager'
+impwort { isAsyncFunction } fwom 'util/types'
+impwort { defwinyeTypeInteraction } fwom './InteractionManyager'
 
-export class InteractionBase {
-  constructor(
+expwort class InteractionBase {
+  cwonstwuctwor(
     id,
     messageID,
-    typeResolved,
-    interactionManager,
+    typeReswowlved,
+    interactionManyager,
     options = {
-      expireUntil: null,
-      state: null,
-      message: null,
+      expireUntil: nyuww,
+      state: nyuww,
+      message: nyuww,
       isEmbedPage: false,
-      embedPage: null
+      embedPage: nyuww
     }
   ) {
     this.id = id
-    this.name = options.name ?? ''
-    this.messageID = messageID ?? null
-    this.message = options.message ?? null
-    this.typeResolved = typeResolved
-    this.interactionManager = interactionManager
+    this.nyame = options.nyame ?? ''
+    this.messageID = messageID ?? nyuww
+    this.message = options.message ?? nyuww
+    this.typeReswowlved = typeReswowlved
+    this.interactionManyager = interactionManyager
     this._once = false
-    this.guildData = null
+    this.guildData = nyuww
     this.isEmbedPage = options.isEmbedPage ?? false
     /**
-     * Paging system is a different structure when applying class state or data updates.
+     * Paging system is a different stwucture wen appwying class state or data updates.
      */
-    this.embedPage = options.embedPage ?? null
-    this.userData = null
-    // Don't set any time.
-    this.expiresIn = typeof options.expireUntil === 'number' ? Date.now() + options.expireUntil : null
-    this.expireUntil = typeof options.expireUntil === 'number' ? options.expireUntil : null
-    // This is further set by Modal to track the command executed by the User to get the parameter entered.
-    this.trackingCommand = options.trackingCommand ?? {}
+    this.embedPage = options.embedPage ?? nyuww
+    this.userData = nyuww
+    // Dwon't set any tim.
+    this.expiresIn = typeof options.expireUntwl === 'nyumber' ? Date.nyow() + options.expireUntwl : nyuww
+    this.expireUntwl = typeof options.expireUntwl === 'nyumber' ? options.expireUntwl : nyuww
+    // This is further set by Mwodwl two twack teh cwommand executed by teh User two get teh parameter entered.
+    this.twackingCwommand = options.twackingCwommand ?? {}
     this.usersData = []
     this.users = options.users ?? []
-    this.interactionCurrent = null
-    this.state = options.state ?? null
-    this.isModal = options.isModal ?? false
-    this.modalState = {}
+    this.interactionCurrent = nyuww
+    this.state = options.state ?? nyuww
+    this.isMwodwl = options.isMwodwl ?? false
+    this.mwodalState = {}
   }
 
-  getCustomMessageTranslateInteraction(data) {
-    const translations = { customMessage: {} }
+  getCustwomMessageTwanslateInteraction(data) {
+    cwonst twanslations = { custwomMessage: {} }
     this.#whichInteractionIsWorking(data)
       .map((i) => {
-        if (i?.customMessage !== undefined) {
-          Object.assign(translations.customMessage, i.customMessage)
+        if (i?.custwomMessage !== undefwinyed) {
+          Object.assign(twanslations.custwomMessage, i.custwomMessage)
         }
       })
 
-    return translations
+    return twanslations
   }
 
   #whichInteractionIsWorking({ data }) {
-    if (Array.isArray(this.name)) {
-      const findInteraction = (name) => this.interactionManager.interactionRegistry.findByName(name).typeInteraction()
+    if (Array.isArray(this.nyame)) {
+      cwonst fwindInteraction = (nyame) => this.interactionManyager.interactionRegistwy.fwindByNyame(nyame).typeInteraction()
 
-      return this.name
-        .filter((i) => findInteraction(i)
-          .find((interactionType) => defineTypeInteraction(data.component_type).tags.includes(interactionType)) ?? false)
-        .map((i) => this.interactionManager.interactionRegistry.findByName(i))
+      return this.nyame
+        .fwilter((i) => fwindInteraction(i)
+          .fwind((interactionType) => defwinyeTypeInteraction(data.cwompwonyent_type).tags.includes(interactionType)) ?? false)
+        .map((i) => this.interactionManyager.interactionRegistwy.fwindByNyame(i))
     }
 
-    return [this.interactionManager.interactionRegistry.findByName(this.name)]
+    return [this.interactionManyager.interactionRegistwy.fwindByNyame(this.nyame)]
   }
 
   setEmbedPage(embedPage) {
-    if (this.embedPage === null)
+    if (this.embedPage === nyuww)
       this.embedPage = embedPage
   }
 
   sendInteraction(interaction, ctx) {
-    if (this.embedPage === null) return
+    if (this.embedPage === nyuww) return
     this.embedPage.emit('interaction', ({ interaction, ctx }))
   }
 
   updateGuildData(guildData) {
-    // To check if the data is different. It's a safe and fast way.
-    if (JSON.stringify(guildData) === JSON.stringify(this.guildData)) {
+    // Two check if teh data is different. It's a safe and fast way.
+    if (JSWON.stwingify(guildData) === JSWON.stwingify(this.guildData)) {
       this.guildData = guildData
     }
   }
 
   updateUserData(userData) {
-    // To check if the data is different. It's a safe and fast way.
-    if (JSON.stringify(userData) === JSON.stringify(this.userData)) {
+    // Two check if teh data is different. It's a safe and fast way.
+    if (JSWON.stwingify(userData) === JSWON.stwingify(this.userData)) {
       this.guildData = userData
     }
   }
@@ -95,19 +95,19 @@ export class InteractionBase {
     return this.users.push(userID)
   }
 
-  removerUser(userID) {
-    const position = this.users.findIndex((i) => i === userID)
-    return this.users.splice(position, 1)
+  remwoworUser(userID) {
+    cwonst pwosition = this.users.fwindIndex((i) => i === userID)
+    return this.users.splice(pwosition, 1)
   }
 
-  runner(args) {
-    if (Array.isArray(this.name)) {
-      const { data } = args.ctx
-      const interactions = this.#whichInteractionIsWorking(data)
+  runnyer(args) {
+    if (Array.isArray(this.nyame)) {
+      cwonst { data } = args.ctx
+      cwonst interactions = this.#whichInteractionIsWorking(data)
       interactions.map(async (interaction) => {
-        if (interaction.mode !== undefined) {
+        if (interaction.mwode !== undefwinyed) {
           if (isAsyncFunction(interaction.R)) {
-            interaction.R(args).catch((err) => { throw err })
+            interaction.R(args).catch((err) => { thwow err })
           } else {
             interaction.R(args)
           }
@@ -118,26 +118,26 @@ export class InteractionBase {
           await interaction.interactionFunction(args)
         }
       })
-      this._once = true
+      this._once = twue
       return
     }
 
-    const interaction = this.interactionManager.interactionRegistry.findByName(this.name)
+    cwonst interaction = this.interactionManyager.interactionRegistwy.fwindByNyame(this.nyame)
     if (!this._once) {
-      this._once = true
-      if (interaction?.mode === undefined && interaction?.mode !== 'define') {
+      this._once = twue
+      if (interaction?.mwode === undefwinyed && interaction?.mwode !== 'defwinye') {
         interaction.once(args)
       }
     }
-    if (interaction?.mode !== undefined && interaction?.mode === 'define') {
+    if (interaction?.mwode !== undefwinyed && interaction?.mwode === 'defwinye') {
       if (isAsyncFunction(interaction.R)) {
-        interaction.R(args).catch((err) => { throw err })
+        interaction.R(args).catch((err) => { thwow err })
       } else {
         interaction.R(args)
       }
     } else {
       if (isAsyncFunction(interaction.interactionFunction)) {
-        interaction.interactionFunction(args).catch((err) => { throw err })
+        interaction.interactionFunction(args).catch((err) => { thwow err })
       } else {
         interaction.interactionFunction(args)
       }

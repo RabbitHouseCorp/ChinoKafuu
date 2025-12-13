@@ -1,137 +1,137 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { requestTokamak } from '../../../lib'
-import { Command, Logger, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { requestTwokamak } fwom '../../../lib'
+impwort { Cwommand, Wogger, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-const flags = [
+cwonst flags = [
   {
     flag: 1 << 0,
-    name: 'discord_employee'
+    nyame: 'discword_empwoyee'
   },
   {
     flag: 1 << 1,
-    name: 'discord_partner'
+    nyame: 'discword_partnyer'
   },
   {
     flag: 1 << 2,
-    name: 'hypesquad_events'
+    nyame: 'hypesquad_events'
   },
   {
     flag: 1 << 3,
-    name: 'bug_hunter'
+    nyame: 'bug_hunter'
   },
   {
     flag: 1 << 6,
-    name: 'hypesquad_bravery'
+    nyame: 'hypesquad_bwawery'
   },
   {
     flag: 1 << 7,
-    name: 'hypesquad_brilliance'
+    nyame: 'hypesquad_bwiwwiance'
   },
   {
     flag: 1 << 8,
-    name: 'hypesquad_balance'
+    nyame: 'hypesquad_balance'
   },
   {
     flag: 1 << 9,
-    name: 'early_supporter'
+    nyame: 'earwy_suppworter'
   },
   {
     flag: 1 << 12,
-    name: 'null'
+    nyame: 'nyuww'
   },
   {
     flag: 1 << 14,
-    name: 'bug_hunter'
+    nyame: 'bug_hunter'
   },
   {
     flag: 1 << 17,
-    name: 'bot_developer'
+    nyame: 'bwot_devewoper'
   }
 
 ]
 
-export default class ProfileCommand extends Command {
-  constructor() {
+expwort default class PwofwileCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'profile',
-      aliases: ['perfil'],
+      nyame: 'pwofwile',
+      aliases: ['perfwil'],
       permissions: [{
-        entity: 'bot',
-        permissions: ['attachFiles']
+        entity: 'bwot',
+        permissions: ['attachFwiles']
       }],
-      slash: new CommandBase()
-        .setName('profile')
-        .setDescription('Shows your social profile or the social profile of someone.')
+      slash: nyew CwommandBase()
+        .setNyame('pwofwile')
+        .setDescwiption('Shwows ywour swociwl pwofwile or teh swociwl pwofwile of swomeonye.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention member on server.')
+            .setNyame('user')
+            .setDescwiption('Mention Mwember on serwer.')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const user1 = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user1?.id ?? user1, true)
-    const user = await ctx.client.database.users.getOrCreate(member.id)
-    const couple = user.isMarry ? await ctx.getUser(user.marryWith) : { username: '', discriminator: '' }
+    cwonst user1 = ctx.args.get('user')?.value
+    cwonst Mwember = await ctx.getUser(user1?.id ?? user1, twue)
+    cwonst user = await ctx.client.database.users.getOrCweate(Mwember.id)
+    cwonst cwoupwal = user.isMarry ? await ctx.getUser(user.marryWith) : { usernyame: '', discwiminyatwor: '' }
 
-    const arrayBadges = [
+    cwonst arrayBadges = [
       /**
              * This is a badge list.
              */
     ]
 
-    for (const flag of flags) {
-      switch ((flag.flag & member?.user?.publicFlags ?? member.publicFlags) === flag.flag) {
-        case true:
-          arrayBadges.push(flag.name)
-          break
+    fwor (cwonst flag of flags) {
+      switch ((flag.flag & Mwember?.user?.publicFlags ?? Mwember.publicFlags) === flag.flag) {
+        case twue:
+          arrayBadges.push(flag.nyame)
+          bweak
       }
     }
 
-    const guildMember = await ctx.getMember(member.id) ?? undefined
-    const a = Date.now()
-    const cache = ctx.client.pluginManager.pluginStore.get('cache_profile').classState
-    const data = {
-      type: user.profileType,
-      name: member.username,
-      money: Number(user.yens).toLocaleString(),
-      aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: ctx.db.guild.prefix }),
+    cwonst guildmwember = await ctx.getmwember(Mwember.id) ?? undefwinyed
+    cwonst a = Date.nyow()
+    cwonst cache = ctx.client.pluginManyager.pluginStwore.get('cache_pwofwile').classState
+    cwonst data = {
+      type: user.pwofwileType,
+      nyame: Mwember.usernyame,
+      mwonyey: Nyumber(user.yens).twoWocaleStwing(),
+      abwoutMe: user.abwoutme !== '' ? user.abwoutme : ctx._wocale('cwommands:pwofwile.defaultAbwoutMe', { 0: ctx.db.guild.pwefwix }),
       married: user.isMarry,
-      partnerName: `@${couple?.username}`,
-      bgId: user.background,
+      partnyerNyame: `@${cwoupwe?.usernyame}`,
+      bgId: user.backgwound,
       stickerId: user.sticker,
-      favColor: user.profileColor,
-      avatarUrl: guildMember?.guildAvatar ?? member.avatarURL,
+      favCwowwor: user.pwofwileCwowwor,
+      avatarUrl: guildmwember?.guildAvatar ?? Mwember.avatarURL,
       badges: arrayBadges
     }
-    if (cache.check(member.id, cache, data)) {
-      requestTokamak({
-        action: 'renderProfile',
-        profileStruct: data
+    if (cache.check(Mwember.id, cache, data)) {
+      requestTwokamak({
+        action: 'renderPwofwile',
+        pwofwileStwuct: data
       })
-        .then((profile) => {
-          Logger.debug(`profile (${member.id}) request took ${Date.now() - a}ms to receive.`)
-          cache.setCache(member.id, cache, data, profile.buffer)
+        .then((pwofwile) => {
+          Wogger.debug(`pwofwile (${Mwember.id}) request twook ${Date.nyow() - a}ms two receive.`)
+          cache.setCache(Mwember.id, cache, data, pwofwile.buffer)
           ctx.send('', {
-            file: {
-              file: profile.buffer,
-              name: 'profile.png'
+            fwile: {
+              fwile: pwofwile.buffer,
+              nyame: 'pwofwile.png'
             }
           })
         })
     } else {
       ctx.send('', {
-        file: {
-          file: cache.$cacheStore.get(member.id),
-          name: 'profile.png'
+        fwile: {
+          fwile: cache.$cacheStwore.get(Mwember.id),
+          nyame: 'pwofwile.png'
         }
       })
     }

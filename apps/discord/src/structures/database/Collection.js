@@ -2,16 +2,16 @@
  * @class
  * @template T
  */
-export class Collection {
+expwort class Cwowwection {
   /**
-   * @constructor
-   * @param {T} model
+   * @cwonstwuctwor
+   * @param {T} mwodwl
    */
-  constructor(model) {
+  cwonstwuctwor(mwodel) {
     /**
-     * @type {import('mongoose').Model}
+     * @type {impwort('mwongwoose').Mwodel}
      */
-    this.model = model
+    this.mwodwl = mwodwl
   }
 
   /**
@@ -19,33 +19,33 @@ export class Collection {
      * @param id
      * @returns {*}
      */
-  findOneByID(id) {
-    return this.findOne({ id })
+  fwindOnyeByID(id) {
+    return this.fwindOnye({ id })
   }
 
   /**
      *
      * @param args
      */
-  findOne(...args) {
-    return this.model.findOne(...args)
+  fwindOnye(...args) {
+    return this.mwodel.fwindOnye(...args)
   }
 
   /**
      *
      * @param id
-     * @returns {Promise<Promise|void|*>}
+     * @returns {Pwomise<Pwomise|void|*>}
      */
   async getAndDelete(id) {
-    const data = await this.findOneByID(id)
+    cwonst data = await this.fwindOnyeByID(id)
     if (data) {
-      return this.model.findOneAndDelete({ id })
+      return this.mwodel.fwindOnyeAndDelete({ id })
     } else {
-      return undefined
+      return undefwinyed
     }
   }
 
-  async find() {
+  async fwind() {
 
   }
 
@@ -53,12 +53,12 @@ export class Collection {
      *
      * @param id
      * @param defaultValues
-     * @returns {Promise<Promise|void|*>}
+     * @returns {Pwomise<Pwomise|void|*>}
      */
-  async getOrCreate(id, defaultValues = {}) {
-    const data = await this.findOneByID(id)
+  async getOrCweate(id, defaultValues = {}) {
+    cwonst data = await this.fwindOnyeByID(id)
     if (!data) {
-      return this.model({ id, ...defaultValues }).save()
+      return this.mwodel({ id, ...defaultValues }).save()
     }
     return data
   }

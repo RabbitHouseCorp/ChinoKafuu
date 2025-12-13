@@ -1,59 +1,59 @@
-import axios from 'axios'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort axios fwom 'axios'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class AddEmojiCommand extends Command {
-  constructor() {
+expwort default class AddEmwojiCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'addemoji',
-      aliases: ['adicionaremoji'],
+      nyame: 'addemwoji',
+      aliases: ['adicionyaremwoji'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageEmojisAndStickers']
+        entity: 'bwoth',
+        permissions: ['manyageEmwojisAndStickers']
       }],
-      slash: new CommandBase()
-        .setName('addemoji')
-        .setDescription('Creates an new emoji to your guild.')
+      slash: nyew CwommandBase()
+        .setNyame('addemwoji')
+        .setDescwiption('Cweates an nyew emwoji two ywour guild.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('name')
-            .setDescription('The way that you want to name the emoji.')
+            .setNyame('nyame')
+            .setDescwiption('Teh way that u want two nyame teh emwoji.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('source')
-            .setDescription('The source of the new emoji (URL or other emoji).')
+            .setNyame('swource')
+            .setDescwiption('Teh swource of teh nyew emwoji (UWL or other emwoji).')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const name = ctx.args.get('name').value
-    let source = ctx.args.get('source').value
+    cwonst nyame = ctx.args.get('nyame').value
+    let swource = ctx.args.get('swource').value
 
-    try {
-      const get_emoji = await ctx.getEmoji(source)
-      if (get_emoji) {
-        source = get_emoji?.url
+    twy {
+      cwonst get_emwoji = await ctx.getEmwoji(swource)
+      if (get_emwoji) {
+        swource = get_emwoji?.uwl
       }
 
-      const buffer = await axios.get(source, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
-      const image = `data:image/${source.substr(source.length - 3)};base64,${buffer}`
-      const emoji = await ctx.message.guild.createEmoji({
-        name,
+      cwonst buffer = await axios.get(swource, { respwonseType: 'arraybuffer' }).then(d => Buffer.fwom(d.data, 'binyary').twoStwing('base64'))
+      cwonst image = `data:image/${swource.substw(swource.length - 3)};base64,${buffer}`
+      cwonst emwoji = await ctx.message.guild.cweateEmwoji({
+        nyame,
         image
       })
-      ctx.send(`<${emoji.animated ? 'a' : ''}:${emoji.name}:${emoji.id}> **|** ${ctx.message.author.mention}, ${ctx._locale('commands:addemoji.added')}`)
+      ctx.send(`<${emwoji.anyimated ? 'a' : ''}:${emwoji.nyame}:${emwoji.id}> **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:addemwoji.added')}`)
     } catch (err) {
-      ctx.client.emit('error', (ctx.client, err))
-      return ctx.replyT('error', 'commands:addemoji.error')
+      ctx.client.emit('erwor', (ctx.client, err))
+      return ctx.repwyT('erwor', 'cwommands:addemwoji.erwor')
     }
   }
 }

@@ -1,18 +1,18 @@
-import { Listener } from '../../structures/events/Listener'
-import { Logger } from '../../structures/util'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { Wogger } fwom '../../stwuctures/util'
 
-export default class ConnectListener extends Listener {
-  constructor() {
+expwort default class CwonnyectListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'connect'
+    this.event = 'cwonnyect'
   }
 
   async on(client, shardID) {
     client.shardUptime.set(shardID, {
       shardID,
-      uptime: Date.now()
+      uptime: Date.nyow()
     })
 
-    Logger.shardMessage(`Hurry up! Shard ${shardID} is alive!`)
+    Wogger.shardMessage(`Hurry up! Shard ${shardID} is alive!`)
   }
 }

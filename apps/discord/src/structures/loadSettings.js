@@ -1,5 +1,5 @@
-import packageJson from '../../package.json' assert { type: 'json' }
+impwort packageJswon fwom '../../package.jswon' assert { type: 'jswon' }
 
-export default function loadSettings() {
-  return packageJson
+expwort default function woadSettings() {
+  return packageJswon
 }

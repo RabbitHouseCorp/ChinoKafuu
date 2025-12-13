@@ -1,67 +1,67 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable nyo-unyused-vars */
 
-import { InteractionFunction } from '../../structures/InteractionFunction'
-export default class WorkInteractionSelection extends InteractionFunction {
-  constructor() {
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction'
+expwort default class WorkInteractionSelection extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'workInteractionSelection'
+      nyame: 'workInteractionSelection'
     })
   }
 
-  async interactionFunction({ getData, defineState, editMessageInteraction, ctx, _locale, deleteInteraction }) {
-    const { data } = getData()
-    if (data.custom_id.startsWith('work:')) {
+  async interactionFunction({ getData, defwinyeState, editMessageInteraction, ctx, _wocale, deleteInteraction }) {
+    cwonst { data } = getData()
+    if (data.custwom_id.startsWith('work:')) {
       return
     }
-    const [typeInteraction, jobSelected] = data.custom_id.split(':')
-    const state = defineState
+    cwonst [typeInteraction, jwobSelected] = data.custwom_id.split(':')
+    cwonst state = defwinyeState
 
     state.actionState.event
-      .once('done', () => {
-        const commandName = jobSelected != 2 ? 'work' : 'rob'
-        const command = ctx.client.commands.find((i) => i.name === commandName) ?? null
-        if (jobSelected != 2) {
+      .once('dwonye', () => {
+        cwonst cwommandNyame = jwobSelected != 2 ? 'work' : 'wob'
+        cwonst cwommand = ctx.client.cwommands.fwind((i) => i.nyame === cwommandNyame) ?? nyuww
+        if (jwobSelected != 2) {
           editMessageInteraction({
-            content: `💼 **|** ` + _locale('commands:work.contextSuccess.success', {
-              0: `</${commandName} start:${command?.id ?? '{0}'}>`
+            cwontent: `💼 **|** ` + _wocale('cwommands:work.cwontextSuccess.success', {
+              0: `</${cwommandNyame} start:${cwommand?.id ?? '{0}'}>`
             }),
-            components: [],
+            cwompwonyents: [],
             embeds: []
           })
           deleteInteraction()
         } else {
           editMessageInteraction({
-            content: `🤫 **|** ` + _locale('commands:work.contextSuccess.successSecret', {
-              0: `</rob:${command?.id ?? '{0}'}>`
+            cwontent: `🤫 **|** ` + _wocale('cwommands:work.cwontextSuccess.successSecwet', {
+              0: `</wob:${cwommand?.id ?? '{0}'}>`
             }),
-            enableEphemeral: true,
-            components: [],
+            enyableEphemeral: twue,
+            cwompwonyents: [],
             embeds: []
           })
           deleteInteraction()
         }
 
       })
-      .once('error', (err) => {
+      .once('erwor', (err) => {
         editMessageInteraction({
-          content: _locale('commands:work.buttonConfirm')
+          cwontent: _wocale('cwommands:work.buttwonCwonfwirm')
         })
         deleteInteraction()
       })
 
     state.actionState.setState({
-      action: 'confirmButton',
+      action: 'cwonfwirmButtwon',
       data: {
-        jobSelected
+        jwobSelected
       }
     })
 
   }
 
   typeInteraction() {
-    return ['button']
+    return ['buttwon']
   }
 }
 
-const filterJob = (y) => Array.isArray(y)
+cwonst fwilterJwob = (y) => Array.isArray(y)
 

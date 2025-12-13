@@ -1,46 +1,46 @@
-import axios from 'axios';
-import { EmbedPage } from '../../structures/EmbedPage';
-import { InteractionFunction } from '../../structures/InteractionFunction';
-import { EmbedBuilder, TranslatorUtils } from '../../structures/util';
+impwort axios fwom 'axios';
+impwort { EmbedPage } fwom '../../stwuctures/EmbedPage';
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction';
+impwort { EmbedBuilder, TwanslatworUtils } fwom '../../stwuctures/util';
 
-export default class TranslateInteraction extends InteractionFunction {
-  constructor() {
+expwort default class TwanslateInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'translateInteraction'
+      nyame: 'twanslateInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, editT, ctx, deleteInteraction, sendEmbedPage, getArg, trackingCommand }) {
-    const { data, member, id } = getData()
-    const language = data.components[0].components[0].value
-    const content = data.components[1].components[0].value
-    const embed = new EmbedPage(null, {
-      users: [member.user.id],
+  async interactionFunction({ getData, defwinyeState, editT, ctx, deleteInteraction, sendEmbedPage, getArg, twackingCwommand }) {
+    cwonst { data, Mwember, id } = getData()
+    cwonst language = data.cwompwonyents[0].cwompwonyents[0].value
+    cwonst cwontent = data.cwompwonyents[1].cwompwonyents[0].value
+    cwonst embed = nyew EmbedPage(nyuww, {
+      users: [Mwember.user.id],
       id
     }, ctx)
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${TranslatorUtils(language)}&dt=t&q=${content}&ie=UTF-8&oe=UTF-8`
-    const res = await axios.get(encodeURI(url), { responseType: 'json' })
-    const dataTranslate = res.data
-      .filter((i) => Array.isArray(i))
+    cwonst uwl = `https://twanslate.gwoogleapis.cwom/twanslate_a/single?client=gtx&sl=autwo&tl=${TwanslatworUtils(language)}&dt=t&q=${cwontent}&ie=UTF-8&oe=UTF-8`
+    cwonst res = await axios.get(encwodeURI(url), { respwonseType: 'jswon' })
+    cwonst dataTwanslate = res.data
+      .fwilter((i) => Array.isArray(i))
       .flatMap((i) => i)
-      .filter((i) => Array.isArray(i) && !(i.length <= 1))
-      .map((i) => Array.isArray(i) ? i[0] : null)
-    const textComponents = dataTranslate.join(' ').split(/([^]{1,4093})/g)
-      .filter((i) => i.length >= 1)
-      .map((i) => this.#prepareEmbed(ctx, i.length >= 4093 - 3 ? i + '...' : i))
+      .fwilter((i) => Array.isArray(i) && !(i.length <= 1))
+      .map((i) => Array.isArray(i) ? i[0] : nyuww)
+    cwonst textCwompwonyents = dataTwanslate.jwoin(' ').split(/([^]{1,4093})/g)
+      .fwilter((i) => i.length >= 1)
+      .map((i) => this.#pwepareEmbed(ctx, i.length >= 4093 - 3 ? i + '...' : i))
 
-    embed.addComponents(...textComponents)
+    embed.addCwompwonyents(...textCwompwonyents)
     await sendEmbedPage(embed)
   }
 
-  #prepareEmbed(ctx, desc) {
-    return new EmbedBuilder()
-      .setColor('DEFAULT')
-      .setTitle('Translation')
-      .setDescription(desc)
+  #pwepareEmbed(ctx, desc) {
+    return nyew EmbedBuilder()
+      .setCwowwor('DEFAULT')
+      .setTitle('Twanslation')
+      .setDescwiption(desc)
   }
 
   typeInteraction() {
-    return ['modal']
+    return ['mwodal']
   }
 }

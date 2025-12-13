@@ -1,96 +1,96 @@
-import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { Chwoice, CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class ConfigCommand extends Command {
-  constructor() {
+expwort default class CwonfwigCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'config',
-      aliases: ['module', 'configurações', 'configurar'],
+      nyame: 'cwonfwig',
+      aliases: ['mwodule', 'cwonfwigurações', 'cwonfwigurar'],
       permissions: [{
         entity: 'user',
-        permissions: ['manageGuild']
+        permissions: ['manyageGuild']
       },
       {
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('config')
-        .setDescription('Enable and disable some modules who I have in your guild.')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('cwonfwig')
+        .setDescwiption('Enyable and disable swome mwodules whwo I have in ywour guild.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('animu')
-            .setDescription('Animu Radio')
+            .setNyame('anyimu')
+            .setDescwiption('Anyimu Radio')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setName('status')
-                .setDescription('You need select o option set status of config.')
-                .addChoices(
-                  new Choice()
-                    .setName('Enabled')
-                    .setValue('enable'),
-                  new Choice()
-                    .setName('Disabled')
+                .setNyame('status')
+                .setDescwiption('U nyeed select o option set status of cwonfwig.')
+                .addChwoices(
+                  nyew Chwoice()
+                    .setNyame('Enyabled')
+                    .setValue('enyable'),
+                  nyew Chwoice()
+                    .setNyame('Disabled')
                     .setValue('disable'),
                 )
                 .isRequired(),
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setAutocomplete()
-                .setName('channel')
-                .setDescription('You need select o channel set config.')
+                .setAutwocwompwete()
+                .setNyame('channyel')
+                .setDescwiption('U nyeed select o channywl set cwonfwig.')
                 .isRequired(),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('mod')
-            .setDescription('Mod Log')
+            .setNyame('mwod')
+            .setDescwiption('Mwod Wog')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setName('status')
-                .setDescription('You need select o option set status of config.')
-                .addChoices(
-                  new Choice()
-                    .setName('Enabled')
-                    .setValue('enable'),
-                  new Choice()
-                    .setName('Disabled')
+                .setNyame('status')
+                .setDescwiption('U nyeed select o option set status of cwonfwig.')
+                .addChwoices(
+                  nyew Chwoice()
+                    .setNyame('Enyabled')
+                    .setValue('enyable'),
+                  nyew Chwoice()
+                    .setNyame('Disabled')
                     .setValue('disable'),
                 )
                 .isRequired(),
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setAutocomplete()
-                .setName('channel')
-                .setDescription('You need select o channel set config.'),
+                .setAutwocwompwete()
+                .setNyame('channyel')
+                .setDescwiption('U nyeed select o channywl set cwonfwig.'),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('report')
-            .setDescription('Report Module')
+            .setNyame('repwort')
+            .setDescwiption('Repwort Mwodule')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setName('status')
-                .setDescription('You need select o option set status of config.')
-                .addChoices(
-                  new Choice()
-                    .setName('Enabled')
-                    .setValue('enable'),
-                  new Choice()
-                    .setName('Disabled')
+                .setNyame('status')
+                .setDescwiption('U nyeed select o option set status of cwonfwig.')
+                .addChwoices(
+                  nyew Chwoice()
+                    .setNyame('Enyabled')
+                    .setValue('enyable'),
+                  nyew Chwoice()
+                    .setNyame('Disabled')
                     .setValue('disable'),
                 )
                 .isRequired(),
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(3)
-                .setAutocomplete()
-                .setName('channel')
-                .setDescription('You need select o channel set config.'),
+                .setAutwocwompwete()
+                .setNyame('channyel')
+                .setDescwiption('U nyeed select o channywl set cwonfwig.'),
             ),
         )
     })

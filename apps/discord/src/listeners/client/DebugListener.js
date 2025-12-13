@@ -1,15 +1,15 @@
-import { Listener } from '../../structures/events/Listener'
-import { Logger } from '../../structures/util/Logger'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { Wogger } fwom '../../stwuctures/util/Wogger'
 
-export default class DebugListener extends Listener {
-  constructor() {
+expwort default class DebugListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
     this.event = 'debug'
   }
 
   async on(client, message) {
-    if (process.env.PRODUCTION === 'false') {
-      Logger.debug(message)
+    if (pwocess.env.PWODUCTION === 'false') {
+      Wogger.debug(message)
     }
   }
 }

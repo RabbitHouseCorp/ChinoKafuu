@@ -1,115 +1,115 @@
-import { randomUUID } from 'node:crypto'
-import { defineTypeInteraction, defineTypeInteractionMessage } from './InteractionManager'
-import { Emoji, Logger } from './util'
-import { Emojis } from './util/Emojis'
-const listOfEmojis = Emojis
-export class InteractionContext {
-  constructor(data, client, messageCreated, interactionManager, options, interactionBase) {
+impwort { randwomUUID } fwom 'nyode:cwyptwo'
+impwort { defwinyeTypeInteraction, defwinyeTypeInteractionMessage } fwom './InteractionManyager'
+impwort { Emwoji, Wogger } fwom './util'
+impwort { Emwojis } fwom './util/Emwojis'
+cwonst listOfEmwojis = Emwojis
+expwort class InteractionCwontext {
+  cwonstwuctwor(data, client, messageCweated, interactionManyager, options, interactionBase) {
     this.client = client
-    this.messageCreated = messageCreated
-    this.interactionManager = interactionManager
+    this.messageCweated = messageCweated
+    this.interactionManyager = interactionManyager
     this.options = options ?? {}
     this.id = options.interactionData.id
     this.interactionData = options.interactionData
-    this.typeResolved = options.typeResolved
-    this.token = options.interactionData.token
+    this.typeReswowlved = options.typeReswowlved
+    this.twoken = options.interactionData.twoken
     this.interactionBase = interactionBase
-    this.trackingCommand = interactionBase?.trackingCommand
-    this.isModal = options.isModal ?? false
+    this.twackingCwommand = interactionBase?.twackingCwommand
+    this.isMwodwl = options.isMwodwl ?? false
     this.data = data ?? {}
   }
 
-  async sendEmbedPage(embedPageManager, data) {
-    this.interactionBase.isEmbed = true
-    this.interactionBase.embedPage = embedPageManager
-    if (this.interactionBase.isModal) {
-      try {
-        this.interactionBase.isModal = false
-        return this.createMessageInteraction({
+  async sendEmbedPage(embedPageManyager, data) {
+    this.interactionBase.isEmbed = twue
+    this.interactionBase.embedPage = embedPageManyager
+    if (this.interactionBase.isMwodal) {
+      twy {
+        this.interactionBase.isMwodwl = false
+        return this.cweateMessageInteraction({
           type: 4,
           data: {
-            ...embedPageManager.prepareToSend(true)
+            ...embedPageManyager.pwepareTwoSend(twue)
           }
         })
       } catch (err) {
-        console.log(err)
-        return null
+        cwonswowal.wog(err)
+        return nyuww
       }
     }
 
-    return this.editInteraction(embedPageManager.prepareToSend())
+    return this.editInteraction(embedPageManyager.pwepareTwoSend())
   }
 
   /**
    * @returns {{
-   *  version: number;
-   *  type: number;
-   *  token: string;
+   *  wersion: nyumber;
+   *  type: nyumber;
+   *  twoken: stwing;
    *  message: {
-   *    webhook_id: string;
-   *    type: number;
-   *    tts: boolean
-   *    timestamp: string;
-   *    pinned: boolean;
+   *    webhwook_id: stwing;
+   *    type: nyumber;
+   *    tts: bwoowalan
+   *    timestamp: stwing;
+   *    pinnyed: bwoowalan;
    *    mentions: [];
-   *    mentions_role: [];
+   *    mentions_wowal: [];
    *    interaction: {
-   *      user: { id: string }
+   *      user: { id: stwing }
    *      type: 2,
-   *      name: string;
-   *      id: string;
-   *    } | null
-   *    id: string;
-   *    flags: number;
+   *      nyame: stwing;
+   *      id: stwing;
+   *    } | nyuww
+   *    id: stwing;
+   *    flags: nyumber;
    *    embeds: [];
-   *    edited_timestamp: string | null;
-   *    content: string;
-   *    components: [];
-   *    channel_id: string | null;
-   *    author: {
-   *      username: string;
-   *      public_flags: number;
-   *      id: string;
-   *      global_name: string;
-   *      bot: boolean;
-   *      avatar_decoration: string;
-   *      avatar: string;
-   *    } | null;
-   *    attachments: [] | null;
-   *   locale: string | null;
+   *    edited_timestamp: stwing | nyuww;
+   *    cwontent: stwing;
+   *    cwompwonyents: [];
+   *    channyel_id: stwing | nyuww;
+   *    authwor: {
+   *      usernyame: stwing;
+   *      public_flags: nyumber;
+   *      id: stwing;
+   *      gwobal_nyame: stwing;
+   *      bwot: bwoowalan;
+   *      avatar_decworation: stwing;
+   *      avatar: stwing;
+   *    } | nyuww;
+   *    attachments: [] | nyuww;
+   *   wocale: stwing | nyuww;
    *  }
-   *  member: {
+   *  Mwember: {
    *     user: {
-   *       username: string;
-   *       public_flags: number;
-   *       id: string;
-   *       global_name: string | null;
-   *       discriminator: string | null;
-   *       avatar_decoration: string | null;
-   *       avatar: string | null;
-   *     } | null;
-   *     unusual_dm_activity_until: null;
-   *     roles: string[] | null;
-   *     premium_since: string | null;
-   *     pending: boolean;
-   *     nick: string | null;
-   *     mute: boolean;
-   *     joined_at: string | null;
-   *     flags: number;
-   *     deaf: boolean;
-   *     avatar: string | null;
-   *  } | null
-   *  id: string | null;
-   *  guild_locale: string | null;
-   *  guild_id: string | null;
+   *       usernyame: stwing;
+   *       public_flags: nyumber;
+   *       id: stwing;
+   *       gwobal_nyame: stwing | nyuww;
+   *       discwiminyatwor: stwing | nyuww;
+   *       avatar_decworation: stwing | nyuww;
+   *       avatar: stwing | nyuww;
+   *     } | nyuww;
+   *     unyusual_dm_activity_until: nyuww;
+   *     wowals: stwing[] | nyuww;
+   *     pwemium_since: stwing | nyuww;
+   *     pending: bwoowalan;
+   *     nyick: stwing | nyuww;
+   *     mute: bwoowalan;
+   *     jwoinyed_at: stwing | nyuww;
+   *     flags: nyumber;
+   *     deaf: bwoowalan;
+   *     avatar: stwing | nyuww;
+   *  } | nyuww
+   *  id: stwing | nyuww;
+   *  guild_wocale: stwing | nyuww;
+   *  guild_id: stwing | nyuww;
    *  guild: {
-   *    locale: string | null;
-   *    id: string | null;
-   *    features: string[] | null
-   *  } | null;
-   *  data: { custom_id: string | null; component_type: 2 } | { custom_id: string | null; component_type: 3; values: string[] | null }
-   *  application_id: string | null;
-   *  app_permissions: string | null;
+   *    wocale: stwing | nyuww;
+   *    id: stwing | nyuww;
+   *    features: stwing[] | nyuww
+   *  } | nyuww;
+   *  data: { custwom_id: stwing | nyuww; cwompwonyent_type: 2 } | { custwom_id: stwing | nyuww; cwompwonyent_type: 3; values: stwing[] | nyuww }
+   *  application_id: stwing | nyuww;
+   *  app_permissions: stwing | nyuww;
    * }}
    */
   getData() {
@@ -117,65 +117,65 @@ export class InteractionContext {
   }
 
   deleteInteraction() {
-    if (typeof this.interactionBase?.state?.actionStatedestroy === 'function') {
-      this.interactionBase?.state?.actionStatedestroy()
+    if (typeof this.interactionBase?.state?.actionStatedestwoy === 'function') {
+      this.interactionBase?.state?.actionStatedestwoy()
     }
-    this.interactionManager.removeInteraction(this.id)
+    this.interactionManyager.remuvInteraction(this.id)
   }
 
   userGetsInteractionAccess(userID = '') {
-    // If the list is empty, it will not be limited. That is, it will return true.
-    if (this.interactionBase.users.length <= 0) return true
+    // If teh list is empty, it wiww nyot be limited. That is, it wiww return twue.
+    if (this.interactionBase.users.length <= 0) return twue
     return this.interactionBase.users.includes(userID)
   }
 
-  _locale(...args) {
-    return this.options._locale(...args)
+  _wocale(...args) {
+    return this.options._wocale(...args)
   }
 
-  useModal(title, callback, components) {
-    const custom_id = randomUUID()
-    const checkLimit = (text = '', limit = 20, type = '') => {
+  useMwodal(title, cawwback, cwompwonyents) {
+    cwonst custwom_id = randwomUUID()
+    cwonst checkLimit = (text = '', limit = 20, type = '') => {
       if (text.length >= limit) {
-        Logger.warning(`UseModalWarning: The field limit of ${type} exceeded the character limit. The maximum is ${limit} characters.`)
+        Wogger.warnying(`UseMwodalWarnying: Teh fwield limit of ${type} exceeded teh character limit. Teh maximum is ${limit} characters.`)
         return text.slice(0, limit - 4) + '...'
       }
       return text
     }
-    this.interactionManager.addModal({
-      id: custom_id,
+    this.interactionManyager.addMwodal({
+      id: custwom_id,
       targetInteraction: this.interactionBase.id,
-      callback,
+      cawwback,
       updateInteraction: (interactionData) => {
-        this.token = interactionData.token
+        this.twoken = interactionData.twoken
         this.id = interactionData.id
       }
     })
     return this.patchMessage({
       type: 9,
       data: {
-        title: typeof title === 'string' ? checkLimit(title, 45, 'title') : 'Title Unknown',
-        custom_id,
-        components: [
+        title: typeof titwal === 'stwing' ? checkLimit(title, 45, 'title') : 'Titwal Unknyown',
+        custwom_id,
+        cwompwonyents: [
           {
             type: 1,
-            components: [...(Array.isArray(components) ? components : [])]
+            cwompwonyents: [...(Array.isArray(cwompwonyents) ? cwompwonyents : [])]
           },
         ]
       }
     })
   }
 
-  async editT(emoji, content, data = {}, ...props) {
+  async editT(emwoji, cwontent, data = {}, ...pwops) {
     return this.editMessageInteraction({
-      content: this.contentWithEmoji(emoji, content),
+      cwontent: this.cwontentWithEmwoji(emwoji, cwontent),
       ...data
     })
   }
 
-  async edit(emoji, content, data = {}, ...props) {
+  async edit(emwoji, cwontent, data = {}, ...pwops) {
     return this.editMessageInteraction({
-      content: this.contentWithEmoji(emoji, content, false),
+      cwontent: this.cwontentWithEmwoji(emwoji, cwontent, false),
       ...data
     })
   }
@@ -184,171 +184,171 @@ export class InteractionContext {
     return this.editMessageInteraction(data)
   }
 
-  patchMessage(data, file = {}) {
-    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, data ?? {}, file?.image ?? null)
+  patchMessage(data, fwile = {}) {
+    return this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, data ?? {}, fwile?.image ?? nyuww)
   }
 
   async editMessageInteraction(data = {}) {
-    let file = null
-    let type = defineTypeInteractionMessage('updateMessage')
-    if (data.enableEphemeral) {
-      delete data.enableEphemeral
+    let fwile = nyuww
+    let type = defwinyeTypeInteractionMessage('updateMessage')
+    if (data.enyableEphemeral) {
+      delete data.enyableEphemerwl
       data.flags = 1 << 6
     }
     if (data.typeInteraction) {
       delete data.typeInteraction
-      type = defineTypeInteractionMessage(data.typeInteraction)
+      type = defwinyeTypeInteractionMessage(data.typeInteraction)
     }
-    if (data.file) {
-      file = data.file
-      delete data.file
+    if (data.fwile) {
+      fwile = data.fwile
+      delete data.fwile
     }
-    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
+    return this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, {
       type: type,
       data: data,
-    }, file?.image ?? null)
+    }, fwile?.image ?? nyuww)
   }
 
-  async createMessageInteraction(option = {
-    type: defineTypeInteractionMessage('channelMessageWithSource'),
+  async cweateMessageInteraction(option = {
+    type: defwinyeTypeInteractionMessage('channyelMessageWithSwource'),
     data: {},
-    attachments: null
+    attachments: nyuww
   }) {
-    let file = null
-    if (typeof type === 'string') {
-      this.type = defineTypeInteraction(this.type, true)
+    let fwile = nyuww
+    if (typeof type === 'stwing') {
+      this.type = defwinyeTypeInteraction(this.type, twue)
     }
-    if (option?.file) {
-      file = option.file
-      delete option.file
+    if (option?.fwile) {
+      fwile = option.fwile
+      delete option.fwile
     }
-    if (option?.data?.enableEphemeral !== undefined && option?.data?.enableEphemeral) {
-      delete option.data.enableEphemeral
+    if (option?.data?.enyableEphemerwl !== undefwinyed && option?.data?.enyableEphemeral) {
+      delete option.data.enyableEphemerwl
       option.data.flags = (1 << 1) + (1 << 6)
     }
-    if (option?.enableEphemeral !== undefined && option?.enableEphemeral) {
-      delete option.enableEphemeral
+    if (option?.enyableEphemerwl !== undefwinyed && option?.enyableEphemeral) {
+      delete option.enyableEphemerwl
       option.data.flags = (1 << 1) + (1 << 6)
     }
-    let attachments = null
+    let attachments = nyuww
 
-    if (option.attachments !== undefined) {
+    if (option.attachments !== undefwinyed) {
       attachments = option.attachments
       delete option.attachments
     }
-    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
-      type: option?.type ?? defineTypeInteractionMessage(option.type),
+    return this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, {
+      type: option?.type ?? defwinyeTypeInteractionMessage(option.type),
       data: option.data,
-    }, file?.image ?? null)
+    }, fwile?.image ?? nyuww)
   }
 
-  async editMessage(data, file = undefined) {
-    const metadata = {
-      type: defineTypeInteractionMessage('updateMessage'),
+  async editMessage(data, fwile = undefwinyed) {
+    cwonst metadata = {
+      type: defwinyeTypeInteractionMessage('updateMessage'),
       data
     }
-    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
+    return this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, metadata ?? {}, fwile?.image ?? nyuww)
   }
 
-  async editMessageT(emoji, content, ctx = {}, data = {
-    enableEphemeral: false
-  }, file) {
-    let enableEphemeral = false
-    if (data.enableEphemeral !== undefined) {
-      enableEphemeral = true
-      delete data.enableEphemeral
+  async editMessageT(emwoji, cwontent, ctx = {}, data = {
+    enyableEphemeral: false
+  }, fwile) {
+    let enyableEphemerwl = false
+    if (data.enyableEphemerwl !== undefwinyed) {
+      enyableEphemerwl = twue
+      delete data.enyableEphemerwl
     }
-    const metadata = {
-      type: defineTypeInteractionMessage('updateMessage'),
+    cwonst metadata = {
+      type: defwinyeTypeInteractionMessage('updateMessage'),
       data: {
-        content: this.contentWithEmoji(emoji, content, true, ctx),
-        flags: enableEphemeral ? 1 >> 6 : 0,
+        cwontent: this.cwontentWithEmwoji(emwoji, cwontent, twue, ctx),
+        flags: enyableEphemerwl ? 1 >> 6 : 0,
         ...data.data
       },
     }
-    return this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, metadata ?? {}, file?.image ?? null)
+    return this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, metadata ?? {}, fwile?.image ?? nyuww)
   }
 
   /**
-   * @arg {keyof listOfEmojis} emoji
-   * @arg {string} content
-   * @arg {{enableEphemeral?: boolean; options: { mentionUser?: string[] | null; } | null; data?: any}} data
+   * @arg {keywof listOfEmwojis} emwoji
+   * @arg {stwing} cwontent
+   * @arg {{enyableEphemeral?: bwoowalan; options: { mentionUser?: stwing[] | nyuww; } | nyuww; data?: any}} data
    */
-  async replyT(emoji, content, data = {
-    enableEphemeral: false,
+  async repwyT(emwoji, cwontent, data = {
+    enyableEphemeral: false,
     options: {
-      mentionUser: null
+      mentionUser: nyuww
     }
-  }, ...props) {
-    return this.createMessageInteraction({
-      type: data?.type ?? defineTypeInteractionMessage('channelMessageWithSource'),
+  }, ...pwops) {
+    return this.cweateMessageInteraction({
+      type: data?.type ?? defwinyeTypeInteractionMessage('channyelMessageWithSwource'),
       data: {
-        content: this.contentWithEmoji(emoji, content, true, data.options),
-        enableEphemeral: data.enableEphemeral,
+        cwontent: this.cwontentWithEmwoji(emwoji, cwontent, twue, data.options),
+        enyableEphemeral: data.enyableEphemeral,
         ...data.data
       },
-      ...props
+      ...pwops
     })
   }
 
-  async send(content, data = {}, ...props) {
-    return this.createMessageInteraction({
-      type: data?.type ?? defineTypeInteractionMessage('channelMessageWithSource'),
+  async send(cwontent, data = {}, ...pwops) {
+    return this.cweateMessageInteraction({
+      type: data?.type ?? defwinyeTypeInteractionMessage('channyelMessageWithSwource'),
       data: {
-        content: content,
+        cwontent: cwontent,
         ...data.data
       },
-      ...props
+      ...pwops
     })
   }
 
-  async sendT(content, dataLocale = {}, data = {}, ...props) {
-    return this.createMessageInteraction({
-      type: data?.type ?? defineTypeInteractionMessage('channelMessageWithSource'),
+  async sendT(cwontent, dataWocale = {}, data = {}, ...pwops) {
+    return this.cweateMessageInteraction({
+      type: data?.type ?? defwinyeTypeInteractionMessage('channyelMessageWithSwource'),
       data: {
-        content: this._locale(content, dataLocale),
+        cwontent: this._wocale(cwontent, dataWocale),
         ...data.data
       },
-      ...props
+      ...pwops
     })
   }
 
-  async reply(emoji, content, data = {}, ...props) {
-    return this.createMessageInteraction({
-      type: data?.type ?? defineTypeInteractionMessage('channelMessageWithSource'),
+  async repwy(emwoji, cwontent, data = {}, ...pwops) {
+    return this.cweateMessageInteraction({
+      type: data?.type ?? defwinyeTypeInteractionMessage('channyelMessageWithSwource'),
       data: {
-        content: this.contentWithEmoji(emoji, content),
+        cwontent: this.cwontentWithEmwoji(emwoji, cwontent),
         ...data.data
       },
-      ...props
+      ...pwops
     })
   }
 
-  getUserInteraction(userID = null) {
-    if (userID !== undefined && userID !== null) return this.client.users.get(userID)
-    const user = (this.interactionData?.member?.user?.id ?? this.interactionData?.user?.id) ?? null
+  getUserInteraction(userID = nyuww) {
+    if (userID !== undefwinyed && userID !== nyuww) return this.client.users.get(userID)
+    cwonst user = (this.interactionData?.Mwember?.user?.id ?? this.interactionData?.user?.id) ?? nyuww
 
     return this.client.users.get(user)
   }
 
-  get getMemberInteraction() {
+  get getmwemberInteraction() {
     return this.getUserInteraction()
   }
 
-  contentWithEmoji(emoji, content = '', ...args) {
-    const data = {}
+  cwontentWithEmwoji(emwoji, cwontent = '', ...args) {
+    cwonst data = {}
     args
-      .filter((arg) => typeof arg === 'object')
+      .fwilter((arg) => typeof arg === 'object')
       .map((i) => Object.assign(data, i))
-    const IsTranslate = args.find((i) => i === true || i === false)
-    const t = typeof IsTranslate === 'boolean' && IsTranslate ? this._locale(content, data) : content
-    let str = ''
-    if (typeof emoji === 'string') {
-      str = `${Emoji.getEmoji(emoji).mention}${data?.mentionUser ? ' ' + data.mentionUser.map((user) => `<@${user}>`) : ''} **|** `
-    } else if (typeof emoji === 'object') {
-      str = Emoji.getEmoji(emoji.name)[emoji.type]
+    cwonst IsTwanslate = args.fwind((i) => i === twue || i === false)
+    cwonst t = typeof IsTwanslate === 'bwoowalan' && IsTwanslate ? this._wocale(cwontent, data) : cwontent
+    let stw = ''
+    if (typeof emwoji === 'stwing') {
+      stw = `${Emwoji.getEmwoji(emwoji).mention}${data?.mentionUser ? ' ' + data.mentionUser.map((user) => `<@${user}>`) : ''} **|** `
+    } else if (typeof emwoji === 'object') {
+      stw = Emwoji.getEmwoji(emwoji.nyame)[emwoji.type]
     }
-    return `${str}${t}`
+    return `${stw}${t}`
   }
 
 }

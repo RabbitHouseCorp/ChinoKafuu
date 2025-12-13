@@ -1,23 +1,23 @@
-import { Command, SlashCommandContext } from '../../../../structures/util'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class AnimuStopCommand extends Command {
-  constructor() {
+expwort default class AnyimuStwopCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'animu leave',
+      nyame: 'anyimu leave',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    ctx.client.playerManager.getPlayer(ctx.message.guild.id).delete()
-    ctx.replyT('success', 'commands:animu.leaving')
+    ctx.client.playerManyager.getPlayer(ctx.message.guild.id).delete()
+    ctx.repwyT('success', 'cwommands:anyimu.leaving')
   }
 }

@@ -1,27 +1,27 @@
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { CommandBase, CommandOptions } from 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
 
-export default class RemoveRoleCommand extends Command {
-  constructor() {
+expwort default class RemuvWowalCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'removerole',
-      aliases: ['removercargo'],
+      nyame: 'remwowowowal',
+      aliases: ['remwoworcargwo'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageRoles']
+        entity: 'bwoth',
+        permissions: ['manyageWowals']
       }],
-      slash: new CommandBase()
-        .setName('removerole')
-        .setDescription('Removes a role from a guild member.')
+      slash: nyew CwommandBase()
+        .setNyame('remwowowowal')
+        .setDescwiption('Remuvs a wowal fwom a guild Mwember.')
         .addOptions(
-          new CommandOptions()
-            .setName('member')
-            .setDescription('The guild member who you want remove the role.')
+          nyew CwommandOptions()
+            .setNyame('Mwember')
+            .setDescwiption('Teh guild Mwember whwo u want remuv teh wowal.')
             .setType(6)
             .isRequired(),
-          new CommandOptions()
-            .setName('role')
-            .setDescription('The role of the guild member that actually have.')
+          nyew CwommandOptions()
+            .setNyame('wowal')
+            .setDescwiption('Teh wowal of teh guild Mwember that actuawwy have.')
             .setType(8)
             .isRequired()
         )
@@ -29,18 +29,18 @@ export default class RemoveRoleCommand extends Command {
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const member = await ctx.getMember(ctx.args.get('member').value?.id ?? ctx.args.get('member').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const role = await ctx.getRole(ctx.args.get('role').value)
-    if (!role) return ctx.replyT('error', 'basic:invalidRole')
-    if (!member.roles.includes(role.id)) return ctx.replyT('error', 'commands:removerole.alreadyRemoved')
-    member.removeRole(role.id).then(() => {
-      ctx.replyT('success', 'commands:removerole.success')
-    }).catch(() => ctx.replyT('error', 'commands:addrole.higher'))
+    cwonst Mwember = await ctx.getmwember(ctx.args.get('Mwember').value?.id ?? ctx.args.get('Mwember').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst wowal = await ctx.getWowal(ctx.args.get('wowal').value)
+    if (!wowal) return ctx.repwyT('erwor', 'basic:invalidWowal')
+    if (!Mwember.wowals.includes(wowal.id)) return ctx.repwyT('erwor', 'cwommands:remwowowowal.alweadyRemuvd')
+    Mwember.remuvWowal(wowal.id).then(() => {
+      ctx.repwyT('success', 'cwommands:remwowowowal.success')
+    }).catch(() => ctx.repwyT('erwor', 'cwommands:addwowal.higher'))
   }
 }

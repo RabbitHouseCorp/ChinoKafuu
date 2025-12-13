@@ -1,43 +1,43 @@
-import { CommandBase, CommandOptions } from 'eris'
-import NekosLife from 'nekos.life'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-const NekoClient = new NekosLife()
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort NyekwosLife fwom 'nyekwos.life'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+cwonst NyekwoClient = nyew NyekwosLife()
 
-export default class BakaCommand extends Command {
-  constructor() {
+expwort default class BakaCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'baka',
+      nyame: 'baka',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('baka')
-        .setDescription('Calls a user baka')
+      slash: nyew CwommandBase()
+        .setNyame('baka')
+        .setDescwiption('Cawws a user baka')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const image = await NekoClient.baka()
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
-    embed.setDescription(ctx._locale('commands:baka.baka', { author: ctx.message.author.mention, member: member.mention }))
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst image = await NyekwoClient.baka()
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
+    embed.setDescwiption(ctx._wocale('cwommands:baka.baka', { authwor: ctx.message.authwor.mention, Mwember: Mwember.mention }))
     embed.setImage(image.url)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

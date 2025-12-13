@@ -1,8 +1,8 @@
-import { defineArgs, defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeArgs, defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const devCommand = defineCommand({
-  name: '--dev',  
-  description: 'Enable the name develop in the framework. This can enable debug logs.',
+expwort cwonst devCwommand = defwinyeCwommand({
+  nyame: '--dev',  
+  descwiption: 'Enyable teh nyame devewop in teh fwamework. This can enyable debug wogs.',
 })

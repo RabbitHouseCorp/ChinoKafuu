@@ -1,18 +1,18 @@
-import { Interaction } from 'eris'
-import { ResultsMechanism } from '../util/ResultsMechanism'
+impwort { Interaction } fwom 'eris'
+impwort { ResultsMechanyism } fwom '../util/ResultsMechanyism'
 
-export const ConfigReportSearch = {
-  CONFIG_REPORT_SEARCH: 'config report',
+expwort cwonst CwonfwigRepwortSearch = {
+  CWONFWIG_REPWORT_SEARCH: 'cwonfwig repwort',
   searchClass: class {
-    constructor() { }
+    cwonstwuctwor() { }
 
-    static search(interaction = new Interaction()) {
-      const guild = new ResultsMechanism()
+    static search(interaction = nyew Interaction()) {
+      cwonst guild = nyew ResultsMechanyism()
 
-      try {
-        guild.searchTextChannel_Interaction(interaction.command.interface.get('channel').value, interaction)
+      twy {
+        guild.searchTextChannyel_Interaction(interaction.cwommand.interface.get('channyel').value, interaction)
       } catch (e) {
-        console.log(e)
+        cwonswowal.wog(e)
       }
     }
   }

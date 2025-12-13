@@ -1,8 +1,8 @@
-import { defineArgs, defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeArgs, defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const clearLogCommand = defineCommand({
-  name: '--clear-log',
-  description: 'Clear recent logs and focus the window to get a better view of the logs.',
+expwort cwonst clearWogCwommand = defwinyeCwommand({
+  nyame: '--clear-wog',
+  descwiption: 'Clear recent wogs and fwocus teh windwow two get a better view of teh wogs.',
 })

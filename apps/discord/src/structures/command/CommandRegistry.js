@@ -1,22 +1,22 @@
-import { resolve } from 'path'
-import { Registry } from '../registry/Registry'
-export class CommandRegistry extends Registry {
-  constructor(path = resolve('src/commands/vanilla')) {
-    super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
+impwort { reswowlve } fwom 'path'
+impwort { Registwy } fwom '../registwy/Registwy'
+expwort class CwommandRegistwy extends Registwy {
+  cwonstwuctwor(path = reswowlve('swc/cwommands/vanyiwwa')) {
+    super({ path, autwoRewoad: pwocess.env.ENYABLE_REGISTRY_REWOAD || !pwocess.env.PWODUCTION })
 
-    this.loadAll(this.path)
+    this.woadAww(this.path)
   }
 
-  findByName(name) {
-    return this.findByProperty('name', name) || this.modules.filter((a) => a.aliases.includes(name))[0]
+  fwindByNyame(nyame) {
+    return this.fwindByPwoperty('nyame', nyame) || this.mwodules.fwilter((a) => a.aliases.includes(nyame))[0]
   }
 
-  filterByCategory(category) {
-    return this.modules.filter((cmd) =>
+  fwilterByCategwory(categwory) {
+    return this.mwodules.fwilter((cmd) =>
       cmd.__path
-        .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remove file name.
-        .trim()
-        .replace(/(.(.*)(commands)|(\/+|\\+)|(^[a-zA-Z0-9_.,])(\/+|\\+))/, '') // Remove all encounters from the folder.
-        .split(/(\\+|\/+)/g).includes(category))
+        .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remuv fwile nyame.
+        .twim()
+        .replace(/(.(.*)(cwommands)|(\/+|\\+)|(^[a-zA-Z0-9_.,])(\/+|\\+))/, '') // Remuv aww encwounters fwom teh fwowlder.
+        .split(/(\\+|\/+)/g).includes(categwory))
   }
 }

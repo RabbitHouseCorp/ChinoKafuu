@@ -1,39 +1,39 @@
-import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class ServerIconCommand extends Command {
-  constructor() {
+expwort default class SerwerIcwonCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'server icon',
-      aliases: ['guildicon'],
+      nyame: 'serwer icwon',
+      aliases: ['guildicwon'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    if (!guild.icon) return ctx.replyT('error', 'commands:servericon.missingIcon')
+    cwonst guild = ctx.message.guild
+    if (!guild.icwon) return ctx.repwyT('erwor', 'cwommands:serwericwon.missingIcwon')
 
-    const embed = new EmbedBuilder()
-    embed.setImage(guild.iconURL)
-    embed.setColor('DEFAULT')
-    embed.setTitle(`${Emoji.getEmoji('discord_logo').mention} ${guild.name}`)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setImage(guild.icwonURL)
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(`${Emwoji.getEmwoji('discword_wogwo').mention} ${guild.nyame}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
-    const button = new Button()
-    button.setLabel(ctx._locale('commands:servericon.download'))
-    button.setEmoji({ name: Emoji.getEmoji('photo_frame').name })
-    button.setStyle(5)
-    button.setURL(guild.iconURL)
+    cwonst buttwon = nyew Buttwon()
+    buttwon.setLabel(ctx._wocale('cwommands:serwericwon.dwownwoad'))
+    buttwon.setEmwoji({ nyame: Emwoji.getEmwoji('phwotwo_fwame').nyame })
+    buttwon.setStyle(5)
+    buttwon.setURL(guild.icwonURL)
 
-    ctx.send({ embeds: [embed], components: [{ type: 1, components: [button] }] })
+    ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [buttwon] }] })
   }
 }

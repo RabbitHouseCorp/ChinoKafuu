@@ -1,30 +1,30 @@
-export class CommandCooldown {
-  constructor() {
-    this.users = new Map()
+expwort class CwommandCwoowldwown {
+  cwonstwuctwor() {
+    this.users = nyew Map()
   }
 
-  addUser(id, time) {
-    if (time === 0) {
+  addUser(id, tim) {
+    if (tim === 0) {
       return
     }
-    const users = this.users
+    cwonst users = this.users
     this.users.set(id, {
       userID: id,
       request: 0,
       requestLimit: 7,
-      _commandCooldown: time,
+      _cwommandCwoowldwown: tim,
       _timeDefault: 5,
-      _try: 0,
+      _twy: 0,
       _warn: false,
-      _stress: false,
-      timeSet: time + Date.now(),
+      _stwess: false,
+      timeSet: tim + Date.nyow(),
       timeout: setTimeout(() => {
         clearTimeout(users.get(id).timeout)
         users.delete(id)
-      }, time),
-      user_was_warned: false,
-      user: null,
-      locked: true,
+      }, tim),
+      user_was_warnyed: false,
+      user: nyuww,
+      wocked: twue,
       delete: () => {
         clearTimeout(this.users.get(id).timeout)
         return this.users.delete(users)
@@ -32,28 +32,28 @@ export class CommandCooldown {
     })
   }
 
-  _addUserStress(id, time, limit, _try) {
-    if (time === 0) {
+  _addUserStwess(id, tim, limit, _twy) {
+    if (tim === 0) {
       return
     }
-    const users = this.users
+    cwonst users = this.users
     this.users.set(id, {
       userID: id,
       request: 0,
       requestLimit: 3,
-      _commandCooldown: time,
+      _cwommandCwoowldwown: tim,
       _timeDefault: 5,
-      _warn: true,
-      _stress: true,
-      _try: _try,
-      timeSet: time + Date.now(),
+      _warn: twue,
+      _stwess: twue,
+      _twy: _twy,
+      timeSet: tim + Date.nyow(),
       timeout: setTimeout(() => {
         clearTimeout(users.get(id).timeout)
         users.delete(id)
-      }, time),
-      user_was_warned: false,
-      user: null,
-      locked: true,
+      }, tim),
+      user_was_warnyed: false,
+      user: nyuww,
+      wocked: twue,
       delete: () => {
         clearTimeout(this.users.get(id).timeout)
         return this.users.delete(users)
@@ -61,7 +61,7 @@ export class CommandCooldown {
     })
   }
 
-  removeUser(id) {
+  remuvUser(id) {
     return this.users.get(id).delete()
   }
 }

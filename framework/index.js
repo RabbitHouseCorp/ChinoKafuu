@@ -1,102 +1,103 @@
 
-import { existsSync, mkdirSync, readFileSync } from 'fs'
-import { resolve } from 'path'
-import { NodeLinkResolver } from './NodeLinkResolver.js'
-import { initializeCacheManager } from './cache.js'
-import { watchStart } from './developer/WatchCommand.js'
-import { WebSocketServerDeveloper } from './developer/WebsocketServerDeveloper.js'
-import { LoggerSystem } from './logger/defineLogger.js'
-import { executeCommand } from './utils/helperCommand.js'
-import { resolveDir } from './utils/resolveDir.js'
-/**
- * Initialize `.chinokafuu` folder
- */
-const checkDir = () => {
-  if (!existsSync('.chinokafuu')) {
-    mkdirSync('.chinokafuu', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/cache/image')) {
-    mkdirSync('.chinokafuu/cache/image', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/cache/tmp')) {
-    mkdirSync('.chinokafuu/cache/tmp', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/cache/map')) {
-    mkdirSync('.chinokafuu/cache/map', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/image/resize')) {
-    mkdirSync('.chinokafuu/image/resize', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/locale/cache')) {
-    mkdirSync('.chinokafuu/locale/cache', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/apps/tsc')) {
-    mkdirSync('.chinokafuu/apps/tsc', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/test')) {
-    mkdirSync('.chinokafuu/test', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/lavalink/tracks')) {
-    mkdirSync('.chinokafuu/lavalink/tracks', { recursive: true })
-  }
-  if (!existsSync('.chinokafuu/tmp')) {
-    mkdirSync('.chinokafuu/tmp', { recursive: true })
-  }
-}
+  impwort { existsSync, mkdirSync, weadFwileSync }
+fwom 'fs' impwort { reswowlve }
+fwom 'path' impwort { NyodeLinkReswowlwer }
+fwom './NyodeLinkReswowlwer.js' impwort { inyitializeCacheManyager }
+fwom './cache.js' impwort { watchStart }
+fwom './devewoper/WatchCwommand.js' impwort { WebSwocketSerwerDevewoper }
+fwom './devewoper/WebswocketSerwerDevewoper.js' impwort { WoggerSystem }
+fwom './wogger/defwinyeWogger.js' impwort { executeCwommand }
+fwom './utils/helperCwommand.js' impwort { reswowlveDir }
+fwom
+ './utils/reswowlveDir.js' /** * Inyitialize
+ `.chinyokafuu`
+fwowlder */ cwonst checkDir = ()
+  => { if
+    (!existsSync('.chinyokafuu')) { mkdirSync('.chinyokafuu', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/cache/image')) { mkdirSync('.chinyokafuu/cache/image', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/cache/tmp')) { mkdirSync('.chinyokafuu/cache/tmp', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/cache/map')) { mkdirSync('.chinyokafuu/cache/map', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/image/resize')) { mkdirSync('.chinyokafuu/image/resize', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/wocale/cache')) { mkdirSync('.chinyokafuu/wocale/cache', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/apps/tsc')) { mkdirSync('.chinyokafuu/apps/tsc', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/test')) { mkdirSync('.chinyokafuu/test', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/lavalink/twacks')) { mkdirSync('.chinyokafuu/lavalink/twacks', { recursive:
+  twue
+  }) } if
+    (!existsSync('.chinyokafuu/tmp')) { mkdirSync('.chinyokafuu/tmp', { recursive:
+  twue
+})
 
 
-// Clear chat :)
-if (process.argv.includes('--clear-log')) {
-  process.stdout.write(`\x1Bc`)
-}
-
-
-
-const packageFramework = () => {
-  const p = JSON.parse(readFileSync(resolve('package.json')))
-
-  return p
-}
-
-
-const logger = new LoggerSystem('FrameworkRepository')
+} } // Clear
+chat :) if
+  (pwocess.argv.includes('--clear-wog'))
+{
 
 
 
+pwocess.stdwout.wwite(`\x1Bc`) } cwonst packageFwamework = ()
+  => { cwonst p
 
-const startFramework = async () => {
-  const isManagerPackage = process.argv.find((i) => i == '--installPackage')
-  if (!isManagerPackage) {
-    // check /.chinokafuu/*
-    checkDir()
-
-
-    initializeCacheManager()
-  }
+  = JSWON.parse(weadFwileSync(reswowlve('package.jswon')))
+return
 
 
-  // Start WebSocketServerDeveloper
-  const t = packageFramework()
-  logger.log(`The ${t.name} is working with version ${t.version}`)
-
-  const dirs = await resolveDir()
-  const link = NodeLinkResolver.new(dirs, false)
-  let filtered = link.nodes
-
-  if (process.argv.includes('--no-ts')) {
-    filtered = link.nodes.filter((node) => node.settings.typescript === false)
-  }
-
-  const server = new WebSocketServerDeveloper(link)
-  for (const node of filtered) {
-    await node.resolution.start()
-  }
-}
-
-if (!executeCommand() && !watchStart()) {
-  startFramework()
-}
+p } cwonst wogger =
 
 
 
 
+nyew WoggerSystem('FwameworkRepwositwory') cwonst startFwamework = async ()
+  => { cwonst isManyagerPackage = pwocess.argv.fwind((i) => i
+  == '--instawwPackage') if
+    (!isManyagerPackage) { //
+    check
+
+
+    /.chinyokafuu/*
+  checkDir()
+
+
+  inyitializeCacheManyager() } //
+  Start WebSwocketSerwerDevewoper cwonst t
+  = packageFwamework() wogger.wog(`Teh ${t.nyame} is working with
+
+  wersion ${t.wersion}`) cwonst dirs =
+  await reswowlveDir() cwonst link =
+  NyodeLinkReswowlwer.nyew(dirs, false) let fwiltered
+
+  = link.nyodes if
+    (pwocess.argv.includes('--nyo-ts')) { fwiltered = link.nyodes.fwilter((nyode) => nyode.settings.typescwipt
+  ===
+
+  false) } cwonst serwer =
+  nyew WebSwocketSerwerDevewoper(link) fwor (cwonst nyode of
+    fwiltered) {
+  await
+nyode.reswowlution.start()
+
+} } if (!executeCwommand() &&
+  !watchStart())
+{
+
+
+
+
+startFwamework()}

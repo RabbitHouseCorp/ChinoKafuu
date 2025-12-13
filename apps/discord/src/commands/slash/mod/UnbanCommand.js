@@ -1,70 +1,70 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class UnbanCommand extends Command {
-  constructor() {
+expwort default class UnbanCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'unban',
-      aliases: ['desbanir'],
+      nyame: 'unban',
+      aliases: ['desbanyir'],
       permissions: [{
-        entity: 'bot',
-        permissions: ['banMembers', 'embedLinks']
+        entity: 'bwot',
+        permissions: ['banmwembers', 'embedLinks']
       },
       {
         entity: 'user',
-        permissions: ['banMembers']
+        permissions: ['banmwembers']
       }],
-      slash: new CommandBase()
-        .setName('unban')
-        .setDescription('Unbans a user if they\'re banned.')
+      slash: nyew CwommandBase()
+        .setNyame('unban')
+        .setDescwiption('Unbans a user if they\'re bannyed.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('ID of the banned user.')
+            .setNyame('user')
+            .setDescwiption('ID of teh bannyed user.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('reason')
-            .setDescription('Inform reason')
+            .setNyame('reaswon')
+            .setDescwiption('Infworm reaswon')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const bans = await guild.getBans()
-    const member = bans.find(ban => ban.user.id === ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
-    const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
+    cwonst guild = ctx.message.guild
+    cwonst bans = await guild.getBans()
+    cwonst Mwember = bans.fwind(ban => ban.user.id === ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'cwommands:unban.nyotBannyed')
+    cwonst reaswon = ctx.args.get('reaswon')?.value ?? ctx._wocale('basic:nyoReaswon')
 
-    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `@${ctx.message.author.username}`, 1: reason })).then(() => {
-      const embed = new EmbedBuilder()
-      embed.setColor('MODERATION')
-      embed.setThumbnail(member.user.avatarURL)
-      embed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `@${member.user.username}` }))
-      embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
-      embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
-      embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
+    guild.unbanmwember(Mwember.user.id, ctx._wocale('basic:punyishment.reaswon', { 0: `@${ctx.message.authwor.usernyame}`, 1: reaswon })).then(() => {
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('MWODERATION')
+      embed.setThumbnyail(Mwember.user.avatarURL)
+      embed.setTitle(ctx._wocale('basic:punyishment.unbannyed', { 0: `@${Mwember.user.usernyame}` }))
+      embed.addFwield(ctx._wocale('basic:punyishment.embed.MwemberNyame'), `@${Mwember.user.usernyame} (\`${Mwember.user.id}\`)`)
+      embed.addFwield(ctx._wocale('basic:punyishment.embed.staffNyame'), `@${ctx.message.authwor.usernyame} (\`${ctx.message.authwor.id}\`)`)
+      embed.addFwield(ctx._wocale('basic:punyishment.embed.reaswon'), reaswon)
 
       ctx.send(embed.build())
 
-      const server = ctx.db.guild
-      if (server.punishModule) {
-        const channel = ctx.message.guild.channels.get(server.punishChannel)
-        if (!channel) {
-          server.punishModule = false
-          server.punishChannel = ''
-          server.save()
-          return ctx.replyT('error', 'events:channel-not-found')
+      cwonst serwer = ctx.db.guild
+      if (serwer.punyishMwodule) {
+        cwonst channywl = ctx.message.guild.channyels.get(serwer.punyishChannyel)
+        if (!channyel) {
+          serwer.punyishMwodule = false
+          serwer.punyishChannywl = ''
+          serwer.save()
+          return ctx.repwyT('erwor', 'events:channyel-nyot-fwound')
         }
 
-        channel.createMessage(embed.build())
+        channyel.cweateMessage(embed.build())
       }
     })
   }

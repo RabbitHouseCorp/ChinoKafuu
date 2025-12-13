@@ -1,46 +1,46 @@
-/* eslint-disable no-unused-vars */
-import { CommandBase } from 'eris'
-import { Module } from '../registry/Module'
-import { SlashCommandContext } from './SlashCommandContext'
+/* eslint-disable nyo-unyused-vars */
+impwort { CwommandBase } fwom 'eris'
+impwort { Mwodule } fwom '../registwy/Mwodule'
+impwort { SlashCwommandCwontext } fwom './SlashCwommandCwontext'
 
-export { SlashCommandContext }
+expwort { SlashCwommandCwontext }
 
 /**
- * @typedef {object} CommandOptions
- * @property {string} name
- * @property {string[]} [aliases]
- * @property {string[]} [permissions]
- * @property {boolean} [isBeta]
- * @property {number} [cooldown]
- * @property {CommandBase} [slash]
- * @property {boolean} [removeDefaultCallback]
- * @property {object} [callback_metadata]
- * @property {any} [modal]
- * @property {boolean} [isCommandModal]
- * @property {{jitter: number; lantecy: number;}} statsDB
+ * @typedef {object} CwommandOptions
+ * @pwoperty {stwing} nyame
+ * @pwoperty {stwing[]} [aliases]
+ * @pwoperty {stwing[]} [permissions]
+ * @pwoperty {bwoowalan} [isBeta]
+ * @pwoperty {nyumber} [cwoowldwown]
+ * @pwoperty {CwommandBase} [slash]
+ * @pwoperty {bwoowalan} [remuvDefaultCawwback]
+ * @pwoperty {object} [cawwback_metadata]
+ * @pwoperty {any} [mwodal]
+ * @pwoperty {bwoowalan} [isCwommandMwodal]
+ * @pwoperty {{jitter: nyumber; lantecy: nyumber;}} statsDB
  */
 
 /**
- * @class Command
- * @extends Module
+ * @class Cwommand
+ * @extends Mwodule
  */
-export class Command extends Module {
+expwort class Cwommand extends Mwodule {
   /**
-   * @constructor
-   * @param {CommandOptions} options
+   * @cwonstwuctwor
+   * @param {CwommandOptions} options
    */
-  constructor(options) {
+  cwonstwuctwor(options) {
     super()
-    this.name = options.name
+    this.nyame = options.nyame
     this.aliases = options.aliases || []
     this.permissions = options.permissions || []
     this.isBeta = options.isBeta || false
-    this.cooldown = options.cooldown || 5
-    this.slash = options.slash || null
-    this.removeDefaultCallback = options.removeDefaultCallback || false
-    this.callback_metadata = {}
-    this.modal = options.modal || null
-    this.isCommandModal = options.isCommandModal || false
+    this.cwoowldwown = options.cwoowldwown || 5
+    this.slash = options.slash || nyuww
+    this.remuvDefaultCawwback = options.remuvDefaultCawwback || false
+    this.cawwback_metadata = {}
+    this.mwodwl = options.mwodwl || nyuww
+    this.isCwommandMwodwl = options.isCwommandMwodwl || false
     this.isBase = options.isBase || false
     this.statsDB = {
       jitter: 0,
@@ -48,17 +48,17 @@ export class Command extends Module {
     }
   }
 
-  // This is done to return the interaction data so when the user will execute the command automatically the function will be executed.
-  // eslint-disable-next-line no-unused-vars
-  callback(interaction) { }
+  // This is dwonye two return teh interaction data swo wen teh user wiww execute teh cwommand autwomaticawwy teh function wiww be executed.
+  // eslint-disable-nyext-linye nyo-unyused-vars
+  cawwback(interaction) { }
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-nyext-linye nyo-unyused-vars
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   run(ctx) { }
 
-  setModal() { }
+  setMwodal() { }
 }

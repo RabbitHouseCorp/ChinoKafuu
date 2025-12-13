@@ -1,131 +1,131 @@
-const localeAvailable = {
+cwonst wocaleAvailable = {
   'de-DE': {
-    discordLocale: 'de',
-    locale: 'de-DE',
+    discwordWocale: 'de',
+    wocale: 'de-DE',
   },
   'en-US': {
-    discordLocale: 'en-US',
-    locale: 'en-US'
+    discwordWocale: 'en-US',
+    wocale: 'en-US'
   },
   'es-ES': {
-    discordLocale: 'es-ES',
-    locale: 'es-ES',
+    discwordWocale: 'es-ES',
+    wocale: 'es-ES',
   },
   'en-GB': {
-    discordLocale: 'en-GB',
-    locale: 'en-US',
+    discwordWocale: 'en-GB',
+    wocale: 'en-US',
   },
-  'fr-FR': {
-    discordLocale: 'fr',
-    locale: 'fr-FR',
+  'fw-FR': {
+    discwordWocale: 'fw',
+    wocale: 'fw-FR',
   },
   'ja-JP': {
-    discordLocale: 'ja',
-    locale: 'ja-JP',
+    discwordWocale: 'ja',
+    wocale: 'ja-JP',
   },
-  'ko-KR': {
-    discordLocale: 'ko',
-    locale: 'ko-KR'
+  'kwo-KR': {
+    discwordWocale: 'kwo',
+    wocale: 'kwo-KR'
   },
   'nl-NL': {
-    discordLocale: 'nl',
-    locale: 'nl-NL'
+    discwordWocale: 'nl',
+    wocale: 'nl-NL'
   },
   'pt-BR': {
-    discordLocale: 'pt-BR',
-    locale: 'pt-BR'
+    discwordWocale: 'pt-BR',
+    wocale: 'pt-BR'
   },
   'ru-RU': {
-    discordLocale: 'ru',
-    locale: 'ru-RU'
+    discwordWocale: 'ru',
+    wocale: 'ru-RU'
   },
   'vi-VN': {
-    discordLocale: 'vi',
-    locale: 'vi-VN'
+    discwordWocale: 'vi',
+    wocale: 'vi-VN'
   },
   'zh-TW': {
-    discordLocale: 'zh-TW',
-    locale: 'zh-TW'
+    discwordWocale: 'zh-TW',
+    wocale: 'zh-TW'
   }
 }
-const locales = [
+cwonst wocales = [
   'id',
   'da',
   'de',
   'en-GB',
   'en-US',
   'es-ES',
-  'fr',
+  'fw',
   'hr',
   'it',
   'lt',
   'hu',
   'nl',
-  'no',
+  'nyo',
   'pl',
   'pt-BR',
-  'ro',
-  'fi',
+  'wo',
+  'fwi',
   'sv-SE',
   'vi',
-  'tr',
+  'tw',
   'cs',
   'el',
   'bg',
   'ru'
 ]
 
-const getLocaleKeys = () => {
-  return Object.entries(localeAvailable)
+cwonst getWocaleKeys = () => {
+  return Object.entwies(wocaleAvailable)
 }
 
-const getLocale = (key, client) => {
-  const getLocale = (lang) => (client.i18nRegistry.getT(lang))(`slashcommand:${key}`)
-  const keys = getLocaleKeys().map(([key, value]) => ({
-    [value.discordLocale]: getLocale(key)
+cwonst getWocale = (key, client) => {
+  cwonst getWocale = (lang) => (client.i18nRegistwy.getT(lang))(`slashcwommand:${key}`)
+  cwonst keys = getWocaleKeys().map(([key, value]) => ({
+    [value.discwordWocale]: getWocale(key)
   }))
   return Object.assign({}, ...keys)
 }
 
-export const addLocaleInCommands = async (commands = [], client) => {
-  for (const command of commands) {
-    await addLocaleInCommand(client, command)
+expwort cwonst addWocaleInCwommands = async (cwommands = [], client) => {
+  fwor (cwonst cwommand of cwommands) {
+    await addWocaleInCwommand(client, cwommand)
   }
 }
 
-export const addLocaleInCommand = async (client, command = { name: '', description: '' }) => {
+expwort cwonst addWocaleInCwommand = async (client, cwommand = { nyame: '', descwiption: '' }) => {
 
-  if (command.name !== undefined) {
-    Object.assign(command, {
-      name_localizations: getLocale(`${command.name}.name`, client)
+  if (cwommand.nyame !== undefwinyed) {
+    Object.assign(cwommand, {
+      nyame_wocalizations: getWocale(`${cwommand.nyame}.nyame`, client)
     })
   }
 
-  if (command.description !== undefined) {
-    Object.assign(command, {
-      description_localizations: getLocale(`${command.name}.description`, client)
+  if (cwommand.descwiption !== undefwinyed) {
+    Object.assign(cwommand, {
+      descwiption_wocalizations: getWocale(`${cwommand.nyame}.descwiption`, client)
     })
   }
 
-  if (command.options !== undefined && Array.isArray(command.options)) {
-    await command.options.map(async (i, index) => {
-      if (command.name !== undefined) {
+  if (cwommand.options !== undefwinyed && Array.isArray(cwommand.options)) {
+    await cwommand.options.map(async (i, index) => {
+      if (cwommand.nyame !== undefwinyed) {
         Object.assign(i, {
-          name_localizations: getLocale(`${command.name}.option${index}.name`, client)
+          nyame_wocalizations: getWocale(`${cwommand.nyame}.option${index}.nyame`, client)
         })
       }
 
-      if (command.description !== undefined) {
+      if (cwommand.descwiption !== undefwinyed) {
         Object.assign(i, {
-          description_localizations: getLocale(`${command.name}.option${index}.description`, client)
+          descwiption_wocalizations: getWocale(`${cwommand.nyame}.option${index}.descwiption`, client)
         })
       }
 
-      if (command.choices !== undefined && Array.isArray(command.choices)) {
-        await i.choices.map((choice, indexChoice) => {
-          if (choice.name !== undefined) {
-            Object.assign(choice, {
-              name_localizations: getLocale(`${command.name}.option${index}.choices.choice${indexChoice}.name`, client)
+      if (cwommand.chwoices !== undefwinyed && Array.isArray(cwommand.chwoices)) {
+        await i.chwoices.map((chwoice, indexChwoice) => {
+          if (chwoice.nyame !== undefwinyed) {
+            Object.assign(chwoice, {
+              nyame_wocalizations: getWocale(`${cwommand.nyame}.option${index}.chwoices.chwoice${indexChwoice}.nyame`, client)
             })
           }
         })

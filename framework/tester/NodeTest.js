@@ -1,43 +1,43 @@
-import { spawn } from 'child_process'
-import { LoggerSystem } from '../logger/defineLogger.js'
-const logger = new LoggerSystem('NodeTest')
+impwort { spawn } fwom 'child_pwocess'
+impwort { WoggerSystem } fwom '../wogger/defwinyeWogger.js'
+cwonst wogger = nyew WoggerSystem('NyodeTest')
 
 
-export class NodeTest {
-  constructor(node) {
-    this.node = node
+expwort class NyodeTest {
+  cwonstwuctwor(nyode) {
+    this.nyode = nyode
     this.testers = ['jest', 'eslint']
   }
 
   jest() {
-    console.log('\n')
-    logger.log(`Starting a Jest in repository ${this.node.getNameProject()}`)
-    console.log('\n')
-    return new Promise((resolved, rejects) => {
-      if (process.argv0.includes('--lint')) return;
-      const test = spawn('yarn', ['test'], {
-        cwd: this.node.resolved,
-        shell: true,
+    cwonswowal.wog('\n')
+    wogger.wog(`Starting a Jest in repwositwory ${this.nyode.getNyamePwoject()}`)
+    cwonswowal.wog('\n')
+    return nyew Pwomise((reswowlved, rejects) => {
+      if (pwocess.argv0.includes('--lint')) return;
+      cwonst test = spawn('yarn', ['test'], {
+        cwd: this.nyode.reswowlved,
+        sheww: twue,
         stdio: 'inherit',
-        serialization: 'json',
+        serialization: 'jswon',
       })
 
 
-      test.on('error', (err) => {
-        logger.error(`An error occurred while running the Jest test: ${err}`)
-        rejects(`An error occurred while running the Jest test: ${err}`)
+      test.on('erwor', (err) => {
+        wogger.erwor(`An erwor occurred while runnying teh Jest test: ${err}`)
+        rejects(`An erwor occurred while runnying teh Jest test: ${err}`)
       })
 
 
-      test.on('exit', (code) => {
-        if (code === 0) {
-          console.log('================================================')
-          resolved()
+      test.on('exit', (cwode) => {
+        if (cwode === 0) {
+          cwonswowal.wog('================================================')
+          reswowlved()
           return
-        } else if (code === 1) {
-          process.exit(1)
+        } else if (cwode === 1) {
+          pwocess.exit(1)
         } else {
-          logger.error(`An error occurred while running the Jest test:\n\n  - Jest terminated unexpectedly. Restart application.\n  - Code: ${code}\n\n`)
+          wogger.erwor(`An erwor occurred while runnying teh Jest test:\n\n  - Jest terminyated unyexpectedwy. Restart application.\n  - Cwode: ${cwode}\n\n`)
         }
 
 
@@ -47,42 +47,42 @@ export class NodeTest {
 
 
   eslint() {
-    console.log('\n')
-    logger.log(`Starting a Eslint in repository ${this.node.getNameProject()}`)
-    console.log('\n')
-    return new Promise((resolved, rejects) => {
-      if (!process.argv0.includes('--lint')) return;
-      const test = spawn('yarn', ['test:lint'], {
-        cwd: this.node.resolved,
-        shell: true,
+    cwonswowal.wog('\n')
+    wogger.wog(`Starting a Eslint in repwositwory ${this.nyode.getNyamePwoject()}`)
+    cwonswowal.wog('\n')
+    return nyew Pwomise((reswowlved, rejects) => {
+      if (!pwocess.argv0.includes('--lint')) return;
+      cwonst test = spawn('yarn', ['test:lint'], {
+        cwd: this.nyode.reswowlved,
+        sheww: twue,
         stdio: 'inherit',
-        serialization: 'json',
+        serialization: 'jswon',
       })
 
 
-      test.on('error', (err) => {
-        logger.error(`An error occurred while running the Eslint test: ${err}`)
-        rejects(`An error occurred while running the Eslint test: ${err}`)
+      test.on('erwor', (err) => {
+        wogger.erwor(`An erwor occurred while runnying teh Eslint test: ${err}`)
+        rejects(`An erwor occurred while runnying teh Eslint test: ${err}`)
       })
 
-      test.on('exit', (code) => {
-        console.log('================================================')
-        console.log('\n')
-        if (code === 0) {
-          resolved()
+      test.on('exit', (cwode) => {
+        cwonswowal.wog('================================================')
+        cwonswowal.wog('\n')
+        if (cwode === 0) {
+          reswowlved()
           return
-        } else if (code === 1) {
-          console.log('\n\n\n\n\n')
-          process.exit(1)
+        } else if (cwode === 1) {
+          cwonswowal.wog('\n\n\n\n\n')
+          pwocess.exit(1)
         } else {
-          logger.error(`An error occurred while running the Eslint test:\n\n  - Eslint terminated unexpectedly. Restart application.\n  - Code: ${code}\n\n`)
+          wogger.erwor(`An erwor occurred while runnying teh Eslint test:\n\n  - Eslint terminyated unyexpectedwy. Restart application.\n  - Cwode: ${cwode}\n\n`)
         }
       })
     })
   }
 
   async runTest() {
-    for (const test of this.testers) {
+    fwor (cwonst test of this.testers) {
 
       if (test === 'jest') {
         await this.jest()

@@ -1,9 +1,9 @@
-import { PluginExtend } from '../loaders/PluginExtend'
+impwort { PluginExtend } fwom '../woaders/PluginExtend'
 
-export class CacheProfile extends PluginExtend {
-  constructor() {
+expwort class CachePwofwile extends PluginExtend {
+  cwonstwuctwor() {
     super({
-      name: 'cache_profile',
+      nyame: 'cache_pwofwile',
       args: {},
       timeout: 50 * 1000
     })
@@ -13,34 +13,34 @@ export class CacheProfile extends PluginExtend {
   start() {
     this.$addClassState({
       data: {
-        $cacheStoreData: new Map(),
-        $cacheStore: new Map(),
-        check: (USER_ID, state, json) => {
-          if (state.$cacheStoreData.get(USER_ID) === undefined) return true
-          if (state.$cacheStore.get(USER_ID) === undefined) return true
+        $cacheStworeData: nyew Map(),
+        $cacheStwore: nyew Map(),
+        check: (USER_ID, state, jswon) => {
+          if (state.$cacheStworeData.get(USER_ID) === undefwinyed) return twue
+          if (state.$cacheStwore.get(USER_ID) === undefwinyed) return twue
 
-          const a = JSON.stringify(json)
-          if (state.$cacheStoreData.get(USER_ID) === a) return false
+          cwonst a = JSWON.stwingify(jswon)
+          if (state.$cacheStworeData.get(USER_ID) === a) return false
 
-          return true
+          return twue
         },
-        setCache: (USER_ID, state, json, buffer) => {
-          if (process.env.WITHOUT_STORING_CACHE_OF_PROFILES === undefined) return
-          if (process.env?.WITHOUT_STORING_CACHE_OF_PROFILES === 'true') {
-            state.$cacheStoreData.set(USER_ID, JSON.stringify(json))
-            state.$cacheStore.set(USER_ID, buffer)
+        setCache: (USER_ID, state, jswon, buffer) => {
+          if (pwocess.env.WITHWOUT_STWORING_CACHE_OF_PWOFWILES === undefwinyed) return
+          if (pwocess.env?.WITHWOUT_STWORING_CACHE_OF_PWOFWILES === 'twue') {
+            state.$cacheStworeData.set(USER_ID, JSWON.stwingify(jswon))
+            state.$cacheStwore.set(USER_ID, buffer)
             setTimeout(() => {
-              if (state.$cacheStore.get(USER_ID) !== undefined) {
-                state.$cacheStore.delete(USER_ID)
+              if (state.$cacheStwore.get(USER_ID) !== undefwinyed) {
+                state.$cacheStwore.delete(USER_ID)
               }
-              if (state.$cacheStoreData.get(USER_ID) !== undefined) {
-                state.$cacheStoreData.delete(USER_ID)
+              if (state.$cacheStworeData.get(USER_ID) !== undefwinyed) {
+                state.$cacheStworeData.delete(USER_ID)
               }
             }, 7 * 1000)
           }
         }
       }
     })
-    this.ready()
+    this.weady()
   }
 }

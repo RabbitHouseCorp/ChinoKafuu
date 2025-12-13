@@ -1,53 +1,53 @@
-import { createRequire } from 'node:module'
-import { relative, resolve } from 'path'
-import { Logger } from '../../structures/util/Logger'
-import { Registry } from '../registry/Registry'
+impwort { cweateRequire } fwom 'nyode:mwodule'
+impwort { relative, reswowlve } fwom 'path'
+impwort { Wogger } fwom '../../stwuctures/util/Wogger'
+impwort { Registwy } fwom '../registwy/Registwy'
 
-export class InteractionFunctionRegistry extends Registry {
-  constructor(path = resolve('src/interactionFunctions')) {
-    super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
+expwort class InteractionFunctionRegistwy extends Registwy {
+  cwonstwuctwor(path = reswowlve('swc/interactionFunctions')) {
+    super({ path, autwoRewoad: pwocess.env.ENYABLE_REGISTRY_REWOAD || !pwocess.env.PWODUCTION })
 
-    this.loadAll(this.path)
+    this.woadAww(this.path)
   }
 
-  loadModule(path) {
-    try {
-      const require = createRequire(resolve(path))
-      delete require.cache[require.resolve(path)]
+  woadMwodule(path) {
+    twy {
+      cwonst require = cweateRequire(reswowlve(path))
+      delete require.cache[require.reswowlve(path)]
 
-      import('file://' + resolve(relative(process.cwd(), path))).then(({ default: ModuleDefault }) => {
-        const module = ModuleDefault.mode === undefined ? new ModuleDefault() : ModuleDefault
-        if (this.modules.filter((a) => a.__path === path)[0]) return true
-        module.__path = path
-        this.modules.push(module)
-        this.emit('load', module)
+      impwort('fwile://' + reswowlve(relative(pwocess.cwd(), path))).then(({ default: MwoduleDefault }) => {
+        cwonst mwodule = MwoduleDefault.mwode === undefwinyed ? nyew MwoduleDefault() : MwoduleDefault
+        if (this.mwodules.fwilter((a) => a.__path === path)[0]) return twue
+        mwodule.__path = path
+        this.mwodules.push(mwodule)
+        this.emit('woad', mwodule)
 
       })
-      return true
+      return twue
     } catch (e) {
-      Logger.error(`Error loading ${path}: ${e.stack}`)
+      Wogger.erwor(`Erwor woading ${path}: ${e.stack}`)
       return false
     }
   }
 
-  findByProperty(property, value) {
-    return this.modules.filter((a) => {
-      const resolveModule = (a?.mode !== undefined && a?.mode === 'define') ? a.T : a
-      return resolveModule[typeof property === 'string' ? property : null] === value
+  fwindByPwoperty(pwoperty, value) {
+    return this.mwodules.fwilter((a) => {
+      cwonst reswowlveMwodule = (a?.mwode !== undefwinyed && a?.mwode === 'defwinye') ? a.T : a
+      return reswowlveMwodule[typeof pwoperty === 'stwing' ? pwoperty : nyuww] === value
     })[0]
   }
 
-  findByName(name) {
-    return this.findByProperty('interactionName', name)
+  fwindByNyame(nyame) {
+    return this.fwindByPwoperty('interactionNyame', nyame)
   }
 
-  filterByCategory(category) {
+  fwilterByCategwory(categwory) {
 
-    return this.modules.filter((cmd) =>
+    return this.mwodules.fwilter((cmd) =>
       cmd.__path
-        .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remove file name.
-        .trim()
-        .replace(/(.(.*)(interactionFunctions)|(\/+|\\+)|(^[a-zA-Z0-9_.,])(\/+|\\+))/, '') // Remove all encounters from the folder.
-        .split(/(\\+|\/+)/g).includes(category))
+        .replace(/(\/+|\\+)([a-zA-Z0-9_.,]+)\.js/, '') // Remuv fwile nyame.
+        .twim()
+        .replace(/(.(.*)(interactionFunctions)|(\/+|\\+)|(^[a-zA-Z0-9_.,])(\/+|\\+))/, '') // Remuv aww encwounters fwom teh fwowlder.
+        .split(/(\\+|\/+)/g).includes(categwory))
   }
 }

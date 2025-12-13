@@ -1,11 +1,11 @@
 /**
- * This structure is for working with settings that are not set or used to check settings. This will help a lot.
+ * This stwucture is fwor working with settings that are nyot set or used two check settings. This wiww help a wot.
  * @returns 
  */
-export const ModelNodeBuilder = () => ({
-  developer: false,
+expwort cwonst MwodelNyodeBuilder = () => ({
+  devewoper: false,
   debug: false,
-  typescript: false,
-  typescriptArgs: ['-D'],
-  autoInstall: false,
+  typescwipt: false,
+  typescwiptArgs: ['-D'],
+  autwoInstaww: false,
 })

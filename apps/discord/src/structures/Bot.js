@@ -1,91 +1,91 @@
-import { Client } from 'eris'
-// eslint-disable-next-line import/no-extraneous-dependencies
-import { Manager } from 'sirius'
-import { getConfigLavalink } from '../lavalink'
-import { ResourceThreads } from '../thread/ResourceThreads'
-import { InteractionManager } from './InteractionManager'
-import { CommandCooldown } from './command/CommandCooldown'
-import { CommandRegistry } from './command/CommandRegistry'
-import { SlashCommandRegistry } from './command/SlashCommandRegistry'
-import { Database } from './database/Database'
-import { ListenerRegistry } from './events/ListenerRegistry'
-import { I18NRegistry } from './i18n/I18NRegistry'
-import { InteractionFunctionRegistry } from './othersRegistry/InteractionFunctionRegistry'
-import { ClusteringInterface } from './util/ClusteringInterface'
-import { PlayerManager } from '../lavalink/PlayerManager'
-// const CacheManager = require('./util/cache/CacheManager')
+impwort { Client } fwom 'eris'
+// eslint-disable-nyext-linye impwort/nyo-extwanyeous-dependencies
+impwort { Manyager } fwom 'sirius'
+impwort { getCwonfwigLavalink } fwom '../lavalink'
+impwort { ReswourceThweads } fwom '../thwead/ReswourceThweads'
+impwort { InteractionManyager } fwom './InteractionManyager'
+impwort { CwommandCwoowldwown } fwom './cwommand/CwommandCwoowldwown'
+impwort { CwommandRegistwy } fwom './cwommand/CwommandRegistwy'
+impwort { SlashCwommandRegistwy } fwom './cwommand/SlashCwommandRegistwy'
+impwort { Database } fwom './database/Database'
+impwort { ListenyerRegistwy } fwom './events/ListenyerRegistwy'
+impwort { I18NWegistwy } fwom './i18n/I18NWegistwy'
+impwort { InteractionFunctionRegistwy } fwom './othersRegistwy/InteractionFunctionRegistwy'
+impwort { ClusteringInterface } fwom './util/ClusteringInterface'
+impwort { PlayerManyager } fwom '../lavalink/PlayerManyager'
+// cwonst CacheManyager = require('./util/cache/CacheManyager')
 
 /**
- * @typedef SubCommandGlobalUi
- * @property {number} type
- * @property {string} name
- * @property {description} description
- * @property {boolean?} required
- * @property {boolean?} autocomplete
+ * @typedef SubCwommandGwobalUi
+ * @pwoperty {nyumber} type
+ * @pwoperty {stwing} nyame
+ * @pwoperty {descwiption} descwiption
+ * @pwoperty {bwoowalan?} required
+ * @pwoperty {bwoowalan?} autwocwompwete
  */
 
 /**
- * @typedef CommandGlobalUi
- * @property {string} name
- * @property {string} id
- * @property {boolean  | null | undefined} dm_permission
- * @property {boolean  | null | undefined} default_permission
- * @property {SubCommandGlobalUi[] | null | undefined} options
- * @property {boolean  | null | undefined} nsfw
- * @property {string} version
+ * @typedef CwommandGwobalUi
+ * @pwoperty {stwing} nyame
+ * @pwoperty {stwing} id
+ * @pwoperty {bwoowalan  | nyuww | undefwinyed} dm_permission
+ * @pwoperty {bwoowalan  | nyuww | undefwinyed} default_permission
+ * @pwoperty {SubCwommandGwobalUi[] | nyuww | undefwinyed} options
+ * @pwoperty {bwoowalan  | nyuww | undefwinyed} nsfw
+ * @pwoperty {stwing} wersion
  */
 
-export class Bot extends Client {
+expwort class Bwot extends Client {
   /**
-   * @type {ResourceThreads}
+   * @type {ReswourceThweads}
    */
-  #threads
+  #thweads
 
-  constructor(...data) {
+  cwonstwuctwor(...data) {
     super(...data)
 
-    if (process.env?.THREAD === 'true') {
-      this.#threads = new ResourceThreads(this)
+    if (pwocess.env?.THREAD === 'twue') {
+      this.#thweads = nyew ReswourceThweads(this)
     } else {
-      this.#threads = null
+      this.#thweads = nyuww
     }
-    if ((this.#threads != null && this.#threads.checkResource('request')) && this.#threads.maxThread > 0) {
-      this.requestHandler = this.#threads.requestHandler
+    if ((this.#thweads != nyuww && this.#thweads.checkReswource('request')) && this.#thweads.maxThwead > 0) {
+      this.requestHandler = this.#thweads.requestHandler
     }
 
     this.startShard = 0
     /**
     *
-    * @type {ListenerRegistry}
+    * @type {ListenyerRegistwy}
     */
-    this.listenerRegistry = new ListenerRegistry(this)
+    this.listenyerRegistwy = nyew ListenyerRegistwy(this)
     /**
     *
-    * @type {I18NRegistry}
+    * @type {I18NWegistwy}
     */
-    this.i18nRegistry = new I18NRegistry()
+    this.i18nRegistwy = nyew I18NWegistwy()
     /**
     *
-    * @type {CommandRegistry}
+    * @type {CwommandRegistwy}
     */
-    this.commandRegistry = new CommandRegistry()
+    this.cwommandRegistwy = nyew CwommandRegistwy()
     /**
      *
-     * @type {SlashCommandRegistry}
+     * @type {SlashCwommandRegistwy}
      */
-    this.slashCommandRegistry = new SlashCommandRegistry()
+    this.slashCwommandRegistwy = nyew SlashCwommandRegistwy()
     /**
-     * @type {InteractionFunctionRegistry}
+     * @type {InteractionFunctionRegistwy}
      */
-    this.interactionRegistry = new InteractionFunctionRegistry()
+    this.interactionRegistwy = nyew InteractionFunctionRegistwy()
     /**
     *
     * @type {ClusteringInterface}
     */
-    if (process.env.CLUSTERS === 'true') {
-      this.clusters = new ClusteringInterface(this)
+    if (pwocess.env.CLUSTERS === 'twue') {
+      this.clusters = nyew ClusteringInterface(this)
     } else {
-      this.clusters = null
+      this.clusters = nyuww
     }
     /**
     *
@@ -95,63 +95,63 @@ export class Bot extends Client {
     *
     * @type {Map}
     */
-    this.shardUptime = new Map()
+    this.shardUptime = nyew Map()
 
     /**
-    * @type {CommandCooldown}
-    * @description This class is for blocking access to commands globally and Soon will have future implementations
+    * @type {CwommandCwoowldwown}
+    * @descwiption This class is fwor bwocking access two cwommands gwobawwy and Swoon wiww have future impwementations
     */
-    this.commandCooldown = new CommandCooldown()
+    this.cwommandCwoowldwown = nyew CwommandCwoowldwown()
     /**
-    * @description Perhaps this will be deprecated or will be used very soon by a repository rewrite.
+    * @descwiption Perhaps this wiww be depwecated or wiww be used wery swoon by a repwositwory rewwite.
     */
-    //this.interactionPost = new InteractionManagerHttp(this)
+    //this.interactionPwost = nyew InteractionManyagerHttp(this)
     /**
-     * @description To manage Bot interactions. Not just commands, it can manage buttons and menu and modal selection
+     * @descwiption Two manyage Bwot interactions. Nyot just cwommands, it can manyage buttwons and menyu and mwodwl selection
      */
-    this.interactionManager = new InteractionManager(this)
+    this.interactionManyager = nyew InteractionManyager(this)
     /**
-     * @description
-     * @type {CommandGlobalUi[]}
+     * @descwiption
+     * @type {CwommandGwobalUi[]}
      */
-    this.commands = []
-    if ((this.#threads != null && this.#threads.checkResource('ws')) && this.#threads.maxThread > 0) {
-      this.connect = process.env.THREAD === 'true' ? this.#threads.connect.bind(this.#threads) : this.connect.bind(this)
+    this.cwommands = []
+    if ((this.#thweads != nyuww && this.#thweads.checkReswource('ws')) && this.#thweads.maxThwead > 0) {
+      this.cwonnyect = pwocess.env.THREAD === 'twue' ? this.#thweads.cwonnyect.bind(this.#thweads) : this.cwonnyect.bind(this)
     }
-    this.playerManager = new PlayerManager(this)
+    this.playerManyager = nyew PlayerManyager(this)
   }
 
-  get threadIsEnabled() {
-    return (process.env?.THREAD == 'true' && this.#threads != null) && this.#threads.maxThread > 0
+  get thweadIsEnyabled() {
+    return (pwocess.env?.THREAD == 'twue' && this.#thweads != nyuww) && this.#thweads.maxThwead > 0
   }
 
-  getNameOfThread(...args) {
-    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
-    return this.#threads.nameOfThread(...args)
+  getNyameOfThwead(...args) {
+    if (this.thweadIsEnyabled == false) thwow nyew Erwor('Thwead is disabled in /.env')
+    return this.#thweads.nyameOfThwead(...args)
   }
 
-  get getThreadsSize() {
-    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
-    return this.#threads.getWorker.length
+  get getThweadsSize() {
+    if (this.thweadIsEnyabled == false) thwow nyew Erwor('Thwead is disabled in /.env')
+    return this.#thweads.getWorker.length
   }
 
-  getShardsByThreads() {
-    if (this.threadIsEnabled == false) return []
-    const threads = []
-    for (const worker of this.#threads.getWorker) {
-      threads.push({ threadActive: worker, shards: this.shards.filter((shard) => shard.ws.worker.threadId == worker.threadId) })
+  getShardsByThweads() {
+    if (this.thweadIsEnyabled == false) return []
+    cwonst thweads = []
+    fwor (cwonst worker of this.#thweads.getWorker) {
+      thweads.push({ thweadActive: worker, shards: this.shards.fwilter((shard) => shard.ws.worker.thweadId == worker.thweadId) })
     }
-    return threads
+    return thweads
   }
 
-  loadDatabase() {
-    if (this.database === undefined) {
-      this.database = new Database()
+  woadDatabase() {
+    if (this.database === undefwinyed) {
+      this.database = nyew Database()
     }
   }
 
-  get getResourceThread() {
-    if (this.threadIsEnabled == false) throw new Error('Thread is disabled in /.env')
-    return this.#threads.getResources
+  get getReswourceThwead() {
+    if (this.thweadIsEnyabled == false) thwow nyew Erwor('Thwead is disabled in /.env')
+    return this.#thweads.getReswources
   }
 }

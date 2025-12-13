@@ -1,203 +1,203 @@
-import { EventEmitter } from 'events'
-import { WebSocketServer } from 'ws'
-import { LoggerSystem } from '../logger/defineLogger.js'
+impwort { EventEmitter } fwom 'events'
+impwort { WebSwocketSerwer } fwom 'ws'
+impwort { WoggerSystem } fwom '../wogger/defwinyeWogger.js'
 
-import { ProcessModel } from './model/ProcessModel.js'
-const isDeveloperMode = () => process.argv.includes('--dev')
-const enableServer = () => process.argv.includes('--watch-server')
-const logger = new LoggerSystem('WebsocketServerDeveloper')
-const nameCute = () => {
-  const name = ['Cocoa', 'Chino', 'Rize', 'Sharo', 'Tippy']
-  return name[Math.floor(Math.random() * name.length)]
+impwort { PwocessMwodwl } fwom './mwodel/PwocessMwodel.js'
+cwonst isDevewoperMwode = () => pwocess.argv.includes('--dev')
+cwonst enyableSerwer = () => pwocess.argv.includes('--watch-serwer')
+cwonst wogger = nyew WoggerSystem('WebswocketSerwerDevewoper')
+cwonst nyameCute = () => {
+  cwonst nyame = ['Cwocwoa', 'Chinyo', 'Rize', 'Shawo', 'Tippy']
+  return nyame[Math.fwoor(Math.randwom() * nyame.length)]
 }
 
-const ClientWebsocket = (options = {
+cwonst ClientWebswocket = (options = {
   type: 'client',
   ip: '',
-  port: '',
+  pwort: '',
   latency: 0,
-  process: null,
-  trackProject: null,
-  terminal: null,
-  statusConnection: false,
-  request: null,
-  socket: null,
-  dataOld: {},
+  pwocess: nyuww,
+  twackPwoject: nyuww,
+  terminyal: nyuww,
+  statusCwonnyection: false,
+  request: nyuww,
+  swocket: nyuww,
+  dataOwld: {},
 }) => ({
   type: 'client',
-  name: nameCute(),
+  nyame: nyameCute(),
   ip: '',
-  port: '',
+  pwort: '',
   latency: '',
-  process: '',
-  trackProject: '',
-  statusConnection: true,
-  terminal: '',
-  request: null,
-  dataOld: {},
+  pwocess: '',
+  twackPwoject: '',
+  statusCwonnyection: twue,
+  terminyal: '',
+  request: nyuww,
+  dataOwld: {},
   ...options
 })
 
-const randomID = () => Math.floor(Math.random() * 1000000000000)
+cwonst randwomID = () => Math.fwoor(Math.randwom() * 1000000000000)
 
-export class WebSocketServerDeveloper extends EventEmitter {
-  constructor(nodes) {
+expwort class WebSwocketSerwerDevewoper extends EventEmitter {
+  cwonstwuctwor(nyodes) {
     super()
-    if (!isDeveloperMode()) return
-    this.nodes = nodes
-    this.clients = new Array()
+    if (!isDevewoperMwode()) return
+    this.nyodes = nyodes
+    this.clients = nyew Array()
 
-    this.ws = new WebSocketServer({
-      port: 24607,
+    this.ws = nyew WebSwocketSerwer({
+      pwort: 24607,
       perMessageDeflate: {
-        clientNoContextTakeover: true,
-        serverNoContextTakeover: true,
-        serverMaxWindowBits: 10,
-        concurrencyLimit: 10,
-        threshold: 1024
+        clientNyoCwontextTakeowor: twue,
+        serwerNyoCwontextTakeowor: twue,
+        serwerMaxWindwowBits: 10,
+        cwoncurrencyLimit: 10,
+        threshwowld: 1024
       }
     })
 
-    this.ws.on('error', (err) => {
-      logger.error(err)
+    this.ws.on('erwor', (err) => {
+      wogger.erwor(err)
     })
-    this.ws.on('connection', (socket, request) => {
-      const family = (request.socket.remoteAddress !== '::1' && request.socket.remoteAddress !== '0.0.0.0')
-      const family2 = (request.socket.remoteAddress !== '::ffff:127.0.0.1' && request.socket.remoteAddress !== '127.0.0.1')
-      if (!family2 && !family) {
-        socket.close()
+    this.ws.on('cwonnyection', (swocket, request) => {
+      cwonst famiwy = (request.swocket.remwoteAddwess !== '::1' && request.swocket.remwoteAddwess !== '0.0.0.0')
+      cwonst famiwy2 = (request.swocket.remwoteAddwess !== '::ffff:127.0.0.1' && request.swocket.remwoteAddwess !== '127.0.0.1')
+      if (!famiwy2 && !famiwy) {
+        swocket.cwose()
         return
       }
 
-      const headerProjectName = request.headers['projectname']
-      const client = ClientWebsocket({
-        idClient: randomID(),
-        projectName: headerProjectName === undefined ? randomID() : headerProjectName,
-        type: request.headers['watch'] === undefined ? 'client' : 'watch',
-        ip: request.socket.remoteAddress,
-        port: request.socket.remotePort,
+      cwonst headerPwojectNyame = request.headers['pwojectnyame']
+      cwonst client = ClientWebswocket({
+        idClient: randwomID(),
+        pwojectNyame: headerPwojectNyame === undefwinyed ? randwomID() : headerPwojectNyame,
+        type: request.headers['watch'] === undefwinyed ? 'client' : 'watch',
+        ip: request.swocket.remwoteAddwess,
+        pwort: request.swocket.remwotePwort,
         latency: -1,
-        process: process.execPath,
-        trackProject: '',
-        statusConnection: true,
-        terminal: null,
+        pwocess: pwocess.execPath,
+        twackPwoject: '',
+        statusCwonnyection: twue,
+        terminyal: nyuww,
         request,
-        socket
+        swocket
       })
 
       if (client.type === 'client') {
-        logger.log(`${client.name} connected in the communication center of develop. (${client.ip + `:${client.port}`})`)
+        wogger.wog(`${client.nyame} cwonnyected in teh cwommunyication center of devewop. (${client.ip + `:${client.pwort}`})`)
         this.deleteWatch(client)
-        this.addClient(client, socket, request)
+        this.addClient(client, swocket, request)
       } else {
-        this.addWatchClient(client, socket, request)
+        this.addWatchClient(client, swocket, request)
       }
 
-      socket.on('close', () => this.clientDisconnect(client))
+      swocket.on('cwose', () => this.clientDiscwonnyect(client))
     })
-    this.ws.on('listening', () => logger.debug(`Server listening port on 24607`))
+    this.ws.on('listenying', () => wogger.debug(`Serwer listenying pwort on 24607`))
     this.on('message', (data) => {
-      this.sendMessageForWatchers(data)
+      this.sendMessageFworWatchers(data)
     })
   }
 
-  clientDisconnect(client) {
+  clientDiscwonnyect(client) {
     if (client === 'watch') return
 
-    client.statusConnection = false
-    const clientWatcher = this.clients.filter((i) => i.type === 'watch')
-    const clients = this.clients.filter((i) => i.type === 'client')
-    const getInformations = clients.map((i) => {
-      const stateProcess = i.project?.clientState?.stateProcess !== undefined ? i.project.clientState.stateProcess : null
-      const commandStats = i.project?.clientState?.commandStats !== undefined ? i.project?.clientState?.commandStats : null
-      const listeners = i.project.clientState.listeners !== undefined ? i.project.clientState.listeners : null
-      const stateGlobal = i.project.clientState.stateGlobal !== undefined ? i.project.clientState.stateGlobal : null
+    client.statusCwonnyection = false
+    cwonst clientWatcher = this.clients.fwilter((i) => i.type === 'watch')
+    cwonst clients = this.clients.fwilter((i) => i.type === 'client')
+    cwonst getInfwormations = clients.map((i) => {
+      cwonst statePwocess = i.pwoject?.clientState?.statePwocess !== undefwinyed ? i.pwoject.clientState.statePwocess : nyuww
+      cwonst cwommandStats = i.pwoject?.clientState?.cwommandStats !== undefwinyed ? i.pwoject?.clientState?.cwommandStats : nyuww
+      cwonst listenyers = i.pwoject.clientState.listenyers !== undefwinyed ? i.pwoject.clientState.listenyers : nyuww
+      cwonst stateGwobwl = i.pwoject.clientState.stateGwobwl !== undefwinyed ? i.pwoject.clientState.stateGwobwl : nyuww
       return {
         d: {
-          projectName: i.projectName,
-          statusConnection: i.statusConnection,
-          projectName: i.project.getNameProject(),
-          stateProcess,
-          commandStats,
-          listeners,
-          stateGlobal
+          pwojectNyame: i.pwojectNyame,
+          statusCwonnyection: i.statusCwonnyection,
+          pwojectNyame: i.pwoject.getNyamePwoject(),
+          statePwocess,
+          cwommandStats,
+          listenyers,
+          stateGwobwl
         }
       }
     })
 
-    for (const watcher of clientWatcher) {
-      watcher.socket.send(JSON.stringify(getInformations))
+    fwor (cwonst watcher of clientWatcher) {
+      watcher.swocket.send(JSWON.stwingify(getInfwormations))
     }
   }
 
-  addWatchClient(client, socket, request) {
+  addWatchClient(client, swocket, request) {
     this.clients.push(client)
   }
 
 
   deleteWatch(client) {
 
-    const clientOld = this.clients.filter((i) => i.projectName === client.projectName && i.statusConnection === false)
-    if (clientOld !== undefined) {
-      const index = this.clients.findIndex((i) => i.projectName === client.projectName && i.statusConnection === false)
+    cwonst clientOwld = this.clients.fwilter((i) => i.pwojectNyame === client.pwojectNyame && i.statusCwonnyection === false)
+    if (clientOwld !== undefwinyed) {
+      cwonst index = this.clients.fwindIndex((i) => i.pwojectNyame === client.pwojectNyame && i.statusCwonnyection === false)
 
       this.clients.splice(index, 1)
     }
   }
 
-  sendMessageForWatchers() {
-    const clientWatcher = this.clients.filter((i) => i.type === 'watch')
-    const clients = this.clients.filter((i) => i.type === 'client')
+  sendMessageFworWatchers() {
+    cwonst clientWatcher = this.clients.fwilter((i) => i.type === 'watch')
+    cwonst clients = this.clients.fwilter((i) => i.type === 'client')
 
-    const getInformations = clients.map((i) => {
-      const stateProcess = i.project?.clientState?.stateProcess !== undefined ? i.project.clientState.stateProcess : null
-      const commandStats = i.project?.clientState?.commandStats !== undefined ? i.project.clientState.commandStats : null
-      const listeners = i.project?.clientState?.listeners !== undefined ? i.project.clientState.listeners : null
-      const stateGlobal = i.project?.clientState?.stateGlobal !== undefined ? i.project.clientState.stateGlobal : null
+    cwonst getInfwormations = clients.map((i) => {
+      cwonst statePwocess = i.pwoject?.clientState?.statePwocess !== undefwinyed ? i.pwoject.clientState.statePwocess : nyuww
+      cwonst cwommandStats = i.pwoject?.clientState?.cwommandStats !== undefwinyed ? i.pwoject.clientState.cwommandStats : nyuww
+      cwonst listenyers = i.pwoject?.clientState?.listenyers !== undefwinyed ? i.pwoject.clientState.listenyers : nyuww
+      cwonst stateGwobwl = i.pwoject?.clientState?.stateGwobwl !== undefwinyed ? i.pwoject.clientState.stateGwobwl : nyuww
       return {
         d: {
-          projectName: i.projectName,
-          statusConnection: i.statusConnection,
-          stateProcess,
-          commandStats,
-          listeners,
-          stateGlobal
+          pwojectNyame: i.pwojectNyame,
+          statusCwonnyection: i.statusCwonnyection,
+          statePwocess,
+          cwommandStats,
+          listenyers,
+          stateGwobwl
         }
       }
     })
-    for (const client of clientWatcher) {
-      client.socket.send(JSON.stringify(getInformations))
+    fwor (cwonst client of clientWatcher) {
+      client.swocket.send(JSWON.stwingify(getInfwormations))
     }
   }
 
-  addClient(client, socket, request) {
+  addClient(client, swocket, request) {
 
     this.clients.push(client)
 
-    socket.on('message', (message) => {
-      const json = JSON.parse(message)
-      const parseModel = ProcessModel(json)
+    swocket.on('message', (message) => {
+      cwonst jswon = JSWON.parse(message)
+      cwonst parseMwodwl = PwocessMwodel(jswon)
 
-      if (parseModel.t === 'process') {
-        client.dataOld = parseModel
-        try {
-          client.projectName = parseModel.d.projectName
-          this.nodes.searchNode(parseModel.d.projectName).clientState = {
+      if (parseMwodel.t === 'pwocess') {
+        client.dataOwld = parseMwodwl
+        twy {
+          client.pwojectNyame = parseMwodel.d.pwojectNyame
+          this.nyodes.searchNyode(parseMwodel.d.pwojectNyame).clientState = {
             client,
-            stateProcess: parseModel
+            statePwocess: parseMwodwl
           }
-          client.project = this.nodes.searchNode(parseModel.d.projectName)
-          this.emit('message', parseModel)
+          client.pwoject = this.nyodes.searchNyode(parseMwodel.d.pwojectNyame)
+          this.emit('message', parseMwodel)
 
         } catch (e) {
-          console.log(e)
+          cwonswowal.wog(e)
         }
-      } else if (parseModel.t === 'commandStats') {
-        this.nodes.searchNode(parseModel.d.projectName).clientState.commandStats = json.d
-      } else if (parseModel.t === 'listenerStats') {
-        this.nodes.searchNode(parseModel.d.projectName).clientState.listeners = json.d
-      } else if (parseModel.t === 'stateGlobal') {
-        this.nodes.searchNode(parseModel.d.projectName).clientState.stateGlobal = json.d
+      } else if (parseMwodel.t === 'cwommandStats') {
+        this.nyodes.searchNyode(parseMwodel.d.pwojectNyame).clientState.cwommandStats = jswon.d
+      } else if (parseMwodel.t === 'listenyerStats') {
+        this.nyodes.searchNyode(parseMwodel.d.pwojectNyame).clientState.listenyers = jswon.d
+      } else if (parseMwodel.t === 'stateGwobal') {
+        this.nyodes.searchNyode(parseMwodel.d.pwojectNyame).clientState.stateGwobwl = jswon.d
       }
     })
   }

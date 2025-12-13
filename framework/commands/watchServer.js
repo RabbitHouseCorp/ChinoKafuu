@@ -1,8 +1,8 @@
-import { defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const watchServerCommand = defineCommand({
-  name: '--watch-server',
-  description: 'Enable server to watch repository structure.',
+expwort cwonst watchSerwerCwommand = defwinyeCwommand({
+  nyame: '--watch-serwer',
+  descwiption: 'Enyable serwer two watch repwositwory stwucture.',
 })

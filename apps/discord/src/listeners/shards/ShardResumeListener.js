@@ -1,41 +1,41 @@
-import { Listener } from '../../structures/events/Listener'
-import { EmbedBuilder, Logger } from '../../structures/util'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { EmbedBuilder, Wogger } fwom '../../stwuctures/util'
 
-export default class ShardResumeListener extends Listener {
-  constructor() {
+expwort default class ShardResumeListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
     this.event = 'shardResume'
   }
 
   async on(client, shardID) {
-    if (!process.env.SHARD_CHANNEL_LOG) return
-    client.getRESTChannel(process.env.SHARD_CHANNEL_LOG).then(async (channel) => {
-      if (!channel) return
-      const webhooks = await channel.getWebhooks()
-      let webhook = webhooks.filter((w) => w.name === 'Syaro Kirima' && w.user.id === client.user.id)[0]
-      if (!webhook) {
-        webhook = await channel.createWebhook({
-          name: 'Syaro Kirima',
+    if (!pwocess.env.SHARD_CHANNYEL_WOG) return
+    client.getRESTChannyel(pwocess.env.SHARD_CHANNYEL_WOG).then(async (channyel) => {
+      if (!channyel) return
+      cwonst webhwooks = await channyel.getWebhwooks()
+      let webhwook = webhwooks.fwilter((w) => w.nyame === 'Syawo Kirima' && w.user.id === client.user.id)[0]
+      if (!webhwook) {
+        webhwook = await channyel.cweateWebhwook({
+          nyame: 'Syawo Kirima',
           options: {
             type: 1
           }
         })
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('ERROR')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('ERWOR')
       embed.setTitle('Shard Resumed')
-      embed.setDescription(`Cluster: #${process.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Resumed\``)
-      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
+      embed.setDescwiption(`Cluster: #${pwocess.env.CLUSTER_ID ?? '0'} = Shard: ${shardID} => \`Resumed\``)
+      embed.setFwooter(`Instance: @${client.user.usernyame}`, client.user.avatarURL)
       embed.setTimestamp()
 
-      client.executeWebhook(webhook.id, webhook.token, {
+      client.executeWebhwook(webhwook.id, webhwook.twoken, {
         embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/699339406657585363/1031243956895350904/20221016_133420.jpg',
-        username: 'Syaro Kirima'
+        avatarURL: 'https://cdn.discwordapp.cwom/attachments/699339406657585363/1031243956895350904/20221016_133420.jpg',
+        usernyame: 'Syawo Kirima'
       })
     })
 
-    Logger.shardMessage(`Let's go! Shard ${shardID} has been resumed!`)
+    Wogger.shardMessage(`Let's gwo! Shard ${shardID} has been resumed!`)
   }
 }

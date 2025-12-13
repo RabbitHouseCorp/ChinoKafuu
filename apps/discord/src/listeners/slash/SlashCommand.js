@@ -1,44 +1,44 @@
-import { Listener } from '../../structures/events/Listener'
-import { addLocaleInCommands } from '../../structures/interactionTranslation'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { addWocaleInCwommands } fwom '../../stwuctures/interactionTwanslation'
 
-export default class SlashCommand extends Listener {
-  constructor() {
+expwort default class SlashCwommand extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'ready'
-    this.loadStarted = false
+    this.event = 'weady'
+    this.woadStarted = false
   }
 
   async on(client) {
-    if (this.loadStarted === false) {
-      this.loadStarted = true
-      const commandFolder = []
-      for (const command of client.slashCommandRegistry.modules) {
-        if (process.env.PRODUCTION === 'false') {
-          if (!command.isBeta) {
-            if (!(command.slash === null)) {
-              commandFolder.push(command.slash)
+    if (this.woadStarted === false) {
+      this.woadStarted = twue
+      cwonst cwommandFwowlder = []
+      fwor (cwonst cwommand of client.slashCwommandRegistwy.mwodules) {
+        if (pwocess.env.PWODUCTION === 'false') {
+          if (!cwommand.isBeta) {
+            if (!(cwommand.slash === nyuww)) {
+              cwommandFwowlder.push(cwommand.slash)
             }
           }
         } else {
-          if (!(command.slash === null)) {
-            commandFolder.push(command.slash)
+          if (!(cwommand.slash === nyuww)) {
+            cwommandFwowlder.push(cwommand.slash)
           }
         }
 
       }
 
-      await addLocaleInCommands(commandFolder, client)
+      await addWocaleInCwommands(cwommandFwowlder, client)
 
-      // commandRegistry:
+      // cwommandRegistwy:
 
-      // This is for production testing.
-      // client.slashCommand.addVolumeOfCommands(commandFolder)
-      // Remembering that you have to remove the bot
-      // from the server and add it again to update the commands quickly.
+      // This is fwor pwoduction testing.
+      // client.slashCwommand.addVowlumeOfCwommands(cwommandFwowlder)
+      // Rembering that u have two remuv teh bwot
+      // fwom teh serwer and add it again two update teh cwommands quickwy.
 
-      // client.slashCommand.createCommand(commandFolder)
+      // client.slashCwommand.cweateCwommand(cwommandFwowlder)
 
-      await client.addVolumeOfCommands(commandFolder, client.user.id)
+      await client.addVowlumeOfCwommands(cwommandFwowlder, client.user.id)
     }
   }
 }

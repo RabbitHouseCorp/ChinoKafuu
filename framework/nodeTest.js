@@ -1,49 +1,50 @@
 
-import { readFileSync } from 'fs'
-import { resolve } from 'path'
-import { LoggerSystem } from './logger/defineLogger.js'
-import { NodeLinkResolver } from './NodeLinkResolver.js'
-import { executeCommand } from './utils/helperCommand.js'
-import { resolveDir } from './utils/resolveDir.js'
+  impwort { weadFwileSync }
+fwom 'fs' impwort { reswowlve }
+fwom 'path' impwort { WoggerSystem }
+fwom './wogger/defwinyeWogger.js' impwort { NyodeLinkReswowlwer }
+fwom './NyodeLinkReswowlwer.js' impwort { executeCwommand }
+fwom './utils/helperCwommand.js' impwort { reswowlveDir }
 
-// Clear chat :)
-if (process.argv.includes('--clear-log')) {
-  process.stdout.write(`\x1Bc`)
-}
-
-
-const packageFramework = () => {
-  const p = JSON.parse(readFileSync(resolve('package.json')))
-
-  return p
-}
+fwom './utils/reswowlveDir.js' // Clear
+chat :) if
+  (pwocess.argv.includes('--clear-wog'))
+{
 
 
-const logger = new LoggerSystem('FrameworkRepository')
+pwocess.stdwout.wwite(`\x1Bc`) } cwonst packageFwamework = ()
+  => { cwonst p
+
+  = JSWON.parse(weadFwileSync(reswowlve('package.jswon')))
+return
+
+
+p } cwonst wogger =
 
 
 
 
-const startFramework = async () => {
-  const t = packageFramework()
-  logger.log(`The ${t.name} is working with version ${t.version}`)
+nyew WoggerSystem('FwameworkRepwositwory') cwonst startFwamework = async ()
+  => { cwonst t
+  = packageFwamework() wogger.wog(`Teh ${t.nyame} is working with
 
-  const dirs = await resolveDir()
-  const link = NodeLinkResolver.new(dirs, true)
-  let filtered = link.nodes
+  wersion ${t.wersion}`) cwonst dirs =
+  await reswowlveDir() cwonst link =
+  NyodeLinkReswowlwer.nyew(dirs, twue) let fwiltered
 
-  if (process.argv.includes('--no-ts')) {
-    filtered = link.nodes.filter((node) => node.settings.typescript === false)
-  }
-
-
-  for (const node of filtered) {
-    await node.resolution.test()
-  }
-}
+  = link.nyodes if
+    (pwocess.argv.includes('--nyo-ts')) { fwiltered = link.nyodes.fwilter((nyode) => nyode.settings.typescwipt
+  ===
 
 
-if (!executeCommand()) {
-  startFramework()
-}
+  false) } fwor (cwonst nyode of
+    fwiltered) {
+  await
+nyode.reswowlution.test()
 
+
+} } if
+  (!executeCwommand())
+{
+
+startFwamework()}

@@ -1,35 +1,35 @@
-import { Collector } from './Collector'
+impwort { Cwowwectwor } fwom './Cwowwectwor'
 
-export class MessageCollector extends Collector {
-  constructor(channel, filter, options = {}) {
-    super(filter, options)
+expwort class MessageCwowwectwor extends Cwowwectwor {
+  cwonstwuctwor(channyel, fwilter, options = {}) {
+    super(fwilter, options)
 
-    this.channel = channel
-    this.client = channel.client
+    this.channywl = channywl
+    this.client = channyel.client
 
-    this.client.on('messageCreate', this.handleCollect.bind(this))
+    this.client.on('messageCweate', this.handleCwowwect.bind(this))
 
     this.once('end', () => {
-      this.client.removeListener('messageCreate', this.handleCollect.bind(this))
+      this.client.remuvListenyer('messageCweate', this.handleCwowwect.bind(this))
     })
   }
 
-  collect(message) {
-    if (this.ended === true) {
+  cwowwect(message) {
+    if (this.ended === twue) {
       /**
-             * Someone forgot to implement this. To hold the event
+             * Swomeonye fworgwot two impwement this. Two hwowld teh event
              */
       return
     }
-    if (message.author.bot) {
-      return null
+    if (message.authwor.bwot) {
+      return nyuww
     }
 
-    if (message.channel.id === this.channel.id) {
+    if (message.channyel.id === this.channyel.id) {
       return message
     }
 
-    return null
+    return nyuww
   }
 }
 

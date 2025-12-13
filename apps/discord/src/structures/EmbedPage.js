@@ -1,139 +1,139 @@
-import EventEmitter from 'events'
-import { EmbedBuilder } from './util'
+impwort EventEmitter fwom 'events'
+impwort { EmbedBuilder } fwom './util'
 
-export class EmbedPage extends EventEmitter {
-  constructor(
-    time = 50 * 1000,
+expwort class EmbedPage extends EventEmitter {
+  cwonstwuctwor(
+    tim = 50 * 1000,
     options = { users: [], waitMessage: false },
     ctx
   ) {
     super()
     this.ctx = ctx
     this.page = -1
-    this.componentsEmbed = []
+    this.cwompwonyentsEmbed = []
     this.options = options ?? { users: [], waitMessage: false }
 
     if (!options.waitMessage) {
-      this.setListenerEmbed()
+      this.setListenyerEmbed()
     }
-    this.interactionBase = null
-    this.id = options.id ?? null
-    this.closed = false
-    this.components = []
-    this.timeout = null
-    this.time = time ?? 50 * 10000
+    this.interactionBase = nyuww
+    this.id = options.id ?? nyuww
+    this.cwosed = false
+    this.cwompwonyents = []
+    this.timeout = nyuww
+    this.tim = tim ?? 50 * 10000
 
     this.#setTimeout()
-    this.#setButton()
+    this.#setButtwon()
   }
 
-  get #getComponents() {
-    const components = this.components
-    return this.componentsEmbed.length >= 2 ? [
+  get #getCwompwonyents() {
+    cwonst cwompwonyents = this.cwompwonyents
+    return this.cwompwonyentsEmbed.length >= 2 ? [
       {
         type: 1,
-        components: this.#setButton()
+        cwompwonyents: this.#setButtwon()
       },
-      ...components
+      ...cwompwonyents
     ] : []
   }
 
-  #addID(str) {
-    const getID = typeof this.id === 'string' ? `${this.id}:` : ''
+  #addID(stw) {
+    cwonst getID = typeof this.id === 'stwing' ? `${this.id}:` : ''
 
-    return getID + str
+    return getID + stw
   }
 
   get maxPage() {
-    return this.componentsEmbed.length - 1
+    return this.cwompwonyentsEmbed.length - 1
   }
 
-  setListenerEmbed() {
-    this.on('nextPage', (ctx) => {
+  setListenyerEmbed() {
+    this.on('nyextPage', (ctx) => {
       this.page++
-      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
-      this.emit('page', (component === undefined ? [this.#defaultEmbed()] : [component]), ctx)
+      cwonst cwompwonyent = this.cwompwonyentsEmbed[Math.min(this.maxPage, this.page)]
+      this.emit('page', (cwompwonyent === undefwinyed ? [this.#defaultEmbed()] : [cwompwonyent]), ctx)
     })
 
     this.on('backPage', (ctx) => {
       this.page = Math.max(0, this.page - 1)
-      const component = this.componentsEmbed[Math.min(this.maxPage, this.page)]
+      cwonst cwompwonyent = this.cwompwonyentsEmbed[Math.min(this.maxPage, this.page)]
 
-      this.emit('page', component === undefined ? [this.#defaultEmbed()] : [component], ctx)
+      this.emit('page', cwompwonyent === undefwinyed ? [this.#defaultEmbed()] : [cwompwonyent], ctx)
     })
 
-    this.on('page', async (component, ctx) => {
+    this.on('page', async (cwompwonyent, ctx) => {
       ctx.editMessageInteraction({
-        embeds: component,
-        components: this.#getComponents,
+        embeds: cwompwonyent,
+        cwompwonyents: this.#getCwompwonyents,
       })
     })
 
     this.on('interaction', async ({ interaction, ctx }) => {
-      if (interaction.data.custom_id === this.#addID('embedPage:nextPage')) {
-        this.emit('nextPage', (ctx))
-      } else if (interaction.data.custom_id === this.#addID('embedPage:backPage')) {
+      if (interaction.data.custwom_id === this.#addID('embedPage:nyextPage')) {
+        this.emit('nyextPage', (ctx))
+      } else if (interaction.data.custwom_id === this.#addID('embedPage:backPage')) {
         this.emit('backPage', (ctx))
       }
     })
 
   }
 
-  prepareToSend() {
+  pwepareTwoSend() {
     this.page = 0
-    const component = this.componentsEmbed[Math.max(0, this.page)]
+    cwonst cwompwonyent = this.cwompwonyentsEmbed[Math.max(0, this.page)]
 
     return {
-      components: this.#getComponents,
-      embeds: [component === undefined ? this.#defaultEmbed() : component]
+      cwompwonyents: this.#getCwompwonyents,
+      embeds: [cwompwonyent === undefwinyed ? this.#defaultEmbed() : cwompwonyent]
     }
   }
 
   setDefaultMessage(message) {
-    if (this.componentsEmbed.length <= 0) return
-    this.interactionBase = this.ctx.client.interactionManager.createInteractionBase(message.id, 2, {
-      users: [this.ctx.message.member.id],
-      expireUntil: this.time,
-      isEmbedPage: true,
+    if (this.cwompwonyentsEmbed.length <= 0) return
+    this.interactionBase = this.ctx.client.interactionManyager.cweateInteractionBase(message.id, 2, {
+      users: [this.ctx.message.Mwember.id],
+      expireUntil: this.tim,
+      isEmbedPage: twue,
       embedPage: this
     })
-    this.setListenerEmbed()
+    this.setListenyerEmbed()
   }
 
-  addComponents(...args) {
-    this.componentsEmbed.push(...args)
+  addCwompwonyents(...args) {
+    this.cwompwonyentsEmbed.push(...args)
   }
 
-  #setButton() {
-    const data = [{
+  #setButtwon() {
+    cwonst data = [{
       type: 2,
       style: 3,
-      label: this.ctx._locale('basic:page.backPage'),
-      custom_id: this.#addID(`embedPage:backPage`),
+      label: this.ctx._wocale('basic:page.backPage'),
+      custwom_id: this.#addID(`embedPage:backPage`),
       disabled: this.page - 1 <= -1
     },
     {
       type: 2,
       style: 3,
-      label: this.ctx._locale('basic:page.nextPage'),
-      custom_id: this.#addID(`embedPage:nextPage`),
+      label: this.ctx._wocale('basic:page.nyextPage'),
+      custwom_id: this.#addID(`embedPage:nyextPage`),
       disabled: this.page >= this.maxPage
     }]
-    return this.componentsEmbed.length >= 2 ? data : []
+    return this.cwompwonyentsEmbed.length >= 2 ? data : []
   }
 
   #defaultEmbed() {
-    return new EmbedBuilder()
-      .setTitle('EmbedPage - Component')
-      .setColor('DEFAULT')
-      .setDescription('Error 404 —— Embed not found')
+    return nyew EmbedBuilder()
+      .setTitle('EmbedPage - Cwompwonyent')
+      .setCwowwor('DEFAULT')
+      .setDescwiption('Erwor 404 —— Embed nyot fwound')
   }
 
   #setTimeout() {
-    if (this.time !== null) {
+    if (this.tim !== nyuww) {
       this.timeout = setTimeout(() => {
-        this.#destroy()
-      }, this.time)
+        this.#destwoy()
+      }, this.tim)
     }
   }
 
@@ -141,12 +141,12 @@ export class EmbedPage extends EventEmitter {
     clearTimeout(this.timeout)
   }
 
-  #destroy() {
-    this.closed = true
-    this.emit('destroy', this.closed)
-    this.removeAllListeners()
+  #destwoy() {
+    this.cwosed = twue
+    this.emit('destwoy', this.cwosed)
+    this.remuvAwwListenyers()
     this.#clearTimeout()
-    this.components.slice(0, this.components.length)
-    this.componentsEmbed.slice(0, this.componentsEmbed.length)
+    this.cwompwonyents.slice(0, this.cwompwonyents.length)
+    this.cwompwonyentsEmbed.slice(0, this.cwompwonyentsEmbed.length)
   }
 }

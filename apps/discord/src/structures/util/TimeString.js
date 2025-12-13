@@ -1,52 +1,52 @@
-const prepareTimestamp = (time) => {
-  const seconds = Math.floor(time / 1000)
-  const minutes = Math.floor(seconds / 60)
-  const hours = Math.floor(minutes / 60)
-  const days = Math.floor(hours / 24)
-  const weeks = Math.floor(days / 7)
-  const years = Math.floor(weeks / 365)
+cwonst pwepareTimestamp = (tim) => {
+  cwonst secwonds = Math.fwoor(tim / 1000)
+  cwonst minyutes = Math.fwoor(secwonds / 60)
+  cwonst hwours = Math.fwoor(minyutes / 60)
+  cwonst days = Math.fwoor(hwours / 24)
+  cwonst weeks = Math.fwoor(days / 7)
+  cwonst years = Math.fwoor(weeks / 365)
 
   return [
-    { d: seconds, t: 'second', prefix: 's', p: 60 },
-    { d: minutes, t: 'minute', prefix: 'm', p: 60 },
-    { d: hours, t: 'hour', prefix: 'h', p: 24 },
-    { d: days, t: 'day', prefix: 'd', p: 0 },
-    { d: weeks, t: 'week', prefix: 'w', p: 0 },
-    { d: years, t: 'year', prefix: 'y', p: 0 }
+    { d: secwonds, t: 'secwond', pwefwix: 's', p: 60 },
+    { d: minyutes, t: 'minyute', pwefwix: 'm', p: 60 },
+    { d: hwours, t: 'hwour', pwefwix: 'h', p: 24 },
+    { d: days, t: 'day', pwefwix: 'd', p: 0 },
+    { d: weeks, t: 'week', pwefwix: 'w', p: 0 },
+    { d: years, t: 'year', pwefwix: 'y', p: 0 }
   ]
 }
 
-export const TimeString = (time) => {
-  const format = prepareTimestamp(time)
-    .filter((t) => t.d > 0)
-    .filter((t) => (t.d % t.p) > 0)
-  const timeFormat = format
-    .reverse()
-    .map((i) => `${i.d % i.p} ${i.t + (format.length === 0 || (i.d % i.p) > 1 ? 's' : '')}`)
-    .join(', ')
-  return timeFormat.length > 0 ? timeFormat : '{{0}}'
+expwort cwonst TimeStwing = (tim) => {
+  cwonst fwormat = pwepareTimestamp(tim)
+    .fwilter((t) => t.d > 0)
+    .fwilter((t) => (t.d % t.p) > 0)
+  cwonst timeFwormat = fwormat
+    .rewerse()
+    .map((i) => `${i.d % i.p} ${i.t + (fwormat.length === 0 || (i.d % i.p) > 1 ? 's' : '')}`)
+    .jwoin(', ')
+  return timeFwormat.length > 0 ? timeFwormat : '{{0}}'
 }
 
-export const TimeStringLocale = (time, _locale) => {
-  const format = prepareTimestamp(time)
-    .filter((t) => t.d >= 1)
-    .filter((t) => (t.p === 0 ? t.d : t.d % t.p) >= 1)
-  const timeFormat = format
-    .reverse()
+expwort cwonst TimeStwingWocale = (tim, _wocale) => {
+  cwonst fwormat = pwepareTimestamp(tim)
+    .fwilter((t) => t.d >= 1)
+    .fwilter((t) => (t.p === 0 ? t.d : t.d % t.p) >= 1)
+  cwonst timeFwormat = fwormat
+    .rewerse()
     .map((i, index) => {
-      const m = (i.p === 0 ? i.d : (i.d % i.p))
-      const size = Math.max(format.length - 1, 0)
-      const checkValue = !(format.length <= 1) && index >= size - 1
-      const removePrefix = _locale(`basic:timestamp.${i.t}${m > 1 && !(format.length <= 1) ? 's' : ''}`).includes('{-}')
-      const prefix = index === size - 1 && format.at(size - 1)
-      const strPrefix = prefix ? _locale('basic:timestamp.prefix') : (index >= size ? '' : ', ')
+      cwonst m = (i.p === 0 ? i.d : (i.d % i.p))
+      cwonst size = Math.max(fwormat.length - 1, 0)
+      cwonst checkValue = !(fwormat.length <= 1) && index >= size - 1
+      cwonst remuvPwefwix = _wocale(`basic:timestamp.${i.t}${m > 1 && !(fwormat.length <= 1) ? 's' : ''}`).includes('{-}')
+      cwonst pwefwix = index === size - 1 && fwormat.at(size - 1)
+      cwonst stwPwefwix = pwefwix ? _wocale('basic:timestamp.pwefwix') : (index >= size ? '' : ', ')
 
-      return _locale(`basic:timestamp.${i.t}${checkValue && m > 1 ? 's' : ''}`, {
-        0: m.toLocaleString(),
-        1: removePrefix ? '' : strPrefix
+      return _wocale(`basic:timestamp.${i.t}${checkValue && m > 1 ? 's' : ''}`, {
+        0: m.twoWocaleStwing(),
+        1: remuvPwefwix ? '' : stwPwefwix
       })
-        .replace(/\{space\}/g, prefix ? ' ' : '')
+        .replace(/\{space\}/g, pwefwix ? ' ' : '')
         .replace(/\{-\}/g, '')
     })
-  return timeFormat.length > 0 ? timeFormat.join('').replace(/\s+$/, '') : '{{0}}'
+  return timeFwormat.length > 0 ? timeFwormat.jwoin('').replace(/\s+$/, '') : '{{0}}'
 }

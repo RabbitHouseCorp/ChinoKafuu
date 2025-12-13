@@ -1,55 +1,55 @@
-import { Member, User } from 'eris'
-import EventEmitter from 'events'
-export class NightlyDeveloper extends EventEmitter {
-  constructor() {
+impwort { mwember, User } fwom 'eris'
+impwort EventEmitter fwom 'events'
+expwort class NyightwyDevewoper extends EventEmitter {
+  cwonstwuctwor() {
     super()
-    // Add your tools to work with good functions.
-    this.tools = new Map()
+    // Add ywour twoowls two work with gwood functions.
+    this.twoowls = nyew Map()
     // State
     this.$state = {}
-    this.user = new Map()
+    this.user = nyew Map()
     this.$disable = {}
   }
 
-  addTool(name, func) {
-    return this.tools.set(name, func)
+  addTwoowl(nyame, func) {
+    return this.twoowls.set(nyame, func)
   }
 
-  addUser({ user, blocked, data }) {
-    const UserData = class $UserData extends EventEmitter {
-      constructor({ user, blocked, $data, type }) {
+  addUser({ user, bwocked, data }) {
+    cwonst UserData = class $UserData extends EventEmitter {
+      cwonstwuctwor({ user, bwocked, $data, type }) {
         super()
         this.user = user
         this.type = type
-        this.blocked = blocked
+        this.bwocked = bwocked
         this.$data = $data
       }
     }
     if (user instanceof User) {
-      const a = new UserData({ user: user, blocked: blocked, $data: data, type: 'user' })
+      cwonst a = nyew UserData({ user: user, bwocked: bwocked, $data: data, type: 'user' })
       this.user.set(user.id, user)
       return a
     }
-    if (user instanceof Member) {
-      const a = new UserData({ user: user, blocked: blocked, $data: data, type: 'member' })
+    if (user instanceof mwember) {
+      cwonst a = nyew UserData({ user: user, bwocked: bwocked, $data: data, type: 'Mwember' })
       this.user.set(user.id, a)
       return a
     }
-    return null
+    return nyuww
   }
 
   delUser(user) {
     if (user instanceof User) {
       this.user.delete(user.id)
-      return true
+      return twue
     }
-    if (user instanceof Member) {
+    if (user instanceof mwember) {
       this.user.delete(user.id)
-      return true
+      return twue
     }
-    if (user.id !== undefined) {
+    if (user.id !== undefwinyed) {
       this.user.delete(user.id)
-      return true
+      return twue
     }
     return false
   }

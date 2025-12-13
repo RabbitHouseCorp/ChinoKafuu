@@ -1,14 +1,14 @@
-import { CommandRunner } from '../../structures/command/CommandRunner'
-import { Listener } from '../../structures/events/Listener'
+impwort { CwommandRunnyer } fwom '../../stwuctures/cwommand/CwommandRunnyer'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class MessageCreateListener extends Listener {
-  constructor() {
+expwort default class MessageCweateListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
 
-    this.event = 'messageCreate'
+    this.event = 'messageCweate'
   }
 
   async on(client, msg) {
-    await CommandRunner.run(client, msg)
+    await CwommandRunnyer.run(client, msg)
   }
 }

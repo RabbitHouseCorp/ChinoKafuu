@@ -1,66 +1,66 @@
-import { InteractionFunction } from '../../structures/InteractionFunction';
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction';
 
-export default class LanguageInteraction extends InteractionFunction {
-  constructor() {
+expwort default class LanguageInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'languageInteraction',
+      nyame: 'languageInteraction',
     })
   }
 
-  interactionFunction({ getData, defineState, edit, deleteInteraction }) {
-    const { data } = getData()
-    defineState.actionState.event
-      .once('done', (state) => {
-        if (state === 'br') {
+  interactionFunction({ getData, defwinyeState, edit, deleteInteraction }) {
+    cwonst { data } = getData()
+    defwinyeState.actionState.event
+      .once('dwonye', (state) => {
+        if (state === 'bw') {
           deleteInteraction()
-          edit('success', 'agora eu irei falar em `Português, Brasil`.', {
+          edit('success', 'agwora eu irei falar em `Pwortuguês, Bwasil`.', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
         } else if (state === 'vn') {
           deleteInteraction()
-          edit('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nam`.', {
+          edit('success', 'bây giờ tôi sẽ nói `Tiếng Việt, Việt Nyam`.', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
         } else if (state === 'us') {
           deleteInteraction()
-          edit('success', 'now I\'ll speak `English, US`.', {
+          edit('success', 'nyow I\'ww speak `English, US`.', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
         } else if (state === 'es') {
           deleteInteraction()
-          edit('success', 'ahora, hablaré en `Español`.', {
+          edit('success', 'ahwora, hablaré en `Españowl`.', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
         } else if (state === 'jp') {
           deleteInteraction()
           edit('success', 'では、`日本語`で話します。', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
-        } else if (state === 'fr') {
+        } else if (state === 'fw') {
           deleteInteraction()
-          edit('success', 'maintenant je vais parler en `Français`.', {
+          edit('success', 'maintenyant je vais parler en `Fwançais`.', {
             embeds: [],
-            components: []
+            cwompwonyents: []
           })
         }
       })
-      .once('error', (err) => {
+      .once('erwor', (err) => {
         deleteInteraction()
-        throw err
+        thwow err
       })
     switch (data.values[0]) {
-      case 'br':
+      case 'bw':
       case 'vn':
       case 'us':
       case 'es':
       case 'jp':
-      case 'fr':
-        defineState.actionState.setState({ action: data.values[0] })
+      case 'fw':
+        defwinyeState.actionState.setState({ action: data.values[0] })
     }
 
   }

@@ -1,34 +1,34 @@
-import { CommandBase } from 'eris'
-import NekosLife from 'nekos.life'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-const NekoClient = new NekosLife()
+impwort { CwommandBase } fwom 'eris'
+impwort NyekwosLife fwom 'nyekwos.life'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+cwonst NyekwoClient = nyew NyekwosLife()
 
-export default class DogCommand extends Command {
-  constructor() {
+expwort default class DwogCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'dog',
-      aliases: ['cachorro'],
+      nyame: 'dwog',
+      aliases: ['cachworwo'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('dog')
-        .setDescription('Sends an image or gif of a dog')
+      slash: nyew CwommandBase()
+        .setNyame('dwog')
+        .setDescwiption('Sends an image or gif of a dwog')
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const image = await NekoClient.woof()
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
+    cwonst image = await NyekwoClient.woof()
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
     embed.setImage(image.url)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

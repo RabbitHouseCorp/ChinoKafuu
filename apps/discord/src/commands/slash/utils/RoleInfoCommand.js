@@ -1,46 +1,46 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RoleInfoCommand extends Command {
-  constructor() {
+expwort default class WowalInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'roleinfo',
-      aliases: ['cargoinfo'],
+      nyame: 'wowalinfwo',
+      aliases: ['cargwoinfwo'],
       permissions: [],
-      slash: new CommandBase()
-        .setName('roleinfo')
-        .setDescription('Shows some informations about a role.')
+      slash: nyew CwommandBase()
+        .setNyame('wowalinfwo')
+        .setDescwiption('Shwows swome infwormations abwout a wowal.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(8)
-            .setName('role')
-            .setDescription('Mention the role for more information.')
+            .setNyame('wowal')
+            .setDescwiption('Mention teh wowal fwor mwore infwormation.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   run(ctx) {
-    const role = ctx.message.guild.roles.get(ctx.args.get('role').value)
-    if (!role) return ctx.replyT('error', 'commands:roleinfo.roleNotExist')
+    cwonst wowal = ctx.message.guild.wowals.get(ctx.args.get('wowal').value)
+    if (!wowal) return ctx.repwyT('erwor', 'cwommands:wowalinfwo.wowalNyotExist')
 
-    const embed = new EmbedBuilder()
-    embed.setColor(`#${role.color.toString(16)}`)
-    embed.setTitle(ctx._locale('commands:roleinfo.roleName', { 0: role.name }))
-    embed.setThumbnail(role.icon ? role.getIconURL : null)
-    embed.addField(ctx._locale('commands:roleinfo.roleMention'), role.mention, true)
-    embed.addField(ctx._locale('commands:roleinfo.roleID'), role.id, true)
-    embed.addField(ctx._locale('commands:roleinfo.roleColor'), `#${role.color.toString(16).toUpperCase()}`, true)
-    embed.addField(ctx._locale('commands:roleinfo.roleGuild'), `\`${role.guild.name}\``, true)
-    embed.addField(ctx._locale('commands:roleinfo.roleHoist'), ctx._locale(`basic:boolean.${role.hoist}`), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleMentionable'), ctx._locale(`basic:boolean.${role.mentionable}`), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleManaged'), ctx._locale(`basic:boolean.${role.managed}`), true)
-    embed.addField(ctx._locale('commands:roleinfo.roleCreatedAt'), `<t:${parseInt(role.createdAt / 1000).toFixed(0)}:F> (<t:${parseInt(role.createdAt / 1000).toFixed(0)}:R>)`, true)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor(`#${wowal.cwowwor.twoStwing(16)}`)
+    embed.setTitle(ctx._wocale('cwommands:wowalinfwo.wowalNyame', { 0: wowal.nyame }))
+    embed.setThumbnyail(wowal.icwon ? wowal.getIcwonUWL : nyuww)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalMention'), wowal.mention, twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalID'), wowal.id, twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalCwowwor'), `#${wowal.cwowwor.twoStwing(16).twoUpperCase()}`, twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalGuild'), `\`${wowal.guild.nyame}\``, twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalHwoist'), ctx._wocale(`basic:bwoowalan.${wowal.hwoist}`), twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalMentionyable'), ctx._wocale(`basic:bwoowalan.${wowal.mentionyable}`), twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalManyaged'), ctx._wocale(`basic:bwoowalan.${wowal.manyaged}`), twue)
+    embed.addFwield(ctx._wocale('cwommands:wowalinfwo.wowalCweatedAt'), `<t:${parseInt(wowal.cweatedAt / 1000).twoFwixed(0)}:F> (<t:${parseInt(wowal.cweatedAt / 1000).twoFwixed(0)}:R>)`, twue)
 
     ctx.send(embed.build())
   }

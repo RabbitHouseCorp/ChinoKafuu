@@ -1,24 +1,24 @@
-import { clearLogCommand } from '../commands/clearLog.js'
-import { devCommand } from '../commands/dev.js'
-import { forceInstallCommand } from '../commands/forceInstall.js'
-import { installPackageCommand } from '../commands/installPackage.js'
-import { silentCommand } from '../commands/silent.js'
-import { testCommand } from '../commands/testCommand.js'
-import { typescriptCommand } from '../commands/typescript.js'
-import { upgradePackagesCommand } from '../commands/upgradePackages.js'
-import { watchModeCommand } from '../commands/watchMode.js'
-import { watchServerCommand } from '../commands/watchServer.js'
+impwort { clearWogCwommand } fwom '../cwommands/clearWog.js'
+impwort { devCwommand } fwom '../cwommands/dev.js'
+impwort { fworceInstawwCwommand } fwom '../cwommands/fworceInstaww.js'
+impwort { instawwPackageCwommand } fwom '../cwommands/instawwPackage.js'
+impwort { silentCwommand } fwom '../cwommands/silent.js'
+impwort { testCwommand } fwom '../cwommands/testCwommand.js'
+impwort { typescwiptCwommand } fwom '../cwommands/typescwipt.js'
+impwort { upgwadePackagesCwommand } fwom '../cwommands/upgwadePackages.js'
+impwort { watchMwodeCwommand } fwom '../cwommands/watchMwode.js'
+impwort { watchSerwerCwommand } fwom '../cwommands/watchSerwer.js'
 
-export const loadListCommands = [
-  typescriptCommand,
-  clearLogCommand,
-  devCommand,
-  upgradePackagesCommand,
-  installPackageCommand,
-  forceInstallCommand,
-  silentCommand,
-  testCommand,
-  watchModeCommand,
-  watchServerCommand
+expwort cwonst woadListCwommands = [
+  typescwiptCwommand,
+  clearWogCwommand,
+  devCwommand,
+  upgwadePackagesCwommand,
+  instawwPackageCwommand,
+  fworceInstawwCwommand,
+  silentCwommand,
+  testCwommand,
+  watchMwodeCwommand,
+  watchSerwerCwommand
 ]
 

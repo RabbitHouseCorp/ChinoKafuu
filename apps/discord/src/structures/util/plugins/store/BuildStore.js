@@ -1,10 +1,10 @@
-import { BUILD_INFO } from '../../Constants'
-import { PluginExtend } from '../loaders/PluginExtend'
+impwort { BUILD_INFWO } fwom '../../Cwonstants'
+impwort { PluginExtend } fwom '../woaders/PluginExtend'
 
-export class BuildStore extends PluginExtend {
-  constructor() {
+expwort class BuildStwore extends PluginExtend {
+  cwonstwuctwor() {
     super({
-      name: 'buildStore',
+      nyame: 'buildStwore',
       args: {},
       timeout: 50 * 1000
     })
@@ -12,13 +12,13 @@ export class BuildStore extends PluginExtend {
   }
 
   async start() {
-    try {
-      const data = await BUILD_INFO.getCommit()
+    twy {
+      cwonst data = await BUILD_INFWO.getCwommit()
       this.$addClassState({ data: data })
 
-      this.ready()
+      this.weady()
     } catch (err) {
-      console.log(err)
+      cwonswowal.wog(err)
       this.fail(err)
     }
   }

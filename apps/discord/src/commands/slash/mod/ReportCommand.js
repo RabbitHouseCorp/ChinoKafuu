@@ -1,66 +1,66 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class ReportCommand extends Command {
-  constructor() {
+expwort default class RepwortCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'report',
-      aliases: ['reportar'],
+      nyame: 'repwort',
+      aliases: ['repwortar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('report')
-        .setDescription('Reports a user on this server if the module is enable.')
+      slash: nyew CwommandBase()
+        .setNyame('repwort')
+        .setDescwiption('Repworts a user on this serwer if teh mwodule is enyable.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention member on server.')
+            .setNyame('user')
+            .setDescwiption('Mention Mwember on serwer.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('reason')
-            .setDescription('Inform the reason why to report the user.')
+            .setNyame('reaswon')
+            .setDescwiption('Infworm teh reaswon why two repwort teh user.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('proof')
-            .setDescription('The proof of the infraction. (Image\'s URL)')
+            .setNyame('pwoof')
+            .setDescwiption('Teh pwoof of teh infwaction. (Image\'s URL)')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const server = ctx.db.guild
-    if (!server.reportModule) return ctx.replyT('error', 'commands:report.moduleDisable')
-    const member = await ctx.getUser(ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const reason = ctx.args.get('reason').value
-    if (!reason[0]) return ctx.replyT('error', 'commands:report.noReason')
-    const channel = ctx.client.getChannel(server.channelReport)
-    const proof = ctx.args.get('proof')?.value
-    if (!channel) {
-      server.reportModule = false
-      server.channelReport = ''
-      return ctx.replyT('commands', 'commands:report.channelNotFound')
+    cwonst serwer = ctx.db.guild
+    if (!serwer.repwortMwodule) return ctx.repwyT('erwor', 'cwommands:repwort.mwoduleDisable')
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst reaswon = ctx.args.get('reaswon').value
+    if (!reaswon[0]) return ctx.repwyT('erwor', 'cwommands:repwort.nyoReaswon')
+    cwonst channywl = ctx.client.getChannyel(serwer.channyelRepwort)
+    cwonst pwoof = ctx.args.get('pwoof')?.value
+    if (!channyel) {
+      serwer.repwortMwodule = false
+      serwer.channyelRepwort = ''
+      return ctx.repwyT('cwommands', 'cwommands:repwort.channyelNyotFwound')
     }
 
-    const embed = new EmbedBuilder()
-    embed.setColor('MODERATION')
-    embed.setThumbnail(member.avatarURL)
-    embed.addField(ctx._locale('commands:report.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
-    embed.addField(ctx._locale('commands:report.embed.authorName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
-    embed.addField(ctx._locale('commands:report.embed.channel'), ctx.message.channel.mention)
-    embed.addField(ctx._locale('commands:report.embed.reason'), proof ? `[${reason}](${proof})` : reason)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('MWODERATION')
+    embed.setThumbnyail(Mwember.avatarURL)
+    embed.addFwield(ctx._wocale('cwommands:repwort.embed.MwemberNyame'), `@${Mwember.usernyame} (\`${Mwember.id}\`)`)
+    embed.addFwield(ctx._wocale('cwommands:repwort.embed.authworNyame'), `@${ctx.message.authwor.usernyame} (\`${ctx.message.authwor.id}\`)`)
+    embed.addFwield(ctx._wocale('cwommands:repwort.embed.channyel'), ctx.message.channyel.mention)
+    embed.addFwield(ctx._wocale('cwommands:repwort.embed.reaswon'), pwoof ? `[${reaswon}](${pwoof})` : reaswon)
 
-    channel.createMessage(embed.build())
-    ctx.replyT('success', 'commands:report.successfullySent')
+    channyel.cweateMessage(embed.build())
+    ctx.repwyT('success', 'cwommands:repwort.successfuwwySent')
   }
 }

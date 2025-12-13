@@ -1,36 +1,36 @@
-/* eslint-disable security/detect-non-literal-regexp */
-/* eslint-disable security/detect-eval-with-expression */
-import { Command, EmbedBuilder } from '../../../structures/util'
-import util from 'util'
+/* eslint-disable security/detect-nyon-literal-regexp */
+/* eslint-disable security/detect-eval-with-expwession */
+impwort { Cwommand, EmbedBuilder } fwom '../../../stwuctures/util'
+impwort utwl fwom 'util'
 
-export default class EvalCommand extends Command {
-  constructor() {
+expwort default class EvalCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'eval',
+      nyame: 'eval',
       permissions: [{
         entity: 'user',
-        permissions: ['botDeveloper']
+        permissions: ['bwotDevewoper']
       }],
       aliases: ['ev']
     })
   }
 
   async run(ctx) {
-    try {
-      let evaled = await eval(ctx.args.join(' '))
+    twy {
+      let evaled = await eval(ctx.args.jwoin(' '))
       evaled = util.inspect(evaled, { depth: 1 })
-      evaled = evaled.replace(new RegExp(`${ctx.client.token}`, 'g'), undefined)
+      evaled = evaled.replace(nyew RegExp(`${ctx.client.twoken}`, 'g'), undefwinyed)
 
       if (evaled.length > 1800) evaled = `${evaled.slice(0, 1800)}...`
       evaled = `\`\`\`js\n${evaled}\`\`\``
       await ctx.send(evaled)
     } catch (err) {
-      const errorMessage = err.stack.length > 1800 ? `${err.stack.slice(0, 1800)}...` : err.stack
-      const embed = new EmbedBuilder()
-      embed.setColor('ERROR')
-      embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${errorMessage}\`\`\``)
-      embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
+      cwonst erworMessage = err.stack.length > 1800 ? `${err.stack.slice(0, 1800)}...` : err.stack
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('ERWOR')
+      embed.setTitle(ctx._wocale('events:executionFailure.embedTitle'))
+      embed.setDescwiption(`\`\`\`js\n${erworMessage}\`\`\``)
+      embed.addFwield(ctx._wocale('events:executionFailure.fwieldTitle'), ctx._wocale('events:executionFailure.fwieldValue'))
 
       ctx.send(embed.build())
     }

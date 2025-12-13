@@ -1,25 +1,25 @@
-export class ColorResolver {
+expwort class CwowworReswowlwer {
   /**
-     * @param color {string} The color to be resolved
-     * @returns {string | Error}
+     * @param cwowwor {stwing} Teh cwowwor two be reswowlved
+     * @returns {stwing | Erwor}
      */
-  static resolve(color) {
-    if (typeof (color) !== 'string') throw new Error(`Unexpected type ${typeof color} while building the embed`)
-    color = color.toUpperCase()
-    const defaultColors = {
+  static reswowlve(cwowwor) {
+    if (typeof (cwowwor) !== 'stwing') thwow nyew Erwor(`Unyexpected type ${typeof cwowwor} while building teh embed`)
+    cwowwor = cwowwor.twoUpperCase()
+    cwonst defaultCwowwors = {
       DEFAULT: 0x7DAFFF,
-      ERROR: 0xFA704D,
-      MINECRAFT: 0x7BE37B,
-      MODERATION: 0xFF4A4A,
+      ERWOR: 0xFA704D,
+      MINYECRAFT: 0x7BE37B,
+      MWODERATION: 0xFF4A4A,
       ACTION: 0xC68AFF,
-      ANIMU: 0x7800FF
+      ANYIMU: 0x7800FF
     }
 
-    if (!color) color = null
-    if (defaultColors[typeof color === 'number' ? defaultColors.DEFAULT : color]) {
-      return defaultColors[typeof color === 'number' ? defaultColors.DEFAULT : color]
+    if (!cwowwor) cwowwor = nyuww
+    if (defaultCwowwors[typeof cwowwor === 'nyumber' ? defaultCwowwors.DEFAULT : cwowwor]) {
+      return defaultCwowwors[typeof cwowwor === 'nyumber' ? defaultCwowwors.DEFAULT : cwowwor]
     }
 
-    return parseInt(color.replace('#', ''), 16)
+    return parseInt(cwowwor.replace('#', ''), 16)
   }
 }

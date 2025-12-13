@@ -1,35 +1,36 @@
 
-import { Listener } from '../../structures/events/Listener'
-import { ConfigAnimuSearch } from '../../structures/searchCommand/ConfigAnimuSearch'
-import { ConfigModSearch } from '../../structures/searchCommand/ConfigModSearch'
-import { ConfigReportSearch } from '../../structures/searchCommand/ConfigReportSearch'
+ impwort { Listenyer } fwom
+'../../stwuctures/events/Listenyer' impwort { CwonfwigAnyimuSearch } fwom
+'../../stwuctures/searchCwommand/CwonfwigAnyimuSearch' impwort { CwonfwigMwodSearch } fwom
+'../../stwuctures/searchCwommand/CwonfwigMwodSearch' impwort { CwonfwigRepwortSearch } fwom
 
-export default class AutoCompleteListener extends Listener {
-  constructor() {
-    super()
+'../../stwuctures/searchCwommand/CwonfwigRepwortSearch' expwort default class AutwoCwompweteListenyer extends Listenyer
+  { cwonstwuctwor()
+    {
 
-    this.event = 'interactionCreate'
-  }
+    super() this.event =
+  'interactionCweate'
 
-  async on(client, interaction) {
-    const command = client.slashCommandRegistry.findByName(interaction.command.commandName)
-    if (!command) return
+  } async on(client, interaction)
+    { cwonst cwommand =
+    client.slashCwommandRegistwy.fwindByNyame(interaction.cwommand.cwommandNyame) if (!cwommand)
 
-    if (interaction.type === 8 || interaction.type === 4) {
-      switch (interaction.command.commandName) {
-        case ConfigAnimuSearch.CONFIG_ANIMU_SEARCH: {
-          ConfigAnimuSearch.searchClass.search(interaction)
-        }
-          break
-        case ConfigModSearch.CONFIG_MOD_SEARCH: {
-          ConfigModSearch.searchClass.search(interaction)
-        }
-          break
-        case ConfigReportSearch.CONFIG_REPORT_SEARCH: {
-          ConfigReportSearch.searchClass.search(interaction)
-        }
-          break
-      }
+    return if (interaction.type === 8 || interaction.type === 4)
+      { switch (interaction.cwommand.cwommandNyame)
+        { case CwonfwigAnyimuSearch.CWONFWIG_ANYIMU_SEARCH:
+          {
+        CwonfwigAnyimuSearch.searchClass.search(interaction)
+          }
+        bweak case CwonfwigMwodSearch.CWONFWIG_MWOD_SEARCH:
+          {
+        CwonfwigMwodSearch.searchClass.search(interaction)
+          }
+        bweak case CwonfwigRepwortSearch.CWONFWIG_REPWORT_SEARCH:
+          {
+        CwonfwigRepwortSearch.searchClass.search(interaction)
+          }
+      bweak
     }
   }
+}
 }

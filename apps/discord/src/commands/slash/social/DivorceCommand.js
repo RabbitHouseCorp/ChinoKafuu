@@ -1,72 +1,72 @@
-import { CommandBase } from 'eris'
-import { defineState } from '../../../defineTypes/defineState'
-import { Button, Command, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase } fwom 'eris'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Buttwon, Cwommand, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class DivorceCommand extends Command {
-  constructor() {
+expwort default class DivorceCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'divorce',
+      nyame: 'divorce',
       aliases: ['divorciar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['addReactions']
       }],
-      slash: new CommandBase()
-        .setName('divorce')
-        .setDescription('Divorces you to your current partner (I will charge 300 yens to divorce).')
+      slash: nyew CwommandBase()
+        .setNyame('divorce')
+        .setDescwiption('Divorces u two ywour current partnyer (I wiww charge 300 yens two divorce).')
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const author = ctx.db.user
-    if (!author.isMarry) return ctx.replyT('error', 'commands:divorce.youAreNotMarried', { 0: ctx.db.guild.prefix })
-    const couple = await ctx.client.database.users.getOrCreate(author.marryWith)
-    if (author.yens < Number(300)) return ctx.replyT('error', 'commands:divorce.youNeedToDivorce', { 0: Number(300 - author.yens).toLocaleString() })
-    if (couple.yens < Number(300)) return ctx.replyT('error', 'commands:divorce.theyNeedToDivorce', { 0: Number(300 - couple.yens).toLocaleString() })
-    const accept = new Button()
-      .setLabel(ctx._locale('basic:boolean.true'))
-      .customID('confirmButton')
+    cwonst authwor = ctx.db.user
+    if (!authwor.isMarry) return ctx.repwyT('erwor', 'cwommands:divorce.ywouAreNyotMarried', { 0: ctx.db.guild.pwefwix })
+    cwonst cwoupwal = await ctx.client.database.users.getOrCweate(authwor.marryWith)
+    if (authwor.yens < Nyumber(300)) return ctx.repwyT('erwor', 'cwommands:divorce.ywouNyeedTwoDivorce', { 0: Nyumber(300 - authwor.yens).twoWocaleStwing() })
+    if (cwoupwe.yens < Nyumber(300)) return ctx.repwyT('erwor', 'cwommands:divorce.theyNyeedTwoDivorce', { 0: Nyumber(300 - cwoupwe.yens).twoWocaleStwing() })
+    cwonst accept = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.twue'))
+      .custwomID('cwonfwirmButtwon')
       .setStyle(3)
-      .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
-    const reject = new Button()
-      .setLabel(ctx._locale('basic:boolean.false'))
-      .customID('rejectButton')
+      .setEmwoji({ nyame: Emwoji.getEmwoji('success').nyame, id: Emwoji.getEmwoji('success').id })
+    cwonst reject = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.false'))
+      .custwomID('rejectButtwon')
       .setStyle(4)
-      .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
-    const state = defineState({
-      author: ctx.message.author.id,
+      .setEmwoji({ nyame: Emwoji.getEmwoji('erwor').nyame, id: Emwoji.getEmwoji('erwor').id })
+    cwonst state = defwinyeState({
+      authwor: ctx.message.authwor.id,
       action: ''
-    }, { eventEmitter: true })
+    }, { eventEmitter: twue })
 
-    ctx.replyT('warn', 'commands:divorce.requestConfirm', {}, {
-      components: [{
+    ctx.repwyT('warn', 'cwommands:divorce.requestCwonfwirm', {}, {
+      cwompwonyents: [{
         type: 1,
-        components: [accept.build(), reject.build()]
+        cwompwonyents: [accept.build(), reject.build()]
       }]
     }).then(message => {
-      ctx.createInteractionFunction('divorceInteraction', message, {
+      ctx.cweateInteractionFunction('divorceInteraction', message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action === 'confirmButton') {
-          author.yens -= Number(300)
-          author.isMarry = false
-          author.marryWith = ''
-          couple.yens -= Number(300)
-          couple.isMarry = false
-          couple.marryWith = ''
-          author.save()
-          couple.save()
+        if (stateUpdated.action === 'cwonfwirmButtwon') {
+          authwor.yens -= Nyumber(300)
+          authwor.isMarry = false
+          authwor.marryWith = ''
+          cwoupwe.yens -= Nyumber(300)
+          cwoupwe.isMarry = false
+          cwoupwe.marryWith = ''
+          authwor.save()
+          cwoupwe.save()
             .then(() => {
-              state.actionState.event.emit('done')
+              state.actionState.event.emit('dwonye')
             }).catch((err) => {
-              state.actionState.event.emit('error', err)
+              state.actionState.event.emit('erwor', err)
             })
         }
       })

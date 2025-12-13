@@ -1,99 +1,99 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Button, Command, EmbedBuilder, Emoji, NightlyInteraction, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, NyightwyInteraction, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class BanInfoCommand extends Command {
-  constructor() {
+expwort default class BanInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'baninfo',
+      nyame: 'banyinfwo',
       aliases: [],
       permissions: [{
-        entity: 'bot',
-        permissions: ['banMembers', 'embedLinks']
+        entity: 'bwot',
+        permissions: ['banmwembers', 'embedLinks']
       },
       {
         entity: 'user',
-        permissions: ['banMembers']
+        permissions: ['banmwembers']
       }],
-      slash: new CommandBase()
-        .setName('baninfo')
-        .setDescription('Check the ban information about a user')
+      slash: nyew CwommandBase()
+        .setNyame('banyinfwo')
+        .setDescwiption('Check teh ban infwormation abwout a user')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-     * @method run
-     * @param {SlashCommandContext} ctx
+     * @methwod run
+     * @param {SlashCwommandCwontext} ctx
      * @returns {void}
      */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const bans = await guild.getBans()
-    const user = ctx.args.get('user').value?.id ?? ctx.args.get('user').value
-    const member = bans.find(ban => ban.user.id === user)
-    if (!member) return ctx.replyT('error', 'commands:unban.notBanned')
-    const embed = new EmbedBuilder()
-    embed.setColor('MODERATION')
-    embed.setThumbnail(member.user.avatarURL)
-    embed.setTitle(ctx._locale('commands:baninfo.title'))
-    embed.addField(ctx._locale('commands:baninfo.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
-    embed.addField(ctx._locale('commands:baninfo.reason'), member.reason ? member.reason : ctx._locale('basic:noReason'))
-    const unban = new Button()
+    cwonst guild = ctx.message.guild
+    cwonst bans = await guild.getBans()
+    cwonst user = ctx.args.get('user').value?.id ?? ctx.args.get('user').value
+    cwonst Mwember = bans.fwind(ban => ban.user.id === user)
+    if (!Mwember) return ctx.repwyT('erwor', 'cwommands:unban.nyotBannyed')
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('MWODERATION')
+    embed.setThumbnyail(Mwember.user.avatarURL)
+    embed.setTitle(ctx._wocale('cwommands:banyinfwo.title'))
+    embed.addFwield(ctx._wocale('cwommands:banyinfwo.MwemberNyame'), `@${Mwember.user.usernyame} (\`${Mwember.user.id}\`)`)
+    embed.addFwield(ctx._wocale('cwommands:banyinfwo.reaswon'), Mwember.reaswon ? Mwember.reaswon : ctx._wocale('basic:nyoReaswon'))
+    cwonst unban = nyew Buttwon()
       .setStyle(4)
-      .setLabel(ctx._locale('commands:baninfo.unban'))
-      .setEmoji({ name: Emoji.getEmoji('tools').name })
-      .customID('unban')
-    ctx.send({ embeds: [embed], components: [{ type: 1, components: [unban.build()] }] }).then(async (msg) => {
-      const ack = new NightlyInteraction(msg)
-      ack.on('collect', ({ packet }) => {
-        if ((ctx.message.author.id !== packet.d.member.user.id && packet.d.application_id === ctx.client.user.id)) {
-          ack.sendAck('respond', {
-            content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:baninfo.onlyWhoExecuted')}`,
+      .setLabel(ctx._wocale('cwommands:banyinfwo.unban'))
+      .setEmwoji({ nyame: Emwoji.getEmwoji('twoowls').nyame })
+      .custwomID('unban')
+    ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [unban.build()] }] }).then(async (msg) => {
+      cwonst ack = nyew NyightwyInteraction(msg)
+      ack.on('cwowwect', ({ packet }) => {
+        if ((ctx.message.authwor.id !== packet.d.Mwember.user.id && packet.d.application_id === ctx.client.user.id)) {
+          ack.sendAck('respwond', {
+            cwontent: `${Emwoji.getEmwoji('erwor').mention} **|** <@${packet.d.Mwember.id}> ${ctx._wocale('cwommands:banyinfwo.onwyWhwoExecuted')}`,
             flags: 1 << 6
           })
           return
         }
-        switch (packet.d.data.custom_id) {
+        switch (packet.d.data.custwom_id) {
           case 'unban': {
-            if (!member) return
-            this.unban(guild, member, ctx, ack)
+            if (!Mwember) return
+            this.unban(guild, Mwember, ctx, ack)
           }
         }
       })
     })
   }
 
-  unban(guild, member, ctx, ack) {
-    guild.unbanMember(member.user.id, ctx._locale('basic:punishment.reason', { 0: `@${ctx.message.member.user.username}`, 1: ctx._locale('basic:noReason') })).then(() => {
-      const unbanEmbed = new EmbedBuilder()
-      unbanEmbed.setColor('MODERATION')
-      unbanEmbed.setThumbnail(member.user.avatarURL)
-      unbanEmbed.setTitle(ctx._locale('basic:punishment.unbanned', { 0: `@${member.user.username}` }))
-      unbanEmbed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.user.username} (\`${member.user.id}\`)`)
-      unbanEmbed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.member.user.username} (\`${ctx.message.member.user.id}\`)`)
-      unbanEmbed.addField(ctx._locale('basic:punishment.embed.reason'), ctx._locale('basic:noReason'))
+  unban(guild, Mwember, ctx, ack) {
+    guild.unbanmwember(Mwember.user.id, ctx._wocale('basic:punyishment.reaswon', { 0: `@${ctx.message.Mwember.user.usernyame}`, 1: ctx._wocale('basic:nyoReaswon') })).then(() => {
+      cwonst unbanEmbed = nyew EmbedBuilder()
+      unbanEmbed.setCwowwor('MWODERATION')
+      unbanEmbed.setThumbnyail(Mwember.user.avatarURL)
+      unbanEmbed.setTitle(ctx._wocale('basic:punyishment.unbannyed', { 0: `@${Mwember.user.usernyame}` }))
+      unbanEmbed.addFwield(ctx._wocale('basic:punyishment.embed.MwemberNyame'), `@${Mwember.user.usernyame} (\`${Mwember.user.id}\`)`)
+      unbanEmbed.addFwield(ctx._wocale('basic:punyishment.embed.staffNyame'), `@${ctx.message.Mwember.user.usernyame} (\`${ctx.message.Mwember.user.id}\`)`)
+      unbanEmbed.addFwield(ctx._wocale('basic:punyishment.embed.reaswon'), ctx._wocale('basic:nyoReaswon'))
 
       ack.sendAck('update', {
         embeds: [unbanEmbed],
-        components: []
+        cwompwonyents: []
       })
-      const server = ctx.db.guild
-      if (server.punishModule) {
-        const channel = ctx.message.guild.channels.get(server.punishChannel)
-        if (!channel) {
-          server.punishModule = false
-          server.punishChannel = ''
-          server.save()
-          return ctx.replyT('error', 'events:channel-not-found')
+      cwonst serwer = ctx.db.guild
+      if (serwer.punyishMwodule) {
+        cwonst channywl = ctx.message.guild.channyels.get(serwer.punyishChannyel)
+        if (!channyel) {
+          serwer.punyishMwodule = false
+          serwer.punyishChannywl = ''
+          serwer.save()
+          return ctx.repwyT('erwor', 'events:channyel-nyot-fwound')
         }
 
-        channel.createMessage(unbanEmbed.build())
+        channyel.cweateMessage(unbanEmbed.build())
       }
     })
   }

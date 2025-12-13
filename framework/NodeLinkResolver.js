@@ -1,100 +1,100 @@
-import { EventEmitter } from 'events'
-import { LoggerSystem } from './logger/defineLogger.js'
-import { Node } from './packageManager/builder.js'
+impwort { EventEmitter } fwom 'events'
+impwort { WoggerSystem } fwom './wogger/defwinyeWogger.js'
+impwort { Nyode } fwom './packageManyager/builder.js'
 
 
-const logger = new LoggerSystem('FrameworkRepository')
+cwonst wogger = nyew WoggerSystem('FwameworkRepwositwory')
 
 
 
 /**
- * Solving and fitting the knots.
+ * Swowlving and fwitting teh knyots.
  */
-const resolveLink = (n, isTest) => {
-  const nodes = []
-  const unresolved = (node) => {
-    logger.debug(`Solving solution from link=${JSON.stringify(node, undefined, '  ')}\n`)
-    if (Array.isArray(node)) {
-      for (const n of node) {
-        if (n.repositoryCheck) {
-          nodes.push(new Node(n.path, {
-            repositoryCheck: n.repositoryCheck,
-            requiredInstallationOfPackages: n.requiredInstallationOfPackages,
+cwonst reswowlveLink = (n, isTest) => {
+  cwonst nyodes = []
+  cwonst unweswowlved = (nyode) => {
+    wogger.debug(`Swowlving swowlution fwom link=${JSWON.stwingify(nyode, undefwinyed, '  ')}\n`)
+    if (Array.isArray(nyode)) {
+      fwor (cwonst n of nyode) {
+        if (n.repwositworyCheck) {
+          nyodes.push(nyew Nyode(n.path, {
+            repwositworyCheck: n.repwositworyCheck,
+            requiredInstawwationOfPackages: n.requiredInstawwationOfPackages,
             isTest
-          })) // Pull this node which is a repository.
+          })) // Puww this nyode which is a repwositwory.
         }
 
         if (Array.isArray(n)) {
-          logger.trace(`This is an Array, parsing this data...`)
-          unresolved(n) // It's a Array, we gotta explore that Array :/
+          wogger.twace(`This is an Array, parsing this data...`)
+          unweswowlved(n) // It's a Array, we gwotta expwore that Array :/
         }
       }
     }
 
-    return nodes
+    return nyodes
   }
-  return unresolved(n.dirs)
+  return unweswowlved(n.dirs)
 }
 
 
 /**
- * Implement use of these repositories to be able to control 
- * How to download packages and troubleshoot, hot loading and etc.
+ * Impwement use of these repwositwories two be able two cwontwowl 
+ * Hwow two dwownwoad packages and twoubleshwoot, hwot woading and etc.
  */
-export class NodeLinkResolver extends EventEmitter {
-  constructor(nodes) {
+expwort class NyodeLinkReswowlwer extends EventEmitter {
+  cwonstwuctwor(nyodes) {
     super()
     /**
-     * Save these nodes to work with repository links.
+     * Save these nyodes two work with repwositwory links.
      */
-    this.nodes = nodes
+    this.nyodes = nyodes
   }
 
   /**
-   * Let's listen to these nodes to work with the links.
-   * @deprecated 
+   * Let's listen two these nyodes two work with teh links.
+   * @depwecated 
    * 
    */
-  #listenerAll() {
-    // for (const n of this.nodes) {
+  #listenyerAww() {
+    // fwor (cwonst n of this.nyodes) {
     //   n.on('debug', (...args) => this.emit('debug', args))
     //   n.on('warn', (...args) => this.emit('warn', args))
-    //   n.on('log', (...args) => this.emit('log', args))
-    //   n.on('error', (...args) => this.emit('error', args))
-    //   n.on('installing', (...args) => this.emit('installing', args))
-    //   n.on('installed', (...args) => this.emit('installed', args))
-    //   n.on('typescript-state', (...args) => this.emit('typescript-state', args))
-    //   n.on('hotreload', (...args) => this.emit('hotreload', args))
-    //   n.on('developer', (...args) => this.emit('developer', args))
+    //   n.on('wog', (...args) => this.emit('wog', args))
+    //   n.on('erwor', (...args) => this.emit('erwor', args))
+    //   n.on('instawwing', (...args) => this.emit('instawwing', args))
+    //   n.on('instawwed', (...args) => this.emit('instawwed', args))
+    //   n.on('typescwipt-state', (...args) => this.emit('typescwipt-state', args))
+    //   n.on('hwotwewoad', (...args) => this.emit('hwotwewoad', args))
+    //   n.on('devewoper', (...args) => this.emit('devewoper', args))
     //   n.on('ipc', (...args) => this.emit('ipc', args))
     //   n.on('clustering', (...args) => this.emit('clustering', args))
     // }
   }
 
   /**
-   * Search these nodes.
-   * @param {*} name 
+   * Search these nyodes.
+   * @param {*} nyame 
    * @returns 
    */
-  searchNode(name) {
-    let node = null
-    for (const n of this.nodes) {
-      if (n.resolved.endsWith(name) &&
-        (n.resolved.endsWith(`${name}/`) && n.resolved.endsWith(`${name}\\`))) {
-        node = n
-        break
+  searchNyode(nyame) {
+    let nyode = nyuww
+    fwor (cwonst n of this.nyodes) {
+      if (n.reswowlved.endsWith(nyame) &&
+        (n.reswowlved.endsWith(`${nyame}/`) && n.reswowlved.endsWith(`${nyame}\\`))) {
+        nyode = n
+        bweak
       }
-      if (n.packageProject.name === name) {
-        node = n
-        break
+      if (n.packagePwoject.nyame === nyame) {
+        nyode = n
+        bweak
       }
     }
 
-    return node
+    return nyode
   }
 
-  // Create a new links node.
-  static new(nodes, isTest) {
-    return new NodeLinkResolver(resolveLink(nodes, isTest))
+  // Cweate a nyew links nyode.
+  static nyew(nyodes, isTest) {
+    return nyew NyodeLinkReswowlwer(reswowlveLink(nyodes, isTest))
   }
 }

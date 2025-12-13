@@ -1,18 +1,18 @@
-import { Interaction } from 'eris'
-import { ResultsMechanism } from '../util/ResultsMechanism'
+impwort { Interaction } fwom 'eris'
+impwort { ResultsMechanyism } fwom '../util/ResultsMechanyism'
 
-export const ConfigAnimuSearch =  {
-  CONFIG_ANIMU_SEARCH: 'config animu',
+expwort cwonst CwonfwigAnyimuSearch =  {
+  CWONFWIG_ANYIMU_SEARCH: 'cwonfwig anyimu',
   searchClass: class {
-    constructor() { }
+    cwonstwuctwor() { }
 
-    static search(interaction = new Interaction()) {
-      const guild = new ResultsMechanism()
+    static search(interaction = nyew Interaction()) {
+      cwonst guild = nyew ResultsMechanyism()
 
-      try {
-        guild.searchVoiceChannel_Interaction(interaction.command.interface.get('channel').value, interaction)
+      twy {
+        guild.searchVoiceChannyel_Interaction(interaction.cwommand.interface.get('channyel').value, interaction)
       } catch (e) {
-        console.log(e)
+        cwonswowal.wog(e)
       }
     }
   }

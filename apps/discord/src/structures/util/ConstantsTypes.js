@@ -1,12 +1,12 @@
 /**
- * @typeof [type, salary, emoji, name, time:miliseconds]
+ * @typeof [type, salary, emwoji, nyame, tim:milisecwonds]
  */
-export const TypeProfession = {
-  busDriver: [0, 3500, '🚍', 'commands:work.profession.busDriver', 28800000, 'busDriver'],
-  policie: [1, 4175, '👮‍♂️', 'commands:work.profession.policie', 28800000, 'policie'],
-  robber: [2, 1212, '🏦', 'commands:work.profession.robber', 11701000, 'robber'],
-  doctor: [3, 4414, '👨‍⚕️', 'commands:work.profession.doctor', 28800000, 'doctor'],
-  lawyer: [4, 6675, '⚖️', 'commands:work.profession.lawyer', 28800000, 'lawyer'],
-  cabby: [5, 2424, '🚕', 'commands:work.profession.cabby', 28800000, 'cabby'],
-  domestic: [6, 1318, '🧹', 'commands:work.profession.domestic', 28800000, 'domestic'],
+expwort cwonst TypePwofession = {
+  busDwiwer: [0, 3500, '🚍', 'cwommands:work.pwofession.busDwiwer', 28800000, 'busDwiwer'],
+  pwowlicie: [1, 4175, '👮‍♂️', 'cwommands:work.pwofession.pwowlicie', 28800000, 'pwowlicie'],
+  wobber: [2, 1212, '🏦', 'cwommands:work.pwofession.wobber', 11701000, 'wobber'],
+  dwoctwor: [3, 4414, '👨‍⚕️', 'cwommands:work.pwofession.dwoctwor', 28800000, 'dwoctwor'],
+  lawyer: [4, 6675, '⚖️', 'cwommands:work.pwofession.lawyer', 28800000, 'lawyer'],
+  cabby: [5, 2424, '🚕', 'cwommands:work.pwofession.cabby', 28800000, 'cabby'],
+  dwomestic: [6, 1318, '🧹', 'cwommands:work.pwofession.dwomestic', 28800000, 'dwomestic'],
 }

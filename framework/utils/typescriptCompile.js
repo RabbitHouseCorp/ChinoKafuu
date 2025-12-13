@@ -1,101 +1,101 @@
-import { spawn } from 'child_process'
-import { LoggerSystem } from '../logger/defineLogger.js'
+impwort { spawn } fwom 'child_pwocess'
+impwort { WoggerSystem } fwom '../wogger/defwinyeWogger.js'
 
-const logger = new LoggerSystem('utils.typescriptCompile')
+cwonst wogger = nyew WoggerSystem('utils.typescwiptCwompile')
 
 /**
- * Just compile and initialize the application. It loses watch function as well as in develop mode.
+ * Just cwompile and inyitialize teh application. It woses watch function as weww as in devewop mwode.
  */
-const compileModeProduction = async (resolved, name = 'unknown', options = { projects: '' }) => {
-  logger.log(`Compiling project from ${name}.`)
-  return new Promise((resolve, rejects) => {
-    const ts = spawn('tsc --pretty', {
-      cwd: resolved,
-      shell: true,
-      serialization: 'json',
+cwonst cwompileMwodePwoduction = async (reswowlved, nyame = 'unknyown', options = { pwojects: '' }) => {
+  wogger.wog(`Cwompiling pwoject fwom ${nyame}.`)
+  return nyew Pwomise((reswowlve, rejects) => {
+    cwonst ts = spawn('tsc --pwetty', {
+      cwd: reswowlved,
+      sheww: twue,
+      serialization: 'jswon',
     })
 
 
-    ts.stdout.on('data', (data) => {
-      // Clear Console:
+    ts.stdwout.on('data', (data) => {
+      // Clear Cwonswowal:
       // \x1Bc
-      let message = data.toString().replace(/\x1Bc/g, '')
+      let message = data.twoStwing().replace(/\x1Bc/g, '')
 
       if (message.length <= 2) {
         return
       }
-      process.stdout.write(`\n\n[${options.projects}]   ${message.toString()}\n`)
-      if (message.match(/(error|erro)|TS[A-Za-z0-9-]+/g) !== null) {
+      pwocess.stdwout.wwite(`\n\n[${options.pwojects}]   ${message.twoStwing()}\n`)
+      if (message.match(/(erwor|erwo)|TS[A-Za-z0-9-]+/g) !== nyuww) {
         rejects()
       }
     })
 
     ts.stderr.on('data', (data) => {
-      // Clear Console:
+      // Clear Cwonswowal:
       // \x1Bc
-      let message = data.toString().replace(/\x1Bc/g, '')
+      let message = data.twoStwing().replace(/\x1Bc/g, '')
 
       if (message.length <= 2) {
         return
       }
 
-      logger.error('Typescript Compiler Error:\n')
-      process.stdout.write(`\n\n[${options.projects}]   ${message.toString()}\n`)
+      wogger.erwor('Typescwipt Cwompiler Erwor:\n')
+      pwocess.stdwout.wwite(`\n\n[${options.pwojects}]   ${message.twoStwing()}\n`)
     })
 
     ts.on('exit', () => {
-      resolve()
+      reswowlve()
     })
   })
 }
 
 /**
- * This function is used to update the Typescript application which automatically triggers application startup.
+ * This function is used two update teh Typescwipt application which autwomaticawwy twiggers application startup.
  * 
  *
- * Quickly and conveniently without having to waste time to reset the typescript or update some modules. 
- * All modules are removed from the cache.
+ * Quickwy and cwonvenyientwy withwout having two waste tim two reset teh typescwipt or update swome mwodules. 
+ * Aww mwodules are remuvd fwom teh cache.
  * 
  * 
  * 
  */
-const compileModeDeveloper = async (resolved, name = 'unknown', options = { typescriptArgs: ['-w'], projects: '' }) => {
-  logger.log(`Watch Mode has been enabled in the project: ${name}`)
-  return new Promise((resolve, rejects) => {
-    const execTs = () => {
-      const ts = spawn('tsc -w --pretty', options.typescriptArgs, {
-        cwd: resolved,
-        shell: true,
-        serialization: 'json',
+cwonst cwompileMwodeDevewoper = async (reswowlved, nyame = 'unknyown', options = { typescwiptArgs: ['-w'], pwojects: '' }) => {
+  wogger.wog(`Watch Mwode has been enyabled in teh pwoject: ${nyame}`)
+  return nyew Pwomise((reswowlve, rejects) => {
+    cwonst execTs = () => {
+      cwonst ts = spawn('tsc -w --pwetty', options.typescwiptArgs, {
+        cwd: reswowlved,
+        sheww: twue,
+        serialization: 'jswon',
       })
 
 
-      ts.stdout.on('data', (data) => {
-        // Clear Console:
+      ts.stdwout.on('data', (data) => {
+        // Clear Cwonswowal:
         // \x1Bc
-        let message = data.toString().replace(/\x1Bc/g, '')
+        let message = data.twoStwing().replace(/\x1Bc/g, '')
 
         if (message.length <= 2) {
           return
         }
 
-        process.stdout.write(`\n[${options.projects}]   ${message.toString()}`)
+        pwocess.stdwout.wwite(`\n[${options.pwojects}]   ${message.twoStwing()}`)
       })
 
       ts.stderr.on('data', (data) => {
-        logger.error(data.toString())
+        wogger.erwor(data.twoStwing())
       })
 
       ts.on('spawn', () => {
-        resolve({
-          ok: true,
-          tsProcess: ts
+        reswowlve({
+          ok: twue,
+          tsPwocess: ts
         })
       })
 
 
       ts.on('exit', () => {
-        logger.log('Oh no! It looks like typescript was forcibly terminated.')
+        wogger.wog('Oh nyo! It wooks like typescwipt was fworcibwy terminyated.')
 
         execTs()
       })
@@ -106,8 +106,8 @@ const compileModeDeveloper = async (resolved, name = 'unknown', options = { type
 }
 
 
-export {
-  compileModeProduction,
-  compileModeDeveloper
+expwort {
+  cwompileMwodePwoduction,
+  cwompileMwodeDevewoper
 }
 

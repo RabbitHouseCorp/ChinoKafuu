@@ -1,92 +1,92 @@
-import { defineState } from '../../../defineTypes/defineState'
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { profileInfo } from '../../../structures/util/Constants'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { pwofwileInfwo } fwom '../../../stwuctures/util/Cwonstants'
 
-export default class InventoryProfileCommand extends Command {
-  constructor() {
+expwort default class InventworyPwofwileCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'inventory profile',
+      nyame: 'inventwory pwofwile',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const user = ctx.db.user
-    const avatar = ctx.message.author.avatarURL
-    const marryWith = user.isMarry ? await ctx.getUser(user.marryWith) : null
-    const profiles = Object.entries(profileInfo)
-    const profileComponent = profiles
-      // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => (v.disabled === false && v.readyForSale) || v.isDefault === true)
-      .filter(([_, v]) => user.profileList.includes(v._id))
-      // eslint-disable-next-line no-unused-vars
+    cwonst user = ctx.db.user
+    cwonst avatar = ctx.message.authwor.avatarUWL
+    cwonst marryWith = user.isMarry ? await ctx.getUser(user.marryWith) : nyuww
+    cwonst pwofwiles = Object.entwies(pwofwileInfwo)
+    cwonst pwofwileCwompwonyent = pwofwiles
+      // eslint-disable-nyext-linye nyo-unyused-vars
+      .fwilter(([_, v]) => (v.disabled === false && v.weadyFworSale) || v.isDefault === twue)
+      .fwilter(([_, v]) => user.pwofwileList.includes(v._id))
+      // eslint-disable-nyext-linye nyo-unyused-vars
       .map(([_, v]) => ({
-        label: ctx._locale(`basic:profiles.${v._id.toLocaleLowerCase()}.name`),
+        label: ctx._wocale(`basic:pwofwiles.${v._id.twoWocaleWowerCase()}.nyame`),
         value: v._id,
-        description: ctx._locale(`basic:profiles.${v._id.toLocaleLowerCase()}.shortDescription`),
-        custom_id: v.buttonId,
+        descwiption: ctx._wocale(`basic:pwofwiles.${v._id.twoWocaleWowerCase()}.shwortDescwiption`),
+        custwom_id: v.buttwonId,
         default: false
       }))
-    const state = defineState({
+    cwonst state = defwinyeState({
       action: '',
-      componentSelected: '',
-      profileType: user.profileType,
+      cwompwonyentSelected: '',
+      pwofwileType: user.pwofwileType,
       married: user.isMarry,
-      partnerName: marryWith ? `@${marryWith?.username}` : '',
+      partnyerNyame: marryWith ? `@${marryWith?.usernyame}` : '',
       user,
       marryWith,
       avatar,
-      profileInfo,
-      profileComponent,
-      componentsProfile: [
+      pwofwileInfwo,
+      pwofwileCwompwonyent,
+      cwompwonyentsPwofwile: [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'listProfile',
+            custwom_id: 'listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: profileComponent
+            options: pwofwileCwompwonyent
           }]
         }
       ]
-    }, { eventEmitter: true })
+    }, { eventEmitter: twue })
     ctx.send({
-      content: ctx._locale('commands:inventory.profile.welcome'),
-      components: [
+      cwontent: ctx._wocale('cwommands:inventwory.pwofwile.welcwome'),
+      cwompwonyents: [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'listProfile',
+            custwom_id: 'listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: profileComponent
+            options: pwofwileCwompwonyent
           }]
         }
       ]
     }).then((message) => {
-      ctx.createInteractionFunction(['inventoryProfileRenderInteraction', 'inventoryProfileInteraction'], message, {
+      ctx.cweateInteractionFunction(['inventworyPwofwileRenderInteraction', 'inventworyPwofwileInteraction'], message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
 
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action !== '' && stateUpdated.profileType !== undefined) {
-          user.profileType = stateUpdated.profileType
+        if (stateUpdated.action !== '' && stateUpdated.pwofwileType !== undefwinyed) {
+          user.pwofwileType = stateUpdated.pwofwileType
           user.save()
             .then(() => {
-              state.actionState.event.emit('done')
+              state.actionState.event.emit('dwonye')
             }).catch((err) => {
-              state.actionState.event.emit('error', err)
+              state.actionState.event.emit('erwor', err)
             })
         }
       })

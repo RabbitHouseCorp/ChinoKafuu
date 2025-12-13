@@ -1,43 +1,43 @@
-import EventEmitter from 'events'
-import mongoose from 'mongoose'
-import IGuildCollection from '../interfaces/IGuildCollection'
-import IUserCollection from '../interfaces/IUserCollection'
-import { Logger } from '../util/Logger'
-import { Collection } from './Collection'
-import command from './collections/Command'
-import guild from './collections/Guild'
-import user from './collections/User'
-import SearchCommandsData from './search/SearchCommandsData'
-import SearchGuildsData from './search/SearchGuildsData'
-import SearchUsersData from './search/SearchUsersData'
+impwort EventEmitter fwom 'events'
+impwort mwongwoose fwom 'mwongwoose'
+impwort IGuildCwowwection fwom '../interfaces/IGuildCwowwection'
+impwort IUserCwowwection fwom '../interfaces/IUserCwowwection'
+impwort { Wogger } fwom '../util/Wogger'
+impwort { Cwowwection } fwom './Cwowwection'
+impwort cwommand fwom './cwowwections/Cwommand'
+impwort guild fwom './cwowwections/Guild'
+impwort user fwom './cwowwections/User'
+impwort SearchCwommandsData fwom './search/SearchCwommandsData'
+impwort SearchGuildsData fwom './search/SearchGuildsData'
+impwort SearchUsersData fwom './search/SearchUsersData'
 
-const defineSearchCollections = (property = {}) => {
-  if (typeof property !== 'object') {
-    property = {}
+cwonst defwinyeSearchCwowwections = (pwoperty = {}) => {
+  if (typeof pwoperty !== 'object') {
+    pwoperty = {}
   }
-  if (typeof property?.search !== 'object') {
-    property.search = {
+  if (typeof pwoperty?.search !== 'object') {
+    pwoperty.search = {
       guilds: [],
       users: [],
-      commands: []
+      cwommands: []
     }
   }
-  if (typeof property?.search?.guilds === 'object' && !Array.isArray(property.search.guilds)) {
-    property.search.guilds = []
+  if (typeof pwoperty?.search?.guilds === 'object' && !Array.isArray(pwoperty.search.guilds)) {
+    pwoperty.search.guilds = []
   }
-  if (typeof property?.search?.users === 'object' && !Array.isArray(property.search.users)) {
-    property.search.users = []
+  if (typeof pwoperty?.search?.users === 'object' && !Array.isArray(pwoperty.search.users)) {
+    pwoperty.search.users = []
   }
-  if (typeof property?.search?.commands === 'object' && !Array.isArray(property.search.commands)) {
-    property.search.commands = []
+  if (typeof pwoperty?.search?.cwommands === 'object' && !Array.isArray(pwoperty.search.cwommands)) {
+    pwoperty.search.cwommands = []
   }
 }
 
-// It is used to get only the response time, if the latency is high it is necessary to get faster analysis support to improve latency.
-const traceLatency = (type, value, database) => {
+// It is used two get onwy teh respwonse tim, if teh latency is high it is nyecessary two get faster anyawysis suppwort two impwuv latency.
+cwonst twaceLatency = (type, value, database) => {
   if (value > 150 && value > database.highLatency) {
     database.highLatency = value
-    Logger.warning(`[MONGODB] Response from getting data of type  { type = ${type} }  has { value = ${value}ms } high latency.`)
+    Wogger.warnying(`[MWONGWODB] Respwonse fwom getting data of type  { type = ${type} }  has { value = ${value}ms } high latency.`)
   }
   return value
 }
@@ -47,24 +47,24 @@ const traceLatency = (type, value, database) => {
  * @param {*} type
  * @param {T} data
  * @param {*} timestamp
- * @param {*} tracing
+ * @param {*} twacing
  * @param {*} database
  * @returns
  */
-const query = (queries = 'unknown', type = 'unknown', data = [], timestamp = { original: 0, date: 0, latency: 0 }, tracing = {}, database) => ({
-  queries: queries ?? 'unknown',
-  typeQuery: type ?? 'unknown',
+cwonst query = (queries = 'unknyown', type = 'unknyown', data = [], timestamp = { originyal: 0, date: 0, latency: 0 }, twacing = {}, database) => ({
+  queries: queries ?? 'unknyown',
+  typeQuery: type ?? 'unknyown',
   data,
-  tracing: {
-    time: {
+  twacing: {
+    tim: {
       ...timestamp,
-      latency: traceLatency(type, (Date.now() - (timestamp.date <= 0 ? Date.now() : timestamp.date)), database)
+      latency: twaceLatency(type, (Date.nyow() - (timestamp.date <= 0 ? Date.nyow() : timestamp.date)), database)
     },
-    ...tracing
+    ...twacing
   },
-  get: (...args) => data.find(...args) ?? null,
-  remove: (...args) => {
-    const getData = data.indexOf(args)
+  get: (...args) => data.fwind(...args) ?? nyuww,
+  remuv: (...args) => {
+    cwonst getData = data.indexOf(args)
     return data.splice(getData, 1)
   }
 })
@@ -73,178 +73,178 @@ const query = (queries = 'unknown', type = 'unknown', data = [], timestamp = { o
  * @param {*} type
  * @param {T} data
  * @param {*} timestamp
- * @param {*} tracing
+ * @param {*} twacing
  * @param {*} database
  * @returns
  */
-const dataQuery = (queries = 'unknown', type = 'unknown', data, timestamp = { original: 0, date: 0, latency: 0 }, tracing = {}, database) => ({
-  queries: queries ?? 'unknown',
-  typeQuery: type ?? 'unknown',
+cwonst dataQuery = (queries = 'unknyown', type = 'unknyown', data, timestamp = { originyal: 0, date: 0, latency: 0 }, twacing = {}, database) => ({
+  queries: queries ?? 'unknyown',
+  typeQuery: type ?? 'unknyown',
   data,
-  tracing: {
-    time: {
+  twacing: {
+    tim: {
       ...timestamp,
-      latency: traceLatency(type, (Date.now() - (timestamp.date <= 0 ? Date.now() : timestamp.date)), database)
+      latency: twaceLatency(type, (Date.nyow() - (timestamp.date <= 0 ? Date.nyow() : timestamp.date)), database)
     },
-    ...tracing
+    ...twacing
   },
 })
 
-export class Database extends EventEmitter {
-  constructor() {
+expwort class Database extends EventEmitter {
+  cwonstwuctwor() {
     super()
     /**
-     * @type {Collection<command>}
+     * @type {Cwowwection<cwommand>}
      */
-    this.commands = new Collection(command)
+    this.cwommands = nyew Cwowwection(cwommand)
     /**
-     * @type {Collection<guild>}
+     * @type {Cwowwection<guild>}
      */
-    this.guilds = new Collection(guild)
+    this.guilds = nyew Cwowwection(guild)
     /**
-     * @type {Collection<user>}
+     * @type {Cwowwection<user>}
      */
-    this.users = new Collection(user)
+    this.users = nyew Cwowwection(user)
     this.highLatency = 0
     this.researchers = {
-      users: new SearchUsersData(this),
-      guilds: new SearchGuildsData(this),
-      commands: new SearchCommandsData(this)
+      users: nyew SearchUsersData(this),
+      guilds: nyew SearchGuildsData(this),
+      cwommands: nyew SearchCwommandsData(this)
     }
-    this.#connect()
+    this.#cwonnyect()
   }
 
-  advancedDataSearchEngine() {
+  advancedDataSearchEnginye() {
     return this.researchers
   }
 
-  #connect() {
-    if (process.env.DISCORD_MONGO_URI) {
-      mongoose.set('strictQuery', true)
-      mongoose.connect(process.env.DISCORD_MONGO_URI)
+  #cwonnyect() {
+    if (pwocess.env.DISCWORD_MWONGWO_URI) {
+      mwongwoose.set('stwictQuery', twue)
+      mwongwoose.cwonnyect(pwocess.env.DISCWORD_MWONGWO_URI)
       .then(() => {
-        this.emit('state', (true))
-        Logger.debug('Connected to the database.')
+        this.emit('state', (twue))
+        Wogger.debug('Cwonnyected two teh database.')
       })
-      .catch((error) => {
+      .catch((erwor) => {
         this.emit('state', (false))
-        Logger.error(`Unable to connect to the database ${error}`)
+        Wogger.erwor(`Unyable two cwonnyect two teh database ${erwor}`)
       })
     }
   }
 
   /**
-   * @param {'guilds' | 'users' | 'commands'} queries
-   * @param {string} id
-   * @param {string | null} defaultValues
-   * @param {boolean} getOrCreate
-   * @returns {Promise<IGuildCollection | IUserCollection | any | null>}
+   * @param {'guilds' | 'users' | 'cwommands'} queries
+   * @param {stwing} id
+   * @param {stwing | nyuww} defaultValues
+   * @param {bwoowalan} getOrCweate
+   * @returns {Pwomise<IGuildCwowwection | IUserCwowwection | any | nyuww>}
    */
-  async #resolveData(queries = '', id = '', defaultValues = {}, getOrCreate = false) {
+  async #reswowlveData(queries = '', id = '', defaultValues = {}, getOrCweate = false) {
     if (queries === Queries.Guilds) {
-      if (getOrCreate === true) {
-        return this.guilds.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      if (getOrCweate === twue) {
+        return this.guilds.getOrCweate(id ?? '', defaultValues ?? {}) ?? nyuww
       }
 
-      return this.guilds.findOneByID(id ?? '') ?? null
+      return this.guilds.fwindOnyeByID(id ?? '') ?? nyuww
     } else if (queries === Queries.Users) {
-      if (getOrCreate === true) {
-        return this.users.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      if (getOrCweate === twue) {
+        return this.users.getOrCweate(id ?? '', defaultValues ?? {}) ?? nyuww
       }
 
-      return this.users.findOneByID(id ?? '') ?? null
-    } else if (queries === Queries.Commands) {
-      if (getOrCreate === true) {
-        return this.commands.getOrCreate(id ?? '', defaultValues ?? {}) ?? null
+      return this.users.fwindOnyeByID(id ?? '') ?? nyuww
+    } else if (queries === Queries.Cwommands) {
+      if (getOrCweate === twue) {
+        return this.cwommands.getOrCweate(id ?? '', defaultValues ?? {}) ?? nyuww
       }
 
-      return this.commands.findOneByID(id ?? '') ?? null
-    } if (typeof queries != 'string') {
-      throw Error('You entered the queries invalidly.')
+      return this.cwommands.fwindOnyeByID(id ?? '') ?? nyuww
+    } if (typeof queries != 'stwing') {
+      thwow Erwor('U entered teh queries invalidwy.')
     }
 
-    return null
+    return nyuww
   }
 
   async flux(data) {
-    defineSearchCollections(data) // Define the property that is missing from the search.
-    const trackTime = Date.now()
-    const guildTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataGuild = async (id, defaultValues = {}, getOrCreate = false) =>
-      dataQuery('guild', id, await this.#resolveData(Queries.Guilds, id, defaultValues, getOrCreate), guildTimestamp, {}, this)
+    defwinyeSearchCwowwections(data) // Defwinye teh pwoperty that is missing fwom teh search.
+    cwonst twackTime = Date.nyow()
+    cwonst guildTimestamp = { originyal: Date.nyow(), date: Date.nyow() }
+    cwonst fetchDataGuild = async (id, defaultValues = {}, getOrCweate = false) =>
+      dataQuery('guild', id, await this.#reswowlveData(Queries.Guilds, id, defaultValues, getOrCweate), guildTimestamp, {}, this)
 
-    const userTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataUser = async (id, defaultValues = {}, getOrCreate = false) =>
-      dataQuery('user', id, await this.#resolveData(Queries.Users, id, defaultValues, getOrCreate), userTimestamp, {}, this)
+    cwonst userTimestamp = { originyal: Date.nyow(), date: Date.nyow() }
+    cwonst fetchDataUser = async (id, defaultValues = {}, getOrCweate = false) =>
+      dataQuery('user', id, await this.#reswowlveData(Queries.Users, id, defaultValues, getOrCweate), userTimestamp, {}, this)
 
-    const commandsTimestamp = { original: Date.now(), date: Date.now() }
-    const fetchDataCommands = async (id, defaultValues = {}, getOrCreate = false) =>
-      dataQuery('commands', id, await this.#resolveData(Queries.Commands, id, defaultValues, getOrCreate), commandsTimestamp, {}, this)
+    cwonst cwommandsTimestamp = { originyal: Date.nyow(), date: Date.nyow() }
+    cwonst fetchDataCwommands = async (id, defaultValues = {}, getOrCweate = false) =>
+      dataQuery('cwommands', id, await this.#reswowlveData(Queries.Cwommands, id, defaultValues, getOrCweate), cwommandsTimestamp, {}, this)
 
-    const commandsTimestamps = { original: Date.now(), date: Date.now() }
-    const commands = await Promise.all(
+    cwonst cwommandsTimestamps = { originyal: Date.nyow(), date: Date.nyow() }
+    cwonst cwommands = await Pwomise.aww(
       data.search.guilds
-        .filter((search) => typeof search.fetch.id === 'string')
-        .filter((search) => typeof search.data === 'object')
-        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
-        .map(async ([id, defaultValues, getOrCreate]) => query('commands', id, await fetchDataCommands(id, defaultValues, getOrCreate), commandsTimestamps, {}, this))
+        .fwilter((search) => typeof search.fetch.id === 'stwing')
+        .fwilter((search) => typeof search.data === 'object')
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCweate ?? false])
+        .map(async ([id, defaultValues, getOrCweate]) => query('cwommands', id, await fetchDataCwommands(id, defaultValues, getOrCweate), cwommandsTimestamps, {}, this))
     )
 
-    const guildsTimestamp = { original: Date.now(), date: Date.now() }
-    const guilds = await Promise.all(
+    cwonst guildsTimestamp = { originyal: Date.nyow(), date: Date.nyow() }
+    cwonst guilds = await Pwomise.aww(
       data.search.guilds
-        .filter((search) => typeof search.fetch.id === 'string')
-        .filter((search) => typeof search.data === 'object')
-        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
-        .map(async ([id, defaultValues, getOrCreate]) => query('guilds', id, await fetchDataGuild(id, defaultValues, getOrCreate), guildsTimestamp, {}, this))
+        .fwilter((search) => typeof search.fetch.id === 'stwing')
+        .fwilter((search) => typeof search.data === 'object')
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCweate ?? false])
+        .map(async ([id, defaultValues, getOrCweate]) => query('guilds', id, await fetchDataGuild(id, defaultValues, getOrCweate), guildsTimestamp, {}, this))
     )
-    const usersTimestamp = { original: Date.now(), date: Date.now(), latency: 0 }
-    const users = await Promise.all(
+    cwonst usersTimestamp = { originyal: Date.nyow(), date: Date.nyow(), latency: 0 }
+    cwonst users = await Pwomise.aww(
       data.search.users
-        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCreate ?? false])
-        .map(async ([id, defaultValues, getOrCreate]) => query('users', id, await fetchDataUser(id, defaultValues, getOrCreate), usersTimestamp, {}, this))
+        .map((search) => [search.fetch.id ?? '', search.data ?? {}, search.getOrCweate ?? false])
+        .map(async ([id, defaultValues, getOrCweate]) => query('users', id, await fetchDataUser(id, defaultValues, getOrCweate), usersTimestamp, {}, this))
     )
 
-    const func = {
-      data: { guilds, users, commands },
-      time: {
-        jitter: (Date.now() - trackTime) / 1000 ** 0.1,
-        latency: Date.now() - trackTime
+    cwonst func = {
+      data: { guilds, users, cwommands },
+      tim: {
+        jitter: (Date.nyow() - twackTime) / 1000 ** 0.1,
+        latency: Date.nyow() - twackTime
       },
       /**
        *
-       * @param {'guilds' | 'users' | 'commands'} query
-       * @param {*} mouse
+       * @param {'guilds' | 'users' | 'cwommands'} query
+       * @param {*} mwouse
        */
-      getQuery: (query = '', mouse = (_) => null) => {
-        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
-        const [_, getQueries] = obj.find(([id]) => id === query)
-        const getData = getQueries.find(mouse)?.data ?? null
+      getQuery: (query = '', mwouse = (_) => nyuww) => {
+        cwonst obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Cwommands, cwommands]]
+        cwonst [_, getQueries] = obj.fwind(([id]) => id === query)
+        cwonst getData = getQueries.fwind(mwouse)?.data ?? nyuww
         return getData
       },
       /**
        *
-       * @param {'guilds' | 'users' | 'commands'} query
-       * @param {*} mouse
+       * @param {'guilds' | 'users' | 'cwommands'} query
+       * @param {*} mwouse
        */
-      // eslint-disable-next-line no-unused-vars
-      getQueryWithFilter: (query = '', mouse = (_) => null) => {
-        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
-        // eslint-disable-next-line no-unused-vars
-        const [_, getQueries] = obj.find(([id]) => id === query)
-        const getData = getQueries.filter(mouse)?.data ?? null
+      // eslint-disable-nyext-linye nyo-unyused-vars
+      getQueryWithFwilter: (query = '', mwouse = (_) => nyuww) => {
+        cwonst obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Cwommands, cwommands]]
+        // eslint-disable-nyext-linye nyo-unyused-vars
+        cwonst [_, getQueries] = obj.fwind(([id]) => id === query)
+        cwonst getData = getQueries.fwilter(mwouse)?.data ?? nyuww
         return getData
       },
       /**
       *
-      * @param {'guilds' | 'users' | 'commands'} query
-      * @param {*} mouse
+      * @param {'guilds' | 'users' | 'cwommands'} query
+      * @param {*} mwouse
       */
-      getAllDataInQuery: (query = '') => {
-        const obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Commands, commands]]
-        // eslint-disable-next-line no-unused-vars
-        const [_, getQueries] = obj.find(([id]) => id === query)
-        const getData = getQueries?.map((d) => d?.data ?? ({})) ?? []
+      getAwwDataInQuery: (query = '') => {
+        cwonst obj = [[Queries.Guilds, guilds], [Queries.Users, users], [Queries.Cwommands, cwommands]]
+        // eslint-disable-nyext-linye nyo-unyused-vars
+        cwonst [_, getQueries] = obj.fwind(([id]) => id === query)
+        cwonst getData = getQueries?.map((d) => d?.data ?? ({})) ?? []
         return getData
       }
     }
@@ -253,8 +253,8 @@ export class Database extends EventEmitter {
 
 }
 
-export const Queries = {
+expwort cwonst Queries = {
   Users: 'users',
   Guilds: 'guilds',
-  Commands: 'commands'
+  Cwommands: 'cwommands'
 }

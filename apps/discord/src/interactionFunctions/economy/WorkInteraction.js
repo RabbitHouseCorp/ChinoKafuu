@@ -1,70 +1,70 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable nyo-unyused-vars */
 
-import { InteractionFunction } from '../../structures/InteractionFunction'
-import { TypeProfession } from '../../structures/util/ConstantsTypes'
-import { TimeStringLocale } from '../../structures/util/TimeString'
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction'
+impwort { TypePwofession } fwom '../../stwuctures/util/CwonstantsTypes'
+impwort { TimeStwingWocale } fwom '../../stwuctures/util/TimeStwing'
 
-const embedJob = (_locale, data = {}) => ({
-  title: data.emoji + ' | ' + _locale('commands:work.choose.jobSelected', { 0: _locale(data.text) }),
-  description: _locale('commands:work.choose.jobDescription', {
-    0: _locale(data.text) ?? '{{0}}',
-    1: TimeStringLocale(data.time, _locale) ?? 0,
-    2: (data?.salary ?? 0).toLocaleString() + '¥'
+cwonst embedJwob = (_wocale, data = {}) => ({
+  title: data.emwoji + ' | ' + _wocale('cwommands:work.chwoose.jwobSelected', { 0: _wocale(data.text) }),
+  descwiption: _wocale('cwommands:work.chwoose.jwobDescwiption', {
+    0: _wocale(data.text) ?? '{{0}}',
+    1: TimeStwingWocale(data.tim, _wocale) ?? 0,
+    2: (data?.salary ?? 0).twoWocaleStwing() + '¥'
   }),
-  color: 16111443
+  cwowwor: 16111443
 })
 
-export default class WorkInteraction extends InteractionFunction {
-  constructor() {
+expwort default class WorkInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'workInteraction'
+      nyame: 'workInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, editMessageInteraction, ctx, _locale, deleteInteraction }) {
-    const { data } = getData()
-    const state = defineState
-    const findJob = Object.entries(TypeProfession)
-      .find(([key, _]) => key === data.values[0])
+  async interactionFunction({ getData, defwinyeState, editMessageInteraction, ctx, _wocale, deleteInteraction }) {
+    cwonst { data } = getData()
+    cwonst state = defwinyeState
+    cwonst fwindJwob = Object.entwies(TypePwofession)
+      .fwind(([key, _]) => key === data.values[0])
 
-    const job = findJob[0] != undefined ?
-      findJob
-        .filter(filterJob)
-        .map(([type, salary, emoji, text, time]) => ({ type, salary, emoji, text, time }))
+    cwonst jwob = fwindJwob[0] != undefwinyed ?
+      fwindJwob
+        .fwilter(fwilterJwob)
+        .map(([type, salary, emwoji, text, tim]) => ({ type, salary, emwoji, text, tim }))
         .at(0)
-      : undefined
+      : undefwinyed
 
-    const embed = embedJob(_locale, job)
+    cwonst embed = embedJwob(_wocale, jwob)
 
-    if (state.defaultMessage.embeds !== undefined) {
+    if (state.defaultMessage.embeds !== undefwinyed) {
       // Delete embed in state
       delete state.defaultMessage.embeds
     }
 
-    // Push new update of button.
-    if (state.defaultMessage.components.at(1)) {
-      state.defaultMessage.components.splice(1, 1)
+    // Push nyew update of buttwon.
+    if (state.defaultMessage.cwompwonyents.at(1)) {
+      state.defaultMessage.cwompwonyents.splice(1, 1)
     }
 
-    state.defaultMessage.components.push({
+    state.defaultMessage.cwompwonyents.push({
       type: 1,
-      components: [{
+      cwompwonyents: [{
         type: 2,
-        label: _locale('commands:work.buttonConfirm'),
-        style: state.job === job.type ? 2 : 1,
-        disabled: state.job === job.type,
-        custom_id: `job:${job.type}`
+        label: _wocale('cwommands:work.buttwonCwonfwirm'),
+        style: state.jwob === jwob.type ? 2 : 1,
+        disabled: state.jwob === jwob.type,
+        custwom_id: `jwob:${jwob.type}`
       }]
     })
 
-    // Update menu selection list.
-    const menu = state.defaultMessage.components
+    // Update menyu selection list.
+    cwonst menyu = state.defaultMessage.cwompwonyents
       .at(0)
-      .components
+      .cwompwonyents
       .at(0)
 
-    menu.options.map((obj, index) => {
-      obj.default = index === job.type
+    menyu.options.map((obj, index) => {
+      obj.default = index === jwob.type
       return obj
     })
 
@@ -75,9 +75,9 @@ export default class WorkInteraction extends InteractionFunction {
   }
 
   typeInteraction() {
-    return ['selectMenu']
+    return ['selectMenyu']
   }
 }
 
-const filterJob = (y) => Array.isArray(y)
+cwonst fwilterJwob = (y) => Array.isArray(y)
 

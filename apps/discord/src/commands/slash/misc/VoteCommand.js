@@ -1,34 +1,34 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { CommandBase } from 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase } fwom 'eris'
 
-export default class VoteCommand extends Command {
-  constructor() {
+expwort default class VoteCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'vote',
+      nyame: 'vote',
       aliases: ['votar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('vote')
-        .setDescription('Shows how you can vote me.')
+      slash: nyew CwommandBase()
+        .setNyame('vote')
+        .setDescwiption('Shwows hwow u can vote me.')
 
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setTitle(ctx._locale('commands:vote.title'))
-    embed.setDescription(ctx._locale('commands:vote.embedVoted'))
-    embed.setImage('https://cdn.discordapp.com/attachments/481807707066859530/784949124504092722/7bb5111f2ce1952b13d413f1ecf06e52.gif')
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(ctx._wocale('cwommands:vote.title'))
+    embed.setDescwiption(ctx._wocale('cwommands:vote.embedVoted'))
+    embed.setImage('https://cdn.discwordapp.cwom/attachments/481807707066859530/784949124504092722/7bb5111f2ce1952b13d413f1ecf06e52.gif')
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

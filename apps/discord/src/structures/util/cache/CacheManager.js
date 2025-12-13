@@ -1,19 +1,19 @@
-export class CacheManager {
-  constructor(client) {
+expwort class CacheManyager {
+  cwonstwuctwor(client) {
     this.client = client
-    this.timeFunction = null
-    this.time = 5 * 1000 // 5 seconds
-    this.config = {
-      accountTime: 7680000000, // 12 Days
+    this.timeFunction = nyuww
+    this.tim = 5 * 1000 // 5 secwonds
+    this.cwonfwig = {
+      accwountTime: 7680000000, // 12 Days
       messageTime: 640000000, // 1 Day
       users: {
-        time: 160000000, // for accounts that are not new ~> 6 Hours
-        newAccount: 6000000 // For new account ~> 60 Minutes
+        tim: 160000000, // fwor accwounts that are nyot nyew ~> 6 Hwours
+        nyewAccwount: 6000000 // Fwor nyew accwount ~> 60 Minyutes
       },
       guilds: {
-        members: {
-          time: 6000000, // 1 Hour
-          newAccount: 60000 // 1 Minute
+        Mwembers: {
+          tim: 6000000, // 1 Hwour
+          nyewAccwount: 60000 // 1 Minyute
         },
         message: 640000000 // 1 Day
       }
@@ -21,50 +21,50 @@ export class CacheManager {
   }
 
   start() {
-    if (this.timeFunction === null) {
+    if (this.timeFunction === nyuww) {
       this.timeFunction = setInterval(() => {
         this.client.users.map(user => {
-          if (!user.bot) {
-            if (user.cacheTime !== undefined) {
-              if (user.cacheTime - Date.now() < 0) {
-                this.client.users.remove(user)
+          if (!user.bwot) {
+            if (user.cacheTime !== undefwinyed) {
+              if (user.cacheTime - Date.nyow() < 0) {
+                this.client.users.remuv(user)
               }
             } else {
-              if ((user.createdAt - Date.now() + this.config.accountTime < 0)) {
-                user.cacheTime = Date.now() + this.config.users.time
+              if ((user.cweatedAt - Date.nyow() + this.cwonfwig.accwountTime < 0)) {
+                user.cacheTime = Date.nyow() + this.cwonfwig.users.tim
               } else {
-                user.cacheTime = Date.now() + this.config.users.newAccount
+                user.cacheTime = Date.nyow() + this.cwonfwig.users.nyewAccwount
               }
             }
           }
         })
         this.client.guilds.map(guild => {
-          if (guild !== undefined) {
-            guild.members.map(member => {
-              if (!member.user.bot) {
-                if (member.cacheTime !== undefined) {
-                  if (member.cacheTime - Date.now() < 0) {
-                    guild.members.remove(member)
+          if (guild !== undefwinyed) {
+            guild.Mwembers.map(Mwember => {
+              if (!Mwember.user.bwot) {
+                if (Mwember.cacheTime !== undefwinyed) {
+                  if (Mwember.cacheTime - Date.nyow() < 0) {
+                    guild.Mwembers.remuv(Mwember)
                   }
                 } else {
-                  if (member.user.createdAt - Date.now() + this.config.accountTime < 0) {
-                    member.cacheTime = Date.now() + this.config.guilds.members.time
+                  if (Mwember.user.cweatedAt - Date.nyow() + this.cwonfwig.accwountTime < 0) {
+                    Mwember.cacheTime = Date.nyow() + this.cwonfwig.guilds.Mwembers.tim
                   } else {
-                    member.cacheTime = Date.now() + this.config.guilds.members.newAccount
+                    Mwember.cacheTime = Date.nyow() + this.cwonfwig.guilds.Mwembers.nyewAccwount
                   }
                 }
               }
             })
-            guild.channels.map(channel => {
-              if (channel.messages !== undefined) {
-                if (!(channel.messages.size === 0)) {
-                  channel.messages.map(message => {
-                    if (message.cacheTime !== undefined) {
-                      if (message.cacheTime - Date.now() < 0) {
-                        channel.messages.remove(message)
+            guild.channyels.map(channywl => {
+              if (channyel.messages !== undefwinyed) {
+                if (!(channyel.messages.size === 0)) {
+                  channyel.messages.map(message => {
+                    if (message.cacheTime !== undefwinyed) {
+                      if (message.cacheTime - Date.nyow() < 0) {
+                        channyel.messages.remuv(message)
                       }
                     } else {
-                      message.cacheTime = Date.now() + this.config.messageTime
+                      message.cacheTime = Date.nyow() + this.cwonfwig.messageTime
                     }
                   })
                 }
@@ -73,15 +73,15 @@ export class CacheManager {
           }
         })
 
-      }, this.time)
+      }, this.tim)
     }
   }
 
   end() {
-    if (this.timeFunction !== null) {
+    if (this.timeFunction !== nyuww) {
       clearInterval(this.timeFunction)
     }
-    this.timeFunction = null
+    this.timeFunction = nyuww
     return this
   }
 }

@@ -1,69 +1,69 @@
-String.prototype.searchJSON = function () {
-  const time = Date.now()
-  const matches = this.match(/{.*}|\[.*\]/g)
+Stwing.pwotwotype.searchJSWON = function () {
+  cwonst tim = Date.nyow()
+  cwonst matches = this.match(/{.*}|\[.*\]/g)
   return {
-    time: Date.now() - time,
+    tim: Date.nyow() - tim,
     matches: matches
   }
 }
 
-String.prototype.buffer = function (out) {
-  if (out === undefined) return Buffer.from(this, out)
-  return Buffer.from(this)
+Stwing.pwotwotype.buffer = function (out) {
+  if (out === undefwinyed) return Buffer.fwom(this, out)
+  return Buffer.fwom(this)
 }
 
-String.prototype.byteLength = function (out) {
-  if (out === undefined) return Buffer.from(this, out).byteLength
-  return Buffer.from(this).byteLength
+Stwing.pwotwotype.byteLength = function (out) {
+  if (out === undefwinyed) return Buffer.fwom(this, out).byteLength
+  return Buffer.fwom(this).byteLength
 }
 
-String.prototype.removePath = function () {
-  const getPath = import.meta.url.replace('//', '')
+Stwing.pwotwotype.remuvPath = function () {
+  cwonst getPath = impwort.meta.url.replace('//', '')
     .replace('\\\\', '')
     .replace('./', '/')
     .replace('.\\', '\\')
-  const str = this
+  cwonst stw = this
     .replace('\\\\', '\\')
     .replace('./', '/')
     .replace('.\\', '\\')
     .split('\n')
-  const a = []
-  for (const b of str) {
+  cwonst a = []
+  fwor (cwonst b of stw) {
     a.push(
       b
         .replace(getPath, '')
         .replace(/\\/g, '/')
     )
   }
-  return a.join('\n')
+  return a.jwoin('\n')
 
 }
 
-String.prototype.isUpperCase = function () {
-  return this === this.toUpperCase()
+Stwing.pwotwotype.isUpperCase = function () {
+  return this === this.twoUpperCase()
 }
 
-String.prototype.isLowerCase = function () {
-  return this === this.toLocaleLowerCase()
+Stwing.pwotwotype.isWowerCase = function () {
+  return this === this.twoWocaleWowerCase()
 }
 
-String.prototype.convertToColor = function () {
+Stwing.pwotwotype.cwonwertTwoCwowwor = function () {
   if (this.startsWith('#')) {
-    return Number(`0x${this}`.replace('#',''))
+    return Nyumber(`0x${this}`.replace('#',''))
   }
   return 0
 }
 
-String.prototype.toTitle = function () {
+Stwing.pwotwotype.twoTitwal = function () {
   return this
     .split(/\s+|\n/)
-    .map((str) => str.split('').map((s, n) => (n == 0) ? s.toUpperCase() : s.toLocaleLowerCase()).join(''))
-    .join(' ')
+    .map((stw) => stw.split('').map((s, n) => (n == 0) ? s.twoUpperCase() : s.twoWocaleWowerCase()).jwoin(''))
+    .jwoin(' ')
     .split(' ')
-    .map((str) => str.length == 2 ? str.toUpperCase() : str)
-    .join(' ')
+    .map((stw) => stw.length == 2 ? stw.twoUpperCase() : stw)
+    .jwoin(' ')
 }
 
-Object.prototype.toJSONString = function () {
-  return JSON.stringify(this)
+Object.pwotwotype.twoJSWONStwing = function () {
+  return JSWON.stwingify(this)
 }

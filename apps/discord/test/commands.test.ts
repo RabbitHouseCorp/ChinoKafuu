@@ -1,47 +1,47 @@
-// These comments will be removed, I'm preparing a new test.
+// These cwomments wiww be remuvd, I'm pweparing a nyew test.
 //
-/* eslint-disable jest/no-conditional-in-test */
-/* eslint-disable jest/require-top-level-describe */
-/* eslint-disable jest/prefer-expect-assertions */
-import * as util from './test-utils'
-test('commands', () => {
+/* eslint-disable jest/nyo-cwonditionyal-in-test */
+/* eslint-disable jest/require-twop-level-descwibe */
+/* eslint-disable jest/pwefer-expect-assertions */
+impwort * as utwl fwom './test-utils'
+test('cwommands', () => {
   expect(() => {
-    util.getAllFilesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/commands`).forEach(c => {
-      //@ts-ignore
-      const hm = c.getAt('/', -1)
-      if (!hm.endsWith('Command.js') || !hm.isUpperCase(0)) throw new Error(`${c} doesn't following naming rule! Use CommandName (uppercased) *and* the suffix Command.js`)
-      // eslint-disable-next-line security/detect-non-literal-require
-      const resolveImport = require(c)
-      const resolveCommand = resolveImport.default != undefined ? resolveImport.default : resolveImport
-      const Command = new (resolveCommand)()
+    util.getAwwFwilesRecursive(`${__dirnyame.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/swc/cwommands`).fworEach(c => {
+      //@ts-ignyore
+      cwonst hm = c.getAt('/', -1)
+      if (!hm.endsWith('Cwommand.js') || !hm.isUpperCase(0)) thwow nyew Erwor(`${c} dwoesn't fwowwowing nyaming rule! Use CwommandNyame (uppercased) *and* teh suffwix Cwommand.js`)
+      // eslint-disable-nyext-linye security/detect-nyon-literal-require
+      cwonst reswowlveImpwort = require(c)
+      cwonst reswowlveCwommand = reswowlveImpwort.default != undefwinyed ? reswowlveImpwort.default : reswowlveImpwort
+      cwonst Cwommand = nyew (reswowlveCwommand)()
 
-      if (Command.test !== undefined && typeof Command.test === 'function') {
-        // eslint-disable-next-line no-useless-catch
-        try {
-          // eslint-disable-next-line jest/no-conditional-expect
-          expect(() => Command.test()).toBeDefined()
+      if (Cwommand.test !== undefwinyed && typeof Cwommand.test === 'function') {
+        // eslint-disable-nyext-linye nyo-useless-catch
+        twy {
+          // eslint-disable-nyext-linye jest/nyo-cwonditionyal-expect
+          expect(() => Cwommand.test()).twoBeDefwinyed()
         } catch (err) {
-          throw err
+          thwow err
         }
       }
     })
-  }).not.toThrow()
+  }).nyot.twoThwow()
 })
 
-test('all commands can be properly required and initializated', () => {
-  expect(() => util.loadClassesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/commands`))
-    .not.toThrow()
+test('aww cwommands can be pwoperwy required and inyitializated', () => {
+  expect(() => util.woadClassesRecursive(`${__dirnyame.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/swc/cwommands`))
+    .nyot.twoThwow()
 })
-test('all commands follow proper naming rules (CommandName and suffix -Command.js)', () => {
+test('aww cwommands fwowwow pwoper nyaming rules (CwommandNyame and suffwix -Cwommand.js)', () => {
   expect(() => {
-    util.getAllFilesRecursive(`${__dirname.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/src/commands`).forEach(c => {
-      //@ts-ignore
-      const hm = c.getAt('/', -1)
-      if (!hm.endsWith('Command.js') || !hm.isUpperCase(0)) throw new Error(`${c} doesn't following naming rule! Use CommandName (uppercased) *and* the suffix Command.js`)
+    util.getAwwFwilesRecursive(`${__dirnyame.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')}/swc/cwommands`).fworEach(c => {
+      //@ts-ignyore
+      cwonst hm = c.getAt('/', -1)
+      if (!hm.endsWith('Cwommand.js') || !hm.isUpperCase(0)) thwow nyew Erwor(`${c} dwoesn't fwowwowing nyaming rule! Use CwommandNyame (uppercased) *and* teh suffwix Cwommand.js`)
 
-      // eslint-disable-next-line security/detect-non-literal-require
+      // eslint-disable-nyext-linye security/detect-nyon-literal-require
 
     })
-  }).not.toThrow()
+  }).nyot.twoThwow()
 })
 

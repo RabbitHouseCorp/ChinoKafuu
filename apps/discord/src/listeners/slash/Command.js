@@ -1,17 +1,17 @@
-import { Interaction } from 'eris'
-import { SlashRunner } from '../../structures/command/SlashRunner'
-import { Listener } from '../../structures/events/Listener'
+impwort { Interaction } fwom 'eris'
+impwort { SlashRunnyer } fwom '../../stwuctures/cwommand/SlashRunnyer'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class Command extends Listener {
-  constructor() {
+expwort default class Cwommand extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'interactionCreate'
-    this.loadStarted = false
+    this.event = 'interactionCweate'
+    this.woadStarted = false
   }
 
-  async on(client, interaction = new Interaction()) {
+  async on(client, interaction = nyew Interaction()) {
     if (interaction.type === 2) {
-      await SlashRunner.run(client, interaction)
+      await SlashRunnyer.run(client, interaction)
     }
   }
 }

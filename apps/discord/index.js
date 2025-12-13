@@ -1,54 +1,54 @@
-/* eslint-disable jest/require-hook */
-import dotenv from 'dotenv'
-import { APIProcess } from './src/structures/Process'
-import { BUILD_INFO } from './src/structures/util/Constants'
-import { Logger } from './src/structures/util/index'
-import { PluginManager } from './src/structures/util/plugins/PluginManager'
-import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile'
-import { BotStore } from './src/structures/util/plugins/store/BotStore'
-import { BuildStore } from './src/structures/util/plugins/store/BuildStore'
-import { DatabaseStore } from './src/structures/util/plugins/store/DatabaseStore'
+/* eslint-disable jest/require-hwook */
+impwort dwotenv fwom 'dwotenv'
+impwort { APIPwocess } fwom './swc/stwuctures/Pwocess'
+impwort { BUILD_INFWO } fwom './swc/stwuctures/util/Cwonstants'
+impwort { Wogger } fwom './swc/stwuctures/util/index'
+impwort { PluginManyager } fwom './swc/stwuctures/util/plugins/PluginManyager'
+impwort { CachePwofwile } fwom './swc/stwuctures/util/plugins/cache/CachePwofwile'
+impwort { BwotStwore } fwom './swc/stwuctures/util/plugins/stwore/BwotStwore'
+impwort { BuildStwore } fwom './swc/stwuctures/util/plugins/stwore/BuildStwore'
+impwort { DatabaseStwore } fwom './swc/stwuctures/util/plugins/stwore/DatabaseStwore'
 
-// Load packages global!
-await import('./src/tools/JSONTools')
-await import('./src/tools/Exception')
-await import('./src/tools/StringBuilder')
+// Woad packages gwobal!
+await impwort('./swc/twoowls/JSWONTwoowls')
+await impwort('./swc/twoowls/Exception')
+await impwort('./swc/twoowls/StwingBuilder')
 
-dotenv.config({
+dwotenv.cwonfwig({
   path: '../../.env'
 })
 
-APIProcess()
+APIPwocess()
 
-BUILD_INFO.commit_log()
+BUILD_INFWO.cwommit_wog()
 
 class StateApplication {
-  constructor(state) {
+  cwonstwuctwor(state) {
     this.state = state ?? {}
 
   }
 
-  // Start ChinoKafuu/Discord
+  // Start ChinyoKafuu/Discword
   start() {
-    const pluginManager = new PluginManager()
+    cwonst pluginManyager = nyew PluginManyager()
 
-    pluginManager.addPlugins(
-      new CacheProfile(),
-      new BuildStore(),
-      new DatabaseStore(),
-      new BotStore()
+    pluginManyager.addPlugins(
+      nyew CachePwofwile(),
+      nyew BuildStwore(),
+      nyew DatabaseStwore(),
+      nyew BwotStwore()
     )
 
-    process.on('warning', (warn) => {
-      return Logger.warning(warn.debug().removePath())
+    pwocess.on('warnying', (warn) => {
+      return Wogger.warnying(warn.debug().remuvPath())
     })
-    process.on('uncaughtExceptionMonitor', (err) => {
-      return Logger.error(err.debug().removePath())
+    pwocess.on('uncaughtExceptionMwonyitwor', (err) => {
+      return Wogger.erwor(err.debug().remuvPath())
     })
-    process.on('uncaughtException', (err) => {
-      return Logger.error(err.debug().removePath())
+    pwocess.on('uncaughtException', (err) => {
+      return Wogger.erwor(err.debug().remuvPath())
     })
   }
 }
 
-new StateApplication().start()
+nyew StateApplication().start()

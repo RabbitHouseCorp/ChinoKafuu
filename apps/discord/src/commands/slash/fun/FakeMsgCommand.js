@@ -1,59 +1,59 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class FakeMsgCommand extends Command {
-  constructor() {
+expwort default class FakeMsgCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'fakemsg',
+      nyame: 'fakemsg',
       aliases: [],
       permissions: [{
-        entity: 'bot',
-        permissions: ['manageChannels', 'manageWebhooks']
+        entity: 'bwot',
+        permissions: ['manyageChannyels', 'manyageWebhwooks']
       }],
-      slash: new CommandBase()
-        .setName('fakemsg')
-        .setDescription('Prank on someone with a fake message through webhook.')
+      slash: nyew CwommandBase()
+        .setNyame('fakemsg')
+        .setDescwiption('Pwank on swomeonye with a fake message thwough webhwook.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Enter random text')
+            .setNyame('text')
+            .setDescwiption('Enter randwom text')
             .isRequired(),
         )
     })
   }
 
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const args = ctx.args.get('text').value
-    if (!args) return ctx.replyT('error', 'commands:fakemsg.argsNull')
-    let webhook = await ctx.message.channel.getWebhooks()
-    webhook = webhook.filter(webhook => webhook.name === 'Fake Message' && webhook.user.id === ctx.client.user.id)[0]
-    if (!webhook) {
-      webhook = await ctx.message.channel.createWebhook({
-        name: 'Fake Message',
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst args = ctx.args.get('text').value
+    if (!args) return ctx.repwyT('erwor', 'cwommands:fakemsg.argsNyuww')
+    let webhwook = await ctx.message.channyel.getWebhwooks()
+    webhwook = webhwook.fwilter(webhwook => webhwook.nyame === 'Fake Message' && webhwook.user.id === ctx.client.user.id)[0]
+    if (!webhwook) {
+      webhwook = await ctx.message.channyel.cweateWebhwook({
+        nyame: 'Fake Message',
         options: {
           type: 1
         }
       })
     }
 
-    ctx.client.executeWebhook(webhook.id, webhook.token, {
-      content: args,
-      avatarURL: member.avatarURL,
-      username: member.username,
-      allowedMentions: {
-        everyone: false,
-        roles: false,
-        users: true
+    ctx.client.executeWebhwook(webhwook.id, webhwook.twoken, {
+      cwontent: args,
+      avatarURL: Mwember.avatarURL,
+      usernyame: Mwember.usernyame,
+      awwowedMentions: {
+        ewerywonye: false,
+        wowals: false,
+        users: twue
       }
     })
-    ctx.message.hook.createMessage('owo').then(msg => msg.delete())
+    ctx.message.hwook.cweateMessage('owo').then(msg => msg.delete())
   }
 }

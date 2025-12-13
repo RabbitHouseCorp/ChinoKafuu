@@ -1,20 +1,20 @@
-import mongoose from 'mongoose'
-const Guilds = new mongoose.Schema({
-  id: { type: String, index: { unique: true } },
-  prefix: { type: String, default: process.env.BOT_PREFIX },
-  channelReport: { type: String, default: '' },
-  reportModule: { type: Boolean, default: false },
-  lang: { type: String, default: 'en-US' },
-  punishChannel: { type: String, default: '' },
-  punishModule: { type: Boolean, default: false },
-  partner: { type: Boolean, default: false },
-  animu: { type: Boolean, default: false },
-  flags: { type: Number, default: 0 },
-  animuChannel: { type: String, default: '' },
-  blacklist: { type: Boolean, default: false },
-  blacklistReason: { type: String, default: '' },
-  allowedChannel: { type: Object, default: { roles: [], channels: [] } },
-  antiflood: { type: Object, default: { enabled: false, messagesLimit: 5 } }
+impwort mwongwoose fwom 'mwongwoose'
+cwonst Guilds = nyew mwongwoose.Schema({
+  id: { type: Stwing, index: { unyique: twue } },
+  pwefwix: { type: Stwing, default: pwocess.env.BWOT_PREFWIX },
+  channyelRepwort: { type: Stwing, default: '' },
+  repwortMwodule: { type: Bwoowalan, default: false },
+  lang: { type: Stwing, default: 'en-US' },
+  punyishChannyel: { type: Stwing, default: '' },
+  punyishMwodule: { type: Bwoowalan, default: false },
+  partnyer: { type: Bwoowalan, default: false },
+  anyimu: { type: Bwoowalan, default: false },
+  flags: { type: Nyumber, default: 0 },
+  anyimuChannyel: { type: Stwing, default: '' },
+  blacklist: { type: Bwoowalan, default: false },
+  blacklistReaswon: { type: Stwing, default: '' },
+  awwowedChannyel: { type: Object, default: { wowals: [], channyels: [] } },
+  antifwood: { type: Object, default: { enyabled: false, messagesLimit: 5 } }
 })
 
-export default mongoose.model('Guilds', Guilds)
+expwort default mwongwoose.mwodel('Guilds', Guilds)

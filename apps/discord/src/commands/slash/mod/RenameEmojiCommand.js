@@ -1,46 +1,46 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RenameEmojiCommand extends Command {
-  constructor() {
+expwort default class RenyameEmwojiCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'renameemoji',
-      aliases: ['renomearemoji'],
+      nyame: 'renyameemwoji',
+      aliases: ['renyomearemwoji'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageEmojisAndStickers']
+        entity: 'bwoth',
+        permissions: ['manyageEmwojisAndStickers']
       }],
-      slash: new CommandBase()
-        .setName('renameemoji')
-        .setDescription('Rename the name of an emoji.')
+      slash: nyew CwommandBase()
+        .setNyame('renyameemwoji')
+        .setDescwiption('Renyame teh nyame of an emwoji.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('emoji')
-            .setDescription('The emoji that you want rename.')
+            .setNyame('emwoji')
+            .setDescwiption('Teh emwoji that u want renyame.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('name')
-            .setDescription('The new name of the emoji.')
+            .setNyame('nyame')
+            .setDescwiption('Teh nyew nyame of teh emwoji.')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   run(ctx) {
-    const guild = ctx.message.guild
-    const getEmoji = ctx.args.get('emoji').value.replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').trim().split(':')
-    const emoji = guild.emojis.find(emoji => emoji.id === getEmoji[1])
-    if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
+    cwonst guild = ctx.message.guild
+    cwonst getEmwoji = ctx.args.get('emwoji').value.replace(/(<:)/, '').replace(/(<a:)/, '').replace(/(>)/, '').twim().split(':')
+    cwonst emwoji = guild.emwojis.fwind(emwoji => emwoji.id === getEmwoji[1])
+    if (!emwoji) return ctx.repwyT('erwor', 'basic:invalidEmwoji')
 
-    guild.editEmoji(emoji.id, { name: ctx.args.get('name').value }).then(() => {
-      ctx.replyT('success', 'commands:renameemoji.successfullyRenamed')
+    guild.editEmwoji(emwoji.id, { nyame: ctx.args.get('nyame').value }).then(() => {
+      ctx.repwyT('success', 'cwommands:renyameemwoji.successfuwwyRenyamed')
     })
   }
 }

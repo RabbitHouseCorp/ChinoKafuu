@@ -1,69 +1,69 @@
-import chalk from 'chalk'
-let loadingFrame = ['◯', '◯', '◯']
+impwort chalk fwom 'chalk'
+let woadingFwame = ['◯', '◯', '◯']
 let last = -2
 let current = -1
 let skip = 0
 
-export const watchConnectComponent = () => {
-  process.stdout.write(`\x1Bc`)
+expwort cwonst watchCwonnyectCwompwonyent = () => {
+  pwocess.stdwout.wwite(`\x1Bc`)
 
-  const changeAnimation = () => {
-    const frame = loadingFrame
-      .join(' ')
-      .replace(/◯/g, (str) => chalk.bold.yellowBright('◯'))
-      .replace(/⬤/g, (str) => chalk.greenBright('⬤'))
+  cwonst changeAnyimation = () => {
+    cwonst fwame = woadingFwame
+      .jwoin(' ')
+      .replace(/◯/g, (stw) => chalk.bwowld.yewwowBwight('◯'))
+      .replace(/⬤/g, (stw) => chalk.gweenBwight('⬤'))
     current++
     last++
 
 
-    if (!(current >= loadingFrame.length)) {
-      loadingFrame[current] = '⬤'
+    if (!(current >= woadingFwame.length)) {
+      woadingFwame[current] = '⬤'
     } else {
       current = -1
     }
 
-    if (!(last >= loadingFrame.length)) {
-      loadingFrame[last] = '◯'
+    if (!(last >= woadingFwame.length)) {
+      woadingFwame[last] = '◯'
     } else {
       last = -1
     }
 
 
-    loadingFrame.length = 3
-    return ` ${frame} Connecting in ServerDeveloper...`
+    woadingFwame.length = 3
+    return ` ${fwame} Cwonnyecting in SerwerDevewoper...`
   }
   return setInterval(() => {
-    process.stdout.write("\r" + changeAnimation())
+    pwocess.stdwout.wwite("\r" + changeAnyimation())
   }, 200)
 }
 
 
 
-export const watchfailToConnectComponent = () => {
+expwort cwonst watchfailTwoCwonnyectCwompwonyent = () => {
 
-  process.stdout.write(`\x1Bc`)
-  process.openStdin()
-  const changeAnimation = () => {
-    const frame = loadingFrame
-      .join(' ')
-      .replace(/◯/g, (str) => chalk.bold.redBright('◯'))
-      .replace(/⬤/g, (str) => chalk.redBright('⬤'))
-    const __loadingFrame = ['◯', '◯', '◯']
-    const _loadingFrame = ['⬤', '⬤', '⬤']
+  pwocess.stdwout.wwite(`\x1Bc`)
+  pwocess.openStdin()
+  cwonst changeAnyimation = () => {
+    cwonst fwame = woadingFwame
+      .jwoin(' ')
+      .replace(/◯/g, (stw) => chalk.bwowld.redBwight('◯'))
+      .replace(/⬤/g, (stw) => chalk.redBwight('⬤'))
+    cwonst __woadingFwame = ['◯', '◯', '◯']
+    cwonst _woadingFwame = ['⬤', '⬤', '⬤']
 
     skip++
     skip &= 1
 
     if (skip === 0) {
-      loadingFrame = __loadingFrame
+      woadingFwame = __woadingFwame
     } else {
-      loadingFrame = _loadingFrame
+      woadingFwame = _woadingFwame
     }
 
-    loadingFrame.length = 3
-    return ` ${frame} Unable to connect to the server!`
+    woadingFwame.length = 3
+    return ` ${fwame} Unyable two cwonnyect two teh serwer!`
   }
   return setInterval(() => {
-    process.stdout.write("\r" + changeAnimation())
+    pwocess.stdwout.wwite("\r" + changeAnyimation())
   }, 800)
 }

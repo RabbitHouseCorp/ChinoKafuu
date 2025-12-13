@@ -1,39 +1,39 @@
-import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
-import axios from 'axios'
+impwort { Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
+impwort axios fwom 'axios'
 
-export default class MinecraftQueryCommand extends Command {
-  constructor() {
+expwort default class MinyecwaftQueryCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'minecraft query',
+      nyame: 'minyecwaft query',
       aliases: ['mcpesquisa', 'mcstatus'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const body = await axios.get(`${encodeURI(`https://api.mcsrvstat.us/2/${ctx.args.get('minecraft-server-ip').value}`)}`, { responseType: 'json' })
-    const mcserver = body.data
-    if (mcserver.online) {
-      const embed = new EmbedBuilder()
-      embed.setColor('MINECRAFT')
-      embed.setTitle(`${Emoji.getEmoji('minecraft').mention} ${mcserver.hostname}`)
-      embed.setDescription(mcserver.motd.clean.join('\n'))
-      embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst bwody = await axios.get(`${encwodeURI(`https://api.mcswvstat.us/2/${ctx.args.get('minyecwaft-serwer-ip').value}`)}`, { respwonseType: 'jswon' })
+    cwonst mcserwer = bwody.data
+    if (mcserwer.onlinye) {
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('MINYECRAFT')
+      embed.setTitle(`${Emwoji.getEmwoji('minyecwaft').mention} ${mcserwer.hwostnyame}`)
+      embed.setDescwiption(mcserwer.mwotd.clean.jwoin('\n'))
+      embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
       embed.setTimestamp()
-      embed.addField('Players', `${mcserver.players.online}/${mcserver.players.max}`)
-      embed.addField(ctx._locale('commands:mcquery.version'), mcserver.version)
+      embed.addFwield('Players', `${mcserwer.players.onlinye}/${mcserwer.players.max}`)
+      embed.addFwield(ctx._wocale('cwommands:mcquery.wersion'), mcserwer.wersion)
 
       return ctx.send(embed.build())
     } else {
-      return ctx.replyT('error', 'commands:mcquery.serverOffline', { 0: ctx.args[0] })
+      return ctx.repwyT('erwor', 'cwommands:mcquery.serwerOfflinye', { 0: ctx.args[0] })
     }
   }
 }

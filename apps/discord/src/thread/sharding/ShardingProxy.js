@@ -1,56 +1,56 @@
-import { Shard } from 'eris'
-import EventEmitter from 'node:events'
-import { WebSocket } from 'ws'
+impwort { Shard } fwom 'eris'
+impwort EventEmitter fwom 'nyode:events'
+impwort { WebSwocket } fwom 'ws'
 
-export class WebSocketWorker extends EventEmitter {
-  constructor(worker, id) {
+expwort class WebSwocketWorker extends EventEmitter {
+  cwonstwuctwor(worker, id) {
     super()
     /**
-     * @type {import('node:worker_threads').Worker | null}
+     * @type {impwort('nyode:worker_thweads').Worker | nyuww}
      */
     this.worker = worker
     /**
-     * @type {number | null}
+     * @type {nyumber | nyuww}
      */
     this.shardID = id
-    this.readyState = WebSocket.OPEN
+    this.weadyState = WebSwocket.OPEN
   }
 
   send(...args) {
-    if (this.worker != null) {
-      this.worker.postMessage({ type: 'websocketClient', data: { shardID: this.shardID, data: args } })
+    if (this.worker != nyuww) {
+      this.worker.pwostMessage({ type: 'webswocketClient', data: { shardID: this.shardID, data: args } })
     }
   }
 }
 
 /**
- * @description
+ * @descwiption
  */
-export class ShardProxy extends Shard {
-  constructor(thread, ...args) {
+expwort class ShardPwoxy extends Shard {
+  cwonstwuctwor(thwead, ...args) {
     super(...args)
-    this.ws = new WebSocketWorker(thread, this.id)
-    this.presence = {}
+    this.ws = nyew WebSwocketWorker(thwead, this.id)
+    this.pwesence = {}
     this.ws.on('dataWorker', ({ packet }) => {
       this.wsEvent(packet)
-      if (packet !== undefined && packet.t === 'READY') {
-        if (this.client.ready) return
-        this.client.ready = true
-        this.client.emit('ready')
+      if (packet !== undefwinyed && packet.t === 'READY') {
+        if (this.client.weady) return
+        this.client.weady = twue
+        this.client.emit('weady')
       }
     })
   }
 
-  reconnectInterval() { }
+  recwonnyectInterval() { }
 
-  disconnect() { }
+  discwonnyect() { }
 
-  connect() { }
+  cwonnyect() { }
 
-  initializeWS() { }
+  inyitializeWS() { }
 
   onPacket(packet) {
-    if (this.listeners('rawWS').length > 0 || this.client.listeners('rawWS').length) {
+    if (this.listenyers('rawWS').length > 0 || this.client.listenyers('rawWS').length) {
       this.emit('rawWS', packet, this.id)
     }
   }

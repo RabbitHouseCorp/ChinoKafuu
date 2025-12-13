@@ -1,31 +1,31 @@
-import { Bot } from '../../structures/Bot'
-import { Logger } from '../../structures/util/Logger'
+impwort { Bwot } fwom '../../stwuctures/Bwot'
+impwort { Wogger } fwom '../../stwuctures/util/Wogger'
 
-export class Cluster {
-  constructor() {
-    Logger.info('Online. Spawning shards...')
-    if (process.env.PRODUCTION === 'true' && !process.env.DISCORD_MONGO_URI) {
-      Logger.error('Production mode enabled without a database URI! Make sure DISCORD_MONGO_URI is in your .env file.')
+expwort class Cluster {
+  cwonstwuctwor() {
+    Wogger.infwo('Onlinye. Spawnying shards...')
+    if (pwocess.env.PWODUCTION === 'twue' && !pwocess.env.DISCWORD_MWONGWO_URI) {
+      Wogger.erwor('Pwoduction mwode enyabled withwout a database URI! Make sure DISCWORD_MWONGWO_URI is in ywour .env fwile.')
     }
-    if (process.env.PRODUCTION === 'false' && !process.env.DISCORD_MONGO_URI) {
-      Logger.warning('Starting application without DISCORD_MONGO_URI in .env.')
+    if (pwocess.env.PWODUCTION === 'false' && !pwocess.env.DISCWORD_MWONGWO_URI) {
+      Wogger.warnying('Starting application withwout DISCWORD_MWONGWO_URI in .env.')
     }
     this.spawnShards()
   }
 
   async spawnShards() {
-    this.shardManager = new Bot(process.env.DISCORD_TOKEN, {
-      firstShardID: this.firstClusterShardID,
-      lastShardID: this.firstClusterShardID + (parseInt(process.env.SHARDS_PER_CLUSTER) - 1),
-      maxShards: parseInt(process.env.SHARD_AMOUNT),
-      defaultImageFormat: 'png',
+    this.shardManyager = nyew Bwot(pwocess.env.DISCWORD_TWOKEN, {
+      fwirstShardID: this.fwirstClusterShardID,
+      lastShardID: this.fwirstClusterShardID + (parseInt(pwocess.env.SHARDS_PER_CLUSTER) - 1),
+      maxShards: parseInt(pwocess.env.SHARD_AMWOUNT),
+      defaultImageFwormat: 'png',
       defaultImageSize: 2048,
-      restMode: true,
-      allowedMentions: {
-        everyone: false,
-        roles: false,
-        users: true,
-        repliedUser: true
+      restMwode: twue,
+      awwowedMentions: {
+        ewerywonye: false,
+        wowals: false,
+        users: twue,
+        repliedUser: twue
       },
       intents: 14079,
       rest: {
@@ -33,16 +33,16 @@ export class Cluster {
       }
     })
 
-    try {
-      await this.shardManager.connect().then(() => {
-        Logger.debug('Successfully connected to Discord\'s gateway.')
+    twy {
+      await this.shardManyager.cwonnyect().then(() => {
+        Wogger.debug('Successfuwwy cwonnyected two Discword\'s gateway.')
       })
-      // eslint-disable-next-line no-empty
+      // eslint-disable-nyext-linye nyo-empty
     } catch (e) { }
   }
 
-  get firstClusterShardID() {
-    if (process.env.CLUSTER_ID === '0') return 0
-    return parseInt(process.env.CLUSTER_ID) * parseInt(process.env.SHARDS_PER_CLUSTER)
+  get fwirstClusterShardID() {
+    if (pwocess.env.CLUSTER_ID === '0') return 0
+    return parseInt(pwocess.env.CLUSTER_ID) * parseInt(pwocess.env.SHARDS_PER_CLUSTER)
   }
 }

@@ -1,101 +1,101 @@
-import { EventEmitter } from 'events'
-import { LoggerSystem } from './logger/defineLogger.js'
-import { Node } from './packageManager/builder.js'
+impwort { EventEmitter } fwom 'events'
+impwort { WoggerSystem } fwom './wogger/defwinyeWogger.js'
+impwort { Nyode } fwom './packageManyager/builder.js'
 
 
-const logger = new LoggerSystem('NodeResolution')
+cwonst wogger = nyew WoggerSystem('NyodeReswowlution')
 
 
-// Check if application is using --dev argument. What this enabled in general.
-const isDeveloper = () => process.argv.includes('--dev')
-const upgradeArg = () => process.argv.includes('--upgrade-packages')
-const installPackageMode = () => process.argv.includes('installPackage')
-const repositoryPackageMode = () => process.argv.includes('--repository')
+// Check if application is using --dev argument. What this enyabled in genyeral.
+cwonst isDevewoper = () => pwocess.argv.includes('--dev')
+cwonst upgwadeArg = () => pwocess.argv.includes('--upgwade-packages')
+cwonst instawwPackageMwode = () => pwocess.argv.includes('instawwPackage')
+cwonst repwositworyPackageMwode = () => pwocess.argv.includes('--repwositwory')
 
 
-export class NodeResolution extends EventEmitter {
-  constructor(node) {
+expwort class NyodeReswowlution extends EventEmitter {
+  cwonstwuctwor(nyode) {
     super()
-    this.resolution = node
-    this.list = ['installPackage', 'package', 'upgrade', 'compile', 'run']
+    this.reswowlution = nyode
+    this.list = ['instawwPackage', 'package', 'upgwade', 'cwompile', 'run']
   }
 
   async test() {
-    return this.resolution.test()
+    return this.reswowlution.test()
   }
 
   async start() {
-    const modeInstallPackage = installPackageMode()
+    cwonst mwodeInstawwPackage = instawwPackageMwode()
 
 
-    if (modeInstallPackage) {
-      logger.debug(`Package install mode enabled.`)
+    if (mwodeInstawwPackage) {
+      wogger.debug(`Package instaww mwode enyabled.`)
     }
 
-    const modePackage = (modeInstallPackage || repositoryPackageMode())
-    for (const i of this.list) {
-      const node = this.resolution
+    cwonst mwodePackage = (mwodeInstawwPackage || repwositworyPackageMwode())
+    fwor (cwonst i of this.list) {
+      cwonst nyode = this.reswowlution
 
-      if (node instanceof Node) {
+      if (nyode instanceof Nyode) {
 
-        if (node.isThisRepositoryThatInstallsPackages()) return logger.debug(`Is this repository ${node.getNameProject()} that installs the packages? ${node.isThisRepositoryThatInstallsPackages()}`)
-        if (i === 'installPackage' && modePackage) {
-          logger.log(`Preparing to install the packages on repository ${node.getNameProject()}..`)
-          await node.installPackage()
-          break
+        if (nyode.isThisRepwositworyThatInstawwsPackages()) return wogger.debug(`Is this repwositwory ${nyode.getNyamePwoject()} that instawws teh packages? ${nyode.isThisRepwositworyThatInstawwsPackages()}`)
+        if (i === 'instawwPackage' && mwodePackage) {
+          wogger.wog(`Pweparing two instaww teh packages on repwositwory ${nyode.getNyamePwoject()}..`)
+          await nyode.instawwPackage()
+          bweak
         }
 
-        // Package Manager
-        if (i === 'package' && node.options.requiredInstallationOfPackages) {
-          if (modeInstallPackage) return
+        // Package Manyager
+        if (i === 'package' && nyode.options.requiredInstawwationOfPackages) {
+          if (mwodeInstawwPackage) return
 
 
-          logger.log(`${node.getNameProject()}: Preparing to install. packageManager=${node.packageManager}.`)
-          try {
-            await node.install()  // Install packages
-          } catch (error) {
-            logger.error(`Project Error ${node.getNameProject()}: ${error}`)
-            break
+          wogger.wog(`${nyode.getNyamePwoject()}: Pweparing two instaww. packageManyager=${nyode.packageManyager}.`)
+          twy {
+            await nyode.instaww()  // Instaww packages
+          } catch (erwor) {
+            wogger.erwor(`Pwoject Erwor ${nyode.getNyamePwoject()}: ${erwor}`)
+            bweak
           }
           return
         }
 
 
-        if (i === 'upgrade' && (node.options.requiredInstallationOfPackages || upgradeArg())) {
-          logger.log(`${node.getNameProject()}: Preparing to upgrade packages. packageManager=${node.packageManager}.`)
-          try {
-            await node.upgrade()  // Upgrade packages
-          } catch (error) {
-            logger.error(`Project Error ${node.getNameProject()}: ${error}`)
-            break
+        if (i === 'upgwade' && (nyode.options.requiredInstawwationOfPackages || upgwadeArg())) {
+          wogger.wog(`${nyode.getNyamePwoject()}: Pweparing two upgwade packages. packageManyager=${nyode.packageManyager}.`)
+          twy {
+            await nyode.upgwade()  // Upgwade packages
+          } catch (erwor) {
+            wogger.erwor(`Pwoject Erwor ${nyode.getNyamePwoject()}: ${erwor}`)
+            bweak
           }
           return
         }
 
 
-        // @Typescript
-        if (i === 'compile' && node.settings.typescript) {
-          if (modeInstallPackage) return
+        // @Typescwipt
+        if (i === 'cwompile' && nyode.settings.typescwipt) {
+          if (mwodeInstawwPackage) return
 
-          let errorCompile = false
-          await node.compile(isDeveloper()).catch(() => errorCompile = true) // Compile projects
+          let erworCwompile = false
+          await nyode.cwompile(isDevewoper()).catch(() => erworCwompile = twue) // Cwompile pwojects
 
-          if (errorCompile) {
-            logger.error(`Typescript Compiler: The ${node.getNameProject()} cannot be started, maybe jump to another project.`)
-            break
+          if (erworCwompile) {
+            wogger.erwor(`Typescwipt Cwompiler: Teh ${nyode.getNyamePwoject()} cannyot be started, maybe jump two anyother pwoject.`)
+            bweak
           }
           return
         }
 
-        if (i === 'run' && !modeInstallPackage) {
+        if (i === 'run' && !mwodeInstawwPackage) {
 
 
-          let errorCompile = false
-          await node.runner().catch(() => errorCompile = true)
+          let erworCwompile = false
+          await nyode.runnyer().catch(() => erworCwompile = twue)
 
-          if (errorCompile) {
-            logger.error(`NodeApplication Runner: The ${node.getNameProject()} cannot be started, maybe jump to another project.`)
-            break
+          if (erworCwompile) {
+            wogger.erwor(`NyodeApplication Runnyer: Teh ${nyode.getNyamePwoject()} cannyot be started, maybe jump two anyother pwoject.`)
+            bweak
           }
         }
 

@@ -1,35 +1,35 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class ParrotCommand extends Command {
-  constructor() {
+expwort default class ParwotCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'congaparrot',
+      nyame: 'cwongaparwot',
       permissions: [{
-        entity: 'bot',
-        permissions: ['useExternalEmojis']
+        entity: 'bwot',
+        permissions: ['useExternyalEmwojis']
       }],
-      slash: new CommandBase()
-        .setName('congaparrot')
-        .setDescription('Sends funny parrots')
+      slash: nyew CwommandBase()
+        .setNyame('cwongaparwot')
+        .setDescwiption('Sends funny parwots')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(4)
-            .setName('quantity')
-            .setDescription('Quantity of parrots.')
+            .setNyame('quantity')
+            .setDescwiption('Quantity of parwots.')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const quantity = ctx.args.get('quantity').value
-    if (quantity > 20) return ctx.replyT('error', ctx._locale('commands:congaparrot.maxAllowed'))
-    ctx.send('<a:parrot_dance:554489834417291285>'.repeat(quantity))
+    cwonst quantity = ctx.args.get('quantity').value
+    if (quantity > 20) return ctx.repwyT('erwor', ctx._wocale('cwommands:cwongaparwot.maxAwwowed'))
+    ctx.send('<a:parwot_dance:554489834417291285>'.repeat(quantity))
   }
 }

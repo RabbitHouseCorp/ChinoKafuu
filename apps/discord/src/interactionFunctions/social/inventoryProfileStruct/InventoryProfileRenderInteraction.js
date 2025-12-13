@@ -1,97 +1,97 @@
-import { requestTokamak } from '../../../lib/tokamak';
-import { InteractionFunction } from '../../../structures/InteractionFunction';
-import { profileInfo as _profileInfo } from '../../../structures/util/Constants'
+impwort { requestTwokamak } fwom '../../../lib/twokamak';
+impwort { InteractionFunction } fwom '../../../stwuctures/InteractionFunction';
+impwort { pwofwileInfwo as _pwofwileInfwo } fwom '../../../stwuctures/util/Cwonstants'
 
-export default class InventoryProfileRenderInteraction extends InteractionFunction {
-  constructor() {
+expwort default class InventworyPwofwileRenderInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'inventoryProfileRenderInteraction'
+      nyame: 'inventworyPwofwileRenderInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, editInteraction, ctx }) {
-    const {
+  async interactionFunction({ getData, defwinyeState, editInteraction, ctx }) {
+    cwonst {
       user,
       avatar,
       married,
-      partnerName,
-      profileComponent,
-      profileType } = defineState
-    const { data, member } = getData()
-    const { values } = data
-    if (values === undefined) return
-    const getProfileInfo = _profileInfo.find((i) => i._id === values[0])
-    const profileOptions = profileComponent.map((i) => i.value === values[0] ? { ...i, default: true } : i)
+      partnyerNyame,
+      pwofwileCwompwonyent,
+      pwofwileType } = defwinyeState
+    cwonst { data, Mwember } = getData()
+    cwonst { values } = data
+    if (values === undefwinyed) return
+    cwonst getPwofwileInfwo = _pwofwileInfwo.fwind((i) => i._id === values[0])
+    cwonst pwofwileOptions = pwofwileCwompwonyent.map((i) => i.value === values[0] ? { ...i, default: twue } : i)
 
-    const profileUser = {
+    cwonst pwofwileUser = {
       type: values[0],
-      name: member.user.username,
-      money: Number(user.yens).toLocaleString(),
-      aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: '/' }),
+      nyame: Mwember.user.usernyame,
+      mwonyey: Nyumber(user.yens).twoWocaleStwing(),
+      abwoutMe: user.abwoutme !== '' ? user.abwoutme : ctx._wocale('cwommands:pwofwile.defaultAbwoutMe', { 0: '/' }),
       married: married,
-      partnerName: partnerName,
-      bgId: user.background,
+      partnyerNyame: partnyerNyame,
+      bgId: user.backgwound,
       stickerId: user.sticker,
-      favColor: user.profileColor,
+      favCwowwor: user.pwofwileCwowwor,
       avatarUrl: avatar,
       badges: []
     }
-    const embeds = [{
-      title: getProfileInfo.name,
-      description: `${getProfileInfo.shortDescription ?? ctx._locale('commands:inventory.noDescription')}`,
-      color: 0x5865F2,
+    cwonst embeds = [{
+      title: getPwofwileInfwo.nyame,
+      descwiption: `${getPwofwileInfwo.shwortDescwiption ?? ctx._wocale('cwommands:inventwory.nyoDescwiption')}`,
+      cwowwor: 0x5865F2,
       image: {
-        url: `attachment://profile-${values[0]}.png`
+        url: `attachment://pwofwile-${values[0]}.png`
       }
     }]
-    const profile = await requestTokamak({
-      action: 'renderProfile',
-      profileStruct: profileUser
+    cwonst pwofwile = await requestTwokamak({
+      action: 'renderPwofwile',
+      pwofwileStwuct: pwofwileUser
     })
 
-    defineState.actionState.setState({ embeds })
-    const command = ctx.client.commands.find((i) => i.name === 'inventory') ?? null
-    const commandProfile = ctx.client.commands.find((i) => i.name === 'profile') ?? null
-    const ctxCommand = command === null ? '???' : `</inventory background:${command.id}>`
-    const ctxProfileCommand = command === null ? '???' : `</profile:${commandProfile.id}>`
+    defwinyeState.actionState.setState({ embeds })
+    cwonst cwommand = ctx.client.cwommands.fwind((i) => i.nyame === 'inventwory') ?? nyuww
+    cwonst cwommandPwofwile = ctx.client.cwommands.fwind((i) => i.nyame === 'pwofwile') ?? nyuww
+    cwonst ctxCwommand = cwommand === nyuww ? '???' : `</inventwory backgwound:${cwommand.id}>`
+    cwonst ctxPwofwileCwommand = cwommand === nyuww ? '???' : `</pwofwile:${cwommandPwofwile.id}>`
 
     editInteraction({
-      content: ctx._locale('commands:inventory.tips', { 0: ctxCommand, 1: ctxProfileCommand }),
+      cwontent: ctx._wocale('cwommands:inventwory.tips', { 0: ctxCwommand, 1: ctxPwofwileCwommand }),
       embeds,
-      components: [
+      cwompwonyents: [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'listProfile',
+            custwom_id: 'listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: profileOptions
+            options: pwofwileOptions
           }]
         },
         {
           type: 1,
-          components: [
+          cwompwonyents: [
             {
               type: 2,
-              label: ctx._locale('commands:inventory.profile.wantUseThisProfile'),
+              label: ctx._wocale('cwommands:inventwory.pwofwile.wantUseThisPwofwile'),
               style: 1,
-              disabled: profileType === values[0] ? true : false,
-              custom_id: `profile:${getProfileInfo._id}`
+              disabled: pwofwileType === values[0] ? twue : false,
+              custwom_id: `pwofwile:${getPwofwileInfwo._id}`
             }
           ],
         },
       ],
-      file: {
+      fwile: {
         image: {
-          file: profile.buffer,
-          name: `profile-${values[0]}.png`
+          fwile: pwofwile.buffer,
+          nyame: `pwofwile-${values[0]}.png`
         }
       }
     })
   }
 
   typeInteraction() {
-    return ['selectMenu']
+    return ['selectMenyu']
   }
 }

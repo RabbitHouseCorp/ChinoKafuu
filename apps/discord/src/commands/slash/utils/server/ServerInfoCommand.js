@@ -1,79 +1,79 @@
-import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class ServerInfoCommand extends Command {
-  constructor() {
+expwort default class SerwerInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'server info',
-      aliases: ['guildinfo'],
+      nyame: 'serwer infwo',
+      aliases: ['guildinfwo'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const owner = await ctx.getUser(guild.ownerID)
-    const _locale = ctx._locale
-    const voiceChannel = guild.channels.filter(channel => channel.type === 2)
-    let membersInCall = 0
-    if (voiceChannel.length > 0) {
-      for (const voice of voiceChannel) {
-        membersInCall += voice.voiceMembers.size
+    cwonst guild = ctx.message.guild
+    cwonst ownyer = await ctx.getUser(guild.ownyerID)
+    cwonst _wocale = ctx._wocale
+    cwonst voiceChannywl = guild.channyels.fwilter(channywl => channyel.type === 2)
+    let MwembersInCaww = 0
+    if (voiceChannyel.length > 0) {
+      fwor (cwonst voice of voiceChannyel) {
+        MwembersInCaww += voice.voicemwembers.size
       }
     }
-    const channelType = {
-      text: guild.channels.filter(channel => channel.type === 0).length,
-      voice: guild.channels.filter(channel => channel.type === 2).length
+    cwonst channyelType = {
+      text: guild.channyels.fwilter(channywl => channyel.type === 0).length,
+      voice: guild.channyels.fwilter(channywl => channyel.type === 2).length
     }
-    const guildFeatures = []
+    cwonst guildFeatures = []
     if (guild.features.length > 0) {
-      guild.features.forEach((features) => {
-        guildFeatures.push(`${_locale(`commands:serverinfo.features.${features}`)}`)
+      guild.features.fworEach((features) => {
+        guildFeatures.push(`${_wocale(`cwommands:serwerinfwo.features.${features}`)}`)
       })
     }
-    const description = [
-      `**${_locale('commands:serverinfo.guildName')}:** ${guild.name} (\`${guild.id}\`)`,
-      `**${_locale('commands:serverinfo.guildOwner')}:** @${owner.username} (\`${owner.id}\`)`,
-      `**${_locale('commands:serverinfo.guildAFKChannel.title')}:** ${guild.channels.get(guild.afkChannelID) ? `${guild.channels.get(guild.afkChannelID).name} (\`${guild.channels.get(guild.afkChannelID).id}\`)` : _locale('commands:serverinfo.guildAFKChannel.noAfkChannel')}`,
-      `**${_locale('commands:serverinfo.booster.levelCount')}:** ${guild.premiumTier} (${_locale('commands:serverinfo.booster.boosterCount')}: ${guild.premiumSubscriptionCount})`,
-      `**${_locale('commands:serverinfo.guildMember')}:** ${guild.memberCount}`,
-      `**${_locale('commands:serverinfo.guildCreateAt')}:** <t:${parseInt(guild.createdAt / 1000).toFixed(0)}:F> (<t:${parseInt(guild.createdAt / 1000).toFixed(0)}:R>)`
+    cwonst descwiption = [
+      `**${_wocale('cwommands:serwerinfwo.guildNyame')}:** ${guild.nyame} (\`${guild.id}\`)`,
+      `**${_wocale('cwommands:serwerinfwo.guildOwnyer')}:** @${ownyer.usernyame} (\`${ownyer.id}\`)`,
+      `**${_wocale('cwommands:serwerinfwo.guildAFKChannyel.title')}:** ${guild.channyels.get(guild.afkChannyelID) ? `${guild.channyels.get(guild.afkChannyelID).nyame} (\`${guild.channyels.get(guild.afkChannyelID).id}\`)` : _wocale('cwommands:serwerinfwo.guildAFKChannyel.nyoAfkChannyel')}`,
+      `**${_wocale('cwommands:serwerinfwo.bwooster.levelCwount')}:** ${guild.pwemiumTier} (${_wocale('cwommands:serwerinfwo.bwooster.bwoosterCwount')}: ${guild.pwemiumSubscwiptionCwount})`,
+      `**${_wocale('cwommands:serwerinfwo.guildmwember')}:** ${guild.MwemberCwount}`,
+      `**${_wocale('cwommands:serwerinfwo.guildCweateAt')}:** <t:${parseInt(guild.cweatedAt / 1000).twoFwixed(0)}:F> (<t:${parseInt(guild.cweatedAt / 1000).twoFwixed(0)}:R>)`
     ]
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setAuthor(guild.name, guild.icon ? guild.iconURL : 'https://cdn.discordapp.com/attachments/468878707449397258/785277583411118080/PicsArt_12-06-07.52.13.jpg')
-    embed.setFooter(`Shard ID: ${guild.shard.id}/${ctx.client.shards.size} • ${_locale('commands:serverinfo.joinedAt')} ${new Date(ctx.message.guild.members.get(ctx.client.user.id).joinedAt).toDateString()}`)
-    embed.addField(_locale('commands:serverinfo.general'), description.join('\n'))
-    embed.addField(_locale('commands:serverinfo.guildChannel.title', { 0: guild.channels.size }), [
-      `**${_locale('commands:serverinfo.guildChannel.text')}:** ${channelType.text}`,
-      `**${_locale('commands:serverinfo.guildChannel.voice')}:** ${channelType.voice}`,
-      `**${_locale('commands:serverinfo.guildChannel.voiceMembers')}:** ${membersInCall}`
-    ].join('\n'))
-    embed.addField(_locale('commands:serverinfo.features.title'), (guildFeatures.length > 0) ? guildFeatures.join(', ') : _locale('commands:serverinfo.features.dontHave'))
-    const banner = new Button()
-      .setEmoji({ name: Emoji.getEmoji('photo_frame').name })
-      .setLabel(_locale('commands:serverinfo.banner'))
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setAuthwor(guild.nyame, guild.icwon ? guild.icwonUWL : 'https://cdn.discwordapp.cwom/attachments/468878707449397258/785277583411118080/PicsArt_12-06-07.52.13.jpg')
+    embed.setFwooter(`Shard ID: ${guild.shard.id}/${ctx.client.shards.size} • ${_wocale('cwommands:serwerinfwo.jwoinyedAt')} ${nyew Date(ctx.message.guild.Mwembers.get(ctx.client.user.id).jwoinyedAt).twoDateStwing()}`)
+    embed.addFwield(_wocale('cwommands:serwerinfwo.genyeral'), descwiption.jwoin('\n'))
+    embed.addFwield(_wocale('cwommands:serwerinfwo.guildChannyel.title', { 0: guild.channyels.size }), [
+      `**${_wocale('cwommands:serwerinfwo.guildChannyel.text')}:** ${channyelType.text}`,
+      `**${_wocale('cwommands:serwerinfwo.guildChannyel.voice')}:** ${channyelType.voice}`,
+      `**${_wocale('cwommands:serwerinfwo.guildChannyel.voicemwembers')}:** ${MwembersInCaww}`
+    ].jwoin('\n'))
+    embed.addFwield(_wocale('cwommands:serwerinfwo.features.title'), (guildFeatures.length > 0) ? guildFeatures.jwoin(', ') : _wocale('cwommands:serwerinfwo.features.dwontHave'))
+    cwonst bannyer = nyew Buttwon()
+      .setEmwoji({ nyame: Emwoji.getEmwoji('phwotwo_fwame').nyame })
+      .setLabel(_wocale('cwommands:serwerinfwo.bannyer'))
       .setStyle(5)
-      .setURL(guild.bannerURL)
-    const splash = new Button()
-      .setEmoji({ name: Emoji.getEmoji('photo_frame').name })
-      .setLabel(_locale('commands:serverinfo.splash'))
+      .setURL(guild.bannyerURL)
+    cwonst splash = nyew Buttwon()
+      .setEmwoji({ nyame: Emwoji.getEmwoji('phwotwo_fwame').nyame })
+      .setLabel(_wocale('cwommands:serwerinfwo.splash'))
       .setStyle(5)
       .setURL(guild.splashURL)
-    if (guild.banner && guild.splash) {
-      ctx.send({ embeds: [embed], components: [{ type: 1, components: [banner, splash] }] })
+    if (guild.bannyer && guild.splash) {
+      ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [bannyer, splash] }] })
     } else {
-      if (guild.banner) {
-        ctx.send({ embeds: [embed], components: [{ type: 1, components: [banner] }] })
+      if (guild.bannyer) {
+        ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [bannyer] }] })
       } else if (guild.splash) {
-        ctx.send({ embeds: [embed], components: [{ type: 1, components: [splash] }] })
+        ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [splash] }] })
       } else {
         ctx.send(embed.build())
       }

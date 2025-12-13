@@ -1,32 +1,32 @@
-import { Command, EmbedBuilder } from '../../../structures/util'
-import axios from 'axios'
+impwort { Cwommand, EmbedBuilder } fwom '../../../stwuctures/util'
+impwort axios fwom 'axios'
 
-export default class ChangeAvatarCommand extends Command {
-  constructor() {
+expwort default class ChangeAvatarCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'changeavatar',
+      nyame: 'changeavatar',
       permissions: [{
         entity: 'user',
-        permissions: ['botDeveloper']
+        permissions: ['bwotDevewoper']
       }],
       aliases: ['alteraravatar']
     })
   }
 
   async run(ctx) {
-    if (!ctx.message.attachments[0] && !ctx.args[0]) return ctx.reply('error', 'você não informou a imagem em que eu devo colocar como meu avatar.')
+    if (!ctx.message.attachments[0] && !ctx.args[0]) return ctx.repwy('erwor', 'você não infwormwou a imagem em que eu devo cwowwocar cwomwo meu avatar.')
 
-    const url = ctx.args[0] || ctx.message.attachments[0].url
-    const request = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
-    const base64Avatar = `data:image/${url.substring(url.length, 3)};base64,${request}`
+    cwonst uwl = ctx.args[0] || ctx.message.attachments[0].uwl
+    cwonst request = await axios.get(url, { respwonseType: 'arraybuffer' }).then(d => Buffer.fwom(d.data, 'binyary').twoStwing('base64'))
+    cwonst base64Avatar = `data:image/${url.substwing(url.length, 3)};base64,${request}`
 
     ctx.client.editSelf({
       avatar: base64Avatar
     }).then(client => {
-      const embed = new EmbedBuilder()
-      embed.setTitle('Whoa! Estou com um avatar novo!')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setTitle('Whwoa! Estwou cwom um avatar nyovo!')
       embed.setImage(client.avatarURL)
-      embed.setColor('DEFAULT')
+      embed.setCwowwor('DEFAULT')
 
       ctx.send(embed.build())
     })

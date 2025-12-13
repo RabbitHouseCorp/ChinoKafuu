@@ -1,100 +1,100 @@
-const yarnCommand = {
-  install: {
-    commandName: 'yarn install',
-    commandArgs: {
-      name: 'yarn',
-      arg: 'install',
-      args: ['install']
+cwonst yarnCwommand = {
+  instaww: {
+    cwommandNyame: 'yarn instaww',
+    cwommandArgs: {
+      nyame: 'yarn',
+      arg: 'instaww',
+      args: ['instaww']
     },
   },
   dev: {
-    commandName: 'yarn dev',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn dev',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'dev',
       args: ['dev']
     },
   },
   add: {
-    commandName: 'yarn add',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn add',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'add',
       args: ['add']
     },
   },
   run: {
-    commandName: 'yarn start',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn start',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'start',
       args: ['start']
     },
   },
   test: {
-    commandName: 'yarn test',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn test',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'test',
       args: ['test']
     },
   },
-  upgrade: {
-    commandName: 'yarn upgrade',
-    commandArgs: {
-      name: 'yarn',
-      arg: 'upgrade',
-      args: ['upgrade --force']
+  upgwade: {
+    cwommandNyame: 'yarn upgwade',
+    cwommandArgs: {
+      nyame: 'yarn',
+      arg: 'upgwade',
+      args: ['upgwade --fworce']
     },
   }
 }
 
 
-const npmCommand = {
-  install: {
-    commandName: 'npm install',
-    commandArgs: {
-      name: 'npm',
-      arg: 'install',
-      args: ['install -f']
+cwonst npmCwommand = {
+  instaww: {
+    cwommandNyame: 'npm instaww',
+    cwommandArgs: {
+      nyame: 'npm',
+      arg: 'instaww',
+      args: ['instaww -f']
     },
   },
   dev: {
-    commandName: 'npm run dev',
-    commandArgs: {
-      name: 'npm',
+    cwommandNyame: 'npm run dev',
+    cwommandArgs: {
+      nyame: 'npm',
       arg: 'run dev',
       args: ['run', 'dev']
     },
   },
   run: {
-    commandName: 'npm run start',
-    commandArgs: {
-      name: 'npm',
+    cwommandNyame: 'npm run start',
+    cwommandArgs: {
+      nyame: 'npm',
       arg: 'run start',
       args: ['run', 'start']
     },
   },
   add: {
-    commandName: 'npm install',
-    commandArgs: {
-      name: 'npm',
-      arg: 'install',
-      args: ['install']
+    cwommandNyame: 'npm instaww',
+    cwommandArgs: {
+      nyame: 'npm',
+      arg: 'instaww',
+      args: ['instaww']
     },
   },
   test: {
-    commandName: 'npm run test',
-    commandArgs: {
-      name: 'npm',
+    cwommandNyame: 'npm run test',
+    cwommandArgs: {
+      nyame: 'npm',
       arg: 'ru test',
       args: ['run', 'test']
     },
   },
-  upgrade: {
-    commandName: 'npm update',
-    commandArgs: {
-      name: 'npm',
+  upgwade: {
+    cwommandNyame: 'npm update',
+    cwommandArgs: {
+      nyame: 'npm',
       arg: 'update',
       args: ['update']
     },
@@ -102,51 +102,51 @@ const npmCommand = {
 }
 
 
-const pnpmCommand = {
-  install: {
-    commandName: 'pnpm install',
-    commandArgs: {
-      name: 'pnpm',
-      arg: 'install',
-      args: ['install -f']
+cwonst pnpmCwommand = {
+  instaww: {
+    cwommandNyame: 'pnpm instaww',
+    cwommandArgs: {
+      nyame: 'pnpm',
+      arg: 'instaww',
+      args: ['instaww -f']
     },
   },
   dev: {
-    commandName: 'pnpm run dev',
-    commandArgs: {
-      name: 'pnpm',
+    cwommandNyame: 'pnpm run dev',
+    cwommandArgs: {
+      nyame: 'pnpm',
       arg: 'run dev',
       args: ['run', 'dev']
     },
   },
   run: {
-    commandName: 'pnpm run start',
-    commandArgs: {
-      name: 'pnpm',
+    cwommandNyame: 'pnpm run start',
+    cwommandArgs: {
+      nyame: 'pnpm',
       arg: 'run start',
       args: ['run', 'start']
     },
   },
   add: {
-    commandName: 'pnpm install',
-    commandArgs: {
-      name: 'pnpm',
-      arg: 'install',
-      args: ['install']
+    cwommandNyame: 'pnpm instaww',
+    cwommandArgs: {
+      nyame: 'pnpm',
+      arg: 'instaww',
+      args: ['instaww']
     },
   },
   test: {
-    commandName: 'pnpm run test',
-    commandArgs: {
-      name: 'pnpm',
+    cwommandNyame: 'pnpm run test',
+    cwommandArgs: {
+      nyame: 'pnpm',
       arg: 'ru test',
       args: ['run', 'test']
     },
   },
-  upgrade: {
-    commandName: 'pnpm update',
-    commandArgs: {
-      name: 'pnpm',
+  upgwade: {
+    cwommandNyame: 'pnpm update',
+    cwommandArgs: {
+      nyame: 'pnpm',
       arg: 'update',
       args: ['update']
     },
@@ -155,78 +155,78 @@ const pnpmCommand = {
 
 
 
-const bunCommand = {
-  install: {
-    commandName: 'bun install',
-    commandArgs: {
-      name: 'bun',
-      arg: 'install',
-      args: ['install']
+cwonst bunCwommand = {
+  instaww: {
+    cwommandNyame: 'bun instaww',
+    cwommandArgs: {
+      nyame: 'bun',
+      arg: 'instaww',
+      args: ['instaww']
     },
   },
   dev: {
-    commandName: 'yarn dev:bun',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn dev:bun',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'dev:bun',
       args: ['dev:bun']
     },
   },
   run: {
-    commandName: 'yarn start:bun',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn start:bun',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'start:bun',
       args: ['start:bun']
     },
   },
   add: {
-    commandName: 'yarn add',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn add',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'add',
       args: ['add']
     },
   },
   test: {
-    commandName: 'yarn test:bun',
-    commandArgs: {
-      name: 'yarn',
+    cwommandNyame: 'yarn test:bun',
+    cwommandArgs: {
+      nyame: 'yarn',
       arg: 'test:bun',
       args: ['test:bun']
     },
   },
-  upgrade: {
-    commandName: 'yarn upgrade',
-    commandArgs: {
-      name: 'yarn',
-      arg: 'upgrade',
-      args: ['upgrade']
+  upgwade: {
+    cwommandNyame: 'yarn upgwade',
+    cwommandArgs: {
+      nyame: 'yarn',
+      arg: 'upgwade',
+      args: ['upgwade']
     },
   }
 }
 
 /**
- * It's a package manager selector for supported:
- * https://nodejs.org/api/corepack.html
+ * It's a package manyager selectwor fwor suppworted:
+ * https://nyodejs.org/api/cworepack.html
  */
-const selectPackageCommand = (packageManager = 'npm') => {
-  if (packageManager === 'yarn' || packageManager === 'yarnpkg') {
-    return yarnCommand
-  } else if (packageManager === 'pnpm' || packageManager === 'pnpx') {
-    return pnpmCommand
-  } else if (packageManager === 'bun' || packageManager === 'bunPackageManager') {
-    return bunCommand
+cwonst selectPackageCwommand = (packageManyager = 'npm') => {
+  if (packageManyager === 'yarn' || packageManyager === 'yarnpkg') {
+    return yarnCwommand
+  } else if (packageManyager === 'pnpm' || packageManyager === 'pnpx') {
+    return pnpmCwommand
+  } else if (packageManyager === 'bun' || packageManyager === 'bunPackageManyager') {
+    return bunCwommand
   }
 
-  return npmCommand
+  return npmCwommand
 }
 
-export {
-  yarnCommand,
-  pnpmCommand,
-  npmCommand,
-  selectPackageCommand,
-  bunCommand
+expwort {
+  yarnCwommand,
+  pnpmCwommand,
+  npmCwommand,
+  selectPackageCwommand,
+  bunCwommand
 }
 

@@ -1,47 +1,47 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class ClearCommand extends Command {
-  constructor() {
+expwort default class ClearCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'clear',
+      nyame: 'clear',
       aliases: ['limpar'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageMessages', 'readMessageHistory', 'viewChannel']
+        entity: 'bwoth',
+        permissions: ['manyageMessages', 'weadMessageHistwory', 'viewChannyel']
       }],
-      slash: new CommandBase()
-        .setName('clear')
-        .setDescription('Clears messages in this channel. If specified a user, it clears messages from that user')
+      slash: nyew CwommandBase()
+        .setNyame('clear')
+        .setDescwiption('Clears messages in this channyel. If specifwied a user, it clears messages fwom that user')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(4)
-            .setName('quantity')
-            .setDescription('Amount of message to delete.')
+            .setNyame('quantity')
+            .setDescwiption('Amwount of message two delete.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const quantity = ctx.args.get('quantity').value
-    if (quantity > 100) return ctx.replyT('error', 'commands:clear.limit')
-    if (isNaN(quantity)) return ctx.replyT('error', 'commands:clear.nan')
-    const user = await ctx.getUser(ctx.args.get('user')?.value)
+    cwonst quantity = ctx.args.get('quantity').value
+    if (quantity > 100) return ctx.repwyT('erwor', 'cwommands:clear.limit')
+    if (isNyaN(quantity)) return ctx.repwyT('erwor', 'cwommands:clear.nyan')
+    cwonst user = await ctx.getUser(ctx.args.get('user')?.value)
 
-    if (user !== undefined && user === null) return ctx.replyT('error', 'commands:clear.userNotFound')
-    const filter = ((msg) => msg.author.id === user?.id)
-    ctx.message.channel.purge(Number(quantity), filter).then((msg) => {
-      ctx.message.channel.createMessage(`${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:clear.success', { messages: msg })}`)
+    if (user !== undefwinyed && user === nyuww) return ctx.repwyT('erwor', 'cwommands:clear.userNyotFwound')
+    cwonst fwilter = ((msg) => msg.authwor.id === user?.id)
+    ctx.message.channyel.purge(Nyumber(quantity), fwilter).then((msg) => {
+      ctx.message.channyel.cweateMessage(`${Emwoji.getEmwoji('success').mention} **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:clear.success', { messages: msg })}`)
     })
   }
 }

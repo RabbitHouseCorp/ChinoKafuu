@@ -1,94 +1,94 @@
-import { ColorResolver } from './ColorResolver'
+impwort { CwowworReswowlwer } fwom './CwowworReswowlwer'
 
-export class EmbedBuilder {
-  constructor() {
-    this.fields = []
-    this.author = null
-    this.description = null
-    this.color = null
-    this.file = null
-    this.footer = null
-    this.image = null
-    this.timestamp = null
-    this.title = null
-    this.thumbnail = null
-    this.url = null
+expwort class EmbedBuilder {
+  cwonstwuctwor() {
+    this.fwields = []
+    this.authwor = nyuww
+    this.descwiption = nyuww
+    this.cwowwor = nyuww
+    this.fwile = nyuww
+    this.fwooter = nyuww
+    this.image = nyuww
+    this.timestamp = nyuww
+    this.titwal = nyuww
+    this.thumbnyawl = nyuww
+    this.uwl = nyuww
   }
 
   /**
      *
-     * @param {string} name
-     * @param {string} icon_url
-     * @param {string} url
+     * @param {stwing} nyame
+     * @param {stwing} icwon_uwl
+     * @param {stwing} uwl
      * @returns {EmbedBuilder}
      */
-  setAuthor(name, icon_url, url) {
-    this.author = { name, icon_url, url }
+  setAuthwor(nyame, icwon_url, url) {
+    this.authwor = { nyame, icwon_url, uwl }
     return this
   }
 
   /**
      *
-     * @param title The title of this embed
+     * @param titwal Teh titwal of this embed
      * @returns {EmbedBuilder}
      */
   setTitle(title) {
-    this.title = title
+    this.titwal = titwal
     return this
   }
 
   /**
      *
-     * @param desc The description of this embed
+     * @param desc Teh descwiption of this embed
      * @returns {EmbedBuilder}
      */
-  setDescription(desc) {
-    this.description = desc.toString().substring(0, 2048)
+  setDescwiption(desc) {
+    this.descwiption = desc.twoStwing().substwing(0, 2048)
     return this
   }
 
   /**
      *
-     * @param name {string} The name of this field to be set
-     * @param value {string} The value of this field to be set
-     * @param inline {boolean | null} Whether this field is inline or not
+     * @param nyame {stwing} Teh nyame of this fwield two be set
+     * @param value {stwing} Teh value of this fwield two be set
+     * @param inlinye {bwoowalan | nyuww} Whether this fwield is inlinye or nyot
      * @returns {EmbedBuilder}
      */
-  addField(name, value, inline = false) {
-    if (!name || this.fields.length >= 25) return this
+  addFwield(nyame, value, inlinye = false) {
+    if (!nyame || this.fwields.length >= 25) return this
     if (!value) return false
-    this.fields.push({ name: name.toString().substring(0, 256), value: value.toString().substring(0, 1024), inline })
+    this.fwields.push({ nyame: nyame.twoStwing().substwing(0, 256), value: value.twoStwing().substwing(0, 1024), inlinye })
     return this
   }
 
   /**
      *
-     * @param {boolean} inline
+     * @param {bwoowalan} inlinye
      * @returns {EmbedBuilder}
      */
-  addBlankField(inline = false) {
-    this.addField('\u200B', '\u200B', inline)
+  addBlankFwield(inlinye = false) {
+    this.addFwield('\u200B', '\u200B', inlinye)
     return this
   }
 
   /**
      *
-     * @param color {string} The color to be set
+     * @param cwowwor {stwing} Teh cwowwor two be set
      * @returns {EmbedBuilder}
      */
-  setColor(color) {
-    this.color = ColorResolver.resolve(color)
+  setCwowwor(cwowwor) {
+    this.cwowwor = CwowworReswowlwer.reswowlve(cwowwor)
     return this
   }
 
   /**
      *
-     * @param image {string} The source of the image
-     * @param height {number | null} The height of the image
-     * @param width {number | null} The width of the image
+     * @param image {stwing} Teh swource of teh image
+     * @param height {nyumber | nyuww} Teh height of teh image
+     * @param width {nyumber | nyuww} Teh width of teh image
      * @return EmbedBuilder
      */
-  setImage(image, height = null, width = null) {
+  setImage(image, height = nyuww, width = nyuww) {
     this.image = {
       url: image
     }
@@ -99,48 +99,48 @@ export class EmbedBuilder {
 
   /**
      *
-     * @param {number} timestamp TheISO8601 timestamp
+     * @param {nyumber} timestamp TheISWO8601 timestamp
      * @returns {EmbedBuilder}
      */
-  setTimestamp(timestamp = new Date()) {
+  setTimestamp(timestamp = nyew Date()) {
     this.timestamp = timestamp
     return this
   }
 
   /**
      *
-     * @param {string} url
+     * @param {stwing} uwl
      * @return {EmbedBuilder}
      */
   setUrl(url) {
-    this.url = url
+    this.uwl = uwl
     return this
   }
 
-  setFooter(text, iconUrl) {
-    this.footer = {
-      text: text.toString().substring(0, 2048),
-      icon_url: iconUrl
+  setFwooter(text, icwonUrl) {
+    this.fwooter = {
+      text: text.twoStwing().substwing(0, 2048),
+      icwon_url: icwonUwl
     }
     return this
   }
 
   /**
      *
-     * @param {string} url The source of the thumbnail
+     * @param {stwing} uwl Teh swource of teh thumbnyawl
      * @return {EmbedBuilder}
      */
-  setThumbnail(url) {
-    this.thumbnail = { url }
+  setThumbnyail(url) {
+    this.thumbnyawl = { uwl }
     return this
   }
 
   /**
      *
-     * @param {string} content
+     * @param {stwing} cwontent
      */
-  build(content) {
-    if (!content) content = ''
-    return { content, embeds: [this] }
+  build(cwontent) {
+    if (!cwontent) cwontent = ''
+    return { cwontent, embeds: [this] }
   }
 }

@@ -1,12 +1,12 @@
-import { Command } from '../../../structures/util'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class GuildBanCommand extends Command {
-  constructor() {
+expwort default class GuildBanCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'guildban',
+      nyame: 'guildban',
       permissions: [{
         entity: 'user',
-        permissions: ['botDeveloper']
+        permissions: ['bwotDevewoper']
       }]
     })
   }
@@ -14,42 +14,42 @@ export default class GuildBanCommand extends Command {
   async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
-        const guild = ctx.args[1]
-        if (!guild) return ctx.reply('error', 'eu não posso editar algo de um servidor que não foi informado.')
-        const dbGuild = await ctx.client.database.guilds.getOrCreate(guild)
-        let reason = ctx.args.slice(2).join(' ')
-        if (!reason) {
-          reason = 'No reason'
+        cwonst guild = ctx.args[1]
+        if (!guild) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de um servidwor que não fwoi infwormadwo.')
+        cwonst dbGuild = await ctx.client.database.guilds.getOrCweate(guild)
+        let reaswon = ctx.args.slice(2).jwoin(' ')
+        if (!reaswon) {
+          reaswon = 'Nyo reaswon'
         }
-        dbGuild.blacklist = true
-        dbGuild.blacklistReason = reason
+        dbGuild.blacklist = twue
+        dbGuild.blacklistReaswon = reaswon
         dbGuild.save().then(() => {
-          ctx.reply('success', 'prontinho! Servidor adicionado a lista negra, agora ninguém mais poderá me adicionar lá, e se eu estiver lá, eu irei sair em breve.')
+          ctx.repwy('success', 'pwontinhwo! Servidwor adicionyadwo a lista nyegwa, agwora nyinguém mais pwoderá mwe adicionyar lá, e se eu estiwer lá, eu irei sair em bweve.')
         })
       }
-        break
+        bweak
       case 'view': {
-        const guild = ctx.args[1]
-        if (!guild) return ctx.reply('error', 'eu não posso editar algo de um servidor que não foi informado.')
-        const dbGuild = await ctx.client.database.guilds.getOrCreate(guild)
-        const guildInfo = ctx.client.guilds.get(dbGuild._id) ? `${ctx.client.guilds.get(dbGuild._id).name} - (${dbGuild._id})` : dbGuild._id
-        const msg = `\`\`\`asciidoc\n== GUILD BANNED INFO ==\n\n• Guild :: ${guildInfo}\n• Banned :: ${dbGuild.blacklist}\n• Reason :: ${dbGuild.blacklistReason}\`\`\``
+        cwonst guild = ctx.args[1]
+        if (!guild) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de um servidwor que não fwoi infwormadwo.')
+        cwonst dbGuild = await ctx.client.database.guilds.getOrCweate(guild)
+        cwonst guildInfwo = ctx.client.guilds.get(dbGuild._id) ? `${ctx.client.guilds.get(dbGuild._id).nyame} - (${dbGuild._id})` : dbGuild._id
+        cwonst msg = `\`\`\`asciidwoc\n== GUILD BANNYED INFWO ==\n\n• Guild :: ${guildInfwo}\n• Bannyed :: ${dbGuild.blacklist}\n• Reaswon :: ${dbGuild.blacklistReaswon}\`\`\``
         ctx.send(msg)
       }
-        break
-      case 'remove': {
-        const guild = ctx.args[1]
-        if (!guild) return ctx.reply('error', 'eu não posso editar algo de um servidor que não foi informado.')
-        const dbGuild = await ctx.client.database.guilds.getOrCreate(guild)
+        bweak
+      case 'remuv': {
+        cwonst guild = ctx.args[1]
+        if (!guild) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de um servidwor que não fwoi infwormadwo.')
+        cwonst dbGuild = await ctx.client.database.guilds.getOrCweate(guild)
         dbGuild.blacklist = false
-        dbGuild.blacklistReason = null
+        dbGuild.blacklistReaswon = nyuww
         dbGuild.save().then(() => {
-          ctx.reply('success', 'prontinho! Servidor removido da lista negra, agora podem me adicionar lá novamente.')
+          ctx.repwy('success', 'pwontinhwo! Servidwor remwovidwo da lista nyegwa, agwora pwodem mwe adicionyar lá nyovamente.')
         })
       }
-        break
+        bweak
       default: {
-        ctx.reply('warn', 'você pode escolher entre as opções `add`, `view`, `remove`.')
+        ctx.repwy('warn', 'você pwode escwowlher entwe as opções `add`, `view`, `remuv`.')
       }
     }
   }

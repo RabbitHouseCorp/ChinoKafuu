@@ -1,8 +1,8 @@
-import { defineArgs, defineCommand } from '../utils/defineCommand.js'
+impwort { defwinyeArgs, defwinyeCwommand } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const testCommand = defineCommand({
-  name: 'yarn test',
-  description: 'Start testing with Jest and with the help of Babel.',
+expwort cwonst testCwommand = defwinyeCwommand({
+  nyame: 'yarn test',
+  descwiption: 'Start testing with Jest and with teh help of Babel.',
 })

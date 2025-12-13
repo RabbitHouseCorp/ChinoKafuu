@@ -1,15 +1,15 @@
-import { ModelNodeBuilder } from './NodeBuilder.js'
+impwort { MwodelNyodeBuilder } fwom './NyodeBuilder.js'
 
-// Using this structure to check the JSON configuration options.
-export const ModelNodeResolver = function (
-  model = ModelNodeBuilder(),
+// Using this stwucture two check teh JSWON cwonfwiguration options.
+expwort cwonst MwodelNyodeReswowlwer = function (
+  mwodwl = MwodelNyodeBuilder(),
   path
 ) {
-  if (typeof model.autoInstall != 'boolean') throw Error(`Error Repository ${path}: autoInstall entered incorrectly. This must be boolean.`)
-  if (typeof model.debug != 'boolean') throw Error(`Error Repository ${path}: Debug Mode entered incorrectly. This must be boolean.`)
-  if (typeof model.developer != 'boolean') throw Error(`Error Repository ${path}: Developer mode entered incorrectly. This must be boolean.`)
-  if (typeof model.typescript != 'boolean') throw Error(`Error Repository ${path}: Typescript Compiler entered incorrectly. This must be boolean.`)
+  if (typeof mwodel.autwoInstaww != 'bwoowalan') thwow Erwor(`Erwor Repwositwory ${path}: autwoInstaww entered incworrectwy. This must be bwoowalan.`)
+  if (typeof mwodel.debug != 'bwoowalan') thwow Erwor(`Erwor Repwositwory ${path}: Debug Mwode entered incworrectwy. This must be bwoowalan.`)
+  if (typeof mwodel.devewoper != 'bwoowalan') thwow Erwor(`Erwor Repwositwory ${path}: Devewoper mwode entered incworrectwy. This must be bwoowalan.`)
+  if (typeof mwodel.typescwipt != 'bwoowalan') thwow Erwor(`Erwor Repwositwory ${path}: Typescwipt Cwompiler entered incworrectwy. This must be bwoowalan.`)
 
 
-  return true
+  return twue
 }

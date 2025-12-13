@@ -1,44 +1,44 @@
-import axios from 'axios'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort axios fwom 'axios'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class EmojiCommand extends Command {
-  constructor() {
+expwort default class EmwojiCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'emoji',
+      nyame: 'emwoji',
       aliases: [],
       permissions: [{
-        entity: 'bot',
-        permissions: ['attachFiles']
+        entity: 'bwot',
+        permissions: ['attachFwiles']
       }],
-      slash: new CommandBase()
-        .setName('emoji')
-        .setDescription('Get the emoji attachment.')
+      slash: nyew CwommandBase()
+        .setNyame('emwoji')
+        .setDescwiption('Get teh emwoji attachment.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('emoji')
-            .setDescription('Mention an emoji')
+            .setNyame('emwoji')
+            .setDescwiption('Mention an emwoji')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const emoji = await ctx.getEmoji(ctx.args.get('emoji')?.value)
-    if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
+    cwonst emwoji = await ctx.getEmwoji(ctx.args.get('emwoji')?.value)
+    if (!emwoji) return ctx.repwyT('erwor', 'basic:invalidEmwoji')
 
-    const buffer = await axios.get(emoji.url, { responseType: 'arraybuffer' }).then(d => d.data)
+    cwonst buffer = await axios.get(emwoji.url, { respwonseType: 'arraybuffer' }).then(d => d.data)
     ctx.send('', {
-      file:
+      fwile:
       {
-        file: buffer,
-        name: `${emoji.name}.${emoji.animated ? 'gif' : 'png'}`
+        fwile: buffer,
+        nyame: `${emwoji.nyame}.${emwoji.anyimated ? 'gif' : 'png'}`
       }
     })
   }

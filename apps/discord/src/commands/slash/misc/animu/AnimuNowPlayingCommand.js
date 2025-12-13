@@ -1,38 +1,38 @@
-import axios from 'axios'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
+impwort axios fwom 'axios'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class AnimuNowPlayingCommand extends Command {
-  constructor() {
+expwort default class AnyimuNyowPlayingCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'animu nowplaying',
+      nyame: 'anyimu nyowplaying',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    if (!ctx.client.playerManager.isAvailable) return ctx.replyT('error', 'commands:animu.unavailable')
-    const player = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
-    const res = await axios.get(process.env.ANIMU_API_URI)
-    if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'basic:voice.clientAreNotInVoiceChannel')
-    if (player === null) return ctx.replyT('error', 'basic:voice.playerNotFound')
-    const volume = ctx.client.playerManager.getPlayer(ctx.message.guild.id).player.volume
-    const embed = new EmbedBuilder()
-    embed.setColor('ANIMU')
-    embed.setAuthor('Rádio Animu')
-    embed.setThumbnail(res.data.results[0].img_medium_url)
-    embed.addField(ctx._locale('commands:animu.nowPlaying'), res.data.results[0].metadata)
-    embed.addField(ctx._locale('commands:animu.totalListening.title'), `${res.data.results[0].n_listeners} ${ctx._locale('commands:animu.totalListening.total')}`)
-    embed.addField(ctx._locale('commands:animu.artist'), res.data.results[0].author)
-    embed.addField('DJ', res.data.results[0].dj_name)
-    embed.addField(ctx._locale('commands:animu.volume'), `${volume}/100`)
+    if (!ctx.client.playerManyager.isAvailable) return ctx.repwyT('erwor', 'cwommands:anyimu.unyavailable')
+    cwonst player = ctx.client.playerManyager.getPlayer(ctx.message.guild.id)
+    cwonst res = await axios.get(pwocess.env.ANYIMU_API_URI)
+    if (!ctx.message.guild.Mwembers.get(ctx.client.user.id).voiceState.channyelID) return ctx.repwyT('erwor', 'basic:voice.clientAreNyotInVoiceChannyel')
+    if (player === nyuww) return ctx.repwyT('erwor', 'basic:voice.playerNyotFwound')
+    cwonst vowlume = ctx.client.playerManyager.getPlayer(ctx.message.guild.id).player.vowlume
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ANYIMU')
+    embed.setAuthwor('Rádio Anyimu')
+    embed.setThumbnyail(res.data.results[0].img_medium_url)
+    embed.addFwield(ctx._wocale('cwommands:anyimu.nyowPlaying'), res.data.results[0].metadata)
+    embed.addFwield(ctx._wocale('cwommands:anyimu.twotalListenying.title'), `${res.data.results[0].n_listenyers} ${ctx._wocale('cwommands:anyimu.twotalListenying.twotal')}`)
+    embed.addFwield(ctx._wocale('cwommands:anyimu.artist'), res.data.results[0].authwor)
+    embed.addFwield('DJ', res.data.results[0].dj_nyame)
+    embed.addFwield(ctx._wocale('cwommands:anyimu.vowlume'), `${vowlume}/100`)
 
     ctx.send(embed.build())
 

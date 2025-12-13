@@ -1,14 +1,14 @@
-import { defineCommand, supportedState } from '../utils/defineCommand.js'
+impwort { defwinyeCwommand, suppwortedState } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const typescriptCommand = defineCommand({
-  name: '--no-ts',
-  description: 'When using this command, the framework may not run the repository written in Typescript.',
-  supports: [
-    supportedState({
-      name: 'Typescript',
-      description: 'When using this command, you can lose the function of running typescript code in a Typescript written repository.'
+expwort cwonst typescwiptCwommand = defwinyeCwommand({
+  nyame: '--nyo-ts',
+  descwiption: 'Wen using this cwommand, teh fwamework may nyot run teh repwositwory wwitten in Typescwipt.',
+  suppworts: [
+    suppwortedState({
+      nyame: 'Typescwipt',
+      descwiption: 'Wen using this cwommand, u can wose teh function of runnying typescwipt cwode in a Typescwipt wwitten repwositwory.'
     }),
   ]
 })

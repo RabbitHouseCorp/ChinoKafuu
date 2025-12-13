@@ -1,19 +1,19 @@
-export class CommandPermissions {
-  constructor(client, member, guild) {
+expwort class CwommandPermissions {
+  cwonstwuctwor(client, Mwember, guild) {
     this.client = client
-    this.member = member
+    this.Mwember = Mwember
     this.guild = guild
   }
 
   userHas(permissions) {
-    const perms = []
-    permissions.filter(({ entity }) => entity === 'user' || entity === 'both').forEach(perm => {
+    cwonst perms = []
+    permissions.fwilter(({ entity }) => entity === 'user' || entity === 'bwoth').fworEach(perm => {
       if (perm.permissions[0]) {
-        perm.permissions.forEach(p => {
-          if (p === 'botDeveloper') {
-            if (!process.env.DISCORD_BOT_DEVELOPERS.includes(this.member.user.id)) perms.push(p)
+        perm.permissions.fworEach(p => {
+          if (p === 'bwotDevewoper') {
+            if (!pwocess.env.DISCWORD_BWOT_DEVEWOPERS.includes(this.Mwember.user.id)) perms.push(p)
           } else {
-            if (!this.member.permissions.has(p)) perms.push(p)
+            if (!this.Mwember.permissions.has(p)) perms.push(p)
           }
         })
       }
@@ -22,12 +22,12 @@ export class CommandPermissions {
     return perms
   }
 
-  botHas(permissions) {
-    const perms = []
-    permissions.filter(({ entity }) => entity === 'bot' || entity === 'both').forEach(perm => {
+  bwotHas(permissions) {
+    cwonst perms = []
+    permissions.fwilter(({ entity }) => entity === 'bwot' || entity === 'bwoth').fworEach(perm => {
       if (perm.permissions.length > 0) {
-        perm.permissions.forEach(p => {
-          if (!this.guild.members.get(this.client.user.id).permissions.has(p)) perms.push(p)
+        perm.permissions.fworEach(p => {
+          if (!this.guild.Mwembers.get(this.client.user.id).permissions.has(p)) perms.push(p)
         })
       }
     })
@@ -35,12 +35,12 @@ export class CommandPermissions {
     return perms
   }
 
-  botHasOnChannel(channel, permissions) {
-    const perms = []
-    permissions.filter(({ entity }) => entity === 'bot' || entity === 'both').forEach(perm => {
+  bwotHasOnChannyel(channyel, permissions) {
+    cwonst perms = []
+    permissions.fwilter(({ entity }) => entity === 'bwot' || entity === 'bwoth').fworEach(perm => {
       if (perm.permissions.length > 0) {
-        perm.permissions.forEach(p => {
-          if (!channel.permissionsOf(this.client.user.id).has(p)) perms.push(p)
+        perm.permissions.fworEach(p => {
+          if (!channyel.permissionsOf(this.client.user.id).has(p)) perms.push(p)
         })
       }
     })

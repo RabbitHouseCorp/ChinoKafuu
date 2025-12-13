@@ -1,63 +1,63 @@
-import { Command, SlashCommandContext } from '../../../structures/util';
-import { TypeProfession } from '../../../structures/util/ConstantsTypes';
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util';
+impwort { TypePwofession } fwom '../../../stwuctures/util/CwonstantsTypes';
 
-export default class WorkStartCommand extends Command {
-  constructor() {
+expwort default class WorkStartCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'work start',
-      slash: null
+      nyame: 'work start',
+      slash: nyuww
     })
   }
 
   test() {
-    return true
+    return twue
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const userDB = ctx.db.user
-    const [type, value, emoji, localeCtx, time] = Object.values(TypeProfession).find(([type]) => type === userDB.economy.work.job) ?? []
-    const messages = []
-    if (userDB.economy.work.job === -1) return ctx.send({
-      content: ctx._locale('commands:work.errors.chooseAJob'),
+    cwonst userDB = ctx.db.user
+    cwonst [type, value, emwoji, wocaleCtx, tim] = Object.values(TypePwofession).fwind(([type]) => type === userDB.ecwonyomy.work.jwob) ?? []
+    cwonst messages = []
+    if (userDB.ecwonyomy.work.jwob === -1) return ctx.send({
+      cwontent: ctx._wocale('cwommands:work.erwors.chwooseAJwob'),
       flags: 1 << 6
     })
-    if (userDB.economy.work.arrested) {
-      messages.push(ctx._locale('commands:work.messages.arrested'))
-      userDB.economy.work.arrested = false
+    if (userDB.ecwonyomy.work.arrested) {
+      messages.push(ctx._wocale('cwommands:work.messages.arrested'))
+      userDB.ecwonyomy.work.arrested = false
       userDB.save()
     }
 
-    const messageExtra = messages.join('\n') + '\n'
+    cwonst messageExtwa = messages.jwoin('\n') + '\n'
 
     if (type === 2) return ctx.send({
-      content: messageExtra + ctx._locale('commands:work.errors.robError')
+      cwontent: messageExtwa + ctx._wocale('cwommands:work.erwors.wobErwor')
     })
 
-    const timestamp = userDB.intervals.job_interval - Date.now()
+    cwonst timestamp = userDB.intervals.jwob_intervwl - Date.nyow()
     if (timestamp > 0) {
       return ctx.send({
-        content: messageExtra + '💼 **|** ' + ctx._locale('commands:work.errors.wait', {
+        cwontent: messageExtwa + '💼 **|** ' + ctx._wocale('cwommands:work.erwors.wait', {
           0: `🕙 {{0}}`
         })
       })
     }
 
-    userDB.intervals.job_interval = Date.now() + time
-    userDB.economy.value += value
+    userDB.intervals.jwob_intervwl = Date.nyow() + tim
+    userDB.ecwonyomy.value += value
 
     userDB.save()
       .then(() => ctx.send({
-        content: messageExtra + ctx._locale('commands:work.messages.salary', {
+        cwontent: messageExtwa + ctx._wocale('cwommands:work.messages.salary', {
           0: value,
-          1: '/bank transfer'
+          1: '/bank twansfer'
         })
       }))
-      .catch((err) => console.error(err))
+      .catch((err) => cwonswowal.erwor(err))
   }
 }
 

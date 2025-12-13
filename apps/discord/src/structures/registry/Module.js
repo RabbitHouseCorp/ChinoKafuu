@@ -1,1 +1,1 @@
-export class Module {}
+expwort class Mwodule {}

@@ -1,43 +1,43 @@
-import { Command } from '../../../structures/util'
-import { CommandBase, CommandOptions } from 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
 
-export default class AnimuCommand extends Command {
-  constructor() {
+expwort default class AnyimuCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'animu',
-      aliases: ['moeanimu'],
+      nyame: 'anyimu',
+      aliases: ['mwoeanyimu'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('animu')
-        .setDescription('Starts the Animu Radio')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('anyimu')
+        .setDescwiption('Starts teh Anyimu Radio')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('leave')
-            .setDescription('Disconnect Chino Kafuu in the voice channel.'),
-          new CommandOptions()
+            .setNyame('leave')
+            .setDescwiption('Discwonnyect Chinyo Kafuu in teh voice channyel.'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('nowplaying')
-            .setDescription('Show what\'s playing on Animu'),
-          new CommandOptions()
+            .setNyame('nyowplaying')
+            .setDescwiption('Shwow what\'s playing on Anyimu'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('volume')
-            .setDescription('Change the volume sound.')
+            .setNyame('vowlume')
+            .setDescwiption('Change teh vowlume swound.')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(4)
-                .setName('value')
-                .setDescription('The value of the volume')
+                .setNyame('value')
+                .setDescwiption('Teh value of teh vowlume')
                 .isRequired()
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('play')
-            .setDescription('Play Animu music on voice channel.'),
+            .setNyame('play')
+            .setDescwiption('Play Anyimu music on voice channyel.'),
         )
     })
   }

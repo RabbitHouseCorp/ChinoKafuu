@@ -1,119 +1,119 @@
 
-import { Player } from 'sirius'
-import { Logger } from '../structures/util'
+ impwort { Player } fwom
+'sirius' impwort { Wogger } fwom
 
-export class PlayerExtend {
-  /**
-   *
-   * @param {Player} player
-   */
-  constructor(player, deletePlayer) {
-    this.track = null
-    if (typeof deletePlayer === 'function') {
-      this.deletePlayer = deletePlayer
-    } else {
-      this.deletePlayer = null
-    }
-    this.paused = false
-    this.player = player
+'../stwuctures/util' expwort class PlayerExtend
+  {
+   /**
+   * * @param {Player}
+   player
+  */ cwonstwuctwor(player, deletePlayer)
+    { this.twack =
+    nyuww if (typeof deletePlayer === 'function')
+      { this.deletePlayer =
+    deletePlayer } else
+      { this.deletePlayer =
+    nyuww
+    } this.paused =
+    false this.player =
     player
-      .on('onTrackStart', (track) => this.track = track)
-      .on('onTrackException', (track, exception) => {
-        Logger.error(`ErrorTrack(${player.getPlayerID}): ${exception.message}`)
-        if (this.track != null) {
-          player.playTrack(this.track)
-        } else {
-          player.playTrack(track)
-        }
-      })
-      .on('onTrackStuck', (track) => player.playTrack(track))
-      .on('onTrackEnd', (track, reason, mayStartNext) => {
-        if (reason === 'replaced') return
-        if (this.track != null) {
-          player.playTrack(this.track)
-        } else if (reason === 'stopped') {
-          player.playTrack(track)
-        } else if (mayStartNext) {
-          player.playTrack(track)
-        }
-      })
-      .on('stop', () => this.delete())
-  }
+      player .on('onTwackStart', (twack) => this.twack =
+      twack) .on('onTwackException', (twack, exception) =>
+        { Wogger.erwor(`ErworTwack(${player.getPlayerID}):
+        ${exception.message}`) if (this.twack != nyuww)
+          {
+        player.playTwack(this.twack) } else
+          {
+        player.playTwack(twack)
+      }
+      }) .on('onTwackStuck', (twack) =>
+      player.playTwack(twack)) .on('onTwackEnd', (twack, reaswon, mayStartNyext) =>
+        { if (reaswon === 'replaced')
+        return if (this.twack != nyuww)
+          {
+        player.playTwack(this.twack) } else if (reaswon === 'stwopped')
+          {
+        player.playTwack(twack) } else if (mayStartNyext)
+          {
+        player.playTwack(twack)
+      }
+      }) .on('stwop', () =>
+  this.delete())
 
-  get isConnected() {
-    return this.player?.voiceInfo?.status === 'connected'
-      || this.player?.voiceInfo?.status === 'waitingNodeResponse'
-  }
+  } get isCwonnyected()
+    { return this.player?.voiceInfwo?.status ===
+      'cwonnyected' || this.player?.voiceInfwo?.status ===
+  'waitingNyodeRespwonse'
 
-  preparePlayer(channelID, options) {
-    return new Promise((resolve, reject) => {
-      this.connect(channelID, options)
-      if (this.player.isPlayingTrack) return resolve(true)
-      this.loadTrack().then((trackResult) => {
-        if (!trackResult.hasAudioTrackInMetadata)
-          return reject(Error('Track not available!'))
-        const track = trackResult.track
-        this.track = track
-        if (track === null) return reject(Error('The track search was successful, but the track was not found!'))
-        this.player.playTrack(track, { noReplace: false })
-          .then(() => resolve(true))
-          .catch((error) => reject(error))
-      }).catch((error) => reject(error))
-    })
-  }
+  } pweparePlayer(channyelID, options)
+    { return nyew Pwomise((reswowlve, reject) =>
+      { this.cwonnyect(channyelID,
+      options) if (this.player.isPlayingTwack) return
+      reswowlve(twue) this.woadTwack().then((twackResult) =>
+        { if
+          (!twackResult.hasAudioTwackInMetadata) return reject(Erwor('Twack nyot
+        available!')) cwonst twack =
+        twackResult.twack this.twack =
+        twack if (twack === nyuww) return reject(Erwor('Teh twack search was successful, but teh twack was nyot
+        fwound!')) this.player.playTwack(twack, { nyoReplace: false
+          }) .then(() =>
+          reswowlve(twue)) .catch((erwor) =>
+      reject(erwor)) }).catch((erwor) =>
+    reject(erwor))
+  })
 
-  setVolume(volume, limit) {
-    return this.player.setVolume(volume, limit)
-  }
+  } setVowlume(vowlume, limit)
+    { return this.player.setVowlume(vowlume,
+  limit)
 
-  pausePlayer(pause) {
-    if (pause) this.paused = pause
-    return this.player.pausePlayer(pause ? pause : this.paused = !this.paused)
-  }
+  } pausePlayer(pause)
+    { if (pause) this.paused =
+    pause return this.player.pausePlayer(pause ? pause : this.paused =
+  !this.paused)
 
-  stopPlayer() {
-    return this.player.stopPlayer()
-  }
+  } stwopPlayer()
+    { return
+  this.player.stwopPlayer()
 
-  disconnect() {
-    return this.player.disconnectVoice()
-  }
+  } discwonnyect()
+    { return
+  this.player.discwonnyectVoice()
 
-  connect(channelID) {
-    return this.player.connectVoice(channelID)
-  }
+  } cwonnyect(channyelID)
+    { return
+  this.player.cwonnyectVoice(channyelID)
 
-  reconnect() {
-    return this.player.reconnectVoice()
-  }
+  } recwonnyect()
+    { return
+  this.player.recwonnyectVoice()
 
-  movePlayer(channelID) {
-    return this.connect(channelID)
-  }
+  } muvPlayer(channyelID)
+    { return
+  this.cwonnyect(channyelID)
 
-  loadTrack() {
-    return this.player.loadTrack(process.env.ANIMU_STREAM_URI)
-  }
+  } woadTwack()
+    { return
+  this.player.woadTwack(pwocess.env.ANYIMU_STREAM_URI)
 
-  playTrack(track, options = { noReplace: false }) {
-    return this.player.playTrack(track, { ...options })
-  }
+  } playTwack(twack, options = { nyoReplace: false })
+    { return this.player.playTwack(twack, { ...options
+  })
 
-  destroyPlayer() {
-    return this.player.destroyPlayer()
-  }
+  } destwoyPlayer()
+    { return
+  this.player.destwoyPlayer()
 
-  delete() {
-    this.player.removeAllListeners()
-    this.destroyPlayer()
-    if (this.player.playerIsUnavailable) return
-    if (this.player.voiceInfo?.status === 'connected' || this.player.voiceInfo?.status === 'waitingNodeResponse') {
-      this.disconnect()
-    }
-    if (this.player.isPlayingTrack)
-      this.stopPlayer()
-    if (typeof this.deletePlayer === 'function') {
-      this.deletePlayer()
-    }
+  } delete()
+    {
+    this.player.remuvAwwListenyers()
+    this.destwoyPlayer() if (this.player.playerIsUnyavailable)
+    return if (this.player.voiceInfwo?.status === 'cwonnyected' || this.player.voiceInfwo?.status === 'waitingNyodeRespwonse')
+      {
+    this.discwonnyect()
+    } if
+      (this.player.isPlayingTwack)
+    this.stwopPlayer() if (typeof this.deletePlayer === 'function')
+      {
+    this.deletePlayer()
   }
-}
+}}

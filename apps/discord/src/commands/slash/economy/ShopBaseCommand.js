@@ -1,27 +1,27 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class ShopBaseCommand extends Command {
-  constructor() {
+expwort default class ShwopBaseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'shop background',
+      nyame: 'shwop backgwound',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('shop')
-        .setDescription('The shop command that allows you to buy new things to customize your account.')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('shwop')
+        .setDescwiption('Teh shwop cwommand that awwows u two buy nyew things two custwomize ywour accwount.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('profile')
-            .setDescription('You can buy a new profile that is in my stock.'),
-          // new CommandOptions()
+            .setNyame('pwofwile')
+            .setDescwiption('U can buy a nyew pwofwile that is in my stwock.'),
+          // nyew CwommandOptions()
           //   .setType(1)
-          //   .setName('background')
-          //   .setDescription('You can buy a new background that is in my stock.'),
+          //   .setNyame('backgwound')
+          //   .setDescwiption('U can buy a nyew backgwound that is in my stwock.'),
         )
     })
   }

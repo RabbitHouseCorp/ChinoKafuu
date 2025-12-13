@@ -1,84 +1,84 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class BanCommand extends Command {
-  constructor() {
+expwort default class BanCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'ban',
-      aliases: ['banir'],
+      nyame: 'ban',
+      aliases: ['banyir'],
       permissions: [{
-        entity: 'both',
-        permissions: ['banMembers', 'embedLinks']
+        entity: 'bwoth',
+        permissions: ['banmwembers', 'embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('ban')
-        .setDescription('Bans a user in the guild')
+      slash: nyew CwommandBase()
+        .setNyame('ban')
+        .setDescwiption('Bans a user in teh guild')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('To ban user.')
+            .setNyame('user')
+            .setDescwiption('Two ban user.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('reason')
-            .setDescription('Enter reason to ban user.'),
-          new CommandOptions()
+            .setNyame('reaswon')
+            .setDescwiption('Enter reaswon two ban user.'),
+          nyew CwommandOptions()
             .setType(4)
-            .setName('message_days')
-            .setDescription('Bans user with an optional timeframe.')
+            .setNyame('message_days')
+            .setDescwiption('Bans user with an optionywl timefwame.')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    const guildMember = ctx.message.guild.members.get(member.id)
-    const reason = ctx._locale('basic:punishment.reason', {
-      0: `@${ctx.message.member.user.username}`, 1: ctx.args.get('reason') ?
-        ctx.args.get('reason').value : ctx._locale('basic:noReason')
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    cwonst guildmwember = ctx.message.guild.Mwembers.get(Mwember.id)
+    cwonst reaswon = ctx._wocale('basic:punyishment.reaswon', {
+      0: `@${ctx.message.Mwember.user.usernyame}`, 1: ctx.args.get('reaswon') ?
+        ctx.args.get('reaswon').value : ctx._wocale('basic:nyoReaswon')
     })
     let quantity = ctx.args.get('message_days')?.value
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (guildMember) {
-      if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
-      if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    if (guildmwember) {
+      if (Mwember.id === ctx.message.Mwember.id) return ctx.repwyT('erwor', 'basic:punyishment.selfPunyishment')
+      if (Mwember.id === ctx.message.guild.ownyerID) return ctx.repwyT('erwor', 'basic:punyishment.ownyerPunyish')
     }
-    if (reason.trim().length > 512) return ctx.reply('error', 'basic:punishment.bigReason')
-    if (!quantity || quantity < 0 || quantity === Infinity || isNaN(quantity)) quantity = 0
-    try {
-      ctx.client.banGuildMember(ctx.message.guild.id, member.id, quantity, reason).then(() => {
-        const embed = new EmbedBuilder()
-        embed.setColor('MODERATION')
-        embed.setThumbnail(member.avatarURL)
-        embed.setTitle(ctx._locale('basic:punishment.banned', { 0: `@${member.username}` }))
-        embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
-        embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.member.username} (\`${ctx.message.member.id}\`)`)
-        embed.addField(ctx._locale('basic:punishment.embed.reason'), ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason'))
+    if (reaswon.twim().length > 512) return ctx.repwy('erwor', 'basic:punyishment.bigReaswon')
+    if (!quantity || quantity < 0 || quantity === Infwinyity || isNyaN(quantity)) quantity = 0
+    twy {
+      ctx.client.banGuildmwember(ctx.message.guild.id, Mwember.id, quantity, reaswon).then(() => {
+        cwonst embed = nyew EmbedBuilder()
+        embed.setCwowwor('MWODERATION')
+        embed.setThumbnyail(Mwember.avatarURL)
+        embed.setTitle(ctx._wocale('basic:punyishment.bannyed', { 0: `@${Mwember.usernyame}` }))
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.MwemberNyame'), `@${Mwember.usernyame} (\`${Mwember.id}\`)`)
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.staffNyame'), `@${ctx.message.Mwember.usernyame} (\`${ctx.message.Mwember.id}\`)`)
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.reaswon'), ctx.args.get('reaswon')?.value ?? ctx._wocale('basic:nyoReaswon'))
 
         ctx.send(embed.build())
 
-        const server = ctx.db.guild
-        if (server.punishModule) {
-          const channel = ctx.message.guild.channels.get(server.punishChannel)
-          if (!channel) {
-            server.punishModule = false
-            server.punishChannel = ''
-            server.save()
-            return ctx.replyT('error', 'events:channel-not-found')
+        cwonst serwer = ctx.db.guild
+        if (serwer.punyishMwodule) {
+          cwonst channywl = ctx.message.guild.channyels.get(serwer.punyishChannyel)
+          if (!channyel) {
+            serwer.punyishMwodule = false
+            serwer.punyishChannywl = ''
+            serwer.save()
+            return ctx.repwyT('erwor', 'events:channyel-nyot-fwound')
           }
 
-          channel.createMessage(embed.build())
+          channyel.cweateMessage(embed.build())
         }
       })
     } catch (err) {
-      ctx.client.emit('error', (ctx.client, err))
-      await ctx.replyT('error', 'basic:punishment.error')
+      ctx.client.emit('erwor', (ctx.client, err))
+      await ctx.repwyT('erwor', 'basic:punyishment.erwor')
     }
   }
 }

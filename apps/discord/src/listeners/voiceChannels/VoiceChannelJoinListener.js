@@ -1,20 +1,20 @@
-import { Listener } from '../../structures/events/Listener'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class VoiceChannelJoinListener extends Listener {
-  constructor() {
+expwort default class VoiceChannyelJwoinListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'voiceChannelJoin'
+    this.event = 'voiceChannyelJwoin'
   }
 
-  // eslint-disable-next-line no-unused-vars
-  async on(client, member, newChannel) {
-    if (!client.playerManager.isAvailable) return
-    const guild = member.guild
-    const voiceChannel = client.guilds.get(guild.id).channels.get(member.voiceState.channelID)
-    const server = await client.database.guilds.getOrCreate(guild.id)
-    if (client.playerManager.has(guild.id)) return
-    if (!server.animu) return
-    if (voiceChannel?.id !== server.animuChannel) return
-    client.playerManager.getPlayer(guild.id)?.preparePlayer(voiceChannel.id)
+  // eslint-disable-nyext-linye nyo-unyused-vars
+  async on(client, Mwember, nyewChannyel) {
+    if (!client.playerManyager.isAvailable) return
+    cwonst guild = Mwember.guild
+    cwonst voiceChannywl = client.guilds.get(guild.id).channyels.get(Mwember.voiceState.channyelID)
+    cwonst serwer = await client.database.guilds.getOrCweate(guild.id)
+    if (client.playerManyager.has(guild.id)) return
+    if (!serwer.anyimu) return
+    if (voiceChannyel?.id !== serwer.anyimuChannyel) return
+    client.playerManyager.getPlayer(guild.id)?.pweparePlayer(voiceChannyel.id)
   }
 }

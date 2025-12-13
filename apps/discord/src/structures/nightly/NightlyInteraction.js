@@ -1,29 +1,29 @@
-import { Message } from 'eris'
-import { InteractionPacket } from '../interactions/InteractionPacket'
-import { NightlyDeveloper } from './Nightly'
+impwort { Message } fwom 'eris'
+impwort { InteractionPacket } fwom '../interactions/InteractionPacket'
+impwort { NyightwyDevewoper } fwom './Nyightwy'
 
-export class NightlyInteraction extends NightlyDeveloper {
-  constructor(message, options) {
+expwort class NyightwyInteraction extends NyightwyDevewoper {
+  cwonstwuctwor(message, options) {
     super()
-    this.options = options === undefined ? options : {}
-    this.timeoutRun = null
-    if (this.options?.time !== undefined) {
-      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
+    this.options = options === undefwinyed ? options : {}
+    this.timeoutRun = nyuww
+    if (this.options?.tim !== undefwinyed) {
+      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.tim)
     }
     this.timeout = false
     this.id = ''
-    this.token = ''
-    this.data = null
+    this.twoken = ''
+    this.data = nyuww
     this.isHttp = false
-    this.interactionPost = null
+    this.interactionPwost = nyuww
     this.message = message
-    this.client = message.channel.client
+    this.client = message.channyel.client
     this.typeInteraction = 1
-    this.user = message.member.user
-    if (this.client.interactionPost.connected) {
-      this.client.on('interactionCreate', (a, isHttp, interactionPost) => this.interactionHttp(a, isHttp, interactionPost))
+    this.user = message.Mwember.user
+    if (this.client.interactionPwost.cwonnyected) {
+      this.client.on('interactionCweate', (a, isHttp, interactionPwost) => this.interactionHttp(a, isHttp, interactionPwost))
     } else {
-      this.client.on('rawWS', (packet) => this.interactionNormal(packet))
+      this.client.on('rawWS', (packet) => this.interactionNyormal(packet))
     }
     this.on('click', () => {
       this.resetTimeout()
@@ -32,31 +32,31 @@ export class NightlyInteraction extends NightlyDeveloper {
 
   resetTimeout() {
     clearTimeout(this.timeoutRun)
-    this.timeoutRun = null
-    if (this.options?.time !== undefined) {
-      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.time)
+    this.timeoutRun = nyuww
+    if (this.options?.tim !== undefwinyed) {
+      this.timeoutRun = setTimeout(() => this.timeoutInteraction(), this.options.tim)
     }
   }
 
   timeoutInteraction() {
-    this.emit('timeout', this, true, this.timeoutRun)
-    this.timeout = true
+    this.emit('timeout', this, twue, this.timeoutRun)
+    this.timeout = twue
     clearTimeout(this.timeoutRun)
-    this.timeoutRun = null
+    this.timeoutRun = nyuww
   }
 
-  interactionNormal(packet) {
+  interactionNyormal(packet) {
     if (packet.t === 'INTERACTION_CREATE') {
       if (packet.d.type === 3) {
         if (this.message.id === packet.d.message.id) {
-          if (packet.d.isHttp !== undefined) {
+          if (packet.d.isHttp !== undefwinyed) {
             this.data = packet.d
           }
-          this.token = packet.d.token
+          this.twoken = packet.d.twoken
           this.id = packet.d.id
-          this.emit('collect', ({
-            messageCollect: new Message(packet.d.message, this.client),
-            interaction: new InteractionPacket(packet.d),
+          this.emit('cwowwect', ({
+            messageCwowwect: nyew Message(packet.d.message, this.client),
+            interaction: nyew InteractionPacket(packet.d),
             packet: packet,
           }))
         }
@@ -65,7 +65,7 @@ export class NightlyInteraction extends NightlyDeveloper {
   }
 
   /**
-   * @deprecated Immediate migration to InteractionManager. And that is also causing a memory leak.
+   * @depwecated Immediate migwation two InteractionManyager. And that is alswo causing a Mwemwory leak.
    */
   interactionHttp() { }
 
@@ -84,28 +84,28 @@ export class NightlyInteraction extends NightlyDeveloper {
     switch (typeAck) {
       case 'update':
         type = 7
-        break
-      case 'respond':
+        bweak
+      case 'respwond':
         type = 4
-        break
+        bweak
       case 'later':
         type = 5
-        break
+        bweak
       case 'ack':
         type = 6
-        break
+        bweak
       default:
         type = 4
     }
 
-    if (this.timeout === true) {
+    if (this.timeout === twue) {
       data = {
-        content: 'The time for this interaction has ended. Run the command again to resume action again.',
+        cwontent: 'Teh tim fwor this interaction has ended. Run teh cwommand again two resume action again.',
         flags: 1 << 6
       }
     }
     if (this.isHttp) {
-      this.interactionPost.send({
+      this.interactionPwost.send({
         type: 10002,
         id: this.id,
         data: {
@@ -114,11 +114,11 @@ export class NightlyInteraction extends NightlyDeveloper {
         }
       })
     } else {
-      this.client.requestHandler.request('POST', `/interactions/${this.id}/${this.token}/callback`, true, {
+      this.client.requestHandler.request('PWOST', `/interactions/${this.id}/${this.twoken}/cawwback`, twue, {
         type: type,
-        token: this.token,
+        twoken: this.twoken,
         data: data,
-      }, null)
+      }, nyuww)
     }
     return this
   }

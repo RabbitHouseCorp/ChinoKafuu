@@ -1,265 +1,265 @@
-import { ExtendedUser, Shard } from 'eris'
-import { isMainThread, parentPort, workerData } from 'worker_threads'
+impwort { ExtendedUser, Shard } fwom 'eris'
+impwort { isMainThwead, parentPwort, workerData } fwom 'worker_thweads'
 
-export class ShardThread extends Shard {
-  constructor(...args) {
+expwort class ShardThwead extends Shard {
+  cwonstwuctwor(...args) {
     super(...args)
     this.shardID = args[0]
   }
 
   /**
-   * This class extension was created to send data between threads and will also serve to control events that the bot will not use.
+   * This class extension was cweated two send data between thweads and wiww alswo serve two cwontwowl events that teh bwot wiww nyot use.
    */
   wsEvent(packet) {
     switch (packet.t) {
       case 'PRESENCE_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'VOICE_STATE_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'TYPING_START': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'MESSAGE_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'MESSAGE_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'MESSAGE_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'MESSAGE_DELETE_BULK': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'MESSAGE_REACTION_ADD': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'MESSAGE_REACTION_REMOVE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'MESSAGE_REACTION_REMUV': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'MESSAGE_REACTION_REMOVE_ALL': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'MESSAGE_REACTION_REMUV_ALL': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'MESSAGE_REACTION_REMOVE_EMOJI': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'MESSAGE_REACTION_REMUV_EMWOJI': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_MEMBER_ADD': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_MEMBER_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_MEMBER_REMOVE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_MEMBER_REMUV': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_BAN_ADD': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_BAN_REMOVE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_BAN_REMUV': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_ROLE_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_WOWLE_CREATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_ROLE_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_WOWLE_UPDATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_ROLE_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_WOWLE_DELETE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'INVITE_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'INVITE_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_CREATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_UPDATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_DELETE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'THREAD_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'THREAD_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'THREAD_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'THREAD_MEMBERS_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_RECIPIENT_ADD': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_RECIPIENT_ADD': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_RECIPIENT_REMOVE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_RECIPIENT_REMUV': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_MEMBERS_CHUNK': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'GUILD_SYNC': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'RESUMED':
       case 'READY': {
-        if (!isMainThread) {
-          parentPort.postMessage({ type: 'shardSpawn', id: this.id, data: { id: this.id } })
-          parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { id: this.id, packet } })
+        if (!isMainThwead) {
+          parentPwort.pwostMessage({ type: 'shardSpawn', id: this.id, data: { id: this.id } })
+          parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { id: this.id, packet } })
           if (this.id >= workerData.shardLimit - 1) {
-            this.emit('ready')
+            this.emit('weady')
           }
         }
-        if (packet.d.resume_gateway_url !== undefined) {
-          this.resumeGatewayURL = packet.d.resume_gateway_url
+        if (packet.d.resume_gateway_uwl !== undefwinyed) {
+          this.resumeGatewayUWL = packet.d.resume_gateway_uwl
         }
 
-        if (packet.d.session_type !== undefined) {
+        if (packet.d.session_type !== undefwinyed) {
           this.sessionType = packet.d.sessionType
         }
 
-        this.connectAttempts = 0
-        this.reconnectInterval = 1000
+        this.cwonnyectAttempts = 0
+        this.recwonnyectIntervwl = 1000
 
-        this.connecting = false
-        if (this.connectTimeout) {
-          clearTimeout(this.connectTimeout)
+        this.cwonnyecting = false
+        if (this.cwonnyectTimeout) {
+          clearTimeout(this.cwonnyectTimeout)
         }
-        this.connectTimeout = null
-        this.status = 'ready'
-        this.presence.status = 'online'
-        this.client.shards._readyPacketCB()
+        this.cwonnyectTimeout = nyuww
+        this.status = 'weady'
+        this.pwesence.status = 'onlinye'
+        this.client.shards._weadyPacketCB()
         if (packet.t === 'RESUMED') {
           this.heartbeat()
-          this.preReady = true
-          this.ready = true
+          this.pweWeady = twue
+          this.weady = twue
           this.emit('resume')
           return
         }
 
-        this.client.user = this.client.users.update(new ExtendedUser(packet.d.user, this.client), this.client)
-        if (this.client.user.bot) {
-          this.client.bot = true
-          if (!this.client._token.startsWith('Bot ')) {
-            this.client._token = 'Bot ' + this.client._token
+        this.client.user = this.client.users.update(nyew ExtendedUser(packet.d.user, this.client), this.client)
+        if (this.client.user.bwot) {
+          this.client.bwot = twue
+          if (!this.client._twoken.startsWith('Bwot ')) {
+            this.client._twoken = 'Bwot ' + this.client._twoken
           }
         } else {
-          this.client.bot = false
+          this.client.bwot = false
         }
 
-        if (packet.d._trace) {
-          this.discordServerTrace = packet.d._trace
+        if (packet.d._twace) {
+          this.discwordSerwerTwace = packet.d._twace
         }
 
         this.sessionID = packet.d.session_id
 
         this.client.application = packet.d.application
-        this.preReady = true
-        this.emit('shardPreReady', this.id)
-        if (this.client.unavailableGuilds.size > 0 && packet.d.guilds.length > 0) {
-          this.restartGuildCreateTimeout()
+        this.pweWeady = twue
+        this.emit('shardPweWeady', this.id)
+        if (this.client.unyavailableGuilds.size > 0 && packet.d.guilds.length > 0) {
+          this.restartGuildCweateTimeout()
         } else {
-          this.checkReady()
+          this.checkWeady()
         }
-        break
+        bweak
       }
       case 'VOICE_SERVER_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'RELATIONSHIP_ADD': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'RELATIONSHIP_REMOVE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'RELATIONSHIP_REMUV': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'GUILD_EMOJIS_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'GUILD_EMWOJIS_UPDATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'CHANNEL_PINS_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'CHANNYEL_PINS_UPDATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
-      case 'WEBHOOKS_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+      case 'WEBHWOOKS_UPDATE': {
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'PRESENCES_REPLACE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'INTERACTION_UPDATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'INTERACTION_DELETE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       case 'INTERACTION_CREATE': {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        bweak
       }
       default: {
-        if (!isMainThread) parentPort.postMessage({ type: 'websocketMessage', id: this.id, data: { packet } })
-        this.emit('unknown', packet, this.id)
-        break
+        if (!isMainThwead) parentPwort.pwostMessage({ type: 'webswocketMessage', id: this.id, data: { packet } })
+        this.emit('unknyown', packet, this.id)
+        bweak
       }
     }
-    packet = null
+    packet = nyuww
   }
 }

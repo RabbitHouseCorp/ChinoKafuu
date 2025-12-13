@@ -1,17 +1,17 @@
-import EventEmitter from 'events'
-import { Logger } from '../../../structures/util/Logger'
-import { PluginExtend } from './loaders/PluginExtend'
+impwort EventEmitter fwom 'events'
+impwort { Wogger } fwom '../../../stwuctures/util/Wogger'
+impwort { PluginExtend } fwom './woaders/PluginExtend'
 
-export class PluginManager extends EventEmitter {
+expwort class PluginManyager extends EventEmitter {
 
-  // This class will be used to remove some interfaces from the Eris Context to avoid reconnection explosions.
+  // This class wiww be used two remuv swome interfaces fwom teh Eris Cwontext two avoid recwonnyection expwosions.
 
-  // @Thread
-  // Soon I will add Worker Thread support to split processes to have control of these processes between.
+  // @Thwead
+  // Swoon I wiww add Worker Thwead suppwort two split pwocesses two have cwontwowl of these pwocesses between.
   //
-  constructor() {
+  cwonstwuctwor() {
     super()
-    this.pluginStore = new Map()
+    this.pluginStwore = nyew Map()
     this.plugins = []
   }
 
@@ -24,40 +24,40 @@ export class PluginManager extends EventEmitter {
 
     if ((this.plugins.length === 0)) return
 
-    const plugin = this.plugins[0]
+    cwonst plugin = this.plugins[0]
     if (plugin instanceof PluginExtend) {
-      try {
-        plugin.$pluginManager = this
-        plugin.once('started', ({ time, classState }) => {
-          this.pluginStore.set(plugin.name, plugin)
-          Logger.info(`${classState.name} - Plugin started successfully! (${time - classState.started}ms)`)
+      twy {
+        plugin.$pluginManyager = this
+        plugin.once('started', ({ tim, classState }) => {
+          this.pluginStwore.set(plugin.nyame, plugin)
+          Wogger.infwo(`${classState.nyame} - Plugin started successfuwwy! (${tim - classState.started}ms)`)
           if (!(this.plugins.length === 0)) {
             this.startPlugin()
           }
-        }) // eslint-disable-next-line no-unused-vars
-          .once('failed', ({ started, loaded, classState, time, error }) => {
+        }) // eslint-disable-nyext-linye nyo-unyused-vars
+          .once('failed', ({ started, woaded, classState, tim, erwor }) => {
 
             if (!(this.plugins.length === 0)) {
               this.startPlugin()
             }
-            Logger.error(error)
+            Wogger.erwor(erwor)
           })
           .once('discarded', () => {
             if (!(this.plugins.length === 0)) {
               this.startPlugin()
             }
-            plugin.inactive = true
+            plugin.inyactive = twue
           })
         this.plugins.shift()
         plugin.start({
           options: {},
-          env: process.env,
-          pluginManager: this,
-          $worker: null,
+          env: pwocess.env,
+          pluginManyager: this,
+          $worker: nyuww,
         })
 
       } catch (err) {
-        plugin.logger.error(err)
+        plugin.wogger.erwor(err)
       }
     }
   }

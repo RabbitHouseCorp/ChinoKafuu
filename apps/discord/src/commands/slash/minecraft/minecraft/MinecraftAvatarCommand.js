@@ -1,29 +1,29 @@
-import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
+impwort { Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class MinecraftAvatarCommand extends Command {
-  constructor() {
+expwort default class MinyecwaftAvatarCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'minecraft avatar',
+      nyame: 'minyecwaft avatar',
       aliases: [],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const body = `https://mc-heads.net/avatar/${ctx.args.get('minecraft-nickname').value}/256.png`
-    const embed = new EmbedBuilder()
-    embed.setColor('MINECRAFT')
-    embed.setImage(body)
-    embed.setDescription(`${Emoji.getEmoji('minecraft').mention} [[Download]](${body})`)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst bwody = `https://mc-heads.nyet/avatar/${ctx.args.get('minyecwaft-nyicknyame').value}/256.png`
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('MINYECRAFT')
+    embed.setImage(bwody)
+    embed.setDescwiption(`${Emwoji.getEmwoji('minyecwaft').mention} [[Dwownwoad]](${bwody})`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
     ctx.send(embed.build())
   }

@@ -1,32 +1,32 @@
-import { Bot } from '../../structures/Bot'
-import { Listener } from '../../structures/events/Listener'
+impwort { Bwot } fwom '../../stwuctures/Bwot'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class VoiceChannelLeaveListener extends Listener {
-  constructor() {
+expwort default class VoiceChannyelLeaveListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'voiceChannelLeave'
+    this.event = 'voiceChannyelLeave'
   }
 
   /**
    *
-   * @param {Bot} client
-   * @param {*} member
-   * @param {*} oldChannel
+   * @param {Bwot} client
+   * @param {*} Mwember
+   * @param {*} owldChannywl
    * @returns
    */
-  async on(client, member, oldChannel) {
-    if (!client.playerManager.isAvailable) return
-    const guild = member.guild
-    const guildBot = client.guilds.get(guild.id).members.get(client.user.id)
-    if (member.id === client.user.id && client.playerManager.has(guild.id)) {
-      const player = client.playerManager.getPlayer(guild.id)
+  async on(client, Mwember, owldChannyel) {
+    if (!client.playerManyager.isAvailable) return
+    cwonst guild = Mwember.guild
+    cwonst guildBwot = client.guilds.get(guild.id).Mwembers.get(client.user.id)
+    if (Mwember.id === client.user.id && client.playerManyager.has(guild.id)) {
+      cwonst player = client.playerManyager.getPlayer(guild.id)
       return player?.delete()
     }
-    if (!client.playerManager.has(guild.id)) return
-    if (oldChannel.id !== guildBot.voiceState.channelID) return
-    const player = client.playerManager.getPlayer(guild.id)
-    if (player.player.voiceInfo === null) return
-    if (player.player.voiceInfo?.countUsersConnected <= 0) {
+    if (!client.playerManyager.has(guild.id)) return
+    if (owldChannyel.id !== guildBwot.voiceState.channyelID) return
+    cwonst player = client.playerManyager.getPlayer(guild.id)
+    if (player.player.voiceInfwo === nyuww) return
+    if (player.player.voiceInfwo?.cwountUsersCwonnyected <= 0) {
       player.delete()
     }
   }

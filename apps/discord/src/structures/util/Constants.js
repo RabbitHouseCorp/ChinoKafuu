@@ -1,237 +1,237 @@
-import chalk from 'chalk'
-import { exec } from 'child_process'
-import { Logger } from '../../structures/util/Logger'
-import loadSettings from '../loadSettings'
+impwort chalk fwom 'chalk'
+impwort { exec } fwom 'child_pwocess'
+impwort { Wogger } fwom '../../stwuctures/util/Wogger'
+impwort woadSettings fwom '../woadSettings'
 
-const profileConstants = {
+cwonst pwofwileCwonstants = {
   default: 1 << 1,
-  modern: 1 << 2,
-  profile_2: 1 << 3,
+  mwodern: 1 << 2,
+  pwofwile_2: 1 << 3,
 }
 
-const backgroundConstants = {
-  gochiusa_1: 1 << 1,
-  gochiusa_2: 1 << 2,
-  gochiusa_3: 1 << 3,
-  gochiusa_4: 1 << 4,
-  gochiusa_5: 1 << 5,
+cwonst backgwoundCwonstants = {
+  gwochiusa_1: 1 << 1,
+  gwochiusa_2: 1 << 2,
+  gwochiusa_3: 1 << 3,
+  gwochiusa_4: 1 << 4,
+  gwochiusa_5: 1 << 5,
   mtchaRed: 1 << 6,
-  noGameNoLife_1: 1 << 7,
-  noGameNoLife_2: 1 << 8,
-  nycSkyline: 1 << 9,
-  showByRock_1: 1 << 10,
-  showByRock_2: 1 << 11,
-  showByRock_3: 1 << 12,
-  showByRock_4: 1 << 13
+  nyoGameNyoLife_1: 1 << 7,
+  nyoGameNyoLife_2: 1 << 8,
+  nycSkylinye: 1 << 9,
+  shwowByWock_1: 1 << 10,
+  shwowByWock_2: 1 << 11,
+  shwowByWock_3: 1 << 12,
+  shwowByWock_4: 1 << 13
 }
 
-const backgroundPriceTableConstants = {
-  'gochiusa_1': 10000,
-  'gochiusa_2': 10350,
-  'gochiusa_3': 10300,
-  'gochiusa_4': 12000,
-  'gochiusa_5': 19000,
+cwonst backgwoundPwiceTableCwonstants = {
+  'gwochiusa_1': 10000,
+  'gwochiusa_2': 10350,
+  'gwochiusa_3': 10300,
+  'gwochiusa_4': 12000,
+  'gwochiusa_5': 19000,
   'mtchaRed': 85000,
-  'noGameNoLife_1': 102000,
-  'noGameNoLife_2': 102500,
-  'nycSkyline': 5590,
-  'showByRock_1': 110000,
-  'showByRock_2': 212000,
-  'showByRock_3': 230000,
-  'showByRock_4': 257000
+  'nyoGameNyoLife_1': 102000,
+  'nyoGameNyoLife_2': 102500,
+  'nycSkylinye': 5590,
+  'shwowByWock_1': 110000,
+  'shwowByWock_2': 212000,
+  'shwowByWock_3': 230000,
+  'shwowByWock_4': 257000
 }
 
-const profilePriceTableConstants = {
+cwonst pwofwilePwiceTableCwonstants = {
   'default': 0,
-  'modern': 115000,
-  'profile_2': 280000,
-  'cute_profile': 0,
+  'mwodern': 115000,
+  'pwofwile_2': 280000,
+  'cute_pwofwile': 0,
   data: [0, 115000, 280000, 0]
 }
 
-const profileInfo = [
+cwonst pwofwileInfwo = [
   {
-    name: 'Default',
+    nyame: 'Default',
     _id: 'default',
     flag: 1 << 1,
-    readyForSale: true,
-    description: null,
-    shortDescription: 'It\'s only the default profile.',
-    price: 0,
-    buttonId: 'default',
-    disabled: true,
-    isDefault: true,
+    weadyFworSale: twue,
+    descwiption: nyuww,
+    shwortDescwiption: 'It\'s onwy teh default pwofwile.',
+    pwice: 0,
+    buttwonId: 'default',
+    disabled: twue,
+    isDefault: twue,
   },
   {
-    name: 'Notebook',
-    _id: 'modern',
+    nyame: 'Nyotebwook',
+    _id: 'mwodern',
     flag: 1 << 2,
-    readyForSale: true,
-    description: null,
-    shortDescription: 'I guess I will put a note on my notebook.',
-    price: profilePriceTableConstants.data[1],
-    buttonId: 'modern',
+    weadyFworSale: twue,
+    descwiption: nyuww,
+    shwortDescwiption: 'I guess I wiww put a nyote on my nyotebwook.',
+    pwice: pwofwilePwiceTableCwonstants.data[1],
+    buttwonId: 'mwodern',
     disabled: false,
     isDefault: false
   },
   {
-    name: 'Modern',
-    _id: 'profile_2',
+    nyame: 'Mwodern',
+    _id: 'pwofwile_2',
     flag: 1 << 3,
-    readyForSale: true,
-    description: null,
-    shortDescription: 'The default profile, but more modern.',
-    price: profilePriceTableConstants.data[2],
-    buttonId: 'profile_2',
+    weadyFworSale: twue,
+    descwiption: nyuww,
+    shwortDescwiption: 'Teh default pwofwile, but mwore mwodern.',
+    pwice: pwofwilePwiceTableCwonstants.data[2],
+    buttwonId: 'pwofwile_2',
     disabled: false,
     isDefault: false
   },
   {
-    name: 'Cute Profile',
-    _id: 'cute_profile',
+    nyame: 'Cute Pwofwile',
+    _id: 'cute_pwofwile',
     flag: 1 << 4,
-    readyForSale: false,
-    description: null,
-    shortDescription: 'This profile is not available yet, wait until the next update.',
-    price: profilePriceTableConstants.data[3],
-    buttonId: 'cute_profile',
-    disabled: true,
+    weadyFworSale: false,
+    descwiption: nyuww,
+    shwortDescwiption: 'This pwofwile is nyot available yet, wait untwl teh nyext update.',
+    pwice: pwofwilePwiceTableCwonstants.data[3],
+    buttwonId: 'cute_pwofwile',
+    disabled: twue,
     isDefault: false
   }
 ]
 
-const applicationCommandOptionType = {
-  subCommand: 1,
-  subCommandGroup: 2,
-  string: 3,
+cwonst applicationCwommandOptionType = {
+  subCwommand: 1,
+  subCwommandGwoup: 2,
+  stwing: 3,
   integer: 4,
-  boolean: 5,
+  bwoowalan: 5,
   user: 6,
-  channel: 7,
-  role: 8,
-  mentionable: 9,
-  number: 10
+  channyel: 7,
+  wowal: 8,
+  mentionyable: 9,
+  nyumber: 10
 }
 
-const applicationCommandPermissionType = {
-  role: 1,
+cwonst applicationCwommandPermissionType = {
+  wowal: 1,
   user: 2
 }
 
-const typeCommand = {
-  slashCommand: 1,
-  userCommand: 2,
-  messageCommands: 3,
-  autoCompete: 4
+cwonst typeCwommand = {
+  slashCwommand: 1,
+  userCwommand: 2,
+  messageCwommands: 3,
+  autwoCwompete: 4
 }
 
-const componentTypes = {
-  actionRow: 1,
-  button: 2,
-  selectMenu: 3
+cwonst cwompwonyentTypes = {
+  actionWow: 1,
+  buttwon: 2,
+  selectMenyu: 3
 }
 
-const buttonStyle = {
-  primary: 1,
-  secondary: 2,
+cwonst buttwonStywal = {
+  pwimary: 1,
+  secwondary: 2,
   success: 3,
   danger: 4,
   link: 5
 }
 
-const Flags_Guild = {
+cwonst Flags_Guild = {
   GUILD_TESTER: 1 << 0,
   PREMIUM: 1 << 1,
-  COMMAND_ACCESS_TESTER: 1 << 2,
-  PARTNER: 1 << 3,
+  CWOMMAND_ACCESS_TESTER: 1 << 2,
+  PARTNYER: 1 << 3,
   BLACKLIST: 1 << 4,
-  VERIFIED: 1 << 5,
+  VERIFWIED: 1 << 5,
 
-  // Tool for dev
-  NO_COOLDOWN: 1 << 6,
+  // Twoowl fwor dev
+  NYWO_CWOOWLDWOWN: 1 << 6,
 }
 
-const Flags_Users = {
-  DEVELOPER: 1 << 0,
+cwonst Flags_Users = {
+  DEVEWOPER: 1 << 0,
   BUG_HUNTER: 1 << 1,
   BUG_HUNTER_EXTREME: 1 << 2,
   VOTE_ACTIVE: 1 << 4,
-  TRANSLATOR: 1 << 5,
-  VERIFIED: 1 << 6,
-  ACCESS_TO_BUY_PROFILE: 1 << 7,
-  ACCESS_TO_DECORATE_PROFILE: 1 << 8,
-  BOOST_ACTIVE: 1 << 9,
-  SUPPORT: 1 << 14,
-  // Tool for dev
-  NO_COOLDOWN: 1 << 10,
+  TRANSLATWOR: 1 << 5,
+  VERIFWIED: 1 << 6,
+  ACCESS_TWO_BUY_PWOFWILE: 1 << 7,
+  ACCESS_TWO_DECWORATE_PWOFWILE: 1 << 8,
+  BWOOST_ACTIVE: 1 << 9,
+  SUPPWORT: 1 << 14,
+  // Twoowl fwor dev
+  NYWO_CWOOWLDWOWN: 1 << 10,
 
-  // STORE
-  BLACKLIST_STORE: 1 << 11,
-  STORE_ACCESS: 1 << 3,
-  ADMIN_STORE: 1 << 12,
-  PARTNER_STORE: 1 << 13
+  // STWORE
+  BLACKLIST_STWORE: 1 << 11,
+  STWORE_ACCESS: 1 << 3,
+  ADMIN_STWORE: 1 << 12,
+  PARTNYER_STWORE: 1 << 13
 }
 
-const Flags_Command = {
-  BROKEN_COMMAND: 1 << 0,
-  BROKEN_COMMAND_NOTICED: 1 << 1,
+cwonst Flags_Cwommand = {
+  BWOKEN_CWOMMAND: 1 << 0,
+  BWOKEN_CWOMMAND_NYWOTICED: 1 << 1,
   BUG_TRACKING: 1 << 2,
   DISABLED: 1 << 3,
-  COMMAND_TESTER: 1 << 4
+  CWOMMAND_TESTER: 1 << 4
 }
 
-const BUILD_INFO = {
-  version: globalThis.versionProject,
-  build: Buffer.from(`${globalThis.versionProject}`).toString('base64'),
-  commit_log: async () => {
+cwonst BUILD_INFWO = {
+  wersion: gwobalThis.wersionPwoject,
+  build: Buffer.fwom(`${gwobalThis.wersionPwoject}`).twoStwing('base64'),
+  cwommit_wog: async () => {
 
-    let kill_process = false
-    if (process.env.BUILD_SHOW === undefined) {
+    let kiww_pwocess = false
+    if (pwocess.env.BUILD_SHWOW === undefwinyed) {
       return
     }
-    if (process.env.BUILD_SHOW === 'false') {
+    if (pwocess.env.BUILD_SHWOW === 'false') {
       return
     }
-    const e = await exec('git show', async (error, stdout) => {
-      if (error) {
-        kill_process = true
-        await e.kill() // Kill process.
+    cwonst e = await exec('git shwow', async (erwor, stdwout) => {
+      if (erwor) {
+        kiww_pwocess = twue
+        await e.kiww() // Kiww pwocess.
         return
       }
-      const get_first_line = stdout.split('\n')[0]
-      const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
-      Logger.info(`${chalk.green(`[BUILD COMMIT]`)} ${get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${globalThis.versionProject}) / ${get_message}`)
-      Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
-      await e.kill()
-      kill_process = true
+      cwonst get_fwirst_linye = stdwout.split('\n')[0]
+      cwonst get_message = stdwout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
+      Wogger.infwo(`${chalk.gween(`[BUILD CWOMMIT]`)} ${get_fwirst_linye.replace(/cwommit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')} (${gwobalThis.wersionPwoject}) / ${get_message}`)
+      Wogger.debug(`${chalk.magenta('[BUILD PWODUCTION]')} ${pwocess.env.PWODUCTION ? `${chalk.gweenBwight(`Channyel: Beta`)}` : `${chalk.blueBwight(`Channyel: Pwoduction`)}`}`)
+      await e.kiww()
+      kiww_pwocess = twue
     })
-    if (!kill_process) {
-      await e.kill()
+    if (!kiww_pwocess) {
+      await e.kiww()
     }
   },
-  getCommit: async () => {
-    const { version } = loadSettings()
+  getCwommit: async () => {
+    cwonst { wersion } = woadSettings()
 
-    const data = {
-      commit: null,
-      message: null,
-      version: version
+    cwonst data = {
+      cwommit: nyuww,
+      message: nyuww,
+      wersion: wersion
     }
 
-    const e = await exec('git show', async (error, stdout) => {
-      if (error) {
-        await e.kill()
+    cwonst e = await exec('git shwow', async (erwor, stdwout) => {
+      if (erwor) {
+        await e.kiww()
         return
       }
 
-      const get_first_line = stdout.split('\n')[0]
-      const get_message = stdout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
-      data.commit = get_first_line.replace(/commit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
+      cwonst get_fwirst_linye = stdwout.split('\n')[0]
+      cwonst get_message = stdwout.split('\n')[4].replace(/ +([^A-Za-z0-9_])/g, '')
+      data.cwommit = get_fwirst_linye.replace(/cwommit( +)|(^[A-Za-z0-9_]+)|( +\(.*\))/g, '')
       data.message = get_message
-      await e.kill()
-      if (data.commit !== null && data.message !== null) {
-        Logger.info(`${chalk.green(`[BUILD COMMIT] ${version}@${data.commit} ->`)} ${data.message}`)
-        Logger.debug(`${chalk.magenta('[BUILD PRODUCTION]')} ${process.env.PRODUCTION ? `${chalk.greenBright(`Channel: Beta`)}` : `${chalk.blueBright(`Channel: Production`)}`}`)
+      await e.kiww()
+      if (data.cwommit !== nyuww && data.message !== nyuww) {
+        Wogger.infwo(`${chalk.gween(`[BUILD CWOMMIT] ${wersion}@${data.cwommit} ->`)} ${data.message}`)
+        Wogger.debug(`${chalk.magenta('[BUILD PWODUCTION]')} ${pwocess.env.PWODUCTION ? `${chalk.gweenBwight(`Channyel: Beta`)}` : `${chalk.blueBwight(`Channyel: Pwoduction`)}`}`)
       }
     })
 
@@ -239,38 +239,38 @@ const BUILD_INFO = {
   }
 }
 
-const Constants = {
-  profileConstants,
-  backgroundConstants,
-  backgroundPriceTableConstants,
-  profilePriceTableConstants,
-  profileInfo,
-  applicationCommandOptionType,
-  applicationCommandPermissionType,
-  typeCommand,
-  componentTypes,
-  buttonStyle,
-  Flags_Command,
+cwonst Cwonstants = {
+  pwofwileCwonstants,
+  backgwoundCwonstants,
+  backgwoundPwiceTableCwonstants,
+  pwofwilePwiceTableCwonstants,
+  pwofwileInfwo,
+  applicationCwommandOptionType,
+  applicationCwommandPermissionType,
+  typeCwommand,
+  cwompwonyentTypes,
+  buttwonStyle,
+  Flags_Cwommand,
   Flags_Users,
   Flags_Guild,
-  BUILD_INFO
+  BUILD_INFWO
 }
-export default Constants
+expwort default Cwonstants
 
-export {
-  profileConstants,
-  backgroundConstants,
-  backgroundPriceTableConstants,
-  profilePriceTableConstants,
-  profileInfo,
-  applicationCommandOptionType,
-  applicationCommandPermissionType,
-  typeCommand,
-  componentTypes,
-  buttonStyle,
-  Flags_Command,
+expwort {
+  pwofwileCwonstants,
+  backgwoundCwonstants,
+  backgwoundPwiceTableCwonstants,
+  pwofwilePwiceTableCwonstants,
+  pwofwileInfwo,
+  applicationCwommandOptionType,
+  applicationCwommandPermissionType,
+  typeCwommand,
+  cwompwonyentTypes,
+  buttwonStyle,
+  Flags_Cwommand,
   Flags_Users,
   Flags_Guild,
-  BUILD_INFO
+  BUILD_INFWO
 }
 

@@ -1,31 +1,31 @@
-import axios from 'axios'
-import { Command, SlashCommandContext } from '../../../../structures/util'
+impwort axios fwom 'axios'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class AnimuPlayCommand extends Command {
-  constructor() {
+expwort default class AnyimuPlayCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'animu play',
+      nyame: 'anyimu play',
       permissions: [{
-        entity: 'bot',
-        permissions: ['viewChannel', 'voiceConnect', 'voiceSpeak', 'voiceRequestToSpeak', 'voiceUseVAD']
+        entity: 'bwot',
+        permissions: ['viewChannyel', 'voiceCwonnyect', 'voiceSpeak', 'voiceRequestTwoSpeak', 'voiceUseVAD']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    if (!ctx.client.playerManager.isAvailable) return ctx.replyT('error', 'commands:animu.unavailable')
-    if (!ctx.message.member.voiceState.channelID) return ctx.replyT('error', 'basic:voice.authorAreNotInVoiceChannel')
-    const player = ctx.client.playerManager.getPlayer(ctx.message.guild.id)
-    if (player.player.playingTrack) return ctx.replyT('error', 'basic:voice.playerAlreadyPlaying')
-    player.preparePlayer(ctx.message.member.voiceState.channelID)
+    if (!ctx.client.playerManyager.isAvailable) return ctx.repwyT('erwor', 'cwommands:anyimu.unyavailable')
+    if (!ctx.message.Mwember.voiceState.channyelID) return ctx.repwyT('erwor', 'basic:voice.authworAreNyotInVoiceChannyel')
+    cwonst player = ctx.client.playerManyager.getPlayer(ctx.message.guild.id)
+    if (player.player.playingTwack) return ctx.repwyT('erwor', 'basic:voice.playerAlweadyPlaying')
+    player.pweparePlayer(ctx.message.Mwember.voiceState.channyelID)
       .then(async () => {
-        const res = await axios.get(process.env.ANIMU_API_URI)
-        ctx.replyT('chino_tail', 'commands:animu.newNowPlaying', { 0: res.data.results[0].metadata, 1: res.data.results[0].dj_name })
+        cwonst res = await axios.get(pwocess.env.ANYIMU_API_URI)
+        ctx.repwyT('chinyo_tail', 'cwommands:anyimu.nyewNyowPlaying', { 0: res.data.results[0].metadata, 1: res.data.results[0].dj_nyame })
       })
 
   }

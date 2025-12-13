@@ -1,140 +1,140 @@
 /**
  * @interface
- * @name IUserCollection
+ * @nyame IUserCwowwection
  */
-export default class IUserCollection {
+expwort default class IUserCwowwection {
   /**
-  * @type {string}
+  * @type {stwing}
   */
   id
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
   yens
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
-  timeDaily
+  timeDaiwy
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
   sugarcube
 
   /**
-  * @type {boolean}
+  * @type {bwoowalan}
   */
   afk
 
   /**
-  * @type {string | null}
+  * @type {stwing | nyuww}
   */
-  afkReason
+  afkReaswon
 
   /**
-  * @type {boolean}
+  * @type {bwoowalan}
   */
   blacklist
 
   /**
-  * @type {string | null}
+  * @type {stwing | nyuww}
   */
-  blacklistReason
+  blacklistReaswon
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  aboutme
+  abwoutme
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  profileColor
+  pwofwileCwowwor
 
   /**
-  * @type {boolean}
+  * @type {bwoowalan}
   */
   isMarry
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
   marryWith
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
-  backgrounds
+  backgwounds
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
-  profiles
+  pwofwiles
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
   flags
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
   rep
 
   /**
-  * @type {number}
+  * @type {nyumber}
   */
   reptime
 
   /**
-  * @type {string | null}
+  * @type {stwing | nyuww}
   */
   shipValue
 
   /**
-  * @type {{job: number}}
+  * @type {{jwob: nyumber}}
   */
   lastUpdates
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  background
+  backgwound
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
   sticker
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  profileType
+  pwofwileType
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  backgroundList
+  backgwoundList
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  profileList
+  pwofwileList
 
   /**
-  * @type {string}
+  * @type {stwing}
   */
-  stopNotify
+  stwopNyotify
 
   /**
-  * @type {{bank: number, value: number, work: {job: number, arrested: boolean}}}
+  * @type {{bank: nyumber, value: nyumber, work: {jwob: nyumber, arrested: bwoowalan}}}
   */
-  economy
+  ecwonyomy
 
   /**
-  * @type {{job_interval: number, rob_interval: number, arrested_interval: number}}
+  * @type {{jwob_interval: nyumber, wob_interval: nyumber, arrested_interval: nyumber}}
   */
   intervals
 

@@ -1,96 +1,96 @@
-import {
-  defineInteraction,
-  defineInteractionDefault,
-  defineInteractionFunction
-} from '../../structures/InteractionFunction'
-import { Logger } from '../../structures/util'
+impwort {
+  defwinyeInteraction,
+  defwinyeInteractionDefault,
+  defwinyeInteractionFunction
+} fwom '../../stwuctures/InteractionFunction'
+impwort { Wogger } fwom '../../stwuctures/util'
 
-export default defineInteractionDefault(
-  defineInteraction({
-    name: 'bankInteraction',
+expwort default defwinyeInteractionDefault(
+  defwinyeInteraction({
+    nyame: 'bankInteraction',
   }),
-  defineInteractionFunction(async ({ useModal, editMessageT, _locale, defineState, getData, editMessage }) => {
-    const { data: dataInteraction } = getData()
-    const type = dataInteraction?.custom_id === 'withDraw' ? ':withDraw' : ':transfer'
-    const component = [{
+  defwinyeInteractionFunction(async ({ useMwodal, editMessageT, _wocale, defwinyeState, getData, editMessage }) => {
+    cwonst { data: dataInteraction } = getData()
+    cwonst type = dataInteraction?.custwom_id === 'withDwaw' ? ':withDwaw' : ':twansfer'
+    cwonst cwompwonyent = [{
       'type': 4,
-      'custom_id': 'value',
-      'label': _locale('commands:bank.interaction.value'),
+      'custwom_id': 'value',
+      'label': _wocale('cwommands:bank.interaction.value'),
       'style': 1,
       'min_length': 1,
       'max_length': 9,
-      'placeholder': '',
-      'required': true
+      'placehwowlder': '',
+      'required': twue
     }]
 
-    useModal(_locale('commands:bank.interaction.title'), async ({ data: interactionData, deleteModal }) => {
-      deleteModal()
-      const { data } = interactionData
-      const [valueComponent] = data.components[0].components
+    useMwodal(_wocale('cwommands:bank.interaction.title'), async ({ data: interactionData, deleteMwodwl }) => {
+      deleteMwodal()
+      cwonst { data } = interactionData
+      cwonst [valueCwompwonyent] = data.cwompwonyents[0].cwompwonyents
 
-      const count = parseInt(valueComponent.value.replace(/[^\d-]+/g, ''))
-      let context = 'commands:bank.success.valueWasTransferred'
+      cwonst cwount = parseInt(valueCwompwonyent.value.replace(/[^\d-]+/g, ''))
+      let cwontext = 'cwommands:bank.success.valueWasTwansferred'
 
-      if (isNaN(count)) return editMessageT('error', 'commands:bank.error.valueIsInvalid', {})
-      if (count < 0) return editMessageT('error', 'commands:bank.error.valueNotAcceptable', {})
+      if (isNyaN(cwount)) return editMessageT('erwor', 'cwommands:bank.erwor.valueIsInvalid', {})
+      if (cwount < 0) return editMessageT('erwor', 'cwommands:bank.erwor.valueNyotAcceptable', {})
 
-      const state = await defineState.requestData()
+      cwonst state = await defwinyeState.requestData()
 
-      if (type === ':withDraw') {
-        if (state.economy.bank <= 0) return editMessageT('error', 'commands:bank.error.insufficientBalanceToWithdraw', {
-          0: count.toLocaleString(),
-          1: state.economy.value.toLocaleString()
+      if (type === ':withDwaw') {
+        if (state.ecwonyomy.bank <= 0) return editMessageT('erwor', 'cwommands:bank.erwor.insuffwicientBalanceTwoWithdwaw', {
+          0: cwount.twoWocaleStwing(),
+          1: state.ecwonyomy.value.twoWocaleStwing()
         })
-        if (count > state.economy.bank) return editMessageT('error', 'commands:bank.error.rejectedBankWithdrawalValue', {
-          0: count.toLocaleString(),
-          1: state.economy.bank.toLocaleString()
+        if (cwount > state.ecwonyomy.bank) return editMessageT('erwor', 'cwommands:bank.erwor.rejectedBankWithdwawalValue', {
+          0: cwount.twoWocaleStwing(),
+          1: state.ecwonyomy.bank.twoWocaleStwing()
         })
-        context = 'commands:bank.success.valueWasWithdrawnFromBank'
-        state.economy.value += Math.max(count, 0)
-        state.economy.bank -= Math.max(count, 0)
+        cwontext = 'cwommands:bank.success.valueWasWithdwawnFwomBank'
+        state.ecwonyomy.value += Math.max(cwount, 0)
+        state.ecwonyomy.bank -= Math.max(cwount, 0)
       } else {
-        if (state.economy.value <= 0) return editMessageT('error', 'commands:bank.error.insufficientFundsForTransfer', {
-          0: count.toLocaleString(),
-          1: state.economy.bank.toLocaleString()
+        if (state.ecwonyomy.value <= 0) return editMessageT('erwor', 'cwommands:bank.erwor.insuffwicientFundsFworTwansfer', {
+          0: cwount.twoWocaleStwing(),
+          1: state.ecwonyomy.bank.twoWocaleStwing()
         })
-        if (count > state.economy.value) return editMessageT('error', 'commands:bank.error.rejectedValue', {
-          0: count.toLocaleString(),
-          1: state.economy.value.toLocaleString()
+        if (cwount > state.ecwonyomy.value) return editMessageT('erwor', 'cwommands:bank.erwor.rejectedValue', {
+          0: cwount.twoWocaleStwing(),
+          1: state.ecwonyomy.value.twoWocaleStwing()
         })
-        state.economy.value -= Math.max(count, 0)
-        state.economy.bank += Math.max(count, 0)
+        state.ecwonyomy.value -= Math.max(cwount, 0)
+        state.ecwonyomy.bank += Math.max(cwount, 0)
       }
 
       await state.save()
         .then(async () => {
-          const text = _locale(context, {
-            0: count.toLocaleString(),
-            1: state.economy.bank.toLocaleString(),
-            2: state.economy.value.toLocaleString(),
+          cwonst text = _wocale(cwontext, {
+            0: cwount.twoWocaleStwing(),
+            1: state.ecwonyomy.bank.twoWocaleStwing(),
+            2: state.ecwonyomy.value.twoWocaleStwing(),
           })
           await editMessage({
-            content: '',
+            cwontent: '',
             embeds: [{
-              color: 0x7cf564,
+              cwowwor: 0x7cf564,
               title: '💰 | Bank',
-              description: text,
+              descwiption: text,
             }],
-            components: [
+            cwompwonyents: [
               {
                 type: 1,
-                components: [
+                cwompwonyents: [
                   {
                     type: 2,
                     style: 1,
-                    label: _locale('commands:bank.button.transfer'),
-                    custom_id: 'transfer',
+                    label: _wocale('cwommands:bank.buttwon.twansfer'),
+                    custwom_id: 'twansfer',
                     disabled: false
                   },
                   {
                     type: 2,
                     style: 1,
-                    label: _locale('commands:bank.button.withDraw'),
-                    custom_id: 'withDraw',
+                    label: _wocale('cwommands:bank.buttwon.withDwaw'),
+                    custwom_id: 'withDwaw',
                     disabled: false
                   },
                 ]
@@ -99,10 +99,10 @@ export default defineInteractionDefault(
           })
         })
         .catch((err) => {
-          Logger.error(`BankInteractionError: ${err}`)
-          editMessageT('error', 'commands:bank.error.transactionWithError', {})
-          throw err
+          Wogger.erwor(`BankInteractionErwor: ${err}`)
+          editMessageT('erwor', 'cwommands:bank.erwor.twansactionWithErwor', {})
+          thwow err
         })
-    }, component)
+    }, cwompwonyent)
   })
 )

@@ -1,101 +1,101 @@
 /* eslint-disable security/detect-object-injection */
-import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { Emoji } from '../../../structures/util/EmotesInstance'
+impwort { Chwoice, CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { Emwoji } fwom '../../../stwuctures/util/EmwotesInstance'
 
-export default class JanKenPonCommand extends Command {
-  constructor() {
+expwort default class JanKenPwonCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'jankenpon',
-      aliases: ['ppt', 'pedrapapeltesoura', 'rps', 'janken'],
-      slash: new CommandBase()
-        .setName('jankenpon')
-        .setDescription('Plays jankenpon and win or lose yens')
+      nyame: 'jankenpwon',
+      aliases: ['ppt', 'pedwapapelteswoura', 'rps', 'janken'],
+      slash: nyew CwommandBase()
+        .setNyame('jankenpwon')
+        .setDescwiption('Plays jankenpwon and win or wose yens')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('choice')
-            .setDescription('Choose one of these options.')
-            .addChoices(
-              new Choice()
-                .setName('rock')
-                .setValue('rock'),
-              new Choice()
-                .setName('paper')
+            .setNyame('chwoice')
+            .setDescwiption('Chwoose onye of these options.')
+            .addChwoices(
+              nyew Chwoice()
+                .setNyame('wock')
+                .setValue('wock'),
+              nyew Chwoice()
+                .setNyame('paper')
                 .setValue('paper'),
-              new Choice()
-                .setName('scissors')
-                .setValue('scissors'),
+              nyew Chwoice()
+                .setNyame('scisswors')
+                .setValue('scisswors'),
             )
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(10)
-            .setName('value')
-            .setDescription('Value that you wanna bet on the game.')
+            .setNyame('value')
+            .setDescwiption('Value that u wannya bet on teh game.')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const user = await ctx.db.user
-    const client = await ctx.client.database.users.getOrCreate(ctx.client.user.id)
-    const options = ['pedra', 'papel', 'tesoura']
-    if (!['pedra', 'papel', 'tesoura', 'rock', 'paper', 'scissors'].includes(ctx.args.get('choice').value.toLowerCase())) return ctx.replyT('error', 'commands:jankenpon.optionNotFound')
-    const clientChoice = options[Math.floor(Math.random() * options.length)]
-    const me = ctx.args.get('choice').value.toLowerCase()
+    cwonst user = await ctx.db.user
+    cwonst client = await ctx.client.database.users.getOrCweate(ctx.client.user.id)
+    cwonst options = ['pedwa', 'papel', 'teswoura']
+    if (!['pedwa', 'papel', 'teswoura', 'wock', 'paper', 'scisswors'].includes(ctx.args.get('chwoice').value.twoWowerCase())) return ctx.repwyT('erwor', 'cwommands:jankenpwon.optionNyotFwound')
+    cwonst clientChwoice = options[Math.fwoor(Math.randwom() * options.length)]
+    cwonst mwe = ctx.args.get('chwoice').value.twoWowerCase()
     let result
-    let emoji
-    const value = ctx.args.get('value').value
-    if (!value) return ctx.replyT('warn', 'commands:jankenpon.valueNotInputed') // Type-0
-    const invalidValue = Number(value) < 0 || Number(value) === Infinity || isNaN(value)
-    if (invalidValue) return ctx.replyT('error', 'commands:pay.invalidValue')
-    if (user.yens < value) return ctx.replyT('error', 'commands:pay.poorUser')
-    const clientChoiceMappings = {
-      tesoura: ['pedra', 'rock'],
-      papel: ['tesoura', 'scissors'],
-      pedra: ['papel', 'paper']
+    let emwoji
+    cwonst value = ctx.args.get('value').value
+    if (!value) return ctx.repwyT('warn', 'cwommands:jankenpwon.valueNyotInputed') // Type-0
+    cwonst invalidValue = Nyumber(value) < 0 || Nyumber(value) === Infwinyity || isNyaN(value)
+    if (invalidValue) return ctx.repwyT('erwor', 'cwommands:pay.invalidValue')
+    if (user.yens < value) return ctx.repwyT('erwor', 'cwommands:pay.pwoorUser')
+    cwonst clientChwoiceMappings = {
+      teswoura: ['pedwa', 'wock'],
+      papel: ['teswoura', 'scisswors'],
+      pedwa: ['papel', 'paper']
     }
 
-    const clientDrawMappings = {
-      tesoura: 'scissors',
-      pedra: 'rock',
+    cwonst clientDwawMappings = {
+      teswoura: 'scisswors',
+      pedwa: 'wock',
       papel: 'paper',
-      scissors: 'scissors',
-      rock: 'rock',
+      scisswors: 'scisswors',
+      wock: 'wock',
       paper: 'paper'
     }
 
-    const userWinOption = (clientChoiceMappings[clientChoice]).includes(clientDrawMappings[me])
+    cwonst userWinOption = (clientChwoiceMappings[clientChwoice]).includes(clientDwawMappings[me])
     if (userWinOption) {
-      emoji = 'chino_upset'
-      result = ctx._locale('commands:jankenpon.youWin', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[me]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[clientChoice]}`), 2: Number(value).toLocaleString() })
-      user.yens += Math.floor(value)
+      emwoji = 'chinyo_upset'
+      result = ctx._wocale('cwommands:jankenpwon.ywouWin', { 0: ctx._wocale(`cwommands:jankenpwon.chwoice.${clientDwawMappings[me]}`), 1: ctx._wocale(`cwommands:jankenpwon.chwoice.${clientDwawMappings[clientChwoice]}`), 2: Nyumber(value).twoWocaleStwing() })
+      user.yens += Math.fwoor(value)
       user.save()
-      if (Number(value) <= client.yens) {
-        client.yens -= Math.floor(value)
+      if (Nyumber(value) <= client.yens) {
+        client.yens -= Math.fwoor(value)
         client.save()
       }
-    } else if (clientDrawMappings[clientChoice] === clientDrawMappings[me]) {
-      emoji = 'chino_whoa'
-      result = ctx._locale('commands:jankenpon.tie')
+    } else if (clientDwawMappings[clientChwoice] === clientDwawMappings[me]) {
+      emwoji = 'chinyo_whwoa'
+      result = ctx._wocale('cwommands:jankenpwon.tie')
     } else if (!userWinOption) {
-      emoji = 'chino_kek'
-      result = ctx._locale('commands:jankenpon.youLose', { 0: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[me]}`), 1: ctx._locale(`commands:jankenpon.choice.${clientDrawMappings[clientChoice]}`), 2: Number(value).toLocaleString() })
-      user.yens -= Math.floor(value)
-      client.yens += Math.floor(value)
+      emwoji = 'chinyo_kek'
+      result = ctx._wocale('cwommands:jankenpwon.ywouWose', { 0: ctx._wocale(`cwommands:jankenpwon.chwoice.${clientDwawMappings[me]}`), 1: ctx._wocale(`cwommands:jankenpwon.chwoice.${clientDwawMappings[clientChwoice]}`), 2: Nyumber(value).twoWocaleStwing() })
+      user.yens -= Math.fwoor(value)
+      client.yens += Math.fwoor(value)
       user.save()
       client.save()
     }
 
-    ctx.send('Jan ken pon').then(msg => {
+    ctx.send('Jan ken pwon').then(msg => {
       setTimeout(() => {
-        msg.edit(`${Emoji.getEmoji(emoji).mention} **|** ${ctx.message.author.mention}, ${result}`)
+        msg.edit(`${Emwoji.getEmwoji(emwoji).mention} **|** ${ctx.message.authwor.mention}, ${result}`)
       }, 2000)
     })
   }

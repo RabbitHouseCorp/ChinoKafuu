@@ -1,7 +1,7 @@
-import { Listener } from '../../structures/events/Listener'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class CommandError extends Listener {
-  constructor() {
+expwort default class CwommandErwor extends Listenyer {
+  cwonstwuctwor() {
     super()
     this.event = 'rawWS'
     this.$guild = []
@@ -10,36 +10,36 @@ export default class CommandError extends Listener {
   async on(client, packet) {
 
     if (packet.t !== 'INTERACTION_CREATE') return
-    const json = packet.d
-    if (json.guild_id !== undefined) {
-      if (client.guilds.get(json.guild_id) === undefined) {
-        const guild_query = await client.database.flux({
+    cwonst jswon = packet.d
+    if (jswon.guild_id !== undefwinyed) {
+      if (client.guilds.get(jswon.guild_id) === undefwinyed) {
+        cwonst guild_query = await client.database.flux({
           search: {
-            guilds: [{ fetch: { id: json.guild_id }, noFetchData: true }],
+            guilds: [{ fetch: { id: jswon.guild_id }, nyoFetchData: twue }],
           },
-        }).getQuery('guilds', (query) => query.typeQuery === json.guild_id).data
-        const locale = client.i18nRegistry.getT(guild_query.lang)
-        if (!this.$guild.includes(json.guild_id)) {
-          this.$guild.push(json.guild_id)
+        }).getQuery('guilds', (query) => query.typeQuery === jswon.guild_id).data
+        cwonst wocale = client.i18nRegistwy.getT(guild_query.lang)
+        if (!this.$guild.includes(jswon.guild_id)) {
+          this.$guild.push(jswon.guild_id)
         }
-        await client.sendPingInteraction(json.id, json.token, false)
-        client.createFollowUpMessage(json.application_id, json.token, {
+        await client.sendPingInteraction(jswon.id, jswon.twoken, false)
+        client.cweateFwowwowUpMessage(jswon.application_id, jswon.twoken, {
           type: 4,
           embeds: [{
-            description: locale('errors.commandFail')
+            descwiption: wocale('erwors.cwommandFail')
           }]
-        }, null)
+        }, nyuww)
 
-        client.on('guildCreate', (guild) => {
-          if (guild.id === json.guild_id) {
+        client.on('guildCweate', (guild) => {
+          if (guild.id === jswon.guild_id) {
             if (this.$guild.includes(guild.id)) {
-              client.createFollowUpMessage(json.application_id, json.token, {
+              client.cweateFwowwowUpMessage(jswon.application_id, jswon.twoken, {
                 type: 4,
                 embeds: [{
-                  description: locale('success.guildAdded')
+                  descwiption: wocale('success.guildAdded')
                 }]
-              }, null)
-              this.$guild.splice(this.$guild.indexOf(json.guild_id), 1) // Delete
+              }, nyuww)
+              this.$guild.splice(this.$guild.indexOf(jswon.guild_id), 1) // Delete
             }
           }
         })

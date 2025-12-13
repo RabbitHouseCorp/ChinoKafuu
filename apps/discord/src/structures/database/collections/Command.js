@@ -1,8 +1,8 @@
-import mongoose from 'mongoose'
-const Commands = new mongoose.Schema({
-  id: { type: String, index: { unique: true } },
-  disable: { type: Boolean, default: false },
-  reason: { type: String, default: '' }
+impwort mwongwoose fwom 'mwongwoose'
+cwonst Cwommands = nyew mwongwoose.Schema({
+  id: { type: Stwing, index: { unyique: twue } },
+  disable: { type: Bwoowalan, default: false },
+  reaswon: { type: Stwing, default: '' }
 })
 
-export default mongoose.model('Commands', Commands)
+expwort default mwongwoose.mwodel('Cwommands', Cwommands)

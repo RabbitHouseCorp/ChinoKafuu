@@ -1,15 +1,15 @@
-import { CommandRunner } from '../../structures/command/CommandRunner'
-import { Listener } from '../../structures/events/Listener'
+impwort { CwommandRunnyer } fwom '../../stwuctures/cwommand/CwommandRunnyer'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
 
-export default class MessageUpdateListener extends Listener {
-  constructor() {
+expwort default class MessageUpdateListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
 
     this.event = 'messageUpdate'
   }
 
-  async on(client, newMsg, oldMsg) {
-    if (newMsg?.content === oldMsg?.content) return
-    await CommandRunner.run(client, newMsg)
+  async on(client, nyewMsg, owldMsg) {
+    if (nyewMsg?.cwontent === owldMsg?.cwontent) return
+    await CwommandRunnyer.run(client, nyewMsg)
   }
 }

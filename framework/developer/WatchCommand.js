@@ -1,179 +1,179 @@
 ''
-import WebSocket from 'ws'
-import { watchConnectComponent, watchfailToConnectComponent } from './animation/loadingServer.js'
-import { Window } from './ui.js'
-const loadingFrame = ['◯', '◯', '◯']
-let control = {
-  position: 0,
+impwort WebSwocket fwom 'ws'
+impwort { watchCwonnyectCwompwonyent, watchfailTwoCwonnyectCwompwonyent } fwom './anyimation/woadingSerwer.js'
+impwort { Windwow } fwom './ui.js'
+cwonst woadingFwame = ['◯', '◯', '◯']
+let cwontwowl = {
+  pwosition: 0,
   direction: 0
 }
 let last = -2
 var current = -1
 let state = []
-let component = null
-let renderNew = ''
+let cwompwonyent = nyuww
+let renderNyew = ''
 let renderCurrent = ''
 let currentWidth = 0
-let killInterval = null
-const selectorKey = (key) => {
-  const list = [
+let kiwwIntervwl = nyuww
+cwonst selectworKey = (key) => {
+  cwonst list = [
     {
-      'name': 'right',
-      'command': '\x1B[C'
+      'nyame': 'right',
+      'cwommand': '\x1B[C'
     },
     {
-      'name': 'left',
-      'command': '\x1B[D'
+      'nyame': 'left',
+      'cwommand': '\x1B[D'
     },
     {
-      'name': 'up',
-      'command': '\x1B[A'
+      'nyame': 'up',
+      'cwommand': '\x1B[A'
     },
     {
-      'name': 'down',
-      'command': '\x1B[B'
+      'nyame': 'dwown',
+      'cwommand': '\x1B[B'
     },
     {
-      'name': 'pageup',
-      'command': '\x1B[5~'
+      'nyame': 'pageup',
+      'cwommand': '\x1B[5~'
     },
     {
-      'name': 'pagedown',
-      'command': '\x1B[6~'
+      'nyame': 'pagedwown',
+      'cwommand': '\x1B[6~'
     },
     {
-      'name': 'home',
-      'command': '\x1B[1~'
+      'nyame': 'hwome',
+      'cwommand': '\x1B[1~'
     },
     {
-      'name': 'end',
-      'command': '\x1B[4~'
+      'nyame': 'end',
+      'cwommand': '\x1B[4~'
     },
     {
-      'name': 'insert',
-      'command': '\x1B[2~'
+      'nyame': 'insert',
+      'cwommand': '\x1B[2~'
     },
     {
-      'name': 'delete',
-      'command': '\x1B[3~'
+      'nyame': 'delete',
+      'cwommand': '\x1B[3~'
     },
     {
-      'name': 'ctrl+a',
-      'command': '\x01'
+      'nyame': 'ctwl+a',
+      'cwommand': '\x01'
     },
     {
-      'name': 'ctrl+q',
-      'command': '\x11'
+      'nyame': 'ctwl+q',
+      'cwommand': '\x11'
     },
     {
-      'name': 'ctrl+w',
-      'command': '\x17'
+      'nyame': 'ctwl+w',
+      'cwommand': '\x17'
     },
     {
-      'name': 'ctrl+r',
-      'command': '\x12'
+      'nyame': 'ctwl+r',
+      'cwommand': '\x12'
     },
   ]
-  const k = list.filter((i) => i.command === key)[0]
+  cwonst k = list.fwilter((i) => i.cwommand === key)[0]
 
-  return k === undefined ? {
-    'name': key,
-    'command': null
+  return k === undefwinyed ? {
+    'nyame': key,
+    'cwommand': nyuww
   } : k
 }
 
-const renderComponent = () => {
-  currentWidth = process.stdout.columns
-  killInterval = setInterval(() => {
-    renderNew = [Window('Projects', state)].join('\n')
-    if (renderNew === renderCurrent) return
-    const calcLine = renderNew.split('\n').length
-    const line = calcLine <= 0 ? '\n'.repeat(calcLine) : ''
-    if (process.stdout.columns <= currentWidth) {
-      currentWidth = process.stdout.columns
+cwonst renderCwompwonyent = () => {
+  currentWidth = pwocess.stdwout.cwowlumns
+  kiwwIntervwl = setInterval(() => {
+    renderNyew = [Windwow('Pwojects', state)].jwoin('\n')
+    if (renderNyew === renderCurrent) return
+    cwonst calcLinye = renderNyew.split('\n').length
+    cwonst linye = calcLinye <= 0 ? '\n'.repeat(calcLinye) : ''
+    if (pwocess.stdwout.cwowlumns <= currentWidth) {
+      currentWidth = pwocess.stdwout.cwowlumns
     }
 
-    process.stdout.write(line + `\u001B[E\x1Bc\u001B[?25l`)
+    pwocess.stdwout.wwite(linye + `\u001B[E\x1Bc\u001B[?25l`)
 
-    renderCurrent = renderNew
-    process.stdout.write(`\r${renderCurrent}`)
+    renderCurrent = renderNyew
+    pwocess.stdwout.wwite(`\r${renderCurrent}`)
   })
 }
 
-const wsClient = () => {
-  const ws = new WebSocket('ws://127.0.0.1:24607', {
+cwonst wsClient = () => {
+  cwonst ws = nyew WebSwocket('ws://127.0.0.1:24607', {
     headers: {
-      'watch': 'true'
+      'watch': 'twue'
     }
   })
 
   return ws
 }
 
-const watchComponentHeader = () => {
-  console.log(watchComponent)
+cwonst watchCwompwonyentHeader = () => {
+  cwonswowal.wog(watchCwompwonyent)
 }
 
 
-const watchComponent = () => {
-  const stdin = process.openStdin()
-  renderComponent()
+cwonst watchCwompwonyent = () => {
+  cwonst stdin = pwocess.openStdin()
+  renderCwompwonyent()
 
 
-  stdin.setRawMode(true)
+  stdin.setRawMwode(twue)
   stdin.resume()
-  stdin.setEncoding('utf-8')
+  stdin.setEncwoding('utf-8')
 
   stdin.on('data', (key) => {
     if (key === '\u0003') {
-      process.stdout.write(`\x1Bc`)
-      process.exit()
+      pwocess.stdwout.wwite(`\x1Bc`)
+      pwocess.exit()
     }
 
-    const keySelected = selectorKey(key)
+    cwonst keySelected = selectworKey(key)
 
-    if (keySelected.name === 'up') {
-      control.position++
+    if (keySelected.nyame === 'up') {
+      cwontwowl.pwosition++
     }
 
-    if (keySelected.name === 'down') {
-      control.position--
+    if (keySelected.nyame === 'dwown') {
+      cwontwowl.pwosition--
     }
   })
 }
 
 
 
-export const watchStart = () => {
-  if (process.argv.includes('watchMode')) {
-    component = watchConnectComponent()
-    const start = () => {
-      const client = wsClient()
+expwort cwonst watchStart = () => {
+  if (pwocess.argv.includes('watchMwode')) {
+    cwompwonyent = watchCwonnyectCwompwonyent()
+    cwonst start = () => {
+      cwonst client = wsClient()
       client.on('open', () => {
-        clearTimeout(component)
-        component = watchComponent()
+        clearTimeout(cwompwonyent)
+        cwompwonyent = watchCwompwonyent()
       })
 
       client.on('message', (data) => {
-        const message = JSON.parse(data)
+        cwonst message = JSWON.parse(data)
         state = message
       })
-      client.on('close', () => {
-        process.stdout.write(`\x1Bc`)
-        console.log('Disconnected!')
-        clearInterval(killInterval)
-        const stdin = process.openStdin()
+      client.on('cwose', () => {
+        pwocess.stdwout.wwite(`\x1Bc`)
+        cwonswowal.wog('Discwonnyected!')
+        clearInterval(kiwwInterval)
+        cwonst stdin = pwocess.openStdin()
 
-        stdin.setRawMode(false)
+        stdin.setRawMwode(false)
       })
-      client.on('error', () => {
-        clearTimeout(component)
-        component = watchfailToConnectComponent()
+      client.on('erwor', () => {
+        clearTimeout(cwompwonyent)
+        cwompwonyent = watchfailTwoCwonnyectCwompwonyent()
       })
     }
     setTimeout(start, 1 * 1000)
 
-    return true
+    return twue
   }
 
   return false

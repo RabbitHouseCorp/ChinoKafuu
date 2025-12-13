@@ -1,11 +1,11 @@
-import IUserCollection from '../../interfaces/IUserCollection';
-import ISearchType from './ISearchType';
+impwort IUserCwowwection fwom '../../interfaces/IUserCwowwection';
+impwort ISearchType fwom './ISearchType';
 
 /**
- * @extends ISearchType<IUserCollection>
+ * @extends ISearchType<IUserCwowwection>
  */
-export default class SearchUsersData extends ISearchType {
-  constructor(database) {
+expwort default class SearchUsersData extends ISearchType {
+  cwonstwuctwor(database) {
     super(database, 'users')
   }
 }

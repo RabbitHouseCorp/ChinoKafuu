@@ -1,70 +1,70 @@
-import { CommandBase } from 'eris'
-import os from 'os'
-import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext, version } from '../../../structures/util'
+impwort { CwommandBase } fwom 'eris'
+impwort os fwom 'os'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext, wersion } fwom '../../../stwuctures/util'
 
-export default class BotInfoCommand extends Command {
-  constructor() {
+expwort default class BwotInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'botinfo',
-      aliases: ['infobot'],
+      nyame: 'bwotinfwo',
+      aliases: ['infwobwot'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('botinfo')
-        .setDescription('Shows more information about me.')
+      slash: nyew CwommandBase()
+        .setNyame('bwotinfwo')
+        .setDescwiption('Shwows mwore infwormation abwout me.')
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const getCommit = ctx.client.pluginManager.pluginStore.get('buildStore').classState
-    const description = [
-      `**${ctx._locale('commands:botinfo.guildsAmount')}:** ${Number(ctx.client.guilds.size).toLocaleString()}`,
-      `**${ctx._locale('commands:botinfo.usersAmount')}:** ${Number(ctx.client.guilds.reduce((a, b) => a + b.memberCount, 0)).toLocaleString()}`,
-      `**${ctx._locale('commands:botinfo.shardLatency')}:** ${ctx.message.guild.shard.latency}ms (Shard: ${ctx.message.guild.shard.id})`,
-      `**${ctx._locale('commands:botinfo.memoryUsage')}:** ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB (${(process.resourceUsage().maxRSS / 1024 / 1024).toFixed(2)}MB)`,
-      `**${ctx._locale('commands:botinfo.clientVersion')}:** ${version} ${getCommit.commit === null ? '' : `[(${getCommit.commit.substring(0, 7)})](https://github.com/RabbitHouseCorp/ChinoKafuu/commit/${getCommit.commit})`}`,
-      `**${ctx._locale('commands:botinfo.shardUptime')}:** <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).toFixed(0)}:R>`
+    cwonst getCwommit = ctx.client.pluginManyager.pluginStwore.get('buildStwore').classState
+    cwonst descwiption = [
+      `**${ctx._wocale('cwommands:bwotinfwo.guildsAmwount')}:** ${Nyumber(ctx.client.guilds.size).twoWocaleStwing()}`,
+      `**${ctx._wocale('cwommands:bwotinfwo.usersAmwount')}:** ${Nyumber(ctx.client.guilds.reduce((a, b) => a + b.MwemberCwount, 0)).twoWocaleStwing()}`,
+      `**${ctx._wocale('cwommands:bwotinfwo.shardLatency')}:** ${ctx.message.guild.shard.latency}ms (Shard: ${ctx.message.guild.shard.id})`,
+      `**${ctx._wocale('cwommands:bwotinfwo.MwemworyUsage')}:** ${(pwocess.MwemworyUsage().heapUsed / 1024 / 1024).twoFwixed(2)}MB (${(pwocess.reswourceUsage().maxRSS / 1024 / 1024).twoFwixed(2)}MB)`,
+      `**${ctx._wocale('cwommands:bwotinfwo.clientwersion')}:** ${wersion} ${getCwommit.cwommit === nyuww ? '' : `[(${getCwommit.cwommit.substwing(0, 7)})](https://github.cwom/RabbitHwouseCworp/ChinyoKafuu/cwommit/${getCwommit.cwommit})`}`,
+      `**${ctx._wocale('cwommands:bwotinfwo.shardUptime')}:** <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).twoFwixed(0)}:R>`
     ]
-    const social_media = [
-      `[${Emoji.getEmoji('discord_logo').mention} | ${ctx._locale('commands:botinfo.supportServer')}](https://discord.gg/Jr57UrsXeC)`,
-      `[${Emoji.getEmoji('wumpus_heart').mention} | ${ctx._locale('commands:botinfo.voteOnMe')}](https://top.gg/bot/481282441294905344/vote)`,
-      `[${Emoji.getEmoji('x').mention} | X](https://x.com/@ChinoKafuuBot)`,
-      `[${Emoji.getEmoji('github').mention} | GitHub](https://github.com/RabbitHouseCorp/ChinoKafuu)`,
-      `[${Emoji.getEmoji('crowdin').mention} | Crowdin](https://crowdin.com/project/chinokafuu)`,
+    cwonst swocial_media = [
+      `[${Emwoji.getEmwoji('discword_wogwo').mention} | ${ctx._wocale('cwommands:bwotinfwo.suppwortSerwer')}](https://discword.gg/Jr57UrsXeC)`,
+      `[${Emwoji.getEmwoji('wumpus_heart').mention} | ${ctx._wocale('cwommands:bwotinfwo.voteOnMe')}](https://twop.gg/bwot/481282441294905344/vote)`,
+      `[${Emwoji.getEmwoji('x').mention} | X](https://x.cwom/@ChinyoKafuuBwot)`,
+      `[${Emwoji.getEmwoji('github').mention} | GitHub](https://github.cwom/RabbitHwouseCworp/ChinyoKafuu)`,
+      `[${Emwoji.getEmwoji('cwowdin').mention} | Cwowdin](https://cwowdin.cwom/pwoject/chinyokafuu)`,
     ]
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setTitle(ctx._locale('commands:botinfo.title'))
-    embed.setDescription(`${ctx._locale('commands:botinfo.extraDescription', { 0: ctx.message.author.mention, 1: Emoji.getEmoji('nodejs').mention, 2: Emoji.getEmoji('eris').mention, })}\n\u200B`)
-    embed.setFooter(`${ctx._locale('commands:botinfo.cpuModel')}: ${os.cpus().map(i => i.model)[0]}`)
-    embed.setThumbnail(ctx.client.user.avatarURL)
-    embed.addField(ctx._locale('commands:botinfo.specs'), description.join('\n'))
-    embed.addField(ctx._locale('commands:botinfo.social_media'), social_media.join('\n'))
-    const full_permission = new Button()
-      .setLabel(ctx._locale('commands:botinfo.recommendedPermission'))
-      .setURL(`https://discord.com/oauth2/authorize?client_id=${ctx.client.user.id}&permissions=1378654604670&scope=bot%20applications.commands`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(ctx._wocale('cwommands:bwotinfwo.title'))
+    embed.setDescwiption(`${ctx._wocale('cwommands:bwotinfwo.extwaDescwiption', { 0: ctx.message.authwor.mention, 1: Emwoji.getEmwoji('nyodejs').mention, 2: Emwoji.getEmwoji('eris').mention, })}\n\u200B`)
+    embed.setFwooter(`${ctx._wocale('cwommands:bwotinfwo.cpuMwodel')}: ${os.cpus().map(i => i.mwodel)[0]}`)
+    embed.setThumbnyail(ctx.client.user.avatarURL)
+    embed.addFwield(ctx._wocale('cwommands:bwotinfwo.specs'), descwiption.jwoin('\n'))
+    embed.addFwield(ctx._wocale('cwommands:bwotinfwo.swocial_media'), swocial_media.jwoin('\n'))
+    cwonst fuww_permission = nyew Buttwon()
+      .setLabel(ctx._wocale('cwommands:bwotinfwo.recwommendedPermission'))
+      .setURL(`https://discword.cwom/oauth2/authworize?client_id=${ctx.client.user.id}&permissions=1378654604670&scwope=bwot%20applications.cwommands`)
       .setStyle(5)
-      .setEmoji({ name: Emoji.getEmoji('discord_verified_app').name, id: Emoji.getEmoji('discord_verified_app').id })
-    const minimal_permission = new Button()
-      .setLabel(ctx._locale('commands:botinfo.minimalPermission'))
-      .setURL(`https://discord.com/oauth2/authorize?client_id=${ctx.client.user.id}&permissions=641068480&scope=bot%20applications.commands`)
+      .setEmwoji({ nyame: Emwoji.getEmwoji('discword_werifwied_app').nyame, id: Emwoji.getEmwoji('discword_werifwied_app').id })
+    cwonst minyimal_permission = nyew Buttwon()
+      .setLabel(ctx._wocale('cwommands:bwotinfwo.minyimalPermission'))
+      .setURL(`https://discword.cwom/oauth2/authworize?client_id=${ctx.client.user.id}&permissions=641068480&scwope=bwot%20applications.cwommands`)
       .setStyle(5)
-      .setEmoji({ name: Emoji.getEmoji('discord_app').name, id: Emoji.getEmoji('discord_app').id })
+      .setEmwoji({ nyame: Emwoji.getEmwoji('discword_app').nyame, id: Emwoji.getEmwoji('discword_app').id })
 
     ctx.send({
       embeds: [embed],
-      components:
+      cwompwonyents:
         [
           {
             type: 1,
-            components: [full_permission, minimal_permission]
+            cwompwonyents: [fuww_permission, minyimal_permission]
           }
         ]
     })

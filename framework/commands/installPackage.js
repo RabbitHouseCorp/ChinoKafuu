@@ -1,14 +1,14 @@
-import { defineCommand, supportedState } from '../utils/defineCommand.js'
+impwort { defwinyeCwommand, suppwortedState } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const installPackageCommand = defineCommand({
-  name: 'yarn installPackage [...packages]',
-  description: 'Install packages from the Repository. (At the moment it\'s only working on @chinokafuu/discord).',
-  supports: [
-    supportedState({
-      name: 'Bun',
-      description: 'Bun is going to use installed packages in Yarn, some packages are not supported yet.'
+expwort cwonst instawwPackageCwommand = defwinyeCwommand({
+  nyame: 'yarn instawwPackage [...packages]',
+  descwiption: 'Instaww packages fwom teh Repwositwory. (At teh mwoment it\'s onwy working on @chinyokafuu/discword).',
+  suppworts: [
+    suppwortedState({
+      nyame: 'Bun',
+      descwiption: 'Bun is gwoing two use instawwed packages in Yarn, swome packages are nyot suppworted yet.'
     }),
   ]
 })

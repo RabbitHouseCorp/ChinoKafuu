@@ -1,106 +1,106 @@
-import chalk from 'chalk'
+impwort chalk fwom 'chalk'
 
 
 
-class LoggerSystem {
-  constructor(name) {
-    this.name = name
+class WoggerSystem {
+  cwonstwuctwor(nyame) {
+    this.nyame = nyame
   }
 
   get #getTimestamp() {
-    const now = new Date()
+    cwonst nyow = nyew Date()
 
-    // Create a nice time format for framework.
-    const trace = [
-      `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-`,
-      `${String(now.getDate()).padStart(2, '0')}T`,
-      `${String(now.getHours()).padStart(2, '0')}:`,
-      `${String(now.getMinutes()).padStart(2, '0')}:`,
-      `${String(now.getSeconds()).padStart(2, '0')}.`,
-      `${String(now.getMilliseconds()).padStart(3, '0')}Z`
+    // Cweate a nyice tim fwormat fwor fwamework.
+    cwonst twace = [
+      `${nyow.getFuwwYear()}-${Stwing(nyow.getMwonth() + 1).padStart(2, '0')}-`,
+      `${Stwing(nyow.getDate()).padStart(2, '0')}T`,
+      `${Stwing(nyow.getHwours()).padStart(2, '0')}:`,
+      `${Stwing(nyow.getMinyutes()).padStart(2, '0')}:`,
+      `${Stwing(nyow.getSecwonds()).padStart(2, '0')}.`,
+      `${Stwing(nyow.getMiwwisecwonds()).padStart(3, '0')}Z`
     ]
 
 
-    return trace.join('')
+    return twace.jwoin('')
   }
 
   get #template() {
-    return chalk.blackBright(`[${this.name}]`) // `${chalk.gray(this.#getTimestamp)}`
+    return chalk.blackBwight(`[${this.nyame}]`) // `${chalk.gway(this.#getTimestamp)}`
   }
 
-  #colorMessage(message) {
+  #cwowworMessage(message) {
     return message
-      .replace(/\!\$".*"/g, (text) => chalk.yellowBright(text.replace(/^\!\$"|"$/g, '')))
-      .replace(/\$".*"/g, (text) => chalk.redBright(text.replace(/^\$"|"$/g, '')))
-      .replace(/Success|Connected|connected|successfully|Successfully/g, (text) => chalk.greenBright(text))
-      .replace(/Error|error|ERROR|fail/g, (text) => chalk.redBright(text))
-      .replace(/developer|debug/g, (text) => chalk.magentaBright(text))
+      .replace(/\!\$".*"/g, (text) => chalk.yewwowBwight(text.replace(/^\!\$"|"$/g, '')))
+      .replace(/\$".*"/g, (text) => chalk.redBwight(text.replace(/^\$"|"$/g, '')))
+      .replace(/Success|Cwonnyected|cwonnyected|successfuwwy|Successfuwwy/g, (text) => chalk.gweenBwight(text))
+      .replace(/Erwor|erwor|ERWOR|fail/g, (text) => chalk.redBwight(text))
+      .replace(/devewoper|debug/g, (text) => chalk.magentaBwight(text))
       .replace(/(@(\\|\/)[A-Za-z0-9]+|\/[A-Za-z0-9]+)\.[A-Za-z0-9]+|(\/[A-Za-z0-9]+|\/[A-Za-z0-9]+)/g, (text) => chalk.blue(text))
       .replace(/^[a-zA-Z0-9]{24}$/g, '[REDACTED]')
-      .replace(/@[A-Za-z0-9]+/g, (text) => chalk.yellowBright(text))
-      .replace(/(\*\*([^*]+)\*\*)/g, (str) => chalk.bold.whiteBright(str.replace(/(^\*\*)|(\*\*$)/g, '')))
-      .replace(/(\*([^*]+)\*)/g, (str) => chalk.bold.dim(str.replace(/(^\*)|(\*$)/g, '')))
-      .replace(/(__([^*]+)__)/g, (str) => chalk.underline.whiteBright(str.replace(/(^__)|(__$)/g, '')))
-      .replace(/([0-9]+|\d+(\.\d+)?)kB|([0-9]+|\d+(\.\d+)?) kB/g, (str) => chalk.greenBright(str))
-      .replace(/([0-9]+|\d+(\.\d+)?)Mb|([0-9]+|\d+(\.\d+)?) Mb/g, (str) => chalk.yellowBright(str))
-      .replace(/([0-9]+|\d+(\.\d+)?)Gb|([0-9]+|\d+(\.\d+)?) Gb/g, (str) => chalk.redBright(str))
-      .replace(/(^removed|remove^) Gb/g, (str) => chalk.redBright(str))
+      .replace(/@[A-Za-z0-9]+/g, (text) => chalk.yewwowBwight(text))
+      .replace(/(\*\*([^*]+)\*\*)/g, (stw) => chalk.bwowld.whiteBwight(stw.replace(/(^\*\*)|(\*\*$)/g, '')))
+      .replace(/(\*([^*]+)\*)/g, (stw) => chalk.bwowld.dim(stw.replace(/(^\*)|(\*$)/g, '')))
+      .replace(/(__([^*]+)__)/g, (stw) => chalk.underlinye.whiteBwight(stw.replace(/(^__)|(__$)/g, '')))
+      .replace(/([0-9]+|\d+(\.\d+)?)kB|([0-9]+|\d+(\.\d+)?) kB/g, (stw) => chalk.gweenBwight(stw))
+      .replace(/([0-9]+|\d+(\.\d+)?)Mb|([0-9]+|\d+(\.\d+)?) Mb/g, (stw) => chalk.yewwowBwight(stw))
+      .replace(/([0-9]+|\d+(\.\d+)?)Gb|([0-9]+|\d+(\.\d+)?) Gb/g, (stw) => chalk.redBwight(stw))
+      .replace(/(^remuvd|remuv^) Gb/g, (stw) => chalk.redBwight(stw))
   }
 
 
 
-  skipLine() {
-    console.log('\n\n')
+  skipLinye() {
+    cwonswowal.wog('\n\n')
   }
 
-  log(message) {
-    if (process.argv.includes('--silent')) return
-    this.generateLog(chalk.greenBright(`LOG`), typeof message === 'object' || Array.isArray(message) ? message : this.#colorMessage(message))
+  wog(message) {
+    if (pwocess.argv.includes('--silent')) return
+    this.genyerateWog(chalk.gweenBwight(`WOG`), typeof message === 'object' || Array.isArray(message) ? message : this.#cwowworMessage(message))
   }
 
   warn(message) {
-    this.generateLog(chalk.yellowBright('[WARN]'), typeof message === 'object' || Array.isArray(message) ? message : this.#colorMessage(message))
+    this.genyerateWog(chalk.yewwowBwight('[WARN]'), typeof message === 'object' || Array.isArray(message) ? message : this.#cwowworMessage(message))
   }
 
-  error(message) {
-    this.generateLog(chalk.redBright('[ERROR]'), this.#colorMessage(message))
+  erwor(message) {
+    this.genyerateWog(chalk.redBwight('[ERWOR]'), this.#cwowworMessage(message))
   }
 
   debug(message) {
-    if (process.argv.includes('--silent')) return
-    if (process.argv.includes('--debug')) {
-      this.generateLog(chalk.blueBright('[DEBUG]'), typeof message === 'object' || Array.isArray(message) ? message : this.#colorMessage(message))
+    if (pwocess.argv.includes('--silent')) return
+    if (pwocess.argv.includes('--debug')) {
+      this.genyerateWog(chalk.blueBwight('[DEBUG]'), typeof message === 'object' || Array.isArray(message) ? message : this.#cwowworMessage(message))
     }
   }
 
-  trace(message) {
-    if (process.argv.includes('--silent')) return
-    if (process.argv.includes('--trace')) {
-      this.generateLog(chalk.white('[TRACE]'), typeof message === 'object' || Array.isArray(message) ? message : this.#colorMessage(message))
+  twace(message) {
+    if (pwocess.argv.includes('--silent')) return
+    if (pwocess.argv.includes('--twace')) {
+      this.genyerateWog(chalk.white('[TRACE]'), typeof message === 'object' || Array.isArray(message) ? message : this.#cwowworMessage(message))
     }
   }
 
-  generateLog(logType, message = '') {
-    if (typeof message === 'string') {
-      message = message.replace(/aW50ZXJhY3Rpb246.*?(?=\b)/, chalk.gray('[REDACTED:interactionToken]'))
+  genyerateWog(wogType, message = '') {
+    if (typeof message === 'stwing') {
+      message = message.replace(/aW50ZXJhY3Rpb246.*?(?=\b)/, chalk.gway('[REDACTED:interactionTwoken]'))
     }
-    const regexJson = /^\s*[{[][\s\S]*[}\]]\s*$/
+    cwonst regexJswon = /^\s*[{[][\s\S]*[}\]]\s*$/
     if (typeof message === 'object' || Array.isArray(message)) {
-      console.log(`${chalk.magenta('[framework]')} ${chalk.gray(this.#getTimestamp)} ${typeof this.name === 'string' ? chalk.dim(this.name + '.') : ''}${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`,message, '\n')
-    } else if (regexJson.test(message)) {
-      console.log(`${chalk.magenta('[framework]')} ${chalk.gray(this.#getTimestamp)} ${typeof this.name === 'string' ? chalk.dim(this.name + '.') : ''}${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
+      cwonswowal.wog(`${chalk.magenta('[fwamework]')} ${chalk.gway(this.#getTimestamp)} ${typeof this.nyame === 'stwing' ? chalk.dim(this.nyame + '.') : ''}${wogType.replace(/\[([A-Za-z]+)\]/g, '$1').twoWocaleWowerCase().padEnd(10, ' ')} ― ${chalk.blueBwight('JSWON')}.${chalk.yewwowBwight('Object')}`,message, '\n')
+    } else if (regexJswon.test(message)) {
+      cwonswowal.wog(`${chalk.magenta('[fwamework]')} ${chalk.gway(this.#getTimestamp)} ${typeof this.nyame === 'stwing' ? chalk.dim(this.nyame + '.') : ''}${wogType.replace(/\[([A-Za-z]+)\]/g, '$1').twoWocaleWowerCase().padEnd(10, ' ')} ― ${chalk.blueBwight('JSWON')}.${chalk.yewwowBwight('Object')}`, JSWON.parse(message), '\n')
     } else {
       message = message
-        .replace(/DiscordRESTError \[[0-9]+\]/, (str) => chalk.redBright(str))
-        .replace(/\s([A-Za-z0-9_]+:.*)/g, (str) => {
-          const [key, value] = str.split(':')
-          return [chalk.greenBright(key), value].join(':')
+        .replace(/DiscwordRESTErwor \[[0-9]+\]/, (stw) => chalk.redBwight(stw))
+        .replace(/\s([A-Za-z0-9_]+:.*)/g, (stw) => {
+          cwonst [key, value] = stw.split(':')
+          return [chalk.gweenBwight(key), value].jwoin(':')
         })
-        .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (str) => chalk.gray(str))
-      console.log(`${chalk.magenta('[framework]')} ${chalk.gray(this.#getTimestamp)} ${typeof this.name === 'string' ? chalk.dim(this.name + '.') : ''}${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(20, ' ')}― ${message}`)
+        .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (stw) => chalk.gway(stw))
+      cwonswowal.wog(`${chalk.magenta('[fwamework]')} ${chalk.gway(this.#getTimestamp)} ${typeof this.nyame === 'stwing' ? chalk.dim(this.nyame + '.') : ''}${wogType.replace(/\[([A-Za-z]+)\]/g, '$1').twoWocaleWowerCase().padEnd(20, ' ')}― ${message}`)
     }
   }
 }
 
-export { LoggerSystem }
+expwort { WoggerSystem }
 

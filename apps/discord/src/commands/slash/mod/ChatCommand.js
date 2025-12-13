@@ -1,28 +1,28 @@
-import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { Chwoice, CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class ChatCommand extends Command {
-  constructor() {
+expwort default class ChatCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'chat',
+      nyame: 'chat',
       permissions: [{
-        entity: 'both',
-        permissions: ['manageChannels']
+        entity: 'bwoth',
+        permissions: ['manyageChannyels']
       }],
-      slash: new CommandBase()
-        .setName('chat')
-        .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
+      slash: nyew CwommandBase()
+        .setNyame('chat')
+        .setDescwiption('Wocks teh chat, updating teh `Send Messages` permissions fwor teh `@ewerywonye` wowal')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('mode')
-            .setDescription('Locks the chat, updating the `Send Messages` permissions for the `@everyone` role')
-            .addChoices(
-              new Choice()
-                .setName('off')
+            .setNyame('mwode')
+            .setDescwiption('Wocks teh chat, updating teh `Send Messages` permissions fwor teh `@ewerywonye` wowal')
+            .addChwoices(
+              nyew Chwoice()
+                .setNyame('off')
                 .setValue('off'),
-              new Choice()
-                .setName('on')
+              nyew Chwoice()
+                .setNyame('on')
                 .setValue('on'),
             )
             .isRequired()
@@ -31,21 +31,21 @@ export default class ChatCommand extends Command {
   }
 
   /**
-     * @method run
-     * @param {SlashCommandContext} ctx
+     * @methwod run
+     * @param {SlashCwommandCwontext} ctx
      * @returns {void}
      */
   async run(ctx) {
-    const role = ctx.message.guild.id
-    switch (ctx.args.get('mode').value) {
+    cwonst wowal = ctx.message.guild.id
+    switch (ctx.args.get('mwode').value) {
       case 'on': {
-        ctx.message.channel.editPermission(role, 2048, 0, 'role').then(ctx.replyT('success', 'commands:chat.unlocked'))
+        ctx.message.channyel.editPermission(wowal, 2048, 0, 'wowal').then(ctx.repwyT('success', 'cwommands:chat.unwocked'))
       }
-        break
+        bweak
       case 'off': {
-        ctx.message.channel.editPermission(role, 0, 2048, 'role').then(ctx.replyT('success', 'commands:chat.locked'))
+        ctx.message.channyel.editPermission(wowal, 0, 2048, 'wowal').then(ctx.repwyT('success', 'cwommands:chat.wocked'))
       }
-        break
+        bweak
     }
   }
 }

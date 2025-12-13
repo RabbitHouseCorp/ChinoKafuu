@@ -1,71 +1,71 @@
-import { Command, SlashCommandContext } from '../../../../structures/util'
-const Status = {
-  typeOne: 'enable',
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
+cwonst Status = {
+  typeOnye: 'enyable',
   typeTwo: 'disable'
 }
 
-export default class ReportModConfigSubCommand extends Command {
-  constructor() {
+expwort default class RepwortMwodCwonfwigSubCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'config report',
-      aliases: ['module', 'configurações', 'configurar'],
+      nyame: 'cwonfwig repwort',
+      aliases: ['mwodule', 'cwonfwigurações', 'cwonfwigurar'],
       permissions: [{
         entity: 'user',
-        permissions: ['manageGuild']
+        permissions: ['manyageGuild']
       },
       {
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   run(ctx) {
-    if (ctx.args.get('status') === undefined) return ctx.replyT('error', 'commands:config.channel.needStatus')
+    if (ctx.args.get('status') === undefwinyed) return ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.nyeedStatus')
     switch (ctx.args.get('status').value) {
-      case Status.typeOne: {
-        // Tag: NEED_CHANNEL
-        // Message: You need to search the channel in the command to select it and set the correct channel.
-        if (ctx.args.get('channel')?.value === undefined) return ctx.replyT('error', 'commands:config.channel.needChannel')
-        // Tag: CHANNEL_NOT_WAS_FOUND
-        // Message: Woah! Channel not found check permissions from Chino Kafuu most likely she is without permission, if not permission then channel has been deleted.
-        if (ctx.message.guild.channels.get(ctx.args.get('channel')?.value) === undefined) return ctx.replyT('error', 'commands:config.channel.channelWasNotFound')
-        // Tag:  SAME_CHANNEL
-        // Message: It looks like it's the same channel you selected. (<#{channel-id}> - {channel-id})
-        if (ctx.args.get('channel').value === ctx.db.guild.channelReport) return ctx.replyT('error', 'commands:config.channel.sameChannel')
+      case Status.typeOnye: {
+        // Tag: NYEED_CHANNYWL
+        // Message: U nyeed two search teh channywl in teh cwommand two select it and set teh cworrect channyel.
+        if (ctx.args.get('channyel')?.value === undefwinyed) return ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.nyeedChannyel')
+        // Tag: CHANNYEL_NYWOT_WAS_FWOUND
+        // Message: Woah! Channywl nyot fwound check permissions fwom Chinyo Kafuu mwost likewy she is withwout permission, if nyot permission then channywl has been deleted.
+        if (ctx.message.guild.channyels.get(ctx.args.get('channyel')?.value) === undefwinyed) return ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.channyelWasNyotFwound')
+        // Tag:  SAME_CHANNYWL
+        // Message: It wooks like it's teh same channywl u selected. (<#{channyel-id}> - {channyel-id})
+        if (ctx.args.get('channyel').value === ctx.db.guild.channyelRepwort) return ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.sameChannyel')
 
-        ctx.db.guild.reportModule = true
-        ctx.db.guild.channelReport = ctx.args.get('channel').value
+        ctx.db.guild.repwortMwodule = twue
+        ctx.db.guild.channyelRepwort = ctx.args.get('channyel').value
         ctx.db.guild.save()
 
-        // Tag:  CHANNEL_SELECTED_WITH_SUCCESS
-        // Message: {module-name} is set to connect to the voice channel automatically on {channel-id}
-        ctx.replyT('success', 'commands:config.modules.report.enable')
+        // Tag:  CHANNYEL_SELECTED_WITH_SUCCESS
+        // Message: {mwodule-nyame} is set two cwonnyect two teh voice channywl autwomaticawwy on {channyel-id}
+        ctx.repwyT('success', 'cwommands:cwonfwig.mwodules.repwort.enyable')
         return
       }
       case Status.typeTwo: {
-        // Tag:  CHANNEL_SELECTED_WITH_SUCCESS
-        // Message: The module is already disabled!
-        if (!ctx.db.guild.reportModule) return ctx.replyT('error', 'commands:config.channel.moduleHasDisabled')
+        // Tag:  CHANNYEL_SELECTED_WITH_SUCCESS
+        // Message: Teh mwodule is alweady disabled!
+        if (!ctx.db.guild.repwortMwodule) return ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.mwoduleHasDisabled')
 
-        ctx.db.guild.reportModule = false
-        ctx.db.guild.channelReport = ''
+        ctx.db.guild.repwortMwodule = false
+        ctx.db.guild.channyelRepwort = ''
         ctx.db.guild.save()
-        // Tag:  CHANNEL_SELECTED_WITH_SUCCESS
-        // Message: The module has been successfully disabled!
-        ctx.replyT('success', 'commands:config.modules.report.disable')
+        // Tag:  CHANNYEL_SELECTED_WITH_SUCCESS
+        // Message: Teh mwodule has been successfuwwy disabled!
+        ctx.repwyT('success', 'cwommands:cwonfwig.mwodules.repwort.disable')
         return
       }
     }
 
-    // Tag: CONFIG_BUG_DETECTED
-    // Message: That's weird! Apparently some bug occurred... What happened?!?
-    ctx.replyT('error', 'commands:config.channel.moduleIfFoundBug', { 0: this.name })
-    new Error({})
+    // Tag: CWONFWIG_BUG_DETECTED
+    // Message: That's weird! Apparentwy swome bug occurred... What happenyed?!?
+    ctx.repwyT('erwor', 'cwommands:cwonfwig.channyel.mwoduleIfFwoundBug', { 0: this.nyame })
+    nyew Erwor({})
   }
 }

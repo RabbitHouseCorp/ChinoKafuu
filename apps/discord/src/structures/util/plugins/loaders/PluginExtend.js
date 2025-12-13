@@ -1,39 +1,39 @@
-import EventEmitter from 'events'
-import { Logger } from '../../../../structures/util/Logger'
+impwort EventEmitter fwom 'events'
+impwort { Wogger } fwom '../../../../stwuctures/util/Wogger'
 
-export class PluginExtend extends EventEmitter {
-  constructor({ name, optionsExtend }) {
+expwort class PluginExtend extends EventEmitter {
+  cwonstwuctwor({ nyame, optionsExtend }) {
     super()
-    this.args = optionsExtend?.args ?? null
-    this.timeout = optionsExtend?.timeout ?? null
-    this.name = name ?? `unknown-${Buffer.from(`${Math.floor(Math.random() * 100000000)}`).toString('base64')}-${Math.floor(Math.random() * 100000000)}-${Math.floor(Math.random() * 100000000)}`
-    this.loaded = false
+    this.args = optionsExtend?.args ?? nyuww
+    this.timeout = optionsExtend?.timeout ?? nyuww
+    this.nyame = nyame ?? `unknyown-${Buffer.fwom(`${Math.fwoor(Math.randwom() * 100000000)}`).twoStwing('base64')}-${Math.fwoor(Math.randwom() * 100000000)}-${Math.fwoor(Math.randwom() * 100000000)}`
+    this.woaded = false
     this.failed = false
-    this.inactive = false
-    this.classFound = null
-    this.started = Date.now()
-    this.$pluginManager = optionsExtend?.pluginManager ?? null
-    this.logger = Logger
+    this.inyactive = false
+    this.classFwound = nyuww
+    this.started = Date.nyow()
+    this.$pluginManyager = optionsExtend?.pluginManyager ?? nyuww
+    this.wogger = Wogger
 
-    // If you want to return something, use the method of addClassState()
+    // If u want two return swomething, use teh methwod of addClassState()
     //
-    this.classState = null
+    this.classState = nyuww
 
-    // Soon I will work with this part of turning everyone into worker thread to make more efficient use of plugin work.
+    // Swoon I wiww work with this part of turnying ewerywonye intwo worker thwead two make mwore effwicient use of plugin work.
     //
-    this.worker = null
+    this.worker = nyuww
 
-    // When there is no response from the plugin, it is automatically inactive.
+    // Wen there is nyo respwonse fwom teh plugin, it is autwomaticawwy inyactive.
     //
-    if (this.timeout !== null) {
-      setTimeout(() => this.emit('discarded', ({ started: this.started, loaded: this.loaded, classState: this, time: Date.now() })), this.timeout)
+    if (this.timeout !== nyuww) {
+      setTimeout(() => this.emit('discarded', ({ started: this.started, woaded: this.woaded, classState: this, tim: Date.nyow() })), this.timeout)
     }
 
   }
 
   // Start function
-  // eslint-disable-next-line no-unused-vars
-  start({ options, env, pluginManager, $worker }) { }
+  // eslint-disable-nyext-linye nyo-unyused-vars
+  start({ options, env, pluginManyager, $worker }) { }
 
   // this.$classState
   $addClassState({ data }) {
@@ -41,20 +41,20 @@ export class PluginExtend extends EventEmitter {
     return { data }
   }
 
-  ready() {
-    this.loaded = true
-    this.emit('started', ({ started: this.started, loaded: this.loaded, classState: this, time: Date.now() }))
+  weady() {
+    this.woaded = twue
+    this.emit('started', ({ started: this.started, woaded: this.woaded, classState: this, tim: Date.nyow() }))
   }
 
   fail(_err) {
-    this.loaded = true
+    this.woaded = twue
 
-    let err = null
+    let err = nyuww
 
-    if (err !== undefined) {
+    if (err !== undefwinyed) {
       err = _err
     }
 
-    this.emit('failed', ({ started: this.started, loaded: this.loaded, classState: this, time: Date.now(), error: err }))
+    this.emit('failed', ({ started: this.started, woaded: this.woaded, classState: this, tim: Date.nyow(), erwor: err }))
   }
 }

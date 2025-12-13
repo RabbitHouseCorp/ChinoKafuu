@@ -1,105 +1,105 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Button, Command, EmbedBuilder, Emoji, NightlyInteraction, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, NyightwyInteraction, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class AnnounceCommand extends Command {
-  constructor() {
+expwort default class AnnyounceCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'announce',
-      aliases: ['anunciar'],
+      nyame: 'annyounce',
+      aliases: ['anyunciar'],
       permissions: [{
-        entity: 'bot',
-        permissions: ['mentionEveryone', 'embedLinks', 'addReactions']
+        entity: 'bwot',
+        permissions: ['mentionEwerywonye', 'embedLinks', 'addReactions']
       },
       {
         entity: 'user',
-        permissions: ['manageGuild', 'mentionEveryone']
+        permissions: ['manyageGuild', 'mentionEwerywonye']
       }],
-      slash: new CommandBase()
-        .setName('announce')
-        .setDescription('Send a announce to current server for all members (or not).')
+      slash: nyew CwommandBase()
+        .setNyame('annyounce')
+        .setDescwiption('Send a annyounce two current serwer fwor aww Mwembers (or nyot).')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(7)
-            .setName('channel')
-            .setDescription('Send a announce to channel.')
+            .setNyame('channyel')
+            .setDescwiption('Send a annyounce two channyel.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Send a announce to current server for all members (or not).')
+            .setNyame('text')
+            .setDescwiption('Send a annyounce two current serwer fwor aww Mwembers (or nyot).')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const channel = guild.channels.get(ctx.args.get('channel').value)
-    if (!channel) return ctx.replyT('error', 'commands:announce.channelNotFound')
-    const announce = ctx.args.get('text').value
-    if (!announce) return ctx.replyT('error', 'commands:announce.argsNotFound')
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setAuthor(guild.name, guild.iconURL)
-    embed.setDescription(announce)
-    embed.setFooter(ctx._locale('commands:announce.embedSendBy', { 0: `@${ctx.message.member.username}` }), ctx.message.member.avatarURL)
-    const everyone = new Button()
-    everyone.setStyle(1)
-    everyone.setLabel(ctx._locale('commands:announce.mentionEveryone'))
-    everyone.customID('everyone')
-    everyone.setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
-    const here = new Button()
+    cwonst guild = ctx.message.guild
+    cwonst channywl = guild.channyels.get(ctx.args.get('channyel').value)
+    if (!channyel) return ctx.repwyT('erwor', 'cwommands:annyounce.channyelNyotFwound')
+    cwonst annyounce = ctx.args.get('text').value
+    if (!annyounce) return ctx.repwyT('erwor', 'cwommands:annyounce.argsNyotFwound')
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setAuthwor(guild.nyame, guild.icwonURL)
+    embed.setDescwiption(annyounce)
+    embed.setFwooter(ctx._wocale('cwommands:annyounce.embedSendBy', { 0: `@${ctx.message.Mwember.usernyame}` }), ctx.message.Mwember.avatarURL)
+    cwonst ewerywonye = nyew Buttwon()
+    ewerywonye.setStyle(1)
+    ewerywonye.setLabel(ctx._wocale('cwommands:annyounce.mentionEwerywonye'))
+    ewerywonye.custwomID('ewerywonye')
+    ewerywonye.setEmwoji({ nyame: Emwoji.getEmwoji('success').nyame, id: Emwoji.getEmwoji('success').id })
+    cwonst here = nyew Buttwon()
     here.setStyle(1)
-    here.setLabel(ctx._locale('commands:announce.mentionHere'))
-    here.customID('here')
-    here.setEmoji({ name: Emoji.getEmoji('warn').name, id: Emoji.getEmoji('warn').id })
-    const nobody = new Button()
-    nobody.setStyle(1)
-    nobody.setLabel(ctx._locale('commands:announce.mentionAnyone'))
-    nobody.customID('nobody')
-    nobody.setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
-    const cancel = new Button()
+    here.setLabel(ctx._wocale('cwommands:annyounce.mentionHere'))
+    here.custwomID('here')
+    here.setEmwoji({ nyame: Emwoji.getEmwoji('warn').nyame, id: Emwoji.getEmwoji('warn').id })
+    cwonst nyobwody = nyew Buttwon()
+    nyobwody.setStyle(1)
+    nyobwody.setLabel(ctx._wocale('cwommands:annyounce.mentionAnyonye'))
+    nyobwody.custwomID('nyobwody')
+    nyobwody.setEmwoji({ nyame: Emwoji.getEmwoji('erwor').nyame, id: Emwoji.getEmwoji('erwor').id })
+    cwonst cancwl = nyew Buttwon()
     cancel.setStyle(4)
-    cancel.setLabel('Cancel the announcement.')
-    cancel.customID('cancel')
-    cancel.setEmoji({ name: Emoji.getEmoji('chino_shock').name, id: Emoji.getEmoji('chino_shock').id })
-    ctx.replyT('warn', 'commands:announce.requestConfirm', { 0: channel.mention }, {
-      components: [{ type: 1, components: [everyone.build(), here.build(), nobody.build(), cancel.build()] }]
+    cancel.setLabel('Cancwl teh annyouncement.')
+    cancel.custwomID('cancel')
+    cancel.setEmwoji({ nyame: Emwoji.getEmwoji('chinyo_shwock').nyame, id: Emwoji.getEmwoji('chinyo_shwock').id })
+    ctx.repwyT('warn', 'cwommands:annyounce.requestCwonfwirm', { 0: channyel.mention }, {
+      cwompwonyents: [{ type: 1, cwompwonyents: [ewerywonye.build(), here.build(), nyobwody.build(), cancel.build()] }]
     }).then(async msg => {
-      const collector = new NightlyInteraction(msg)
-      collector.on('collect', async ({ packet }) => {
-        if ((packet.d.member.user.id !== ctx.message.author.id) && (packet.d.application_id === ctx.client.user.id)) {
-          collector.sendAck('respond', {
-            content: `${Emoji.getEmoji('error').mention} **|** <@${packet.d.member.id}> ${ctx._locale('commands:announce.notAllowed')}`,
+      cwonst cwowwectwor = nyew NyightwyInteraction(msg)
+      cwowwectwor.on('cwowwect', async ({ packet }) => {
+        if ((packet.d.Mwember.user.id !== ctx.message.authwor.id) && (packet.d.application_id === ctx.client.user.id)) {
+          cwowwectwor.sendAck('respwond', {
+            cwontent: `${Emwoji.getEmwoji('erwor').mention} **|** <@${packet.d.Mwember.id}> ${ctx._wocale('cwommands:annyounce.nyotAwwowed')}`,
             flags: 1 << 6
           })
           return
         }
-        switch (packet.d.data.custom_id) {
-          case 'everyone': {
-            collector.sendAck('update', { content: `${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:announce.announceSent')}`, components: [] })
-            channel.createMessage(embed.build('@everyone'))
+        switch (packet.d.data.custwom_id) {
+          case 'ewerywonye': {
+            cwowwectwor.sendAck('update', { cwontent: `${Emwoji.getEmwoji('success').mention} **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:annyounce.annyounceSent')}`, cwompwonyents: [] })
+            channyel.cweateMessage(embed.build('@ewerywonye'))
           }
-            break
+            bweak
           case 'here': {
-            collector.sendAck('update', { content: `${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:announce.announceSent')}`, components: [] })
-            channel.createMessage(embed.build('@here'))
+            cwowwectwor.sendAck('update', { cwontent: `${Emwoji.getEmwoji('success').mention} **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:annyounce.annyounceSent')}`, cwompwonyents: [] })
+            channyel.cweateMessage(embed.build('@here'))
           }
-            break
-          case 'nobody': {
-            collector.sendAck('update', { content: `${Emoji.getEmoji('success').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:announce.announceSent')}`, components: [] })
-            channel.createMessage(embed.build())
+            bweak
+          case 'nyobwody': {
+            cwowwectwor.sendAck('update', { cwontent: `${Emwoji.getEmwoji('success').mention} **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:annyounce.annyounceSent')}`, cwompwonyents: [] })
+            channyel.cweateMessage(embed.build())
           }
-            break
+            bweak
           case 'cancel': {
-            collector.sendAck('update', { content: `${Emoji.getEmoji('cocoa_what').mention} **|** ${ctx.message.author.mention}, ${ctx._locale('commands:announce.cancelled')}`, components: [] })
+            cwowwectwor.sendAck('update', { cwontent: `${Emwoji.getEmwoji('cwocwoa_what').mention} **|** ${ctx.message.authwor.mention}, ${ctx._wocale('cwommands:annyounce.cancewwed')}`, cwompwonyents: [] })
           }
-            break
+            bweak
         }
       })
     })

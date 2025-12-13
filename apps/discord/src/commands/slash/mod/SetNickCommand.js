@@ -1,50 +1,50 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class SetNickCommand extends Command {
-  constructor() {
+expwort default class SetNyickCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'setnick',
-      aliases: ['changenick', 'updatenick', 'alterarnickname', 'setnickname'],
+      nyame: 'setnyick',
+      aliases: ['changenyick', 'updatenyick', 'alterarnyicknyame', 'setnyicknyame'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageNicknames']
+        entity: 'bwoth',
+        permissions: ['manyageNyicknyames']
       }],
-      slash: new CommandBase()
-        .setName('setnick')
-        .setDescription('Sets the nickname of a member')
+      slash: nyew CwommandBase()
+        .setNyame('setnyick')
+        .setDescwiption('Sets teh nyicknyame of a Mwember')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention member on server.')
+            .setNyame('user')
+            .setDescwiption('Mention Mwember on serwer.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('nickname')
-            .setDescription('Add a new nickname.')
+            .setNyame('nyicknyame')
+            .setDescwiption('Add a nyew nyicknyame.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    const newNick = ctx.args.get('nickname').value
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    try {
-      await member.edit({
-        nick: newNick
+    cwonst Mwember = await ctx.getmwember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    cwonst nyewNyick = ctx.args.get('nyicknyame').value
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    twy {
+      await Mwember.edit({
+        nyick: nyewNyick
       })
-      return ctx.replyT('success', 'commands:setnick.success', { member: member.username, nickname: newNick })
+      return ctx.repwyT('success', 'cwommands:setnyick.success', { Mwember: Mwember.usernyame, nyicknyame: nyewNyick })
     } catch (err) {
-      ctx.client.emit('error', (ctx.client, err))
-      return ctx.replyT('error', 'commands:setnick.error') // FIXME error being triggered with no reason
+      ctx.client.emit('erwor', (ctx.client, err))
+      return ctx.repwyT('erwor', 'cwommands:setnyick.erwor') // FWIXME erwor being twiggered with nyo reaswon
     }
   }
 }

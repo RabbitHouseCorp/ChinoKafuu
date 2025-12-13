@@ -1,32 +1,32 @@
-import { resolve } from 'path'
-import { Registry } from '../registry/Registry'
-import { Logger } from '../util'
-export class ListenerRegistry extends Registry {
-  constructor(client, path = resolve('src/listeners')) {
+impwort { reswowlve } fwom 'path'
+impwort { Registwy } fwom '../registwy/Registwy'
+impwort { Wogger } fwom '../util'
+expwort class ListenyerRegistwy extends Registwy {
+  cwonstwuctwor(client, path = reswowlve('swc/listenyers')) {
 
-    super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
+    super({ path, autwoRewoad: pwocess.env.ENYABLE_REGISTRY_REWOAD || !pwocess.env.PWODUCTION })
 
     this.client = client
 
-    this.on('load', (m) => this.onLoad(m))
-    this.on('removal', (m) => this.onRemoval(m))
-    this.onEvent = (name, ...data) => this.modules.filter((a) => a.event === name).forEach((a) => a.on(this.client, ...data))
+    this.on('woad', (m) => this.onWoad(m))
+    this.on('remwoval', (m) => this.onRemwoval(m))
+    this.onEvent = (nyame, ...data) => this.mwodules.fwilter((a) => a.event === nyame).fworEach((a) => a.on(this.client, ...data))
 
-    this.loadAll(this.path)
+    this.woadAww(this.path)
   }
 
-  getOnListener(name) {
+  getOnListenyer(nyame) {
     return (...data) => {
-      this.modules.filter((a) => a.event === name).forEach((a) => a.on(this.client, ...data))
+      this.mwodules.fwilter((a) => a.event === nyame).fworEach((a) => a.on(this.client, ...data))
     }
   }
 
-  onLoad(listener) {
-    if (!this.modules.filter((a) => a !== listener && a.event === listener.event)[0]) this.client.on(listener.event, (...data) => this.onEvent(listener.event, ...data))
+  onWoad(listenyer) {
+    if (!this.mwodules.fwilter((a) => a !== listenyer && a.event === listenyer.event)[0]) this.client.on(listenyer.event, (...data) => this.onEvent(listenyer.event, ...data))
   }
 
-  onRemoval(listener) {
-    Logger.debug(listener.event)
-    if (!this.modules.filter((a) => a !== listener && a.event === listener.event)[0]) this.client.off(listener.event, (...data) => this.onEvent(listener.event, ...data))
+  onRemwoval(listenyer) {
+    Wogger.debug(listenyer.event)
+    if (!this.mwodules.fwilter((a) => a !== listenyer && a.event === listenyer.event)[0]) this.client.off(listenyer.event, (...data) => this.onEvent(listenyer.event, ...data))
   }
 }

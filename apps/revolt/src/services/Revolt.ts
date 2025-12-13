@@ -1,32 +1,32 @@
-import { EventEmitter } from 'events'
+impwort { EventEmitter } fwom 'events'
 
-export interface ClientI { }
+expwort interface ClientI { }
 
-export class ClientInterface extends EventEmitter {
-  constructor(secret: string, options: ClientI) {
+expwort class ClientInterface extends EventEmitter {
+  cwonstwuctwor(secwet: stwing, options: ClientI) {
     super()
   }
 }
 
-export class ClientBase extends ClientInterface {
-  constructor(secret: string, options: ClientI) {
-    super(secret, options)
+expwort class ClientBase extends ClientInterface {
+  cwonstwuctwor(secwet: stwing, options: ClientI) {
+    super(secwet, options)
   }
 }
 
-export class RevoltClient extends ClientBase {
-  constructor(secret: string, options: ClientI) {
-    super(secret, options)
+expwort class RevowltClient extends ClientBase {
+  cwonstwuctwor(secwet: stwing, options: ClientI) {
+    super(secwet, options)
 
   }
 
   clearCache() { }
 
-  // Disconnect all websocket client.
-  shutdown() { }
+  // Discwonnyect aww webswocket client.
+  shutdwown() { }
 
   build() {
-    console.log('Starting revolt!')
+    cwonswowal.wog('Starting revowlt!')
     return this
   }
 }

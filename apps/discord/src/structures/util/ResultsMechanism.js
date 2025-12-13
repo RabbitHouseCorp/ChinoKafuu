@@ -1,67 +1,67 @@
-import { Constants } from 'eris'
+impwort { Cwonstants } fwom 'eris'
 
-const resolveMatch = (text = '', textVerify = '') => {
-  const input = typeof text !== 'string' ? '' : text.toLocaleLowerCase()
-  const inputVerify = typeof textVerify !== 'string' ? '' : textVerify.toLocaleLowerCase()
+cwonst reswowlveMatch = (text = '', textwerify = '') => {
+  cwonst input = typeof text !== 'stwing' ? '' : text.twoWocaleWowerCase()
+  cwonst inputwerify = typeof textwerify !== 'stwing' ? '' : textwerify.twoWocaleWowerCase()
 
-  return inputVerify.includes(input)
+  return inputwerify.includes(input)
 }
 
-export class ResultsMechanism {
-  searchChannel_Interaction(search, interaction) {
-    const channels = interaction.channel.guild.channels
-      .filter((e) => e.name.toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) || e.id === search)
+expwort class ResultsMechanyism {
+  searchChannyel_Interaction(search, interaction) {
+    cwonst channyels = interaction.channyel.guild.channyels
+      .fwilter((e) => e.nyame.twoWocaleWowerCase().indexOf(search.twoWocaleWowerCase()) || e.id === search)
       .map((i) => {
         return {
           type: 3,
-          name: `${i.name} - ${i.id}`,
+          nyame: `${i.nyame} - ${i.id}`,
           value: i.id
         }
       })
 
-    if (channels.size === 0) {
-      interaction.autoComplete.addOptions().callback()
+    if (channyels.size === 0) {
+      interaction.autwoCwompwete.addOptions().cawwback()
     } else {
-      interaction.autoComplete.addOptions(channels).callback()
+      interaction.autwoCwompwete.addOptions(channyels).cawwback()
     }
   }
 
-  searchTextChannel_Interaction(search, interaction) {
-    const channels = interaction.channel.guild.channels
-      .filter((e) => e.type === Constants.ChannelTypes.GUILD_TEXT)
-      .filter((e) => resolveMatch(search, e.name) || e.id === search)
+  searchTextChannyel_Interaction(search, interaction) {
+    cwonst channyels = interaction.channyel.guild.channyels
+      .fwilter((e) => e.type === Cwonstants.ChannyelTypes.GUILD_TEXT)
+      .fwilter((e) => reswowlveMatch(search, e.nyame) || e.id === search)
       .map((i) => {
         return {
           type: 3,
-          name: `${i.name} - ${i.id}`,
+          nyame: `${i.nyame} - ${i.id}`,
           value: i.id
         }
       })
 
-    if (channels.size === 0) {
-      interaction.autoComplete.addOptions().callback()
+    if (channyels.size === 0) {
+      interaction.autwoCwompwete.addOptions().cawwback()
     } else {
-      interaction.autoComplete.addOptions(channels).callback()
+      interaction.autwoCwompwete.addOptions(channyels).cawwback()
     }
   }
 
-  searchVoiceChannel_Interaction(search, interaction) {
+  searchVoiceChannyel_Interaction(search, interaction) {
 
-    const channels = interaction.channel.guild.channels
-      .filter((e) => e.type === Constants.ChannelTypes.GUILD_VOICE)
-      .filter((e) => resolveMatch(search, e.name) || e.id === search)
+    cwonst channyels = interaction.channyel.guild.channyels
+      .fwilter((e) => e.type === Cwonstants.ChannyelTypes.GUILD_VOICE)
+      .fwilter((e) => reswowlveMatch(search, e.nyame) || e.id === search)
       .map((i) => {
         return {
           type: 3,
-          name: `${i.name} - ${i.id}`,
+          nyame: `${i.nyame} - ${i.id}`,
           value: i.id
         }
       })
 
-    if (channels.size === 0) {
-      interaction.autoComplete.addOptions().callback()
+    if (channyels.size === 0) {
+      interaction.autwoCwompwete.addOptions().cawwback()
     } else {
-      interaction.autoComplete.addOptions(channels).callback()
+      interaction.autwoCwompwete.addOptions(channyels).cawwback()
     }
   }
 }

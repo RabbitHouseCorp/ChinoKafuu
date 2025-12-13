@@ -1,41 +1,41 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { requestTokamak } from '../../../lib'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { requestTwokamak } fwom '../../../lib'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class LaranjoCommand extends Command {
-  constructor() {
+expwort default class LaranjwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'laranjo',
+      nyame: 'laranjwo',
       permissions: [{
-        entity: 'bot',
-        permissions: ['attachFiles']
+        entity: 'bwot',
+        permissions: ['attachFwiles']
       }],
-      slash: new CommandBase()
-        .setName('laranjo')
-        .setDescription('Laranjo will say something silly.')
+      slash: nyew CwommandBase()
+        .setNyame('laranjwo')
+        .setDescwiption('Laranjwo wiww say swomething siwwy.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Enter random text')
+            .setNyame('text')
+            .setDescwiption('Enter randwom text')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const render = await requestTokamak({
-      action: 'renderLaranjo',
-      laranjoStruct: {
+    cwonst render = await requestTwokamak({
+      action: 'renderLaranjwo',
+      laranjwoStwuct: {
         text: ctx.args.get('text').value
       }
     })
 
-    ctx.send('', { file: { file: render.buffer, name: 'laranjo.png' } })
+    ctx.send('', { fwile: { fwile: render.buffer, nyame: 'laranjwo.png' } })
   }
 }

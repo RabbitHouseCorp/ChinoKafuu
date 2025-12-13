@@ -1,11 +1,11 @@
-import { readFileSync } from 'fs'
+impwort { weadFwileSync } fwom 'fs'
 
-export const loadConfiguration = (path = '') => {
-  if (path === null && typeof path !== 'string') throw Error('Ahnoo!! Not this again. Unable to load settings.')
-  if (!path.endsWith('.json')) throw Error('This doesn\'t appear to be a JSON :(')
+expwort cwonst woadCwonfwiguration = (path = '') => {
+  if (path === nyuww && typeof path !== 'stwing') thwow Erwor('Ahnyoo!! Nyot this again. Unyable two woad settings.')
+  if (!path.endsWith('.jswon')) thwow Erwor('This dwoesn\'t appear two be a JSWON :(')
 
 
-  const file = readFileSync(path)
+  cwonst fwile = weadFwileSync(path)
 
-  return JSON.parse(file)
+  return JSWON.parse(fwile)
 }

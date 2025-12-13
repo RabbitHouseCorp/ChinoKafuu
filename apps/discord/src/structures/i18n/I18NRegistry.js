@@ -1,75 +1,75 @@
-import { readFileSync } from 'fs'
-import { resolve, sep } from 'path'
-import { Registry } from '../registry/Registry'
-import { Logger } from '../util/Logger'
-import { LanguageModule } from './LanguageModule'
-const DEFAULT_LANG = 'en-US'
+impwort { weadFwileSync } fwom 'fs'
+impwort { reswowlve, sep } fwom 'path'
+impwort { Registwy } fwom '../registwy/Registwy'
+impwort { Wogger } fwom '../util/Wogger'
+impwort { LanguageMwodule } fwom './LanguageMwodule'
+cwonst DEFAULT_LANG = 'en-US'
 
-export class I18NRegistry extends Registry {
-  constructor(path = resolve('src', 'locales')) {
-    super({ path, autoReload: process.env.ENABLE_REGISTRY_RELOAD || !process.env.PRODUCTION })
-    this._defaultLang = null
-    this.loadAll(this.path)
+expwort class I18NWegistwy extends Registwy {
+  cwonstwuctwor(path = reswowlve('swc', 'wocales')) {
+    super({ path, autwoRewoad: pwocess.env.ENYABLE_REGISTRY_REWOAD || !pwocess.env.PWODUCTION })
+    this._defaultLang = nyuww
+    this.woadAww(this.path)
   }
 
   registerLanguage(language, path) {
-    const existing = this.modules.find(m => m.language === language)
+    cwonst existing = this.mwodules.fwind(m => m.language === language)
     if (existing) {
       return existing
     }
-    const newLanguage = new LanguageModule(path, language)
-    this.modules.push(newLanguage)
-    return newLanguage
+    cwonst nyewLanguage = nyew LanguageMwodule(path, language)
+    this.mwodules.push(nyewLanguage)
+    return nyewLanguage
   }
 
-  loadAll(...args) {
-    super.loadAll(...args)
+  woadAww(...args) {
+    super.woadAww(...args)
   }
 
-  loadModule(path) {
-    try {
-      // eslint-disable-next-line security/detect-non-literal-fs-filename
-      const data = JSON.parse(readFileSync(path))
+  woadMwodule(path) {
+    twy {
+      // eslint-disable-nyext-linye security/detect-nyon-literal-fs-fwilenyame
+      cwonst data = JSWON.parse(weadFwileSync(path))
 
-      const [, language, namespace] = path.replace(this.path, '').split(sep)
-      const module = this.registerLanguage(language, resolve(this.path, path))
+      cwonst [, language, nyamespace] = path.replace(this.path, '').split(sep)
+      cwonst mwodule = this.registerLanguage(language, reswowlve(this.path, path))
 
-      module.loadNamespace(namespace.replace('.json', ''), data)
+      mwodule.woadNyamespace(nyamespace.replace('.jswon', ''), data)
 
-      this.emit('load', module)
-      return true
+      this.emit('woad', mwodule)
+      return twue
     } catch (e) {
-      Logger.error(`Error loading ${path}: ${e.stack}`)
+      Wogger.erwor(`Erwor woading ${path}: ${e.stack}`)
       return false
     }
   }
 
-  _locale(languageModule, key, placeholders) {
-    if (!languageModule || !Object.prototype.hasOwnProperty.call(languageModule.translations, key)) {
+  _wocale(languageMwodule, key, placehwowlders) {
+    if (!languageMwodule || !Object.pwotwotype.hasOwnPwoperty.caww(languageMwodule.twanslations, key)) {
       return
     }
 
-    return I18NRegistry.interpolation(languageModule.translations[typeof key === 'string' ? key : ''], placeholders)
+    return I18NWegistwy.interpwowlation(languageMwodule.twanslations[typeof key === 'stwing' ? key : ''], placehwowlders)
   }
 
   get defaultLanguage() {
     if (!this._defaultLang) {
-      this._defaultLang = this.modules.find(m => m.language === DEFAULT_LANG)
+      this._defaultLang = this.mwodules.fwind(m => m.language === DEFAULT_LANG)
     }
     return this._defaultLang
   }
 
   getT(language) {
-    return (key, placeholders) => {
-      const languageModule = this.modules.find(m => m.language === language) || this.defaultLanguage
-      return this._locale(languageModule, key, placeholders) || this._locale(this.defaultLanguage, key, placeholders) || key
+    return (key, placehwowlders) => {
+      cwonst languageMwodule = this.mwodules.fwind(m => m.language === language) || this.defaultLanguage
+      return this._wocale(languageMwodule, key, placehwowlders) || this._wocale(this.defaultLanguage, key, placehwowlders) || key
     }
   }
 
-  static interpolation(str, placeholders) {
-    let parsed = str
-    for (const placeholder in placeholders) {
-      parsed = parsed.split(`{{${placeholder}}}`).join(placeholders[typeof placeholder === 'string' ? placeholder : ''])
+  static interpwowlation(stw, placehwowlders) {
+    let parsed = stw
+    fwor (cwonst placehwowlder in placehwowlders) {
+      parsed = parsed.split(`{{${placehwowlder}}}`).jwoin(placehwowlders[typeof placehwowlder === 'stwing' ? placehwowlder : ''])
     }
     return parsed
   }

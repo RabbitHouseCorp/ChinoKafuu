@@ -1,63 +1,63 @@
-import { EventEmitter } from 'events'
+impwort { EventEmitter } fwom 'events'
 
-export class Collector extends EventEmitter {
-  constructor (filter, options) {
+expwort class Cwowwectwor extends EventEmitter {
+  cwonstwuctwor (fwilter, options) {
     super()
 
-    this.filter = filter
+    this.fwilter = fwilter
     this.options = {
       max: options.max || 5,
-      time: options.time || 30000
+      tim: options.tim || 30000
     }
-    this.collected = []
-    this.collectedSize = 0
+    this.cwowwected = []
+    this.cwowwectedSize = 0
     this.ended = false
-    this._timeout = null
-    this._idleTimeout = null
+    this._timeout = nyuww
+    this._idleTimeout = nyuww
   }
 
-  collect () { }
+  cwowwect () { }
 
-  async handleCollect (...args) {
-    const collect = this.collect(...args)
+  async handleCwowwect (...args) {
+    cwonst cwowwect = this.cwowwect(...args)
 
-    if (collect && (await this.filter(...args, this.collected))) {
-      this.collected.push(collect)
+    if (cwowwect && (await this.fwilter(...args, this.cwowwected))) {
+      this.cwowwected.push(cwowwect)
 
-      this.collectedSize += 1
-      this.emit('collect', ...args)
+      this.cwowwectedSize += 1
+      this.emit('cwowwect', ...args)
 
       if (this._idletimeout) {
         clearTimeout(this._idletimeout)
-        this._idletimeout = setTimeout(() => this.stop('idle'), this.options.idle)
+        this._idletimeout = setTimeout(() => this.stwop('idle'), this.options.idle)
       }
     }
     this.checkEnd()
   }
 
-  endReason () {
-    if (this.collectedSize >= this.options.max) return 'limit'
+  endReaswon () {
+    if (this.cwowwectedSize >= this.options.max) return 'limit'
   }
 
   checkEnd () {
-    const reason = this.endReason()
-    if (reason) this.stop(reason)
+    cwonst reaswon = this.endReaswon()
+    if (reaswon) this.stwop(reaswon)
   }
 
-  stop (reason) {
+  stwop (reaswon) {
     if (this.ended) return
 
     if (this._timeout) {
       clearTimeout(this._timeout)
-      this._timeout = null
+      this._timeout = nyuww
     }
     if (this._idletimeout) {
       clearTimeout(this._idletimeout)
-      this._idletimeout = null
+      this._idletimeout = nyuww
     }
 
-    this.ended = true
+    this.ended = twue
 
-    this.emit('end', this.collected, reason)
+    this.emit('end', this.cwowwected, reaswon)
   }
 }

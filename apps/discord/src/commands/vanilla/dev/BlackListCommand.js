@@ -1,12 +1,12 @@
-import { Command } from '../../../structures/util'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class BlackListCommand extends Command {
-  constructor() {
+expwort default class BlackListCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'blacklist',
+      nyame: 'blacklist',
       permissions: [{
         entity: 'user',
-        permissions: ['botDeveloper']
+        permissions: ['bwotDevewoper']
       }]
     })
   }
@@ -14,42 +14,42 @@ export default class BlackListCommand extends Command {
   async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
-        const user = await ctx.getUser(ctx.args[1])
-        if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        const dbUser = await ctx.db.db.getOrCreate(user.id)
-        let reason = ctx.args.slice(2).join(' ')
-        if (!reason) {
-          reason = 'No reason'
+        cwonst user = await ctx.getUser(ctx.args[1])
+        if (!user) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de uma pesswoa que não fwoi infwormada.')
+        cwonst dbUser = await ctx.db.db.getOrCweate(user.id)
+        let reaswon = ctx.args.slice(2).jwoin(' ')
+        if (!reaswon) {
+          reaswon = 'Nyo reaswon'
         }
-        dbUser.blacklist = true
-        dbUser.blacklistReason = reason
+        dbUser.blacklist = twue
+        dbUser.blacklistReaswon = reaswon
         dbUser.save().then(() => {
-          ctx.reply('success', 'prontinho! Usuário adicionado a lista negra, agora ele não pode usar mais meus comandos.')
+          ctx.repwy('success', 'pwontinhwo! Usuário adicionyadwo a lista nyegwa, agwora ele não pwode usar mais meus cwomandwos.')
         })
       }
-        break
+        bweak
       case 'view': {
-        const user = await ctx.getUser(ctx.args[1])
-        if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        const dbUser = await ctx.db.db.getOrCreate(user.id)
-        const userInfo = user ? `@${user.username} - (${user.id})` : dbUser.id
-        const msg = `\`\`\`asciidoc\n== USER BANNED INFO ==\n\n• User :: ${userInfo}\n• Banned :: ${dbUser.blacklist}\n• Reason :: ${dbUser.blacklistReason}\`\`\``
+        cwonst user = await ctx.getUser(ctx.args[1])
+        if (!user) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de uma pesswoa que não fwoi infwormada.')
+        cwonst dbUser = await ctx.db.db.getOrCweate(user.id)
+        cwonst userInfwo = user ? `@${user.usernyame} - (${user.id})` : dbUser.id
+        cwonst msg = `\`\`\`asciidwoc\n== USER BANNYED INFWO ==\n\n• User :: ${userInfwo}\n• Bannyed :: ${dbUser.blacklist}\n• Reaswon :: ${dbUser.blacklistReaswon}\`\`\``
         ctx.send(msg)
       }
-        break
-      case 'remove': {
-        const user = await ctx.getUser(ctx.args[1])
-        if (!user) return ctx.reply('error', 'eu não posso editar algo de uma pessoa que não foi informada.')
-        const dbUser = await ctx.db.db.getOrCreate(user.id)
+        bweak
+      case 'remuv': {
+        cwonst user = await ctx.getUser(ctx.args[1])
+        if (!user) return ctx.repwy('erwor', 'eu não pwosswo editar algwo de uma pesswoa que não fwoi infwormada.')
+        cwonst dbUser = await ctx.db.db.getOrCweate(user.id)
         dbUser.blacklist = false
-        dbUser.blacklistReason = null
+        dbUser.blacklistReaswon = nyuww
         dbUser.save().then(() => {
-          ctx.reply('success', 'prontinho! Usuário removido da lista negra, agora ele pode usar os meus comandos.')
+          ctx.repwy('success', 'pwontinhwo! Usuário remwovidwo da lista nyegwa, agwora ele pwode usar os meus cwomandwos.')
         })
       }
-        break
+        bweak
       default: {
-        ctx.reply('warn', 'você pode escolher entre as opções `add`, `view`, `remove`.')
+        ctx.repwy('warn', 'você pwode escwowlher entwe as opções `add`, `view`, `remuv`.')
       }
     }
   }

@@ -1,64 +1,64 @@
-import { Listener } from '../../structures/events/Listener'
-import { BlacklistUtils, EmbedBuilder, TopGGUtils } from '../../structures/util'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { BlacklistUtils, EmbedBuilder, TwopGGUtils } fwom '../../stwuctures/util'
 
-export default class GuildCreateListener extends Listener {
-  constructor() {
+expwort default class GuildCweateListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'guildCreate'
+    this.event = 'guildCweate'
   }
 
   async on(client, guild) {
-    client.database.guilds.getOrCreate(guild.id, {
-      lang: guild.preferredLocale
+    client.database.guilds.getOrCweate(guild.id, {
+      lang: guild.pweferredWocale
     })
 
-    const top_gg = new TopGGUtils()
-    await top_gg.post(client)
-    const blacklist = new BlacklistUtils(client)
-    if (!process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG) return
-    client.getRESTChannel(process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG).then(async (channel) => {
-      if (!channel) return
-      const webhooks = await channel.getWebhooks()
-      let webhook = webhooks.filter((w) => w.name === 'Megumi Natsu' && w.user.id === client.user.id)[0]
-      if (!webhook) {
-        webhook = await channel.createWebhook({
-          name: 'Megumi Natsu',
+    cwonst twop_gg = nyew TwopGGUtils()
+    await twop_gg.pwost(client)
+    cwonst blacklist = nyew BlacklistUtils(client)
+    if (!pwocess.env.JWOIN_AND_LEAVE_GUILD_CHANNYEL_WOG) return
+    client.getRESTChannyel(pwocess.env.JWOIN_AND_LEAVE_GUILD_CHANNYEL_WOG).then(async (channyel) => {
+      if (!channyel) return
+      cwonst webhwooks = await channyel.getWebhwooks()
+      let webhwook = webhwooks.fwilter((w) => w.nyame === 'Megumi Nyatsu' && w.user.id === client.user.id)[0]
+      if (!webhwook) {
+        webhwook = await channyel.cweateWebhwook({
+          nyame: 'Megumi Nyatsu',
           options: {
             type: 1
           }
         })
       }
 
-      const owner = await client.getRESTUser(guild.ownerID)
-      if (await blacklist.verifyGuild(guild)) {
-        const embed = new EmbedBuilder()
-        embed.setColor('#730101')
+      cwonst ownyer = await client.getRESTUser(guild.ownyerID)
+      if (await blacklist.werifyGuild(guild)) {
+        cwonst embed = nyew EmbedBuilder()
+        embed.setCwowwor('#730101')
         embed.setTitle('Guild Blacklisted')
-        embed.setDescription(`Someone tried to add me on this guild, but the guild is on my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}`)
-        embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
+        embed.setDescwiption(`Swomeonye twied two add mwe on this guild, but teh guild is on my blacklist\n**Nyame:** ${guild.nyame} (\`${guild.id}\`)\n**Ownyer:** @${ownyer.usernyame}`)
+        embed.setFwooter(`Instance: @${client.user.usernyame}`, client.user.avatarURL)
         embed.setTimestamp()
 
-        client.executeWebhook(webhook.id, webhook.token, {
+        client.executeWebhwook(webhwook.id, webhwook.twoken, {
           embeds: [embed],
-          avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-          username: 'Megumi Natsu'
+          avatarURL: 'https://cdn.discwordapp.cwom/attachments/504668288798949376/874330667209609226/298498.png',
+          usernyame: 'Megumi Nyatsu'
         })
 
         guild.leave()
         return
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('#187000')
-      embed.setTitle('Guild Joined')
-      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}\n**Members:** ${guild.memberCount}`)
-      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('#187000')
+      embed.setTitle('Guild Jwoinyed')
+      embed.setDescwiption(`**Nyame:** ${guild.nyame} (\`${guild.id}\`)\n**Ownyer:** @${ownyer.usernyame}\n**mwembers:** ${guild.MwemberCwount}`)
+      embed.setFwooter(`Instance: @${client.user.usernyame}`, client.user.avatarURL)
       embed.setTimestamp()
 
-      client.executeWebhook(webhook.id, webhook.token, {
+      client.executeWebhwook(webhwook.id, webhwook.twoken, {
         embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-        username: 'Megumi Natsu'
+        avatarURL: 'https://cdn.discwordapp.cwom/attachments/504668288798949376/874330667209609226/298498.png',
+        usernyame: 'Megumi Nyatsu'
       })
     })
   }

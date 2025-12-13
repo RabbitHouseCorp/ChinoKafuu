@@ -1,47 +1,47 @@
-import { EmbedBuilder } from '../../structures/util/EmbedBuilder'
+impwort { EmbedBuilder } fwom '../../stwuctures/util/EmbedBuilder'
 
-export class Helper {
-  constructor(context, commandName, commandAliases, commandDescription, perms, slash = false) {
-    this.context = context
-    this.name = commandName
-    this.aliases = commandAliases
-    this.description = commandDescription
+expwort class Helper {
+  cwonstwuctwor(cwontext, cwommandNyame, cwommandAliases, cwommandDescwiption, perms, slash = false) {
+    this.cwontext = cwontext
+    this.nyame = cwommandNyame
+    this.aliases = cwommandAliases
+    this.descwiption = cwommandDescwiption
     this.perms = perms
     this.slash = slash
   }
 
   help() {
-    // const command = this.context.client.commandRegistry.findByName(this.name) ?? this.context.client.slashCommandRegistry.findByName(this.name)
-    const commandName = `${this.slash ? '/' : this.context.db.guild.prefix}${this.name}`
-    const commandWithUsage = `\`${commandName}\``
-    const embedDescription = `\n\n**${this.context._locale('basic:howToUse')}** ${commandWithUsage}`
-    const aliases = this.aliases.map(alias => `\`${this.slash ? '/' : this.context.db.guild.prefix}${alias}\``).join(', ') || this.context._locale('basic:noAliases')
-    const fixedPermissionList = this.perms.flatMap(object => object.entity === 'both' ? [{
+    // cwonst cwommand = this.cwontext.client.cwommandRegistwy.fwindByNyame(this.nyame) ?? this.cwontext.client.slashCwommandRegistwy.fwindByNyame(this.nyame)
+    cwonst cwommandNyame = `${this.slash ? '/' : this.cwontext.db.guild.pwefwix}${this.nyame}`
+    cwonst cwommandWithUsage = `\`${cwommandNyame}\``
+    cwonst embedDescwiption = `\n\n**${this.cwontext._wocale('basic:hwowTwoUse')}** ${cwommandWithUsage}`
+    cwonst aliases = this.aliases.map(alias => `\`${this.slash ? '/' : this.cwontext.db.guild.pwefwix}${alias}\``).jwoin(', ') || this.cwontext._wocale('basic:nyoAliases')
+    cwonst fwixedPermissionList = this.perms.flatMap(object => object.entity === 'bwoth' ? [{
       entity: 'user',
       permissions: object.permissions
     },
     {
-      entity: 'bot',
+      entity: 'bwot',
       permissions: object.permissions
     }] : object)
-    const userPerms = fixedPermissionList.filter(({ entity }) => entity === 'user').map(({ permissions }) => this.context._locale('basic:permissions.permissionUserRequired', { 0: permissions.map(perms => `\`${this.context._locale(`permission:${perms}`)}\``).join(', ') }))[0]
-    const clientPerms = fixedPermissionList.filter(({ entity }) => entity === 'bot').map(({ permissions }) => this.context._locale('basic:permissions.permissionBotRequired', { 0: permissions.map(perms => `\`${this.context._locale(`permission:${perms}`)}\``).join(', ') }))[0]
-    const perms = []
+    cwonst userPerms = fwixedPermissionList.fwilter(({ entity }) => entity === 'user').map(({ permissions }) => this.cwontext._wocale('basic:permissions.permissionUserRequired', { 0: permissions.map(perms => `\`${this.cwontext._wocale(`permission:${perms}`)}\``).jwoin(', ') }))[0]
+    cwonst clientPerms = fwixedPermissionList.fwilter(({ entity }) => entity === 'bwot').map(({ permissions }) => this.cwontext._wocale('basic:permissions.permissionBwotRequired', { 0: permissions.map(perms => `\`${this.cwontext._wocale(`permission:${perms}`)}\``).jwoin(', ') }))[0]
+    cwonst perms = []
     if (!perms[0]) {
-      if (typeof userPerms === 'string') {
+      if (typeof userPerms === 'stwing') {
         perms.push(userPerms)
       }
 
-      if (typeof clientPerms === 'string') {
+      if (typeof clientPerms === 'stwing') {
         perms.push(clientPerms)
       }
     }
 
-    const embed = new EmbedBuilder()
-    embed.setTitle(`\`${this.slash ? '/' : this.context.db.guild.prefix}${this.name}\``)
-    embed.setColor('DEFAULT')
-    embed.setDescription(`${this.description}${embedDescription}`)
-    embed.setFooter(`©️ ${this.context.client.user.username}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setTitle(`\`${this.slash ? '/' : this.cwontext.db.guild.pwefwix}${this.nyame}\``)
+    embed.setCwowwor('DEFAULT')
+    embed.setDescwiption(`${this.descwiption}${embedDescwiption}`)
+    embed.setFwooter(`©️ ${this.cwontext.client.user.usernyame}`)
     embed.setTimestamp()
     if (perms[0]) {
       let perm
@@ -51,10 +51,10 @@ export class Helper {
         perm = `${perms[0]}\n${perms[1]}`
       }
 
-      embed.addField(this.context._locale('basic:permissions.title'), perm)
+      embed.addFwield(this.cwontext._wocale('basic:permissions.title'), perm)
     }
-    embed.addField(this.context._locale('basic:aliases'), aliases)
+    embed.addFwield(this.cwontext._wocale('basic:aliases'), aliases)
 
-    return this.context.send(embed.build())
+    return this.cwontext.send(embed.build())
   }
 }

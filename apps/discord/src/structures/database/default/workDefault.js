@@ -1,8 +1,8 @@
-export const workDefault = () => ({
-  bank: { type: Number, default: 0 },
-  value: { type: Number, default: 0 },
+expwort cwonst workDefault = () => ({
+  bank: { type: Nyumber, default: 0 },
+  value: { type: Nyumber, default: 0 },
   work: {
-    job: { type: Number, default: -1 },
-    arrested: { type: Boolean, default: false },
+    jwob: { type: Nyumber, default: -1 },
+    arrested: { type: Bwoowalan, default: false },
   }
 })

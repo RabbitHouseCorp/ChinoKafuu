@@ -1,12 +1,12 @@
-export const ProcessModel = (options = {}) => ({
+expwort cwonst PwocessMwodwl = (options = {}) => ({
   t: '',
   d: {
-    time: Date.now(),
-    projectName: '',
-    memoryUsage: {
+    tim: Date.nyow(),
+    pwojectNyame: '',
+    MwemworyUsage: {
       arrayBuffers: 0,
-      external: 0,
-      heapTotal: 0,
+      externyal: 0,
+      heapTwotal: 0,
       heapUsed: 0,
       rss: 0
     },
@@ -14,9 +14,9 @@ export const ProcessModel = (options = {}) => ({
       system: 0,
       user: 0
     },
-    resourceUsage: {
-      fsRead: 0,
-      fsWrite: 0,
+    reswourceUsage: {
+      fsWead: 0,
+      fsWwite: 0,
       ipcSent: 0,
       maxRss: 0,
       unsharedDataSize: 0,

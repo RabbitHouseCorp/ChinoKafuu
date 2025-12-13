@@ -1,50 +1,50 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class AddRoleCommand extends Command {
-  constructor() {
+expwort default class AddWowalCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'addrole',
-      aliases: ['adicionarcargo'],
+      nyame: 'addwowal',
+      aliases: ['adicionyarcargwo'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageRoles']
+        entity: 'bwoth',
+        permissions: ['manyageWowals']
       }],
-      slash: new CommandBase()
-        .setName('addrole')
-        .setDescription('You can get your daily yens by using this command')
+      slash: nyew CwommandBase()
+        .setNyame('addwowal')
+        .setDescwiption('U can get ywour daiwy yens by using this cwommand')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(8)
-            .setName('role')
-            .setDescription('Mention the role on the server')
+            .setNyame('wowal')
+            .setDescwiption('Mention teh wowal on teh serwer')
             .isRequired(),
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const user = ctx.args.get('user').value
-    const member = await ctx.getMember(user?.id ?? user)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const role = ctx.getRole(ctx.args.get('role').value)
-    if (!role) return ctx.replyT('error', 'basic:invalidRole')
-    try {
-      member.addRole(role.id)
-      ctx.replyT('success', 'commands:addrole.success')
+    cwonst user = ctx.args.get('user').value
+    cwonst Mwember = await ctx.getmwember(user?.id ?? user)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst wowal = ctx.getWowal(ctx.args.get('wowal').value)
+    if (!wowal) return ctx.repwyT('erwor', 'basic:invalidWowal')
+    twy {
+      Mwember.addWowal(wowal.id)
+      ctx.repwyT('success', 'cwommands:addwowal.success')
     } catch (err) {
-      ctx.client.emit('error', (ctx.client, err))
-      ctx.replyT('error', 'commands:addrole.higher')
+      ctx.client.emit('erwor', (ctx.client, err))
+      ctx.repwyT('erwor', 'cwommands:addwowal.higher')
     }
   }
 }

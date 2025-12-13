@@ -1,67 +1,67 @@
-import { Listener } from '../../structures/events/Listener'
-import { Logger, TopGGUtils } from '../../structures/util'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { Wogger, TwopGGUtils } fwom '../../stwuctures/util'
 
-export default class ReadyConnectionListener extends Listener {
-  constructor() {
+expwort default class WeadyCwonnyectionListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
     this.send = false
-    this.event = 'readyConnection'
+    this.event = 'weadyCwonnyection'
   }
 
   async on(client) {
-    client.connect = true
-    if (process.env.INTERACTION_URL.startsWith('ws://') || process.env.INTERACTION_URL.startsWith('wss://')) {
-      client.interactionPost.client = client
-      client.interactionPost.connect()
+    client.cwonnyect = twue
+    if (pwocess.env.INTERACTION_URL.startsWith('ws://') || pwocess.env.INTERACTION_URL.startsWith('wss://')) {
+      client.interactionPwost.client = client
+      client.interactionPwost.cwonnyect()
     }
 
-    client.startShard = Date.now()
-    // client.cacheManager.start()
-    const top_gg = new TopGGUtils()
-    await top_gg.post(client)
-    // const lavalink = new LavalinkManager(client)
+    client.startShard = Date.nyow()
+    // client.cacheManyager.start()
+    cwonst twop_gg = nyew TwopGGUtils()
+    await twop_gg.pwost(client)
+    // cwonst lavalink = nyew LavalinkManyager(client)
 
-    if (client.lavalink !== undefined) {
-      client.lavalink.emit('setManager', (client))
+    if (client.lavalink !== undefwinyed) {
+      client.lavalink.emit('setManyager', (client))
     }
 
-    const game = [
-      { name: 'Petit Rabbit\'s - Tokimeki Poporon', type: 2 },
-      { name: 'Petit Rabbit\'s - Daydream café', type: 2 },
-      { name: 'Petit Rabbit\'s - Tenkuu Cafeteria' },
-      { name: 'Petit Rabbit\'s - No Poi', type: 2 },
-      { name: 'Gochuumon wa Usagi Desu Ka?', type: 3 },
-      { name: 'Gochuumon wa Usagi Desu ka??: Sing for You', type: 3 },
-      { name: 'Gochuumon wa Usagi Desu Ka? BLOOM', type: 3 },
-      { name: 'Okaeri to Rabbit House Coffee.', type: 1, url: 'https://twitch.tv/danielagc' },
-      { name: '🐦 Follow me on X: @ChinoKafuuBot', type: 1, url: 'https://twitch.tv/danielagc' },
-      { name: 'If you need support, use /help', type: 1, url: 'https://twitch.tv/danielagc' },
-      { name: 'Drink a tea on Fleur de Lapin', type: 1, url: 'https://twitch.tv/danielagc' },
-      { name: 'The Phantom Thief Lapin', type: 3 },
-      { name: 'Miracle Girls Festival', type: 0 },
-      { name: 'Chimame Chronicle', type: 0 },
-      { name: '🦋 Follow me on BlueSky: @chinokafuu.moe', type: 1 }
+    cwonst game = [
+      { nyame: 'Petit Rabbit\'s - Twokimeki Pwopwowon', type: 2 },
+      { nyame: 'Petit Rabbit\'s - Daydweam café', type: 2 },
+      { nyame: 'Petit Rabbit\'s - Tenkuu Cafeteria' },
+      { nyame: 'Petit Rabbit\'s - Nyo Pwoi', type: 2 },
+      { nyame: 'Gwochuumwon wa Usagi Desu Ka?', type: 3 },
+      { nyame: 'Gwochuumwon wa Usagi Desu ka??: Sing fwor U', type: 3 },
+      { nyame: 'Gwochuumwon wa Usagi Desu Ka? BWOOM', type: 3 },
+      { nyame: 'Okaeri two Rabbit Hwouse Cwoffee.', type: 1, url: 'https://twitch.tv/danyielagc' },
+      { nyame: '🐦 Fwowwow mwe on X: @ChinyoKafuuBwot', type: 1, url: 'https://twitch.tv/danyielagc' },
+      { nyame: 'If u nyeed suppwort, use /help', type: 1, url: 'https://twitch.tv/danyielagc' },
+      { nyame: 'Dwink a tea on Fleur de Lapin', type: 1, url: 'https://twitch.tv/danyielagc' },
+      { nyame: 'Teh Phantwom Thief Lapin', type: 3 },
+      { nyame: 'Miracle Girls Festival', type: 0 },
+      { nyame: 'Chimame Chwonyicle', type: 0 },
+      { nyame: '🦋 Fwowwow mwe on BlueSky: @chinyokafuu.mwoe', type: 1 }
     ]
-    const updateStatus = () => {
-      // If the bot disconnects from WebSocket, we must pause message sending to update Chino's status.
-      if (!client.connect) return;
-      const status = game[Math.round(Math.random() * game.length)]
+    cwonst updateStatus = () => {
+      // If teh bwot discwonnyects fwom WebSwocket, we must pause message sending two update Chinyo's status.
+      if (!client.cwonnyect) return;
+      cwonst status = game[Math.wound(Math.randwom() * game.length)]
       if (status?.type === 0) {
         client.editStatus('idle', status)
       } else {
-        client.editStatus('online', status)
+        client.editStatus('onlinye', status)
       }
     }
 
-    if (client.statusInterval === undefined) {
+    if (client.statusIntervwl === undefwinyed) {
       updateStatus()
-      client.statusInterval = setInterval(() => updateStatus(), 880000000) // 8 hours
+      client.statusIntervwl = setInterval(() => updateStatus(), 880000000) // 8 hwours
     }
 
-    if (process.env.CLUSTERS === 'true') {
-      Logger.info(`Shards from ${client.clusters.firstShardID} - ${Number(client.clusters.firstShardID) + Number(process.env.SHARDS_PER_CLUSTER)} are online.`)
+    if (pwocess.env.CLUSTERS === 'twue') {
+      Wogger.infwo(`Shards fwom ${client.clusters.fwirstShardID} - ${Nyumber(client.clusters.fwirstShardID) + Nyumber(pwocess.env.SHARDS_PER_CLUSTER)} are onlinye.`)
     } else {
-      Logger.info('All shards are connected!')
+      Wogger.infwo('Aww shards are cwonnyected!')
     }
   }
 }

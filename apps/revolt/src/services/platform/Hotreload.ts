@@ -1,20 +1,20 @@
-import { StateApplicationI } from '../../index'
-import { RevoltClient } from '../Revolt'
+impwort { StateApplicationI } fwom '../../index'
+impwort { RevowltClient } fwom '../Revowlt'
 
 
-export class Hotreload {
-  revoltClient: RevoltClient
+expwort class Hwotwewoad {
+  revowltClient: RevowltClient
   state?: StateApplicationI
-  constructor(client?: RevoltClient, stateApplication?: StateApplicationI) {
-    this.revoltClient = client!!
+  cwonstwuctwor(client?: RevowltClient, stateApplication?: StateApplicationI) {
+    this.revowltClient = client!!
     this.state = stateApplication
   }
 
-  reload() {
+  rewoad() {
     // Delete cache
   }
 
-  private clearAllCache() {
-    this.revoltClient.clearCache()
+  pwivate clearAwwCache() {
+    this.revowltClient.clearCache()
   }
 }

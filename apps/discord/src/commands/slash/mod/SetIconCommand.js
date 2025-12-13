@@ -1,44 +1,44 @@
-import axios from 'axios'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort axios fwom 'axios'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class SetIconCommand extends Command {
-  constructor() {
+expwort default class SetIcwonCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'seticon',
+      nyame: 'seticwon',
       permissions: [{
-        entity: 'both',
-        permissions: ['manageGuild']
+        entity: 'bwoth',
+        permissions: ['manyageGuild']
       }],
-      slash: new CommandBase()
-        .setName('seticon')
-        .setDescription('Set an icon in the current guild.')
+      slash: nyew CwommandBase()
+        .setNyame('seticwon')
+        .setDescwiption('Set an icwon in teh current guild.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('url')
-            .setDescription('The URL of the new icon.')
+            .setNyame('url')
+            .setDescwiption('Teh UWL of teh nyew icwon.')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const url = ctx.args.get('url').value
-    const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
-    const base64Icon = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
+    cwonst uwl = ctx.args.get('url').value
+    cwonst buffer = await axios.get(url, { respwonseType: 'arraybuffer' }).then(d => Buffer.fwom(d.data, 'binyary').twoStwing('base64'))
+    cwonst base64Icwon = `data:image/${url.substw(url.length - 3)};base64,${buffer}`
 
     ctx.message.guild.edit({
-      icon: base64Icon
+      icwon: base64Icwon
     }).then(() => {
-      const embed = new EmbedBuilder()
-      embed.setTitle(ctx._locale('commands:seticon.success'))
-      embed.setColor('DEFAULT')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setTitle(ctx._wocale('cwommands:seticwon.success'))
+      embed.setCwowwor('DEFAULT')
       embed.setImage(url)
 
       ctx.send(embed.build())

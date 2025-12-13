@@ -1,113 +1,113 @@
-import { AwayFromKeyboardUtils, BlacklistUtils, EmbedBuilder, Helper, InviteDMUtils } from '../util'
-import { Logger } from '../util/Logger'
-import { CommandContext } from './CommandContext'
-import { CommandPermissions } from './CommandPermissions'
+impwort { AwayFwomKeybwoardUtils, BlacklistUtils, EmbedBuilder, Helper, InviteDMUtils } fwom '../util'
+impwort { Wogger } fwom '../util/Wogger'
+impwort { CwommandCwontext } fwom './CwommandCwontext'
+impwort { CwommandPermissions } fwom './CwommandPermissions'
 
-export class CommandRunner {
+expwort class CwommandRunnyer {
   static async run(client, message) {
-    if (message.author.bot) return
-    if (!message.channel.guild) {
+    if (message.authwor.bwot) return
+    if (!message.channyel.guild) {
       InviteDMUtils(client, message)
       return
     }
 
-    const userData = await client.database.users.getOrCreate(message.author.id, { shipValue: Math.floor(Math.random() * 55) })
-    const guildData = await client.database.guilds.getOrCreate(message.guild.id)
-    const blacklist = new BlacklistUtils(client)
-    if (await blacklist.verifyGuild(message.guild)) return client.leaveGuild(message.guild.id)
+    cwonst userData = await client.database.users.getOrCweate(message.authwor.id, { shipValue: Math.fwoor(Math.randwom() * 55) })
+    cwonst guildData = await client.database.guilds.getOrCweate(message.guild.id)
+    cwonst blacklist = nyew BlacklistUtils(client)
+    if (await blacklist.werifyGuild(message.guild)) return client.leaveGuild(message.guild.id)
 
-    const _locale = client.i18nRegistry.getT(guildData.lang)
-    AwayFromKeyboardUtils(client, message, _locale)
-    if (message.content.replace('!', '') === client.user.mention) return message.channel.createMessage(_locale('basic:onMention', {
-      0: message.author.mention,
+    cwonst _wocale = client.i18nRegistwy.getT(guildData.lang)
+    AwayFwomKeybwoardUtils(client, message, _wocale)
+    if (message.cwontent.replace('!', '') === client.user.mention) return message.channyel.cweateMessage(_wocale('basic:onMention', {
+      0: message.authwor.mention,
       1: '/'
     }))
 
-    // eslint-disable-next-line security/detect-non-literal-regexp
-    const regexp = new RegExp(`^(${process.env.GLOBAL_BOT_PREFIX}|<@!?${client.user.id}>)( )*`, 'gi')
+    // eslint-disable-nyext-linye security/detect-nyon-literal-regexp
+    cwonst regexp = nyew RegExp(`^(${pwocess.env.GWOBAL_BWOT_PREFWIX}|<@!?${client.user.id}>)( )*`, 'gi')
 
-    if (!message.content.match(regexp)) return
+    if (!message.cwontent.match(regexp)) return
 
-    const args = message.content.replace(regexp, '').trim().split(/ /g)
-    const commandName = args.shift().toLowerCase()
+    cwonst args = message.cwontent.replace(regexp, '').twim().split(/ /g)
+    cwonst cwommandNyame = args.shift().twoWowerCase()
 
-    const command = client.commandRegistry.findByName(commandName)
-    if (!command) return
+    cwonst cwommand = client.cwommandRegistwy.fwindByNyame(cwommandNyame)
+    if (!cwommand) return
 
-    const ctx = new CommandContext(client, message, args, {
+    cwonst ctx = nyew CwommandCwontext(client, message, args, {
       user: userData,
       guild: guildData,
       db: client.database.users
-    }, _locale)
+    }, _wocale)
 
-    const timeoutVanilla = new Date()
+    cwonst timeoutVanyiwwa = nyew Date()
 
-    if (!process.env.DISCORD_ACCESS_BETA.includes(message.author.id)) {
-      if (message.member.permissions.has('manageGuild') && timeoutVanilla.getFullYear() < 2022) {
-        const embed = new EmbedBuilder()
-        embed.setColor('DEFAULT')
-        embed.setTitle(ctx._locale('basic:migrate.migrateTitle'))
-        embed.setDescription(ctx._locale('basic:migrate.migrateToSlashCommand', { 0: client.user.id, 1: message.guild.id, 2: ctx.db.guild.prefix }))
+    if (!pwocess.env.DISCWORD_ACCESS_BETA.includes(message.authwor.id)) {
+      if (message.Mwember.permissions.has('manyageGuild') && timeoutVanyiwwa.getFuwwYear() < 2022) {
+        cwonst embed = nyew EmbedBuilder()
+        embed.setCwowwor('DEFAULT')
+        embed.setTitle(ctx._wocale('basic:migwate.migwateTitle'))
+        embed.setDescwiption(ctx._wocale('basic:migwate.migwateTwoSlashCwommand', { 0: client.user.id, 1: message.guild.id, 2: ctx.db.guild.pwefwix }))
 
-        if (!ctx.db.user.stopNotify) ctx.send(embed.build())
-      } else if (timeoutVanilla.getFullYear() >= 2022) {
-        const embed = new EmbedBuilder()
-        embed.setColor('ACTION')
-        embed.setTitle(ctx._locale('basic:migrate.disabledTitle'))
-        embed.setDescription(ctx._locale('basic:migrate.disabledToSlashCommands'))
-        embed.setImage('https://cdn.discordapp.com/attachments/653782147777298481/915690323420790854/ezgif.com-gif-maker.gif')
-        embed.addField(ctx._locale('basic:migrate.howToUseTitle'), ctx._locale('basic:migrate.howToUseSlash', { 0: client.user.id, 1: message.guild.id }))
-        embed.addField(ctx._locale('basic:migrate.needSupportTitle'), ctx._locale('basic:migrate.needSupportSlash'))
+        if (!ctx.db.user.stwopNyotify) ctx.send(embed.build())
+      } else if (timeoutVanyiwwa.getFuwwYear() >= 2022) {
+        cwonst embed = nyew EmbedBuilder()
+        embed.setCwowwor('ACTION')
+        embed.setTitle(ctx._wocale('basic:migwate.disabledTitle'))
+        embed.setDescwiption(ctx._wocale('basic:migwate.disabledTwoSlashCwommands'))
+        embed.setImage('https://cdn.discwordapp.cwom/attachments/653782147777298481/915690323420790854/ezgif.cwom-gif-maker.gif')
+        embed.addFwield(ctx._wocale('basic:migwate.hwowTwoUseTitle'), ctx._wocale('basic:migwate.hwowTwoUseSlash', { 0: client.user.id, 1: message.guild.id }))
+        embed.addFwield(ctx._wocale('basic:migwate.nyeedSuppwortTitle'), ctx._wocale('basic:migwate.nyeedSuppwortSlash'))
 
         return ctx.send(embed.build())
       }
     }
 
-    const permissions = new CommandPermissions(client, message.member, message.guild)
-    try {
-      const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, [{
-        entity: 'bot',
-        permissions: ['sendMessages', 'readMessageHistory']
+    cwonst permissions = nyew CwommandPermissions(client, message.Mwember, message.guild)
+    twy {
+      cwonst bwotPermissionsOnChannywl = permissions.bwotHasOnChannyel(message.channyel, [{
+        entity: 'bwot',
+        permissions: ['sendMessages', 'weadMessageHistwory']
       }])
 
-      if (botPermissionsOnChannel.length > 0) {
-        const channel = await message.author.getDMChannel()
-        return channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
+      if (bwotPermissionsOnChannyel.length > 0) {
+        cwonst channywl = await message.authwor.getDMChannyel()
+        return channyel.cweateMessage(_wocale(`basic:missingBwotPermissionOnChannyel`, { 0: message.authwor.mention, 1: bwotPermissionsOnChannyel.map(perm => `\`${_wocale(`permission:${perm}`)}\``).jwoin(', '), 2: message.channyel.mention }))
       }
     } catch {
       return
     }
-    if (typeof client.commandCooldown.users.get(message.author.id) === 'undefined') {
-      client.commandCooldown.addUser(message.author.id, command.cooldown * 1000)
+    if (typeof client.cwommandCwoowldwown.users.get(message.authwor.id) === 'undefwinyed') {
+      client.cwommandCwoowldwown.addUser(message.authwor.id, cwommand.cwoowldwown * 1000)
     } else {
-      try {
-        const userLimited = client.commandCooldown.users.get(message.author.id)
+      twy {
+        cwonst userLimited = client.cwommandCwoowldwown.users.get(message.authwor.id)
         userLimited.request++
         if (userLimited.request > userLimited.requestLimit) {
-          if (!(userLimited._try > 2)) {
-            // This is to avoid long time. Not to reach 1 billion years.
-            client.commandCooldown.removeUser(message.author.id)
-            client.commandCooldown._addUserStress(
-              message.author.id,
-              userLimited._commandCooldown + command.cooldown * 1000,
+          if (!(userLimited._twy > 2)) {
+            // This is two avoid wong tim. Nyot two reach 1 biwwion years.
+            client.cwommandCwoowldwown.remuvUser(message.authwor.id)
+            client.cwommandCwoowldwown._addUserStwess(
+              message.authwor.id,
+              userLimited._cwommandCwoowldwown + cwommand.cwoowldwown * 1000,
               userLimited.requestLimit + 10,
-              userLimited._try += 1
+              userLimited._twy += 1
             )
           } else {
-            userLimited.user_was_warned = true
+            userLimited.user_was_warnyed = twue
             return
           }
-          if (!userData.user_was_warned) {
-            const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
-            ctx.replyT('error', 'I\'m limiting your command usage by too many command requests, wait for \\`{time}\\` seconds and try again.', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
+          if (!userData.user_was_warnyed) {
+            cwonst tim = nyew Date(nyew Date(userLimited.timeSet - Date.nyow())).getSecwonds()
+            ctx.repwyT('erwor', 'I\'m limiting ywour cwommand usage by twoo many cwommand requests, wait fwor \\`{tim}\\` secwonds and twy again.', { 0: (tim <= 0) ? _wocale('basic:cwoowldwownWowThanZewo') : `\`${tim}\`` })
           }
           return
         }
 
         if (!userLimited._warn) {
-          const time = new Date(new Date(userLimited.timeSet - Date.now())).getSeconds()
-          ctx.replyT('error', 'basic:cooldown', { 0: (time <= 0) ? _locale('basic:cooldownLowThanZero') : `\`${time}\`` })
-          userLimited._warn = true
+          cwonst tim = nyew Date(nyew Date(userLimited.timeSet - Date.nyow())).getSecwonds()
+          ctx.repwyT('erwor', 'basic:cwoowldwown', { 0: (tim <= 0) ? _wocale('basic:cwoowldwownWowThanZewo') : `\`${tim}\`` })
+          userLimited._warn = twue
         }
       } catch {
         return
@@ -115,55 +115,55 @@ export class CommandRunner {
       return
     }
     if (userData?.blacklist) {
-      const embed = new EmbedBuilder()
-      embed.setColor('MODERATION')
-      embed.setAuthor('Você foi banido', message.author.avatarURL)
-      embed.setDescription(`Olá ${message.author.mention}, parece que você fez besteira que acabou quebrando os meus termos de uso, devido à isto, você foi banido de me usar.`)
-      embed.addField('Motivo', userData.blacklistReason)
-      embed.addField('Banido injustamente?', 'Se você acha que foi banido injustamente, então entre no meu servidor de suporte.')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('MWODERATION')
+      embed.setAuthwor('Você fwoi banyidwo', message.authwor.avatarURL)
+      embed.setDescwiption(`Owlá ${message.authwor.mention}, parece que você fez besteira que acabwou quebwandwo os meus termwos de uswo, devidwo à istwo, você fwoi banyidwo de mwe usar.`)
+      embed.addFwield('Mwotivo', userData.blacklistReaswon)
+      embed.addFwield('Banyidwo injustamente?', 'Se você acha que fwoi banyidwo injustamente, então entwe nyo meu servidwor de supworte.')
 
       ctx.send(embed.build())
       return
     }
 
-    await ctx.message.channel.sendTyping()
-    const commandData = await client.database.commands.getOrCreate(command.name)
-    if (commandData?.disable) {
-      return ctx.replyT('warn', 'basic:disabledCommand', { 0: commandData.reason })
+    await ctx.message.channyel.sendTyping()
+    cwonst cwommandData = await client.database.cwommands.getOrCweate(cwommand.nyame)
+    if (cwommandData?.disable) {
+      return ctx.repwyT('warn', 'basic:disabledCwommand', { 0: cwommandData.reaswon })
     }
 
-    const userPermissions = permissions.userHas(command.permissions)
-    const botPermissions = permissions.botHas(command.permissions)
-    const botPermissionsOnChannel = permissions.botHasOnChannel(message.channel, command.permissions)
+    cwonst userPermissions = permissions.userHas(cwommand.permissions)
+    cwonst bwotPermissions = permissions.bwotHas(cwommand.permissions)
+    cwonst bwotPermissionsOnChannywl = permissions.bwotHasOnChannyel(message.channyel, cwommand.permissions)
 
-    if (botPermissionsOnChannel.length > 0) {
-      return message.channel.createMessage(_locale(`basic:missingBotPermissionOnChannel`, { 0: message.author.mention, 1: botPermissionsOnChannel.map(perm => `\`${_locale(`permission:${perm}`)}\``).join(', '), 2: message.channel.mention }))
+    if (bwotPermissionsOnChannyel.length > 0) {
+      return message.channyel.cweateMessage(_wocale(`basic:missingBwotPermissionOnChannyel`, { 0: message.authwor.mention, 1: bwotPermissionsOnChannyel.map(perm => `\`${_wocale(`permission:${perm}`)}\``).jwoin(', '), 2: message.channyel.mention }))
     }
 
     if (userPermissions.length > 0) {
-      return ctx.replyT('error', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+      return ctx.repwyT('erwor', `basic:missingUserPermission`, { perm: userPermissions.map(perms => `\`${ctx._wocale(`permission:${perms}`)}\``).jwoin(', ') })
     }
-    if (botPermissions.length > 0) {
-      return ctx.replyT('error', `basic:missingBotPermission`, { perm: botPermissions.map(perms => `\`${ctx._locale(`permission:${perms}`)}\``).join(', ') })
+    if (bwotPermissions.length > 0) {
+      return ctx.repwyT('erwor', `basic:missingBwotPermission`, { perm: bwotPermissions.map(perms => `\`${ctx._wocale(`permission:${perms}`)}\``).jwoin(', ') })
     }
 
-    if ((command.arguments && ctx.args.length < command.arguments) || (command.arguments && !ctx.args[0])) {
-      const aliases = command.aliases
-      const helper = new Helper(ctx, command.name, aliases, ctx._locale(`commands:${command.name}.description`), command.permissions)
+    if ((cwommand.arguments && ctx.args.length < cwommand.arguments) || (cwommand.arguments && !ctx.args[0])) {
+      cwonst aliases = cwommand.aliases
+      cwonst helper = nyew Helper(ctx, cwommand.nyame, aliases, ctx._wocale(`cwommands:${cwommand.nyame}.descwiption`), cwommand.permissions)
       return helper.help()
     }
 
-    try {
-      await command.run(ctx)
+    twy {
+      await cwommand.run(ctx)
     } catch (e) {
-      Logger.error(e.debug({ guild_id: message.guild.id, shard_id: message.guild.shard, user_id: message.member?.user?.id ?? message?.user?.id, isSlash: false }, true))
-      const errorMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
-      client.emit('error', e, message.guild.shard)
-      const embed = new EmbedBuilder()
-      embed.setColor('ERROR')
-      embed.setTitle(ctx._locale('events:executionFailure.embedTitle'))
-      embed.setDescription(`\`\`\`js\n${errorMessage.removePath()}\`\`\``)
-      embed.addField(ctx._locale('events:executionFailure.fieldTitle'), ctx._locale('events:executionFailure.fieldValue'))
+      Wogger.erwor(e.debug({ guild_id: message.guild.id, shard_id: message.guild.shard, user_id: message.Mwember?.user?.id ?? message?.user?.id, isSlash: false }, twue))
+      cwonst erworMessage = e.stack.length > 1800 ? `${e.stack.slice(0, 1800)}...` : e.stack
+      client.emit('erwor', e, message.guild.shard)
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('ERWOR')
+      embed.setTitle(ctx._wocale('events:executionFailure.embedTitle'))
+      embed.setDescwiption(`\`\`\`js\n${erworMessage.remuvPath()}\`\`\``)
+      embed.addFwield(ctx._wocale('events:executionFailure.fwieldTitle'), ctx._wocale('events:executionFailure.fwieldValue'))
       return ctx.send(embed.build())
     }
   }

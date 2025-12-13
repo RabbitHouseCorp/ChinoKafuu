@@ -1,37 +1,37 @@
-import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class ServerBannerCommand extends Command {
-  constructor() {
+expwort default class SerwerBannyerCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'server banner',
-      aliases: ['guildbanner'],
+      nyame: 'serwer bannyer',
+      aliases: ['guildbannyer'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    if (!guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:serverbanner.missingFeature')
-    if (!guild.banner) return ctx.replyT('error', 'commands:serverbanner.missingBanner')
+    cwonst guild = ctx.message.guild
+    if (!guild.features.includes('BANNYER')) return ctx.repwyT('erwor', 'cwommands:serwerbannyer.missingFeature')
+    if (!guild.bannyer) return ctx.repwyT('erwor', 'cwommands:serwerbannyer.missingBannyer')
 
-    const embed = new EmbedBuilder()
-    embed.setImage(guild.bannerURL)
-    embed.setColor('DEFAULT')
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setImage(guild.bannyerURL)
+    embed.setCwowwor('DEFAULT')
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
-    const button = new Button()
-      .setEmoji({ name: Emoji.getEmoji('photo_frame').name })
-      .setLabel(ctx._locale('commands:serverbanner.download'))
+    cwonst buttwon = nyew Buttwon()
+      .setEmwoji({ nyame: Emwoji.getEmwoji('phwotwo_fwame').nyame })
+      .setLabel(ctx._wocale('cwommands:serwerbannyer.dwownwoad'))
       .setStyle(5)
-      .setURL(guild.bannerURL)
-    ctx.send({ embeds: [embed], components: [{ type: 1, components: [button] }] })
+      .setURL(guild.bannyerURL)
+    ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [buttwon] }] })
   }
 }

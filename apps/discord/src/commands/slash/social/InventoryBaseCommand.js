@@ -1,27 +1,27 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class InventoryBaseCommand extends Command {
-  constructor() {
+expwort default class InventworyBaseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'inventory',
+      nyame: 'inventwory',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('inventory')
-        .setDescription('To manage inventory')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('inventwory')
+        .setDescwiption('Two manyage inventwory')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('profile')
-            .setDescription('Change profiles that you\'ve purchased or that you already have.'),
-          new CommandOptions()
+            .setNyame('pwofwile')
+            .setDescwiption('Change pwofwiles that u\'ve purchased or that u alweady have.'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('background')
-            .setDescription('Change background that you\'ve purchased or that you already have.'),
+            .setNyame('backgwound')
+            .setDescwiption('Change backgwound that u\'ve purchased or that u alweady have.'),
         )
     })
   }

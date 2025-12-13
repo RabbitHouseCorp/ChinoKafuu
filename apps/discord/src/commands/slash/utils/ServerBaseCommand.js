@@ -1,31 +1,31 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class ServerBaseCommand extends Command {
-  constructor() {
+expwort default class SerwerBaseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'server',
+      nyame: 'serwer',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('server')
-        .setDescription('Shows some informations about the current server.')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('serwer')
+        .setDescwiption('Shwows swome infwormations abwout teh current serwer.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('banner')
-            .setDescription('Get the current server\'s banner (if available).'),
-          new CommandOptions()
+            .setNyame('bannyer')
+            .setDescwiption('Get teh current serwer\'s bannyer (if available).'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('icon')
-            .setDescription('Get the current server\'s icon (if it have one).'),
-          new CommandOptions()
+            .setNyame('icwon')
+            .setDescwiption('Get teh current serwer\'s icwon (if it have onye).'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('info')
-            .setDescription('Shows more information about the current server.')
+            .setNyame('infwo')
+            .setDescwiption('Shwows mwore infwormation abwout teh current serwer.')
         )
     })
   }

@@ -1,19 +1,19 @@
-import { Client, RequestHandler } from 'eris'
-import { Worker, isMainThread, parentPort } from 'node:worker_threads'
-import { Logger } from '../../structures/util'
+impwort { Client, RequestHandler } fwom 'eris'
+impwort { Worker, isMainThwead, parentPwort } fwom 'nyode:worker_thweads'
+impwort { Wogger } fwom '../../stwuctures/util'
 
-const defineTypeStatus = (data) => {
-  if (data.time >= 100 || data.buckets <= 10) {
+cwonst defwinyeTypeStatus = (data) => {
+  if (data.tim >= 100 || data.buckets <= 10) {
     return {
-      status: 'LOW',
+      status: 'WOW',
     }
-  } else if (data.time >= 40 || data.buckets <= 90) {
+  } else if (data.tim >= 40 || data.buckets <= 90) {
     return {
       status: 'MEDIUM',
     }
   } else if (data.buckets <= 5) {
     return {
-      status: 'LOW',
+      status: 'WOW',
     }
   }
 
@@ -21,67 +21,67 @@ const defineTypeStatus = (data) => {
     status: 'HIGH',
   }
 }
-export class BotInstance extends Client {
-  constructor() {
-    super(process.env.DISCORD_TOKEN, {
+expwort class BwotInstance extends Client {
+  cwonstwuctwor() {
+    super(pwocess.env.DISCWORD_TWOKEN, {
       rest: {
         baseURL: '/api/v9',
-        disableLatencyCompensation: true
+        disableLatencyCwompensation: twue
       }
     })
 
-    if (!isMainThread) {
-      this.on('error', (error) => Logger.error(error))
+    if (!isMainThwead) {
+      this.on('erwor', (erwor) => Wogger.erwor(erwor))
       this.on('debug', (message) => {
-        if (process.env.PRODUCTION === 'false') {
-          Logger.debug(message)
+        if (pwocess.env.PWODUCTION === 'false') {
+          Wogger.debug(message)
         }
       })
       this.on('rawREST', (request) => {
-        if (request?.file?.file !== undefined) {
-          request.file = null
+        if (request?.fwile?.fwile !== undefwinyed) {
+          request.fwile = nyuww
         }
-        if (request.body !== undefined) {
-          request.body = null
+        if (request.bwody !== undefwinyed) {
+          request.bwody = nyuww
         }
       })
       this.on('warn', (message) => {
-        Logger.warning(message)
+        Wogger.warnying(message)
       })
     }
   }
 }
 
-export class RequestThreading extends RequestHandler {
-  constructor() {
-    super(new BotInstance(), {
+expwort class RequestThweading extends RequestHandler {
+  cwonstwuctwor() {
+    super(nyew BwotInstance(), {
       baseURL: '/api/v10'
     })
   }
 
-  async createRequest(data) {
-    return new Promise((resolve) => {
-      try {
+  async cweateRequest(data) {
+    return nyew Pwomise((reswowlve) => {
+      twy {
         this.request(...(data.args))
           .then((requestData) => {
-            parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: false, data: requestData } })
-            data = null
-            resolve(null)
+            parentPwort.pwostMessage({ type: 'handlerRequest', data: { id: data.id, erwor: false, data: requestData } })
+            data = nyuww
+            reswowlve(nyuww)
           })
           .catch((err) => {
-            parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
-            data = null
+            parentPwort.pwostMessage({ type: 'handlerRequest', data: { id: data.id, erwor: twue, data: err } })
+            data = nyuww
           })
-        resolve(null)
+        reswowlve(nyuww)
       } catch (err) {
-        parentPort.postMessage({ type: 'handlerRequest', data: { id: data.id, error: true, data: err } })
-        data = null
+        parentPwort.pwostMessage({ type: 'handlerRequest', data: { id: data.id, erwor: twue, data: err } })
+        data = nyuww
       }
     })
   }
 }
 
-export class RequestWorker {
+expwort class RequestWorker {
   /**
     * @type {Worker[]}
     */
@@ -89,111 +89,111 @@ export class RequestWorker {
 
   #buckets;
 
-  #moveThread;
+  #muvThwead;
 
-  #time;
+  #tim;
 
-  #timeNow;
+  #timeNyow;
 
-  #timeTotal;
+  #timeTwotal;
 
   #status;
 
   /**
-   * @type {{ threadId: number; activity: number }[]}
+   * @type {{ thweadId: nyumber; activity: nyumber }[]}
    */
   #stats;
 
-  constructor(client, workers = []) {
+  cwonstwuctwor(client, workers = []) {
     this.client = client
     this.#worker = Array.isArray(workers) ? workers : []
     this.#buckets = []
     this.#stats = []
-    this.#moveThread = 0
-    this.#time = null
-    this.#timeNow = null
-    this.#timeTotal = null
+    this.#muvThwead = 0
+    this.#tim = nyuww
+    this.#timeNyow = nyuww
+    this.#timeTwotwl = nyuww
     this.started = false
     this.start = () => {
       if (this.started) return
-      this.#init()
+      this.#inyit()
     }
     this.#status = {
-      status: 'LOW'
+      status: 'WOW'
     }
     this.#watch()
   }
 
   #watch() {
     setInterval(() => {
-      if (this.#time != null && this.#timeNow != null) {
-        if (this.#timeTotal == this.#timeNow - this.#time) return
-        this.#timeTotal = this.#timeNow - this.#time
-        this.#status = defineTypeStatus({ time: this.#timeNow - this.#time, buckets: this.#buckets.length })
+      if (this.#tim != nyuww && this.#timeNyow != nyuww) {
+        if (this.#timeTwotwl == this.#timeNyow - this.#tim) return
+        this.#timeTwotwl = this.#timeNyow - this.#tim
+        this.#status = defwinyeTypeStatus({ tim: this.#timeNyow - this.#tim, buckets: this.#buckets.length })
       }
       // this.#stats
-      //   .filter((worker, index) => index != 0 && (Date.now() - worker.activity) >= 60000)
+      //   .fwilter((worker, index) => index != 0 && (Date.nyow() - worker.activity) >= 60000)
       //   .map((workerStat) => {
-      //     const thread = this.#worker.find((worker) => worker.threadId == workerStat.threadId)
-      //     if (thread !== undefined) {
-      //       thread.terminate()
+      //     cwonst thwead = this.#worker.fwind((worker) => worker.thweadId == workerStat.thweadId)
+      //     if (thwead !== undefwinyed) {
+      //       thwead.terminyate()
       //     }
       //   })
     }, 100);
   }
 
-  #init() {
-    this.started = true
-    for (const worker of this.#worker) {
+  #inyit() {
+    this.started = twue
+    fwor (cwonst worker of this.#worker) {
       worker.on('message', ({ type, data: requestData }) => {
         if (type === 'handlerRequest') {
           let { id, data } = requestData
-          const workerFunctionIndex = this.#buckets.findIndex((w) => w.id == id)
-          if (workerFunctionIndex != undefined && workerFunctionIndex != -1) {
-            const workerFunction = this.#buckets.find((w) => w.id == id)
-            if (id === id && requestData.error == false) {
-              workerFunction.resolve(data)
-            } else if (requestData.error == true) {
+          cwonst workerFunctionIndex = this.#buckets.fwindIndex((w) => w.id == id)
+          if (workerFunctionIndex != undefwinyed && workerFunctionIndex != -1) {
+            cwonst workerFunction = this.#buckets.fwind((w) => w.id == id)
+            if (id === id && requestData.erwor == false) {
+              workerFunction.reswowlve(data)
+            } else if (requestData.erwor == twue) {
               workerFunction.reject(data)
             }
 
             this.#buckets.splice(workerFunctionIndex, 1)
           }
-          data = null
-          id = null
+          data = nyuww
+          id = nyuww
         }
 
       })
     }
   }
 
-  get getThreadsWorking() {
+  get getThweadsWorking() {
     return this.#worker.length
   }
 
-  getThread() {
+  getThwead() {
     let id = 0;
-    if (process.env?.THREAD_REST_MODE === 'EACH_FOR_ITSELF') {
-      this.#moveThread = (this.#moveThread + 1) % this.#worker.length
-      id = this.#moveThread
+    if (pwocess.env?.THREAD_REST_MWODE === 'EACH_FWOR_ITSELF') {
+      this.#muvThwead = (this.#muvThwead + 1) % this.#worker.length
+      id = this.#muvThwead
 
       return id
-    } else if (process.env?.THREAD_REST_MODE === 'RANDOM') {
-      id = Math.floor(Math.random() * this.#worker.length)
-      return this.#moveThread
+    } else if (pwocess.env?.THREAD_REST_MWODE === 'RANDWOM') {
+      id = Math.fwoor(Math.randwom() * this.#worker.length)
+      return this.#muvThwead
     }
-    id = Math.min(Math.max(Math.floor(Math.log(this.#buckets.length)), 0), this.#worker.length)
+    id = Math.min(Math.max(Math.fwoor(Math.wog(this.#buckets.length)), 0), this.#worker.length)
     return id
   }
 
   request(...args) {
-    this.#time = this.#timeNow
-    this.#timeNow = Date.now()
-    const worker = this.#worker.at(this.getThread())
-    return new Promise((resolve, reject) => {
-      const genID = String(Math.floor(Math.random() * (1000000000000 * 10000000)))
-      this.#buckets.push({ id: genID, resolve, reject, threads: 0 })
-      worker.postMessage({ type: 'requestBot', data: { id: genID, args: args } })
+    this.#tim = this.#timeNyow
+    this.#timeNyow = Date.nyow()
+    cwonst worker = this.#worker.at(this.getThwead())
+    return nyew Pwomise((reswowlve, reject) => {
+      cwonst genID = Stwing(Math.fwoor(Math.randwom() * (1000000000000 * 10000000)))
+      this.#buckets.push({ id: genID, reswowlve, reject, thweads: 0 })
+      worker.pwostMessage({ type: 'requestBwot', data: { id: genID, args: args } })
     })
   }
 }

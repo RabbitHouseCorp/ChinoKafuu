@@ -1,18 +1,18 @@
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { CommandBase, CommandOptions } from 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
 
-export default class ChooseCommand extends Command {
-  constructor() {
+expwort default class ChwooseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'choose',
-      aliases: ['escolher'],
-      slash: new CommandBase()
-        .setName('choose')
-        .setDescription('Makes the bot choose something')
+      nyame: 'chwoose',
+      aliases: ['escwowlher'],
+      slash: nyew CwommandBase()
+        .setNyame('chwoose')
+        .setDescwiption('Makes teh bwot chwoose swomething')
         .addOptions(
-          new CommandOptions()
-            .setName('choose')
-            .setDescription('Use `,` to separate')
+          nyew CwommandOptions()
+            .setNyame('chwoose')
+            .setDescwiption('Use `,` two separate')
             .setType(3)
             .isRequired()
         )
@@ -20,14 +20,14 @@ export default class ChooseCommand extends Command {
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const argArray = ctx.args.get('choose').value.split(',')
-    const chosen = argArray[Math.floor(Math.random() * argArray.length)].trim()
+    cwonst argArray = ctx.args.get('chwoose').value.split(',')
+    cwonst chwosen = argArray[Math.fwoor(Math.randwom() * argArray.length)].twim()
 
-    return ctx.replyT('cocoa_what', 'commands:choose.chosen', { chosen: chosen })
+    return ctx.repwyT('cwocwoa_what', 'cwommands:chwoose.chwosen', { chwosen: chwosen })
   }
 }

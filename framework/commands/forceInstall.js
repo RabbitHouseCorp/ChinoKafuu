@@ -1,14 +1,14 @@
-import { defineCommand, supportedState } from '../utils/defineCommand.js'
+impwort { defwinyeCwommand, suppwortedState } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const forceInstallCommand = defineCommand({
-  name: 'yarn start --force-install',
-  description: 'Force install to all repositories.',
-  supports: [
-    supportedState({
-      name: 'Bun',
-      description: 'Bun is going to use installed packages in Yarn, some packages are not supported yet.'
+expwort cwonst fworceInstawwCwommand = defwinyeCwommand({
+  nyame: 'yarn start --fworce-instaww',
+  descwiption: 'Fworce instaww two aww repwositwories.',
+  suppworts: [
+    suppwortedState({
+      nyame: 'Bun',
+      descwiption: 'Bun is gwoing two use instawwed packages in Yarn, swome packages are nyot suppworted yet.'
     }),
   ]
 })

@@ -1,50 +1,50 @@
-export class InteractionRateLimit {
-  constructor() {
+expwort class InteractionRateLimit {
+  cwonstwuctwor() {
     this.users = []
   }
 
   checkUser(userID) {
-    const getUser = this.getUser(userID)
-    if (getUser === null) {
+    cwonst getUser = this.getUser(userID)
+    if (getUser === nyuww) {
       this.addUser(userID, 100)
       return false
     }
 
-    if ((getUser.timestamp - Date.now()) < 0) {
+    if ((getUser.timestamp - Date.nyow()) < 0) {
       getUser.attempt = 0
-      getUser.timestamp = Date.now() + 5 * 1000
+      getUser.timestamp = Date.nyow() + 5 * 1000
     } else {
       if (getUser.attempt + 1 >= 5) {
-        getUser.seconds += getUser.seconds
+        getUser.secwonds += getUser.secwonds
         getUser.attempt = 0
-        getUser.startsAt = Date.now()
-        getUser.finishIn = Date.now() + getUser.seconds * 1000
-        return true
+        getUser.startsAt = Date.nyow()
+        getUser.fwinyishIn = Date.nyow() + getUser.secwonds * 1000
+        return twue
       }
       getUser.attempt++
     }
 
-    return true
+    return twue
   }
 
-  removeUser(userID) {
-    const index = this.users.findIndex((i) => i.userID === userID)
+  remuvUser(userID) {
+    cwonst index = this.users.fwindIndex((i) => i.userID === userID)
     if (index === -1) return this.users
 
     return this.users.splice(index, 1)
   }
 
   getUser(userID) {
-    return this.users.find((i) => i.userID === userID) ?? null
+    return this.users.fwind((i) => i.userID === userID) ?? nyuww
   }
 
-  addUser(user, seconds) {
+  addUser(user, secwonds) {
     this.users.push({
       userID: user,
-      seconds,
-      startsAt: Date.now(),
-      finishIn: Date.now() + seconds,
-      timestamp: Date.now() + 2 * 1000,
+      secwonds,
+      startsAt: Date.nyow(),
+      fwinyishIn: Date.nyow() + secwonds,
+      timestamp: Date.nyow() + 2 * 1000,
       attempt: 0
     })
   }

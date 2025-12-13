@@ -1,189 +1,189 @@
-import { InteractionFunction } from '../../structures/InteractionFunction';
-import { Button, EmbedBuilder, Emoji } from '../../structures/util';
-import { Options } from '../../structures/interactions/Options'
-import { SelectionMenu } from '../../structures/interactions/SelectionMenu'
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction';
+impwort { Buttwon, EmbedBuilder, Emwoji } fwom '../../stwuctures/util';
+impwort { Options } fwom '../../stwuctures/interactions/Options'
+impwort { SelectionMenyu } fwom '../../stwuctures/interactions/SelectionMenyu'
 
-export default class HelpInteraction extends InteractionFunction {
-  constructor() {
+expwort default class HelpInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'helpInteraction'
+      nyame: 'helpInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, ctx, editMessage }) {
-    const { data } = getData()
-    const interaction = data?.values ? data?.values[0] : data.custom_id
+  async interactionFunction({ getData, defwinyeState, ctx, editMessage }) {
+    cwonst { data } = getData()
+    cwonst interaction = data?.values ? data?.values[0] : data.custwom_id
 
-    const slashCommands = ctx.client.commands.map((i) => {
-      const commands = []
+    cwonst slashCwommands = ctx.client.cwommands.map((i) => {
+      cwonst cwommands = []
 
-      if (i?.options !== undefined) {
-        const options = i.options.filter((option) => option.type === 2 || option.type === 1) ?? []
+      if (i?.options !== undefwinyed) {
+        cwonst options = i.options.fwilter((option) => option.type === 2 || option.type === 1) ?? []
         options.map((option) => {
-          const name = [i.name, option.name]
-          commands.push({ name: name.join(' '), description: option.description, hasSubCommand: true, autocomplete: option.autocomplete ?? false, mention: `**</${name.join(' ')}:${i.id}>**` })
+          cwonst nyame = [i.nyame, option.nyame]
+          cwommands.push({ nyame: nyame.jwoin(' '), descwiption: option.descwiption, hasSubCwommand: twue, autwocwompwete: option.autwocwompwete ?? false, mention: `**</${nyame.jwoin(' ')}:${i.id}>**` })
         })
       }
 
-      if (commands.length <= 0) {
-        commands.push([{ name: i.name, id: i.id, description: i.description, hasSubCommand: i.options !== undefined, mention: `**</${i.name}:${i.id}>**`, autocomplete: false }])
+      if (cwommands.length <= 0) {
+        cwommands.push([{ nyame: i.nyame, id: i.id, descwiption: i.descwiption, hasSubCwommand: i.options !== undefwinyed, mention: `**</${i.nyame}:${i.id}>**`, autwocwompwete: false }])
       }
-      return commands
+      return cwommands
     }).flatMap((i) => i.flatMap((option) => option))
-    const command = ctx.client.slashCommandRegistry
-    const count = ctx.client.commands.length
-    const commandLength = count > 0 ? count : command.filterByCategory('economy').length + command.filterByCategory('fun').length + command.filterByCategory('minecraft').length + command.filterByCategory('misc').length + command.filterByCategory('mod').length + command.filterByCategory('social').length + command.filterByCategory('utils').length + command.filterByCategory('image').length
-    const filterByCategory = (category) => command.filterByCategory(category).filter((command) => command.name !== undefined && command.isBase === false)
-    const home_button = new Button()
-      .customID('home_button')
+    cwonst cwommand = ctx.client.slashCwommandRegistwy
+    cwonst cwount = ctx.client.cwommands.length
+    cwonst cwommandLength = cwount > 0 ? cwount : cwommand.fwilterByCategwory('ecwonyomy').length + cwommand.fwilterByCategwory('fun').length + cwommand.fwilterByCategwory('minyecwaft').length + cwommand.fwilterByCategwory('misc').length + cwommand.fwilterByCategwory('mwod').length + cwommand.fwilterByCategwory('swocial').length + cwommand.fwilterByCategwory('utils').length + cwommand.fwilterByCategwory('image').length
+    cwonst fwilterByCategwory = (categwory) => cwommand.fwilterByCategwory(categwory).fwilter((cwommand) => cwommand.nyame !== undefwinyed && cwommand.isBase === false)
+    cwonst hwome_buttwon = nyew Buttwon()
+      .custwomID('hwome_buttwon')
       .setStyle(1)
-      .setEmoji({
-        name: Emoji.getEmoji('home').name,
-        id: Emoji.getEmoji('home').id
+      .setEmwoji({
+        nyame: Emwoji.getEmwoji('hwome').nyame,
+        id: Emwoji.getEmwoji('hwome').id
       })
 
-    const select_menu = new SelectionMenu()
-      .addPlaceHolder(ctx._locale('commands:help.select_category'))
-      .setCustomID('category_menu')
+    cwonst select_menyu = nyew SelectionMenyu()
+      .addPlaceHwowlder(ctx._wocale('cwommands:help.select_categwory'))
+      .setCustwomID('categwory_menyu')
       .addItem(
-        new Options()
-          .setLabel(ctx._locale('commands:help.economy.title', { 0: filterByCategory('economy').length }))
-          .addDescription(ctx._locale('commands:help.economy.description'))
-          .setValue('economy')
-          .addEmoji({
-            name: Emoji.getEmoji('yen').mention
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.ecwonyomy.title', { 0: fwilterByCategwory('ecwonyomy').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.ecwonyomy.descwiption'))
+          .setValue('ecwonyomy')
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('yen').mention
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.fun.title', { 0: filterByCategory('fun').length }))
-          .addDescription(ctx._locale('commands:help.fun.description'))
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.fun.title', { 0: fwilterByCategwory('fun').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.fun.descwiption'))
           .setValue('fun')
-          .addEmoji({
-            name: Emoji.getEmoji('sharo_hug_chino').name,
-            id: Emoji.getEmoji('sharo_hug_chino').id
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('shawo_hug_chinyo').nyame,
+            id: Emwoji.getEmwoji('shawo_hug_chinyo').id
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.image.title', { 0: filterByCategory('image').length }))
-          .addDescription(ctx._locale('commands:help.image.description'))
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.image.title', { 0: fwilterByCategwory('image').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.image.descwiption'))
           .setValue('image')
-          .addEmoji({
-            name: Emoji.getEmoji('photo_frame').mention
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('phwotwo_fwame').mention
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.minecraft.title', { 0: filterByCategory('minecraft').length }))
-          .addDescription(ctx._locale('commands:help.minecraft.description'))
-          .setValue('minecraft')
-          .addEmoji({
-            name: Emoji.getEmoji('minecraft').name,
-            id: Emoji.getEmoji('minecraft').id
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.minyecwaft.title', { 0: fwilterByCategwory('minyecwaft').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.minyecwaft.descwiption'))
+          .setValue('minyecwaft')
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('minyecwaft').nyame,
+            id: Emwoji.getEmwoji('minyecwaft').id
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.misc.title', { 0: filterByCategory('misc').length }))
-          .addDescription(ctx._locale('commands:help.misc.description'))
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.misc.title', { 0: fwilterByCategwory('misc').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.misc.descwiption'))
           .setValue('misc')
-          .addEmoji({
-            name: Emoji.getEmoji('books').mention
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('bwooks').mention
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.mod.title', { 0: filterByCategory('mod').length }))
-          .addDescription(ctx._locale('commands:help.mod.description'))
-          .setValue('mod')
-          .addEmoji({
-            name: Emoji.getEmoji('tools').mention
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.mwod.title', { 0: fwilterByCategwory('mwod').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.mwod.descwiption'))
+          .setValue('mwod')
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('twoowls').mention
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.social.title', { 0: filterByCategory('social').length }))
-          .addDescription(ctx._locale('commands:help.social.description'))
-          .setValue('social')
-          .addEmoji({
-            name: Emoji.getEmoji('cityscape').mention
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.swocial.title', { 0: fwilterByCategwory('swocial').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.swocial.descwiption'))
+          .setValue('swocial')
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('cityscape').mention
           }),
-        new Options()
-          .setLabel(ctx._locale('commands:help.utils.title', { 0: filterByCategory('utils').length }))
-          .addDescription(ctx._locale('commands:help.utils.description'))
+        nyew Options()
+          .setLabel(ctx._wocale('cwommands:help.utils.title', { 0: fwilterByCategwory('utils').length }))
+          .addDescwiption(ctx._wocale('cwommands:help.utils.descwiption'))
           .setValue('utils')
-          .addEmoji({
-            name: Emoji.getEmoji('tip').mention
+          .addEmwoji({
+            nyame: Emwoji.getEmwoji('tip').mention
           })
       )
-    const embed = new EmbedBuilder()
-    defineState.actionState.event
-      .on('done', (state) => {
+    cwonst embed = nyew EmbedBuilder()
+    defwinyeState.actionState.event
+      .on('dwonye', (state) => {
         switch (state) {
-          case 'economy':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.economy.title', { 0: filterByCategory('economy').length }), filterByCategory('economy').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
+          case 'ecwonyomy':
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.ecwonyomy.title', { 0: fwilterByCategwory('ecwonyomy').length }), fwilterByCategwory('ecwonyomy').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
             editMessage({ embeds: [embed] })
-            break;
+            bweak;
           case 'fun':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.fun.title', { 0: filterByCategory('fun').length }), filterByCategory('fun').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.fun.title', { 0: fwilterByCategwory('fun').length }), fwilterByCategwory('fun').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
           case 'image':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.image.title', { 0: filterByCategory('image').length }), filterByCategory('image').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
-          case 'minecraft':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.minecraft.title', { 0: filterByCategory('minecraft').length }), filterByCategory('minecraft').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.image.title', { 0: fwilterByCategwory('image').length }), fwilterByCategwory('image').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
+          case 'minyecwaft':
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.minyecwaft.title', { 0: fwilterByCategwory('minyecwaft').length }), fwilterByCategwory('minyecwaft').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
           case 'misc':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.misc.title', { 0: filterByCategory('misc').length }), filterByCategory('misc').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
-          case 'mod':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.mod.title', { 0: filterByCategory('mod').length }), filterByCategory('mod').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
-          case 'social':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.social.title', { 0: filterByCategory('social').length }), filterByCategory('social').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.misc.title', { 0: fwilterByCategwory('misc').length }), fwilterByCategwory('misc').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
+          case 'mwod':
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.mwod.title', { 0: fwilterByCategwory('mwod').length }), fwilterByCategwory('mwod').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
+          case 'swocial':
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.swocial.title', { 0: fwilterByCategwory('swocial').length }), fwilterByCategwory('swocial').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
           case 'utils':
-            embed.setColor('DEFAULT')
-            embed.addField(ctx._locale('commands:help.utils.title', { 0: filterByCategory('utils').length }), filterByCategory('utils').map(cmd => `${slashCommands.find((command) => command.name === cmd.name)?.mention ?? `\`/${cmd.name}\``} » ${slashCommands.find((command) => command.name === cmd.name)?.description ?? cmd?.description}`).join('\n'))
-            editMessage({ embeds: [embed], components: [{ type: 1, components: [select_menu] }, { type: 1, components: [home_button.build()] }] })
-            break;
-          case 'home_button':
-            // eslint-disable-next-line no-case-declarations
-            const categories = [
-              ctx._locale('commands:help.economy.title', { 0: filterByCategory('economy').length }),
-              ctx._locale('commands:help.fun.title', { 0: filterByCategory('fun').length }),
-              ctx._locale('commands:help.image.title', { 0: filterByCategory('image').length }),
-              ctx._locale('commands:help.minecraft.title', { 0: filterByCategory('minecraft').length }),
-              ctx._locale('commands:help.misc.title', { 0: filterByCategory('misc').length }),
-              ctx._locale('commands:help.mod.title', { 0: filterByCategory('mod').length }),
-              ctx._locale('commands:help.social.title', { 0: filterByCategory('social').length }),
-              ctx._locale('commands:help.utils.title', { 0: filterByCategory('utils').length })
+            embed.setCwowwor('DEFAULT')
+            embed.addFwield(ctx._wocale('cwommands:help.utils.title', { 0: fwilterByCategwory('utils').length }), fwilterByCategwory('utils').map(cmd => `${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.mention ?? `\`/${cmd.nyame}\``} » ${slashCwommands.fwind((cwommand) => cwommand.nyame === cmd.nyame)?.descwiption ?? cmd?.descwiption}`).jwoin('\n'))
+            editMessage({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [select_menyu] }, { type: 1, cwompwonyents: [hwome_buttwon.build()] }] })
+            bweak;
+          case 'hwome_buttwon':
+            // eslint-disable-nyext-linye nyo-case-declarations
+            cwonst categwories = [
+              ctx._wocale('cwommands:help.ecwonyomy.title', { 0: fwilterByCategwory('ecwonyomy').length }),
+              ctx._wocale('cwommands:help.fun.title', { 0: fwilterByCategwory('fun').length }),
+              ctx._wocale('cwommands:help.image.title', { 0: fwilterByCategwory('image').length }),
+              ctx._wocale('cwommands:help.minyecwaft.title', { 0: fwilterByCategwory('minyecwaft').length }),
+              ctx._wocale('cwommands:help.misc.title', { 0: fwilterByCategwory('misc').length }),
+              ctx._wocale('cwommands:help.mwod.title', { 0: fwilterByCategwory('mwod').length }),
+              ctx._wocale('cwommands:help.swocial.title', { 0: fwilterByCategwory('swocial').length }),
+              ctx._wocale('cwommands:help.utils.title', { 0: fwilterByCategwory('utils').length })
             ]
-            embed.setColor('DEFAULT')
-            embed.setThumbnail(ctx.client.user.avatarURL)
-            embed.setTitle(ctx._locale('commands:help.commandList'))
-            embed.setDescription(ctx._locale('commands:help.explain', { 0: slashCommands.find((cmd) => cmd.name === 'help').mention, 1: categories.join('\n') }))
+            embed.setCwowwor('DEFAULT')
+            embed.setThumbnyail(ctx.client.user.avatarURL)
+            embed.setTitle(ctx._wocale('cwommands:help.cwommandList'))
+            embed.setDescwiption(ctx._wocale('cwommands:help.explain', { 0: slashCwommands.fwind((cmd) => cmd.nyame === 'help').mention, 1: categwories.jwoin('\n') }))
             embed.setTimestamp()
-            embed.setFooter(ctx._locale('commands:help.commandsLoaded', { 0: commandLength }))
-            embed.addField(ctx._locale('commands:help.additionalLinks.embedTitle'), ctx._locale('commands:help.additionalLinks.embedDescription', { 0: ctx.client.user.id }))
+            embed.setFwooter(ctx._wocale('cwommands:help.cwommandsWoaded', { 0: cwommandLength }))
+            embed.addFwield(ctx._wocale('cwommands:help.additionyalLinks.embedTitle'), ctx._wocale('cwommands:help.additionyalLinks.embedDescwiption', { 0: ctx.client.user.id }))
             editMessage({ embeds: [embed] })
         }
-      }).once('error', (err) => {
-        throw err
+      }).once('erwor', (err) => {
+        thwow err
       })
     switch (interaction) {
-      case 'economy':
+      case 'ecwonyomy':
       case 'fun':
       case 'image':
-      case 'minecraft':
+      case 'minyecwaft':
       case 'misc':
-      case 'mod':
-      case 'social':
+      case 'mwod':
+      case 'swocial':
       case 'utils':
-      case 'home_button':
-        defineState.actionState.setState({ action: interaction })
+      case 'hwome_buttwon':
+        defwinyeState.actionState.setState({ action: interaction })
     }
   }
 }

@@ -1,21 +1,21 @@
-import { Api } from '@top-gg/sdk'
+impwort { Api } fwom '@twop-gg/sdk'
 
-export class TopGGUtils extends Api {
-  constructor() {
-    super(process.env.TOPGG_TOKEN)
-    this.token = process.env.TOPGG_TOKEN ? process.env.TOPGG_TOKEN : null
+expwort class TwopGGUtils extends Api {
+  cwonstwuctwor() {
+    super(pwocess.env.TWOPGG_TWOKEN)
+    this.twoken = pwocess.env.TWOPGG_TWOKEN ? pwocess.env.TWOPGG_TWOKEN : nyuww
   }
 
   async getVote(id) {
-    if (!id || !this.token) return true
+    if (!id || !this.twoken) return twue
     return await this.hasVoted(id)
   }
 
-  async post(client) {
-    if (!this.token) return
-    await this.postStats({
-      serverCount: client.guilds.size,
-      shardCount: client.shards.size
+  async pwost(client) {
+    if (!this.twoken) return
+    await this.pwostStats({
+      serwerCwount: client.guilds.size,
+      shardCwount: client.shards.size
     })
   }
 }

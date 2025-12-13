@@ -1,40 +1,40 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class YensCommand extends Command {
-  constructor() {
+expwort default class YensCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'yens',
+      nyame: 'yens',
       aliases: ['yen'],
-      slash: new CommandBase()
-        .setName('yens')
-        .setDescription('Shows you current balance or someone else\'s balance.')
-        .addOptions(new CommandOptions()
+      slash: nyew CwommandBase()
+        .setNyame('yens')
+        .setDescwiption('Shwows u current balance or swomeonye else\'s balance.')
+        .addOptions(nyew CwommandOptions()
           .setType(6)
-          .setName('user')
-          .setDescription('Mention of the member.')
+          .setNyame('user')
+          .setDescwiption('Mention of teh Mwember.')
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const user = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user?.id ?? user)
-    if (!member) {
-      const sugarcube = Number(ctx.db.user?.sugarcube ?? 0).toLocaleString()
-      const yens = Number(ctx.db.user.yens).toLocaleString()
-      await ctx.replyT('yen', 'commands:yens.yens', { yens: `\`${yens}\``, sugarcube: `\`${sugarcube}\`` })
+    cwonst user = ctx.args.get('user')?.value
+    cwonst Mwember = await ctx.getUser(user?.id ?? user)
+    if (!Mwember) {
+      cwonst sugarcube = Nyumber(ctx.db.user?.sugarcube ?? 0).twoWocaleStwing()
+      cwonst yens = Nyumber(ctx.db.user.yens).twoWocaleStwing()
+      await ctx.repwyT('yen', 'cwommands:yens.yens', { yens: `\`${yens}\``, sugarcube: `\`${sugarcube}\`` })
       return
     }
 
-    const userData = await ctx.db.db.getOrCreate(member.id)
-    const yens = Number(userData.yens).toLocaleString()
-    const sugarcube = Number(userData?.sugarcube ?? 0).toLocaleString()
-    return ctx.replyT('yen', 'commands:yens.onMention', { user: member.mention, yens: `\`${yens}\``, sugarcube: `\`${sugarcube}\`` })
+    cwonst userData = await ctx.db.db.getOrCweate(Mwember.id)
+    cwonst yens = Nyumber(userData.yens).twoWocaleStwing()
+    cwonst sugarcube = Nyumber(userData?.sugarcube ?? 0).twoWocaleStwing()
+    return ctx.repwyT('yen', 'cwommands:yens.onMention', { user: Mwember.mention, yens: `\`${yens}\``, sugarcube: `\`${sugarcube}\`` })
   }
 }

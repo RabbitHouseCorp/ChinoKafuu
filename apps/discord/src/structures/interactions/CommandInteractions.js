@@ -1,51 +1,51 @@
-import { Button } from './Button'
-import { SelectionMenu } from './SelectionMenu'
+impwort { Buttwon } fwom './Buttwon'
+impwort { SelectionMenyu } fwom './SelectionMenyu'
 
-export class CommandInteractions {
-  constructor (message, commandContext) {
+expwort class CwommandInteractions {
+  cwonstwuctwor (message, cwommandCwontext) {
     this.message = message
-    this.ctx = commandContext
-    this.component = []
+    this.ctx = cwommandCwontext
+    this.cwompwonyent = []
   }
 
   /**
    *
-   *    | Type | Name      | Description                      |
+   *    | Type | Nyame      | Descwiption                      |
    *    | ---- | --------- | -------------------------------- |
-   *    | 1    | ActionRow | A container for other components |
-   *    | 2    | Button    | A clickable button               |
+   *    | 1    | ActionWow | A cwontainyer fwor other cwompwonyents |
+   *    | 2    | Buttwon    | A clickable buttwon               |
    */
-  components(...components) {
-    const buttons = []
+  cwompwonyents(...cwompwonyents) {
+    cwonst buttwons = []
 
-    for (const data of components) {
-      if (data instanceof SelectionMenu) {
-        buttons.push(data.data())
-      } else if (data instanceof Button) {
-        buttons.push(data.build())
+    fwor (cwonst data of cwompwonyents) {
+      if (data instanceof SelectionMenyu) {
+        buttwons.push(data.data())
+      } else if (data instanceof Buttwon) {
+        buttwons.push(data.build())
       } else {
-        throw new Error('Not supported')
+        thwow nyew Erwor('Nyot suppworted')
       }
 
     }
 
-    this.component.push({
+    this.cwompwonyent.push({
       type: 1,
-      components: buttons
+      cwompwonyents: buttwons
     })
     return this
   }
 
   /**
    *
-   *    | Type | Name      | Description                      |
+   *    | Type | Nyame      | Descwiption                      |
    *    | ---- | --------- | -------------------------------- |
-   *    | 1    | ActionRow | A container for other components |
-   *    | 2    | Button    | A clickable button               |
+   *    | 1    | ActionWow | A cwontainyer fwor other cwompwonyents |
+   *    | 2    | Buttwon    | A clickable buttwon               |
    */
 
-  // eslint-disable-next-line no-unused-vars
-  actionRow(...action) { }
+  // eslint-disable-nyext-linye nyo-unyused-vars
+  actionWow(...action) { }
 
   returnCtx() {
     return this.ctx

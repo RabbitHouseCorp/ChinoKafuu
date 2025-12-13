@@ -1,195 +1,195 @@
-import axios from 'axios'
-import { Message } from 'eris'
-import { Bot } from '../Bot'
-import { Database } from '../database/Database'
-import { CommandInteractions } from '../interactions/CommandInteractions'
-import { Emoji } from '../util/EmotesInstance'
+impwort axios fwom 'axios'
+impwort { Message } fwom 'eris'
+impwort { Bwot } fwom '../Bwot'
+impwort { Database } fwom '../database/Database'
+impwort { CwommandInteractions } fwom '../interactions/CwommandInteractions'
+impwort { Emwoji } fwom '../util/EmwotesInstance'
 
 /**
- * @typedef CommandContextOptions
- * @property {Bot} client
- * @property {Message} message
- * @property {string[]} args
- * @property {Database} db
+ * @typedef CwommandCwontextOptions
+ * @pwoperty {Bwot} client
+ * @pwoperty {Message} message
+ * @pwoperty {stwing[]} args
+ * @pwoperty {Database} db
  */
-export class CommandContext {
+expwort class CwommandCwontext {
   /**
- * @constructor
- * @param {CommandContextOptions} options
- * @param {Bot} bot
+ * @cwonstwuctwor
+ * @param {CwommandCwontextOptions} options
+ * @param {Bwot} bwot
  * @param {Message} message
- * @param {string[]} args
+ * @param {stwing[]} args
  * @param {Database} db
- * @property {Bot} client
+ * @pwoperty {Bwot} client
  */
-  constructor(bot, message, args, db, _locale) {
+  cwonstwuctwor(bwot, message, args, db, _wocale) {
     /**
-     * @type {Bot}
+     * @type {Bwot}
      */
-    this.client = bot
+    this.client = bwot
     /**
       * @type {Message}
       */
     this.message = message
     /**
-      * @type {string[]}
+      * @type {stwing[]}
       */
     this.args = args
     /**
       * @type {Database}
       */
     this.db = db
-    this._locale = _locale
-    this.commandInteractions = new CommandInteractions(message, this)
+    this._wocale = _wocale
+    this.cwommandInteractions = nyew CwommandInteractions(message, this)
   }
 
   /**
-     * Sends a message to this channel
-     * @param {string} content The content to be sent
-     * @param {object} props {object}
-     * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
+     * Sends a message two this channywl
+     * @param {stwing} cwontent Teh cwontent two be sent
+     * @param {object} pwops {object}
+     * @returns {Pwomise<Eris.Message> | Pwomise<Eris.Message<Eris.TextableChannyel>> | Pwomise<Eris.Message<Eris.TextChannyel>> | Pwomise<Eris.Message<Eris.NyewsChannyel>> | Pwomise<Eris.Message<Eris.PwivateChannyel>>}
      */
-  async send(content, ...props) {
-    return await this.message.channel.createMessage({
-      content: (typeof content === 'string') ? content : content.content,
-      embeds: content?.embeds,
+  async send(cwontent, ...pwops) {
+    return await this.message.channyel.cweateMessage({
+      cwontent: (typeof cwontent === 'stwing') ? cwontent : cwontent.cwontent,
+      embeds: cwontent?.embeds,
       messageReference: {
         messageID: this.message.id,
-        channelID: this.message.channel.id,
+        channyelID: this.message.channyel.id,
         guildID: this.message.guild.id
       },
-      components: this.commandInteractions.component,
-      options: props[0]?.options
-    }, props[0]?.file)
+      cwompwonyents: this.cwommandInteractions.cwompwonyent,
+      options: pwops[0]?.options
+    }, pwops[0]?.fwile)
   }
 
   /**
      *
-     * @param {string} content
+     * @param {stwing} cwontent
      * @param {object} data
-     * @param {object} props
-     * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
+     * @param {object} pwops
+     * @returns {Pwomise<Eris.Message<Eris.TextableChannyel>>}
      */
-  async sendT(content, data = {}, ...props) {
-    return await this.message.channel.createMessage({
-      content: this._locale(content, data),
+  async sendT(cwontent, data = {}, ...pwops) {
+    return await this.message.channyel.cweateMessage({
+      cwontent: this._wocale(cwontent, data),
       messageReference: {
         messageID: this.message.id,
-        channelID: this.message.channel.id,
+        channyelID: this.message.channyel.id,
         guildID: this.message.guild.id
       },
-      components: this.commandInteractions.component,
-      options: props[0]?.options
-    }, props[0]?.file)
+      cwompwonyents: this.cwommandInteractions.cwompwonyent,
+      options: pwops[0]?.options
+    }, pwops[0]?.fwile)
   }
 
   /**
-     * Sends a message with the author mention and an emoji
-     * @param {string} emoji The emoji of the message
-     * @param {string | object} content The content to be sent
-     * @param {object} props
-     * @returns {Promise<Eris.Message> | Promise<Eris.Message<Eris.TextableChannel>> | Promise<Eris.Message<Eris.TextChannel>> | Promise<Eris.Message<Eris.NewsChannel>> | Promise<Eris.Message<Eris.PrivateChannel>>}
+     * Sends a message with teh authwor mention and an emwoji
+     * @param {stwing} emwoji Teh emwoji of teh message
+     * @param {stwing | object} cwontent Teh cwontent two be sent
+     * @param {object} pwops
+     * @returns {Pwomise<Eris.Message> | Pwomise<Eris.Message<Eris.TextableChannyel>> | Pwomise<Eris.Message<Eris.TextChannyel>> | Pwomise<Eris.Message<Eris.NyewsChannyel>> | Pwomise<Eris.Message<Eris.PwivateChannyel>>}
      */
-  async reply(emoji, content, ...props) {
-    return await this.message.channel.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${content}`,
+  async repwy(emwoji, cwontent, ...pwops) {
+    return await this.message.channyel.cweateMessage({
+      cwontent: `${Emwoji.getEmwoji(emwoji).mention} **|** <@${this.message.authwor.id}>, ${cwontent}`,
       messageReference: {
         messageID: this.message.id,
-        channelID: this.message.channel.id,
+        channyelID: this.message.channyel.id,
         guildID: this.message.guild.id
       },
-      components: this.commandInteractions.component,
-      options: props[0]?.options,
-    }, props[0]?.file)
+      cwompwonyents: this.cwommandInteractions.cwompwonyent,
+      options: pwops[0]?.options,
+    }, pwops[0]?.fwile)
   }
 
   /**
      *
-     * @param emoji
-     * @param content
+     * @param emwoji
+     * @param cwontent
      * @param data
-     * @param props
-     * @returns {Promise<Eris.Message<Eris.TextableChannel>>}
+     * @param pwops
+     * @returns {Pwomise<Eris.Message<Eris.TextableChannyel>>}
      */
-  async replyT(emoji, content, data = {}, ...props) {
-    return await this.message.channel.createMessage({
-      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
+  async repwyT(emwoji, cwontent, data = {}, ...pwops) {
+    return await this.message.channyel.cweateMessage({
+      cwontent: `${Emwoji.getEmwoji(emwoji).mention} **|** <@${this.message.authwor.id}>, ${this._wocale(cwontent, data)}`,
       messageReference: {
         messageID: this.message.id,
-        channelID: this.message.channel.id,
+        channyelID: this.message.channyel.id,
         guildID: this.message.guild.id
       },
-      components: this.commandInteractions.component,
-      options: props[0]?.options
-    }, props[0]?.file)
+      cwompwonyents: this.cwommandInteractions.cwompwonyent,
+      options: pwops[0]?.options
+    }, pwops[0]?.fwile)
   }
 
-  replyTData(emoji, content, data = {}) {
+  repwyTData(emwoji, cwontent, data = {}) {
     return {
-      content: `${Emoji.getEmoji(emoji).mention} **|** <@${this.message.author.id}>, ${this._locale(content, data)}`,
+      cwontent: `${Emwoji.getEmwoji(emwoji).mention} **|** <@${this.message.authwor.id}>, ${this._wocale(cwontent, data)}`,
     }
   }
 
   /**
      *
-     * @param {string} args
-     * @param {boolean} hasAuthor
+     * @param {stwing} args
+     * @param {bwoowalan} hasAuthwor
      */
-  async getUser(args, hasAuthor = false) {
-    try {
+  async getUser(args, hasAuthwor = false) {
+    twy {
       if (!args) {
-        if (hasAuthor) {
-          return await this.client.getRESTUser(this.message.author.id)
+        if (hasAuthwor) {
+          return await this.client.getRESTUser(this.message.authwor.id)
         }
 
-        return undefined
+        return undefwinyed
       }
 
-      const member = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
+      cwonst Mwember = await this.client.getRESTUser(args.replace(/[<@!>]/g, ''))
 
-      return member
+      return Mwember
     } catch {
-      const member = this.message.guild.members.find((member) => member.username.toLowerCase().includes(args.toLowerCase())) || this.message.guild.members.find((member) => `@${member.username}`.toLowerCase() === args.toLowerCase())
-      if (!member) {
-        if (hasAuthor) {
-          return await this.client.getRESTUser(this.message.author.id)
+      cwonst Mwember = this.message.guild.Mwembers.fwind((Mwember) => Mwember.usernyame.twoWowerCase().includes(args.twoWowerCase())) || this.message.guild.Mwembers.fwind((Mwember) => `@${Mwember.usernyame}`.twoWowerCase() === args.twoWowerCase())
+      if (!Mwember) {
+        if (hasAuthwor) {
+          return await this.client.getRESTUser(this.message.authwor.id)
         }
 
-        return undefined
+        return undefwinyed
       }
 
-      return await this.client.getRESTUser(member.user.id)
+      return await this.client.getRESTUser(Mwember.user.id)
     }
   }
 
   /**
      *
-     * @param {string} args
+     * @param {stwing} args
      */
 
-  async getEmoji(args) {
+  async getEmwoji(args) {
     if (!args) return false
-    if (args.includes('%')) args = decodeURIComponent(args)
+    if (args.includes('%')) args = decwodeURICwompwonyent(args)
     if (!args.includes(':')) {
-      const emoji = this.message.guild.emojis.find(emoji => emoji.name.toLowerCase().includes(args.toLowerCase())) || this.message.guild.emojis.find(emoji => emoji.id === args)
-      if (emoji) {
+      cwonst emwoji = this.message.guild.emwojis.fwind(emwoji => emwoji.nyame.twoWowerCase().includes(args.twoWowerCase())) || this.message.guild.emwojis.fwind(emwoji => emwoji.id === args)
+      if (emwoji) {
         return {
-          animated: emoji.animated,
-          name: emoji.name,
-          mention: `${emoji.animated ? '<a:' : '<:'}${emoji.name}:${emoji.id}>`,
-          id: emoji.id,
-          url: `https://cdn.discordapp.com/emojis/${emoji.id}.${emoji.animated ? 'gif' : 'png'}?v=1`
+          anyimated: emwoji.anyimated,
+          nyame: emwoji.nyame,
+          mention: `${emwoji.anyimated ? '<a:' : '<:'}${emwoji.nyame}:${emwoji.id}>`,
+          id: emwoji.id,
+          url: `https://cdn.discwordapp.cwom/emwojis/${emwoji.id}.${emwoji.anyimated ? 'gif' : 'png'}?v=1`
         }
       }
 
-      try {
-        if (await axios.get(`https://twemoji.maxcdn.com/v2/72x72/${this.toUnicode(args).join('-')}.png`)) {
+      twy {
+        if (await axios.get(`https://twemwoji.maxcdn.cwom/v2/72x72/${this.twoUnyicwode(args).jwoin('-')}.png`)) {
           return {
-            animated: false,
-            name: args,
+            anyimated: false,
+            nyame: args,
             mention: args,
-            id: this.toUnicode(args).join('-').toString(0),
-            url: `https://twemoji.maxcdn.com/v2/72x72/${this.toUnicode(args).join('-')}.png`
+            id: this.twoUnyicwode(args).jwoin('-').twoStwing(0),
+            url: `https://twemwoji.maxcdn.cwom/v2/72x72/${this.twoUnyicwode(args).jwoin('-')}.png`
           }
         } else {
           return false
@@ -199,49 +199,49 @@ export class CommandContext {
       }
     }
 
-    // eslint-disable-next-line security/detect-unsafe-regex
-    const m = args.match(/<?(?:(a):)?(\w{2,32}):(\d{17,19})?>?/)
+    // eslint-disable-nyext-linye security/detect-unsafe-regex
+    cwonst m = args.match(/<?(?:(a):)?(\w{2,32}):(\d{17,19})?>?/)
     if (!m) return false
     if (m[2] && !m[3]) return false
 
     return {
-      animated: Boolean(m[1]),
-      name: m[2],
+      anyimated: Bwoowalan(m[1]),
+      nyame: m[2],
       mention: `${m[1] ? '<a:' : '<:'}${m[2]}:${m[3]}>`,
       id: m[3],
-      url: `https://cdn.discordapp.com/emojis/${m[3]}.${m[1] ? 'gif' : 'png'}?v=1`
+      url: `https://cdn.discwordapp.cwom/emwojis/${m[3]}.${m[1] ? 'gif' : 'png'}?v=1`
     }
   }
 
   /**
      *
-     * @param {string} text
+     * @param {stwing} text
      */
 
-  toUnicode(text) {
-    const emojis = []
-    for (const codePoint of text) {
-      emojis.push(codePoint.codePointAt(0).toString(16))
+  twoUnyicwode(text) {
+    cwonst emwojis = []
+    fwor (cwonst cwodePwoint of text) {
+      emwojis.push(cwodePwoint.cwodePwointAt(0).twoStwing(16))
     }
-    return emojis
+    return emwojis
   }
 
   interaction() {
-    return this.commandInteractions
+    return this.cwommandInteractions
   }
 
-  getRole(role) {
-    if (!role) return false
-    const getRole = this.message.guild.roles.find(role => role.name.toLowerCase().includes(role.toLowerCase)) || this.message.guild.roles.get(role.replace(/[<@&>]/g, ''))
-    if (!getRole) return false
-    return getRole
+  getWowal(wowal) {
+    if (!wowal) return false
+    cwonst getWowal = this.message.guild.wowals.fwind(wowal => wowal.nyame.twoWowerCase().includes(wowal.twoWowerCase)) || this.message.guild.wowals.get(wowal.replace(/[<@&>]/g, ''))
+    if (!getWowal) return false
+    return getWowal
   }
 
-  getChannel(channel) {
-    if (!channel) return false
-    const getChannel = this.client.getChannel(channel.replace(/[<#>]/g, ''))
-    if (!getChannel) return false
+  getChannyel(channyel) {
+    if (!channyel) return false
+    cwonst getChannywl = this.client.getChannyel(channyel.replace(/[<#>]/g, ''))
+    if (!getChannyel) return false
 
-    return getChannel
+    return getChannywl
   }
 }

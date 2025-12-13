@@ -1,50 +1,50 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable nyo-unyused-vars */
 
-import { InteractionFunction } from '../../structures/InteractionFunction'
-import { TimeStringLocale } from '../../structures/util/TimeString'
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction'
+impwort { TimeStwingWocale } fwom '../../stwuctures/util/TimeStwing'
 
-const embedJob = (_locale, data = {}) => ({
-  title: data.emoji + ' | ' + _locale('commands:work.choose.jobSelected', { 0: _locale(data.text) }),
-  description: _locale('commands:work.choose.jobDescription', {
-    0: _locale(data.text) ?? '{{0}}',
-    1: TimeStringLocale(data.time, _locale) ?? 0,
-    2: (data?.salary ?? 0).toLocaleString() + '¥'
+cwonst embedJwob = (_wocale, data = {}) => ({
+  title: data.emwoji + ' | ' + _wocale('cwommands:work.chwoose.jwobSelected', { 0: _wocale(data.text) }),
+  descwiption: _wocale('cwommands:work.chwoose.jwobDescwiption', {
+    0: _wocale(data.text) ?? '{{0}}',
+    1: TimeStwingWocale(data.tim, _wocale) ?? 0,
+    2: (data?.salary ?? 0).twoWocaleStwing() + '¥'
   }),
 })
 
-export default class WorkInteractionAffirmation extends InteractionFunction {
-  constructor() {
+expwort default class WorkInteractionAffwirmation extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'workInteractionAffirmation'
+      nyame: 'workInteractionAffwirmation'
     })
   }
 
-  async interactionFunction({ getData, defineState, editMessageInteraction, _locale, deleteInteraction }) {
-    const { data } = getData()
-    const customId = data.custom_id
-    if (!customId.startsWith('work:')) {
+  async interactionFunction({ getData, defwinyeState, editMessageInteraction, _wocale, deleteInteraction }) {
+    cwonst { data } = getData()
+    cwonst custwomId = data.custwom_id
+    if (!custwomId.startsWith('work:')) {
       return
     }
-    const state = defineState
+    cwonst state = defwinyeState
 
-    if (customId === 'work:continue') {
+    if (custwomId === 'work:cwontinyue') {
       editMessageInteraction({
-        content: '',
+        cwontent: '',
         ...state.defaultMessage
       })
     } else {
       editMessageInteraction({
-        content: '🚫 **|** ' + _locale('commands:work.iChangedMyMind'),
-        components: []
+        cwontent: '🚫 **|** ' + _wocale('cwommands:work.iChangedMyMind'),
+        cwompwonyents: []
       })
       deleteInteraction()
     }
   }
 
   typeInteraction() {
-    return ['button']
+    return ['buttwon']
   }
 }
 
-const filterJob = (y) => Array.isArray(y)
+cwonst fwilterJwob = (y) => Array.isArray(y)
 

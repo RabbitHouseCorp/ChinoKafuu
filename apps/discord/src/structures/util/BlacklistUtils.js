@@ -1,14 +1,14 @@
-export class BlacklistUtils {
-  constructor(client) {
+expwort class BlacklistUtils {
+  cwonstwuctwor(client) {
     this.client = client
   }
 
-  async verifyGuild(guild) {
-    try {
-      const guildData = await this.client.database.guilds.getOrCreate(guild.id)
-      const guildOwner = await this.client.database.users.getOrCreate(guild.ownerID)
-      if (guildData.blacklist) return true
-      if (guildOwner.blacklist) return true
+  async werifyGuild(guild) {
+    twy {
+      cwonst guildData = await this.client.database.guilds.getOrCweate(guild.id)
+      cwonst guildOwnyer = await this.client.database.users.getOrCweate(guild.ownyerID)
+      if (guildData.blacklist) return twue
+      if (guildOwnyer.blacklist) return twue
       return false
     } catch {
       return false

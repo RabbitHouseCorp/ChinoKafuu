@@ -1,138 +1,138 @@
-import { requestTokamak } from '../../../lib/tokamak';
-import { InteractionFunction } from '../../../structures/InteractionFunction';
-import { profileInfo as _profileInfo } from '../../../structures/util/Constants';
-export default class InventoryProfileRenderInteraction extends InteractionFunction {
-  constructor() {
+impwort { requestTwokamak } fwom '../../../lib/twokamak';
+impwort { InteractionFunction } fwom '../../../stwuctures/InteractionFunction';
+impwort { pwofwileInfwo as _pwofwileInfwo } fwom '../../../stwuctures/util/Cwonstants';
+expwort default class InventworyPwofwileRenderInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'shopProfileRenderInteraction'
+      nyame: 'shwopPwofwileRenderInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, editInteraction, ctx }) {
-    const {
+  async interactionFunction({ getData, defwinyeState, editInteraction, ctx }) {
+    cwonst {
       avatar,
       married,
-      partnerName,
-      profileComponent } = defineState
-    const { data, member, message } = getData()
-    const { values } = data
+      partnyerNyame,
+      pwofwileCwompwonyent } = defwinyeState
+    cwonst { data, Mwember, message } = getData()
+    cwonst { values } = data
 
-    if (values === undefined && data.custom_id.startsWith('refresh:') === false) return
+    if (values === undefwinyed && data.custwom_id.startsWith('refwesh:') === false) return
 
-    const profileName = data.custom_id.startsWith('refresh:') ?
-      data.custom_id.replace('refresh:', '')
+    cwonst pwofwileNyame = data.custwom_id.startsWith('refwesh:') ?
+      data.custwom_id.replace('refwesh:', '')
       : values[0]
-    const user = await ctx.client.database.users.getOrCreate(member.user.id)
-    const getProfileInfo = _profileInfo.find((i) => i._id === profileName)
-    const profiles = Object.entries(_profileInfo)
-    const profileOptions = profiles
-      // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => v.isDefault === false && v.readyForSale === true)
-      .filter(([_, v]) => v.disabled === false)
-      // eslint-disable-next-line no-unused-vars
+    cwonst user = await ctx.client.database.users.getOrCweate(Mwember.user.id)
+    cwonst getPwofwileInfwo = _pwofwileInfwo.fwind((i) => i._id === pwofwileNyame)
+    cwonst pwofwiles = Object.entwies(_pwofwileInfwo)
+    cwonst pwofwileOptions = pwofwiles
+      // eslint-disable-nyext-linye nyo-unyused-vars
+      .fwilter(([_, v]) => v.isDefault === false && v.weadyFworSale === twue)
+      .fwilter(([_, v]) => v.disabled === false)
+      // eslint-disable-nyext-linye nyo-unyused-vars
       .map(([_, v]) => ({
-        label: (user.profileList.includes(v._id) ? `${ctx._locale(`basic:profiles.${v._id}.name`)} - (${ctx._locale('commands:shop.itemPurschased')})` : v.name),
+        label: (user.pwofwileList.includes(v._id) ? `${ctx._wocale(`basic:pwofwiles.${v._id}.nyame`)} - (${ctx._wocale('cwommands:shwop.itemPurschased')})` : v.nyame),
         value: v._id,
-        description: ctx._locale(`basic:profiles.${v._id.toLocaleLowerCase()}.shortDescription`),
-        custom_id: v.buttonId,
+        descwiption: ctx._wocale(`basic:pwofwiles.${v._id.twoWocaleWowerCase()}.shwortDescwiption`),
+        custwom_id: v.buttwonId,
         default: false
       }))
-    const profileUser = {
-      type: profileName,
-      name: member.user.username,
-      money: Number(user.yens).toLocaleString(),
-      aboutMe: user.aboutme !== '' ? user.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: '/' }),
+    cwonst pwofwileUser = {
+      type: pwofwileNyame,
+      nyame: Mwember.user.usernyame,
+      mwonyey: Nyumber(user.yens).twoWocaleStwing(),
+      abwoutMe: user.abwoutme !== '' ? user.abwoutme : ctx._wocale('cwommands:pwofwile.defaultAbwoutMe', { 0: '/' }),
       married: married,
-      partnerName: partnerName,
-      bgId: user.background,
+      partnyerNyame: partnyerNyame,
+      bgId: user.backgwound,
       stickerId: user.sticker,
-      favColor: user.profileColor,
+      favCwowwor: user.pwofwileCwowwor,
       avatarUrl: avatar,
       badges: []
     }
-    const embed = message.embeds.find((i) => i.image.url.endsWith(`profile-${profileName}.png`) === true) ?? {}
+    cwonst embed = message.embeds.fwind((i) => i.image.url.endsWith(`pwofwile-${pwofwileNyame}.png`) === twue) ?? {}
 
-    let profile = null
-    let imageMetadata = null
-    if (embed.image?.url === undefined) {
-      profile = await requestTokamak({
-        action: 'renderProfile',
-        profileStruct: profileUser
+    let pwofwile = nyuww
+    let imageMetadata = nyuww
+    if (embed.image?.uwl === undefwinyed) {
+      pwofwile = await requestTwokamak({
+        action: 'renderPwofwile',
+        pwofwileStwuct: pwofwileUser
       })
       imageMetadata = {
         image: {
-          file: profile.buffer,
-          name: `profile-${profileName}.png`
+          fwile: pwofwile.buffer,
+          nyame: `pwofwile-${pwofwileNyame}.png`
         }
       }
     }
 
-    const embeds = [{
-      title: getProfileInfo.name,
-      description: `${getProfileInfo.shortDescription ?? ctx._locale('commands:inventory.noDescription')}`,
-      color: 0x5865F2,
+    cwonst embeds = [{
+      title: getPwofwileInfwo.nyame,
+      descwiption: `${getPwofwileInfwo.shwortDescwiption ?? ctx._wocale('cwommands:inventwory.nyoDescwiption')}`,
+      cwowwor: 0x5865F2,
       image: {
-        url: `attachment://profile-${profileName}.png`
+        url: `attachment://pwofwile-${pwofwileNyame}.png`
       }
     }]
 
-    defineState.actionState.setState({ embeds })
-    const valueOfPrice = Math.min((user.yens / getProfileInfo.price) * 100, 100)
-    const readyForBuy = !(valueOfPrice >= 99)
-    const stateButton = !user.profileList.includes(getProfileInfo._id) ? (user.yens >= getProfileInfo.price ? false : readyForBuy) : true
+    defwinyeState.actionState.setState({ embeds })
+    cwonst valueOfPwice = Math.min((user.yens / getPwofwileInfwo.pwice) * 100, 100)
+    cwonst weadyFworBuy = !(valueOfPwice >= 99)
+    cwonst stateButtwon = !user.pwofwileList.includes(getPwofwileInfwo._id) ? (user.yens >= getPwofwileInfwo.pwice ? false : weadyFworBuy) : twue
     editInteraction({
-      content: readyForBuy ?
-        '💴 **|** ' + ctx._locale('commands:shop.profile.valueInsufficientMessage', {
-          0: getProfileInfo.price.toLocaleString(),
-          1: (getProfileInfo.price - user.yens).toLocaleString()
+      cwontent: weadyFworBuy ?
+        '💴 **|** ' + ctx._wocale('cwommands:shwop.pwofwile.valueInsuffwicientMessage', {
+          0: getPwofwileInfwo.pwice.twoWocaleStwing(),
+          1: (getPwofwileInfwo.pwice - user.yens).twoWocaleStwing()
         })
         :
-        '💴 **|** ' + ctx._locale(readyForBuy ? 'commands:shop.profile.profileInfo' : 'commands:shop.profile.buyProfile', { 0: getProfileInfo.price.toLocaleString() }),
+        '💴 **|** ' + ctx._wocale(weadyFworBuy ? 'cwommands:shwop.pwofwile.pwofwileInfwo' : 'cwommands:shwop.pwofwile.buyPwofwile', { 0: getPwofwileInfwo.pwice.twoWocaleStwing() }),
       embeds,
-      components: [
+      cwompwonyents: [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'listProfile',
+            custwom_id: 'listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: profileOptions
+            options: pwofwileOptions
           }]
         },
         {
           type: 1,
-          components: [
+          cwompwonyents: [
             {
               type: 2,
               style: 2,
               label: '',
-              emoji: {
-                id: null,
-                name: '🔄'
+              emwoji: {
+                id: nyuww,
+                nyame: '🔄'
               },
-              custom_id: `refresh:${getProfileInfo._id}`,
+              custwom_id: `refwesh:${getPwofwileInfwo._id}`,
               disabled: false,
             },
             {
               type: 2,
               label:
-                !user.profileList.includes(getProfileInfo._id) ? (user.yens >= getProfileInfo.price ?
-                  ctx._locale('commands:shop.profile.price', { 0: getProfileInfo.price.toLocaleString() }) :
-                  ctx._locale('commands:shop.profile.valueInsufficient'))
-                  : ctx._locale('commands:shop.profile.alreadyHaveThisProfile', { 0: getProfileInfo.price.toLocaleString() }),
-              style: !user.profileList.includes(getProfileInfo._id) ? (user.yens >= getProfileInfo.price ? 3 : 4) : 2,
-              disabled: stateButton,
-              custom_id: `profile:${getProfileInfo._id}`
+                !user.pwofwileList.includes(getPwofwileInfwo._id) ? (user.yens >= getPwofwileInfwo.pwice ?
+                  ctx._wocale('cwommands:shwop.pwofwile.pwice', { 0: getPwofwileInfwo.pwice.twoWocaleStwing() }) :
+                  ctx._wocale('cwommands:shwop.pwofwile.valueInsuffwicient'))
+                  : ctx._wocale('cwommands:shwop.pwofwile.alweadyHaveThisPwofwile', { 0: getPwofwileInfwo.pwice.twoWocaleStwing() }),
+              style: !user.pwofwileList.includes(getPwofwileInfwo._id) ? (user.yens >= getPwofwileInfwo.pwice ? 3 : 4) : 2,
+              disabled: stateButtwon,
+              custwom_id: `pwofwile:${getPwofwileInfwo._id}`
             }
           ],
         },
       ],
-      file: imageMetadata
+      fwile: imageMetadata
     })
   }
 
   typeInteraction() {
-    return ['selectMenu', 'button']
+    return ['selectMenyu', 'buttwon']
   }
 }

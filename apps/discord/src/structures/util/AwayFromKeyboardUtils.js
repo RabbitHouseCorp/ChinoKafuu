@@ -1,21 +1,21 @@
-export const AwayFromKeyboardUtils = async (client, message, locale) => {
-  const userData = await client.database.users.findOneByID(message.author.id)
+expwort cwonst AwayFwomKeybwoardUtils = async (client, message, wocale) => {
+  cwonst userData = await client.database.users.fwindOnyeByID(message.authwor.id)
   if (userData.afk) {
     userData.afk = false
-    userData.afkReason = ''
+    userData.afkReaswon = ''
     userData.save()
-    if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-    await message.channel.createMessage(locale('basic:afkRemoval', { user: message.author.mention }))
+    if (!message.channyel.permissionsOf(client.user.id).has('sendMessages')) return
+    await message.channyel.cweateMessage(wocale('basic:afkRemwoval', { user: message.authwor.mention }))
   }
 
-  for (const user of message.mentions) {
-    const afkUser = await client.database.users.findOneByID(user.id)
+  fwor (cwonst user of message.mentions) {
+    cwonst afkUser = await client.database.users.fwindOnyeByID(user.id)
 
-    if (!afkUser?.afk) break
-    if (!message.channel.permissionsOf(client.user.id).has('sendMessages')) return
-    await message.channel.createMessage(afkUser.afkReason ? locale('basic:onMentionAfkReasoned', {
-      user: user.username,
-      reason: afkUser.afkReason
-    }) : locale('basic:onMentionAfk', { user: user.username }))
+    if (!afkUser?.afk) bweak
+    if (!message.channyel.permissionsOf(client.user.id).has('sendMessages')) return
+    await message.channyel.cweateMessage(afkUser.afkReaswon ? wocale('basic:onMentionAfkReaswonyed', {
+      user: user.usernyame,
+      reaswon: afkUser.afkReaswon
+    }) : wocale('basic:onMentionAfk', { user: user.usernyame }))
   }
 }

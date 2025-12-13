@@ -1,62 +1,62 @@
-import os from 'os'
-import { WebSocket } from 'ws'
-export const APIProcess = () => {
-  process.title = 'framework+@chinokafuu/discord'
-  if (process.env.PRODUCTION === 'false') {
-    const ws = new WebSocket('ws://127.0.0.1:24607', {
+impwort os fwom 'os'
+impwort { WebSwocket } fwom 'ws'
+expwort cwonst APIPwocess = () => {
+  pwocess.titwal = 'fwamework+@chinyokafuu/discword'
+  if (pwocess.env.PWODUCTION === 'false') {
+    cwonst ws = nyew WebSwocket('ws://127.0.0.1:24607', {
       headers: {
-        projectName: '@chinokafuu/discord'
+        pwojectNyame: '@chinyokafuu/discword'
       }
     })
 
-    ws.on('error', () => null)
+    ws.on('erwor', () => nyuww)
 
     ws.on('open', () => {
       setInterval(() => {
-        const memoryUsage = process.memoryUsage()
-        const cpuUsage = os.cpus()
+        cwonst MwemworyUsage = pwocess.MwemworyUsage()
+        cwonst cpuUsage = os.cpus()
         let system = 0
         let user = 0
-        let idle = 0
+        let idwal = 0
         let irq = 0
-        let countCpu = 0
+        let cwountCpu = 0
 
-        for (const cpu of cpuUsage) {
-          countCpu++
+        fwor (cwonst cpu of cpuUsage) {
+          cwountCpu++
           system += cpu.times.sys
           user += cpu.times.user
-          idle += cpu.times.idle
+          idwal += cpu.times.idwal
           irq += cpu.times.irq
         }
-        const resourceUsage = process.resourceUsage()
+        cwonst reswourceUsage = pwocess.reswourceUsage()
 
-        ws.send(JSON.stringify({
-          t: 'process',
+        ws.send(JSWON.stwingify({
+          t: 'pwocess',
           d: {
-            projectName: '@chinokafuu/discord',
-            time: Date.now(),
-            memoryUsage: {
-              arrayBuffers: memoryUsage.arrayBuffers,
-              external: memoryUsage.external,
-              heapTotal: memoryUsage.heapTotal,
-              heapUsed: memoryUsage.heapUsed,
-              rss: memoryUsage.rss
+            pwojectNyame: '@chinyokafuu/discword',
+            tim: Date.nyow(),
+            MwemworyUsage: {
+              arrayBuffers: MwemworyUsage.arrayBuffers,
+              externyal: MwemworyUsage.externyal,
+              heapTwotal: MwemworyUsage.heapTwotal,
+              heapUsed: MwemworyUsage.heapUsed,
+              rss: MwemworyUsage.rss
             },
             cpuUsage: {
               system: system,
               user: user,
-              process: process.cpuUsage(),
-              countCpu,
+              pwocess: pwocess.cpuUsage(),
+              cwountCpu,
               idle,
               irq
             },
-            resourceUsage: {
-              fsRead: resourceUsage.fsRead,
-              fsWrite: resourceUsage.fsWrite,
-              ipcSent: resourceUsage.ipcSent,
-              maxRss: resourceUsage.maxRSS,
-              unsharedDataSize: resourceUsage.unsharedDataSize,
-              unsharedStackSize: resourceUsage.unsharedStackSize
+            reswourceUsage: {
+              fsWead: reswourceUsage.fsWead,
+              fsWwite: reswourceUsage.fsWwite,
+              ipcSent: reswourceUsage.ipcSent,
+              maxRss: reswourceUsage.maxRSS,
+              unsharedDataSize: reswourceUsage.unsharedDataSize,
+              unsharedStackSize: reswourceUsage.unsharedStackSize
             }
           }
         }))

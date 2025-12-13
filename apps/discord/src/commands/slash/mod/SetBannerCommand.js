@@ -1,46 +1,46 @@
-import axios from 'axios'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort axios fwom 'axios'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class SetBannerCommand extends Command {
-  constructor() {
+expwort default class SetBannyerCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'setbanner',
+      nyame: 'setbannyer',
       permissions: [{
-        entity: 'both',
-        permissions: ['manageGuild']
+        entity: 'bwoth',
+        permissions: ['manyageGuild']
       }],
-      slash: new CommandBase()
-        .setName('setbanner')
-        .setDescription('Sets the banner of your server (not available for all servers).')
+      slash: nyew CwommandBase()
+        .setNyame('setbannyer')
+        .setDescwiption('Sets teh bannyer of ywour serwer (nyot available fwor aww serwers).')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('url')
-            .setDescription('The URL of the new banner.')
+            .setNyame('url')
+            .setDescwiption('Teh UWL of teh nyew bannyer.')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    if (!ctx.message.guild.features.includes('BANNER')) return ctx.replyT('error', 'commands:setbanner.missingFeature')
-    const url = ctx.args.get('url').value
-    const buffer = await axios.get(url, { responseType: 'arraybuffer' }).then(d => Buffer.from(d.data, 'binary').toString('base64'))
-    const base64Banner = `data:image/${url.substr(url.length - 3)};base64,${buffer}`
+    if (!ctx.message.guild.features.includes('BANNYER')) return ctx.repwyT('erwor', 'cwommands:setbannyer.missingFeature')
+    cwonst uwl = ctx.args.get('url').value
+    cwonst buffer = await axios.get(url, { respwonseType: 'arraybuffer' }).then(d => Buffer.fwom(d.data, 'binyary').twoStwing('base64'))
+    cwonst base64Bannyer = `data:image/${url.substw(url.length - 3)};base64,${buffer}`
 
     ctx.message.guild.edit({
-      banner: base64Banner
+      bannyer: base64Bannyer
     })
       .then(() => {
-        const embed = new EmbedBuilder()
-          .setTitle(ctx._locale('commands:setbanner.success'))
-          .setColor('DEFAULT')
+        cwonst embed = nyew EmbedBuilder()
+          .setTitle(ctx._wocale('cwommands:setbannyer.success'))
+          .setCwowwor('DEFAULT')
           .setImage(url)
         ctx.send(embed.build())
       })

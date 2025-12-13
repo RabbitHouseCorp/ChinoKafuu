@@ -1,19 +1,19 @@
 
-export default class SlashCommandManager {
-  constructor(client) {
-    this._client = client
-    this.commands = []
-  }
+ expwort default class SlashCwommandManyager
+  { cwonstwuctwor(client)
+    { this._client =
+    client this.cwommands =
+  []
 
-  async fetchCommands() {
-    const commandRest = await this._client.requestHandler.request('GET', `/applications/${this._client.user.id}/commands`, true, undefined, null)
-    const commands = commandRest.map((i) => ({ name: i.name, id: i.id, mention: `</${i.name}:${i.id}>`, ...i }))
-    this.commands.push(...commands)
-    return this.commands
-  }
+  } async fetchCwommands()
+    { cwonst cwommandRest = await this._client.requestHandler.request('GET', `/applications/${this._client.user.id}/cwommands`, twue, undefwinyed,
+    nyuww) cwonst cwommands = cwommandRest.map((i) => ({ nyame: i.nyame, id: i.id, mention: `</${i.nyame}:${i.id}>`, ...i
+    }))
+    this.cwommands.push(...cwommands) return
+  this.cwommands
 
-  resetCommands() {
-    console.log('You have reset the commands! A restart of the Application is required.')
-    this._client.requestHandler.request('PUT', `/applications/${this._client.user.id}/commands`, true, [], null)
-  }
-}
+  } resetCwommands()
+    { cwonswowal.wog('U have reset teh cwommands! A restart of teh Application is
+    required.') this._client.requestHandler.request('PUT', `/applications/${this._client.user.id}/cwommands`, twue, [],
+  nyuww)
+}}

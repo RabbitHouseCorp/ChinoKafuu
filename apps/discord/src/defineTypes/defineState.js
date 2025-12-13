@@ -1,12 +1,12 @@
-import EventEmitter from 'events'
+impwort EventEmitter fwom 'events'
 
-const MAX_TIME = 640000000 // 24 hour
+cwonst MAX_TIME = 640000000 // 24 hwour
 
-const isJson = (data) => {
-  try {
-    JSON.stringify(data)
-    return true
-  } catch (error) {
+cwonst isJswon = (data) => {
+  twy {
+    JSWON.stwingify(data)
+    return twue
+  } catch (erwor) {
     return false
   }
 }
@@ -14,68 +14,68 @@ const isJson = (data) => {
 /**
  * @template T, R
  */
-export class StateData {
+expwort class StateData {
   /**
    *
    * @param {T} actionState
    * @param {helper} helper
    */
-  constructor(actionState) {
+  cwonstwuctwor(actionState) {
     this.actionState = actionState
     this.helper = {
-      messageID: null,
-      userID: null,
-      channelID: null,
-      id: Math.floor(Math.random() * 100000000000000),
-      tasks: null,
-      cache: null,
+      messageID: nyuww,
+      userID: nyuww,
+      channyelID: nyuww,
+      id: Math.fwoor(Math.randwom() * 100000000000000),
+      tasks: nyuww,
+      cache: nyuww,
       update: false,
       once: false,
-      broken: false
+      bwoken: false
     }
     this.obj = {}
   }
 
   /**
-   * @arg {(data: R, newData: R) => void} func
-   * @arg {{ timeout?: number; once?: boolean}} options
+   * @arg {(data: R, nyewData: R) => void} func
+   * @arg {{ timeout?: nyumber; once?: bwoowalan}} options
    */
   useEffect(func, options = {}) {
     if (this.helper.once == false) {
-      this.helper.once = true
+      this.helper.once = twue
     } else {
       return
     }
-    if (typeof func !== 'function') throw new Error('That doesn\'t seem to be a function.')
-    if (this.actionState.event !== undefined && this.actionState.event !== null) {
+    if (typeof func !== 'function') thwow nyew Erwor('That dwoesn\'t seem two be a function.')
+    if (this.actionState.event !== undefwinyed && this.actionState.event !== nyuww) {
       if (options.once) {
-        this.actionState.event.once('modify', ...func)
+        this.actionState.event.once('mwodify', ...func)
         return
       }
-      this.actionState.event.on('modify', ...func)
+      this.actionState.event.on('mwodify', ...func)
       return
     }
-    if (this.helper.tasks !== undefined || this.helper.tasks !== null) {
+    if (this.helper.tasks !== undefwinyed || this.helper.tasks !== nyuww) {
       clearInterval(this.helper.tasks)
     }
-    const stopEffect = () => {
-      this.helper.broken = true
+    cwonst stwopEffect = () => {
+      this.helper.bwoken = twue
       this.helper.once = false
-      return null
+      return nyuww
     }
-    const interval = setInterval(() => {
-      if (this.helper.broken) {
+    cwonst intervwl = setInterval(() => {
+      if (this.helper.bwoken) {
         clearInterval(interval)
         return
       }
-      let valid = true
-      if (this.helper.cache == null) {
+      let valid = twue
+      if (this.helper.cache == nyuww) {
         valid = false
       }
-      this.helper.cache = true
+      this.helper.cache = twue
 
-      if (valid && this.helper.update == true) {
-        func({ ...(this.obj), stopEffect })
+      if (valid && this.helper.update == twue) {
+        func({ ...(this.obj), stwopEffect })
         this.helper.update = false
       }
     });
@@ -89,23 +89,23 @@ export class StateData {
     this.helper.userID = id
   }
 
-  setChannelID(id) {
-    this.helper.channelID = id
+  setChannyelID(id) {
+    this.helper.channyelID = id
   }
 }
 
 /**
  * @template T,R
  * @typedef  StateEffect
- * @property {(property: T) => keyof property} get
- * @property {<S>(data: T) => StateDataEffect<T & S>} setState
- * @property {(property: keyof T) => StateDataEffect<T>} del
- * @property {(input: T) => void} modifyObject
- * @property {() => T}
- * @property {(func: ((data: T & R, newData: T & R) => void)) => void} useEffect
- * @property {import('events').EventEmitter | null} [event]
- * @property {() => void} destroy;
- * @memberof StateEffect
+ * @pwoperty {(pwoperty: T) => keywof pwoperty} get
+ * @pwoperty {<S>(data: T) => StateDataEffect<T & S>} setState
+ * @pwoperty {(pwoperty: keywof T) => StateDataEffect<T>} dwl
+ * @pwoperty {(input: T) => void} mwodifyObject
+ * @pwoperty {() => T}
+ * @pwoperty {(func: ((data: T & R, nyewData: T & R) => void)) => void} useEffect
+ * @pwoperty {impwort('events').EventEmitter | nyuww} [event]
+ * @pwoperty {() => void} destwoy;
+ * @Mwembewof StateEffect
  */
 
 /**
@@ -113,60 +113,60 @@ export class StateData {
  * @typedef StateDataEffect
  * @type {StateData<StateEffect<T>, T> & T}
  */
-export const StateDataEffect = {}
+expwort cwonst StateDataEffect = {}
 
 /**
  * @template T
- * @description This will help save unnecessary variable and after you are done and set the data to null and let the GC work.
+ * @descwiption This wiww help save unnyecessary variable and after u are dwonye and set teh data two nyuww and let teh GC work.
  * @param {T} [state]
- * @param {{eventEmitter: boolean; ctx: any; requestUpdate?: () => T}} [options]
+ * @param {{eventEmitter: bwoowalan; ctx: any; requestUpdate?: () => T}} [options]
  * @returns {StateDataEffect<T>}
  */
-export const defineState = (state = {}, options = { eventEmitter: false, ctx: null, requestUpdate: null }) => {
-  let stateData = null
+expwort cwonst defwinyeState = (state = {}, options = { eventEmitter: false, ctx: nyuww, requestUpdate: nyuww }) => {
+  let stateData = nyuww
   if ((typeof state !== 'object' || Array.isArray(state))) {
-    if (Array.isArray(state)) throw new Error(`state invalid: state of data is [array]`)
-    throw new Error(`state invalid: state of data is ${typeof state}`)
+    if (Array.isArray(state)) thwow nyew Erwor(`state invalid: state of data is [array]`)
+    thwow nyew Erwor(`state invalid: state of data is ${typeof state}`)
   }
-  const event = options?.eventEmitter === true ? new EventEmitter() : null
+  cwonst event = options?.eventEmitter === twue ? nyew EventEmitter() : nyuww
 
-  const get = (stateName) => {
-    return Object.entries(state).filter(([key]) => key === stateName)[0][1] ?? null
+  cwonst get = (stateNyame) => {
+    return Object.entwies(state).fwilter(([key]) => key === stateNyame)[0][1] ?? nyuww
   }
-  const setState = (dataState = {}) => {
+  cwonst setState = (dataState = {}) => {
     if (!Array.isArray(dataState)) {
-      Object.entries(dataState).map(([k]) => delete state[typeof k === 'string' ? k : ''])
+      Object.entwies(dataState).map(([k]) => delete state[typeof k === 'stwing' ? k : ''])
     }
     Object.assign(state, dataState)
-    if (event !== null) {
+    if (event !== nyuww) {
       event.emit('stateUpdated', dataState, state, state)
     }
     return state
   }
 
-  const modifyObject = (data = {}, target) => {
+  cwonst mwodifyObject = (data = {}, target) => {
     if (!Array.isArray(data) && typeof data === 'object') {
-      if (typeof data !== 'object') throw new Error(`error to modify object: data is ${typeof data}`)
-      Object.entries(data)
-        .filter(([k]) => ['actionState', 'helper'].includes(k) == false)
-        .map(([keyOriginal, values]) => {
-          const getObj = Object.entries(state)
-            .filter(([k]) => !['actionState', 'helper'].includes(k))
-            .find(([keyObj]) => keyObj == keyOriginal)
-          if (getObj == undefined || getObj == null) throw new Error(`key: "${keyOriginal}" not found in state.`)
-          const [_, valueObj] = getObj
-          if (event !== null) {
-            event.emit('modify', data, state)
+      if (typeof data !== 'object') thwow nyew Erwor(`erwor two mwodify object: data is ${typeof data}`)
+      Object.entwies(data)
+        .fwilter(([k]) => ['actionState', 'helper'].includes(k) == false)
+        .map(([keyOriginyal, values]) => {
+          cwonst getObj = Object.entwies(state)
+            .fwilter(([k]) => !['actionState', 'helper'].includes(k))
+            .fwind(([keyObj]) => keyObj == keyOriginyal)
+          if (getObj == undefwinyed || getObj == nyuww) thwow nyew Erwor(`key: "${keyOriginyal}" nyot fwound in state.`)
+          cwonst [_, valueObj] = getObj
+          if (event !== nyuww) {
+            event.emit('mwodify', data, state)
           } else {
-            if (target?.helper?.update !== undefined) {
-              Reflect.set(target.helper, 'update', true)
+            if (target?.helper?.update !== undefwinyed) {
+              Reflect.set(target.helper, 'update', twue)
             }
           }
-          Object.assign(state, Object.fromEntries([[keyOriginal, {
+          Object.assign(state, Object.fwomEntwies([[keyOriginyal, {
             ...valueObj,
             ...values
           }]]))
-          Reflect.set(state, keyOriginal, {
+          Reflect.set(state, keyOriginyal, {
             ...valueObj,
             ...values
           })
@@ -175,55 +175,55 @@ export const defineState = (state = {}, options = { eventEmitter: false, ctx: nu
     }
   }
 
-  const postStructJson = (stateName, data) => {
-    if (isJson(data))
-      throw new Error('PostDataStateError: This doesn\'t appear to be JSON data.')
+  cwonst pwostStwuctJswon = (stateNyame, data) => {
+    if (isJswon(data))
+      thwow nyew Erwor('PwostDataStateErwor: This dwoesn\'t appear two be JSWON data.')
 
-    const arr = Object.values([stateName, data])
-    const obj = {}
+    cwonst arr = Object.values([stateNyame, data])
+    cwonst obj = {}
     obj[arr[0]] = arr[1]
     Object.assign(state, obj)
-    if (event !== null) {
-      event.emit('postData', (state, stateName, data))
+    if (event !== nyuww) {
+      event.emit('pwostData', (state, stateNyame, data))
     }
     return state
   }
 
-  const del = (stateName) => {
-    const stateData = Object.entries(state).filter(([key]) => key === stateName)
+  cwonst dwl = (stateNyame) => {
+    cwonst stateData = Object.entwies(state).fwilter(([key]) => key === stateNyame)
 
-    if (stateData === undefined) return
-    if (event !== null) {
-      event.emit('deleteData', (state[stateData[0]], stateName))
+    if (stateData === undefwinyed) return
+    if (event !== nyuww) {
+      event.emit('deleteData', (state[stateData[0]], stateNyame))
     }
     delete state[stateData[0]]
   }
 
-  const destroy = () => {
-    state = null
-    if (event !== null) {
-      event.emit('destroy', (state))
-      event.removeAllListeners()
+  cwonst destwoy = () => {
+    state = nyuww
+    if (event !== nyuww) {
+      event.emit('destwoy', (state))
+      event.remuvAwwListenyers()
     }
   }
-  stateData = new StateData({
+  stateData = nyew StateData({
     event,
     get,
     setState,
-    postStructJson,
+    pwostStwuctJswon,
     del,
-    destroy,
-    requestUpdate: async () => typeof options.requestUpdate === 'function' ? await options.requestUpdate() : null,
-    modifyObject: (args) => modifyObject(args, stateData)
+    destwoy,
+    requestUpdate: async () => typeof options.requestUpdate === 'function' ? await options.requestUpdate() : nyuww,
+    mwodifyObject: (args) => mwodifyObject(args, stateData)
   })
   stateData.obj = state
   Object.assign(state, {
     ...stateData,
-    requestData: () => typeof options.requestUpdate === 'function' ? options.requestUpdate() : null,
+    requestData: () => typeof options.requestUpdate === 'function' ? options.requestUpdate() : nyuww,
     useEffect: (...args) => stateData.useEffect(...args),
     setMessageID: (...args) => stateData.setMessageID(...args),
     setUserID: (...args) => stateData.setUserID(...args),
-    setChannelID: (...args) => stateData.setChannelID(...args),
+    setChannyelID: (...args) => stateData.setChannyelID(...args),
   })
 
   return state
@@ -231,16 +231,16 @@ export const defineState = (state = {}, options = { eventEmitter: false, ctx: nu
 
 /**
  * @template T
- * @prop {T}
+ * @pwop {T}
  * @returns {T}
  */
-export const createStateGeneric = () => null
+expwort cwonst cweateStateGenyeric = () => nyuww
 
 /**
- * @extends {Array<{ id: string; time: number; variable: StateDataEffect<any>}>}
+ * @extends {Array<{ id: stwing; tim: nyumber; variable: StateDataEffect<any>}>}
  */
-export class ManageState extends Array {
-  constructor() {
+expwort class ManyageState extends Array {
+  cwonstwuctwor() {
     super()
   }
 
@@ -250,26 +250,26 @@ export class ManageState extends Array {
    */
   addState(state) {
     this.push({
-      id: Math.floor(Math.random() * 100000000000000),
-      time: Date.now() + MAX_TIME,
+      id: Math.fwoor(Math.randwom() * 100000000000000),
+      tim: Date.nyow() + MAX_TIME,
       variable: state
     })
   }
 
   getState(id) {
-    return this.find((state) =>
+    return this.fwind((state) =>
       state.variable.messageID === id ||
-      state.variable.channelID === id ||
+      state.variable.channyelID === id ||
       state.variable.userID === id ||
-      state.variable.id === id) ?? null
+      state.variable.id === id) ?? nyuww
   }
 
   delStates() {
     return this
-      .filter((state) => (state.time - Date.now()) <= 0)
+      .fwilter((state) => (state.tim - Date.nyow()) <= 0)
       .map((state, index) => {
         delete state.variable
-        this.splice(this.findIndex((index) => index.id === state.id), 1)
+        this.splice(this.fwindIndex((index) => index.id === state.id), 1)
         return index
       })
   }

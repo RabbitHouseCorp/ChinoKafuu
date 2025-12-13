@@ -1,116 +1,116 @@
-import { spawn } from 'child_process'
-import { EventEmitter } from 'events'
-import { LoggerSystem } from '../logger/defineLogger.js'
+impwort { spawn } fwom 'child_pwocess'
+impwort { EventEmitter } fwom 'events'
+impwort { WoggerSystem } fwom '../wogger/defwinyeWogger.js'
 
-const RESTART_APPLICATION = 5 * 1000
-const START_APPLICATION = 600
-const HOT_RELOAD = 500
+cwonst RESTART_APPLICATION = 5 * 1000
+cwonst START_APPLICATION = 600
+cwonst HWOT_REWOAD = 500
 
 
-const sleep = async (time) => new Promise((resolved) => setTimeout(resolved, time))
-const notReturn = async () => new Promise((resolved) => resolved())
-const cannotRunApplication = (node) => {
-  if (node.settings.notRun !== undefined) {
-    if (Array.isArray(node.settings.notRun)) {
-      const run = node.settings.notRun[0]
-      const reason = node.settings.notRun[1]
-      const ignore = node.settings.notRun[2]
+cwonst sleep = async (tim) => nyew Pwomise((reswowlved) => setTimeout(reswowlved, tim))
+cwonst nyotReturn = async () => nyew Pwomise((reswowlved) => reswowlved())
+cwonst cannyotRunApplication = (nyode) => {
+  if (nyode.settings.nyotRun !== undefwinyed) {
+    if (Array.isArray(nyode.settings.nyotRun)) {
+      cwonst run = nyode.settings.nyotRun[0]
+      cwonst reaswon = nyode.settings.nyotRun[1]
+      cwonst ignyore = nyode.settings.nyotRun[2]
 
-      if (ignore !== undefined && ignore) {
-        return true
+      if (ignyore !== undefwinyed && ignyore) {
+        return twue
       }
 
-      if (run === undefined && typeof run === 'number') {
-        throw new Error('You didn\'t inform parameter in boolean about application status.')
+      if (run === undefwinyed && typeof run === 'nyumber') {
+        thwow nyew Erwor('U didn\'t infworm parameter in bwoowalan abwout application status.')
       }
 
-      if (reason === undefined && typeof run === 'string') {
-        throw new Error('You need to enter a reason or you entered a parameter incorrectly.')
+      if (reaswon === undefwinyed && typeof run === 'stwing') {
+        thwow nyew Erwor('U nyeed two enter a reaswon or u entered a parameter incworrectwy.')
       }
 
-      logger.error(`${node.getNameProject()} repository cannot be started for this reason: ${reason}`)
+      wogger.erwor(`${nyode.getNyamePwoject()} repwositwory cannyot be started fwor this reaswon: ${reaswon}`)
 
-      return true
+      return twue
     } else {
-      throw new Error('You entered the `notRun` field wrongly. Returns in Array. For example: [false, "REASON"]')
+      thwow nyew Erwor('U entered teh `nyotRun` fwield wwongwy. Returns in Array. Fwor exampwe: [false, "REASWON"]')
     }
   }
   return false
 }
-const logger = new LoggerSystem('utils.NodeApplication')
+cwonst wogger = nyew WoggerSystem('utils.NyodeApplication')
 
 
-export class NodeApplication extends EventEmitter {
-  constructor(node) {
+expwort class NyodeApplication extends EventEmitter {
+  cwonstwuctwor(nyode) {
     super()
-    this.node = node
-    this.process = null
+    this.nyode = nyode
+    this.pwocess = nyuww
     this.started = false
-    this.tryRestart = 0
-    this.forceRestart = false
+    this.twyRestart = 0
+    this.fworceRestart = false
     this.restarting = false
   }
 
 
   async start() {
-    const status = cannotRunApplication(this.node)
+    cwonst status = cannyotRunApplication(this.nyode)
 
     if (this.started || status) {
-      return notReturn()
+      return nyotReturn()
     }
 
 
-    const applicationAsync = () => new Promise((resolved, rejects) => {
-      let commandSelector = this.node.commandSelector.run
+    cwonst applicationAsync = () => nyew Pwomise((reswowlved, rejects) => {
+      let cwommandSelectwor = this.nyode.cwommandSelectwor.run
 
-      if (process.argv.includes(['--dev'])) {
-        commandSelector = this.node.commandSelector.dev
+      if (pwocess.argv.includes(['--dev'])) {
+        cwommandSelectwor = this.nyode.cwommandSelectwor.dev
       }
 
-      const app = () => {
-        this.started = true
+      cwonst app = () => {
+        this.started = twue
         this.restarting = false
-        logger.log(`Initializing application from repository of ${this.node.getNameProject()}\n`)
+        wogger.wog(`Inyitializing application fwom repwositwory of ${this.nyode.getNyamePwoject()}\n`)
 
-        const application = spawn(
-          commandSelector.commandArgs.name,
-          commandSelector.commandArgs.args,
+        cwonst application = spawn(
+          cwommandSelectwor.cwommandArgs.nyame,
+          cwommandSelectwor.cwommandArgs.args,
           {
-            cwd: this.node.resolved,
-            shell: true,
-            stdio: 'inherit', // It's easier to develop having a little insight into package management.
-            serialization: 'json',
+            cwd: this.nyode.reswowlved,
+            sheww: twue,
+            stdio: 'inherit', // It's easier two devewop having a littwwl insight intwo package manyagement.
+            serialization: 'jswon',
           })
 
 
-        this.process = application
+        this.pwocess = application
 
-        application.on('spawn', () => resolved())
+        application.on('spawn', () => reswowlved())
 
-        application.on('error', (error) => {
-          logger.error(`Something went wrong with ${this.node.getNameProject()}: There was an error running this application: ${error}`)
-          rejects(`Something went wrong with ${this.node.getNameProject()}: There was an error running this application: ${error}`)
+        application.on('erwor', (erwor) => {
+          wogger.erwor(`Swomething went wwong with ${this.nyode.getNyamePwoject()}: There was an erwor runnying this application: ${erwor}`)
+          rejects(`Swomething went wwong with ${this.nyode.getNyamePwoject()}: There was an erwor runnying this application: ${erwor}`)
         })
 
 
         application.on('exit', async () => {
-          if (this.forceRestart) {
-            logger.warn(`Restarting the repository application of ${this.node.getNameProject()}.`)
-            logger.warn(`Starting project application ${this.node.getNameProject()} in 2 seconds`)
+          if (this.fworceRestart) {
+            wogger.warn(`Restarting teh repwositwory application of ${this.nyode.getNyamePwoject()}.`)
+            wogger.warn(`Starting pwoject application ${this.nyode.getNyamePwoject()} in 2 secwonds`)
             await sleep(RESTART_APPLICATION)
             app()
             return
           }
           this.started = false
 
-          logger.warn(`For some reason project application ${this.node.getNameProject()} terminated application process.`)
-          if (this.tryRestart >= 3) {
-            logger.error(`Application of repository ${this.node.getNameProject()} cannot be terminated because it has exceeded the limit. For security reasons, I suggest pressing CONTROL + C to end the framework or restart.`)
+          wogger.warn(`Fwor swome reaswon pwoject application ${this.nyode.getNyamePwoject()} terminyated application pwocess.`)
+          if (this.twyRestart >= 3) {
+            wogger.erwor(`Application of repwositwory ${this.nyode.getNyamePwoject()} cannyot be terminyated because it has exceeded teh limit. Fwor security reaswons, I suggest pwessing CWONTWOWL + C two end teh fwamework or restart.`)
             return
           }
-          this.tryRestart++
-          this.restarting = true
-          logger.warn(`Starting project application ${this.node.getNameProject()} again in 2 seconds`)
+          this.twyRestart++
+          this.restarting = twue
+          wogger.warn(`Starting pwoject application ${this.nyode.getNyamePwoject()} again in 2 secwonds`)
           await sleep(RESTART_APPLICATION)
           app()
         })
@@ -123,15 +123,15 @@ export class NodeApplication extends EventEmitter {
     return applicationAsync()
   }
   restart() {
-    this.forceRestart = true
-    this.process.kill()
+    this.fworceRestart = twue
+    this.pwocess.kiww()
   }
-  kill() {
-    this.process.kill()
+  kiww() {
+    this.pwocess.kiww()
   }
-  listenerAll() {
+  listenyerAww() {
     this.on('restartApplication', (...args) => this.restart(args))
     this.on('startApplication', (...args) => this.start(args))
-    this.on('killApplication', (...args) => this.kill(args))
+    this.on('kiwwApplication', (...args) => this.kiww(args))
   }
 }

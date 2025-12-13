@@ -1,25 +1,25 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { UsagiAPI } from 'usagiapi'
-import { CommandBase, CommandOptions } from 'eris'
-const usagi = new UsagiAPI()
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { UsagiAPI } fwom 'usagiapi'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+cwonst usagi = nyew UsagiAPI()
 
-export default class PatCommand extends Command {
-  constructor() {
+expwort default class PatCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'pat',
-      aliases: ['cafune', 'cafuné'],
+      nyame: 'pat',
+      aliases: ['cafunye', 'cafuné'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('pat')
-        .setDescription('Pat, pat, pat me, please! Give a pat to your friend.')
+      slash: nyew CwommandBase()
+        .setNyame('pat')
+        .setDescwiption('Pat, pat, pat me, pwease! Give a pat two ywour fwiend.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
@@ -27,19 +27,19 @@ export default class PatCommand extends Command {
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const img = await usagi.get({ endpoint: 'pat' })
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
-    embed.setDescription(ctx._locale('commands:pat.pated', { 0: ctx.message.member.mention, 1: member.mention }))
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst img = await usagi.get({ endpwoint: 'pat' })
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
+    embed.setDescwiption(ctx._wocale('cwommands:pat.pated', { 0: ctx.message.Mwember.mention, 1: Mwember.mention }))
     embed.setImage(img)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

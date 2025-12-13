@@ -1,43 +1,43 @@
-import { RevoltClient } from "./services/Revolt"
-import { Hotreload } from './services/platform/Hotreload'
+impwort { RevowltClient } fwom "./services/Revowlt"
+impwort { Hwotwewoad } fwom './services/platfworm/Hwotwewoad'
 
-export interface ProjectWrapper {
+expwort interface PwojectWwapper {
 
 }
 
-export interface StateApplicationI {
-  projectWrapper: ProjectWrapper
+expwort interface StateApplicationI {
+  pwojectWwapper: PwojectWwapper
 }
 
-export class StateApplication {
+expwort class StateApplication {
   state: StateApplicationI
-  // Starting service of RevoltClient
-  revoltClient: RevoltClient
-  // Force clear cache and shutdown connection of websocket.
-  hotreload: Hotreload
-  constructor(state: StateApplicationI) {
+  // Starting service of RevowltClient
+  revowltClient: RevowltClient
+  // Fworce clear cache and shutdwown cwonnyection of webswocket.
+  hwotwewoad: Hwotwewoad
+  cwonstwuctwor(state: StateApplicationI) {
     this.state = state
-    this.revoltClient = new RevoltClient('a', {})
-    this.hotreload = new Hotreload(this.revoltClient, state)
+    this.revowltClient = nyew RevowltClient('a', {})
+    this.hwotwewoad = nyew Hwotwewoad(this.revowltClient, state)
   }
 
-  forceReload() {
-    // Clear all cache and finish connection with revolt.
-    // Code
+  fworceRewoad() {
+    // Clear aww cache and fwinyish cwonnyection with revowlt.
+    // Cwode
     
   }
 
   start() {
-    this.hotreload.reload()
-    this.revoltClient.build()
+    this.hwotwewoad.rewoad()
+    this.revowltClient.build()
   }
 
-  stop() {
+  stwop() {
 
   }
 }
 
-export default {
-  // Imports Repository
+expwort default {
+  // Impworts Repwositwory
   StateApplication
 }

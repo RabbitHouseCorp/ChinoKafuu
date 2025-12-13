@@ -1,73 +1,73 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/command/Command'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/cwommand/Cwommand'
 
-export default class MinecraftCommand extends Command {
-  constructor() {
+expwort default class MinyecwaftCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'minecraft-base',
+      nyame: 'minyecwaft-base',
       aliases: [],
       hasUsage: false,
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('minecraft')
-        .setDescription('Minecraft Command')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('minyecwaft')
+        .setDescwiption('Minyecwaft Cwommand')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('avatar')
-            .setDescription('Shows a player\'s minecraft avatar.')
+            .setNyame('avatar')
+            .setDescwiption('Shwows a player\'s minyecwaft avatar.')
             .addOptions(
-              new CommandOptions()
-                .setName('minecraft-nickname')
-                .setDescription('Shows a player\'s minecraft avatar.')
+              nyew CwommandOptions()
+                .setNyame('minyecwaft-nyicknyame')
+                .setDescwiption('Shwows a player\'s minyecwaft avatar.')
                 .setType(3)
                 .isRequired(),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('body')
-            .setDescription('Shows a player\'s minecraft avatar.')
+            .setNyame('bwody')
+            .setDescwiption('Shwows a player\'s minyecwaft avatar.')
             .addOptions(
-              new CommandOptions()
-                .setName('minecraft-nickname')
-                .setDescription('Shows a player\'s minecraft body.')
+              nyew CwommandOptions()
+                .setNyame('minyecwaft-nyicknyame')
+                .setDescwiption('Shwows a player\'s minyecwaft bwody.')
                 .setType(3)
                 .isRequired(),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('head')
-            .setDescription('Shows a player\'s minecraft head.')
+            .setNyame('head')
+            .setDescwiption('Shwows a player\'s minyecwaft head.')
             .addOptions(
-              new CommandOptions()
-                .setName('minecraft-nickname')
-                .setDescription('Shows a player\'s minecraft head.')
+              nyew CwommandOptions()
+                .setNyame('minyecwaft-nyicknyame')
+                .setDescwiption('Shwows a player\'s minyecwaft head.')
                 .setType(3)
                 .isRequired(),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('skin')
-            .setDescription('Shows a player\'s minecraft skin.')
+            .setNyame('skin')
+            .setDescwiption('Shwows a player\'s minyecwaft skin.')
             .addOptions(
-              new CommandOptions()
-                .setName('minecraft-nickname')
-                .setDescription('Shows a player\'s minecraft avatar.')
+              nyew CwommandOptions()
+                .setNyame('minyecwaft-nyicknyame')
+                .setDescwiption('Shwows a player\'s minyecwaft avatar.')
                 .setType(3)
                 .isRequired(),
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('query')
-            .setDescription('Show a Minecraft server info')
+            .setNyame('query')
+            .setDescwiption('Shwow a Minyecwaft serwer infwo')
             .addOptions(
-              new CommandOptions()
-                .setName('minecraft-server-ip')
-                .setDescription('Shows a information\'s minecraft server.')
+              nyew CwommandOptions()
+                .setNyame('minyecwaft-serwer-ip')
+                .setDescwiption('Shwows a infwormation\'s minyecwaft serwer.')
                 .setType(3)
                 .isRequired(),
             )

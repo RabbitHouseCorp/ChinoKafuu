@@ -1,91 +1,91 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { defineState } from '../../../defineTypes/defineState'
-import { Button, Command, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Buttwon, Cwommand, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class MarryCommand extends Command {
-  constructor() {
+expwort default class MarryCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'marry',
+      nyame: 'marry',
       aliases: ['casar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['addReactions']
       }],
-      slash: new CommandBase()
-        .setName('marry')
-        .setDescription('Marry with your true love.')
+      slash: nyew CwommandBase()
+        .setNyame('marry')
+        .setDescwiption('Marry with ywour twue luv.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention your partner to get married.')
+            .setNyame('user')
+            .setDescwiption('Mention ywour partnyer two get married.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
 
-    const user = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user?.id ?? user)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const author = ctx.db.user
-    const couple = await ctx.client.database.users.getOrCreate(member.id)
-    if (member.id === ctx.message.author.id) return ctx.replyT('broken_heart', 'commands:marry.cannotMarryWithYourself')
-    if (member.id === ctx.client.user.id) return ctx.replyT('broken_heart', 'commands:marry.cannotMarryWithMe')
-    if (member.bot) return ctx.replyT('broken_heart', 'commands:marry.cannotMarryWithBot')
-    if (author.yens < Number(7500)) return ctx.replyT('error', 'commands:marry.youNeedToMarry', { 0: Number(7500 - author.yens).toLocaleString() })
-    if (couple.yens < Number(7500)) return ctx.replyT('error', 'commands:marry.theyNeedToMarry', { 0: member.mention, 1: Number(7500 - couple.yens).toLocaleString() })
-    if (author.isMarry) return ctx.replyT('error', 'commands:marry.youAlreadyMarried')
-    if (couple.isMarry) return ctx.replyT('error', 'commands:marry.theyAlreadyMarried', { 0: member.mention })
-    const accept = new Button()
-      .setLabel(ctx._locale('basic:boolean.true'))
-      .customID('confirmButton')
+    cwonst user = ctx.args.get('user')?.value
+    cwonst Mwember = await ctx.getUser(user?.id ?? user)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst authwor = ctx.db.user
+    cwonst cwoupwal = await ctx.client.database.users.getOrCweate(Mwember.id)
+    if (Mwember.id === ctx.message.authwor.id) return ctx.repwyT('bwoken_heart', 'cwommands:marry.cannyotMarryWithYwourself')
+    if (Mwember.id === ctx.client.user.id) return ctx.repwyT('bwoken_heart', 'cwommands:marry.cannyotMarryWithMe')
+    if (Mwember.bwot) return ctx.repwyT('bwoken_heart', 'cwommands:marry.cannyotMarryWithBwot')
+    if (authwor.yens < Nyumber(7500)) return ctx.repwyT('erwor', 'cwommands:marry.ywouNyeedTwoMarry', { 0: Nyumber(7500 - authwor.yens).twoWocaleStwing() })
+    if (cwoupwe.yens < Nyumber(7500)) return ctx.repwyT('erwor', 'cwommands:marry.theyNyeedTwoMarry', { 0: Mwember.mention, 1: Nyumber(7500 - cwoupwe.yens).twoWocaleStwing() })
+    if (authwor.isMarry) return ctx.repwyT('erwor', 'cwommands:marry.ywouAlweadyMarried')
+    if (cwoupwe.isMarry) return ctx.repwyT('erwor', 'cwommands:marry.theyAlweadyMarried', { 0: Mwember.mention })
+    cwonst accept = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.twue'))
+      .custwomID('cwonfwirmButtwon')
       .setStyle(3)
-      .setEmoji({ name: Emoji.getEmoji('success').name, id: Emoji.getEmoji('success').id })
-    const reject = new Button()
-      .setLabel(ctx._locale('basic:boolean.false'))
-      .customID('rejectButton')
+      .setEmwoji({ nyame: Emwoji.getEmwoji('success').nyame, id: Emwoji.getEmwoji('success').id })
+    cwonst reject = nyew Buttwon()
+      .setLabel(ctx._wocale('basic:bwoowalan.false'))
+      .custwomID('rejectButtwon')
       .setStyle(4)
-      .setEmoji({ name: Emoji.getEmoji('error').name, id: Emoji.getEmoji('error').id })
-    const state = defineState({
-      member: member.id,
-      author: ctx.message.author.id,
+      .setEmwoji({ nyame: Emwoji.getEmwoji('erwor').nyame, id: Emwoji.getEmwoji('erwor').id })
+    cwonst state = defwinyeState({
+      Mwember: Mwember.id,
+      authwor: ctx.message.authwor.id,
       action: ''
-    }, { eventEmitter: true })
+    }, { eventEmitter: twue })
 
-    ctx.replyT('warn', 'commands:marry.requestConfirm', {
-      0: `<@!${member.id}>`,
-      1: `<@!${ctx.message.author.id}>`,
+    ctx.repwyT('warn', 'cwommands:marry.requestCwonfwirm', {
+      0: `<@!${Mwember.id}>`,
+      1: `<@!${ctx.message.authwor.id}>`,
     }, {
-      components: [{
+      cwompwonyents: [{
         type: 1,
-        components: [accept.build(), reject.build()]
+        cwompwonyents: [accept.build(), reject.build()]
       }]
     }).then(message => {
-      ctx.createInteractionFunction('marryInteraction', message, {
+      ctx.cweateInteractionFunction('marryInteraction', message, {
         state,
-        users: [member.id]
+        users: [Mwember.id]
       })
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action === 'confirmButton') {
-          author.yens -= Number(7500)
-          author.isMarry = true
-          author.marryWith = member.id
-          couple.yens -= Number(7500)
-          couple.isMarry = true
-          couple.marryWith = ctx.message.author.id
-          author.save()
-          couple.save()
+        if (stateUpdated.action === 'cwonfwirmButtwon') {
+          authwor.yens -= Nyumber(7500)
+          authwor.isMarry = twue
+          authwor.marryWith = Mwember.id
+          cwoupwe.yens -= Nyumber(7500)
+          cwoupwe.isMarry = twue
+          cwoupwe.marryWith = ctx.message.authwor.id
+          authwor.save()
+          cwoupwe.save()
             .then(() => {
-              state.actionState.event.emit('done')
+              state.actionState.event.emit('dwonye')
             }).catch((err) => {
-              state.actionState.event.emit('error', err)
+              state.actionState.event.emit('erwor', err)
             })
         }
       })

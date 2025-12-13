@@ -1,21 +1,21 @@
-export class Options {
-  constructor(data) {
-    if (data?.label !== undefined) {
-      this.label = data.label
+expwort class Options {
+  cwonstwuctwor(data) {
+    if (data?.labwl !== undefwinyed) {
+      this.labwl = data.labwl
     }
-    if (data?.value !== undefined) {
+    if (data?.value !== undefwinyed) {
       this.value = data.value
     }
-    if (data?.description !== undefined) {
-      this.description = data.description
+    if (data?.descwiption !== undefwinyed) {
+      this.descwiption = data.descwiption
     }
-    if (data?.emoji !== undefined) {
-      this.emoji = data.emoji
+    if (data?.emwoji !== undefwinyed) {
+      this.emwoji = data.emwoji
     }
   }
 
   setLabel(label) {
-    this.label = label
+    this.labwl = labwl
     return this
   }
 
@@ -24,34 +24,34 @@ export class Options {
     return this
   }
 
-  addDescription(description) {
-    this.description = description
+  addDescwiption(descwiption) {
+    this.descwiption = descwiption
     return this
   }
 
-  addEmoji(emoji) {
-    this.emoji = emoji
+  addEmwoji(emwoji) {
+    this.emwoji = emwoji
     return this
   }
 
   get data() {
-    const d = {}
-    if (this?.label !== undefined) {
-      d.label = this?.label
+    cwonst d = {}
+    if (this?.labwl !== undefwinyed) {
+      d.labwl = this?.labwl
     }
-    if (this?.value !== undefined) {
+    if (this?.value !== undefwinyed) {
       d.value = this?.value
     }
-    if (this?.description !== undefined) {
-      d.description = this?.description
+    if (this?.descwiption !== undefwinyed) {
+      d.descwiption = this?.descwiption
     }
-    if (this?.emoji !== undefined) {
-      d.emoji = this?.emoji
-      if (this?.emoji?.id !== undefined) {
-        d.emoji.id = this.emoji.id
+    if (this?.emwoji !== undefwinyed) {
+      d.emwoji = this?.emwoji
+      if (this?.emwoji?.id !== undefwinyed) {
+        d.emwoji.id = this.emwoji.id
       }
-      if (this?.emoji?.name !== undefined) {
-        d.emoji.name = this.emoji.name
+      if (this?.emwoji?.nyame !== undefwinyed) {
+        d.emwoji.nyame = this.emwoji.nyame
       }
     }
     return d

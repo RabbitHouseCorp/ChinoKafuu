@@ -1,72 +1,72 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { CommandBase, CommandOptions } from 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
 
-export default class SoftBanCommand extends Command {
-  constructor() {
+expwort default class SwoftBanCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'softban',
+      nyame: 'swoftban',
       permissions: [{
-        entity: 'both',
-        permissions: ['banMembers']
+        entity: 'bwoth',
+        permissions: ['banmwembers']
       }],
-      slash: new CommandBase()
-        .setName('softban')
-        .setDescription('Soft bans a user. If `purge-days` ends unspecified, the default value (7) will be used.')
+      slash: nyew CwommandBase()
+        .setNyame('swoftban')
+        .setDescwiption('Swoft bans a user. If `purge-days` ends unspecifwied, teh default value (7) wiww be used.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention member on server.')
+            .setNyame('user')
+            .setDescwiption('Mention Mwember on serwer.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('reason')
-            .setDescription('Inform reason'),
-          new CommandOptions()
+            .setNyame('reaswon')
+            .setDescwiption('Infworm reaswon'),
+          nyew CwommandOptions()
             .setType(4)
-            .setName('purge-days')
-            .setDescription('Mention the duration')
+            .setNyame('purge-days')
+            .setDescwiption('Mention teh duration')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const member = await ctx.getMember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    if (member.id === ctx.message.member.id) return ctx.replyT('error', 'basic:punishment.selfPunishment')
-    if (member.id === ctx.message.guild.ownerID) return ctx.replyT('error', 'basic:punishment.ownerPunish')
-    const reason = ctx.args.get('reason')?.value ?? ctx._locale('basic:noReason')
-    const days = Number(ctx.args.get('purge-days')?.value) ?? 7
+    cwonst Mwember = await ctx.getmwember(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    if (Mwember.id === ctx.message.Mwember.id) return ctx.repwyT('erwor', 'basic:punyishment.selfPunyishment')
+    if (Mwember.id === ctx.message.guild.ownyerID) return ctx.repwyT('erwor', 'basic:punyishment.ownyerPunyish')
+    cwonst reaswon = ctx.args.get('reaswon')?.value ?? ctx._wocale('basic:nyoReaswon')
+    cwonst days = Nyumber(ctx.args.get('purge-days')?.value) ?? 7
 
-    ctx.client.banGuildMember(ctx.message.guild.id, member.id, days, ctx._locale('basic:punishment.reason', {
-      0: ctx.message.author.username,
-      1: reason
+    ctx.client.banGuildmwember(ctx.message.guild.id, Mwember.id, days, ctx._wocale('basic:punyishment.reaswon', {
+      0: ctx.message.authwor.usernyame,
+      1: reaswon
     }))
       .then(() => {
-        const embed = new EmbedBuilder()
-        embed.setTitle(ctx._locale('basic:punishment.softBan', { 0: `@${member.username}` }))
-        embed.setColor('MODERATION')
-        embed.setThumbnail(member.avatarURL)
-        embed.addField(ctx._locale('basic:punishment.memberName'), `@${member.username}`, true)
-        embed.addField(ctx._locale('basic:punishment.embed.memberName'), `@${member.username} (\`${member.id}\`)`)
-        embed.addField(ctx._locale('basic:punishment.embed.staffName'), `@${ctx.message.author.username} (\`${ctx.message.author.id}\`)`)
-        embed.addField(ctx._locale('basic:punishment.embed.reason'), reason)
+        cwonst embed = nyew EmbedBuilder()
+        embed.setTitle(ctx._wocale('basic:punyishment.swoftBan', { 0: `@${Mwember.usernyame}` }))
+        embed.setCwowwor('MWODERATION')
+        embed.setThumbnyail(Mwember.avatarURL)
+        embed.addFwield(ctx._wocale('basic:punyishment.MwemberNyame'), `@${Mwember.usernyame}`, twue)
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.MwemberNyame'), `@${Mwember.usernyame} (\`${Mwember.id}\`)`)
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.staffNyame'), `@${ctx.message.authwor.usernyame} (\`${ctx.message.authwor.id}\`)`)
+        embed.addFwield(ctx._wocale('basic:punyishment.embed.reaswon'), reaswon)
 
         ctx.send(embed.build())
-        ctx.client.unbanGuildMember(ctx.message.guild.id, member.id)
-        if (ctx.db.guild.punishModule && ctx.db.guild.punishChannel) {
-          const channel = ctx.db.guild.punishChannel
-          const guildChannel = ctx.message.guild.channels.get(channel)
-          return guildChannel.createMessage(embed.build())
+        ctx.client.unbanGuildmwember(ctx.message.guild.id, Mwember.id)
+        if (ctx.db.guild.punyishMwodule && ctx.db.guild.punyishChannyel) {
+          cwonst channywl = ctx.db.guild.punyishChannywl
+          cwonst guildChannywl = ctx.message.guild.channyels.get(channyel)
+          return guildChannyel.cweateMessage(embed.build())
         }
       })
       .catch(() => {
-        return ctx.replyT('error', 'basic:punishment.error')
+        return ctx.repwyT('erwor', 'basic:punyishment.erwor')
       })
   }
 }

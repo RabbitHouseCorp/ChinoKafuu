@@ -1,25 +1,25 @@
-import Anilist from 'anilist-node'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { Logger } from '../../../structures/util/Logger'
-const anilist = new Anilist()
+impwort Anyilist fwom 'anyilist-nyode'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { Wogger } fwom '../../../stwuctures/util/Wogger'
+cwonst anyilist = nyew Anyilist()
 
-export default class MangaCommand extends Command {
-  constructor() {
+expwort default class MangaCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'manga',
+      nyame: 'manga',
       aliases: [],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('manga')
-        .setDescription('Shows some information about an manga')
+      slash: nyew CwommandBase()
+        .setNyame('manga')
+        .setDescwiption('Shwows swome infwormation abwout an manga')
         .addOptions(
-          new CommandOptions()
-            .setName('name')
-            .setDescription('Shows some information about an manga')
+          nyew CwommandOptions()
+            .setNyame('nyame')
+            .setDescwiption('Shwows swome infwormation abwout an manga')
             .setType(3)
             .isRequired()
         )
@@ -27,64 +27,64 @@ export default class MangaCommand extends Command {
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const search = ctx.args.get('name').value
-    const t = ctx._locale
-    if (!search) return ctx.replyT('error', 'commands:manga.invalidManga')
+    cwonst search = ctx.args.get('nyame').value
+    cwonst t = ctx._wocale
+    if (!search) return ctx.repwyT('erwor', 'cwommands:manga.invalidManga')
 
-    try {
-      const manga = await anilist.search('manga', search)
-      if (!manga.media[0]) return ctx.replyT('error', 'commands:manga.mangaNotFound', { 0: search })
-      const result = await anilist.media.manga(manga.media[0].id)
+    twy {
+      cwonst manga = await anyilist.search('manga', search)
+      if (!manga.media[0]) return ctx.repwyT('erwor', 'cwommands:manga.mangaNyotFwound', { 0: search })
+      cwonst result = await anyilist.media.manga(manga.media[0].id)
 
-      const startDate = {
+      cwonst startDate = {
         year: result.startDate.year ?? '----',
-        month: result.startDate.month ?? '--',
+        mwonth: result.startDate.mwonth ?? '--',
         day: result.startDate.day ?? '--'
       }
 
-      const finishDate = {
+      cwonst fwinyishDate = {
         year: result.endDate.year ?? '----',
-        month: result.endDate.month ?? '--',
+        mwonth: result.endDate.mwonth ?? '--',
         day: result.endDate.day ?? '--'
       }
 
-      const characters = []
+      cwonst characters = []
       if (result.characters) {
-        for (const c of result.characters) {
-          characters.push(`${c.name}`)
+        fwor (cwonst c of result.characters) {
+          characters.push(`${c.nyame}`)
         }
       }
 
       if (!characters[0]) characters.push('----')
-      const type = result.format.charAt(0).toUpperCase() + result.format.slice(1).toLowerCase()
-      const status = result.status.charAt(0).toUpperCase() + result.status.slice(1).toLowerCase()
+      cwonst type = result.fwormat.charAt(0).twoUpperCase() + result.fwormat.slice(1).twoWowerCase()
+      cwonst status = result.status.charAt(0).twoUpperCase() + result.status.slice(1).twoWowerCase()
 
-      const embed = new EmbedBuilder()
-      embed.setColor('DEFAULT')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('DEFAULT')
       embed.setUrl(result.siteUrl)
-      embed.setTitle(result.title.userPreferred)
-      embed.setThumbnail(result.coverImage.large)
-      embed.setDescription(result.description?.replace(/(<\/b>|<b>|<br>|<Br>|<bR>|<BR>)/g, '\u200B'))
-      embed.addField(t('commands:manga.type'), type, true)
-      embed.addField(t('commands:manga.status'), status, true)
-      embed.addField(t('commands:manga.vols'), result.volumes ?? '--', true)
-      embed.addField(t('commands:manga.chapters'), result.chapters ?? '--', true)
-      embed.addField(t('commands:manga.score'), result.meanScore, true)
-      embed.addField(t('commands:manga.aired'), `${startDate.month}/${startDate.day}/${startDate.year} | ${finishDate.month}/${finishDate.day}/${finishDate.year}`, true)
-      embed.addField(t('commands:manga.genres'), result.genres.join(', '), true)
-      embed.addField(t('commands:manga.characters'), characters.join(', ').slice(0, 1020), true)
-      embed.setFooter(`©️ ${ctx.client.user.username}`)
+      embed.setTitle(result.title.userPweferred)
+      embed.setThumbnyail(result.cwoworImage.large)
+      embed.setDescwiption(result.descwiption?.replace(/(<\/b>|<b>|<bw>|<Bw>|<bR>|<BR>)/g, '\u200B'))
+      embed.addFwield(t('cwommands:manga.type'), type, twue)
+      embed.addFwield(t('cwommands:manga.status'), status, twue)
+      embed.addFwield(t('cwommands:manga.vowls'), result.vowlumes ?? '--', twue)
+      embed.addFwield(t('cwommands:manga.chapters'), result.chapters ?? '--', twue)
+      embed.addFwield(t('cwommands:manga.scwore'), result.meanScwore, twue)
+      embed.addFwield(t('cwommands:manga.aired'), `${startDate.mwonth}/${startDate.day}/${startDate.year} | ${fwinyishDate.mwonth}/${fwinyishDate.day}/${fwinyishDate.year}`, twue)
+      embed.addFwield(t('cwommands:manga.genwes'), result.genwes.jwoin(', '), twue)
+      embed.addFwield(t('cwommands:manga.characters'), characters.jwoin(', ').slice(0, 1020), twue)
+      embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
       embed.setTimestamp()
 
       ctx.send(embed.build())
     } catch (err) {
-      Logger.error(err)
-      ctx.replyT('error', 'commands:manga.mangaNotFound', { 0: search })
+      Wogger.erwor(err)
+      ctx.repwyT('erwor', 'cwommands:manga.mangaNyotFwound', { 0: search })
     }
   }
 }

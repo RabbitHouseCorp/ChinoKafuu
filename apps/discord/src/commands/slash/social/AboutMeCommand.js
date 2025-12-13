@@ -1,34 +1,34 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class AboutMeCommand extends Command {
-  constructor() {
+expwort default class AbwoutMeCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'aboutme',
-      aliases: ['bio', 'sobremim'],
-      slash: new CommandBase()
-        .setName('aboutme')
-        .setDescription('Change about me in profile by using /profile.')
+      nyame: 'abwoutme',
+      aliases: ['bio', 'swobwemim'],
+      slash: nyew CwommandBase()
+        .setNyame('abwoutme')
+        .setDescwiption('Change abwout mwe in pwofwile by using /pwofwile.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Put your new about me here.')
+            .setNyame('text')
+            .setDescwiption('Put ywour nyew abwout mwe here.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    if (ctx.args.get('text').value.length > 128) return ctx.replyT('error', 'commands:aboutme.bioLimit')
-    const bio = ctx.args.get('text').value.replace(/[`]/g, '')
-    ctx.db.user.aboutme = bio
+    if (ctx.args.get('text').value.length > 128) return ctx.repwyT('erwor', 'cwommands:abwoutme.bioLimit')
+    cwonst bio = ctx.args.get('text').value.replace(/[`]/g, '')
+    ctx.db.user.abwoutme = bio
     ctx.db.user.save()
-    await ctx.replyT('success', 'commands:aboutme.success', { bio: bio })
+    await ctx.repwyT('success', 'cwommands:abwoutme.success', { bio: bio })
   }
 }

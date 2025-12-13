@@ -1,41 +1,41 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RemoveEmojiCommand extends Command {
-  constructor() {
+expwort default class RemuvEmwojiCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'removeemoji',
-      aliases: ['removeremoji'],
+      nyame: 'remuvemwoji',
+      aliases: ['remwoworemwoji'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageEmojisAndStickers']
+        entity: 'bwoth',
+        permissions: ['manyageEmwojisAndStickers']
       }],
-      slash: new CommandBase()
-        .setName('removeemoji')
-        .setDescription('Removes an emoji in the current guild.')
+      slash: nyew CwommandBase()
+        .setNyame('remuvemwoji')
+        .setDescwiption('Remuvs an emwoji in teh current guild.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('emoji')
-            .setDescription('Removes an emoji in the current guild.')
+            .setNyame('emwoji')
+            .setDescwiption('Remuvs an emwoji in teh current guild.')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const guild = ctx.message.guild
-    const getEmoji = await ctx.getEmoji(ctx.args.get('emoji').value)
-    const emoji = guild.emojis.find(emoji => emoji.id === getEmoji.id)
-    if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
+    cwonst guild = ctx.message.guild
+    cwonst getEmwoji = await ctx.getEmwoji(ctx.args.get('emwoji').value)
+    cwonst emwoji = guild.emwojis.fwind(emwoji => emwoji.id === getEmwoji.id)
+    if (!emwoji) return ctx.repwyT('erwor', 'basic:invalidEmwoji')
 
-    guild.deleteEmoji(emoji.id).then(() => {
-      ctx.replyT('trash', 'commands:removeemoji.successfullyRemoved')
+    guild.deleteEmwoji(emwoji.id).then(() => {
+      ctx.repwyT('twash', 'cwommands:remuvemwoji.successfuwwyRemuvd')
     })
   }
 }

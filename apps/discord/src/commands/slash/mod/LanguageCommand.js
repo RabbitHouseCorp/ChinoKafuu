@@ -1,115 +1,115 @@
-import { CommandBase } from 'eris'
-import { defineState } from '../../../defineTypes/defineState'
-import { Options } from '../../../structures/interactions/Options'
-import { SelectionMenu } from '../../../structures/interactions/SelectionMenu'
-import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase } fwom 'eris'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Options } fwom '../../../stwuctures/interactions/Options'
+impwort { SelectionMenyu } fwom '../../../stwuctures/interactions/SelectionMenyu'
+impwort { Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class LanguageCommand extends Command {
-  constructor() {
+expwort default class LanguageCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'language',
+      nyame: 'language',
       aliases: ['lang', 'idioma'],
       permissions: [{
         entity: 'user',
-        permissions: ['manageGuild']
+        permissions: ['manyageGuild']
       }, {
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks', 'addReactions']
       }],
-      slash: new CommandBase()
-        .setName('language')
-        .setDescription('Change my language in the current guild.')
+      slash: nyew CwommandBase()
+        .setNyame('language')
+        .setDescwiption('Change my language in teh current guild.')
     })
   }
 
   /**
-     * @method run
-     * @param {SlashCommandContext} ctx
+     * @methwod run
+     * @param {SlashCwommandCwontext} ctx
      * @returns {void}
      */
   async run(ctx) {
-    const languages = [
-      `${Emoji.getEmoji('brazil').mention} **Português, Brasil**`,
-      `${Emoji.getEmoji('vn').mention} **Tiếng Việt, Việt Nam**`,
-      `${Emoji.getEmoji('usa').mention} **English, US**`,
-      `${Emoji.getEmoji('es').mention} **Espanõl**`,
-      `${Emoji.getEmoji('ja').mention} **日本語**`,
-      `${Emoji.getEmoji('fr').mention} **Français**`
+    cwonst languages = [
+      `${Emwoji.getEmwoji('bwazil').mention} **Pwortuguês, Bwasil**`,
+      `${Emwoji.getEmwoji('vn').mention} **Tiếng Việt, Việt Nyam**`,
+      `${Emwoji.getEmwoji('usa').mention} **English, US**`,
+      `${Emwoji.getEmwoji('es').mention} **Espanõl**`,
+      `${Emwoji.getEmwoji('ja').mention} **日本語**`,
+      `${Emwoji.getEmwoji('fw').mention} **Fwançais**`
     ]
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setAuthor(ctx._locale('commands:language.message'), ctx.message.author.avatarURL)
-    embed.setDescription(languages.join('\n'))
-    embed.addField(ctx._locale('commands:language.helpUs'), ctx._locale('commands:language.explaining'))
-    const selectionMenu = new SelectionMenu()
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setAuthwor(ctx._wocale('cwommands:language.message'), ctx.message.authwor.avatarURL)
+    embed.setDescwiption(languages.jwoin('\n'))
+    embed.addFwield(ctx._wocale('cwommands:language.helpUs'), ctx._wocale('cwommands:language.explainying'))
+    cwonst selectionMenyu = nyew SelectionMenyu()
       .addItem(
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('brazil').mention })
-          .setLabel('Português, Brasil')
-          .setValue('br'),
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('vn').mention })
-          .setLabel('Tiếng Việt, Việt Nam')
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('bwazil').mention })
+          .setLabel('Pwortuguês, Bwasil')
+          .setValue('bw'),
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('vn').mention })
+          .setLabel('Tiếng Việt, Việt Nyam')
           .setValue('vn'),
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('usa').mention })
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('usa').mention })
           .setLabel('English, US')
           .setValue('us'),
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('es').mention })
-          .setLabel('Español')
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('es').mention })
+          .setLabel('Españowl')
           .setValue('es'),
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('ja').mention })
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('ja').mention })
           .setLabel('日本語')
           .setValue('jp'),
-        new Options()
-          .addEmoji({ name: Emoji.getEmoji('fr').mention })
-          .setLabel('Français')
-          .setValue('fr')
+        nyew Options()
+          .addEmwoji({ nyame: Emwoji.getEmwoji('fw').mention })
+          .setLabel('Fwançais')
+          .setValue('fw')
 
       )
-      .addPlaceHolder(ctx._locale('commands:language.chooseYourLanguage'))
-      .setCustomID('language-select')
-    const state = defineState({
+      .addPlaceHwowlder(ctx._wocale('cwommands:language.chwooseYwourLanguage'))
+      .setCustwomID('language-select')
+    cwonst state = defwinyeState({
       action: ''
-    }, { eventEmitter: true })
-    ctx.interaction().components(selectionMenu).returnCtx().send(embed.build()).then(async message => {
-      ctx.createInteractionFunction('languageInteraction', message, {
+    }, { eventEmitter: twue })
+    ctx.interaction().cwompwonyents(selectionMenyu).returnCtx().send(embed.build()).then(async message => {
+      ctx.cweateInteractionFunction('languageInteraction', message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action === 'br') {
+        if (stateUpdated.action === 'bw') {
           ctx.db.guild.lang = 'pt-BR'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
         } else if (stateUpdated.action === 'vn') {
           ctx.db.guild.lang = 'vi-VN'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
         } else if (stateUpdated.action === 'us') {
           ctx.db.guild.lang = 'en-US'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
         } else if (stateUpdated.action === 'es') {
           ctx.db.guild.lang = 'es-ES'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
         } else if (stateUpdated.action === 'jp') {
           ctx.db.guild.lang = 'ja-JP'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
-        } else if (stateUpdated.action === 'fr') {
-          ctx.db.guild.lang = 'fr-FR'
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
+        } else if (stateUpdated.action === 'fw') {
+          ctx.db.guild.lang = 'fw-FR'
           ctx.db.guild.save()
-            .then(() => state.actionState.event.emit('done', (stateUpdated.action)))
-            .catch((err) => state.actionState.event.emit('error', err))
+            .then(() => state.actionState.event.emit('dwonye', (stateUpdated.action)))
+            .catch((err) => state.actionState.event.emit('erwor', err))
         }
 
       })

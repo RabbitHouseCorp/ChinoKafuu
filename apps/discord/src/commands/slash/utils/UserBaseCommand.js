@@ -1,53 +1,53 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class UserBaseCommand extends Command {
-  constructor() {
+expwort default class UserBaseCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'user',
+      nyame: 'user',
       aliases: [],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      isBase: true,
-      slash: new CommandBase()
-        .setName('user')
-        .setDescription('Shows some information about a user.')
+      isBase: twue,
+      slash: nyew CwommandBase()
+        .setNyame('user')
+        .setDescwiption('Shwows swome infwormation abwout a user.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('avatar')
-            .setDescription('Shows your avatar or someone else\'s.')
+            .setNyame('avatar')
+            .setDescwiption('Shwows ywour avatar or swomeonye else\'s.')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(6)
-                .setName('user')
-                .setDescription('Mention the member on the server.'),
-              new CommandOptions()
+                .setNyame('user')
+                .setDescwiption('Mention teh Mwember on teh serwer.'),
+              nyew CwommandOptions()
                 .setType(5)
-                .setName('guild-avatar')
-                .setDescription('Shows the guild avatar of the member.')
+                .setNyame('guild-avatar')
+                .setDescwiption('Shwows teh guild avatar of teh Mwember.')
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('banner')
-            .setDescription('Gets the banner of an user.')
+            .setNyame('bannyer')
+            .setDescwiption('Gets teh bannyer of an user.')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(6)
-                .setName('user')
-                .setDescription('Mention the user that you want.')
+                .setNyame('user')
+                .setDescwiption('Mention teh user that u want.')
             ),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('info')
-            .setDescription('Shows some information about a user.')
+            .setNyame('infwo')
+            .setDescwiption('Shwows swome infwormation abwout a user.')
             .addOptions(
-              new CommandOptions()
+              nyew CwommandOptions()
                 .setType(6)
-                .setName('user')
-                .setDescription('Mention a user.')
+                .setNyame('user')
+                .setDescwiption('Mention a user.')
             )
         )
     })

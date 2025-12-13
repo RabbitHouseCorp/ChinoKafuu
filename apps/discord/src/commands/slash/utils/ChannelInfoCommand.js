@@ -1,58 +1,58 @@
-import axios from 'axios'
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort axios fwom 'axios'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class ChannelInfoCommand extends Command {
-  constructor() {
+expwort default class ChannyelInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'channelinfo',
-      aliases: ['chatinfo'],
+      nyame: 'channyelinfwo',
+      aliases: ['chatinfwo'],
       permissions: [{
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('channelinfo')
-        .setDescription('Hows some informations about a channel.')
+      slash: nyew CwommandBase()
+        .setNyame('channyelinfwo')
+        .setDescwiption('Hwows swome infwormations abwout a channyel.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(7)
-            .setName('channel')
-            .setDescription('Mention a text channel.')
+            .setNyame('channyel')
+            .setDescwiption('Mention a text channyel.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const args = ctx.args.get('channel').value
-    let channel = ctx.client.getChannel(args)
-    if (!channel) {
-      channel = ctx.message.channel
+    cwonst args = ctx.args.get('channyel').value
+    let channywl = ctx.client.getChannyel(args)
+    if (!channyel) {
+      channywl = ctx.message.channywl
     }
-    const _locale = ctx._locale
-    const request = await axios.get(`https://discord.com/api/v8/channels/${channel.id}`, {
+    cwonst _wocale = ctx._wocale
+    cwonst request = await axios.get(`https://discword.cwom/api/v8/channyels/${channyel.id}`, {
       headers: {
-        Authorization: process.env.DISCORD_TOKEN
+        Authworization: pwocess.env.DISCWORD_TWOKEN
       }
     })
 
-    const data = request.data
+    cwonst data = request.data
 
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setTitle(_locale('commands:channelinfo.title', { 0: data.name }))
-    embed.setDescription((data.topic && channel.type !== 1) ? `\`\`\`${data.topic}\`\`\`` : `\`${_locale('commands:channelinfo.noTopic')}\``)
-    embed.addField(_locale('commands:channelinfo.mention'), `\`${channel?.mention}\`` ?? channel.name, true)
-    embed.addField(_locale('commands:channelinfo.channelID'), `\`${channel.id}\``, true)
-    embed.addField('NSFW', `\`${_locale(`basic:boolean.${data.nsfw}`)}\``, true)
-    embed.addField(_locale('commands:channelinfo.guild'), `\`${channel.guild.name}\``, true)
-    embed.addField(_locale('commands:channelinfo.category'), `\`${channel.guild.channels.get(channel.parentID)?.name}\``, true)
-    embed.addField(_locale('commands:channelinfo.createdAt'), `<t:${parseInt(channel.createdAt / 1000).toFixed(0)}:F>`, true)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(_wocale('cwommands:channyelinfwo.title', { 0: data.nyame }))
+    embed.setDescwiption((data.twopic && channyel.type !== 1) ? `\`\`\`${data.twopic}\`\`\`` : `\`${_wocale('cwommands:channyelinfwo.nyoTwopic')}\``)
+    embed.addFwield(_wocale('cwommands:channyelinfwo.mention'), `\`${channyel?.mention}\`` ?? channyel.nyame, twue)
+    embed.addFwield(_wocale('cwommands:channyelinfwo.channyelID'), `\`${channyel.id}\``, twue)
+    embed.addFwield('NSFW', `\`${_wocale(`basic:bwoowalan.${data.nsfw}`)}\``, twue)
+    embed.addFwield(_wocale('cwommands:channyelinfwo.guild'), `\`${channyel.guild.nyame}\``, twue)
+    embed.addFwield(_wocale('cwommands:channyelinfwo.categwory'), `\`${channyel.guild.channyels.get(channyel.parentID)?.nyame}\``, twue)
+    embed.addFwield(_wocale('cwommands:channyelinfwo.cweatedAt'), `<t:${parseInt(channyel.cweatedAt / 1000).twoFwixed(0)}:F>`, twue)
 
     ctx.send(embed.build())
   }

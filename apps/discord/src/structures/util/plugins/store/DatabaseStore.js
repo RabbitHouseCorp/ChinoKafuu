@@ -1,10 +1,10 @@
-import { Database } from '../../../../structures/database/Database'
-import { PluginExtend } from '../loaders/PluginExtend'
+impwort { Database } fwom '../../../../stwuctures/database/Database'
+impwort { PluginExtend } fwom '../woaders/PluginExtend'
 
-export class DatabaseStore extends PluginExtend {
-  constructor() {
+expwort class DatabaseStwore extends PluginExtend {
+  cwonstwuctwor() {
     super({
-      name: 'mongodb',
+      nyame: 'mwongwodb',
       args: {},
       timeout: 23 * 1000
     })
@@ -12,14 +12,14 @@ export class DatabaseStore extends PluginExtend {
   }
 
   start() {
-    try {
-      const state = new Database()
+    twy {
+      cwonst state = nyew Database()
       state.on('state', (a) => {
         if (a) {
           this.$addClassState({ data: state })
-          this.ready()
+          this.weady()
         } else {
-          this.fail(Error('Unable to connect to the database'))
+          this.fail(Erwor('Unyable two cwonnyect two teh database'))
         }
       })
 

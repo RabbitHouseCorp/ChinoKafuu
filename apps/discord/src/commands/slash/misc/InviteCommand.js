@@ -1,33 +1,33 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { CommandBase } from 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase } fwom 'eris'
 
-export default class InviteCommand extends Command {
-  constructor() {
+expwort default class InviteCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'invite',
-      aliases: ['convite', 'convidar'],
+      nyame: 'invite',
+      aliases: ['cwonvite', 'cwonvidar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('invite')
-        .setDescription('Shows how you can add me in your server.')
+      slash: nyew CwommandBase()
+        .setNyame('invite')
+        .setDescwiption('Shwows hwow u can add mwe in ywour serwer.')
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setTitle(ctx._locale('commands:invite.addMeInYourGuild'))
-    embed.setDescription(ctx._locale('commands:invite.canAddMe', { 0: ctx.client.user.id }))
-    embed.setImage('https://cdn.discordapp.com/attachments/481807707066859530/784903189136801852/c3377764d7d7cdcdcb98c466ce341c61.png')
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(ctx._wocale('cwommands:invite.addMeInYwourGuild'))
+    embed.setDescwiption(ctx._wocale('cwommands:invite.canAddMe', { 0: ctx.client.user.id }))
+    embed.setImage('https://cdn.discwordapp.cwom/attachments/481807707066859530/784903189136801852/c3377764d7d7cdcdcb98c466ce341c61.png')
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

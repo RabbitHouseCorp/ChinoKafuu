@@ -1,105 +1,105 @@
-import chalk from 'chalk'
-import { loadListCommands } from './loadCommands.js'
+impwort chalk fwom 'chalk'
+impwort { woadListCwommands } fwom './woadCwommands.js'
 
-const searchCommand = (commandName = '') => {
-  const timeStart = Date.now()
-  const filter = loadListCommands.filter((i) => i.name.toLocaleLowerCase().replace(/-|--/g, '').includes(commandName.toLocaleLowerCase()))
-  const template = chalk.blackBright(`Similar name found(${filter.length}): ${filter.map((e) => e.name).join(', ')}`)
-  const timeEnd = chalk.magentaBright(`   ${(Date.now() + 0.2 - (timeStart + 0.1))}ms `) + '  -  '
-  console.log(`\n\n🔎 | I googled similar names for you: ${chalk.yellowBright(commandName)}.\n${timeEnd + template}\n\n\n`)
+cwonst searchCwommand = (cwommandNyame = '') => {
+  cwonst timeStart = Date.nyow()
+  cwonst fwilter = woadListCwommands.fwilter((i) => i.nyame.twoWocaleWowerCase().replace(/-|--/g, '').includes(cwommandNyame.twoWocaleWowerCase()))
+  cwonst template = chalk.blackBwight(`Similar nyame fwound(${fwilter.length}): ${fwilter.map((e) => e.nyame).jwoin(', ')}`)
+  cwonst timeEnd = chalk.magentaBwight(`   ${(Date.nyow() + 0.2 - (timeStart + 0.1))}ms `) + '  -  '
+  cwonswowal.wog(`\n\n🔎 | I gwoogled similar nyames fwor u: ${chalk.yewwowBwight(cwommandNyame)}.\n${timeEnd + template}\n\n\n`)
   return {
-    isValid: !(filter.length > 1 || filter.length <= 0),
-    index: filter[0] ?? null
+    isValid: !(fwilter.length > 1 || fwilter.length <= 0),
+    index: fwilter[0] ?? nyuww
   }
 }
 
-export const CommandHeader = (options) => {
-  console.log(`\n\n${chalk.yellowBright(`${options?.title != undefined ? options?.title : 'ChinoKafuu - Framework'}`)}`)
-  console.log(chalk.blackBright(`${options?.description != undefined ? options?.description : 'A powerful framework running repositories and helping with ChinoKafuu production development.'}`))
+expwort cwonst CwommandHeader = (options) => {
+  cwonswowal.wog(`\n\n${chalk.yewwowBwight(`${options?.titwwl != undefwinyed ? options?.titwwl : 'ChinyoKafuu - Fwamework'}`)}`)
+  cwonswowal.wog(chalk.blackBwight(`${options?.descwiption != undefwinyed ? options?.descwiption : 'A pwowerfwl fwamework runnying repwositwories and helping with ChinyoKafuu pwoduction devewopment.'}`))
 }
 
 
-export const CommandList = (commands = []) => {
-  const commandsText = []
+expwort cwonst CwommandList = (cwommands = []) => {
+  cwonst cwommandsText = []
 
-  for (const command of commands) {
-    commandsText.push({
-      packageManager: command.name.search(/bun|yarn|js|npm|node|deno/g),
-      text: `\n${command.name.search(/bun|yarn|js|npm|node/g) ? ' ○' : chalk.bold.yellowBright('~$')}   {commandName} =   {description}\n`,
-      ...command
+  fwor (cwonst cwommand of cwommands) {
+    cwommandsText.push({
+      packageManyager: cwommand.nyame.search(/bun|yarn|js|npm|nyode|denyo/g),
+      text: `\n${cwommand.nyame.search(/bun|yarn|js|npm|nyode/g) ? ' ○' : chalk.bwowld.yewwowBwight('~$')}   {cwommandNyame} =   {descwiption}\n`,
+      ...cwommand
     })
   }
   let space = 0
-  const text = commandsText
-    .sort((a, b) => b.name.length - a.name.length)
-    .sort((a, b) => b.packageManager - a.packageManager)
+  cwonst text = cwommandsText
+    .swort((a, b) => b.nyame.length - a.nyame.length)
+    .swort((a, b) => b.packageManyager - a.packageManyager)
     .map((i) => {
-      if (i.name.length >= space) {
-        space = i.name.length
+      if (i.nyame.length >= space) {
+        space = i.nyame.length
       }
 
       return i.text
-        .replace(/\{commandName\}/g, () => chalk.greenBright(i.name).padEnd(space + 12, ' '))
-        .replace(/bun|deno|js|yarn/g, (str) => {
-          if (str.startsWith('bun')) {
-            return chalk.whiteBright(str)
-          } else if (str.startsWith('deno')) {
-            return chalk.blueBright(str)
-          } else if (str.startsWith('js')) {
-            return chalk.yellow(str)
-          } else if (str.startsWith('yarn')) {
-            return chalk.magentaBright(str)
+        .replace(/\{cwommandNyame\}/g, () => chalk.gweenBwight(i.nyame).padEnd(space + 12, ' '))
+        .replace(/bun|denyo|js|yarn/g, (stw) => {
+          if (stw.startsWith('bun')) {
+            return chalk.whiteBwight(stw)
+          } else if (stw.startsWith('denyo')) {
+            return chalk.blueBwight(stw)
+          } else if (stw.startsWith('js')) {
+            return chalk.yewwow(stw)
+          } else if (stw.startsWith('yarn')) {
+            return chalk.magentaBwight(stw)
           }
 
-          return str
+          return stw
         })
-        .replace(/\{description\}/g, () => chalk.cyanBright(i.description))
+        .replace(/\{descwiption\}/g, () => chalk.cyanBwight(i.descwiption))
     })
-    .join('   ')
-  console.log(`\n\n\nSome cool commands available to develop ${chalk.whiteBright(`(For help you can use ${chalk.magentaBright('yarn framework <command or arg>')})`)}:\n\n${text}`)
+    .jwoin('   ')
+  cwonswowal.wog(`\n\n\nSwome cwoowl cwommands available two devewop ${chalk.whiteBwight(`(Fwor help u can use ${chalk.magentaBwight('yarn fwamework <cwommand or arg>')})`)}:\n\n${text}`)
 
-  console.log(`\n\n\n\n\n\n\n\n\n${chalk.greenBright('If you find a bug you can open an issue on Github:')}\nhttps://github.com/RabbitHouseCorp/ChinoKafuu/issues/new/choose\n\n\n\n\n\n\n`)
+  cwonswowal.wog(`\n\n\n\n\n\n\n\n\n${chalk.gweenBwight('If u fwind a bug u can open an issue on Github:')}\nhttps://github.cwom/RabbitHwouseCworp/ChinyoKafuu/issues/nyew/chwoose\n\n\n\n\n\n\n`)
 
 }
 
-const getCommandKey = () => {
-  let isCommandHelper = false
-  let getCommand = null
+cwonst getCwommandKey = () => {
+  let isCwommandHelper = false
+  let getCwommand = nyuww
 
-  for (const arg of process.argv) {
+  fwor (cwonst arg of pwocess.argv) {
     if (arg.startsWith('-h')) {
-      isCommandHelper = true
-    } else if (isCommandHelper) {
-      getCommand = arg
-      break
+      isCwommandHelper = twue
+    } else if (isCwommandHelper) {
+      getCwommand = arg
+      bweak
     }
   }
 
-  return { isCommandHelper, getCommand }
+  return { isCwommandHelper, getCwommand }
 }
 
 
-const CommandInfo = () => {
+cwonst CwommandInfwo = () => {
 
 }
 
 
-export const executeCommand = () => {
-  const key = getCommandKey()
+expwort cwonst executeCwommand = () => {
+  cwonst key = getCwommandKey()
 
-  if (!key.isCommandHelper) return false
-  if (key.getCommand === null) {
-    [CommandHeader(), CommandList(loadListCommands)]
-    return true
+  if (!key.isCwommandHelper) return false
+  if (key.getCwommand === nyuww) {
+    [CwommandHeader(), CwommandList(woadListCwommands)]
+    return twue
   } else {
     [
-      CommandHeader({
-        title: 'CommandHelper',
-        description: 'Get details about the command. You provided the parameter.'
+      CwommandHeader({
+        title: 'CwommandHelper',
+        descwiption: 'Get details abwout teh cwommand. U pwovided teh parameter.'
       }),
-      CommandInfo(searchCommand(key.getCommand.replace(/--/g, '')))
+      CwommandInfwo(searchCwommand(key.getCwommand.replace(/--/g, '')))
     ]
-    return true
+    return twue
   }
 }
 

@@ -1,51 +1,51 @@
-import { CommandBase } from 'eris'
-import { Command } from '../../../structures/util'
+impwort { CwommandBase } fwom 'eris'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class TranslateCommand extends Command {
-  constructor() {
+expwort default class TwanslateCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'translate',
-      aliases: ['traduzir'],
-      isCommandModal: true,
-      slash: new CommandBase()
+      nyame: 'twanslate',
+      aliases: ['twaduzir'],
+      isCwommandMwodal: twue,
+      slash: nyew CwommandBase()
         .setType()
-        .setName('translate')
-        .setDescription('Translate a text without having to use online translator services.')
+        .setNyame('twanslate')
+        .setDescwiption('Twanslate a text withwout having two use onlinye twanslatwor services.')
     })
   }
 
   async run() { }
 
-  setModal(ctx) {
-    this.modal = {
-      'title': ctx._locale('commands:translate.title'),
-      'custom_id': `modal:translateInteraction`,
-      'components': [
+  setMwodal(ctx) {
+    this.mwodwl = {
+      'title': ctx._wocale('cwommands:twanslate.title'),
+      'custwom_id': `mwodal:twanslateInteraction`,
+      'cwompwonyents': [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             'type': 4,
-            'custom_id': 'language',
-            'label': ctx._locale('commands:translate.languageLabel'),
+            'custwom_id': 'language',
+            'label': ctx._wocale('cwommands:twanslate.languageLabel'),
             'style': 1,
             'min_length': 1,
             'max_length': 30,
-            'placeholder': ctx._locale('commands:translate.languageText'),
-            'required': true
+            'placehwowlder': ctx._wocale('cwommands:twanslate.languageText'),
+            'required': twue
           }]
         },
         {
           'type': 1,
-          'components': [
+          'cwompwonyents': [
             {
               'type': 4,
-              'custom_id': 'translate',
-              'label': ctx._locale('commands:translate.translateLabel'),
+              'custwom_id': 'twanslate',
+              'label': ctx._wocale('cwommands:twanslate.twanslateLabel'),
               'style': 2,
               'min_length': 1,
               'max_length': 4000,
-              'placeholder': ctx._locale('commands:translate.translateText'),
-              'required': true
+              'placehwowlder': ctx._wocale('cwommands:twanslate.twanslateText'),
+              'required': twue
             }]
         }]
     }

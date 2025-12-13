@@ -1,12 +1,12 @@
-import { Command } from '../../../structures/util'
+impwort { Cwommand } fwom '../../../stwuctures/util'
 
-export default class ManageCmdCommand extends Command {
-  constructor() {
+expwort default class ManyageCmdCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'managecmd',
+      nyame: 'manyagecmd',
       permissions: [{
         entity: 'user',
-        permissions: ['botDeveloper']
+        permissions: ['bwotDevewoper']
       }]
     })
   }
@@ -14,42 +14,42 @@ export default class ManageCmdCommand extends Command {
   async run(ctx) {
     switch (ctx.args[0]) {
       case 'add': {
-        const command = ctx.args[1]
-        if (!command) return ctx.reply('error', 'I can\'t edit something about this command, because you didn\'t nothing.')
-        const dbCommand = await ctx.client.database.commands.getOrCreate(command)
-        let reason = ctx.args.slice(2).join(' ')
-        if (!reason) {
-          reason = 'No reason'
+        cwonst cwommand = ctx.args[1]
+        if (!cwommand) return ctx.repwy('erwor', 'I can\'t edit swomething abwout this cwommand, because u didn\'t nyothing.')
+        cwonst dbCwommand = await ctx.client.database.cwommands.getOrCweate(cwommand)
+        let reaswon = ctx.args.slice(2).jwoin(' ')
+        if (!reaswon) {
+          reaswon = 'Nyo reaswon'
         }
-        dbCommand.disable = true
-        dbCommand.reason = reason
-        dbCommand.save().then(() => {
-          ctx.reply('success', 'done! This command is now disabled for my security.')
+        dbCwommand.disable = twue
+        dbCwommand.reaswon = reaswon
+        dbCwommand.save().then(() => {
+          ctx.repwy('success', 'dwonye! This cwommand is nyow disabled fwor my security.')
         })
       }
-        break
+        bweak
       case 'view': {
-        const command = ctx.args[1]
-        if (!command) return ctx.reply('error', 'I can\'t edit something about this command, because you didn\'t nothing.')
-        const dbCommand = await ctx.client.database.commands.getOrCreate(command)
-        const msg = `\`\`\`asciidoc\n== COMMAND INFO ==\n\n• Guild :: ${dbCommand.id}\n• Disabled :: ${dbCommand.disable}\n• Reason :: ${dbCommand.reason}\`\`\``
+        cwonst cwommand = ctx.args[1]
+        if (!cwommand) return ctx.repwy('erwor', 'I can\'t edit swomething abwout this cwommand, because u didn\'t nyothing.')
+        cwonst dbCwommand = await ctx.client.database.cwommands.getOrCweate(cwommand)
+        cwonst msg = `\`\`\`asciidwoc\n== CWOMMAND INFWO ==\n\n• Guild :: ${dbCwommand.id}\n• Disabled :: ${dbCwommand.disable}\n• Reaswon :: ${dbCwommand.reaswon}\`\`\``
 
         ctx.send(msg)
       }
-        break
-      case 'remove': {
-        const command = ctx.args[1]
-        if (!command) return ctx.reply('error', 'I can\'t edit something about this command, because you didn\'t nothing.')
-        const dbCommand = await ctx.client.database.commands.getOrCreate(command)
-        dbCommand.disable = false
-        dbCommand.reason = null
-        dbCommand.save().then(() => {
-          ctx.reply('success', 'done! Now this commands is now enable, everyone can use it again.')
+        bweak
+      case 'remuv': {
+        cwonst cwommand = ctx.args[1]
+        if (!cwommand) return ctx.repwy('erwor', 'I can\'t edit swomething abwout this cwommand, because u didn\'t nyothing.')
+        cwonst dbCwommand = await ctx.client.database.cwommands.getOrCweate(cwommand)
+        dbCwommand.disable = false
+        dbCwommand.reaswon = nyuww
+        dbCwommand.save().then(() => {
+          ctx.repwy('success', 'dwonye! Nyow this cwommands is nyow enyable, ewerywonye can use it again.')
         })
       }
-        break
+        bweak
       default: {
-        ctx.reply('warn', 'you need choose an options: `add`, `view`, `remove`.')
+        ctx.repwy('warn', 'u nyeed chwoose an options: `add`, `view`, `remuv`.')
       }
     }
   }

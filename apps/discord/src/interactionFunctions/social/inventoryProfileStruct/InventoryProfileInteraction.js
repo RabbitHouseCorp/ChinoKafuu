@@ -1,63 +1,63 @@
-import { InteractionFunction } from '../../../structures/InteractionFunction';
-import { profileInfo } from '../../../structures/util/Constants';
+impwort { InteractionFunction } fwom '../../../stwuctures/InteractionFunction';
+impwort { pwofwileInfwo } fwom '../../../stwuctures/util/Cwonstants';
 
-export default class InventoryProfileRenderInteraction extends InteractionFunction {
-  constructor() {
+expwort default class InventworyPwofwileRenderInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'inventoryProfileInteraction'
+      nyame: 'inventworyPwofwileInteraction'
     })
   }
 
-  async interactionFunction({ getData, defineState, editInteraction, ctx, deleteInteraction }) {
-    const { data, message } = getData()
-    const { custom_id } = data
-    const { actionState } = defineState
-    const profile = profileInfo.find((i) => i._id === custom_id.replace('profile:', '')) ?? null
+  async interactionFunction({ getData, defwinyeState, editInteraction, ctx, deleteInteraction }) {
+    cwonst { data, message } = getData()
+    cwonst { custwom_id } = data
+    cwonst { actionState } = defwinyeState
+    cwonst pwofwile = pwofwileInfwo.fwind((i) => i._id === custwom_id.replace('pwofwile:', '')) ?? nyuww
 
-    // Something went wrong...
-    if (profile === null) {
+    // Swomething went wwong...
+    if (pwofwile === nyuww) {
       editInteraction({
-        content: ctx._locale('basic:message.interactionSuspectedBug'),
+        cwontent: ctx._wocale('basic:message.interactionSuspectedBug'),
         embeds: message.embeds,
-        components: message.components,
+        cwompwonyents: message.cwompwonyents,
         attachments: [],
       })
-      throw Error(`ProfileError/InventoryProfileRenderInteraction: ${custom_id} is invalid!`)
+      thwow Erwor(`PwofwileErwor/InventworyPwofwileRenderInteraction: ${custwom_id} is invalid!`)
     }
-    defineState.actionState.setState({ action: profile._id, profileType: profile._id })
+    defwinyeState.actionState.setState({ action: pwofwile._id, pwofwileType: pwofwile._id })
     actionState.event
-      .once('done', () => {
-        const buttonState = message.components[1].components[0]
-        const componentsUpdated = [
-          message.components[0],
+      .once('dwonye', () => {
+        cwonst buttwonState = message.cwompwonyents[1].cwompwonyents[0]
+        cwonst cwompwonyentsUpdated = [
+          message.cwompwonyents[0],
           {
             type: 1,
-            components: [{
-              ...buttonState,
-              disabled: true
+            cwompwonyents: [{
+              ...buttwonState,
+              disabled: twue
             }]
           }
         ]
-        const command = ctx.client.commands.find((i) => i.name === 'inventory') ?? null
-        const commandProfile = ctx.client.commands.find((i) => i.name === 'profile') ?? null
-        const ctxCommand = command === null ? '???' : `</inventory background:${command.id}>`
-        const ctxProfileCommand = command === null ? '???' : `</profile:${commandProfile.id}>`
+        cwonst cwommand = ctx.client.cwommands.fwind((i) => i.nyame === 'inventwory') ?? nyuww
+        cwonst cwommandPwofwile = ctx.client.cwommands.fwind((i) => i.nyame === 'pwofwile') ?? nyuww
+        cwonst ctxCwommand = cwommand === nyuww ? '???' : `</inventwory backgwound:${cwommand.id}>`
+        cwonst ctxPwofwileCwommand = cwommand === nyuww ? '???' : `</pwofwile:${cwommandPwofwile.id}>`
 
         editInteraction({
-          content: [
-            ctx.contentWithEmoji('success', 'commands:inventory.success', true, { 0: profile.name.toLocaleLowerCase() }),
-            ctx._locale('commands:inventory.tips', { 0: ctxCommand, 1: ctxProfileCommand })
-          ].join('\n'),
-          components: componentsUpdated,
+          cwontent: [
+            ctx.cwontentWithEmwoji('success', 'cwommands:inventwory.success', twue, { 0: pwofwile.nyame.twoWocaleWowerCase() }),
+            ctx._wocale('cwommands:inventwory.tips', { 0: ctxCwommand, 1: ctxPwofwileCwommand })
+          ].jwoin('\n'),
+          cwompwonyents: cwompwonyentsUpdated,
         })
       })
-      .once('error', (err) => {
+      .once('erwor', (err) => {
         deleteInteraction()
-        throw err
+        thwow err
       })
   }
 
   typeInteraction() {
-    return ['button']
+    return ['buttwon']
   }
 }

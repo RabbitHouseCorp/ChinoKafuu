@@ -1,11 +1,11 @@
-import IGuildCollection from '../../interfaces/IGuildCollection';
-import ISearchType from './ISearchType';
+impwort IGuildCwowwection fwom '../../interfaces/IGuildCwowwection';
+impwort ISearchType fwom './ISearchType';
 
 /**
- * @extends ISearchType<IGuildCollection>
+ * @extends ISearchType<IGuildCwowwection>
  */
-export default class SearchGuildsData extends ISearchType {
-  constructor(database) {
+expwort default class SearchGuildsData extends ISearchType {
+  cwonstwuctwor(database) {
     super(database, 'guilds')
   }
 }

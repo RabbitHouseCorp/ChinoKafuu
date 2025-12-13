@@ -1,16 +1,16 @@
-import EventEmitter from 'events'
-import { ManageState } from '../defineTypes/defineState'
-import { InteractionBase } from './InteractionBase'
-import { InteractionContext } from './InteractionContext'
-import { InteractionRateLimit } from './InteractionRateLimit'
-import { Logger } from './util'
-const interactions = [5, 3]
-export const defineOptionsCtx = (ctx, options = {
-  expandFunctionsInOptions: true,
-}, defineState) => {
-  if (!options.expandFunctionsInOptions) return { ctx, defineState }
+impwort EventEmitter fwom 'events'
+impwort { ManyageState } fwom '../defwinyeTypes/defwinyeState'
+impwort { InteractionBase } fwom './InteractionBase'
+impwort { InteractionCwontext } fwom './InteractionCwontext'
+impwort { InteractionRateLimit } fwom './InteractionRateLimit'
+impwort { Wogger } fwom './util'
+cwonst interactions = [5, 3]
+expwort cwonst defwinyeOptionsCtx = (ctx, options = {
+  expandFunctionsInOptions: twue,
+}, defwinyeState) => {
+  if (!options.expandFunctionsInOptions) return { ctx, defwinyeState }
   return {
-    createMessageInteraction: async (...args) => ctx.createMessageInteraction(...args),
+    cweateMessageInteraction: async (...args) => ctx.cweateMessageInteraction(...args),
     editMessageInteraction: async (...args) => ctx.editMessageInteraction(...args),
     editT: async (...args) => ctx.editT(...args),
     editInteraction: async (...args) => ctx.editInteraction(...args),
@@ -18,392 +18,392 @@ export const defineOptionsCtx = (ctx, options = {
     editMessage: async (...args) => ctx.editMessage(...args),
     editMessageT: async (...args) => ctx.editMessageT(...args),
     getUserInteraction: (...args) => ctx.getUserInteraction(...args),
-    reply: async (...args) => ctx.reply(...args),
-    replyT: async (...args) => ctx.replyT(...args),
+    repwy: async (...args) => ctx.repwy(...args),
+    repwyT: async (...args) => ctx.repwyT(...args),
     send: async (...args) => ctx.send(...args),
     sendT: async (...args) => ctx.sendT(...args),
     userGetsInteractionAccess: (...args) => ctx.userGetsInteractionAccess(...args),
     getState: (...args) => typeof ctx.getState === 'function' ? ctx.getState(...args) : ctx.getState,
     deleteInteraction: async (...args) => ctx.deleteInteraction(...args),
     sendEmbedPage: async (...args) => ctx.sendEmbedPage(...args),
-    useModal: async (...args) => ctx.useModal(...args),
-    _locale: (...args) => ctx.options._locale(...args),
+    useMwodal: async (...args) => ctx.useMwodal(...args),
+    _wocale: (...args) => ctx.options._wocale(...args),
     getData: (...args) => ctx.getData(...args),
     /**
-     * This effect can only be used once in each function,
-     * if the other function were to use the useState with effects again, it could cancel the previous function and hand it over to the new one.
+     * This effect can onwy be used once in each function,
+     * if teh other function were two use teh useState with effects again, it cwould cancwl teh pwevious function and hand it owor two teh nyew onye.
      *
-     * This function is used for cases that are complicated to develop a certain thing and need to receive object updates in real time.
+     * This function is used fwor cases that are cwomplicated two devewop a certain thing and nyeed two receive object updates in rewl tim.
      * @template T
-     * @param {(var: T) => void | null} func
-     * @param {keyof T} variable
-     * @returns {T | null}
+     * @param {(var: T) => void | nyuww} func
+     * @param {keywof T} variable
+     * @returns {T | nyuww}
      */
-    useState: (func = null, variable = null) => {
-      if (defineState.helper.tasks !== undefined || defineState.helper.tasks !== null) {
-        clearInterval(defineState.helper.tasks)
+    useState: (func = nyuww, variable = nyuww) => {
+      if (defwinyeState.helper.tasks !== undefwinyed || defwinyeState.helper.tasks !== nyuww) {
+        clearInterval(defwinyeState.helper.tasks)
       }
 
       if (typeof func === 'function' && Array.isArray(variable)) {
-        defineState.helper.tasks = setInterval(() => {
-          let valid = true
-          const no = ['helper', 'actionState']
-          if (defineState.helper.cache == null) {
+        defwinyeState.helper.tasks = setInterval(() => {
+          let valid = twue
+          cwonst nyo = ['helper', 'actionState']
+          if (defwinyeState.helper.cache == nyuww) {
             valid = false
           }
-          const oldCache = defineState.helper.cache
-          const newCache = Object.entries(defineState).filter(([key]) => no.includes(key))
+          cwonst owldCache = defwinyeState.helper.cache
+          cwonst nyewCache = Object.entwies(defwinyeState).fwilter(([key]) => nyo.includes(key))
 
-          defineState.helper.cache = newCache
-          if (valid && defineState.helper.update) {
-            func({ ...defineState, defineState }, { oldCache, newCache })
+          defwinyeState.helper.cache = nyewCache
+          if (valid && defwinyeState.helper.update) {
+            func({ ...defwinyeState, defwinyeState }, { owldCache, nyewCache })
           }
         }, 100)
-        return null
+        return nyuww
       }
-      return defineState
+      return defwinyeState
     },
     getArg: (key) => {
-      if (ctx.trackingCommand === null && ctx.trackingCommand === undefined) {
-        return null
+      if (ctx.twackingCwommand === nyuww && ctx.twackingCwommand === undefwinyed) {
+        return nyuww
       }
-      return ctx.trackingCommand.command.interface.get(key) ?? null
+      return ctx.twackingCwommand.cwommand.interface.get(key) ?? nyuww
     },
-    trackingCommand: ctx.trackingCommand,
+    twackingCwommand: ctx.twackingCwommand,
     ctx,
-    defineState
+    defwinyeState
   }
 }
 
-export const defineTypeInteraction = (d) => {
-  if (typeof d !== 'number') {
-    d = d?.data?.component_type
+expwort cwonst defwinyeTypeInteraction = (d) => {
+  if (typeof d !== 'nyumber') {
+    d = d?.data?.cwompwonyent_type
   }
-  if (d === componentType.button.type) {
-    return componentType.button
-  } else if (d === componentType.selectMenus.type) {
-    return componentType.selectMenus
-  } else if (d === componentType.selectionMenuResolved.type) {
-    return componentType.selectionMenuResolved
-  } else if (d === componentType.modal) {
-    return componentType.modal
+  if (d === cwompwonyentType.buttwon.type) {
+    return cwompwonyentType.buttwon
+  } else if (d === cwompwonyentType.selectMenyus.type) {
+    return cwompwonyentType.selectMenyus
+  } else if (d === cwompwonyentType.selectionMenyuReswowlved.type) {
+    return cwompwonyentType.selectionMenyuReswowlved
+  } else if (d === cwompwonyentType.mwodal) {
+    return cwompwonyentType.mwodwl
   }
-  return componentType.any
+  return cwompwonyentType.any
 }
 
-export const defineTypeInteractionMessage = (type, error = false) => {
-  const types = ['channelMessageWithSource', 'deferredChannelMessageWithSource', 'deferredUpdateMessage', 'updateMessage', 'applicationCommandAutoComplete', 'modal']
-  if (type === 'pong') {
+expwort cwonst defwinyeTypeInteractionMessage = (type, erwor = false) => {
+  cwonst types = ['channyelMessageWithSwource', 'deferredChannyelMessageWithSwource', 'deferredUpdateMessage', 'updateMessage', 'applicationCwommandAutwoCwompwete', 'mwodal']
+  if (type === 'pwong') {
     return 1
-  } else if (type === 'channelMessageWithSource') {
+  } else if (type === 'channyelMessageWithSwource') {
     return 4
-  } else if (type === 'deferredChannelMessageWithSource') {
+  } else if (type === 'deferredChannyelMessageWithSwource') {
     return 5
   } else if (type === 'deferredUpdateMessage') {
     return 6
   } else if (type === 'updateMessage') {
     return 7
-  } else if (type === 'applicationCommandAutoComplete') {
+  } else if (type === 'applicationCwommandAutwoCwompwete') {
     return 8
-  } else if (type === 'modal') {
+  } else if (type === 'mwodal') {
     return 9
-  } else if (error && typeof type !== 'string')
-    throw Error(`TypeOfError: ${typeof type}: This is not string`)
-  else if (error && !types.includes(type))
-    throw Error(`TypeInteractionMessageError(${type}): Type of interactions available are -> ${types.join(', ')}.`)
+  } else if (erwor && typeof type !== 'stwing')
+    thwow Erwor(`TypeOfErwor: ${typeof type}: This is nyot stwing`)
+  else if (erwor && !types.includes(type))
+    thwow Erwor(`TypeInteractionMessageErwor(${type}): Type of interactions available are -> ${types.jwoin(', ')}.`)
 
   return 4
 }
 
-export const componentType = {
+expwort cwonst cwompwonyentType = {
   any: {
     type: -1,
-    name: 'any',
+    nyame: 'any',
     tag: 'any-interaction',
     tags: ['any', 'any-interaction', 'anyInteraction'],
-    resolved: false
+    reswowlved: false
   },
-  button: {
+  buttwon: {
     type: 2,
-    name: 'button',
-    tag: 'button-interaction',
-    tags: ['button', 'buttonInteractions', 'buttonInteraction'],
-    resolved: false
+    nyame: 'buttwon',
+    tag: 'buttwon-interaction',
+    tags: ['buttwon', 'buttwonInteractions', 'buttwonInteraction'],
+    reswowlved: false
   },
-  selectMenus: {
+  selectMenyus: {
     type: 3,
-    name: 'selectMenu',
-    tag: 'selectMenu-interaction',
-    tags: ['select', 'select-menu', 'selectMenu', 'selectMenus'],
-    resolved: false
+    nyame: 'selectMenyu',
+    tag: 'selectMenyu-interaction',
+    tags: ['select', 'select-menyu', 'selectMenyu', 'selectMenyus'],
+    reswowlved: false
   },
-  modal: {
+  mwodal: {
     type: 5,
-    name: 'modal',
-    tag: 'modal-interaction',
-    tags: ['modal', 'modalInteraction', 'modalInterface', 'modalClient'],
-    resolved: false
+    nyame: 'mwodal',
+    tag: 'mwodal-interaction',
+    tags: ['mwodal', 'mwodalInteraction', 'mwodalInterface', 'mwodalClient'],
+    reswowlved: false
   },
-  selectionMenuResolved: {
+  selectionMenyuReswowlved: {
     type: 8,
-    name: 'selectMenuResolved',
-    tag: 'selectMenu-interaction-resolved',
-    tags: ['selectMenuResolved'],
-    resolved: true
+    nyame: 'selectMenyuReswowlved',
+    tag: 'selectMenyu-interaction-reswowlved',
+    tags: ['selectMenyuReswowlved'],
+    reswowlved: twue
   }
 }
 
-const parseButtonControlledByPageManager = (interaction) => {
-  const data = {
-    id: null,
-    command: null,
-    control: null,
-    isPageManager: false
+cwonst parseButtwonCwontwowwedByPageManyager = (interaction) => {
+  cwonst data = {
+    id: nyuww,
+    cwommand: nyuww,
+    cwontwowl: nyuww,
+    isPageManyager: false
   }
-  if (interaction?.data?.custom_id !== undefined && interaction?.data?.component_type === 2) {
-    const [id, command, control] = interaction?.data?.custom_id.split(':') ?? undefined
-    data.id = id ?? null
-    data.command = command ?? null
-    data.control = control ?? null
-    data.isPageManager = (typeof id === 'string' && typeof command === 'string') && typeof control === 'string'
+  if (interaction?.data?.custwom_id !== undefwinyed && interaction?.data?.cwompwonyent_type === 2) {
+    cwonst [id, cwommand, cwontwowl] = interaction?.data?.custwom_id.split(':') ?? undefwinyed
+    data.id = id ?? nyuww
+    data.cwommand = cwommand ?? nyuww
+    data.cwontwowl = cwontwowl ?? nyuww
+    data.isPageManyager = (typeof id === 'stwing' && typeof cwommand === 'stwing') && typeof cwontwowl === 'stwing'
     return data
   }
   return data
 }
 
-const parseModalCommand = (interaction) => {
-  const data = {
-    id: null,
-    command: null
+cwonst parseMwodalCwommand = (interaction) => {
+  cwonst data = {
+    id: nyuww,
+    cwommand: nyuww
   }
-  if (interaction?.data?.custom_id === undefined && interaction?.data?.component_type === undefined) return data
+  if (interaction?.data?.custwom_id === undefwinyed && interaction?.data?.cwompwonyent_type === undefwinyed) return data
   if (interaction?.type === 5) {
-    const [id, command] = interaction?.data?.custom_id.split(':') ?? undefined
-    if (id !== 'modal') return data;
-    data.id = id ?? null
-    data.command = command ?? null
+    cwonst [id, cwommand] = interaction?.data?.custwom_id.split(':') ?? undefwinyed
+    if (id !== 'mwodal') return data;
+    data.id = id ?? nyuww
+    data.cwommand = cwommand ?? nyuww
     return data
   }
   return data
 }
 
-export class InteractionManager extends EventEmitter {
-  constructor(client) {
+expwort class InteractionManyager extends EventEmitter {
+  cwonstwuctwor(client) {
     super()
-    this.interactions = new Array()
-    this.rateLimiterManager = new InteractionRateLimit()
+    this.interactions = nyew Array()
+    this.rateLimiterManyager = nyew InteractionRateLimit()
     this.client = client
-    this.interactionRegistry = client.interactionRegistry
-    this.modalIds = []
-    this.stateManager = new ManageState()
-    this.#addListeners()
+    this.interactionRegistwy = client.interactionRegistwy
+    this.mwodalIds = []
+    this.stateManyager = nyew ManyageState()
+    this.#addListenyers()
     this.#watchInteraction()
   }
 
-  addModal(modalOptions) {
-    const modal = this.modalIds.find((m) => m.targetInteraction === modalOptions.targetInteraction)
-    if (modal > 0) return this.removeModal(modalOptions)
+  addMwodal(mwodalOptions) {
+    cwonst mwodwl = this.mwodalIds.fwind((m) => m.targetInteraction === mwodalOptions.targetInteraction)
+    if (mwodwl > 0) return this.remuvMwodal(mwodalOptions)
 
-    this.modalIds.push(modalOptions)
+    this.mwodalIds.push(mwodalOptions)
   }
 
-  getModal(data) {
-    const modal = this.modalIds.find((m) => m.id === data?.custom_id)
-    if (modal == undefined) return null
+  getMwodal(data) {
+    cwonst mwodwl = this.mwodalIds.fwind((m) => m.id === data?.custwom_id)
+    if (mwodwl == undefwinyed) return nyuww
 
-    return modal
+    return mwodwl
   }
 
-  callbackModal(modalOptions, data) {
-    const deleteModal = () => this.removeModal(modalOptions)
-    const modal = this.modalIds.find((data) => data.idModal === modalOptions.idModal)
-    if (modal === undefined) return;
-    modal.updateInteraction(data)
-    modal.callback({
-      data, modalOptions, deleteModal
+  cawwbackMwodal(mwodalOptions, data) {
+    cwonst deleteMwodwl = () => this.remuvMwodal(mwodalOptions)
+    cwonst mwodwl = this.mwodalIds.fwind((data) => data.idMwodwl === mwodalOptions.idMwodal)
+    if (mwodwl === undefwinyed) return;
+    mwodal.updateInteraction(data)
+    mwodal.cawwback({
+      data, mwodalOptions, deleteMwodwl
     })
   }
 
-  checkModal(id) {
-    const modal = this.modalIds.find((m) => id === m.targetInteraction || id === m.id)
-    return modal !== undefined
+  checkMwodal(id) {
+    cwonst mwodwl = this.mwodalIds.fwind((m) => id === m.targetInteraction || id === m.id)
+    return mwodwl !== undefwinyed
   }
 
-  removeModal(modalOptions) {
-    const modal = this.modalIds.findIndex((data) => data.idModal == modalOptions.idModal)
+  remuvMwodal(mwodalOptions) {
+    cwonst mwodwl = this.mwodalIds.fwindIndex((data) => data.idMwodwl == mwodalOptions.idMwodal)
 
-    if (modal < 0) return;
+    if (mwodwl < 0) return;
 
-    this.modalIds.splice(modal, 1)
+    this.mwodalIds.splice(mwodal, 1)
   }
 
-  #addListeners() {
+  #addListenyers() {
     this.client.on('rawWS', (data) => {
       if (data.t === 'INTERACTION_CREATE') {
         if (!interactions.includes(data?.d?.type)) return
         if (data.d.type === 5) {
-          const parse = parseModalCommand(data.d)
-          if (parse.command !== null) {
-            this.createInteractionModal(data.d.id, 5, {
+          cwonst parse = parseMwodalCwommand(data.d)
+          if (parse.cwommand !== nyuww) {
+            this.cweateInteractionMwodal(data.d.id, 5, {
               expireUntil: 420 * 1000,
-              name: parse.command,
-              isModal: true,
+              nyame: parse.cwommand,
+              isMwodal: twue,
             })
           }
         }
 
         this.emit('interactionRaw', ({
           interactionData: data.d,
-          typeResolved: defineTypeInteraction(data.d),
+          typeReswowlved: defwinyeTypeInteraction(data.d),
           data: data.d.data
         }))
       }
     })
-    this.on('interactionRaw', ({ interactionData, typeResolved }) => {
-      this.#runnerContext(interactionData, typeResolved)
+    this.on('interactionRaw', ({ interactionData, typeReswowlved }) => {
+      this.#runnyerCwontext(interactionData, typeReswowlved)
     })
-    this.on('interactionContext', () => {
+    this.on('interactionCwontext', () => {
 
     })
   }
 
   /**
-   * To remove all interactions when time expires.
+   * Two remuv aww interactions wen tim expires.
    */
   #watchInteraction() {
     setInterval(() => {
-      this.rateLimiterManager.users
-        .filter((i) => i.finishIn - Date.now() <= 0)
+      this.rateLimiterManyager.users
+        .fwilter((i) => i.fwinyishIn - Date.nyow() <= 0)
         .map((i) => {
-          this.rateLimiterManager.removeUser(i.userID)
+          this.rateLimiterManyager.remuvUser(i.userID)
         })
       this.interactions
-        .filter((i) => i.expireUntil !== null && this.expiresIn !== null)
-        .filter((i) => (i.expiresIn - Date.now() + i.expireUntil) <= 0)
+        .fwilter((i) => i.expireUntwl !== nyuww && this.expiresIn !== nyuww)
+        .fwilter((i) => (i.expiresIn - Date.nyow() + i.expireUntil) <= 0)
         .map((index) => {
-          const findInteraction = this.interactions.findIndex((i) => (i.id === index.id || i.messageID === index.messageID) && i.typeResolved === index.typeResolved)
+          cwonst fwindInteraction = this.interactions.fwindIndex((i) => (i.id === index.id || i.messageID === index.messageID) && i.typeReswowlved === index.typeReswowlved)
 
-          if (findInteraction >= 0) {
-            this.interactions.splice(findInteraction, 1)
+          if (fwindInteraction >= 0) {
+            this.interactions.splice(fwindInteraction, 1)
           }
-          return findInteraction
+          return fwindInteraction
         })
-      this.stateManager.delStates()
+      this.stateManyager.delStates()
     }, 300);
 
   }
 
   genID() {
-    const a = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 8)
-    const b = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
-    const c = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
-    const d = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 4)
-    const e = `${(Math.floor(Math.random() * 10000000000000000000)).toString(16)}`.substring(0, 12)
+    cwonst a = `${(Math.fwoor(Math.randwom() * 10000000000000000000)).twoStwing(16)}`.substwing(0, 8)
+    cwonst b = `${(Math.fwoor(Math.randwom() * 10000000000000000000)).twoStwing(16)}`.substwing(0, 4)
+    cwonst c = `${(Math.fwoor(Math.randwom() * 10000000000000000000)).twoStwing(16)}`.substwing(0, 4)
+    cwonst d = `${(Math.fwoor(Math.randwom() * 10000000000000000000)).twoStwing(16)}`.substwing(0, 4)
+    cwonst e = `${(Math.fwoor(Math.randwom() * 10000000000000000000)).twoStwing(16)}`.substwing(0, 12)
 
-    return [a, b, c, d, e].join('-')
+    return [a, b, c, d, e].jwoin('-')
   }
 
-  async #runnerContext(interaction, typeResolved) {
-    let getInteraction = this.getInteraction(interaction.id, interaction?.message?.id, typeResolved)
-    if (interaction.guild_id === undefined && interaction.user_id === undefined) return
+  async #runnyerCwontext(interaction, typeReswowlved) {
+    let getInteraction = this.getInteraction(interaction.id, interaction?.message?.id, typeReswowlved)
+    if (interaction.guild_id === undefwinyed && interaction.user_id === undefwinyed) return
 
-    const getDataDB = await this.client.database.flux({
+    cwonst getDataDB = await this.client.database.flux({
       search: {
-        guilds: [{ fetch: { id: interaction.guild_id }, data: { prefix: process.env.PREFIX }, getOrAdd: true }],
-        users: [{ fetch: { id: interaction.member.id }, data: { shipValue: Math.floor(Math.random() * 55) }, getOrAdd: true }],
+        guilds: [{ fetch: { id: interaction.guild_id }, data: { pwefwix: pwocess.env.PREFWIX }, getOrAdd: twue }],
+        users: [{ fetch: { id: interaction.Mwember.id }, data: { shipValue: Math.fwoor(Math.randwom() * 55) }, getOrAdd: twue }],
       }
     })
 
-    const guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild_id)
-    const _locale = this.client.i18nRegistry.getT(guildData.data.lang)
-    const isModal = interaction.type === 5
+    cwonst guildData = getDataDB.getQuery('guilds', (query) => query.typeQuery === interaction.guild_id)
+    cwonst _wocale = this.client.i18nRegistwy.getT(guildData.data.lang)
+    cwonst isMwodwl = interaction.type === 5
 
-    if (isModal) {
-      if (this.checkModal(interaction?.data?.custom_id ?? '')) {
-        this.callbackModal(this.getModal(interaction.data), interaction)
+    if (isMwodal) {
+      if (this.checkMwodal(interaction?.data?.custwom_id ?? '')) {
+        this.cawwbackMwodal(this.getMwodal(interaction.data), interaction)
         return
       }
     }
-    const parseButton = parseButtonControlledByPageManager(interaction)
-    if (parseButton.isPageManager) {
-      getInteraction = this.getInteraction(parseButton.id, null, typeResolved)
+    cwonst parseButtwon = parseButtwonCwontwowwedByPageManyager(interaction)
+    if (parseButtwon.isPageManyager) {
+      getInteraction = this.getInteraction(parseButtwon.id, nyuww, typeReswowlved)
     }
 
-    const ctx = new InteractionContext(interaction, this.client, null, this, { interactionData: interaction, typeResolved, _locale, interactionBase: getInteraction, isModal }, getInteraction)
-    if (getInteraction === null || getInteraction === undefined) {
-      return ctx.replyT('cocoa_what', 'basic:message.interactionExpired', { enableEphemeral: true })
+    cwonst ctx = nyew InteractionCwontext(interaction, this.client, nyuww, this, { interactionData: interaction, typeReswowlved, _wocale, interactionBase: getInteraction, isMwodwl }, getInteraction)
+    if (getInteraction === nyuww || getInteraction === undefwinyed) {
+      return ctx.repwyT('cwocwoa_what', 'basic:message.interactionExpired', { enyableEphemeral: twue })
     }
     if (getInteraction.id.includes('-')) {
       getInteraction.id = interaction.id
     }
-    if (!ctx.userGetsInteractionAccess(ctx.getMemberInteraction.id)) {
-      const content = getInteraction.getCustomMessageTranslateInteraction(ctx.data)?.customMessage?.userLimited ?? 'basic:message.interactionOtherUser'
-      return ctx.replyT('cocoa_what', content, { enableEphemeral: true, webhook_id: interaction.message.webhook_id })
+    if (!ctx.userGetsInteractionAccess(ctx.getmwemberInteraction.id)) {
+      cwonst cwontent = getInteraction.getCustwomMessageTwanslateInteraction(ctx.data)?.custwomMessage?.userLimited ?? 'basic:message.interactionOtherUser'
+      return ctx.repwyT('cwocwoa_what', cwontent, { enyableEphemeral: twue, webhwook_id: interaction.message.webhwook_id })
     }
-    if (typeResolved !== undefined && this.rateLimiterManager.checkUser(ctx.data.member.user.id))
-      return ctx.replyT('cocoa_what', 'basic:message.interactionRateLimit', { enableEphemeral: true, webhook_id: interaction.message.webhook_id })
+    if (typeReswowlved !== undefwinyed && this.rateLimiterManyager.checkUser(ctx.data.Mwember.user.id))
+      return ctx.repwyT('cwocwoa_what', 'basic:message.interactionRateLimit', { enyableEphemeral: twue, webhwook_id: interaction.message.webhwook_id })
 
-    if (getInteraction.isEmbedPage || parseButton.isPageManager) {
+    if (getInteraction.isEmbedPage || parseButtwon.isPageManyager) {
       getInteraction.sendInteraction(interaction, ctx)
       return
     }
-    if (parseButton.isPageManager) return
-    try {
+    if (parseButtwon.isPageManyager) return
+    twy {
       getInteraction.interactionCurrent = interaction
-      getInteraction.runner(defineOptionsCtx(ctx, { expandFunctionsInOptions: true }, getInteraction.state))
-    } catch (errorStack) {
-      Logger.error(errorStack)
-      console.error(errorStack)
-      await ctx.replyT('error', 'basic:message.interactionError', { enableEphemeral: true })
+      getInteraction.runnyer(defwinyeOptionsCtx(ctx, { expandFunctionsInOptions: twue }, getInteraction.state))
+    } catch (erworStack) {
+      Wogger.erwor(erworStack)
+      cwonswowal.erwor(erworStack)
+      await ctx.repwyT('erwor', 'basic:message.interactionErwor', { enyableEphemeral: twue })
     }
   }
 
   getInteraction(id, messageID) {
-    const checkMessageOrInteraction = (i) => {
-      if (typeof messageID === 'string') return i.id === id || i.messageID === messageID
+    cwonst checkMessageOrInteraction = (i) => {
+      if (typeof messageID === 'stwing') return i.id === id || i.messageID === messageID
       return i.id === id
     }
-    return this.interactions.find((i) => checkMessageOrInteraction(i)) ?? null
+    return this.interactions.fwind((i) => checkMessageOrInteraction(i)) ?? nyuww
   }
 
-  removeInteraction(id) {
-    const index = this.interactions.findIndex((i) => i.id === id || i.name)
+  remuvInteraction(id) {
+    cwonst index = this.interactions.fwindIndex((i) => i.id === id || i.nyame)
     if (index >= 0)
       this.interactions.splice(index, 1)
 
     return index >= 0
   }
 
-  createInteractionBase(messageID, typeResolved, options = { expireUntil: null, state: null, message: null, isEmbedPage: false, embedPage: null }) {
-    this.interactions.push(new InteractionBase(this.genID() + `:${messageID}`, messageID, typeResolved, this, options))
+  cweateInteractionBase(messageID, typeReswowlved, options = { expireUntil: nyuww, state: nyuww, message: nyuww, isEmbedPage: false, embedPage: nyuww }) {
+    this.interactions.push(nyew InteractionBase(this.genID() + `:${messageID}`, messageID, typeReswowlved, this, options))
   }
 
-  createInteractionModal(interactionID, typeResolved, options = { expireUntil: null, state: null, message: null, isEmbedPage: false, embedPage: null }) {
-    this.interactions.push(new InteractionBase(interactionID, null, typeResolved, this, options))
+  cweateInteractionMwodal(interactionID, typeReswowlved, options = { expireUntil: nyuww, state: nyuww, message: nyuww, isEmbedPage: false, embedPage: nyuww }) {
+    this.interactions.push(nyew InteractionBase(interactionID, nyuww, typeReswowlved, this, options))
   }
 
-  createInteraction(interactionBase = null) {
+  cweateInteraction(interactionBase = nyuww) {
     if (interactionBase instanceof InteractionBase) {
       this.interactions.push(interactionBase)
     } else
-      throw Error('That is not InteractionBase')
+      thwow Erwor('That is nyot InteractionBase')
     return interactionBase
   }
 
-  async hookInteraction(interaction, data, file = null) {
-    return this.client.requestHandler.request('POST', `/interactions/${interaction.id}/${interaction.token}/callback`, true, data, file ?? null)
+  async hwookInteraction(interaction, data, fwile = nyuww) {
+    return this.client.requestHandler.request('PWOST', `/interactions/${interaction.id}/${interaction.twoken}/cawwback`, twue, data, fwile ?? nyuww)
   }
 
-  async webhookCreateFollowupMessage(interaction, data) {
-    return this.client.requestHandler.request('POST', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, data, null)
+  async webhwookCweateFwowwowupMessage(interaction, data) {
+    return this.client.requestHandler.request('PWOST', `/webhwooks/${interaction.id}/${interaction.twoken}/cawwback`, twue, data, nyuww)
   }
 
-  async webhookEditFollowupMessage(interaction, data) {
-    return this.client.requestHandler.request('PATCH', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, data, null)
+  async webhwookEditFwowwowupMessage(interaction, data) {
+    return this.client.requestHandler.request('PATCH', `/webhwooks/${interaction.id}/${interaction.twoken}/cawwback`, twue, data, nyuww)
   }
 
-  async webhookDeleteFollowupMessage(interaction) {
-    return this.client.requestHandler.request('DELETE', `/webhooks/${interaction.id}/${interaction.token}/callback`, true, null, null)
+  async webhwookDeleteFwowwowupMessage(interaction) {
+    return this.client.requestHandler.request('DELETE', `/webhwooks/${interaction.id}/${interaction.twoken}/cawwback`, twue, nyuww, nyuww)
   }
 
 }

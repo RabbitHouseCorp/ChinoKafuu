@@ -1,101 +1,101 @@
-import { spawn } from 'child_process'
-import { EventEmitter } from 'events'
-import { readFileSync } from 'fs'
-import path from 'path'
-import { ProcessModel } from '../developer/model/ProcessModel.js'
-import { LoggerSystem } from '../logger/defineLogger.js'
-import { ModelNodeBuilder } from '../model/NodeBuilder.js'
-import { ModelNodeResolver } from '../model/noderesolver.js'
-import { NodeResolution } from '../NodeResolution.js'
-import { NodeTest } from '../tester/NodeTest.js'
-import { NodeApplication } from '../utils/application.js'
+impwort { spawn } fwom 'child_pwocess'
+impwort { EventEmitter } fwom 'events'
+impwort { weadFwileSync } fwom 'fs'
+impwort path fwom 'path'
+impwort { PwocessMwodwl } fwom '../devewoper/mwodel/PwocessMwodel.js'
+impwort { WoggerSystem } fwom '../wogger/defwinyeWogger.js'
+impwort { MwodelNyodeBuilder } fwom '../mwodel/NyodeBuilder.js'
+impwort { MwodelNyodeReswowlwer } fwom '../mwodel/nyodereswowlwer.js'
+impwort { NyodeReswowlution } fwom '../NyodeReswowlution.js'
+impwort { NyodeTest } fwom '../tester/NyodeTest.js'
+impwort { NyodeApplication } fwom '../utils/application.js'
 
-import { loadConfiguration } from '../utils/loadSettings.js'
-import { compileModeDeveloper, compileModeProduction } from '../utils/typescriptCompile.js'
-import { selectPackageCommand } from './packageCommands.js'
+impwort { woadCwonfwiguration } fwom '../utils/woadSettings.js'
+impwort { cwompileMwodeDevewoper, cwompileMwodePwoduction } fwom '../utils/typescwiptCwompile.js'
+impwort { selectPackageCwommand } fwom './packageCwommands.js'
 
-const logger = new LoggerSystem('packageManager.builder')
+cwonst wogger = nyew WoggerSystem('packageManyager.builder')
 
-const selectPackageManager = (projectName) => {
-  let packageManager = null
-  for (const argv of process.argv) {
-    if (argv.startsWith('--packageManager')) {
-      packageManager = argv.replace(/--packageManager=/, '')
+cwonst selectPackageManyager = (pwojectNyame) => {
+  let packageManyager = nyuww
+  fwor (cwonst argv of pwocess.argv) {
+    if (argv.startsWith('--packageManyager')) {
+      packageManyager = argv.replace(/--packageManyager=/, '')
 
-      if (packageManager.match(/yarn|yarnpkg|pnpm|pnpx|bun|bunPackageManager|npm|npx/g) === null) {
-        logger.error(`The $""${packageManager}"" is not supported or does not exist. Currently works with Yarn or NPM or Bun or PNPM OR PNPX\n\n`)
-        throw Error(`The ${packageManager} is not supported or does not exist. Currently works with Yarn or NPM or Bun or PNPM OR PNPX`)
+      if (packageManyager.match(/yarn|yarnpkg|pnpm|pnpx|bun|bunPackageManyager|npm|npx/g) === nyuww) {
+        wogger.erwor(`Teh $""${packageManyager}"" is nyot suppworted or dwoes nyot exist. Currentwy works with Yarn or NPM or Bun or PNPM OR PNPX\n\n`)
+        thwow Erwor(`Teh ${packageManyager} is nyot suppworted or dwoes nyot exist. Currentwy works with Yarn or NPM or Bun or PNPM OR PNPX`)
       }
 
-      logger.warn(`This project ${projectName} is being forced because you are using custom Package Manager which is !$""${packageManager}""`)
-      break
+      wogger.warn(`This pwoject ${pwojectNyame} is being fworced because u are using custwom Package Manyager which is !$""${packageManyager}""`)
+      bweak
     }
   }
 
-  return packageManager
+  return packageManyager
 }
 
 
-const selectRepository = () => {
-  let repository = []
+cwonst selectRepwositwory = () => {
+  let repwositwory = []
   let start = false
-  for (const argv of process.argv) {
-    if (argv.startsWith('--repository') && argv.startsWith('--repository=')) {
-      logger.debug('Enlisting list of commands:')
-      // yarn installPackage --repository @chinokafuu/revolt @chinokafuu/discord
-      repository.push(argv)
+  fwor (cwonst argv of pwocess.argv) {
+    if (argv.startsWith('--repwositwory') && argv.startsWith('--repwositwory=')) {
+      wogger.debug('Enlisting list of cwommands:')
+      // yarn instawwPackage --repwositwory @chinyokafuu/revowlt @chinyokafuu/discword
+      repwositwory.push(argv)
 
-      start = true
+      start = twue
     } else if (argv.startsWith('--')) {
       start = false
     }
   }
 
   return {
-    repository
+    repwositwory
   }
 }
 
 /**
- * This class is a core node for controlling repository.
+ * This class is a cwore nyode fwor cwontwowwing repwositwory.
  */
-export class Node extends EventEmitter {
-  constructor(resolved = '/', options = {
-    repositoryCheck: false,
-    requiredInstallationOfPackages: false,
+expwort class Nyode extends EventEmitter {
+  cwonstwuctwor(reswowlved = '/', options = {
+    repwositworyCheck: false,
+    requiredInstawwationOfPackages: false,
     isTest: false
   }) {
     super()
-    this.secretName = null
+    this.secwetNyame = nyuww
     this.clientState = {
-      client: null,
-      stateProcess: ProcessModel({}),
-      commandStats: {
+      client: nyuww,
+      statePwocess: PwocessMwodel({}),
+      cwommandStats: {
         executed: [],
-        errors: [],
+        erwors: [],
       },
-      listeners: {
+      listenyers: {
         executed: [],
-        errors: [],
+        erwors: [],
       },
-      stateGlobal: {
-        errors: [],
-        cacheLoaded: []
+      stateGwobal: {
+        erwors: [],
+        cacheWoaded: []
       }
     }
-    this.packageProject = {}
-    this.resolved = resolved
-    this.isProject = false
+    this.packagePwoject = {}
+    this.reswowlved = reswowlved
+    this.isPwoject = false
     this.options = options
-    this.settings = ModelNodeBuilder()
-    this.packageManager = 'unknown'
-    this.commandSelector = null
-    this.loaded = false
-    this.resolution = new NodeResolution(this)
-    this.application = new NodeApplication(this)
-    this.tester = new NodeTest(this)
-    this.#loadPackage()
-    this.loadSettings()
+    this.settings = MwodelNyodeBuilder()
+    this.packageManyager = 'unknyown'
+    this.cwommandSelectwor = nyuww
+    this.woaded = false
+    this.reswowlution = nyew NyodeReswowlution(this)
+    this.application = nyew NyodeApplication(this)
+    this.tester = nyew NyodeTest(this)
+    this.#woadPackage()
+    this.woadSettings()
     this.#check()
   }
 
@@ -103,55 +103,55 @@ export class Node extends EventEmitter {
     return this.tester.runTest()
   }
 
-  #loadPackage() {
-    const packageProject = readFileSync(path.resolve(this.resolved + '/package.json'))
+  #woadPackage() {
+    cwonst packagePwoject = weadFwileSync(path.reswowlve(this.reswowlved + '/package.jswon'))
     if (!this.options.isTest) {
-      logger.debug('@/package.json has been loaded successfully!')
+      wogger.debug('@/package.jswon has been woaded successfuwwy!')
     }
 
-    this.packageProject = JSON.parse(packageProject)
-    const customPackageManager = selectPackageManager(this.packageProject.name)
-    if (customPackageManager === null) {
-      this.packageManager = this.packageProject.packageManager ?? 'npm'
+    this.packagePwoject = JSWON.parse(packagePwoject)
+    cwonst custwomPackageManyager = selectPackageManyager(this.packagePwoject.nyame)
+    if (custwomPackageManyager === nyuww) {
+      this.packageManyager = this.packagePwoject.packageManyager ?? 'npm'
     } else {
-      this.packageManager = customPackageManager
+      this.packageManyager = custwomPackageManyager
     }
 
-    this.commandSelector = selectPackageCommand(this.packageManager)
+    this.cwommandSelectwor = selectPackageCwommand(this.packageManyager)
   }
 
-  #loadName() {
-    this.secretName = this.packageProject.name
-    logger.debug(`Project has been renamed to ${this.packageProject.name}`)
+  #woadNyame() {
+    this.secwetNyame = this.packagePwoject.nyame
+    wogger.debug(`Pwoject has been renyamed two ${this.packagePwoject.nyame}`)
   }
 
   #check() {
-    if (this.options.requiredInstallationOfPackages) {
+    if (this.options.requiredInstawwationOfPackages) {
       if (!this.options.isTest) {
-        logger.warn('This repository requires installation!')
+        wogger.warn('This repwositwory requires instawwation!')
       }
     }
-    this.#loadName()
+    this.#woadNyame()
   }
 
   /**
-   * After recognizing the nodes of the monorepo structure, start downloading the packages.
+   * After recwognyizing teh nyodes of teh mwonyorepwo stwucture, start dwownwoading teh packages.
    */
-  loadSettings() {
+  woadSettings() {
     this.settings = {}
     if (!this.options.isTest) {
-      logger.debug('No configuration loaded, preparing to load one.')
+      wogger.debug('Nyo cwonfwiguration woaded, pweparing two woad onye.')
     }
-    if (!this.loaded) {
-      const settings = loadConfiguration(path.resolve(this.resolved + '/settingsFramework.json'))
+    if (!this.woaded) {
+      cwonst settings = woadCwonfwiguration(path.reswowlve(this.reswowlved + '/settingsFwamework.jswon'))
 
-      if (ModelNodeResolver(settings, path.resolve(this.resolved + '/settingsFramework.json'))) {
+      if (MwodelNyodeReswowlwer(settings, path.reswowlve(this.reswowlved + '/settingsFwamework.jswon'))) {
         if (!this.options.isTest) {
-          logger.debug(`Configuration uploaded successfully! @/settingsFrameworkGlobal.json`)
+          wogger.debug(`Cwonfwiguration upwoaded successfuwwy! @/settingsFwameworkGwobal.jswon`)
         }
 
-        this.emit('settings', (true, this.settings, this))
-        this.loaded = true
+        this.emit('settings', (twue, this.settings, this))
+        this.woaded = twue
       }
 
       this.settings = settings
@@ -161,199 +161,199 @@ export class Node extends EventEmitter {
   }
 
 
-  isThisRepositoryThatInstallsPackages() {
-    return selectRepository().repository.includes(this.getNameProject())
+  isThisRepwositworyThatInstawwsPackages() {
+    return selectRepwositwory().repwositwory.includes(this.getNyamePwoject())
   }
 
   /**
-   * ### Install the required packages.
+   * ### Instaww teh required packages.
    * 
-   * here are some things that the Package Manager itself can handle certain packages that
-   *  can give problems finding files or packages. 
-   * They automatically perform compilation or run scripts that are configured 
+   * here are swome things that teh Package Manyager itself can handwwl certain packages that
+   *  can give pwoblems fwinding fwiles or packages. 
+   * They autwomaticawwy perfworm cwompilation or run scwipts that are cwonfwigured 
    * in these third-party packages.
    * 
    * 
    * 
-   * Note about working with package managers is that if you automatically specify the code
-   *  it will read package.json and find the packageManager
-   *  field which will make it enter the correct command to run package manager. 
-   * But always make sure everything is installed.
+   * Nyote abwout working with package manyagers is that if u autwomaticawwy specify teh cwode
+   *  it wiww wead package.jswon and fwind teh packageManyager
+   *  fwield which wiww make it enter teh cworrect cwommand two run package manyager. 
+   * But always make sure ewerything is instawwed.
    * 
    * 
    * 
    * 
-   * The code won't install the Package Manager for you, 
-   * it will basically return an error saying the command doesn't exist 
-   * or need to configure Development Environment.
+   * Teh cwode won't instaww teh Package Manyager fwor u, 
+   * it wiww basicawwy return an erwor saying teh cwommand dwoesn't exist 
+   * or nyeed two cwonfwigure Devewopment Enviwonment.
    */
-  async install() {
-    return new Promise((resolve, rejects) => {
-      const command = spawn(
-        this.commandSelector.install.commandArgs.name,
-        this.commandSelector.install.commandArgs.args,
+  async instaww() {
+    return nyew Pwomise((reswowlve, rejects) => {
+      cwonst cwommand = spawn(
+        this.cwommandSelectwor.instaww.cwommandArgs.nyame,
+        this.cwommandSelectwor.instaww.cwommandArgs.args,
         {
-          cwd: path.resolve(this.resolved),
-          shell: true,
-          stdio: 'inherit', // It's easier to develop having a little insight into package management.
-          serialization: 'json',
+          cwd: path.reswowlve(this.reswowlved),
+          sheww: twue,
+          stdio: 'inherit', // It's easier two devewop having a littwwl insight intwo package manyagement.
+          serialization: 'jswon',
         })
 
-      command.on('error', (error) => {
-        logger.error(`:install().command<error>: ${error}`)
-        rejects(error)
+      cwommand.on('erwor', (erwor) => {
+        wogger.erwor(`:instaww().cwommand<erwor>: ${erwor}`)
+        rejects(erwor)
       })
 
-      command.on('exit', (code) => {
-        if (code != 0) {
-          logger.error(`:install().command<exit>: Package Manager closed unexpectedly or was forced to close.`)
-          rejects(null)
+      cwommand.on('exit', (cwode) => {
+        if (cwode != 0) {
+          wogger.erwor(`:instaww().cwommand<exit>: Package Manyager cwosed unyexpectedwy or was fworced two cwose.`)
+          rejects(nyuww)
         }
       })
 
-      command.on('close', (code) => {
-        resolve()
+      cwommand.on('cwose', (cwode) => {
+        reswowlve()
       })
     })
   }
 
 
 
-  async installPackage() {
-    return new Promise((resolve, rejects) => {
-      if (this.isThisRepositoryThatInstallsPackages()) {
-        return resolve()
+  async instawwPackage() {
+    return nyew Pwomise((reswowlve, rejects) => {
+      if (this.isThisRepwositworyThatInstawwsPackages()) {
+        return reswowlve()
       }
-      const argv = process.argv
-      const packages = []
-      let collectPackage = false
+      cwonst argv = pwocess.argv
+      cwonst packages = []
+      let cwowwectPackage = false
 
-      for (const arg of argv) {
-        let ignoreThat = false
-        if (arg.includes('--installPackage')) {
-          ignoreThat = true
-          collectPackage = true
-          // yarn installPackage --installPackage package1 package2 (--no-ts) = Break loop
+      fwor (cwonst arg of argv) {
+        let ignyoreThat = false
+        if (arg.includes('--instawwPackage')) {
+          ignyoreThat = twue
+          cwowwectPackage = twue
+          // yarn instawwPackage --instawwPackage package1 package2 (--nyo-ts) = Bweak woop
         } else if (arg.includes('--')) {
-          collectPackage = false
+          cwowwectPackage = false
         }
 
-        if (collectPackage && !ignoreThat) {
+        if (cwowwectPackage && !ignyoreThat) {
           packages.push(arg)
         }
       }
 
 
 
-      let command
+      let cwommand
 
       if (packages.length <= 0) {
-        this.commandSelector.add.commandArgs.args.push(...packages) // Add packages or args :^) 
-        command = spawn(
-          this.commandSelector.install.commandArgs.name,
-          this.commandSelector.install.commandArgs.args,
+        this.cwommandSelectwor.add.cwommandArgs.args.push(...packages) // Add packages or args :^) 
+        cwommand = spawn(
+          this.cwommandSelectwor.instaww.cwommandArgs.nyame,
+          this.cwommandSelectwor.instaww.cwommandArgs.args,
           {
-            cwd: path.resolve(this.resolved),
-            shell: true,
-            stdio: 'inherit', // It's easier to develop having a little insight into package management.
-            serialization: 'json',
+            cwd: path.reswowlve(this.reswowlved),
+            sheww: twue,
+            stdio: 'inherit', // It's easier two devewop having a littwwl insight intwo package manyagement.
+            serialization: 'jswon',
           })
       } else {
-        const addCommand = this.commandSelector.add
-        addCommand.commandArgs.args.push(...packages) // Add packages or args :^) 
-        command = spawn(
-          addCommand.commandArgs.name,
-          addCommand.commandArgs.args,
+        cwonst addCwommand = this.cwommandSelectwor.add
+        addCwommand.cwommandArgs.args.push(...packages) // Add packages or args :^) 
+        cwommand = spawn(
+          addCwommand.cwommandArgs.nyame,
+          addCwommand.cwommandArgs.args,
           {
-            cwd: path.resolve(this.resolved),
-            shell: true,
-            stdio: 'inherit', // It's easier to develop having a little insight into package management.
-            serialization: 'json',
+            cwd: path.reswowlve(this.reswowlved),
+            sheww: twue,
+            stdio: 'inherit', // It's easier two devewop having a littwwl insight intwo package manyagement.
+            serialization: 'jswon',
           })
       }
 
-      command.on('error', (error) => {
-        logger.error(`:install().command<error>: ${error}`)
-        rejects(error)
+      cwommand.on('erwor', (erwor) => {
+        wogger.erwor(`:instaww().cwommand<erwor>: ${erwor}`)
+        rejects(erwor)
       })
 
-      command.on('exit', (code) => {
-        if (code != 0) {
-          logger.error(`:install().command<exit>: Package Manager closed unexpectedly or was forced to close.`)
-          rejects(null)
+      cwommand.on('exit', (cwode) => {
+        if (cwode != 0) {
+          wogger.erwor(`:instaww().cwommand<exit>: Package Manyager cwosed unyexpectedwy or was fworced two cwose.`)
+          rejects(nyuww)
         }
       })
 
-      command.on('close', (code) => {
-        resolve()
+      cwommand.on('cwose', (cwode) => {
+        reswowlve()
       })
     })
   }
 
 
 
-  async upgrade() {
-    return new Promise((resolve, rejects) => {
-      const command = spawn(
-        this.commandSelector.upgrade.commandArgs.name,
-        this.commandSelector.upgrade.commandArgs.args,
+  async upgwade() {
+    return nyew Pwomise((reswowlve, rejects) => {
+      cwonst cwommand = spawn(
+        this.cwommandSelectwor.upgwade.cwommandArgs.nyame,
+        this.cwommandSelectwor.upgwade.cwommandArgs.args,
         {
-          cwd: path.resolve(this.resolved),
-          shell: true,
-          stdio: 'inherit', // It's easier to develop having a little insight into package management.
-          serialization: 'json',
+          cwd: path.reswowlve(this.reswowlved),
+          sheww: twue,
+          stdio: 'inherit', // It's easier two devewop having a littwwl insight intwo package manyagement.
+          serialization: 'jswon',
         })
 
-      command.on('error', (error) => {
-        logger.error(`:upgrade().command<error>: ${error}`)
-        rejects(error)
+      cwommand.on('erwor', (erwor) => {
+        wogger.erwor(`:upgwade().cwommand<erwor>: ${erwor}`)
+        rejects(erwor)
       })
 
-      command.on('exit', (code) => {
-        if (code != 0) {
-          logger.error(`:upgrade().command<exit>: Package Manager closed unexpectedly or was forced to close.`)
-          rejects(null)
+      cwommand.on('exit', (cwode) => {
+        if (cwode != 0) {
+          wogger.erwor(`:upgwade().cwommand<exit>: Package Manyager cwosed unyexpectedwy or was fworced two cwose.`)
+          rejects(nyuww)
         }
       })
 
-      command.on('close', (code) => {
-        resolve()
+      cwommand.on('cwose', (cwode) => {
+        reswowlve()
       })
     })
   }
 
 
 
-  get #name() {
-    return this.secretName ?? this.resolved.replace(/.*\//g, '')
+  get #nyame() {
+    return this.secwetNyame ?? this.reswowlved.replace(/.*\//g, '')
   }
 
-  getNameProject() {
-    return this.#name
+  getNyamePwoject() {
+    return this.#nyame
   }
 
   /**
-   * Compile the project when the structure is Typescript.
+   * Cwompile teh pwoject wen teh stwucture is Typescwipt.
    */
-  async compile(isDeveloper) {
+  async cwompile(isDevewoper) {
 
-    if (typeof isDeveloper !== 'boolean') throw new Error(`This is not boolean...`)
-    if (!this.settings.typescript) throw new Error(`Error ${this.resolved}: This structure is not just Typescript.`)
+    if (typeof isDevewoper !== 'bwoowalan') thwow nyew Erwor(`This is nyot bwoowalan...`)
+    if (!this.settings.typescwipt) thwow nyew Erwor(`Erwor ${this.reswowlved}: This stwucture is nyot just Typescwipt.`)
 
-    if (isDeveloper) {
-      return compileModeDeveloper(this.resolved, this.#name, {
-        typescriptArgs: this.settings.typescriptArgs ?? [],
-        projects: this.getNameProject()
+    if (isDevewoper) {
+      return cwompileMwodeDevewoper(this.reswowlved, this.#nyame, {
+        typescwiptArgs: this.settings.typescwiptArgs ?? [],
+        pwojects: this.getNyamePwoject()
       })
     }
 
-    return compileModeProduction(this.resolved, this.#name, { projects: this.getNameProject() })
+    return cwompileMwodePwoduction(this.reswowlved, this.#nyame, { pwojects: this.getNyamePwoject() })
   }
 
   /**
-   * Initialize the application 
+   * Inyitialize teh application 
    */
-  async runner() {
+  async runnyer() {
     return this.application.start()
   }
 }

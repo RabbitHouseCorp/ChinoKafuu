@@ -1,74 +1,74 @@
-import { CommandBase } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RobCommand extends Command {
-  constructor() {
+expwort default class WobCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'rob',
-      slash: new CommandBase()
-        .setName('rob')
-        .setDescription('Steal a random amount from a user.')
+      nyame: 'wob',
+      slash: nyew CwommandBase()
+        .setNyame('wob')
+        .setDescwiption('Stewl a randwom amwount fwom a user.')
         .addOptions()
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    if (ctx.db.user.economy.work.job != 1) return ctx.replyT('error', 'commands:rob.error', {})
-    if (ctx.db.user.intervals.rob_interval - Date.now() > 0) return ctx.replyT('error', 'commands:rob.timeout', {})
+    if (ctx.db.user.ecwonyomy.work.jwob != 1) return ctx.repwyT('erwor', 'cwommands:wob.erwor', {})
+    if (ctx.db.user.intervals.wob_intervwl - Date.nyow() > 0) return ctx.repwyT('erwor', 'cwommands:wob.timeout', {})
 
-    const users = ctx.getInteraction.channel.guild.members
-      .filter((user) => user.id != ctx.message.author.id)
+    cwonst users = ctx.getInteraction.channyel.guild.Mwembers
+      .fwilter((user) => user.id != ctx.message.authwor.id)
       .map((user) => user.id)
-    const engine = ctx.client.database.advancedDataSearchEngine().users
-    const matchingUsers = await engine.matchingIds(
+    cwonst enginye = ctx.client.database.advancedDataSearchEnginye().users
+    cwonst matchingUsers = await enginye.matchingIds(
       [...users],
       [],
-      ['yens', 'id', 'intervals', 'lastUpdates', 'economy'],
-      { sort: { 'economy.value': -1 } }
+      ['yens', 'id', 'intervals', 'lastUpdates', 'ecwonyomy'],
+      { swort: { 'ecwonyomy.value': -1 } }
     )
-    if (matchingUsers.length <= 0) return ctx.replyT('error', 'commands:rob.didNotFindAnyoneNearby', {})
+    if (matchingUsers.length <= 0) return ctx.repwyT('erwor', 'cwommands:wob.didNyotFwindAnyonyeNyearby', {})
 
-    const usersData = matchingUsers.map((u) => ({ id: u.id, value: u.economy.value, economy: u.economy, isPolicie: u.economy.work.job === 1 }))
-    const policies = usersData.filter((u) => u.isPolicie === true)
-    const otherProfession = usersData
-      .filter((u) => u.isPolicie === false)
-      .filter((user) => user.economy.value >= 50)
-    const userRandom = otherProfession
-      .sort(() => Math.random() - 0.5)
-      .at(Math.max(0, Math.floor(Math.random() * otherProfession.length) - 1))
+    cwonst usersData = matchingUsers.map((u) => ({ id: u.id, value: u.ecwonyomy.value, ecwonyomy: u.ecwonyomy, isPwowlicie: u.ecwonyomy.work.jwob === 1 }))
+    cwonst pwowlicies = usersData.fwilter((u) => u.isPwowlicie === twue)
+    cwonst otherPwofession = usersData
+      .fwilter((u) => u.isPwowlicie === false)
+      .fwilter((user) => user.ecwonyomy.value >= 50)
+    cwonst userRandwom = otherPwofession
+      .swort(() => Math.randwom() - 0.5)
+      .at(Math.max(0, Math.fwoor(Math.randwom() * otherPwofession.length) - 1))
 
-    if (userRandom === undefined) return ctx.replyT('error', 'commands:rob.errorWhilePlanning', {})
+    if (userRandwom === undefwinyed) return ctx.repwyT('erwor', 'cwommands:wob.erworWhilePlannying', {})
 
-    const amount = Math.min(Math.random() * 2400, Math.max(0, Math.random() * userRandom.economy.value))
-    const percent = (policies.length / otherProfession.length) * 100
-    const percentArrested = (otherProfession.length / Math.max(100, policies.length)) * 100
-    const calc = Math.min(100, Math.abs(percent - percentArrested) + Math.ceil(Math.floor(Math.random() * 9)))
-    const policie = policies
-      .sort(() => Math.random() - 0.5)
-      .slice(0, Math.min(8, Math.max(1, Math.max(1, policies.length) - (Math.floor(Math.random() * 2)))))
+    cwonst amwount = Math.min(Math.randwom() * 2400, Math.max(0, Math.randwom() * userRandwom.ecwonyomy.value))
+    cwonst percent = (pwowlicies.length / otherPwofession.length) * 100
+    cwonst percentArrested = (otherPwofession.length / Math.max(100, pwowlicies.length)) * 100
+    cwonst calc = Math.min(100, Math.abs(percent - percentArrested) + Math.ceil(Math.fwoor(Math.randwom() * 9)))
+    cwonst pwowlicie = pwowlicies
+      .swort(() => Math.randwom() - 0.5)
+      .slice(0, Math.min(8, Math.max(1, Math.max(1, pwowlicies.length) - (Math.fwoor(Math.randwom() * 2)))))
 
-    const chance = (12 - Math.min(100, Math.floor((2 / 1800) * 100)))
-    const value = Math.max(1, (27 * policies.length) - Math.floor(Math.random() * chance))
+    cwonst chance = (12 - Math.min(100, Math.fwoor((2 / 1800) * 100)))
+    cwonst value = Math.max(1, (27 * pwowlicies.length) - Math.fwoor(Math.randwom() * chance))
 
     if (calc > value) {
-      const userData = await ctx.db.db.getOrCreate(userRandom.id)
+      cwonst userData = await ctx.db.db.getOrCweate(userRandwom.id)
 
-      userData.economy.value -= Math.floor(amount)
-      ctx.db.user.economy.value += Math.floor(amount)
-      ctx.db.user.intervals.rob_interval = Date.now() + (3 * 60 * 60 * 1000)
+      userData.ecwonyomy.value -= Math.fwoor(amwount)
+      ctx.db.user.ecwonyomy.value += Math.fwoor(amwount)
+      ctx.db.user.intervals.wob_intervwl = Date.nyow() + (3 * 60 * 60 * 1000)
       ctx.db.user.save()
       userData.save()
-      return ctx.replyT('success', 'commands:rob.missionAccomplished', { 0: `<@!${ctx.message.author.id}>`, 1: Math.floor(amount).toLocaleString() })
+      return ctx.repwyT('success', 'cwommands:wob.missionAccwomplished', { 0: `<@!${ctx.message.authwor.id}>`, 1: Math.fwoor(amwount).twoWocaleStwing() })
     }
 
-    ctx.db.user.economy.work.arrested = true
-    ctx.db.user.intervals.rob_interval = Date.now() + (3 * 60 * 60 * 1000)
+    ctx.db.user.ecwonyomy.work.arrested = twue
+    ctx.db.user.intervals.wob_intervwl = Date.nyow() + (3 * 60 * 60 * 1000)
     ctx.db.user.save()
-    ctx.replyT('error', 'commands:rob.youWereArrested', { 0: `${policie.map((u) => `<@!${u.id}>`).join(', ')}` })
+    ctx.repwyT('erwor', 'cwommands:wob.ywouWereArrested', { 0: `${pwowlicie.map((u) => `<@!${u.id}>`).jwoin(', ')}` })
   }
 }

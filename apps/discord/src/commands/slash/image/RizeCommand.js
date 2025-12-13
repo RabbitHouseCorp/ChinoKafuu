@@ -1,42 +1,42 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { requestTokamak } from '../../../lib'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { requestTwokamak } fwom '../../../lib'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RizeCommand extends Command {
-  constructor() {
+expwort default class RizeCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'rize',
+      nyame: 'rize',
       aliases: ['rizesign'],
       permissions: [{
-        entity: 'bot',
-        permissions: ['attachFiles']
+        entity: 'bwot',
+        permissions: ['attachFwiles']
       }],
-      slash: new CommandBase()
-        .setName('rize')
-        .setDescription('Makes Rize writes on the paper')
+      slash: nyew CwommandBase()
+        .setNyame('rize')
+        .setDescwiption('Makes Rize wwites on teh paper')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('text')
-            .setDescription('Enter random text')
+            .setNyame('text')
+            .setDescwiption('Enter randwom text')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const render = await requestTokamak({
+    cwonst render = await requestTwokamak({
       action: 'renderRize',
-      rizeStruct: {
+      rizeStwuct: {
         text: ctx.args.get('text').value
       }
     })
 
-    ctx.send('', { file: { file: render.buffer, name: 'rize.png' } })
+    ctx.send('', { fwile: { fwile: render.buffer, nyame: 'rize.png' } })
   }
 }

@@ -1,34 +1,34 @@
-import { InteractionFunction } from '../../structures/InteractionFunction';
+impwort { InteractionFunction } fwom '../../stwuctures/InteractionFunction';
 
-export default class MarryInteraction extends InteractionFunction {
-  constructor() {
+expwort default class MarryInteraction extends InteractionFunction {
+  cwonstwuctwor() {
     super({
-      name: 'marryInteraction',
-      customMessage: {
-        userLimited: 'commands:marry.needToWait'
+      nyame: 'marryInteraction',
+      custwomMessage: {
+        userLimited: 'cwommands:marry.nyeedTwoWait'
       }
     })
   }
 
-  interactionFunction({ getData, defineState, editT, ctx, deleteInteraction }) {
-    const { data } = getData()
-    if (data.custom_id !== undefined && data.custom_id === 'confirmButton') {
-      defineState.actionState.setState({ action: 'confirmButton' })
-      defineState.actionState.event.once('done', () => {
+  interactionFunction({ getData, defwinyeState, editT, ctx, deleteInteraction }) {
+    cwonst { data } = getData()
+    if (data.custwom_id !== undefwinyed && data.custwom_id === 'cwonfwirmButtwon') {
+      defwinyeState.actionState.setState({ action: 'cwonfwirmButtwon' })
+      defwinyeState.actionState.event.once('dwonye', () => {
         deleteInteraction()
-        editT({ name: 'ring_couple', type: 'mention' }, ` **|** <@!${defineState.author}>, ${ctx._locale('commands:marry.successfullyMarried')}`, {
-          components: []
+        editT({ nyame: 'ring_cwoupwe', type: 'mention' }, ` **|** <@!${defwinyeState.authwor}>, ${ctx._wocale('cwommands:marry.successfuwwyMarried')}`, {
+          cwompwonyents: []
         })
       })
-        .once('error', (err) => {
+        .once('erwor', (err) => {
           deleteInteraction()
-          throw err
+          thwow err
         })
-    } else if (data.custom_id !== undefined && data.custom_id === 'rejectButton') {
-      defineState.actionState.setState({ action: 'rejectButton' })
+    } else if (data.custwom_id !== undefwinyed && data.custwom_id === 'rejectButtwon') {
+      defwinyeState.actionState.setState({ action: 'rejectButtwon' })
       deleteInteraction()
-      editT({ name: 'heart', type: 'mention' }, ` **|** <@!${defineState.author}>, ${ctx._locale('commands:marry.rejectedRequest', { 0: `<@${defineState.member}>` })}`, {
-        components: []
+      editT({ nyame: 'heart', type: 'mention' }, ` **|** <@!${defwinyeState.authwor}>, ${ctx._wocale('cwommands:marry.rejectedRequest', { 0: `<@${defwinyeState.Mwember}>` })}`, {
+        cwompwonyents: []
       })
 
     }

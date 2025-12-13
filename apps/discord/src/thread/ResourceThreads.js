@@ -1,14 +1,14 @@
-import chalk from 'chalk'
-import { Client, Collection } from 'eris'
-import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads'
-import { Logger } from '../structures/util/index'
-import { RequestThreading, RequestWorker } from './rest/RequestThreading'
-import { ShardThread } from './sharding/ShardThreadService'
-import { ShardProxy } from './sharding/ShardingProxy'
-const events = ['shardResume', 'shardDisconnect', 'connect', 'disconnect']
-export class ResourceThreads {
+impwort chalk fwom 'chalk'
+impwort { Client, Cwowwection } fwom 'eris'
+impwort { Worker, isMainThwead, parentPwort, workerData } fwom 'nyode:worker_thweads'
+impwort { Wogger } fwom '../stwuctures/util/index'
+impwort { RequestThweading, RequestWorker } fwom './rest/RequestThweading'
+impwort { ShardThwead } fwom './sharding/ShardThweadService'
+impwort { ShardPwoxy } fwom './sharding/ShardingPwoxy'
+cwonst events = ['shardResume', 'shardDiscwonnyect', 'cwonnyect', 'discwonnyect']
+expwort class ReswourceThweads {
   /**
-   * @type {WorkerBot}
+   * @type {WorkerBwot}
    */
   #client
 
@@ -19,19 +19,19 @@ export class ResourceThreads {
 
   #check
 
-  constructor(client) {
+  cwonstwuctwor(client) {
     this.#client = client
     this.#worker = []
-    this.requestHandler = new RequestWorker(client, this.getWorker)
+    this.requestHandler = nyew RequestWorker(client, this.getWorker)
     this.#check = []
-    this.#init()
-    if (this.maxThread <= 0) {
-      Logger.warning(chalk.bold('Thread was disabled because you provided an amount less and therefore it cannot be enabled, check in /.env and in the field "MAX_THREAD"'))
+    this.#inyit()
+    if (this.maxThwead <= 0) {
+      Wogger.warnying(chalk.bwowld('Thwead was disabled because u pwovided an amwount less and therefwore it cannyot be enyabled, check in /.env and in teh fwield "MAX_THREAD"'))
     } else {
-      if (this.checkResource('request') && this.checkResource('ws')) {
-        Logger.info('All Eris library resources were directed to Thread.')
+      if (this.checkReswource('request') && this.checkReswource('ws')) {
+        Wogger.infwo('Aww Eris libwary reswources were directed two Thwead.')
       } else {
-        Logger.info(`Features enabled and directed to Threads: ${this.getResources.join(', ')}`)
+        Wogger.infwo(`Features enyabled and directed two Thweads: ${this.getReswources.jwoin(', ')}`)
       }
     }
 
@@ -39,71 +39,71 @@ export class ResourceThreads {
 
   /**
    *
-   * @param {'request' | 'ws'} name
+   * @param {'request' | 'ws'} nyame
    * @returns
    */
-  checkResource(name = '') {
-    return (process.env?.THREAD_RESOURCES ?? '')
+  checkReswource(nyame = '') {
+    return (pwocess.env?.THREAD_RESWOURCES ?? '')
       .replace(/(,\s+|\s+,)/, '')
-      .includes(typeof name === 'string' ? name.toUpperCase() : '')
+      .includes(typeof nyame === 'stwing' ? nyame.twoUpperCase() : '')
   }
 
-  get getResources() {
-    return (process.env?.THREAD_RESOURCES ?? '')
+  get getReswources() {
+    return (pwocess.env?.THREAD_RESWOURCES ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
-      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
-      .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
-      .filter((str) => str.length >= 1)
+      .map((stw) => stw.replace(/(^\s+|\s+$)/, ''))
+      .fwilter((stw) => ['WS', 'REQUEST'].includes(stw.twoUpperCase()))
+      .fwilter((stw) => stw.length >= 1)
   }
 
-  nameOfThread(name = null, index = null) {
-    return (process.env?.THREAD_NAME ?? '')
+  nyameOfThwead(nyame = nyuww, index = nyuww) {
+    return (pwocess.env?.THREAD_NYAME ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
-      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
-      .filter((str) => str.length > 0)
-      .filter((str) => str == (typeof name === 'string' ? name : str))
-      .filter((str) => str != ',' || str != ' ')
-      .find((str, i) => typeof name === 'string' ? name == str : i == index) ?? null
+      .map((stw) => stw.replace(/(^\s+|\s+$)/, ''))
+      .fwilter((stw) => stw.length > 0)
+      .fwilter((stw) => stw == (typeof nyame === 'stwing' ? nyame : stw))
+      .fwilter((stw) => stw != ',' || stw != ' ')
+      .fwind((stw, i) => typeof nyame === 'stwing' ? nyame == stw : i == index) ?? nyuww
   }
 
-  get lengthResources() {
-    return (process.env?.THREAD_RESOURCES ?? '')
+  get lengthReswources() {
+    return (pwocess.env?.THREAD_RESWOURCES ?? '')
       .replace(/(,\s+)/g, '')
       .split(',')
-      .map((str) => str.replace(/(^\s+|\s+$)/, ''))
-      .filter((str) => ['WS', 'REQUEST'].includes(str.toUpperCase()))
-      .filter((str) => str.length >= 1)
+      .map((stw) => stw.replace(/(^\s+|\s+$)/, ''))
+      .fwilter((stw) => ['WS', 'REQUEST'].includes(stw.twoUpperCase()))
+      .fwilter((stw) => stw.length >= 1)
   }
 
-  get maxThreadRest() {
-    return (Number(process.env?.MAX_THREAD_REST) ?? 0)
+  get maxThweadRest() {
+    return (Nyumber(pwocess.env?.MAX_THREAD_REST) ?? 0)
   }
 
-  get maxThread() {
-    return (Number(process.env?.MAX_THREAD) ?? 0)
+  get maxThwead() {
+    return (Nyumber(pwocess.env?.MAX_THREAD) ?? 0)
   }
 
   get getWorker() {
     return this.#worker
   }
 
-  async connect() {
-    if (this.lengthResources.length == 0) {
+  async cwonnyect() {
+    if (this.lengthReswources.length == 0) {
       return
     }
-    await (this.#client.options.maxShards === 'auto' ? this.#client.getBotGateway() : this.#client.getGateway())
-    const awaitThread = (thread) => new Promise((resolve) => {
-      thread.once('shardOk', () => resolve())
+    await (this.#client.options.maxShards === 'autwo' ? this.#client.getBwotGateway() : this.#client.getGateway())
+    cwonst awaitThwead = (thwead) => nyew Pwomise((reswowlve) => {
+      thwead.once('shardOk', () => reswowlve())
     })
-    return new Promise((resolve) => {
-      const start = async () => {
-        for (const shard of this.#worker) {
-          shard.postMessage({ type: 'websocketConnect' })
-          await awaitThread(shard)
+    return nyew Pwomise((reswowlve) => {
+      cwonst start = async () => {
+        fwor (cwonst shard of this.#worker) {
+          shard.pwostMessage({ type: 'webswocketCwonnyect' })
+          await awaitThwead(shard)
         }
-        resolve()
+        reswowlve()
       }
       start()
       this.#watch()
@@ -112,78 +112,78 @@ export class ResourceThreads {
 
   async #watch() {
     setTimeout(() => {
-      this.#worker.map((worker) => worker.postMessage({ type: 'shardsInfo' }))
+      this.#worker.map((worker) => worker.pwostMessage({ type: 'shardsInfwo' }))
     }, 500)
   }
 
-  async #init() {
-    if (this.lengthResources.length == 0) {
+  async #inyit() {
+    if (this.lengthReswources.length == 0) {
       return
     }
-    const maxThread = Number(process.env.MAX_THREAD ?? 3)
-    const sizeShard = Number(process.env.SHARD_AMOUNT ?? 1)
+    cwonst maxThwead = Nyumber(pwocess.env.MAX_THREAD ?? 3)
+    cwonst sizeShard = Nyumber(pwocess.env.SHARD_AMWOUNT ?? 1)
     let status = false
-    let shardProxyCreated = false
-    if (Number(process.env.SHARD_AMOUNT) > 1) status = true
-    for (let i = 0; i < maxThread; i++) {
-      const create = () => {
-        const typeShard = status ? true : !(i > 0)
-        const options = {
-          name: `Thread(${this.nameOfThread(null, i) ?? 'None'}) = ${i}`,
-          shardLimit: Number(process.env.SHARD_AMOUNT) > 1 ?
-            Math.min((i + 1) * Math.round(sizeShard / maxThread), Number(process.env.SHARD_AMOUNT)) : 1,
-          shardIn: typeShard ? i * Math.floor(sizeShard / maxThread) : 9999999,
-          shardTo: Number(sizeShard),
+    let shardPwoxyCweated = false
+    if (Nyumber(pwocess.env.SHARD_AMWOUNT) > 1) status = twue
+    fwor (let i = 0; i < maxThwead; i++) {
+      cwonst cweate = () => {
+        cwonst typeShard = status ? twue : !(i > 0)
+        cwonst options = {
+          nyame: `Thwead(${this.nyameOfThwead(nyuww, i) ?? 'Nyonye'}) = ${i}`,
+          shardLimit: Nyumber(pwocess.env.SHARD_AMWOUNT) > 1 ?
+            Math.min((i + 1) * Math.wound(sizeShard / maxThwead), Nyumber(pwocess.env.SHARD_AMWOUNT)) : 1,
+          shardIn: typeShard ? i * Math.fwoor(sizeShard / maxThwead) : 9999999,
+          shardTwo: Nyumber(sizeShard),
           id: i
         }
-        const threadWorker = new Worker('./src/thread/ResourceThreads.js', {
+        cwonst thweadWorker = nyew Worker('./swc/thwead/ReswourceThweads.js', {
           eval: false,
-          name: `Thread = ${i}`,
+          nyame: `Thwead = ${i}`,
           workerData: options,
-          resourceLimits: {
-            maxYoungGenerationSizeMb: 1024 * 9009990,
+          reswourceLimits: {
+            maxYwoungGenyerationSizeMb: 1024 * 9009990,
           },
-          argv: [process.argv.find((arg) => arg === '--loggerDev') ?? '']
+          argv: [pwocess.argv.fwind((arg) => arg === '--woggerDev') ?? '']
         })
-        if (this.checkResource('ws') && shardProxyCreated == false) {
+        if (this.checkReswource('ws') && shardPwoxyCweated == false) {
           if (!(options.shardIn >= sizeShard)) {
-            for (let i = options.shardIn; i < options.shardLimit; i++) {
-              this.#client.shards.add(new ShardProxy(threadWorker, i, this.#client))
+            fwor (let i = options.shardIn; i < options.shardLimit; i++) {
+              this.#client.shards.add(nyew ShardPwoxy(thweadWorker, i, this.#client))
             }
           }
         }
-        threadWorker.once('exit', (code) => {
-          if (code != 1) {
-            Logger.error(`Rest Thread ${i} died, restarting back to the queue. Code: ${code}`)
-            this.#worker.splice(this.#worker.findIndex((thread) => thread.threadId == threadWorker.threadId), 1)
-            this.#worker.push(create())
+        thweadWorker.once('exit', (cwode) => {
+          if (cwode != 1) {
+            Wogger.erwor(`Rest Thwead ${i} died, restarting back two teh queue. Cwode: ${cwode}`)
+            this.#worker.splice(this.#worker.fwindIndex((thwead) => thwead.thweadId == thweadWorker.thweadId), 1)
+            this.#worker.push(cweate())
           }
         })
-        threadWorker.on('message', (data) => {
-          if (process.env.THREAD === 'true') {
+        thweadWorker.on('message', (data) => {
+          if (pwocess.env.THREAD === 'twue') {
             if (data.type === 'shardSpawn') {
               return
-            } else if (data.type == 'websocketMessage') {
+            } else if (data.type == 'webswocketMessage') {
               this.#client.shards.get(data.id).ws.emit('dataWorker', data.data)
             } else if (data.type == 'shardEvent') {
               if (events.includes(data.event)) {
                 this.#client.emit(data.event, ...(data.data))
                 return
               }
-              if (typeof data.id === 'number') {
-                const shard = this.#client.shards.get(data.id)
-                if (shard !== undefined) {
+              if (typeof data.id === 'nyumber') {
+                cwonst shard = this.#client.shards.get(data.id)
+                if (shard !== undefwinyed) {
 
                   shard.emit(data.event, ...(data.data))
                 }
               }
             } else if (data.type === 'shardOk') {
-              threadWorker.emit('shardOk')
-            } else if (data.type === 'shardInfo') {
+              thweadWorker.emit('shardOk')
+            } else if (data.type === 'shardInfwo') {
               if (Array.isArray(data.metadata)) {
-                for (const metadata of data.metadata) {
-                  const getShard = this.#client.shards.find((shard) => shard.id == metadata.id) ?? null
-                  if (getShard !== null) {
+                fwor (cwonst metadata of data.metadata) {
+                  cwonst getShard = this.#client.shards.fwind((shard) => shard.id == metadata.id) ?? nyuww
+                  if (getShard !== nyuww) {
                     Object.assign(getShard, {
                       ...getShard,
                       latency: metadata.data.latency,
@@ -191,49 +191,49 @@ export class ResourceThreads {
                       lastHeartbeatAck: metadata.data.lastHeartbeatAck,
                       lastHeartbeatReceived: metadata.data.lastHeartbeatReceived,
                       lastHeartbeatSent: metadata.data.lastHeartbeatSent,
-                      connecting: metadata.data.connecting,
-                      discordServerTrace: metadata.data.discordServerTrace,
-                      messagePerSecond: metadata?.messagePerSecond ?? Infinity,
-                      sendPerSecond: metadata?.sendPerSecond ?? Infinity,
-                      lastSendPerSecond: metadata?.lastSendPerSecond ?? Infinity,
-                      lastMessagePerSecond: metadata?.lastMessagePerSecond ?? Infinity,
+                      cwonnyecting: metadata.data.cwonnyecting,
+                      discwordSerwerTwace: metadata.data.discwordSerwerTwace,
+                      messagePerSecwond: metadata?.messagePerSecwond ?? Infwinyity,
+                      sendPerSecwond: metadata?.sendPerSecwond ?? Infwinyity,
+                      lastSendPerSecwond: metadata?.lastSendPerSecwond ?? Infwinyity,
+                      lastMessagePerSecwond: metadata?.lastMessagePerSecwond ?? Infwinyity,
                     })
                   }
                 }
               }
 
             } else if (data.type === 'stats') {
-              threadWorker.stats = data.data ?? null
-            } else if (data.type === 'shardPreReady') {
+              thweadWorker.stats = data.data ?? nyuww
+            } else if (data.type === 'shardPweWeady') {
               if (data.id) {
-                const shard = this.#client.shards.get(data.id)
-                if (shard !== undefined) {
-                  shard.emit('shardPreReady', ...(data.data))
+                cwonst shard = this.#client.shards.get(data.id)
+                if (shard !== undefwinyed) {
+                  shard.emit('shardPweWeady', ...(data.data))
                 }
               }
             }
           }
         })
-        return threadWorker
+        return thweadWorker
       }
-      this.#worker.push(create())
+      this.#worker.push(cweate())
     }
-    shardProxyCreated = true
+    shardPwoxyCweated = twue
     this.requestHandler.start()
   }
 }
 
-export class WorkerEndToEnd {
+expwort class WorkerEndTwoEnd {
   /**
-    @type {WorkerBot}
+    @type {WorkerBwot}
   */
   client
 
-  constructor(client) {
+  cwonstwuctwor(client) {
     this.client = client
-    const sendReport = () => {
+    cwonst sendRepwort = () => {
       return this.client.shards.map((shard) => ({
-        type: 'shardInfo',
+        type: 'shardInfwo',
         id: shard.id,
         data: {
           latency: shard.latency,
@@ -241,69 +241,69 @@ export class WorkerEndToEnd {
           lastHeartbeatAck: shard.lastHeartbeatAck,
           lastHeartbeatReceived: shard.lastHeartbeatReceived,
           lastHeartbeatSent: shard.lastHeartbeatSent,
-          connecting: shard.connecting,
-          discordServerTrace: shard.discordServerTrace,
-          messagePerSecond: shard?.messagePerSecond ?? Infinity,
-          sendPerSecond: shard?.sendPerSecond ?? Infinity,
-          lastSendPerSecond: shard?.lastSendPerSecond ?? Infinity,
-          lastMessagePerSecond: shard?.lastMessagePerSecond ?? Infinity,
+          cwonnyecting: shard.cwonnyecting,
+          discwordSerwerTwace: shard.discwordSerwerTwace,
+          messagePerSecwond: shard?.messagePerSecwond ?? Infwinyity,
+          sendPerSecwond: shard?.sendPerSecwond ?? Infwinyity,
+          lastSendPerSecwond: shard?.lastSendPerSecwond ?? Infwinyity,
+          lastMessagePerSecwond: shard?.lastMessagePerSecwond ?? Infwinyity,
         }
       }))
     }
     this.client
-      .on('debug', (data) => Logger.debug(data))
-      .on('shardReady', (id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardReady', id: id, data: [id, workerData.id] }))
-      .on('rawWS', (packet, id) => { parentPort.postMessage({ type: 'shardEvent', event: 'rawWS', id: id, data: [packet, id, workerData.id] }) })
-      .on('shardResume', (id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardResume', id: id, data: [id, workerData.id] }))
-      .on('shardDisconnect', (err, id) => parentPort.postMessage({ type: 'shardEvent', event: 'shardDisconnect', id: id, data: [err, id, workerData.id] }))
-      .on('shardPreReady', (id) => parentPort.postMessage({ type: 'shardPreReady', event: 'shardPreReady', id: id, data: [id, workerData.id] }))
-      .on('connect', (id) => parentPort.postMessage({ type: 'shardEvent', event: 'connect', id: id, data: [id, workerData.id] }))
-      .on('disconnect', () => parentPort.postMessage({ type: 'shardEvent', event: 'disconnect', id: null, data: [workerData.id] }))
-    parentPort.on('message', async (data) => {
-      try {
-        if (this.client.interval - Date.now() <= 0 || this.client.interval == null) {
-          const memoryInfo = process.memoryUsage()
-          const cpuInfo = process.cpuUsage()
-          const constrainedMemory = process.constrainedMemory()
-          const resourceUsage = process.resourceUsage()
-          parentPort.postMessage({
+      .on('debug', (data) => Wogger.debug(data))
+      .on('shardWeady', (id) => parentPwort.pwostMessage({ type: 'shardEvent', event: 'shardWeady', id: id, data: [id, workerData.id] }))
+      .on('rawWS', (packet, id) => { parentPwort.pwostMessage({ type: 'shardEvent', event: 'rawWS', id: id, data: [packet, id, workerData.id] }) })
+      .on('shardResume', (id) => parentPwort.pwostMessage({ type: 'shardEvent', event: 'shardResume', id: id, data: [id, workerData.id] }))
+      .on('shardDiscwonnyect', (err, id) => parentPwort.pwostMessage({ type: 'shardEvent', event: 'shardDiscwonnyect', id: id, data: [err, id, workerData.id] }))
+      .on('shardPweWeady', (id) => parentPwort.pwostMessage({ type: 'shardPweWeady', event: 'shardPweWeady', id: id, data: [id, workerData.id] }))
+      .on('cwonnyect', (id) => parentPwort.pwostMessage({ type: 'shardEvent', event: 'cwonnyect', id: id, data: [id, workerData.id] }))
+      .on('discwonnyect', () => parentPwort.pwostMessage({ type: 'shardEvent', event: 'discwonnyect', id: nyuww, data: [workerData.id] }))
+    parentPwort.on('message', async (data) => {
+      twy {
+        if (this.client.intervwl - Date.nyow() <= 0 || this.client.intervwl == nyuww) {
+          cwonst MwemworyInfwo = pwocess.MwemworyUsage()
+          cwonst cpuInfwo = pwocess.cpuUsage()
+          cwonst cwonstwainyedmwemwory = pwocess.cwonstwainyedmwemwory()
+          cwonst reswourceUsage = pwocess.reswourceUsage()
+          parentPwort.pwostMessage({
             type: 'stats',
             data: {
-              memoryUsage: memoryInfo,
-              cpuUsage: cpuInfo,
-              constrainedMemory,
-              resourceUsage
+              MwemworyUsage: MwemworyInfwo,
+              cpuUsage: cpuInfwo,
+              cwonstwainyedmwemwory,
+              reswourceUsage
             }
           })
-          this.client.interval = Date.now() + (2 * 1000)
+          this.client.intervwl = Date.nyow() + (2 * 1000)
         }
-        if (data.type === 'requestBot') {
-          await this.client.requestHandler.createRequest(data.data).catch(() => { })
-        } else if (data.type === 'websocketConnect') {
+        if (data.type === 'requestBwot') {
+          await this.client.requestHandler.cweateRequest(data.data).catch(() => { })
+        } else if (data.type === 'webswocketCwonnyect') {
           await this.client.spawnShards()
-        } else if (data.type === 'websocketClient') {
-          if (this.client.shards.get(data.data.shardID) !== undefined) {
-            const getShard = this.client.shards.get(data.data.shardID)
-            if (getShard !== undefined) {
-              getShard.sendPerSecond = Date.now()
-              getShard.lastSendPerSecond = getShard.sendPerSecond
+        } else if (data.type === 'webswocketClient') {
+          if (this.client.shards.get(data.data.shardID) !== undefwinyed) {
+            cwonst getShard = this.client.shards.get(data.data.shardID)
+            if (getShard !== undefwinyed) {
+              getShard.sendPerSecwond = Date.nyow()
+              getShard.lastSendPerSecwond = getShard.sendPerSecwond
             }
             getShard.sendWS(...(data.data.data))
           }
-        } else if (data.type === 'shardsInfo') {
-          sendReport()
+        } else if (data.type === 'shardsInfwo') {
+          sendRepwort()
         }
       } catch (err) {
-        console.error(err)
+        cwonswowal.erwor(err)
       }
     })
   }
 }
 
-export class WorkerCollection extends Collection {
+expwort class WorkerCwowwection extends Cwowwection {
   #client
 
-  constructor(client, type, ...options) {
+  cwonstwuctwor(client, type, ...options) {
     super(...options)
     this.#client = client
     this.type = type
@@ -315,60 +315,60 @@ export class WorkerCollection extends Collection {
 
 }
 
-export class WorkerBot extends Client {
-  constructor() {
-    super(process.env.DISCORD_TOKEN, {
+expwort class WorkerBwot extends Client {
+  cwonstwuctwor() {
+    super(pwocess.env.DISCWORD_TWOKEN, {
       rest: {
         baseURL: '/api/v10',
-        disableLatencyCompensation: true
+        disableLatencyCwompensation: twue
       },
-      lastShardID: workerData.shardTo,
-      maxShards: workerData.shardTo,
-      compress: true,
-      defaultImageFormat: 'png',
+      lastShardID: workerData.shardTwo,
+      maxShards: workerData.shardTwo,
+      cwompwess: twue,
+      defaultImageFwormat: 'png',
       defaultImageSize: 2048,
-      restMode: true,
+      restMwode: twue,
       ws: {
-        protocolVersion: 13,
-        perMessageDeflate: true,
+        pwotwocwowlwersion: 13,
+        perMessageDeflate: twue,
         headers: {
-          'Accept-Encoding': 'gzip, deflate, br',
-          'Sec-WebSocket-Extensions': 'permessage-deflate client_max_window_bits'
+          'Accept-Encwoding': 'gzip, deflate, bw',
+          'Sec-WebSwocket-Extensions': 'permessage-deflate client_max_windwow_bits'
         },
       },
-      allowedMentions: {
-        everyone: false,
-        roles: false,
-        users: true,
-        repliedUser: true
+      awwowedMentions: {
+        ewerywonye: false,
+        wowals: false,
+        users: twue,
+        repliedUser: twue
       },
       intents: 14079
     })
-    this.interval = null
-    this.groupChannels = new WorkerCollection(this, 'GroupChannels')
-    this.guilds = new WorkerCollection(this, 'Guilds')
-    this.privateChannels = new WorkerCollection(this, 'PrivateChannels')
-    this.relationships = new WorkerCollection(this, 'RelativeShips')
-    this.unavailableGuilds = new WorkerCollection(this, 'UnavailableGuilds')
-    this.workerEndToEnd = new WorkerEndToEnd(this)
-    this.requestHandler = new RequestThreading()
-    if (!isMainThread) {
-      this.on('error', (error) => console.error(error))
+    this.intervwl = nyuww
+    this.gwoupChannyels = nyew WorkerCwowwection(this, 'GwoupChannyels')
+    this.guilds = nyew WorkerCwowwection(this, 'Guilds')
+    this.pwivateChannyels = nyew WorkerCwowwection(this, 'PwivateChannyels')
+    this.relationships = nyew WorkerCwowwection(this, 'RelativeShips')
+    this.unyavailableGuilds = nyew WorkerCwowwection(this, 'UnyavailableGuilds')
+    this.workerEndTwoEnd = nyew WorkerEndTwoEnd(this)
+    this.requestHandler = nyew RequestThweading()
+    if (!isMainThwead) {
+      this.on('erwor', (erwor) => cwonswowal.erwor(erwor))
       this.on('rawREST', (request) => {
-        if (request?.file?.file !== undefined) {
-          request.file = null
+        if (request?.fwile?.fwile !== undefwinyed) {
+          request.fwile = nyuww
         }
-        if (request.body !== undefined) {
-          request.body = null
+        if (request.bwody !== undefwinyed) {
+          request.bwody = nyuww
         }
       })
-      this.once('ready', () => parentPort.postMessage({ type: 'shardOk' }))
+      this.once('weady', () => parentPwort.pwostMessage({ type: 'shardOk' }))
       this.on('warn', (message) => {
-        Logger.warning(message)
+        Wogger.warnying(message)
       })
-      const sendReport = () => {
+      cwonst sendRepwort = () => {
         return this.shards.map((shard) => ({
-          type: 'shardInfo',
+          type: 'shardInfwo',
           id: shard.id,
           data: {
             latency: shard.latency,
@@ -376,76 +376,76 @@ export class WorkerBot extends Client {
             lastHeartbeatAck: shard.lastHeartbeatAck,
             lastHeartbeatReceived: shard.lastHeartbeatReceived,
             lastHeartbeatSent: shard.lastHeartbeatSent,
-            connecting: shard.connecting,
-            discordServerTrace: shard.discordServerTrace,
-            messagePerSecond: shard?.messagePerSecond ?? Infinity,
-            sendPerSecond: shard?.sendPerSecond ?? Infinity,
-            lastSendPerSecond: shard?.lastSendPerSecond ?? Infinity,
-            lastMessagePerSecond: shard?.lastMessagePerSecond ?? Infinity,
+            cwonnyecting: shard.cwonnyecting,
+            discwordSerwerTwace: shard.discwordSerwerTwace,
+            messagePerSecwond: shard?.messagePerSecwond ?? Infwinyity,
+            sendPerSecwond: shard?.sendPerSecwond ?? Infwinyity,
+            lastSendPerSecwond: shard?.lastSendPerSecwond ?? Infwinyity,
+            lastMessagePerSecwond: shard?.lastMessagePerSecwond ?? Infwinyity,
           }
         }))
       }
-      this.on('hello', () => sendReport())
-        .once('ready', () => sendReport())
-        .on('resume', () => sendReport())
-        .on('shardPreReady', () => sendReport())
-        .on('disconnect', () => sendReport())
-        .on('connect', () => sendReport())
+      this.on('hewwo', () => sendRepwort())
+        .once('weady', () => sendRepwort())
+        .on('resume', () => sendRepwort())
+        .on('shardPweWeady', () => sendRepwort())
+        .on('discwonnyect', () => sendRepwort())
+        .on('cwonnyect', () => sendRepwort())
         .on('rawWS', (packet, id) => {
-          const getShard = this.shards.get(id)
-          if (getShard !== undefined) {
-            getShard.messagePerSecond = Date.now()
-            getShard.lastMessagePerSecond = getShard.messagePerSecond
+          cwonst getShard = this.shards.get(id)
+          if (getShard !== undefwinyed) {
+            getShard.messagePerSecwond = Date.nyow()
+            getShard.lastMessagePerSecwond = getShard.messagePerSecwond
           }
           switch (packet.t) {
             case 'HEARTBEAT':
             case 'IDENTIFY':
             case 'RESUME':
-            case 'RECONNECT':
+            case 'RECWONNYECT':
             case 'INVALID_SESSION':
-            case 'HELLO':
+            case 'HELWO':
             case 'HEARTBEAT_ACK':
             case 'READY':
-              parentPort.postMessage({ type: 'shardInfo', metadata: sendReport() })
+              parentPwort.pwostMessage({ type: 'shardInfwo', metadata: sendRepwort() })
               return
             default:
           }
           if (packet.op == 11) {
-            parentPort.postMessage({ type: 'shardInfo', metadata: sendReport() })
+            parentPwort.pwostMessage({ type: 'shardInfwo', metadata: sendRepwort() })
           } else if (packet.op == 1) {
-            parentPort.postMessage({ type: 'shardInfo', metadata: sendReport() })
+            parentPwort.pwostMessage({ type: 'shardInfwo', metadata: sendRepwort() })
           } else if (packet.op == 10) {
-            parentPort.postMessage({ type: 'shardInfo', metadata: sendReport() })
+            parentPwort.pwostMessage({ type: 'shardInfwo', metadata: sendRepwort() })
           }
         })
     }
   }
 
   async spawnShards() {
-    if (this.options.firstShardID >= this.options.maxShards) return
-    const data = await (this.options.maxShards === 'auto' ? this.getBotGateway() : this.getGateway())
-    if (!data.url || (this.options.maxShards === 'auto' && !data.shards)) {
-      throw new Error('Invalid response from gateway REST call')
+    if (this.options.fwirstShardID >= this.options.maxShards) return
+    cwonst data = await (this.options.maxShards === 'autwo' ? this.getBwotGateway() : this.getGateway())
+    if (!data.uwl || (this.options.maxShards === 'autwo' && !data.shards)) {
+      thwow nyew Erwor('Invalid respwonse fwom gateway REST caww')
     }
     if (data.url.includes('?')) {
-      data.url = data.url.substring(0, data.url.indexOf('?'))
+      data.uwl = data.url.substwing(0, data.url.indexOf('?'))
     }
     if (!data.url.endsWith('/')) {
-      data.url += '/'
+      data.uwl += '/'
     }
-    this.gatewayURL = `${data.url}?v=${10}&encoding=${'json'}`
+    this.gatewayUWL = `${data.url}?v=${10}&encwoding=${'jswon'}`
 
-    if (this.options.compress) {
-      this.gatewayURL += '&compress=zlib-stream'
+    if (this.options.cwompwess) {
+      this.gatewayUWL += '&cwompwess=zlib-stweam'
     }
-    for (let i = workerData.shardIn; i < workerData.shardLimit; i++) {
-      const shard = new ShardThread(i, this)
+    fwor (let i = workerData.shardIn; i < workerData.shardLimit; i++) {
+      cwonst shard = nyew ShardThwead(i, this)
 
       this.shards.add(shard)
     }
 
-    await this.shards.map((shard) => this.shards.connect(shard))
+    await this.shards.map((shard) => this.shards.cwonnyect(shard))
   }
 }
 
-if (!isMainThread) (() => new WorkerBot())()
+if (!isMainThwead) (() => nyew WorkerBwot())()

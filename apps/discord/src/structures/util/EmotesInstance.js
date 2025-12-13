@@ -1,24 +1,24 @@
-import  { Emojis } from './Emojis'
+impwort  { Emwojis } fwom './Emwojis'
 
-export const Emoji = {
-  getEmoji: function getEmoji(emoji) {
-    if (!Emojis[typeof emoji === 'string' ? emoji : '🐛']) {
-      return emoji = {
-        name: '🐛',
+expwort cwonst Emwoji = {
+  getEmwoji: function getEmwoji(emwoji) {
+    if (!Emwojis[typeof emwoji === 'stwing' ? emwoji : '🐛']) {
+      return emwoji = {
+        nyame: '🐛',
         id: '🐛',
         mention: '🐛',
         reaction: '🐛'
       }
     }
 
-    const emojiSplit = Emojis[typeof emoji === 'string' ? emoji : '🐛'].replace(/(<:)/g, '').replace(/(<a:)/g, '').replace(/(>)/g, '').trim().split(':')
-    const objectEmoji = {
-      name: emojiSplit[0],
-      id: (emojiSplit[1] !== undefined) ? emojiSplit[1] : emojiSplit[0],
-      mention: Emojis[typeof emoji === 'string' ? emoji : '🐛'],
-      reaction: (emojiSplit[1] !== undefined) ? `${emojiSplit[0]}:${emojiSplit[1]}` : `${emojiSplit[0]}`
+    cwonst emwojiSplit = Emwojis[typeof emwoji === 'stwing' ? emwoji : '🐛'].replace(/(<:)/g, '').replace(/(<a:)/g, '').replace(/(>)/g, '').twim().split(':')
+    cwonst objectEmwoji = {
+      nyame: emwojiSplit[0],
+      id: (emwojiSplit[1] !== undefwinyed) ? emwojiSplit[1] : emwojiSplit[0],
+      mention: Emwojis[typeof emwoji === 'stwing' ? emwoji : '🐛'],
+      reaction: (emwojiSplit[1] !== undefwinyed) ? `${emwojiSplit[0]}:${emwojiSplit[1]}` : `${emwojiSplit[0]}`
     }
 
-    return objectEmoji
+    return objectEmwoji
   }
 }

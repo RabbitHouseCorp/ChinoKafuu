@@ -1,91 +1,91 @@
-import { defineState } from '../../../defineTypes/defineState'
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { profileInfo } from '../../../structures/util/Constants'
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { pwofwileInfwo } fwom '../../../stwuctures/util/Cwonstants'
 
-export default class ShopProfileCommand extends Command {
-  constructor() {
+expwort default class ShwopPwofwileCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'shop profile',
+      nyame: 'shwop pwofwile',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const user = ctx.db.user
-    const profiles = Object.entries(profileInfo)
-    const avatar = ctx.message.author.avatarURL
-    const marryWith = user.isMarry ? await ctx.getUser(user.marryWith) : null
-    const profileComponent = profiles
-      // eslint-disable-next-line no-unused-vars
-      .filter(([_, v]) => v.isDefault === false && v.readyForSale === true)
-      .filter(([_, v]) => v.disabled === false)
-      // eslint-disable-next-line no-unused-vars
+    cwonst user = ctx.db.user
+    cwonst pwofwiles = Object.entwies(pwofwileInfwo)
+    cwonst avatar = ctx.message.authwor.avatarUWL
+    cwonst marryWith = user.isMarry ? await ctx.getUser(user.marryWith) : nyuww
+    cwonst pwofwileCwompwonyent = pwofwiles
+      // eslint-disable-nyext-linye nyo-unyused-vars
+      .fwilter(([_, v]) => v.isDefault === false && v.weadyFworSale === twue)
+      .fwilter(([_, v]) => v.disabled === false)
+      // eslint-disable-nyext-linye nyo-unyused-vars
       .map(([_, v]) => ({
-        label: (user.profileList.includes(v._id) ? `${ctx._locale(`basic:profiles.${v._id}.name`)} - (${ctx._locale('commands:shop.itemPurschased')})` : v.name),
+        label: (user.pwofwileList.includes(v._id) ? `${ctx._wocale(`basic:pwofwiles.${v._id}.nyame`)} - (${ctx._wocale('cwommands:shwop.itemPurschased')})` : v.nyame),
         value: v._id,
-        description: ctx._locale(`basic:profiles.${v._id.toLocaleLowerCase()}.shortDescription`),
-        custom_id: v.buttonId,
+        descwiption: ctx._wocale(`basic:pwofwiles.${v._id.twoWocaleWowerCase()}.shwortDescwiption`),
+        custwom_id: v.buttwonId,
         default: false
       }))
-    const state = defineState({
+    cwonst state = defwinyeState({
       action: '',
-      componentSelected: '',
-      profileType: user.profileType,
+      cwompwonyentSelected: '',
+      pwofwileType: user.pwofwileType,
       married: user.isMarry,
-      partnerName: marryWith ? `@${marryWith?.username}` : '',
+      partnyerNyame: marryWith ? `@${marryWith?.usernyame}` : '',
       user,
       marryWith,
       avatar,
-      profileInfo,
-      profileComponent,
-      componentsProfile: [
+      pwofwileInfwo,
+      pwofwileCwompwonyent,
+      cwompwonyentsPwofwile: [
         {
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'listProfile',
+            custwom_id: 'listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: profileComponent
+            options: pwofwileCwompwonyent
           }]
         }
       ]
-    }, { eventEmitter: true })
+    }, { eventEmitter: twue })
     ctx.send({
-      content: ctx._locale('commands:shop.profile.welcomeToTheShop'),
-      components: [{
+      cwontent: ctx._wocale('cwommands:shwop.pwofwile.welcwomeTwoTheShwop'),
+      cwompwonyents: [{
         type: 1,
-        components: [{
+        cwompwonyents: [{
           type: 3,
-          custom_id: 'listProfile',
+          custwom_id: 'listPwofwile',
           max_values: 1,
           min_values: 1,
-          options: profileComponent
+          options: pwofwileCwompwonyent
         }]
       }]
     }).then((message) => {
-      ctx.createInteractionFunction(['shopProfileRenderInteraction', 'shopProfileInteraction'], message, {
+      ctx.cweateInteractionFunction(['shwopPwofwileRenderInteraction', 'shwopPwofwileInteraction'], message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
 
       state.actionState.event.on('stateUpdated', (stateUpdated) => {
-        if (stateUpdated.action !== '' && stateUpdated.profileType !== undefined) {
-          user.yens -= stateUpdated.price
-          user.profileList.push(stateUpdated.profileType)
+        if (stateUpdated.action !== '' && stateUpdated.pwofwileType !== undefwinyed) {
+          user.yens -= stateUpdated.pwice
+          user.pwofwileList.push(stateUpdated.pwofwileType)
           user.save()
             .then(() => {
-              state.actionState.event.emit('done')
+              state.actionState.event.emit('dwonye')
             }).catch((err) => {
-              state.actionState.event.emit('error', err)
+              state.actionState.event.emit('erwor', err)
             })
         }
       })

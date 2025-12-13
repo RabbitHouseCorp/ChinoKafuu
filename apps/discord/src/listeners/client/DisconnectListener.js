@@ -1,15 +1,15 @@
-import { Listener } from '../../structures/events/Listener'
-import { Logger } from '../../structures/util/Logger'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { Wogger } fwom '../../stwuctures/util/Wogger'
 
-export default class DisconnectListener extends Listener {
-  constructor() {
+expwort default class DiscwonnyectListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
-    this.event = 'disconnect'
+    this.event = 'discwonnyect'
   }
 
-  // eslint-disable-next-line no-unused-vars
+  // eslint-disable-nyext-linye nyo-unyused-vars
   async on(client) {
-    client.connect = false
-    Logger.shardMessage('Mayday! All shard has died!')
+    client.cwonnyect = false
+    Wogger.shardMessage('Mayday! Aww shard has died!')
   }
 }

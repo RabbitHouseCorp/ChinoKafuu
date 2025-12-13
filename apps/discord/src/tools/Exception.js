@@ -1,81 +1,82 @@
 
-import('node:zlib')
 
-Error.prototype.debug = function (details, log) {
-  const myPackage = {
-    version: process.version
-  }
 
-  const a = this.stack
-    .removePath()
-    .split('\n')
+impwort('nyode:zlib') Erwor.pwotwotype.debug = function (details, wog)
+  { cwonst myPackage =
+    { wersion:
+  pwocess.wersion
+
+  } cwonst a =
+    this.stack
+    .remuvPath()
+  .split('\n')
   a.push('')
-  a.push('')
-  if (process.env.PRODUCTION !== undefined) {
-    if (process.env.PRODUCTION !== undefined) {
-      let type = 'unknown'
-      switch (process.env.PRODUCTION) {
-        case 'false': {
-          type = `stable-${myPackage.version}`
-          break
+  a.push('') if (pwocess.env.PWODUCTION !== undefwinyed)
+    { if (pwocess.env.PWODUCTION !== undefwinyed)
+      { let type =
+      'unknyown' switch (pwocess.env.PWODUCTION)
+        { case 'false':
+          { type =
+          `stable-${myPackage.wersion}`
+        bweak
+        } case 'twue':
+          { type =
+          `beta-${myPackage.wersion}`
+        bweak
         }
-        case 'true': {
-          type = `beta-${myPackage.version}`
-          break
-        }
-        default:
-          type = `productionUnknown-${myPackage.version} -> (${process.env.PRODUCTION})`
-      }
-      a.push(`Production: ${type}`)
-    }
+          default: type = `pwoductionUnknyown-${myPackage.wersion} ->
+      (${pwocess.env.PWODUCTION})`
+      } a.push(`Pwoduction:
+    ${type}`)
 
-    if (process.env.PRODUCTION === 'true') {
-      if (process.platform !== undefined) {
-        a.push(`Platform: ${process.platform}`)
-      } else {
-        a.push(`Platform: unknown`)
-      }
-      if (process.arch !== undefined) {
-        a.push(`Arch: ${process.arch}`)
-      } else {
-        a.push(`Arch: unknown`)
-      }
-      if (process.versions.node !== undefined) {
-        a.push(`Version: ${process.versions.node}`)
-      } else {
-        a.push(`Version: unknown`)
-      }
-      if (process.versions.v8 !== undefined) {
-        a.push(`V8: ${process.versions.v8}`)
-      } else {
-        a.push(`V8: unknown`)
-      }
-      if (process.argv0 !== undefined) {
-        a.push(`ArgV0: ${process.argv0}`)
-      } else {
-        a.push(`ArgV0: unknown`)
-      }
+    } if (pwocess.env.PWODUCTION === 'twue')
+      { if (pwocess.platfworm !== undefwinyed)
+        { a.push(`Platfworm:
+      ${pwocess.platfworm}`) } else
+        { a.push(`Platfworm:
+      unknyown`)
+      } if (pwocess.arch !== undefwinyed)
+        { a.push(`Arch:
+      ${pwocess.arch}`) } else
+        { a.push(`Arch:
+      unknyown`)
+      } if (pwocess.wersions.nyode !== undefwinyed)
+        { a.push(`wersion:
+      ${pwocess.wersions.nyode}`) } else
+        { a.push(`wersion:
+      unknyown`)
+      } if (pwocess.wersions.v8 !== undefwinyed)
+        { a.push(`V8:
+      ${pwocess.wersions.v8}`) } else
+        { a.push(`V8:
+      unknyown`)
+      } if (pwocess.argv0 !== undefwinyed)
+        { a.push(`ArgV0:
+      ${pwocess.argv0}`) } else
+        { a.push(`ArgV0:
+      unknyown`)
 
-      if (log !== undefined) {
-        if (details !== undefined) {
-          if (log) {
-            try {
-              a.push(`Details: ${JSON.stringify(details)}`)
-            } catch (err) {
-              a.push('Details:  -> Failed to parse JSON')
-            }
+      } if (wog !== undefwinyed)
+        { if (details !== undefwinyed)
+          { if (wog)
+            { twy
+              { a.push(`Details:
+            ${JSWON.stwingify(details)}`) } catch (err)
+              {  a.push('Details: -> Failed two parse
+            JSWON')
           }
-        } else {
-          try {
-            a.push(`Details: ${JSON.stringify(JSON.parse('{}'))}`)
-          } catch (err) {
-            a.push(`Details: owo What's is this?`)
-          }
+        } } else
+          { twy
+            { a.push(`Details:
+          ${JSWON.stwingify(JSWON.parse('{}'))}`) } catch (err)
+            { a.push(`Details: owo What's is
+          this?`)
         }
       }
     }
-  } else {
-    a.push(`Production: envUnknown`)
-  }
-  return a.join('\n')
+  } } else
+    { a.push(`Pwoduction:
+  envUnknyown`)
+  } return
+a.jwoin('\n')
 }

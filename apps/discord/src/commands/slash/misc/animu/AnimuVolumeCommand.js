@@ -1,28 +1,28 @@
-import { Command, SlashCommandContext } from '../../../../structures/util'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class AnimuVolumeCommand extends Command {
-  constructor() {
+expwort default class AnyimuVowlumeCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'animu volume',
+      nyame: 'anyimu vowlume',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   run(ctx) {
-    if (!ctx.client.playerManager.isAvailable) return ctx.replyT('error', 'commands:animu.unavailable')
-    if (!ctx.message.guild.members.get(ctx.client.user.id).voiceState.channelID) return ctx.replyT('error', 'baisc:voice.clientAreNotInVoiceChannel')
-    if (!ctx.client.playerManager.getPlayer(ctx.message.guild.id).player.playingTrack) return ctx.replyT('error', 'basic:voice.playerNotFound')
-    if (parseInt(ctx.args.get('value').value) > 100) return ctx.replyT('error', 'basic:voice.maxVolume')
-    if (parseInt(ctx.args.get('value').value) < 5) return ctx.replyT('error', 'basic:voice.minVolume')
-    ctx.client.playerManager.getPlayer(ctx.message.guild.id).setVolume(ctx.args.get('value').value, 100)
-    ctx.replyT('success', 'commands:animu.volumeChanged')
+    if (!ctx.client.playerManyager.isAvailable) return ctx.repwyT('erwor', 'cwommands:anyimu.unyavailable')
+    if (!ctx.message.guild.Mwembers.get(ctx.client.user.id).voiceState.channyelID) return ctx.repwyT('erwor', 'baisc:voice.clientAreNyotInVoiceChannyel')
+    if (!ctx.client.playerManyager.getPlayer(ctx.message.guild.id).player.playingTwack) return ctx.repwyT('erwor', 'basic:voice.playerNyotFwound')
+    if (parseInt(ctx.args.get('value').value) > 100) return ctx.repwyT('erwor', 'basic:voice.maxVowlume')
+    if (parseInt(ctx.args.get('value').value) < 5) return ctx.repwyT('erwor', 'basic:voice.minVowlume')
+    ctx.client.playerManyager.getPlayer(ctx.message.guild.id).setVowlume(ctx.args.get('value').value, 100)
+    ctx.repwyT('success', 'cwommands:anyimu.vowlumeChanged')
   }
 }

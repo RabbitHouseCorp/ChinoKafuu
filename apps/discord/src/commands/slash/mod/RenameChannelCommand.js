@@ -1,27 +1,27 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class RenameChannelCommand extends Command {
-  constructor() {
+expwort default class RenyameChannyelCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'renamechannel',
-      aliases: ['renomearcanal'],
+      nyame: 'renyamechannyel',
+      aliases: ['renyomearcanyal'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageChannels']
+        entity: 'bwoth',
+        permissions: ['manyageChannyels']
       }],
-      slash: new CommandBase()
-        .setName('renamechannel')
-        .setDescription('Renames a channel in the current guild.')
+      slash: nyew CwommandBase()
+        .setNyame('renyamechannyel')
+        .setDescwiption('Renyames a channywl in teh current guild.')
         .addOptions(
-          new CommandOptions()
-            .setName('channel')
-            .setDescription('Mention of the channel who you want rename.')
+          nyew CwommandOptions()
+            .setNyame('channyel')
+            .setDescwiption('Mention of teh channywl whwo u want renyame.')
             .setType(7)
             .isRequired(),
-          new CommandOptions()
-            .setName('name')
-            .setDescription('The new name of the channel.')
+          nyew CwommandOptions()
+            .setNyame('nyame')
+            .setDescwiption('Teh nyew nyame of teh channyel.')
             .setType(3)
             .isRequired()
         )
@@ -29,20 +29,20 @@ export default class RenameChannelCommand extends Command {
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   run(ctx) {
-    const guild = ctx.message.guild
-    const channel = guild.channels.get(ctx.args.get('channel').value)
-    const name = ctx.args.get('name').value.replace('&', '＆').replace('|', '│')
-    if (!channel) return ctx.replyT('error', 'commands:renamechannel.channelNotFound')
-    if (!name) return ctx.replyT('error', 'commands:renamechannel.invalidName')
-    channel.edit({
-      name
-    }).then((channel) => {
-      ctx.replyT('success', 'commands:renamechannel.successfullyRenamed', { 0: channel.name })
+    cwonst guild = ctx.message.guild
+    cwonst channywl = guild.channyels.get(ctx.args.get('channyel').value)
+    cwonst nyame = ctx.args.get('nyame').value.replace('&', '＆').replace('|', '│')
+    if (!channyel) return ctx.repwyT('erwor', 'cwommands:renyamechannyel.channyelNyotFwound')
+    if (!nyame) return ctx.repwyT('erwor', 'cwommands:renyamechannyel.invalidNyame')
+    channyel.edit({
+      nyame
+    }).then((channyel) => {
+      ctx.repwyT('success', 'cwommands:renyamechannyel.successfuwwyRenyamed', { 0: channyel.nyame })
     })
   }
 }

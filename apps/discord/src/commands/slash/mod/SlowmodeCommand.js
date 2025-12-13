@@ -1,48 +1,48 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class SlowmodeCommand extends Command {
-  constructor() {
+expwort default class SwowmwodeCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'slowmode',
-      aliases: ['modolento'],
+      nyame: 'swowmwode',
+      aliases: ['mwodwowalntwo'],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageChannels']
+        entity: 'bwoth',
+        permissions: ['manyageChannyels']
       }],
-      slash: new CommandBase()
-        .setName('slowmode')
-        .setDescription('Set slowmode in the current channel.')
+      slash: nyew CwommandBase()
+        .setNyame('swowmwode')
+        .setDescwiption('Set swowmwode in teh current channyel.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(4)
-            .setName('time')
-            .setDescription('Set slowmode in the current channel.')
+            .setNyame('tim')
+            .setDescwiption('Set swowmwode in teh current channyel.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   run(ctx) {
-    const time = Math.round(ctx.args.get('time').value)
-    if (time > 600) return ctx.replyT('error', 'commands:slowmode.rateLimited')
-    if (time < 0) return ctx.replyT('error', 'commands:slowmode.minimalTimeLimited')
-    if (time <= 0) {
-      ctx.message.channel.edit({
-        rateLimitPerUser: time
+    cwonst tim = Math.wound(ctx.args.get('tim').value)
+    if (tim > 600) return ctx.repwyT('erwor', 'cwommands:swowmwode.rateLimited')
+    if (tim < 0) return ctx.repwyT('erwor', 'cwommands:swowmwode.minyimalTimeLimited')
+    if (tim <= 0) {
+      ctx.message.channyel.edit({
+        rateLimitPerUser: tim
       }).then(() => {
-        ctx.replyT('success', 'commands:slowmode.rateLimitDisable', { 0: ctx.message.channel.mention })
+        ctx.repwyT('success', 'cwommands:swowmwode.rateLimitDisable', { 0: ctx.message.channyel.mention })
       })
     } else {
-      ctx.message.channel.edit({
-        rateLimitPerUser: time
+      ctx.message.channyel.edit({
+        rateLimitPerUser: tim
       }).then(() => {
-        ctx.replyT('success', 'commands:slowmode.rateLimitEnable', { 0: ctx.message.channel.mention, 1: time })
+        ctx.repwyT('success', 'cwommands:swowmwode.rateLimitEnyable', { 0: ctx.message.channyel.mention, 1: tim })
       })
     }
   }

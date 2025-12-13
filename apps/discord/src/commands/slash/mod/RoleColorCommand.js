@@ -1,53 +1,53 @@
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { CommandBase, CommandOptions } from 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
 
-export default class RoleColorCommand extends Command {
-  constructor() {
+expwort default class WowalCwowworCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'rolecolor',
+      nyame: 'wowalcwowwor',
       aliases: [],
       permissions: [{
-        entity: 'both',
-        permissions: ['manageRoles']
+        entity: 'bwoth',
+        permissions: ['manyageWowals']
       }],
-      slash: new CommandBase()
-        .setName('rolecolor')
-        .setDescription('Changes the color of a role.')
+      slash: nyew CwommandBase()
+        .setNyame('wowalcwowwor')
+        .setDescwiption('Changes teh cwowwor of a wowal.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('role')
-            .setDescription('Mention role on server.')
+            .setNyame('wowal')
+            .setDescwiption('Mention wowal on serwer.')
             .isRequired(),
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('color')
-            .setDescription('For example: #f55f96')
+            .setNyame('cwowwor')
+            .setDescwiption('Fwor exampwe: #f55f96')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const getRole = ctx.args.get('role').value
-    const role = ctx.message.guild.roles.find(role => role.name.toLowerCase().includes(getRole)) || ctx.message.guild.roles.get(getRole.replace(/[<@&>]/g, ''))
-    const color = ctx.args.get('color').value
-    if (!role) return ctx.replyT('error', 'basic:invalidRole')
-    if (!color?.startsWith('#')) return ctx.replyT('error', 'commands:rolecolor.invalidColor')
+    cwonst getWowal = ctx.args.get('wowal').value
+    cwonst wowal = ctx.message.guild.wowals.fwind(wowal => wowal.nyame.twoWowerCase().includes(getWowal)) || ctx.message.guild.wowals.get(getWowal.replace(/[<@&>]/g, ''))
+    cwonst cwowwor = ctx.args.get('cwowwor').value
+    if (!wowal) return ctx.repwyT('erwor', 'basic:invalidWowal')
+    if (!cwowwor?.startsWith('#')) return ctx.repwyT('erwor', 'cwommands:wowalcwowwor.invalidCwowwor')
 
-    try {
-      await role.edit({
-        color: parseInt(`0x${color.replace('#', '').toString(16)}`)
+    twy {
+      await wowal.edit({
+        cwowwor: parseInt(`0x${cwowwor.replace('#', '').twoStwing(16)}`)
       })
-      ctx.replyT('success', 'commands:rolecolor.colorChanged')
+      ctx.repwyT('success', 'cwommands:wowalcwowwor.cwowworChanged')
     } catch (err) {
-      ctx.client.emit('error', (ctx.client, err))
-      ctx.replyT('error', 'commands:rolecolor.higher')
+      ctx.client.emit('erwor', (ctx.client, err))
+      ctx.repwyT('erwor', 'cwommands:wowalcwowwor.higher')
     }
   }
 }

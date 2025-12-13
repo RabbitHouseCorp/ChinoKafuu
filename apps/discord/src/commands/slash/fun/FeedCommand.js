@@ -1,44 +1,44 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { UsagiAPI } from 'usagiapi'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-const usagi = new UsagiAPI()
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { UsagiAPI } fwom 'usagiapi'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+cwonst usagi = nyew UsagiAPI()
 
-export default class FeedCommand extends Command {
-  constructor() {
+expwort default class FeedCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'feed',
+      nyame: 'feed',
       aliases: ['alimentar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('feed')
-        .setDescription('Feeds a user')
+      slash: nyew CwommandBase()
+        .setNyame('feed')
+        .setDescwiption('Feeds a user')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const image = await usagi.get({ endpoint: 'feed' })
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst image = await usagi.get({ endpwoint: 'feed' })
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
     embed.setImage(image)
-    embed.setDescription(ctx._locale('commands:feed.feed', { author: ctx.message.member.mention, user: member.mention }))
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setDescwiption(ctx._wocale('cwommands:feed.feed', { authwor: ctx.message.Mwember.mention, user: Mwember.mention }))
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

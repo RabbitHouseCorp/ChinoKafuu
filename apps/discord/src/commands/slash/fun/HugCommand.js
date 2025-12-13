@@ -1,45 +1,45 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { UsagiAPI } from 'usagiapi'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { UsagiAPI } fwom 'usagiapi'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-const usagi = new UsagiAPI()
+cwonst usagi = nyew UsagiAPI()
 
-export default class HugCommand extends Command {
-  constructor() {
+expwort default class HugCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'hug',
-      aliases: ['abraçar', 'abracar'],
+      nyame: 'hug',
+      aliases: ['abwaçar', 'abwacar'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('hug')
-        .setDescription('Hug a friend and make them happy.')
+      slash: nyew CwommandBase()
+        .setNyame('hug')
+        .setDescwiption('Hug a fwiend and make them happy.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const img = await usagi.get({ endpoint: 'hug' })
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
-    embed.setDescription(ctx._locale('commands:hug.huged', { 0: ctx.message.member.mention, 1: member.mention }))
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst img = await usagi.get({ endpwoint: 'hug' })
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
+    embed.setDescwiption(ctx._wocale('cwommands:hug.huged', { 0: ctx.message.Mwember.mention, 1: Mwember.mention }))
     embed.setImage(img)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

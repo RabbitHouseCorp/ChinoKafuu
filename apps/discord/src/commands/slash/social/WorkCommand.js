@@ -1,142 +1,142 @@
-import { CommandBase, CommandOptions } from 'eris';
-import { defineState } from '../../../defineTypes/defineState';
-import { Command, SlashCommandContext } from '../../../structures/util';
-import { TypeProfession } from '../../../structures/util/ConstantsTypes';
+impwort { CwommandBase, CwommandOptions } fwom 'eris';
+impwort { defwinyeState } fwom '../../../defwinyeTypes/defwinyeState';
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util';
+impwort { TypePwofession } fwom '../../../stwuctures/util/CwonstantsTypes';
 
-export default class WorkCommand extends Command {
-  constructor() {
+expwort default class WorkCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'work choose',
-      slash: new CommandBase()
-        .setName('work')
-        .setDescription('No description')
+      nyame: 'work chwoose',
+      slash: nyew CwommandBase()
+        .setNyame('work')
+        .setDescwiption('Nyo descwiption')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(1)
-            .setName('choose')
-            .setDescription('Apply to any job that you desire.'),
-          new CommandOptions()
+            .setNyame('chwoose')
+            .setDescwiption('Appwy two any jwob that u desire.'),
+          nyew CwommandOptions()
             .setType(1)
-            .setName('start')
-            .setDescription('Start your shift on the work that you have selected.')
+            .setNyame('start')
+            .setDescwiption('Start ywour shift on teh work that u have selected.')
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const userDB = ctx.db.user
+    cwonst userDB = ctx.db.user
 
-    const jobsList = Object.entries(TypeProfession)
-      .map(([k, [type, salary, emoji, text, time]]) => {
+    cwonst jwobsList = Object.entwies(TypePwofession)
+      .map(([k, [type, salary, emwoji, text, tim]]) => {
         return {
-          label: ctx._locale(text.toString()),
+          label: ctx._wocale(text.twoStwing()),
           value: k,
-          description: ctx._locale(`commands:work.description.${k}`),
-          custom_id: k,
-          emoji: {
-            id: null,
-            name: emoji
+          descwiption: ctx._wocale(`cwommands:work.descwiption.${k}`),
+          custwom_id: k,
+          emwoji: {
+            id: nyuww,
+            nyame: emwoji
           }
         }
       })
 
-    const commandWork = ctx.client.commands.find((i) => i.name === 'work')?.id ?? null
-    const commandRob = ctx.client.commands.find((i) => i.name === 'rob')?.id ?? null
+    cwonst cwommandWork = ctx.client.cwommands.fwind((i) => i.nyame === 'work')?.id ?? nyuww
+    cwonst cwommandWob = ctx.client.cwommands.fwind((i) => i.nyame === 'wob')?.id ?? nyuww
 
-    const state = defineState({
+    cwonst state = defwinyeState({
       userDB: ctx.db.user,
-      job: userDB.economy.work.job,
+      jwob: userDB.ecwonyomy.work.jwob,
       defaultMessage: {
         embeds: [{
-          title: ctx._locale(`commands:work.choose.title`),
-          description: ctx._locale(`commands:work.choose.description`) +
+          title: ctx._wocale(`cwommands:work.chwoose.title`),
+          descwiption: ctx._wocale(`cwommands:work.chwoose.descwiption`) +
             '\n\n' +
-            reformAsOrder(ctx._locale(`commands:work.rules`, {
-              0: commandRob != null ? `</rob:${commandRob}>` : '{0}',
-              1: commandWork != null ? `</work start:${commandWork}>` : '{0}',
+            refwormAsOrder(ctx._wocale(`cwommands:work.rules`, {
+              0: cwommandWob != nyuww ? `</wob:${cwommandWob}>` : '{0}',
+              1: cwommandWork != nyuww ? `</work start:${cwommandWork}>` : '{0}',
               2: '',
             })),
-          color: 16111443
+          cwowwor: 16111443
         }],
-        components: [{
+        cwompwonyents: [{
           type: 1,
-          components: [{
+          cwompwonyents: [{
             type: 3,
-            custom_id: 'select:listProfile',
+            custwom_id: 'select:listPwofwile',
             max_values: 1,
             min_values: 1,
-            options: jobsList
+            options: jwobsList
           }]
         }]
       }
-    }, { eventEmitter: true })
+    }, { eventEmitter: twue })
 
-    const useThen = (message) => {
-      ctx.createInteractionFunction(interactionFunctions, message, {
+    cwonst useThen = (message) => {
+      ctx.cweateInteractionFunction(interactionFunctions, message, {
         state,
-        users: [ctx.message.author.id]
+        users: [ctx.message.authwor.id]
       })
 
       state.actionState.event.on('stateUpdated', async (stateUpdated) => {
-        const profission = Object.entries(TypeProfession)
-          .map(([_, [type, salary, emoji, text, time, name]]) => ({ type, salary, emoji, text, time, name }))
-          .find((i) => i.type === Number(stateUpdated.data.jobSelected))
+        cwonst pwofwission = Object.entwies(TypePwofession)
+          .map(([_, [type, salary, emwoji, text, tim, nyame]]) => ({ type, salary, emwoji, text, tim, nyame }))
+          .fwind((i) => i.type === Nyumber(stateUpdated.data.jwobSelected))
 
-        if (profission === undefined && profission === null) {
+        if (pwofwission === undefwinyed && pwofwission === nyuww) {
           state.actionState.event.emit('refuseInteraction')
           return;
         }
-        if (profission.type != 2) {
-          userDB.intervals.job_interval = Date.now() + profission.time
+        if (pwofwission.type != 2) {
+          userDB.intervals.jwob_intervwl = Date.nyow() + pwofwission.tim
         }
-        userDB.economy.work.job = profission.type
-        userDB.lastUpdates.job = Date.now()
+        userDB.ecwonyomy.work.jwob = pwofwission.type
+        userDB.lastUpdates.jwob = Date.nyow()
         userDB.save().then(() => {
-          state.actionState.event.emit('done')
+          state.actionState.event.emit('dwonye')
         })
 
       })
     }
 
-    if (userDB.economy.work.job != -1)
+    if (userDB.ecwonyomy.work.jwob != -1)
       return ctx.send({
-        content: `❓ **|** ` + ctx._locale(userDB.economy.work.job === 2 ? 'commands:work.errors.robError' : 'commands:work.errors.message'),
-        flags: userDB.economy.work.job === 2 ? 1 << 6 : 0,
-        components: [{
+        cwontent: `❓ **|** ` + ctx._wocale(userDB.ecwonyomy.work.jwob === 2 ? 'cwommands:work.erwors.wobErwor' : 'cwommands:work.erwors.message'),
+        flags: userDB.ecwonyomy.work.jwob === 2 ? 1 << 6 : 0,
+        cwompwonyents: [{
           type: 1,
-          components: [
+          cwompwonyents: [
             {
               type: 2,
-              label: ctx._locale(`commands:work.yes`),
+              label: ctx._wocale(`cwommands:work.yes`),
               style: 1,
-              custom_id: 'work:continue'
+              custwom_id: 'work:cwontinyue'
             },
             {
               type: 2,
-              label: ctx._locale(`commands:work.no`),
+              label: ctx._wocale(`cwommands:work.nyo`),
               style: 2,
-              custom_id: 'work:no'
+              custwom_id: 'work:nyo'
             }
           ]
         }]
       })
         .then(useThen)
     else {
-      if (!(userDB.intervals.job_interval - Date.now() <= 0)) return ctx.send({ content: '💼 **|** ' + ctx._locale(`commands:work.errors.cannotChangeJobsAtTheMoment`) })
-      if (!(userDB.intervals.rob_interval - Date.now() <= 0)) return ctx.send({ content: '💼 **|** ' + ctx._locale(`commands:work.errors.cannotChangeJobsAtTheMoment`), flags: 1 << 6 })
+      if (!(userDB.intervals.jwob_intervwl - Date.nyow() <= 0)) return ctx.send({ cwontent: '💼 **|** ' + ctx._wocale(`cwommands:work.erwors.cannyotChangeJwobsAtTheMwoment`) })
+      if (!(userDB.intervals.wob_intervwl - Date.nyow() <= 0)) return ctx.send({ cwontent: '💼 **|** ' + ctx._wocale(`cwommands:work.erwors.cannyotChangeJwobsAtTheMwoment`), flags: 1 << 6 })
     }
 
     ctx.send(state.defaultMessage).then(useThen)
   }
 }
 
-const interactionFunctions = ['workInteraction', 'workInteractionSelection', 'workInteractionAffirmation']
-const reformAsOrder = (text = '') => {
-  return text.replace(/([0-9]+ - .*)/g, (str) => '\n  ' + str + '\n')
-    .replace(/(([0-9]\s)[-])/g, (str) => `**${str}**`)
+cwonst interactionFunctions = ['workInteraction', 'workInteractionSelection', 'workInteractionAffwirmation']
+cwonst refwormAsOrder = (text = '') => {
+  return text.replace(/([0-9]+ - .*)/g, (stw) => '\n  ' + stw + '\n')
+    .replace(/(([0-9]\s)[-])/g, (stw) => `**${stw}**`)
 }

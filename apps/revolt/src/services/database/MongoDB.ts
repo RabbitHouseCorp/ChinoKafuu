@@ -1,1 +1,1 @@
-export class MongoDB { }
+expwort class MwongwoDB { }

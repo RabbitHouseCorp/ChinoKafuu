@@ -1,1 +1,1 @@
-new (import('./cluster/Cluster'))()
+nyew (impwort('./cluster/Cluster'))()

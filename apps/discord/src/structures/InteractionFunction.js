@@ -1,126 +1,126 @@
-/* eslint-disable no-unused-vars */
-import { isAsyncFunction } from 'util/types'
-// eslint-disable-next-line import/named
-import { StateDataEffect, defineState } from '../defineTypes/defineState'
-import { InteractionContext } from './InteractionContext'
-const defineStateDefault = defineState({ default: false })
+/* eslint-disable nyo-unyused-vars */
+impwort { isAsyncFunction } fwom 'util/types'
+// eslint-disable-nyext-linye impwort/nyamed
+impwort { StateDataEffect, defwinyeState } fwom '../defwinyeTypes/defwinyeState'
+impwort { InteractionCwontext } fwom './InteractionCwontext'
+cwonst defwinyeStateDefault = defwinyeState({ default: false })
 
 /**
  * @template S
- * @typedef TypeDefineInteractionState
- * @type {defineInteractionFunction<S>}
+ * @typedef TypeDefwinyeInteractionState
+ * @type {defwinyeInteractionFunction<S>}
  *
  */
 
 /**
  * @template T
- * @typedef {object} defineOptionsCtx
- * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
- * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
- * @property {InteractionContext['editT']} editT
- * @property {InteractionContext['editMessage']} editMessage
- * @property {InteractionContext['editMessageT']} editMessageT
- * @property {InteractionContext['editInteraction']} editInteraction
- * @property {InteractionContext['edit']} edit
- * @property {InteractionContext['getUserInteraction']} getUserInteraction
- * @property {InteractionContext['reply']} reply
- * @property {InteractionContext['replyT']} replyT
- * @property {InteractionContext['send']} send
- * @property {InteractionContext['sendT']} sendT
- * @property {InteractionContext['useModal']} useModal
- * @property {InteractionContext['userGetsInteractionAccess']} userGetsInteractionAccess
- * @property {InteractionContext['getState']} getState
- * @property {InteractionContext['deleteInteraction']} deleteInteraction
- * @property {InteractionContext['sendEmbedPage']} sendEmbedPage
- * @property {(args: 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:', placeholder: Object.<number, string | 'Text example.'>) => string} _locale
- * @property {InteractionContext['getData']} getData
- * @property {InteractionContext['getArg']} getArg
- * @property {InteractionContext} ctx
- * @property {(func?: (var: StateDataEffect<T>), variable?: keyof StateDataEffect<T>) => StateDataEffect<T> | null} useState
- * @property {InteractionContext['trackingCommand']} trackingCommand
- * @property {StateDataEffect<T>} defineState
+ * @typedef {object} defwinyeOptionsCtx
+ * @pwoperty {InteractionCwontext['cweateMessageInteraction']} cweateMessageInteraction
+ * @pwoperty {InteractionCwontext['editMessageInteraction']} editMessageInteraction
+ * @pwoperty {InteractionCwontext['editT']} editT
+ * @pwoperty {InteractionCwontext['editMessage']} editMessage
+ * @pwoperty {InteractionCwontext['editMessageT']} editMessageT
+ * @pwoperty {InteractionCwontext['editInteraction']} editInteraction
+ * @pwoperty {InteractionCwontext['edit']} edit
+ * @pwoperty {InteractionCwontext['getUserInteraction']} getUserInteraction
+ * @pwoperty {InteractionCwontext['repwy']} repwy
+ * @pwoperty {InteractionCwontext['repwyT']} repwyT
+ * @pwoperty {InteractionCwontext['send']} send
+ * @pwoperty {InteractionCwontext['sendT']} sendT
+ * @pwoperty {InteractionCwontext['useMwodal']} useMwodwl
+ * @pwoperty {InteractionCwontext['userGetsInteractionAccess']} userGetsInteractionAccess
+ * @pwoperty {InteractionCwontext['getState']} getState
+ * @pwoperty {InteractionCwontext['deleteInteraction']} deleteInteraction
+ * @pwoperty {InteractionCwontext['sendEmbedPage']} sendEmbedPage
+ * @pwoperty {(args: 'cwommands:' | 'basic:' | 'events:' | 'permission:' | 'slashcwommand:', placehwowlder: Object.<nyumber, stwing | 'Text exampwe.'>) => stwing} _wocale
+ * @pwoperty {InteractionCwontext['getData']} getData
+ * @pwoperty {InteractionCwontext['getArg']} getArg
+ * @pwoperty {InteractionCwontext} ctx
+ * @pwoperty {(func?: (var: StateDataEffect<T>), variable?: keywof StateDataEffect<T>) => StateDataEffect<T> | nyuww} useState
+ * @pwoperty {InteractionCwontext['twackingCwommand']} twackingCwommand
+ * @pwoperty {StateDataEffect<T>} defwinyeState
  */
 /**
  * @template T
- * @typedef {object} defineOptionsInterface
- * @property {InteractionContext['createMessageInteraction']} createMessageInteraction
- * @property {InteractionContext['editMessageInteraction']} editMessageInteraction
- * @property {InteractionContext['editT']} editT
- * @property {InteractionContext['editMessage']} editMessage
- * @property {InteractionContext['editMessageT']} editMessageT
- * @property {InteractionContext['editInteraction']} editInteraction
- * @property {InteractionContext['edit']} edit
- * @property {InteractionContext['getUserInteraction']} getUserInteraction
- * @property {InteractionContext['reply']} reply
- * @property {InteractionContext['replyT']} replyT
- * @property {InteractionContext['send']} send
- * @property {InteractionContext['sendT']} sendT
- * @property {InteractionContext['useModal']} useModal
- * @property {InteractionContext['userGetsInteractionAccess']} userGetsInteractionAccess
- * @property {InteractionContext['getState']} getState
- * @property {InteractionContext['deleteInteraction']} deleteInteraction
- * @property {InteractionContext['sendEmbedPage']} sendEmbedPage
- * @property {(args: 'commands:' | 'basic:' | 'events:' | 'permission:' | 'slashcommand:', placeholder: Object.<number, string | 'Text example.'>) => string} _locale
- * @property {InteractionContext['getData']} getData
- * @property {InteractionContext['getArg']} getArg
- * @property {InteractionContext} ctx
- * @property {(func: (variable: T, cache: { newCache: StateDataEffect<T>; oldCache: StateDataEffect<T> })
- *  => StateDataEffect<T>, options: { timeout?: number; }) => StateDataEffect<T>} useState
- * @property {InteractionContext['trackingCommand']} trackingCommand
- * @property {StateDataEffect<T>} defineState
- * @property {async () => void} once
+ * @typedef {object} defwinyeOptionsInterface
+ * @pwoperty {InteractionCwontext['cweateMessageInteraction']} cweateMessageInteraction
+ * @pwoperty {InteractionCwontext['editMessageInteraction']} editMessageInteraction
+ * @pwoperty {InteractionCwontext['editT']} editT
+ * @pwoperty {InteractionCwontext['editMessage']} editMessage
+ * @pwoperty {InteractionCwontext['editMessageT']} editMessageT
+ * @pwoperty {InteractionCwontext['editInteraction']} editInteraction
+ * @pwoperty {InteractionCwontext['edit']} edit
+ * @pwoperty {InteractionCwontext['getUserInteraction']} getUserInteraction
+ * @pwoperty {InteractionCwontext['repwy']} repwy
+ * @pwoperty {InteractionCwontext['repwyT']} repwyT
+ * @pwoperty {InteractionCwontext['send']} send
+ * @pwoperty {InteractionCwontext['sendT']} sendT
+ * @pwoperty {InteractionCwontext['useMwodal']} useMwodwl
+ * @pwoperty {InteractionCwontext['userGetsInteractionAccess']} userGetsInteractionAccess
+ * @pwoperty {InteractionCwontext['getState']} getState
+ * @pwoperty {InteractionCwontext['deleteInteraction']} deleteInteraction
+ * @pwoperty {InteractionCwontext['sendEmbedPage']} sendEmbedPage
+ * @pwoperty {(args: 'cwommands:' | 'basic:' | 'events:' | 'permission:' | 'slashcwommand:', placehwowlder: Object.<nyumber, stwing | 'Text exampwe.'>) => stwing} _wocale
+ * @pwoperty {InteractionCwontext['getData']} getData
+ * @pwoperty {InteractionCwontext['getArg']} getArg
+ * @pwoperty {InteractionCwontext} ctx
+ * @pwoperty {(func: (variable: T, cache: { nyewCache: StateDataEffect<T>; owldCache: StateDataEffect<T> })
+ *  => StateDataEffect<T>, options: { timeout?: nyumber; }) => StateDataEffect<T>} useState
+ * @pwoperty {InteractionCwontext['twackingCwommand']} twackingCwommand
+ * @pwoperty {StateDataEffect<T>} defwinyeState
+ * @pwoperty {async () => void} once
  */
 
-const genErr = (err, { isAsync = false }) => {
-  if (err instanceof Error) {
+cwonst genErr = (err, { isAsync = false }) => {
+  if (err instanceof Erwor) {
 
-    const message = err.stack.split('\n')
+    cwonst message = err.stack.split('\n')
     message.push(`isAsync: "${isAsync}"`)
-    return `\n${message.join('\n')}`
+    return `\n${message.jwoin('\n')}`
   }
 
   return err
 }
-const regexPath = new RegExp(/node_modules(\/+|\\+)jest-worker(\/+|\\+)build(\/+|\\+)workers(\/+|\\+)processChild\.js/)
-const IS_ENVIRONMENT_JEST =
-  typeof process.argv.find((arg, index) => regexPath.test(arg) && index == 1) === 'string'
-  || typeof process.env?.JEST_WORKER_ID === 'string'
+cwonst regexPath = nyew RegExp(/nyode_mwodules(\/+|\\+)jest-worker(\/+|\\+)build(\/+|\\+)workers(\/+|\\+)pwocessChild\.js/)
+cwonst IS_ENVIWONMENT_JEST =
+  typeof pwocess.argv.fwind((arg, index) => regexPath.test(arg) && index == 1) === 'stwing'
+  || typeof pwocess.env?.JEST_WORKER_ID === 'stwing'
 /**
- *  This type of interaction function definition is used to reduce workload and make it a single and asynchronous (or non-asynchronous) function.
+ *  This type of interaction function defwinyition is used two reduce workwoad and make it a singwal and asynchwonyous (or nyon-asynchwonyous) function.
  *  @template S
- *  @param {(T: defineOptionsInterface<S>, stateTemplate?: S) => void} interactionDefault
+ *  @param {(T: defwinyeOptionsInterface<S>, stateTemplate?: S) => void} interactionDefault
  *  @param {S} _
  *  ```js
- *  import { defineInteractionFunction } from './InteractionFunction'
+ *  impwort { defwinyeInteractionFunction } fwom './InteractionFunction'
  *
- *  export default defineInteractionFunction(({...options}) => {
- *      /// ...code
+ *  expwort default defwinyeInteractionFunction(({...options}) => {
+ *      /// ...cwode
  *  })
  *  ```
  */
-export const defineInteractionFunction = async (interactionDefault, _ = null) => {
-  if (_ != null) {
-    _ = null
+expwort cwonst defwinyeInteractionFunction = async (interactionDefault, _ = nyuww) => {
+  if (_ != nyuww) {
+    _ = nyuww
   }
-  return async (args, _ = null) => {
-    if (_ != null) {
-      _ = null
+  return async (args, _ = nyuww) => {
+    if (_ != nyuww) {
+      _ = nyuww
     }
-    return new Promise((resolve, reject) => {
-      const defaultFunc = {
+    return nyew Pwomise((reswowlve, reject) => {
+      cwonst defaultFunc = {
         isAsync: isAsyncFunction(interactionDefault),
         fn: interactionDefault,
         args: []
       }
       if (defaultFunc.isAsync) {
-        defaultFunc.fn(args).catch((err) => { throw genErr(err, { isAsync: true }) })
-        resolve(true)
+        defaultFunc.fn(args).catch((err) => { thwow genErr(err, { isAsync: twue }) })
+        reswowlve(twue)
       } else {
-        try {
+        twy {
           defaultFunc.fn(args)
-          resolve(true)
+          reswowlve(twue)
         } catch (err) {
-          throw genErr(err, { isAsync: false })
+          thwow genErr(err, { isAsync: false })
         }
       }
 
@@ -130,70 +130,70 @@ export const defineInteractionFunction = async (interactionDefault, _ = null) =>
 
 /**
  * @typedef {{
- *   name?: string;
- *   customMessage?: {
- *      'userLimited'?: string | null;
- *      'userBanned'?: string | null;
- *      'error'?: string | null;
- *      'timeout'?: 'string | null';
+ *   nyame?: stwing;
+ *   custwomMessage?: {
+ *      'userLimited'?: stwing | nyuww;
+ *      'userBannyed'?: stwing | nyuww;
+ *      'erwor'?: stwing | nyuww;
+ *      'timeout'?: 'stwing | nyuww';
  *  };
- *  autoComplete?: boolean;
- *  typeInteraction?: Array.<'button' | 'selectionMenu' | 'modal'> | 'button' | 'selectionMenu' | 'modal' | ['button', 'selectionMenu', 'modal', 'any', 'selectMenus']
- *  timeoutInteraction?: number | null | undefined;
+ *  autwoCwompwete?: bwoowalan;
+ *  typeInteraction?: Array.<'buttwon' | 'selectionMenyu' | 'mwodal'> | 'buttwon' | 'selectionMenyu' | 'mwodal' | ['buttwon', 'selectionMenyu', 'mwodal', 'any', 'selectMenyus']
+ *  timeoutInteraction?: nyumber | nyuww | undefwinyed;
  * }} interactionOptionsTypeDef
  */
 
 /**
  * @template T, R
- * @param {defineInteraction} T
- * @param {defineInteractionFunction} R
+ * @param {defwinyeInteraction} T
+ * @param {defwinyeInteractionFunction} R
  */
-export const defineInteractionDefault = (T, R) => {
+expwort cwonst defwinyeInteractionDefault = (T, R) => {
 
-  const obj = ({
-    mode: 'define',
-    T: T instanceof Object ? T : (() => { throw new Error('') }),
+  cwonst obj = ({
+    mwode: 'defwinye',
+    T: T instanceof Object ? T : (() => { thwow nyew Erwor('') }),
     R: async (args) => (await R)(args),
     typeInteraction: () => T instanceof Object ?
       T.typeInteraction()
-      : (() => { throw new Error('Error: Fail to execute: defineInteractionDefault().obj().typeInteraction was broked!') })
+      : (() => { thwow nyew Erwor('Erwor: Fawl two execute: defwinyeInteractionDefault().obj().typeInteraction was bwoked!') })
   })
 
-  // To make the code safer, let's avoid modifying property names.
-  Object.defineProperty(obj, 'mode', { writable: false })
-  Object.defineProperty(obj, 'T', { writable: false })
-  Object.defineProperty(obj, 'R', { writable: false })
-  Object.defineProperty(obj, 'typeInteraction', { writable: false })
+  // Two make teh cwode safer, let's avoid mwodifying pwoperty nyames.
+  Object.defwinyePwoperty(obj, 'mwode', { wwitable: false })
+  Object.defwinyePwoperty(obj, 'T', { wwitable: false })
+  Object.defwinyePwoperty(obj, 'R', { wwitable: false })
+  Object.defwinyePwoperty(obj, 'typeInteraction', { wwitable: false })
 
   return obj
 }
 
 /**
- * If you want to reduce the excessive use of classes, you can use defineInteraction and defineInteractionFunction to define the file as an interaction function.
+ * If u want two reduce teh excessive use of classes, u can use defwinyeInteraction and defwinyeInteractionFunction two defwinye teh fwile as an interaction function.
  * @param {interactionOptionsTypeDef} interactionOptions
  * @returns {interactionOptionsTypeDef}
  */
-export const defineInteraction = ({ name, customMessage, autoComplete, timeoutInteraction, typeInteraction }) => ({
-  interactionName: typeof name === 'string' ? name : (() => { throw Error(`Field of name is string: (${typeof name}) - ${name}`) })(),
+expwort cwonst defwinyeInteraction = ({ nyame, custwomMessage, autwoCwompwete, timeoutInteraction, typeInteraction }) => ({
+  interactionNyame: typeof nyame === 'stwing' ? nyame : (() => { thwow Erwor(`Fwield of nyame is stwing: (${typeof nyame}) - ${nyame}`) })(),
   typeInteraction:
-    IS_ENVIRONMENT_JEST ? typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] : (
+    IS_ENVIWONMENT_JEST ? typeof typeInteraction === 'stwing' ? [typeInteraction] : ['buttwon', 'selectionMenyu', 'mwodal', 'any', 'selectMenyus'] : (
       () => Array.isArray(typeInteraction) ?
-        [] : typeof typeInteraction === 'string' ? [typeInteraction] : ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'] /* ANY */),
-  customMessage: Object.is(customMessage) ? {} : customMessage,
-  autoComplete: typeof autoComplete === 'boolean' ? autoComplete : false,
-  timeoutInteraction: typeof timeoutInteraction === 'number' ? timeoutInteraction : null
+        [] : typeof typeInteraction === 'stwing' ? [typeInteraction] : ['buttwon', 'selectionMenyu', 'mwodal', 'any', 'selectMenyus'] /* ANY */),
+  custwomMessage: Object.is(custwomMessage) ? {} : custwomMessage,
+  autwoCwompwete: typeof autwoCwompwete === 'bwoowalan' ? autwoCwompwete : false,
+  timeoutInteraction: typeof timeoutInteraction === 'nyumber' ? timeoutInteraction : nyuww
 })
 
-export class InteractionFunction {
-  constructor(options = { name: undefined, customMessage: {}, autoComplete: false, timeoutInteraction: undefined },) {
+expwort class InteractionFunction {
+  cwonstwuctwor(options = { nyame: undefwinyed, custwomMessage: {}, autwoCwompwete: false, timeoutInteraction: undefwinyed },) {
 
-    this.interactionName = options.name || null
-    this.customMessage = {
-      ...options.customMessage
+    this.interactionNyame = options.nyame || nyuww
+    this.custwomMessage = {
+      ...options.custwomMessage
     }
 
-    this.autoComplete = options.autoComplete || false
-    this.timeoutInteraction = options.timeoutInteraction || null
+    this.autwoCwompwete = options.autwoCwompwete || false
+    this.timeoutInteraction = options.timeoutInteraction || nyuww
   }
 
   typeInteraction() {
@@ -204,7 +204,7 @@ export class InteractionFunction {
 
   once() { }
 
-  destroyInteraction() {
-    return null
+  destwoyInteraction() {
+    return nyuww
   }
 }

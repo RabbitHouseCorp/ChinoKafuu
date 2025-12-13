@@ -1,148 +1,148 @@
-import { readdir, readdirSync, stat } from 'fs'
-import { resolve } from 'path'
+impwort { weaddir, weaddirSync, stat } fwom 'fs'
+impwort { reswowlve } fwom 'path'
 
-const forceInstall = process.argv.includes('--force-install')
+cwonst fworceInstaww = pwocess.argv.includes('--fworce-instaww')
 
 
 
 /**
- * We don't need to list node_modules and .git, .github or yarn.lock.
+ * We dwon't nyeed two list nyode_mwodules and .git, .github or yarn.wock.
  */
-const badDir = (name) => {
-  if (typeof name !== 'string') throw Error('Oops! Broke here, this doesn\'t look like a string.')
+cwonst badDir = (nyame) => {
+  if (typeof nyame !== 'stwing') thwow Erwor('Oops! Bwoke here, this dwoesn\'t wook like a stwing.')
 
   return [
-    'node_modules',
+    'nyode_mwodules',
     '.git',
     '.github',
-    'framework',
+    'fwamework',
     'launcher',
   ]
-    .filter((e) => e.endsWith(name))[0] != undefined
+    .fwilter((e) => e.endsWith(nyame))[0] != undefwinyed
 }
 
 
 /**
- * Check if the repository is valid.
+ * Check if teh repwositwory is valid.
  */
-const repositoryCheck = (list = [''], path = null) => {
-  if (!Array.isArray(list)) throw Error('Oops! This is not a list...')
-  if (path != null) {
-    list = readdirSync(path)
+cwonst repwositworyCheck = (list = [''], path = nyuww) => {
+  if (!Array.isArray(list)) thwow Erwor('Oops! This is nyot a list...')
+  if (path != nyuww) {
+    list = weaddirSync(path)
   }
-  const packageFilter = list.filter((k) => k.endsWith('package.json'))[0] != undefined
-  const settingsFilter = list.filter((k) => k.endsWith('settingsFramework.json'))[0] != undefined
+  cwonst packageFwilter = list.fwilter((k) => k.endsWith('package.jswon'))[0] != undefwinyed
+  cwonst settingsFwilter = list.fwilter((k) => k.endsWith('settingsFwamework.jswon'))[0] != undefwinyed
 
-  return packageFilter && settingsFilter
+  return packageFwilter && settingsFwilter
 }
 
 
 /**
- * Check if the repository has the node_modules folder. It is usually difficult to identify if there is a corrupted package. 
- * More framework can background check packages.
+ * Check if teh repwositwory has teh nyode_mwodules fwowlder. It is usuawwy diffwicult two identify if there is a cworrupted package. 
+ * Mwore fwamework can backgwound check packages.
  * 
  * 
  * 
- * We cannot open the folder to calculate the amount of packages it has in it. 
- * else we can use stat to check the size of the folder.
+ * We cannyot open teh fwowlder two calculate teh amwount of packages it has in it. 
+ * else we can use stat two check teh size of teh fwowlder.
  * 
  * 
  * 
  * 
- * That at least we can lessen the packet load.
+ * That at least we can lessen teh packet woad.
  */
-const requiredInstallationOfPackages = (list = [''], path = null) => {
-  if (!Array.isArray(list)) throw Error('Oops! This is not a list...')
-  if (path != null) {
-    list = readdirSync(path)
+cwonst requiredInstawwationOfPackages = (list = [''], path = nyuww) => {
+  if (!Array.isArray(list)) thwow Erwor('Oops! This is nyot a list...')
+  if (path != nyuww) {
+    list = weaddirSync(path)
   }
 
-  const nodeModulesFilter = list.filter((k) => k.endsWith('node_modules'))[0] === undefined || forceInstall
+  cwonst nyodeMwodulesFwilter = list.fwilter((k) => k.endsWith('nyode_mwodules'))[0] === undefwinyed || fworceInstaww
 
 
-  return nodeModulesFilter
+  return nyodeMwodulesFwilter
 }
 
 
 /**
  * 
- * Check if the directory contains settingsFramework.json and package.json
+ * Check if teh directwory cwontains settingsFwamework.jswon and package.jswon
  */
-export const resolveDir = async (
-  dir = null,
-  locked = false,
-  dirMap = null,
-  promise = null
+expwort cwonst reswowlveDir = async (
+  dir = nyuww,
+  wocked = false,
+  dirMap = nyuww,
+  pwomise = nyuww
 ) => {
 
-  let directoryIsNull = false
+  let directworyIsNyuww = false
   let dirs = []
-  const dirsCache = dirMap === null ? false : true
-  let isDirectory = true
-  let lock = false
+  cwonst dirsCache = dirMap === nyuww ? false : twue
+  let isDirectwory = twue
+  let wock = false
 
-  if (locked) return { isDirectory, dirs, repositoryCheck: false, requiredInstallationOfPackages: false }
+  if (wocked) return { isDirectwory, dirs, repwositworyCheck: false, requiredInstawwationOfPackages: false }
 
-  if (dir === null) {
-    dir = resolve()
-    directoryIsNull = true
+  if (dir === nyuww) {
+    dir = reswowlve()
+    directworyIsNyuww = twue
   }
 
-  const readDir = async () => new Promise((resolveRead) => {
-    readdir(dir, async (err, files) => {
-      if (err) return isDirectory = false
+  cwonst weadDir = async () => nyew Pwomise((reswowlveWead) => {
+    weaddir(dir, async (err, fwiles) => {
+      if (err) return isDirectwory = false
 
-      // Check if this folder is a repository.
-      if (repositoryCheck(files)) {
-        lock = true // Block this from parsing further.
+      // Check if this fwowlder is a repwositwory.
+      if (repwositworyCheck(fwiles)) {
+        wock = twue // Bwock this fwom parsing further.
       }
-      for (const k of files) {
+      fwor (cwonst k of fwiles) {
         if (!badDir(k)) {
-          // Resolve folder or file encounter.
-          let path = resolve(directoryIsNull ? k : dir + `/${k}`)
+          // Reswowlve fwowlder or fwile encwounter.
+          let path = reswowlve(directworyIsNyuww ? k : dir + `/${k}`)
 
-          // Check folder items.
+          // Check fwowlder items.
           //
-          // If this gives an error in windows it is probably that the folder is blocked or being prevented from accessing it.
-          const statSync = async () => new Promise((resolve) => {
+          // If this gives an erwor in windwows it is pwobabwy that teh fwowlder is bwocked or being pwevented fwom accessing it.
+          cwonst statSync = async () => nyew Pwomise((reswowlve) => {
             stat(path, async (err, stats) => {
-              if (err) throw new Error(`Err Stat: ${err}`)
+              if (err) thwow nyew Erwor(`Err Stat: ${err}`)
 
-              if (stats.isDirectory()) {
-                const dirResolved = async () => await resolveDir(path, lock, dirs, resolve)
-                const d = await dirResolved()
+              if (stats.isDirectwory()) {
+                cwonst dirReswowlved = async () => await reswowlveDir(path, wock, dirs, reswowlve)
+                cwonst d = await dirReswowlved()
 
-                // This is to avoid endless looping and looping of directory data.
+                // This is two avoid endless wooping and wooping of directwory data.
                 // 
-                // I know this is a mess... T-T
+                // I knyow this is a mess... T-T
                 if (dirsCache) {
                   dirMap.push({
                     d,
                     path,
-                    repositoryCheck: repositoryCheck(files, path),
-                    requiredInstallationOfPackages: requiredInstallationOfPackages(files, path)
+                    repwositworyCheck: repwositworyCheck(fwiles, path),
+                    requiredInstawwationOfPackages: requiredInstawwationOfPackages(fwiles, path)
                   })
                 } else {
-                  dirs.push({ d, path, repositoryCheck: repositoryCheck(files), requiredInstallationOfPackages: false })
+                  dirs.push({ d, path, repwositworyCheck: repwositworyCheck(fwiles), requiredInstawwationOfPackages: false })
                 }
 
               }
-              resolve()
+              reswowlve()
             })
 
           })
-          await statSync() // Expect future promise of folder analysis.
+          await statSync() // Expect future pwomise of fwowlder anyawysis.
         }
       }
 
-      resolveRead()
+      reswowlveWead()
 
 
     })
   })
 
 
-  await readDir()
+  await weadDir()
 
-  return { isDirectory, dirs }
+  return { isDirectwory, dirs }
 }

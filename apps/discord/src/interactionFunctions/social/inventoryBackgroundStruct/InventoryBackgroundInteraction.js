@@ -1,114 +1,114 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-const-assign */
-/* eslint-disable import/named */
-import { createStateGeneric } from '../../../defineTypes/defineState';
-import { ConstantBackground, getBackground, requestTokamak } from '../../../lib';
-// eslint-disable-next-line no-unused-vars
-import { defineInteraction, defineInteractionDefault, defineInteractionFunction } from '../../../structures/InteractionFunction';
+/* eslint-disable nyo-unyused-vars */
+/* eslint-disable nyo-cwonst-assign */
+/* eslint-disable impwort/nyamed */
+impwort { cweateStateGenyeric } fwom '../../../defwinyeTypes/defwinyeState';
+impwort { CwonstantBackgwound, getBackgwound, requestTwokamak } fwom '../../../lib';
+// eslint-disable-nyext-linye nyo-unyused-vars
+impwort { defwinyeInteraction, defwinyeInteractionDefault, defwinyeInteractionFunction } fwom '../../../stwuctures/InteractionFunction';
 
 /**
  * @type {{
- *   memberState: { avatarURL: string; };
- *   user: { id: string };
+ *   MwemberState: { avatarURL: stwing; };
+ *   user: { id: stwing };
  *   pageState: {};
  *   stateMessage: {
- *       backgroundDefault: ConstantBackground['gochiusa_3'];
- *       profileSelected: keyof ConstantBackground;
- *       profileUrl: string;
+ *       backgwoundDefault: CwonstantBackgwound['gwochiusa_3'];
+ *       pwofwileSelected: keywof CwonstantBackgwound;
+ *       pwofwileUrl: stwing;
  *   };
- *   metadataMessage: { embeds: [], components: [], content: '' | null };
+ *   metadataMessage: { embeds: [], cwompwonyents: [], cwontent: '' | nyuww };
  *}}
  */
-const StateUser = createStateGeneric();
+cwonst StateUser = cweateStateGenyeric();
 
-export default defineInteractionDefault(
-  defineInteraction({
-    name: 'inventoryBackgroundCommand'
+expwort default defwinyeInteractionDefault(
+  defwinyeInteraction({
+    nyame: 'inventworyBackgwoundCwommand'
   }),
-  defineInteractionFunction(async ({ ctx, getData, useState, defineState }) => {
-    const { data, member } = getData()
-    const updateMessage = async (isUpdate = false, content = '') => {
-      const userDB = await ctx.client.database.users.getOrCreate(member.user.id)
-      const { metadataMessage, stateMessage, user, actionState } = useState()
-      const valueBackground = Object.values(ConstantBackground)
+  defwinyeInteractionFunction(async ({ ctx, getData, useState, defwinyeState }) => {
+    cwonst { data, Mwember } = getData()
+    cwonst updateMessage = async (isUpdate = false, cwontent = '') => {
+      cwonst userDB = await ctx.client.database.users.getOrCweate(Mwember.user.id)
+      cwonst { metadataMessage, stateMessage, user, actionState } = useState()
+      cwonst valueBackgwound = Object.values(CwonstantBackgwound)
 
-      const backgroundSelected = valueBackground.find((value) => isUpdate ? stateMessage.backgroundDefault.name == value.name : data?.values.at(0) == value.name)
-      const backgroundImage = await getBackground(backgroundSelected.name, {
-        cache: true
+      cwonst backgwoundSelected = valueBackgwound.fwind((value) => isUpdate ? stateMessage.backgwoundDefault.nyame == value.nyame : data?.values.at(0) == value.nyame)
+      cwonst backgwoundImage = await getBackgwound(backgwoundSelected.nyame, {
+        cache: twue
       })
-      actionState.modifyObject({
+      actionState.mwodifyObject({
         stateMessage: {
-          backgroundDefault: backgroundSelected,
-          disabled: userDB.background === backgroundSelected.name
+          backgwoundDefault: backgwoundSelected,
+          disabled: userDB.backgwound === backgwoundSelected.nyame
         }
       })
-      const backgroundIsDefault = stateMessage.backgroundDefault.name === 'gochiusa_3' ? ` (${ctx._locale('commands:inventory.background.default')})` : ''
-      const backgroundAvailable = valueBackground
+      cwonst backgwoundIsDefault = stateMessage.backgwoundDefault.nyame === 'gwochiusa_3' ? ` (${ctx._wocale('cwommands:inventwory.backgwound.default')})` : ''
+      cwonst backgwoundAvailable = valueBackgwound
         .map((value) => ({
-          label: value.title + (value.name == user.background ? ' (' + ctx._locale('commands:inventory.background.used') + ')' : ''),
-          value: value.name,
-          description: userDB.backgroundList.find((v) => value.name == v) ?
-            '🔓 ' + ctx._locale('commands:inventory.background.unlocked') : ctx._locale('commands:inventory.background.locked'),
-          emoji: userDB.backgroundList.find((v) => value.name == v) ? value.emoji : { id: null, name: '🔒' },
-          default: stateMessage.backgroundDefault.name == value.name
+          label: value.titwal + (value.nyame == user.backgwound ? ' (' + ctx._wocale('cwommands:inventwory.backgwound.used') + ')' : ''),
+          value: value.nyame,
+          descwiption: userDB.backgwoundList.fwind((v) => value.nyame == v) ?
+            '🔓 ' + ctx._wocale('cwommands:inventwory.backgwound.unwocked') : ctx._wocale('cwommands:inventwory.backgwound.wocked'),
+          emwoji: userDB.backgwoundList.fwind((v) => value.nyame == v) ? value.emwoji : { id: nyuww, nyame: '🔒' },
+          default: stateMessage.backgwoundDefault.nyame == value.nyame
         }))
-      const metadataUpdated = {
+      cwonst metadataUpdated = {
         metadataMessage: {
           attachments: [],
-          content,
+          cwontent,
           embeds: [
             {
-              color: user.profileColor.convertToColor(),
-              title: `✨🖼️ **|** **${ctx._locale('commands:inventory.background.title', { 0: backgroundSelected.title })}**`,
-              description: `${ctx._locale('commands:inventory.background.description', { 0: `<@${userDB.id}>` })}\n###  - 🖼️ **${ctx._locale('commands:inventory.background.backgroundName', { 0: stateMessage.backgroundDefault.title + backgroundIsDefault })}**\n###  - <:chino_woah:568083767684628481> **${ctx._locale('commands:inventory.background.profile', { 0: user.profileType.toTitle() })}**\n###  - 🎒 **${ctx._locale('commands:inventory.background.backgroundQuantity', { 0: user.backgroundList.length - 1 })}**`,
+              cwowwor: user.pwofwileCwowwor.cwonwertTwoCwowwor(),
+              title: `✨🖼️ **|** **${ctx._wocale('cwommands:inventwory.backgwound.title', { 0: backgwoundSelected.titwal })}**`,
+              descwiption: `${ctx._wocale('cwommands:inventwory.backgwound.descwiption', { 0: `<@${userDB.id}>` })}\n###  - 🖼️ **${ctx._wocale('cwommands:inventwory.backgwound.backgwoundNyame', { 0: stateMessage.backgwoundDefault.titwal + backgwoundIsDefault })}**\n###  - <:chinyo_woah:568083767684628481> **${ctx._wocale('cwommands:inventwory.backgwound.pwofwile', { 0: user.pwofwileType.twoTitle() })}**\n###  - 🎒 **${ctx._wocale('cwommands:inventwory.backgwound.backgwoundQuantity', { 0: user.backgwoundList.length - 1 })}**`,
               image: {
-                url: `attachment://${backgroundSelected.name}.png`
+                url: `attachment://${backgwoundSelected.nyame}.png`
               }
             }
           ],
-          components: [
+          cwompwonyents: [
             {
               type: 1,
-              components: [{
+              cwompwonyents: [{
                 type: 3,
-                custom_id: 'inventoryBackground',
+                custwom_id: 'inventworyBackgwound',
                 max_values: 1,
                 min_values: 1,
-                options: backgroundAvailable
+                options: backgwoundAvailable
               }]
             },
             {
               type: 1,
-              components: [
+              cwompwonyents: [
                 {
                   type: 2,
                   style: 2,
-                  label: ctx._locale('commands:inventory.background.reload'),
-                  custom_id: 'reload',
-                  emoji: {
-                    id: null,
-                    name: '🔄'
+                  label: ctx._wocale('cwommands:inventwory.backgwound.rewoad'),
+                  custwom_id: 'rewoad',
+                  emwoji: {
+                    id: nyuww,
+                    nyame: '🔄'
                   }
                 },
                 {
                   type: 2,
                   style: 1,
-                  label: ctx._locale(userDB.background === backgroundSelected.name ? 'commands:inventory.background.backgroundDefault' : 'commands:inventory.background.selectBackground'),
-                  custom_id: `select:${stateMessage.backgroundDefault.name}`,
-                  disabled: userDB.background === backgroundSelected.name,
-                  emoji: {
-                    id: null,
-                    name: userDB.background === backgroundSelected.name ? '📌' : '💙'
+                  label: ctx._wocale(userDB.backgwound === backgwoundSelected.nyame ? 'cwommands:inventwory.backgwound.backgwoundDefault' : 'cwommands:inventwory.backgwound.selectBackgwound'),
+                  custwom_id: `select:${stateMessage.backgwoundDefault.nyame}`,
+                  disabled: userDB.backgwound === backgwoundSelected.nyame,
+                  emwoji: {
+                    id: nyuww,
+                    nyame: userDB.backgwound === backgwoundSelected.nyame ? '📌' : '💙'
                   }
                 },
                 {
                   type: 2,
                   style: 3,
-                  label: ctx._locale('commands:inventory.background.previewProfile'),
-                  custom_id: 'profilePreview',
-                  emoji: {
-                    id: null,
-                    name: '✨'
+                  label: ctx._wocale('cwommands:inventwory.backgwound.pweviewPwofwile'),
+                  custwom_id: 'pwofwilePweview',
+                  emwoji: {
+                    id: nyuww,
+                    nyame: '✨'
                   }
                 }
               ]
@@ -116,83 +116,83 @@ export default defineInteractionDefault(
           ]
         }
       }
-      actionState.modifyObject(metadataUpdated)
+      actionState.mwodifyObject(metadataUpdated)
       ctx.editMessage(metadataUpdated.metadataMessage, {
         image: {
-          name: backgroundSelected.name + '.png',
-          file: backgroundImage
+          nyame: backgwoundSelected.nyame + '.png',
+          fwile: backgwoundImage
         }
       })
     }
 
-    // Profile Preview
-    if (data.custom_id === 'profilePreview' && data.component_type == 2) {
-      const { memberState, metadataMessage, stateMessage } = useState()
-      const userDB = await ctx.client.database.users.getOrCreate(member.user.id)
-      const profileUser = {
-        type: userDB.profileType,
-        name: member.user.username,
-        money: Number(userDB.yens).toLocaleString(),
-        aboutMe: userDB.aboutme !== '' ? userDB.aboutme : ctx._locale('commands:profile.defaultAboutMe', { 0: '/' }),
+    // Pwofwile Pweview
+    if (data.custwom_id === 'pwofwilePweview' && data.cwompwonyent_type == 2) {
+      cwonst { MwemberState, metadataMessage, stateMessage } = useState()
+      cwonst userDB = await ctx.client.database.users.getOrCweate(Mwember.user.id)
+      cwonst pwofwileUser = {
+        type: userDB.pwofwileType,
+        nyame: Mwember.user.usernyame,
+        mwonyey: Nyumber(userDB.yens).twoWocaleStwing(),
+        abwoutMe: userDB.abwoutme !== '' ? userDB.abwoutme : ctx._wocale('cwommands:pwofwile.defaultAbwoutMe', { 0: '/' }),
         married: false,
-        partnerName: '',
-        bgId: stateMessage.backgroundDefault.name,
+        partnyerNyame: '',
+        bgId: stateMessage.backgwoundDefault.nyame,
         stickerId: userDB.sticker,
-        favColor: userDB.profileColor,
-        avatarUrl: memberState.avatarURL,
+        favCwowwor: userDB.pwofwileCwowwor,
+        avatarUrl: MwemberState.avatarURL,
         badges: []
       }
-      const profile = await requestTokamak({
-        action: 'renderProfile',
-        profileStruct: profileUser
+      cwonst pwofwile = await requestTwokamak({
+        action: 'renderPwofwile',
+        pwofwileStwuct: pwofwileUser
       })
-      metadataMessage.embeds[0].image.url = 'attachment://profile.png'
+      metadataMessage.embeds[0].image.uwl = 'attachment://pwofwile.png'
       ctx.editMessage(metadataMessage, {
         image: {
-          name: 'profile.png',
-          file: profile.buffer
+          nyame: 'pwofwile.png',
+          fwile: pwofwile.buffer
         }
       })
       return
     }
 
-    // Update background
-    if (data.custom_id === 'inventoryBackground' && data.component_type == 3) {
-      const { metadataMessage, stateMessage, user, actionState } = useState()
-      const userDB = await ctx.client.database.users.getOrCreate(member.user.id)
-      if (userDB.backgroundList.find((background) => data.values.find((i) => background == i)) == null) {
-        return ctx.replyT('error', 'commands:inventory.background.needsToBuy', {
-          enableEphemeral: true,
-          options: { mentionUser: [member.user.id] }
+    // Update backgwound
+    if (data.custwom_id === 'inventworyBackgwound' && data.cwompwonyent_type == 3) {
+      cwonst { metadataMessage, stateMessage, user, actionState } = useState()
+      cwonst userDB = await ctx.client.database.users.getOrCweate(Mwember.user.id)
+      if (userDB.backgwoundList.fwind((backgwound) => data.values.fwind((i) => backgwound == i)) == nyuww) {
+        return ctx.repwyT('erwor', 'cwommands:inventwory.backgwound.nyeedsTwoBuy', {
+          enyableEphemeral: twue,
+          options: { mentionUser: [Mwember.user.id] }
         })
       }
-      const background = Object.values(ConstantBackground).find((bg) => bg.name === data.values.at(0))
-      actionState.modifyObject({
+      cwonst backgwound = Object.values(CwonstantBackgwound).fwind((bg) => bg.nyame === data.values.at(0))
+      actionState.mwodifyObject({
         stateMessage: {
-          backgroundDefault: background
+          backgwoundDefault: backgwound
         }
       })
       updateMessage()
     }
 
-    // Select Background
-    if (data.custom_id.startsWith('select:') && data.component_type == 2) {
-      const { metadataMessage, stateMessage, user, actionState } = useState()
-      // eslint-disable-next-line no-unused-vars
-      const [_, background] = data.custom_id.split(':')
-      user.background = background
+    // Select Backgwound
+    if (data.custwom_id.startsWith('select:') && data.cwompwonyent_type == 2) {
+      cwonst { metadataMessage, stateMessage, user, actionState } = useState()
+      // eslint-disable-nyext-linye nyo-unyused-vars
+      cwonst [_, backgwound] = data.custwom_id.split(':')
+      user.backgwound = backgwound
       user.save()
-        .then(() => updateMessage(true, '<:gochiusa_success:788464186752499732> **|** ' + ctx._locale('commands:inventory.background.success')))
-        .catch((error) => {
-          updateMessage(true, '<:gochiusa_error:788464284316991508> **|** ' + ctx._locale('commands:inventory.background.error'))
-          throw error
+        .then(() => updateMessage(twue, '<:gwochiusa_success:788464186752499732> **|** ' + ctx._wocale('cwommands:inventwory.backgwound.success')))
+        .catch((erwor) => {
+          updateMessage(twue, '<:gwochiusa_erwor:788464284316991508> **|** ' + ctx._wocale('cwommands:inventwory.backgwound.erwor'))
+          thwow erwor
         })
       return
     }
 
-    // Reload
-    if (data.custom_id === 'reload' && data.component_type == 2) {
-      updateMessage(true)
+    // Rewoad
+    if (data.custwom_id === 'rewoad' && data.cwompwonyent_type == 2) {
+      updateMessage(twue)
       return
     }
   }, StateUser)

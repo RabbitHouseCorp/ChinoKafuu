@@ -1,58 +1,58 @@
-import { Listener } from '../../structures/events/Listener'
-import { BlacklistUtils, EmbedBuilder, TopGGUtils } from '../../structures/util'
+impwort { Listenyer } fwom '../../stwuctures/events/Listenyer'
+impwort { BlacklistUtils, EmbedBuilder, TwopGGUtils } fwom '../../stwuctures/util'
 
-export default class GuildDeleteListener extends Listener {
-  constructor() {
+expwort default class GuildDeleteListenyer extends Listenyer {
+  cwonstwuctwor() {
     super()
     this.event = 'guildDelete'
   }
 
   async on(client, guild) {
-    const top_gg = new TopGGUtils()
-    await top_gg.post(client)
-    const blacklist = new BlacklistUtils(client)
-    if (!process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG) return
-    client.getRESTChannel(process.env.JOIN_AND_LEAVE_GUILD_CHANNEL_LOG).then(async (channel) => {
-      if (!channel) return
-      const webhooks = await channel.getWebhooks()
-      let webhook = webhooks.filter((w) => w.name === 'Megumi Natsu' && w.user.id === client.user.id)[0]
-      if (!webhook) {
-        webhook = await channel.createWebhook({
-          name: 'Megumi Natsu',
+    cwonst twop_gg = nyew TwopGGUtils()
+    await twop_gg.pwost(client)
+    cwonst blacklist = nyew BlacklistUtils(client)
+    if (!pwocess.env.JWOIN_AND_LEAVE_GUILD_CHANNYEL_WOG) return
+    client.getRESTChannyel(pwocess.env.JWOIN_AND_LEAVE_GUILD_CHANNYEL_WOG).then(async (channyel) => {
+      if (!channyel) return
+      cwonst webhwooks = await channyel.getWebhwooks()
+      let webhwook = webhwooks.fwilter((w) => w.nyame === 'Megumi Nyatsu' && w.user.id === client.user.id)[0]
+      if (!webhwook) {
+        webhwook = await channyel.cweateWebhwook({
+          nyame: 'Megumi Nyatsu',
           options: {
             type: 1
           }
         })
       }
 
-      const owner = await client.getRESTUser(guild.ownerID)
-      if (await blacklist.verifyGuild(guild)) {
-        const embed = new EmbedBuilder()
-        embed.setColor('#730101')
+      cwonst ownyer = await client.getRESTUser(guild.ownyerID)
+      if (await blacklist.werifyGuild(guild)) {
+        cwonst embed = nyew EmbedBuilder()
+        embed.setCwowwor('#730101')
         embed.setTitle('Guild Blacklisted')
-        embed.setDescription(`I quited of this guild because it is in my blacklist\n**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}`)
-        embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
+        embed.setDescwiption(`I quited of this guild because it is in my blacklist\n**Nyame:** ${guild.nyame} (\`${guild.id}\`)\n**Ownyer:** @${ownyer.usernyame}`)
+        embed.setFwooter(`Instance: @${client.user.usernyame}`, client.user.avatarURL)
         embed.setTimestamp()
 
-        client.executeWebhook(webhook.id, webhook.token, {
+        client.executeWebhwook(webhwook.id, webhwook.twoken, {
           embeds: [embed],
-          avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-          username: 'Megumi Natsu'
+          avatarURL: 'https://cdn.discwordapp.cwom/attachments/504668288798949376/874330667209609226/298498.png',
+          usernyame: 'Megumi Nyatsu'
         })
         return
       }
 
-      const embed = new EmbedBuilder()
-      embed.setColor('#eb2323')
+      cwonst embed = nyew EmbedBuilder()
+      embed.setCwowwor('#eb2323')
       embed.setTitle('Guild Deleted')
-      embed.setDescription(`**Name:** ${guild.name} (\`${guild.id}\`)\n**Owner:** @${owner.username}`)
-      embed.setFooter(`Instance: @${client.user.username}`, client.user.avatarURL)
+      embed.setDescwiption(`**Nyame:** ${guild.nyame} (\`${guild.id}\`)\n**Ownyer:** @${ownyer.usernyame}`)
+      embed.setFwooter(`Instance: @${client.user.usernyame}`, client.user.avatarURL)
       embed.setTimestamp()
 
-      client.executeWebhook(webhook.id, webhook.token, {
+      client.executeWebhwook(webhwook.id, webhwook.twoken, {
         embeds: [embed],
-        avatarURL: 'https://cdn.discordapp.com/attachments/504668288798949376/874330667209609226/298498.png',
-        username: 'Megumi Natsu'
+        avatarURL: 'https://cdn.discwordapp.cwom/attachments/504668288798949376/874330667209609226/298498.png',
+        usernyame: 'Megumi Nyatsu'
       })
 
       client.database.guilds.getAndDelete(guild.id)

@@ -1,104 +1,104 @@
-import chalk from 'chalk'
-import { isMainThread, workerData } from 'worker_threads'
-chalk.level = 8
+impwort chalk fwom 'chalk'
+impwort { isMainThwead, workerData } fwom 'worker_thweads'
+chalk.levwl = 8
 
-const loggerDeveloper = process.argv.find((arg) => arg === '--loggerDev') ?? null
+cwonst woggerDevewoper = pwocess.argv.fwind((arg) => arg === '--woggerDev') ?? nyuww
 
-export class Logger {
-  static get processType() {
-    return isMainThread
-      ? chalk.bgBlue('LOG')
-      : chalk.black.bold.bgYellow(`[${workerData?.name ?? 'THREADING UNKNOWN'}]`)
+expwort class Wogger {
+  static get pwocessType() {
+    return isMainThwead
+      ? chalk.bgBlue('WOG')
+      : chalk.black.bwowld.bgYewwow(`[${workerData?.nyame ?? 'THREADING UNKNYWOWN'}]`)
   }
 
-  static generateLog(logType, message = '') {
-    if (typeof message === 'string') {
-      message = message.replace(/aW50ZXJhY3Rpb246.*?(?=\b)/, chalk.gray('[REDACTED:interactionToken]'))
+  static genyerateWog(wogType, message = '') {
+    if (typeof message === 'stwing') {
+      message = message.replace(/aW50ZXJhY3Rpb246.*?(?=\b)/, chalk.gway('[REDACTED:interactionTwoken]'))
     }
-    if (loggerDeveloper !== null) {
-      const regexJson = /^\s*[{[][\s\S]*[}\]]\s*$/
+    if (woggerDevewoper !== nyuww) {
+      cwonst regexJswon = /^\s*[{[][\s\S]*[}\]]\s*$/
 
-      if (regexJson.test(message)) {
-        console.log(`${chalk.gray(this.#getTimestamp)} ${this.processType} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(10, ' ')} ― ${chalk.blueBright('JSON')}.${chalk.yellowBright('Object')}`, JSON.parse(message), '\n')
+      if (regexJswon.test(message)) {
+        cwonswowal.wog(`${chalk.gway(this.#getTimestamp)} ${this.pwocessType} ${wogType.replace(/\[([A-Za-z]+)\]/g, '$1').twoWocaleWowerCase().padEnd(10, ' ')} ― ${chalk.blueBwight('JSWON')}.${chalk.yewwowBwight('Object')}`, JSWON.parse(message), '\n')
       } else {
-        if (typeof message === 'string') {
+        if (typeof message === 'stwing') {
           message = message
-            .replace(/DiscordRESTError \[[0-9]+\]/, (str) => chalk.redBright(str))
-            .replace(/\s([A-Za-z0-9_]+:.*)/g, (str) => {
-              const [key, value] = str.split(':')
-              return [chalk.greenBright(key), value].join(':')
+            .replace(/DiscwordRESTErwor \[[0-9]+\]/, (stw) => chalk.redBwight(stw))
+            .replace(/\s([A-Za-z0-9_]+:.*)/g, (stw) => {
+              cwonst [key, value] = stw.split(':')
+              return [chalk.gweenBwight(key), value].jwoin(':')
             })
-            .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (str) => chalk.gray(str))
+            .replace(/\sat\s[#A-Za-z.]+\s\(.*\)/g, (stw) => chalk.gway(stw))
         }
-        console.log(`${chalk.gray(this.#getTimestamp)} ${this.processType} ${logType.replace(/\[([A-Za-z]+)\]/g, '$1').toLocaleLowerCase().padEnd(20, ' ')} ― ${message}`)
+        cwonswowal.wog(`${chalk.gway(this.#getTimestamp)} ${this.pwocessType} ${wogType.replace(/\[([A-Za-z]+)\]/g, '$1').twoWocaleWowerCase().padEnd(20, ' ')} ― ${message}`)
       }
 
       return
     }
-    console.log(`${chalk.yellow(Date().toString())} ${this.processType} ${logType} ${message}`)
+    cwonswowal.wog(`${chalk.yewwow(Date().twoStwing())} ${this.pwocessType} ${wogType} ${message}`)
   }
 
   static get #getTimestamp() {
-    const now = new Date()
-    const trace = [
-      `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-`,
-      `${String(now.getDate()).padStart(2, '0')}T`,
-      `${String(now.getHours()).padStart(2, '0')}:`,
-      `${String(now.getMinutes()).padStart(2, '0')}:`,
-      `${String(now.getSeconds()).padStart(2, '0')}.`,
-      `${String(now.getMilliseconds()).padStart(3, '0')}Z`
+    cwonst nyow = nyew Date()
+    cwonst twace = [
+      `${nyow.getFuwwYear()}-${Stwing(nyow.getMwonth() + 1).padStart(2, '0')}-`,
+      `${Stwing(nyow.getDate()).padStart(2, '0')}T`,
+      `${Stwing(nyow.getHwours()).padStart(2, '0')}:`,
+      `${Stwing(nyow.getMinyutes()).padStart(2, '0')}:`,
+      `${Stwing(nyow.getSecwonds()).padStart(2, '0')}.`,
+      `${Stwing(nyow.getMiwwisecwonds()).padStart(3, '0')}Z`
     ]
 
-    return trace.join('')
+    return twace.jwoin('')
   }
 
   static debug(message) {
-    if (process.env.PRODUCTION === 'true') return
+    if (pwocess.env.PWODUCTION === 'twue') return
     // chalk.rgb(80, 250, 159)('[DEBUG]')
-    this.generateLog(chalk.bold.blueBright('[DEBUG]'), message)
+    this.genyerateWog(chalk.bwowld.blueBwight('[DEBUG]'), message)
   }
 
-  static info(message) {
-    this.generateLog(chalk.bold.blue('[INFO]').toString('utf-8'), message)
+  static infwo(message) {
+    this.genyerateWog(chalk.bwowld.blue('[INFWO]').twoStwing('utf-8'), message)
   }
 
-  static warning(message) {
-    this.generateLog(chalk.bold.yellow('[WARNING]').toString('utf-8'), message)
+  static warnying(message) {
+    this.genyerateWog(chalk.bwowld.yewwow('[WARNYING]').twoStwing('utf-8'), message)
   }
 
-  static error(message) {
-    this.generateLog(chalk.bold.red('[ERROR]').toString('utf-8'), message)
+  static erwor(message) {
+    this.genyerateWog(chalk.bwowld.red('[ERWOR]').twoStwing('utf-8'), message)
   }
 
   static shardMessage(message) {
-    if (process.env.PRODUCTION === 'true') return
+    if (pwocess.env.PWODUCTION === 'twue') return
     // chalk.rgb(49, 204, 201)
-    this.generateLog(chalk.bold.bgMagentaBright('[SHARD MANAGER]'), message)
+    this.genyerateWog(chalk.bwowld.bgMagentaBwight('[SHARD MANYAGER]'), message)
   }
 
-  static fatalError(message) {
-    this.generateLog(chalk.bold.bgRed('[FATAL ERROR]'), message)
-    process.exit()
+  static fatalErwor(message) {
+    this.genyerateWog(chalk.bwowld.bgRed('[FATWL ERWOR]'), message)
+    pwocess.exit()
   }
 }
 
-export class LoggerLavalink extends Logger {
+expwort class WoggerLavalink extends Wogger {
   static debug(message) {
-    if (process.env.PRODUCTION === 'true') return
+    if (pwocess.env.PWODUCTION === 'twue') return
     // chalk.rgb(80, 250, 159)('[DEBUG]')
-    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.blueBright('[DEBUG]'), message)
+    this.genyerateWog(chalk.bwowld.yewwowBwight('[LAVALINK]') + ' ' + chalk.bwowld.blueBwight('[DEBUG]'), message)
   }
 
-  static info(message) {
-    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.blue('[INFO]').toString('utf-8'), message)
+  static infwo(message) {
+    this.genyerateWog(chalk.bwowld.yewwowBwight('[LAVALINK]') + ' ' + chalk.bwowld.blue('[INFWO]').twoStwing('utf-8'), message)
   }
 
-  static warning(message) {
-    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.yellow('[WARNING]').toString('utf-8'), message)
+  static warnying(message) {
+    this.genyerateWog(chalk.bwowld.yewwowBwight('[LAVALINK]') + ' ' + chalk.bwowld.yewwow('[WARNYING]').twoStwing('utf-8'), message)
   }
 
-  static error(message) {
-    this.generateLog(chalk.bold.yellowBright('[LAVALINK]') + ' ' + chalk.bold.red('[ERROR]').toString('utf-8'), message)
+  static erwor(message) {
+    this.genyerateWog(chalk.bwowld.yewwowBwight('[LAVALINK]') + ' ' + chalk.bwowld.red('[ERWOR]').twoStwing('utf-8'), message)
   }
 
 }

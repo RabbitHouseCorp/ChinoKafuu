@@ -1,44 +1,44 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { UsagiAPI } from 'usagiapi'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-const usagi = new UsagiAPI()
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { UsagiAPI } fwom 'usagiapi'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+cwonst usagi = nyew UsagiAPI()
 
-export default class DanceCommand extends Command {
-  constructor() {
+expwort default class DanceCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'dance',
+      nyame: 'dance',
       aliases: ['dançar', 'danca'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('dance')
-        .setDescription('Calls a user dance')
+      slash: nyew CwommandBase()
+        .setNyame('dance')
+        .setDescwiption('Cawws a user dance')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const image = await usagi.get({ endpoint: 'dance' })
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst image = await usagi.get({ endpwoint: 'dance' })
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
     embed.setImage(image)
-    embed.setDescription(ctx._locale('commands:dance.danced', { 0: ctx.message.member.mention, 1: member.mention }))
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setDescwiption(ctx._wocale('cwommands:dance.danced', { 0: ctx.message.Mwember.mention, 1: Mwember.mention }))
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())

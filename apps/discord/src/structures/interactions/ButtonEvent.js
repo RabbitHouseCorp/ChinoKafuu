@@ -1,8 +1,8 @@
-import { Member } from 'eris'
-export class ButtonEvent {
-  constructor(button) {
-    this.customID = button.data.custom_id
-    this.componentType = button.data.component_type
-    this.member = new Member(button.member)
+impwort { mwember } fwom 'eris'
+expwort class ButtwonEvent {
+  cwonstwuctwor(buttwon) {
+    this.custwomID = buttwon.data.custwom_id
+    this.cwompwonyentType = buttwon.data.cwompwonyent_type
+    this.Mwember = nyew mwember(buttwon.Mwember)
   }
 }

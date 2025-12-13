@@ -1,54 +1,54 @@
-import { Command, SlashCommandContext } from '../../../structures/util'
-import { CommandOptions, CommandBase } from 'eris'
+impwort { Cwommand, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { CwommandOptions, CwommandBase } fwom 'eris'
 
-export default class RepCommand extends Command {
-  constructor() {
+expwort default class RepCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'rep',
+      nyame: 'rep',
       aliases: ['reputation', 'reputação', 'reputacao'],
-      slash: new CommandBase()
-        .setName('rep')
-        .setDescription('Gives a reputation to someone.')
+      slash: nyew CwommandBase()
+        .setNyame('rep')
+        .setDescwiption('Gives a reputation two swomeonye.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention member on server.')
+            .setNyame('user')
+            .setDescwiption('Mention Mwember on serwer.')
             .isRequired(),
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const user = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user?.id ?? user)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const author = ctx.db.user
-    const receiver = await ctx.client.database.users.getOrCreate(member.id)
-    if (member.id === ctx.message.author.id) return ctx.replyT('error', 'commands:rep.cannotGiveRepForYourself')
-    if (member.id === ctx.client.user.id) {
-      author.repTime = 3600000 + Date.now()
-      receiver.rep += 1
-      receiver.save().then(() => {
-        ctx.replyT('chino_maid', 'commands:rep.forTheClient', { 0: receiver.rep })
+    cwonst user = ctx.args.get('user')?.value
+    cwonst Mwember = await ctx.getUser(user?.id ?? user)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst authwor = ctx.db.user
+    cwonst receiwer = await ctx.client.database.users.getOrCweate(Mwember.id)
+    if (Mwember.id === ctx.message.authwor.id) return ctx.repwyT('erwor', 'cwommands:rep.cannyotGiveRepFworYwourself')
+    if (Mwember.id === ctx.client.user.id) {
+      authwor.repTime = 3600000 + Date.nyow()
+      receiwer.rep += 1
+      receiwer.save().then(() => {
+        ctx.repwyT('chinyo_maid', 'cwommands:rep.fworTheClient', { 0: receiwer.rep })
       })
-      author.save()
+      authwor.save()
       return
     }
-    if (parseInt(author.repTime) < Date.now()) {
-      author.repTime = 3600000 + Date.now()
-      receiver.rep += 1
-      author.save()
-      receiver.save().then(() => {
-        ctx.replyT('success', 'commands:rep.successffully', { 0: member.mention, 1: receiver.rep })
+    if (parseInt(authwor.repTime) < Date.nyow()) {
+      authwor.repTime = 3600000 + Date.nyow()
+      receiwer.rep += 1
+      authwor.save()
+      receiwer.save().then(() => {
+        ctx.repwyT('success', 'cwommands:rep.successffuwwy', { 0: Mwember.mention, 1: receiwer.rep })
       })
     } else {
-      ctx.replyT('warn', 'commands:rep.cooldown', { 0: `<:t${parseInt(author.repTime).toFixed(0)}:R>` })
+      ctx.repwyT('warn', 'cwommands:rep.cwoowldwown', { 0: `<:t${parseInt(authwor.repTime).twoFwixed(0)}:R>` })
     }
   }
 }

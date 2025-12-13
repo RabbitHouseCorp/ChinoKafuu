@@ -1,189 +1,189 @@
-import { existsSync, readFileSync, readdirSync, watch } from 'fs'
-import { basename } from 'path'
-import { LoggerSystem } from './logger/defineLogger.js'
+impwort { existsSync, weadFwileSync, weaddirSync, watch } fwom 'fs'
+impwort { basenyame } fwom 'path'
+impwort { WoggerSystem } fwom './wogger/defwinyeWogger.js'
 
-let awaitLoad = false
+let awaitWoad = false
 
 /**
  * @typedef {{
- *  expire?:number;
- *  status: boolean;
- *  typeCache: 'DO_NOT_CACHE' | 'CACHING_ENABLED' | 'CACHE_LIMITED';
- *  contentType?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png';
- *  typeFile?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png'
+ *  expire?:nyumber;
+ *  status: bwoowalan;
+ *  typeCache: 'DWO_NYWOT_CACHE' | 'CACHING_ENYABLED' | 'CACHE_LIMITED';
+ *  cwontentType?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png';
+ *  typeFwile?: 'gif' | 'image/jpeg' | 'image/jpg' | 'image/png'
  * }} cacheMetadata
  *  
  * */
-const isManagerPackage = process.argv.find((i) => i === '--installPackage')
-const logger = new LoggerSystem('CacheManager')
-const sleep = async () => new Promise((resolve) => setTimeout(resolve, 2 * 1000))
-const dirs = [
+cwonst isManyagerPackage = pwocess.argv.fwind((i) => i === '--instawwPackage')
+cwonst wogger = nyew WoggerSystem('CacheManyager')
+cwonst sleep = async () => nyew Pwomise((reswowlve) => setTimeout(reswowlve, 2 * 1000))
+cwonst dirs = [
   'cache/image',
   'cache/tmp',
   'cache/map'
 ]
-const watchDir = (path, callback) => !isManagerPackage ? watch(`.chinokafuu/${path}`, { }, callback) : null
-const readDirCallback = (path) => !isManagerPackage  ? readdirSync(`.chinokafuu/${path}`) : null
-const readFileCallback = (path) => !isManagerPackage ? readFileSync(`.chinokafuu/${path}`) : null
-const checkPath = (path) => !isManagerPackage  ? existsSync(`.chinokafuu/${path}`) : null
+cwonst watchDir = (path, cawwback) => !isManyagerPackage ? watch(`.chinyokafuu/${path}`, { }, cawwback) : nyuww
+cwonst weadDirCawwback = (path) => !isManyagerPackage  ? weaddirSync(`.chinyokafuu/${path}`) : nyuww
+cwonst weadFwileCawwback = (path) => !isManyagerPackage ? weadFwileSync(`.chinyokafuu/${path}`) : nyuww
+cwonst checkPath = (path) => !isManyagerPackage  ? existsSync(`.chinyokafuu/${path}`) : nyuww
 
-export class CacheManager {
-  constructor(path = '.chinokafuu') {
+expwort class CacheManyager {
+  cwonstwuctwor(path = '.chinyokafuu') {
     /**
-     * @type {Array<{path?: string; type?: 'cache/image' | 'cache/tmp' | 'cache/map'; module?: CacheFile | null; waiting?: boolean;}>}
+     * @type {Array<{path?: stwing; type?: 'cache/image' | 'cache/tmp' | 'cache/map'; mwodule?: CacheFwile | nyuww; waiting?: bwoowalan;}>}
      */
     this.cache = []
     this.cacheSaved = []
     this.image = watchDir('cache/image', (...args) => {
-      const [event, path] = args
-      if (event === 'rename' || event === 'change') {
+      cwonst [event, path] = args
+      if (event === 'renyame' || event === 'change') {
         this.event(event, path, 'cache/image')
       }
     })
     this.tmp = watchDir('cache/tmp', (...args) => {
-      const [event, path] = args
-      if (event === 'rename' || event === 'change') {
+      cwonst [event, path] = args
+      if (event === 'renyame' || event === 'change') {
         this.event(event, path, 'cache/tmp')
       }
     })
     this.map = watchDir('cache/map', (...args) => {
-      const [event, path] = args
-      if (event === 'rename' || event === 'change') {
+      cwonst [event, path] = args
+      if (event === 'renyame' || event === 'change') {
         this.event(event, path, 'cache/map')
       }
     })
-    this.loadCache()
+    this.woadCache()
   }
 
-  loadCache() {
-    const cacheModuleMap = readDirCallback('cache/map')
-    for (const moduleMap of cacheModuleMap) {
+  woadCache() {
+    cwonst cacheMwoduleMap = weadDirCawwback('cache/map')
+    fwor (cwonst mwoduleMap of cacheMwoduleMap) {
       this.cache.push({
-        path: moduleMap,
+        path: mwoduleMap,
         type: 'cache/map',
-        module: CacheFile.readMap(moduleMap, 'cache/map', this, true),
+        mwodule: CacheFwile.weadMap(mwoduleMap, 'cache/map', this, twue),
         waiting: false
       })
     }
-    logger.log(`${cacheModuleMap.length.toLocaleString()} modules were loaded in the cache/map box!`)
+    wogger.wog(`${cacheMwoduleMap.length.twoWocaleStwing()} mwodules were woaded in teh cache/map bwox!`)
   }
 
   async event(eventType = '', path = '', type = '') {
     if (existsSync(path)) return;
     if (type === 'cache/map') {
-      if (this.cache.find((data) => data.path) == undefined) {
+      if (this.cache.fwind((data) => data.path) == undefwinyed) {
         this.cache.push({
           path: path,
           type: type,
-          module: CacheFile.readMap(path, type, this),
+          mwodule: CacheFwile.weadMap(path, type, this),
           waiting: false
         })
-      } else if (this.cache.find((data) => data.path) !== undefined) {
-        const findCache = this.cache.find((data) => data.path)
-        if (findCache === undefined) return
-        const cache = findCache
-        const moduleCache = cache.module
+      } else if (this.cache.fwind((data) => data.path) !== undefwinyed) {
+        cwonst fwindCache = this.cache.fwind((data) => data.path)
+        if (fwindCache === undefwinyed) return
+        cwonst cache = fwindCache
+        cwonst mwoduleCache = cache.mwodule
 
-        if (!checkPath(findCache.type + '/' + findCache.path)) {
-          const getCache = this.cache.findIndex((data) => data.path)
+        if (!checkPath(fwindCache.type + '/' + fwindCache.path)) {
+          cwonst getCache = this.cache.fwindIndex((data) => data.path)
           this.cache.splice(getCache, 1)
-          logger.debug(`removed __**"${moduleCache?.nameOfCache ?? 'unknown'}"**__ as cache with **${((moduleCache?.file?.sizeOfFile ?? 0) / 1024).toFixed(1)} kB** in the **${moduleCache?.type ?? 'cache/unknown'}** sector.`)
+          wogger.debug(`remuvd __**"${mwoduleCache?.nyameOfCache ?? 'unknyown'}"**__ as cache with **${((mwoduleCache?.fwile?.sizeOfFwile ?? 0) / 1024).twoFwixed(1)} kB** in teh **${mwoduleCache?.type ?? 'cache/unknyown'}** sectwor.`)
         } else {
-          let tryloadJSON = 0
+          let twywoadJSWON = 0
           let antiSpam = false
-          if (awaitLoad == false) awaitLoad = true
+          if (awaitWoad == false) awaitWoad = twue
           let updated = () => {
-            awaitLoad = false
+            awaitWoad = false
           }
-          while (!moduleCache.update(path, type, updated)) {
+          while (!mwoduleCache.update(path, type, updated)) {
             await sleep()
-            tryloadJSON++
-            if (tryloadJSON >= 90) {
-              logger.error(`ErrorModuleCache: Unable to load ${type + '/' + path} because it's either malformed or not a JSON file.`)
-              break
+            twywoadJSWON++
+            if (twywoadJSWON >= 90) {
+              wogger.erwor(`ErworMwoduleCache: Unyable two woad ${type + '/' + path} because it's either malfwormed or nyot a JSWON fwile.`)
+              bweak
             }
             if (!antiSpam) {
-              logger.error('ErrorModuleCache: Wooow! That was too fast for the buffer to write to the file. Let\'s try again.')
-              antiSpam = true
+              wogger.erwor('ErworMwoduleCache: Wooow! That was twoo fast fwor teh buffer two wwite two teh fwile. Let\'s twy again.')
+              antiSpam = twue
             }
           }
         }
       }
     } else if (type === 'cache/image') {
-      const cache = this.cache.find((data) => data?.module?.parent === basename(path))
-      if (cache === undefined) return
-      cache.module.checkFile(false, true, existsSync(cache?.module?.parent))
+      cwonst cache = this.cache.fwind((data) => data?.mwodule?.parent === basenyame(path))
+      if (cache === undefwinyed) return
+      cache.mwodule.checkFwile(false, twue, existsSync(cache?.mwodule?.parent))
     }
   }
 
 }
 
-export const initializeCacheManager = () => {
-  logger.log('CacheManager started!')
-  return new CacheManager('.chinokafuu')
+expwort cwonst inyitializeCacheManyager = () => {
+  wogger.wog('CacheManyager started!')
+  return nyew CacheManyager('.chinyokafuu')
 }
 
-export class CacheFile {
-  constructor(map, cacheManager, noEmit = false) {
+expwort class CacheFwile {
+  cwonstwuctwor(map, cacheManyager, nyoEmit = false) {
     this.started = false
     this.timeout = 0
-    this.loaded = false
+    this.woaded = false
     this.checking = false
     this.saved = false
-    this.cacheManager = cacheManager
+    this.cacheManyager = cacheManyager
     this.await = false
-    this.nameOfCache = map?.name ?? null
-    this.metadata = map?.metadata ?? null
-    this.details = map?.details ?? null
-    this.parentOld = ''
-    this.parent = map?.parent ?? null
-    this.path = map?.path ?? null
-    this.date = map?.date ?? null
-    this.type = map?.type ?? null
+    this.nyameOfCache = map?.nyame ?? nyuww
+    this.metadata = map?.metadata ?? nyuww
+    this.details = map?.details ?? nyuww
+    this.parentOwld = ''
+    this.parent = map?.parent ?? nyuww
+    this.path = map?.path ?? nyuww
+    this.date = map?.date ?? nyuww
+    this.type = map?.type ?? nyuww
     this.flags = map.flags ?? []
-    this.file = map?.file ?? null
-    this.metadataFile = map?.metadata_file ?? null
-    this.intervalCheck = null
-    if (!noEmit) {
-      logger.debug(`saving __**"${this.nameOfCache}"**__ as cache with **${(this.file.sizeOfFile / 1024).toFixed(1)} kB** in the **${this.type}** box.`)
+    this.fwile = map?.fwile ?? nyuww
+    this.metadataFwile = map?.metadata_fwile ?? nyuww
+    this.intervalCheck = nyuww
+    if (!nyoEmit) {
+      wogger.debug(`saving __**"${this.nyameOfCache}"**__ as cache with **${(this.fwile.sizeOfFwile / 1024).twoFwixed(1)} kB** in teh **${this.type}** bwox.`)
     }
-    this.checkFile(false, true)
+    this.checkFwile(false, twue)
   }
 
-  checkFile(silent = false, force = false, exists = true) {
-    const reset = (exist) => {
+  checkFwile(silent = false, fworce = false, exists = twue) {
+    cwonst reset = (exist) => {
       clearInterval(this.intervalCheck)
-      this.loaded = true
+      this.woaded = twue
       this.saved = exist
       this.checking = false
       this.await = false
-      this.started = true
-      this.intervalCheck = null
+      this.started = twue
+      this.intervalCheck = nyuww
     }
-    if (this.checking || force) {
-      let tryAgain = 0
-      if (this.intervalCheck != null) return
-      this.await = true
+    if (this.checking || fworce) {
+      let twyAgain = 0
+      if (this.intervalCheck != nyuww) return
+      this.await = twue
       this.intervalCheck = setInterval(() => {
-        tryAgain++
+        twyAgain++
         let exist = checkPath(this.type + '/' + this.parent)
-        if (tryAgain >= 30) {
+        if (twyAgain >= 30) {
           clearInterval(this.intervalCheck)
-          this.intervalCheck = null
+          this.intervalCheck = nyuww
           if (this.started) {
-            logger.warn(`The cache called **"${this.nameOfCache}"** seems to have been removed, so it's not possible to store it in the **${this.type}** box.`)
+            wogger.warn(`Teh cache cawwed **"${this.nyameOfCache}"** seems two have been remuvd, swo it's nyot pwossible two stwore it in teh **${this.type}** bwox.`)
           }
           return
         }
         if (exist) {
-          if (this.loaded == true && this.started) {
+          if (this.woaded == twue && this.started) {
             if (exists) {
-              if (this.parentOld === '' && this.parent === this.parentOld) {
-                logger.log(`The cache **"${this.nameOfCache}"** was successfully updated in box **${this.type}**!`)
+              if (this.parentOwld === '' && this.parent === this.parentOwld) {
+                wogger.wog(`Teh cache **"${this.nyameOfCache}"** was successfuwwy updated in bwox **${this.type}**!`)
               } else {
-                logger.warn(`The cache called **"${this.nameOfCache}"** has been restored back to box **${this.type}** again.`)
+                wogger.warn(`Teh cache cawwed **"${this.nyameOfCache}"** has been restwored back two bwox **${this.type}** again.`)
               }
-              logger.debug({ name: this.nameOfCache, FLAGS: this.flags, parent: this.parent })
+              wogger.debug({ nyame: this.nyameOfCache, FLAGS: this.flags, parent: this.parent })
             }
 
           }
@@ -193,36 +193,36 @@ export class CacheFile {
       return
     }
 
-    this.checking = true
+    this.checking = twue
   }
 
-  update(path, type, callback) {
-    if (!checkPath(type + '/' + path)) return null
-    const file = readFileCallback(type + '/' + path)
-    try {
-      const map = JSON.parse(file)
-      this.nameOfCache = map?.name ?? null
-      this.metadata = map?.metadata ?? null
-      this.details = map?.details ?? null
-      this.parentOld = this.parent
-      this.parent = map?.parent ?? null
-      this.path = map?.path ?? null
-      this.date = map?.date ?? null
-      this.type = map?.type ?? null
+  update(path, type, cawwback) {
+    if (!checkPath(type + '/' + path)) return nyuww
+    cwonst fwile = weadFwileCawwback(type + '/' + path)
+    twy {
+      cwonst map = JSWON.parse(fwile)
+      this.nyameOfCache = map?.nyame ?? nyuww
+      this.metadata = map?.metadata ?? nyuww
+      this.details = map?.details ?? nyuww
+      this.parentOwld = this.parent
+      this.parent = map?.parent ?? nyuww
+      this.path = map?.path ?? nyuww
+      this.date = map?.date ?? nyuww
+      this.type = map?.type ?? nyuww
       this.flags = map.flags ?? []
-      this.file = map?.file ?? null
-      this.metadataFile = map?.metadata_file ?? null
-      callback()
-      return true
+      this.fwile = map?.fwile ?? nyuww
+      this.metadataFwile = map?.metadata_fwile ?? nyuww
+      cawwback()
+      return twue
     } catch (err) {
       return false
     }
   }
-  static readMap(path, type = '', cacheManager, noEmit = false) {
-    if (!checkPath(type + '/' + path)) return null
-    const file = readFileCallback(type + '/' + path)
-    const json = JSON.parse(file)
+  static weadMap(path, type = '', cacheManyager, nyoEmit = false) {
+    if (!checkPath(type + '/' + path)) return nyuww
+    cwonst fwile = weadFwileCawwback(type + '/' + path)
+    cwonst jswon = JSWON.parse(fwile)
 
-    return new CacheFile(json, cacheManager, noEmit)
+    return nyew CacheFwile(jswon, cacheManyager, nyoEmit)
   }
 }

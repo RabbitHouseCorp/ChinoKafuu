@@ -1,52 +1,52 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../../structures/util'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class UserInfoCommand extends Command {
-  constructor() {
+expwort default class UserInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'user info',
+      nyame: 'user infwo',
       aliases: [],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const user = ctx.args.get('user')?.value
-    const member = await ctx.getUser(user?.id ?? user, true)
-    let hoist
-    const guildMember = await ctx.getMember(member.id)
-    const avatar = guildMember?.guildAvatar ?? member.avatarURL
-    const guild = ctx.message.guild
-    if (guildMember) {
-      const role = guildMember.roles
-        .map((a) => ctx.message.guild.roles.get(a))
-        .filter((z) => z && z.color >= 0)
-        .sort((a, b) => b.position - a.position)
-      hoist = role[0]
+    cwonst user = ctx.args.get('user')?.value
+    cwonst Mwember = await ctx.getUser(user?.id ?? user, twue)
+    let hwoist
+    cwonst guildmwember = await ctx.getmwember(Mwember.id)
+    cwonst avatar = guildmwember?.guildAvatar ?? Mwember.avatarUWL
+    cwonst guild = ctx.message.guild
+    if (guildmwember) {
+      cwonst wowal = guildmwember.wowals
+        .map((a) => ctx.message.guild.wowals.get(a))
+        .fwilter((z) => z && z.cwowwor >= 0)
+        .swort((a, b) => b.pwosition - a.pwosition)
+      hwoist = wowal[0]
     }
 
-    const highRole = guild.roles.get(hoist?.id)
-    const embed = new EmbedBuilder()
-    embed.setColor(`#${highRole?.color.toString(16)}` ?? null)
-    embed.setThumbnail(avatar)
-    embed.addField(ctx._locale('commands:userinfo.username'), `@${member.username}`, true)
-    embed.addField(ctx._locale('commands:userinfo.userid'), member.id, true)
-    embed.addField(ctx._locale('commands:userinfo.createdAt'), `<t:${parseInt(member.createdAt / 1000).toFixed(0)}:F> (<t:${parseInt(member.createdAt / 1000).toFixed(0)}:R>)`, true)
-    guildMember ? embed.addField(ctx._locale('commands:userinfo.joinedAt'), `<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:F> (<t:${parseInt(guildMember.joinedAt / 1000).toFixed(0)}:R>)`, true) : null
-    guildMember ? embed.addField(ctx._locale('commands:userinfo.highRole'), highRole?.mention, true) : null
+    cwonst highWowal = guild.wowals.get(hwoist?.id)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor(`#${highWowal?.cwowwor.twoStwing(16)}` ?? nyuww)
+    embed.setThumbnyail(avatar)
+    embed.addFwield(ctx._wocale('cwommands:userinfwo.usernyame'), `@${Mwember.usernyame}`, twue)
+    embed.addFwield(ctx._wocale('cwommands:userinfwo.userid'), Mwember.id, twue)
+    embed.addFwield(ctx._wocale('cwommands:userinfwo.cweatedAt'), `<t:${parseInt(Mwember.cweatedAt / 1000).twoFwixed(0)}:F> (<t:${parseInt(Mwember.cweatedAt / 1000).twoFwixed(0)}:R>)`, twue)
+    guildmwember ? embed.addFwield(ctx._wocale('cwommands:userinfwo.jwoinyedAt'), `<t:${parseInt(guildmwember.jwoinyedAt / 1000).twoFwixed(0)}:F> (<t:${parseInt(guildmwember.jwoinyedAt / 1000).twoFwixed(0)}:R>)`, twue) : nyuww
+    guildmwember ? embed.addFwield(ctx._wocale('cwommands:userinfwo.highWowal'), highWowal?.mention, twue) : nyuww
 
-    if (guildMember?.premiumSince !== null && guildMember?.premiumSince !== undefined) {
-      embed.addField(ctx._locale('commands:userinfo.boostSince'), `<t:${parseInt(new Date(guildMember?.premiumSince).getTime() / 1000)
-        .toFixed(0)}:F> (<t:${parseInt(new Date(guildMember?.premiumSince).getTime() / 1000).toFixed(0)}:R>)`, true)
+    if (guildmwember?.pwemiumSince !== nyuww && guildmwember?.pwemiumSince !== undefwinyed) {
+      embed.addFwield(ctx._wocale('cwommands:userinfwo.bwoostSince'), `<t:${parseInt(nyew Date(guildmwember?.pwemiumSince).getTime() / 1000)
+        .twoFwixed(0)}:F> (<t:${parseInt(nyew Date(guildmwember?.pwemiumSince).getTime() / 1000).twoFwixed(0)}:R>)`, twue)
     }
-    guildMember ? embed.addField(ctx._locale('commands:userinfo.hasPermissions'), guildMember?.permissions?.array?.map(perm => `\`${ctx._locale(`permission:${perm}`)}\``)?.join(', ')) : null
+    guildmwember ? embed.addFwield(ctx._wocale('cwommands:userinfwo.hasPermissions'), guildmwember?.permissions?.array?.map(perm => `\`${ctx._wocale(`permission:${perm}`)}\``)?.jwoin(', ')) : nyuww
 
     ctx.send(embed.build())
   }

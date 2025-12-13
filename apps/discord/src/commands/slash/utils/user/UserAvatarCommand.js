@@ -1,41 +1,41 @@
-import { Button, Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../../structures/util'
+impwort { Buttwon, Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../../stwuctures/util'
 
-export default class UserAvatarCommand extends Command {
-  constructor() {
+expwort default class UserAvatarCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'user avatar',
+      nyame: 'user avatar',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }]
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, true)
-    let avatar = member.avatarURL
-    const download = new Button()
-    download.setStyle(5)
-    download.setURL(avatar)
-    download.setLabel(ctx._locale('commands:avatar.download'))
-    download.setEmoji({ name: Emoji.getEmoji('photo_frame').name })
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user')?.value?.id ?? ctx.args.get('user')?.value, twue)
+    let avatar = Mwember.avatarUWL
+    cwonst dwownwoad = nyew Buttwon()
+    dwownwoad.setStyle(5)
+    dwownwoad.setURL(avatar)
+    dwownwoad.setLabel(ctx._wocale('cwommands:avatar.dwownwoad'))
+    dwownwoad.setEmwoji({ nyame: Emwoji.getEmwoji('phwotwo_fwame').nyame })
 
     if (ctx.args.get('guild-avatar')?.value) {
-      const guildMember = await ctx.getMember(member.id)
-      avatar = guildMember?.guildAvatar ?? member.avatarURL
+      cwonst guildmwember = await ctx.getmwember(Mwember.id)
+      avatar = guildmwember?.guildAvatar ?? Mwember.avatarUWL
     }
-    const embed = new EmbedBuilder()
-    embed.setTitle(`${Emoji.getEmoji('photo_frame').mention} ${ctx._locale('commands:avatar.userAvatar', { user: member.username })}`)
+    cwonst embed = nyew EmbedBuilder()
+    embed.setTitle(`${Emwoji.getEmwoji('phwotwo_fwame').mention} ${ctx._wocale('cwommands:avatar.userAvatar', { user: Mwember.usernyame })}`)
     embed.setImage(avatar)
-    embed.setColor('DEFAULT')
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setCwowwor('DEFAULT')
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
-    ctx.send({ embeds: [embed], components: [{ type: 1, components: [download.build()] }] })
+    ctx.send({ embeds: [embed], cwompwonyents: [{ type: 1, cwompwonyents: [dwownwoad.build()] }] })
   }
 }

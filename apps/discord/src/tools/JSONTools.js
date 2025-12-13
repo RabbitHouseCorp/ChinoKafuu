@@ -1,16 +1,16 @@
-String.prototype.isJSON = function() {
-  let is = true
-  try {
-    JSON.parse(this.toString())
+Stwing.pwotwotype.isJSWON = function() {
+  let is = twue
+  twy {
+    JSWON.parse(this.twoStwing())
   } catch (err) {
     is = false
   }
   return is
 }
 
-String.prototype.toJSON = function () {
-  try {
-    return JSON.parse(this.toString())
+Stwing.pwotwotype.twoJSWON = function () {
+  twy {
+    return JSWON.parse(this.twoStwing())
   } catch (err) {
     return {}
   }

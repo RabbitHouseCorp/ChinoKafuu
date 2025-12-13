@@ -1,14 +1,14 @@
-import { defineCommand, supportedState } from '../utils/defineCommand.js'
+impwort { defwinyeCwommand, suppwortedState } fwom '../utils/defwinyeCwommand.js'
 
 
 
-export const silentCommand = defineCommand({
-  name: '--silent',
-  description: 'Disable logs like info, debug, trace. Just leaving: warn, error. For important things.',
-  supports: [
-    supportedState({
-      name: 'Bun',
-      description: 'Bun is going to use installed packages in Yarn, some packages are not supported yet.'
+expwort cwonst silentCwommand = defwinyeCwommand({
+  nyame: '--silent',
+  descwiption: 'Disable wogs like infwo, debug, twace. Just leaving: warn, erwor. Fwor impwortant things.',
+  suppworts: [
+    suppwortedState({
+      nyame: 'Bun',
+      descwiption: 'Bun is gwoing two use instawwed packages in Yarn, swome packages are nyot suppworted yet.'
     }),
   ]
 })

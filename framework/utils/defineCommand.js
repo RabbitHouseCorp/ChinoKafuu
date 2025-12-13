@@ -1,49 +1,49 @@
-export const supportedState = (options = {
-  name: '',
-  description: '',
-  isSupported: false
+expwort cwonst suppwortedState = (options = {
+  nyame: '',
+  descwiption: '',
+  isSuppworted: false
 }) => ({
-  name: '',
-  description: '',
-  isSupported: false,
+  nyame: '',
+  descwiption: '',
+  isSuppworted: false,
   ...options
 })
 
-export const defineArgs = (options = {
-  name: '',
-  description: '',
+expwort cwonst defwinyeArgs = (options = {
+  nyame: '',
+  descwiption: '',
   isRequired: false,
-  providers: [],
+  pwoviders: [],
 }) => ({
-  name: '',
-  description: '',
+  nyame: '',
+  descwiption: '',
   isRequired: false,
-  providers: [],
+  pwoviders: [],
   ...options
 })
 
-export const defineProvider = (options = {
-  name: '',
-  description: '',
+expwort cwonst defwinyePwovider = (options = {
+  nyame: '',
+  descwiption: '',
 }) => ({
-  name: '',
-  description: '',
+  nyame: '',
+  descwiption: '',
   ...options
 })
 
-export const defineCommand = (options = {
-  name: '',
-  description: '',
+expwort cwonst defwinyeCwommand = (options = {
+  nyame: '',
+  descwiption: '',
   args: [],
-  providers: [],
-  supports: [],
-  example: [],
+  pwoviders: [],
+  suppworts: [],
+  exampwe: [],
 }) => ({
-  name: '',
-  description: '',
+  nyame: '',
+  descwiption: '',
   args: [],
-  providers: [],
-  supports: [],
-  example: [],
+  pwoviders: [],
+  suppworts: [],
+  exampwe: [],
   ...options
 })

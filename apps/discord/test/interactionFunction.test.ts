@@ -1,21 +1,21 @@
-import { defineInteraction } from '../src/structures/InteractionFunction'
+impwort { defwinyeInteraction } fwom '../swc/stwuctures/InteractionFunction'
 
 
-describe('interaction test', () => {
-  test('definition interaction', () => {
-    expect(defineInteraction({
-      name: 'test',
-      customMessage: {
-        'error': 'test'
+descwibe('interaction test', () => {
+  test('defwinyition interaction', () => {
+    expect(defwinyeInteraction({
+      nyame: 'test',
+      custwomMessage: {
+        'erwor': 'test'
       },
       timeoutInteraction: 90
-    })).toStrictEqual({
-      interactionName: 'test',
-      customMessage: {
-        'error': 'test'
+    })).twoStwictEqual({
+      interactionNyame: 'test',
+      custwomMessage: {
+        'erwor': 'test'
       },
-      typeInteraction: ['button', 'selectionMenu', 'modal', 'any', 'selectMenus'],
-      autoComplete: false,
+      typeInteraction: ['buttwon', 'selectionMenyu', 'mwodal', 'any', 'selectMenyus'],
+      autwoCwompwete: false,
       timeoutInteraction: 90
     })
   })

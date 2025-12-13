@@ -1,44 +1,44 @@
-import { CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class EmojiInfoCommand extends Command {
-  constructor() {
+expwort default class EmwojiInfwoCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'emojiinfo',
+      nyame: 'emwojiinfwo',
       aliases: [],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('emojiinfo')
-        .setDescription('Get some info about an emoji.')
+      slash: nyew CwommandBase()
+        .setNyame('emwojiinfwo')
+        .setDescwiption('Get swome infwo abwout an emwoji.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('emoji')
-            .setDescription('Mention an emoji to see some info about it')
+            .setNyame('emwoji')
+            .setDescwiption('Mention an emwoji two see swome infwo abwout it')
             .isRequired()
         )
     })
   }
 
   /**
-   * @method run
-   * @param {SlashCommandContext} ctx
+   * @methwod run
+   * @param {SlashCwommandCwontext} ctx
    * @returns {void}
    */
   async run(ctx) {
-    const emoji = await ctx.getEmoji(ctx.args.get('emoji').value)
-    if (!emoji) return ctx.replyT('error', 'basic:invalidEmoji')
-    const embed = new EmbedBuilder()
-    embed.setColor('DEFAULT')
-    embed.setTitle(ctx._locale('commands:emojiinfo.embed.title'))
-    embed.setThumbnail(emoji.url)
-    embed.addField(ctx._locale('commands:emojiinfo.embed.name'), `\`${emoji.name}\``)
-    embed.addField(ctx._locale('commands:emojiinfo.embed.id'), `\`${emoji.id}\``)
-    embed.addField(ctx._locale('commands:emojiinfo.embed.mention'), `\`${emoji.mention}\``)
-    embed.addField(ctx._locale('commands:emojiinfo.embed.url'), `[Download](${emoji.url})`)
+    cwonst emwoji = await ctx.getEmwoji(ctx.args.get('emwoji').value)
+    if (!emwoji) return ctx.repwyT('erwor', 'basic:invalidEmwoji')
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('DEFAULT')
+    embed.setTitle(ctx._wocale('cwommands:emwojiinfwo.embed.title'))
+    embed.setThumbnyail(emwoji.url)
+    embed.addFwield(ctx._wocale('cwommands:emwojiinfwo.embed.nyame'), `\`${emwoji.nyame}\``)
+    embed.addFwield(ctx._wocale('cwommands:emwojiinfwo.embed.id'), `\`${emwoji.id}\``)
+    embed.addFwield(ctx._wocale('cwommands:emwojiinfwo.embed.mention'), `\`${emwoji.mention}\``)
+    embed.addFwield(ctx._wocale('cwommands:emwojiinfwo.embed.url'), `[Dwownwoad](${emwoji.url})`)
 
     ctx.send(embed.build())
   }

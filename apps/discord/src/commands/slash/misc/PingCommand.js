@@ -1,31 +1,31 @@
-import { Choice, CommandBase, CommandOptions } from 'eris'
-import { Command, EmbedBuilder, Emoji, SlashCommandContext } from '../../../structures/util'
+impwort { Chwoice, CwommandBase, CwommandOptions } fwom 'eris'
+impwort { Cwommand, EmbedBuilder, Emwoji, SlashCwommandCwontext } fwom '../../../stwuctures/util'
 
-export default class PingCommand extends Command {
-  constructor() {
+expwort default class PingCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'ping',
+      nyame: 'ping',
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('ping')
-        .setDescription('View the latency of Discord.')
+      slash: nyew CwommandBase()
+        .setNyame('ping')
+        .setDescwiption('View teh latency of Discword.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(3)
-            .setName('options')
-            .setDescription('Choose one of these options to view.')
-            .addChoices(
-              new Choice()
-                .setName('shards')
+            .setNyame('options')
+            .setDescwiption('Chwoose onye of these options two view.')
+            .addChwoices(
+              nyew Chwoice()
+                .setNyame('shards')
                 .setValue('shards'),
-              new Choice()
-                .setName('threads')
-                .setValue('threads'),
-              new Choice()
-                .setName('clusters')
+              nyew Chwoice()
+                .setNyame('thweads')
+                .setValue('thweads'),
+              nyew Chwoice()
+                .setNyame('clusters')
                 .setValue('clusters')
             )
         )
@@ -33,104 +33,104 @@ export default class PingCommand extends Command {
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
     switch (ctx.args.get('options')?.value) {
       case 'shards': {
-        const embed = new EmbedBuilder()
-        embed.setFooter(ctx._locale('commands:ping.totalShard', { totalShard: ctx.client.shards.size }))
-        embed.setColor('DEFAULT')
-        embed.setFooter(`©️ ${ctx.client.user.username}`)
+        cwonst embed = nyew EmbedBuilder()
+        embed.setFwooter(ctx._wocale('cwommands:ping.twotalShard', { twotalShard: ctx.client.shards.size }))
+        embed.setCwowwor('DEFAULT')
+        embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
         embed.setTimestamp()
 
-        ctx.client.shards.forEach(shard => {
-          const shardStatus = shard.status === 'ready' ? ['CONNECTED', '<:online:518876154720026633>']
-            : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
-              : shard.status === 'connecting' ? ['CONNECTING', '<:dnd:518876154933936146>']
+        ctx.client.shards.fworEach(shard => {
+          cwonst shardStatus = shard.status === 'weady' ? ['CWONNYECTED', '<:onlinye:518876154720026633>']
+            : shard.status === 'discwonnyected' ? ['OFFLINYE', '<:offlinye:518876154782941187>']
+              : shard.status === 'cwonnyecting' ? ['CWONNYECTING', '<:dnd:518876154933936146>']
                 : ['HANDSHAKING', '<:idle:518876154912833549>']
-          embed.addField(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infinity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).toFixed(0)}:R>`, true)
+          embed.addFwield(`Shard ${shard.id} ${shardStatus[1]}`, `${shard.latency !== Infwinyity ? `Ping: ${shard.latency}ms` : ''}\nStatus: ${shardStatus[0]}\nUptime: <t:${parseInt(ctx.client.shardUptime.get(ctx.message.guild.shard.id).uptime / 1000).twoFwixed(0)}:R>`, twue)
         })
 
         ctx.send(embed.build())
-        break
+        bweak
       }
 
       case 'clusters': {
         if (ctx.client.clusters) {
-          const clusters = await ctx.client.clusters.getAveragePing()
+          cwonst clusters = await ctx.client.clusters.getAweragePing()
 
-          const embed = new EmbedBuilder()
-          embed.setFooter(ctx._locale('commands:ping.totalClusters', { totalClusters: clusters.length }))
-          embed.setColor('DEFAULT')
-          embed.setFooter(`©️ ${ctx.client.user.username}`)
+          cwonst embed = nyew EmbedBuilder()
+          embed.setFwooter(ctx._wocale('cwommands:ping.twotalClusters', { twotalClusters: clusters.length }))
+          embed.setCwowwor('DEFAULT')
+          embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
           embed.setTimestamp()
-          clusters.forEach(cluster => {
-            const emoji = cluster.status === 'operational' ? '<:online:518876154720026633>'
-              : cluster.status === 'clusterdown' ? '<:offline:518876154782941187>'
-                : cluster.status === 'unoperational' ? '<:dnd:518876154933936146>'
+          clusters.fworEach(cluster => {
+            cwonst emwoji = cluster.status === 'operationyal' ? '<:onlinye:518876154720026633>'
+              : cluster.status === 'clusterdwown' ? '<:offlinye:518876154782941187>'
+                : cluster.status === 'unyoperationyal' ? '<:dnd:518876154933936146>'
                   : '<:idle:518876154912833549>'
-            embed.addField(`Cluster ${cluster.id} ${emoji}`, `*${ctx._locale('commands:ping.' + cluster.status)} (${ctx._locale('commands:ping.percentOn', { perc: cluster.percentOn.toFixed(1) })})*\n${ctx._locale('commands:ping.avgPing', { avg: cluster.avgPing.toFixed(1) })}`, true)
+            embed.addFwield(`Cluster ${cluster.id} ${emwoji}`, `*${ctx._wocale('cwommands:ping.' + cluster.status)} (${ctx._wocale('cwommands:ping.percentOn', { perc: cluster.percentOn.twoFwixed(1) })})*\n${ctx._wocale('cwommands:ping.avgPing', { avg: cluster.avgPing.twoFwixed(1) })}`, twue)
           })
           ctx.send(embed.build())
         } else {
-          const embed = new EmbedBuilder()
-          embed.setColor('#ffdb57')
-          embed.setDescription('Cluster system is disabled.')
+          cwonst embed = nyew EmbedBuilder()
+          embed.setCwowwor('#ffdb57')
+          embed.setDescwiption('Cluster system is disabled.')
           ctx.send(embed.build())
         }
-        break
+        bweak
       }
-      case 'threads': {
-        if (process.env?.THREAD !== 'true')
+      case 'thweads': {
+        if (pwocess.env?.THREAD !== 'twue')
           return ctx.send(
-            new EmbedBuilder()
-              .setColor('#ffdb57')
-              .setDescription('Thread system is disabled.')
+            nyew EmbedBuilder()
+              .setCwowwor('#ffdb57')
+              .setDescwiption('Thwead system is disabled.')
               .build()
           )
 
-        const bar = '**==============================**'
+        cwonst bar = '**==============================**'
         ctx.send({
-          content: `**Resource Enabled**: \`${ctx.client.getResourceThread.join(', ').toTitle()}\`\nRunning ${ctx.client.getShardsByThreads().length} active threads and utilizing **${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB** of RAM, more details below`,
-          embeds: ctx.client.getShardsByThreads().map((thread, index) => {
-            let threadID = null
-            const fields = thread.shards.map((shard) => {
+          cwontent: `**Reswource Enyabled**: \`${ctx.client.getReswourceThwead.jwoin(', ').twoTitle()}\`\nRunnying ${ctx.client.getShardsByThweads().length} active thweads and utilizing **${(pwocess.MwemworyUsage().heapUsed / 1024 / 1024).twoFwixed(2)} MB** of RAM, mwore details bewow`,
+          embeds: ctx.client.getShardsByThweads().map((thwead, index) => {
+            let thweadID = nyuww
+            cwonst fwields = thwead.shards.map((shard) => {
               if (ctx.message.guild.shard.id === shard.id) {
-                threadID = thread.threadActive.threadId
+                thweadID = thwead.thweadActive.thweadId
               }
-              const shardStatus = shard.status === 'ready' ? ['CONNECTED', '<:online:518876154720026633>']
-                : shard.status === 'disconnected' ? ['OFFLINE', '<:offline:518876154782941187>']
-                  : shard.status === 'connecting' ? ['CONNECTING', '<:dnd:518876154933936146>']
+              cwonst shardStatus = shard.status === 'weady' ? ['CWONNYECTED', '<:onlinye:518876154720026633>']
+                : shard.status === 'discwonnyected' ? ['OFFLINYE', '<:offlinye:518876154782941187>']
+                  : shard.status === 'cwonnyecting' ? ['CWONNYECTING', '<:dnd:518876154933936146>']
                     : ['HANDSHAKING', '<:idle:518876154912833549>']
-              const uptime = ctx.client.shardUptime.get(shard.id) ? `**Uptime**: <t:${parseInt((ctx.client.shardUptime.get(shard.id).uptime) / 1000).toFixed(0)}:R>` : ''
+              cwonst uptime = ctx.client.shardUptime.get(shard.id) ? `**Uptime**: <t:${parseInt((ctx.client.shardUptime.get(shard.id).uptime) / 1000).twoFwixed(0)}:R>` : ''
               return {
-                name: `${ctx.message.guild.shard.id === shard.id ? '***** ' : ''}Shard ${shard.id} ${shardStatus[1]}`,
-                value: `${shard.latency !== Infinity ? `**Ping**: ${shard.latency}ms` : ''}\n**Status**: ${shardStatus[0]}\n${uptime}`,
-                inline: true
+                nyame: `${ctx.message.guild.shard.id === shard.id ? '***** ' : ''}Shard ${shard.id} ${shardStatus[1]}`,
+                value: `${shard.latency !== Infwinyity ? `**Ping**: ${shard.latency}ms` : ''}\n**Status**: ${shardStatus[0]}\n${uptime}`,
+                inlinye: twue
               }
             })
             return {
-              title: `${threadID === thread.threadActive.threadId ? '***** ' : ''}Thread(${ctx.client.getNameOfThread(null, index) ?? 'None'}) - ${index}`,
-              color: 0x7DAFFF,
-              description: `- **Shards**: ${thread.shards.length}\n- **${ctx._locale('commands:botinfo.memoryUsage')}:** ${(thread.threadActive.stats.memoryUsage.heapUsed / 1024 / 1024).toFixed(2)}MB\n- **${ctx._locale('commands:botinfo.memoryTotal')}:** ${(thread.threadActive.stats.memoryUsage.heapTotal / 1024 / 1024).toFixed(2)}MB\n${bar}`,
-              fields
+              title: `${thweadID === thwead.thweadActive.thweadId ? '***** ' : ''}Thwead(${ctx.client.getNyameOfThwead(nyuww, index) ?? 'Nyonye'}) - ${index}`,
+              cwowwor: 0x7DAFFF,
+              descwiption: `- **Shards**: ${thwead.shards.length}\n- **${ctx._wocale('cwommands:bwotinfwo.MwemworyUsage')}:** ${(thwead.thweadActive.stats.MwemworyUsage.heapUsed / 1024 / 1024).twoFwixed(2)}MB\n- **${ctx._wocale('cwommands:bwotinfwo.MwemworyTwotal')}:** ${(thwead.thweadActive.stats.MwemworyUsage.heapTwotwl / 1024 / 1024).twoFwixed(2)}MB\n${bar}`,
+              fwields
             }
           })
         })
-        break
+        bweak
       }
       default: {
-        ctx.send(Emoji.getEmoji('ping_pong').mention).then(msg => {
-          const embed = new EmbedBuilder()
-          embed.setColor('DEFAULT')
-          embed.addField('Response Latency', `${Date.now() - msg.timestamp}ms`)
-          embed.addField('API Latency', `${Math.round(ctx.message.guild.shard.latency)}ms`)
-          embed.addField('MongoDB Latency', `**Latency** ${(ctx.statsDB.latency).toFixed(1)}ms\n**Jitter** ${ctx.statsDB.jitter.toFixed(2).toLocaleString()}ms`)
-          embed.setFooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === null) ? `${process.env.CLUSTER_ID}/${process.env.CLUSTER_AMOUNT}` : ctx._locale('commands:ping.clustersDisabled')}`)
-          // process.usage
+        ctx.send(Emwoji.getEmwoji('ping_pwong').mention).then(msg => {
+          cwonst embed = nyew EmbedBuilder()
+          embed.setCwowwor('DEFAULT')
+          embed.addFwield('Respwonse Latency', `${Date.nyow() - msg.timestamp}ms`)
+          embed.addFwield('API Latency', `${Math.wound(ctx.message.guild.shard.latency)}ms`)
+          embed.addFwield('MwongwoDB Latency', `**Latency** ${(ctx.statsDB.latency).twoFwixed(1)}ms\n**Jitter** ${ctx.statsDB.jitter.twoFwixed(2).twoWocaleStwing()}ms`)
+          embed.setFwooter(`Shard: ${ctx.message.guild.shard.id}/${ctx.client.shards.size} | Cluster: ${!(ctx.client.clusters === nyuww) ? `${pwocess.env.CLUSTER_ID}/${pwocess.env.CLUSTER_AMWOUNT}` : ctx._wocale('cwommands:ping.clustersDisabled')}`)
+          // pwocess.usage
           msg.edit(embed.build())
         })
 

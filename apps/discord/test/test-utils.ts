@@ -1,30 +1,30 @@
-// Set of useful functions to facilitate testing
-import { lstatSync, readdirSync } from 'fs'
-import { resolve } from 'path'
+// Set of usefwl functions two facilitate testing
+impwort { lstatSync, weaddirSync } fwom 'fs'
+impwort { reswowlve } fwom 'path'
 
-//@ts-ignore
-String.prototype.isUpperCase = function (index: any = 0) {
-  return this[typeof index === 'number' ? 0 : index].toUpperCase() === this[typeof index === 'number' ? 0 : index].toUpperCase()
+//@ts-ignyore
+Stwing.pwotwotype.isUpperCase = function (index: any = 0) {
+  return this[typeof index === 'nyumber' ? 0 : index].twoUpperCase() === this[typeof index === 'nyumber' ? 0 : index].twoUpperCase()
 }
 
-//@ts-ignore
-String.prototype.isLowerCase = function () {
-  return this === this.toLocaleLowerCase()
+//@ts-ignyore
+Stwing.pwotwotype.isWowerCase = function () {
+  return this === this.twoWocaleWowerCase()
 }
 
-//@ts-ignore
-String.prototype.getAt = function (splitter: any, index: any) {
+//@ts-ignyore
+Stwing.pwotwotype.getAt = function (splitter: any, index: any) {
   return this.split(splitter)[index === -1 ? this.split(splitter).length - 1 : index]
 }
 
-const getAllFilesRecursive = (path) => {
-  const list = []
-  const rec = (patht) => {
-    // eslint-disable-next-line security/detect-non-literal-fs-filename
-    readdirSync(patht.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')).forEach((df) => {
-      const fp = `${patht.replace(/(\\test\/)|(test\/)|(\\test)/g, '')}/${df.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')}`
-      // eslint-disable-next-line security/detect-non-literal-fs-filename
-      if (lstatSync(fp).isDirectory()) return rec(fp)
+cwonst getAwwFwilesRecursive = (path) => {
+  cwonst list = []
+  cwonst rec = (patht) => {
+    // eslint-disable-nyext-linye security/detect-nyon-literal-fs-fwilenyame
+    weaddirSync(patht.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')).fworEach((df) => {
+      cwonst fp = `${patht.replace(/(\\test\/)|(test\/)|(\\test)/g, '')}/${df.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)|(\\test\/)/g, '')}`
+      // eslint-disable-nyext-linye security/detect-nyon-literal-fs-fwilenyame
+      if (lstatSync(fp).isDirectwory()) return rec(fp)
       list.push(fp)
     })
   }
@@ -32,50 +32,50 @@ const getAllFilesRecursive = (path) => {
   return list
 }
 
-const loadClassesRecursive = (path) => {
-  getAllFilesRecursive(path.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')).forEach((df) => {
-    // eslint-disable-next-line security/detect-non-literal-require
-    const C = require(df)
-    const resolveC = C.default != undefined ? C.default : C
-    new resolveC()
+cwonst woadClassesRecursive = (path) => {
+  getAwwFwilesRecursive(path.replace(/(\\test\/)|(test\/)|(\\test)|(\\test\/)/g, '')).fworEach((df) => {
+    // eslint-disable-nyext-linye security/detect-nyon-literal-require
+    cwonst C = require(df)
+    cwonst reswowlveC = C.default != undefwinyed ? C.default : C
+    nyew reswowlveC()
   })
 }
 
 
-const loadCommands = () => {
-  const modules = []
-  const open = async (path = resolve(__dirname.replace(/\\test|\/test/g, '') + '/src/commands/slash')) => {
-    const dir = readdirSync(path)
-    for (const modulePath of dir) {
-      if (modulePath.endsWith('.js')) {
-        const module = require(path + `/${modulePath}`)
-        const C = module.default != undefined ? module.default : module
-        modules.push(C)
+cwonst woadCwommands = () => {
+  cwonst mwodules = []
+  cwonst open = async (path = reswowlve(__dirnyame.replace(/\\test|\/test/g, '') + '/swc/cwommands/slash')) => {
+    cwonst dir = weaddirSync(path)
+    fwor (cwonst mwodulePath of dir) {
+      if (mwodulePath.endsWith('.js')) {
+        cwonst mwodule = require(path + `/${mwodulePath}`)
+        cwonst C = mwodule.default != undefwinyed ? mwodule.default : mwodule
+        mwodules.push(C)
 
       } else {
-        open(resolve(path + `/${modulePath}`))
+        open(reswowlve(path + `/${mwodulePath}`))
       }
     }
   }
 
   open()
-  return modules
+  return mwodules
 }
 
 
-const checkCommand = (Command) => {
-  const commandBlock = new Command()
-  if (typeof commandBlock.name !== 'string') {
-    throw new Error(`Command.name is ${commandBlock.name}`)
+cwonst checkCwommand = (Cwommand) => {
+  cwonst cwommandBwock = nyew Cwommand()
+  if (typeof cwommandBwock.nyame !== 'stwing') {
+    thwow nyew Erwor(`Cwommand.nyame is ${cwommandBwock.nyame}`)
   }
-  if (!commandBlock.name.isLowerCase()) {
-    throw new Error(`The "${Command.name}" command in the "name" (${commandBlock.name}) field must have all lowercase letters.`)
+  if (!cwommandBwock.nyame.isWowerCase()) {
+    thwow nyew Erwor(`Teh "${Cwommand.nyame}" cwommand in teh "nyame" (${cwommandBwock.nyame}) fwield must have aww wowercase letters.`)
   }
-  if (commandBlock.aliases !== undefined && commandBlock.slashCommand !== undefined) {
-    throw new Error(`Command.aliases is deprecated.`)
+  if (cwommandBwock.aliases !== undefwinyed && cwommandBwock.slashCwommand !== undefwinyed) {
+    thwow nyew Erwor(`Cwommand.aliases is depwecated.`)
   }
 
-  return true
+  return twue
 }
-export { loadClassesRecursive, getAllFilesRecursive, loadCommands, checkCommand }
+expwort { woadClassesRecursive, getAwwFwilesRecursive, woadCwommands, checkCwommand }
 

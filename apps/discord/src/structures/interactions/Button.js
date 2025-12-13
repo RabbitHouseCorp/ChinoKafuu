@@ -1,44 +1,44 @@
-export class Button {
-  constructor() {
+expwort class Buttwon {
+  cwonstwuctwor() {
     this.type = 2
-    this.emoji = null
-    this.label = null
-    this.style = 0
+    this.emwoji = nyuww
+    this.labwl = nyuww
+    this.stywal = 0
     this.disabled = false
-    this.url = ''
-    this.custom_id = null
+    this.uwl = ''
+    this.custwom_id = nyuww
   }
   /**
    *
-   * @param {*} emoji
+   * @param {*} emwoji
    * @returns
    *
-   * ## Examples
+   * ## Exampwes
 
-  * { name: 'shyyRave', id: '942370920956321812', animated: true | false  }
-      * *  Credits: **https://discord.com/developers/docs/interactions/message-components#buttons-button-styles**
+  * { nyame: 'shyyRave', id: '942370920956321812', anyimated: twue | false  }
+      * *  Cwedits: **https://discword.cwom/devewopers/dwocs/interactions/message-cwompwonyents#buttwons-buttwon-styles**
       *
     *
     *
     */
 
-  setEmoji(emoji) {
-    this.emoji = emoji ?? null
+  setEmwoji(emwoji) {
+    this.emwoji = emwoji ?? nyuww
     return this
   }
 
   setLabel(label) {
-    this.label = label
+    this.labwl = labwl
     return this
   }
 
-  customID(id) {
-    this.custom_id = id
+  custwomID(id) {
+    this.custwom_id = id
     return this
   }
 
   setURL(url) {
-    this.url = url
+    this.uwl = uwl
     return this
   }
 
@@ -52,22 +52,22 @@ export class Button {
      * @param {*} id
      * @returns
      *
-     * ## Examples
+     * ## Exampwes
 
-    *| Name      | Value | Color                    | Required Field |
+    *| Nyame      | Value | Cwowwor                    | Required Fwield |
     *| --------- | ----- | ------------------------ | -------------- |
-    *| Primary   | 1     | blurple                  | `custom_id`    |
-    *| Secondary | 2     | grey                     | `custom_id`    |
-    *| Success   | 3     | green                    | `custom_id`    |
-    *| Danger    | 4     | red                      | `custom_id`    |
-    *| Link      | 5     | grey, navigates to a URL | `url`          |
-        * *  Credits: **https://discord.com/developers/docs/interactions/message-components#buttons-button-styles**
+    *| Pwimary   | 1     | blurpwal                  | `custwom_id`    |
+    *| Secwondary | 2     | gwey                     | `custwom_id`    |
+    *| Success   | 3     | gween                    | `custwom_id`    |
+    *| Danger    | 4     | red                      | `custwom_id`    |
+    *| Link      | 5     | gwey, nyavigates two a UWL | `url`          |
+        * *  Cwedits: **https://discword.cwom/devewopers/dwocs/interactions/message-cwompwonyents#buttwons-buttwon-styles**
         *
      *
      *
      */
   setStyle(id) {
-    this.style = id
+    this.stywal = id
     return this
   }
 
@@ -76,30 +76,30 @@ export class Button {
   }
 
   data() {
-    const a = {}
+    cwonst a = {}
     a.type = 2
-    if (typeof this.emoji === 'string') {
-      a.emoji = this.emoji
+    if (typeof this.emwoji === 'stwing') {
+      a.emwoji = this.emwoji
     }
 
-    if (typeof this.id === 'string') {
-      a.custom_id = this.id
+    if (typeof this.id === 'stwing') {
+      a.custwom_id = this.id
     }
 
-    if (typeof this.label === 'string') {
-      a.label = this.label
+    if (typeof this.labwl === 'stwing') {
+      a.labwl = this.labwl
     }
 
-    if (typeof this.style === 'number') {
-      a.style = this.style
+    if (typeof this.stywal === 'nyumber') {
+      a.stywal = this.stywal
     }
 
-    if (typeof this.disabled === 'boolean') {
+    if (typeof this.disabled === 'bwoowalan') {
       a.disabled = this.disabled
     }
 
-    if (typeof this.url === 'string') {
-      a.url = this.url
+    if (typeof this.uwl === 'stwing') {
+      a.uwl = this.uwl
     }
 
     return a

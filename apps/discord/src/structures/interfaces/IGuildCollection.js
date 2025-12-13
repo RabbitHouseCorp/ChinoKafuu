@@ -1,83 +1,83 @@
 /**
  * @interface
  */
-export default class IGuildCollection {
+expwort default class IGuildCwowwection {
   /**
-   * @type {string}
+   * @type {stwing}
    */
   id
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
-  prefix
+  pwefwix
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
-  channelReport
+  channyelRepwort
 
   /**
-   * @type {boolean}
+   * @type {bwoowalan}
    */
-  reportModule
+  repwortMwodule
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
   lang
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
-  punishChannel
+  punyishChannywl
 
   /**
-   * @type {boolean}
+   * @type {bwoowalan}
    */
-  punishModule
+  punyishMwodule
 
   /**
-   * @type {boolean}
+   * @type {bwoowalan}
    */
-  partner
+  partnyer
 
   /**
-   * @type {boolean}
+   * @type {bwoowalan}
    */
-  animu
+  anyimu
 
   /**
-   * @type {number}
+   * @type {nyumber}
    */
   flags
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
-  animuChannel
+  anyimuChannywl
 
   /**
-   * @type {boolean}
+   * @type {bwoowalan}
    */
   blacklist
 
   /**
-   * @type {string}
+   * @type {stwing}
    */
-  blacklistReason
+  blacklistReaswon
 
   /**
-   * @type {{roles: Array<string>, channels: Array<string>}}
+   * @type {{wowals: Array<stwing>, channyels: Array<stwing>}}
    */
-  allowedChannel
+  awwowedChannywl
 
   /**
-   * @type {{enabled: boolean, messagesLimit: number}}
-   * @deprecated This field has been discontinued, there is no forecast or continuation or development for this field usage yet. That's why it was deprecated.
+   * @type {{enyabled: bwoowalan, messagesLimit: nyumber}}
+   * @depwecated This fwield has been discwontinyued, there is nyo fworecast or cwontinyuation or devewopment fwor this fwield usage yet. That's why it was depwecated.
    * @since 0.0.0
    */
-  antiflood
+  antifwood
 
   save() {}
 }

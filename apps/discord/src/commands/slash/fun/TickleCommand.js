@@ -1,44 +1,44 @@
-import { Command, EmbedBuilder, SlashCommandContext } from '../../../structures/util'
-import { UsagiAPI } from 'usagiapi'
-import { CommandBase, CommandOptions } from 'eris'
-const usagi = new UsagiAPI()
+impwort { Cwommand, EmbedBuilder, SlashCwommandCwontext } fwom '../../../stwuctures/util'
+impwort { UsagiAPI } fwom 'usagiapi'
+impwort { CwommandBase, CwommandOptions } fwom 'eris'
+cwonst usagi = nyew UsagiAPI()
 
-export default class TickleCommand extends Command {
-  constructor() {
+expwort default class TickleCwommand extends Cwommand {
+  cwonstwuctwor() {
     super({
-      name: 'tickle',
-      aliases: ['cocegas'],
+      nyame: 'tickle',
+      aliases: ['cwocegas'],
       permissions: [{
-        entity: 'bot',
+        entity: 'bwot',
         permissions: ['embedLinks']
       }],
-      slash: new CommandBase()
-        .setName('tickle')
-        .setDescription('Hahahaha, it tickles! Make it stop! Tickle someone on your server.')
+      slash: nyew CwommandBase()
+        .setNyame('tickle')
+        .setDescwiption('Hahahaha, it tickles! Make it stwop! Tickle swomeonye on ywour serwer.')
         .addOptions(
-          new CommandOptions()
+          nyew CwommandOptions()
             .setType(6)
-            .setName('user')
-            .setDescription('Mention the member on the server')
+            .setNyame('user')
+            .setDescwiption('Mention teh Mwember on teh serwer')
             .isRequired()
         )
     })
   }
 
   /**
-  * @method run
-  * @param {SlashCommandContext} ctx
+  * @methwod run
+  * @param {SlashCwommandCwontext} ctx
   * @returns {void}
   */
   async run(ctx) {
-    const member = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
-    if (!member) return ctx.replyT('error', 'basic:invalidUser')
-    const img = await usagi.get({ endpoint: 'tickle' })
-    const embed = new EmbedBuilder()
-    embed.setColor('ACTION')
-    embed.setDescription(ctx._locale('commands:tickle.tickle', { 0: ctx.message.member.mention, 1: member.mention }))
+    cwonst Mwember = await ctx.getUser(ctx.args.get('user').value?.id ?? ctx.args.get('user').value)
+    if (!Mwember) return ctx.repwyT('erwor', 'basic:invalidUser')
+    cwonst img = await usagi.get({ endpwoint: 'tickle' })
+    cwonst embed = nyew EmbedBuilder()
+    embed.setCwowwor('ACTION')
+    embed.setDescwiption(ctx._wocale('cwommands:tickle.tickle', { 0: ctx.message.Mwember.mention, 1: Mwember.mention }))
     embed.setImage(img)
-    embed.setFooter(`©️ ${ctx.client.user.username}`)
+    embed.setFwooter(`©️ ${ctx.client.user.usernyame}`)
     embed.setTimestamp()
 
     ctx.send(embed.build())
