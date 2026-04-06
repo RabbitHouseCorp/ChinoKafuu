@@ -1902,10 +1902,10 @@ detect-newline@^3.1.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
-dotenv@^17.2.4:
-  version "17.2.4"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.2.4.tgz#b5a0e2f015e0be287a5330a90bf0e804606504c2"
-  integrity sha512-mudtfb4zRB4bVvdj0xRo+e6duH1csJRM8IukBqfTRvHotn9+LBXB8ynAidP9zHqoRC/fsllXgk4kCKlR21fIhw==
+dotenv@^17.4.1:
+  version "17.4.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-17.4.1.tgz#d8e2179fe287365ef3aecb9459668454168eda88"
+  integrity sha512-k8DaKGP6r1G30Lx8V4+pCsLzKr8vLmV2paqEj1Y55GdAgJuIqpRp5FfajGF8KtwMxCz9qJc6wUIJnm053d/WCw==
 
 eastasianwidth@^0.2.0:
   version "0.2.0"
