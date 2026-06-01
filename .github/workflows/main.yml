@@ -15,12 +15,12 @@ jobs:
         uses: actions/checkout@master
 
       - name: Setup node env 👨🏻‍💻
-        uses: actions/setup-node@v2.1.5
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
       - name: Cache node_modules 📦
-        uses: actions/cache@v2.1.5
+        uses: actions/cache@v4
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
