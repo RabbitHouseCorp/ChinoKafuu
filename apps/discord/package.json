@@ -44,7 +44,7 @@
     "ws": "^8.20.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.12",
+    "@babel/core": "^7.29.6",
     "@babel/plugin-syntax-import-assertions": "^7.20.0",
     "@babel/preset-env": "^7.20.2",
     "@babel/preset-typescript": "^7.21.0",
