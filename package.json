@@ -26,7 +26,7 @@
   "type": "module",
   "dependencies": {
     "chalk": "^6.0.0",
-    "dotenv": "^18.0.1",
+    "dotenv": "^18.0.2",
     "ws": "^8.21.3"
   },
   "devDependencies": {
