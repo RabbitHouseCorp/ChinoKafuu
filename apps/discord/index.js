@@ -1,18 +1,18 @@
 /* eslint-disable jest/require-hook */
 import dotenv from 'dotenv'
-import { APIProcess } from 'src/structures/Process'
-import { BUILD_INFO } from 'src/structures/util/Constants'
-import { Logger } from 'src/structures/util/index'
-import { PluginManager } from 'src/structures/util/plugins/PluginManager'
-import { CacheProfile } from 'src/structures/util/plugins/cache/CacheProfile'
-import { BotStore } from 'src/structures/util/plugins/store/BotStore'
-import { BuildStore } from 'src/structures/util/plugins/store/BuildStore'
-import { DatabaseStore } from 'src/structures/util/plugins/store/DatabaseStore'
+import { APIProcess } from './src/structures/Process.js'
+import { BUILD_INFO } from './src/structures/util/Constants.js'
+import { Logger } from './src/structures/util/index.js'
+import { PluginManager } from './src/structures/util/plugins/PluginManager.js'
+import { CacheProfile } from './src/structures/util/plugins/cache/CacheProfile.js'
+import { BotStore } from './src/structures/util/plugins/store/BotStore.js'
+import { BuildStore } from './src/structures/util/plugins/store/BuildStore.js'
+import { DatabaseStore } from './src/structures/util/plugins/store/DatabaseStore.js'
 
 // Load packages global!
-await import('src/tools/JSONTools')
-await import('src/tools/Exception')
-await import('src/tools/StringBuilder')
+await import('./src/tools/JSONTools.js')
+await import('./src/tools/Exception.js')
+await import('./src/tools/StringBuilder.js')
 
 dotenv.config({
   path: '../../.env'
